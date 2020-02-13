@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Calendar</title>
+<style type="text/css">
+html{color:#000;background-color:#3366CC}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{text-align:center;margin:0;padding:0;font:12px/1.6em Tahoma,Helvetica,Arial,sans-serif;color:#333333;}
+#ycalendar{width:230px;
+        margin:0px auto 0px auto;text-align:center;
+	padding:0;
+	overflow:hidden;
+}
+.ycalendar_month{
+	position:relative;
+	float:left;
+	width:210px;
+	height:203px;
+	background-color:#FFF;
+	color:#FFF;
+	margin:5px;
+	display:inline;
+	overflow:hidden;
+	border:1px solid #999;
+}
+img.ycalendar_lastyear,
+img.ycalendar_nextyear,
+img.ycalendar_lastmonth,
+img.ycalendar_nextmonth{
+	position:absolute;
+	width:16px;
+	height:16px;
+	cursor:pointer;
+	z-index:100;
+	top:4px;
+}
+img.ycalendar_lastyear{
+	left:5px;
+}
+img.ycalendar_nextyear{
+	right:5px;
+}
+img.ycalendar_lastmonth{
+	left:26px;
+}
+img.ycalendar_nextmonth{
+	right:26px;
+}
+.ycalendar_month h4{
+	margin:0 auto;
+	width:100%;
+	text-align:center;
+	height:25px;
+	line-height:25px;
+	font-family:Georgia,sans-serif;
+	font-size:12px;
+	color:#000;
+	overflow:hidden;
+	border-bottom:1px solid #999;
+	background-color:#F8F8F8;
+}
+.ycalendar_month ul{
+	float:left;
+	width:210px;
+	height:28px;
+	overflow:hidden;
+    clear:both;
+}
+.ycalendar_month ul li{
+	float:left;
+	width:20px;
+	height:20px;
+	text-align:center;
+	font-family:Georgia,sans-serif;
+	display:inline;
+	color:#575757;
+	margin:8px 5px 0;
+}
+.ycalendar_days{
+	margin:0 auto;
+	width:100%;
+	overflow:hidden;
+	clear:both;
+}
+.ycalendar_days span{
+	float:left;
+	margin:5px;
+	display:inline;
+	width:20px;
+	text-align:center;
+	color:#000;
+	font-family:Georgia,sans-serif;
+	height:20px;
+	cursor:pointer;
+	line-height:20px;
+	overflow:hidden;
+}
+.ycalendar_days span#ycalendar_today{
+	color:#C00;
+	font-weight:bold;
+	border:1px solid #C00;
+	width:18px;
+	height:18px;
+	line-height:18px;
+}
+.is_today{font-weight:bold;background-color:#cccccc}
+.not_today{font-weight:normal;}
+
+#ycalendar .yweekend{
+	color:#C80000;
+}
+</style>
+</head>
+<body>
+<div id="ycalendar"></div>
+<script type="text/javascript">
+var YCalendar = function(){
+	var D = document, docHead = D.getElementsByTagName('head')[0], styleSheet = D.getElementById('YCalendarCSS'), oStyle = null, time = new Date, currentYear = ((time.getYear() < 1900) ? (time.getYear() + 1900) : time.getYear()), minYear = 1900, maxYear = 2100, thisYear = [], thisMonth = [], calendarContainer = null, datesContainer = [], BtnLastYear = [], BtnLastMonth = [], BtnNextMonth = [], BtnNextYear = [], isShowBtns = true;
+	var day = ['日', '一', '二', '三', '四', '五', '六'];
+	var isLeapYear = function (y){
+		return (y > 0) && !(y % 4) && ((y % 100) || !(y % 400));
+	},isString = function(s){
+		return typeof s === 'string';
+	},isUndefined = function(o){
+		return typeof o === 'undefined';
+	};
+	
+	return {
+		setYear: function(defaultYear, calendarCnt){
+			var theYear = defaultYear || currentYear;
+			var i, months = [];
+			//isShowBtns = false;
+			calendarContainer = calendarCnt || D.getElementById('ycalendar');
+			minYear = theYear - 50;
+			maxYear = theYear + 50;
+			months[time.getMonth()] = this.setMonth(theYear,time.getMonth(), calendarContainer);
+		},
+		setMonth: function(year, month, parent){
+			var that = this, i;
+			var theYear =  (!isUndefined(year) && (year >= minYear && year <= maxYear)) ? (isString(year) ? parseInt(year, 10) : year) : currentYear;
+			var theMonth = (!isUndefined(month) && (month >= 0 && month < 12)) ? (isString(month) ? parseInt(month, 10) : month) : time.getMonth();
+			var monthTitle = null, monthContainer = null;
+			var weekContainer, weekItems = [];
+			
+			thisYear[theMonth] = theYear;
+			thisMonth[theMonth] = theMonth + 1;
+			minYear = theYear - 100;
+			maxYear = theYear + 100;
+			
+			calendarContainer = parent || D.getElementById('ycalendar');
+			// ================ 开始创建日历 ================ 
+			// 创建月份容器
+			monthContainer = D.createElement('div');
+		    monthContainer.className = 'ycalendar_month';
+			monthContainer.style.display = 'none';
+			
+			// 创建月份控制按钮
+			if (isShowBtns) {
+				BtnLastYear[theMonth] = D.createElement('img');
+				BtnLastYear[theMonth].className = 'ycalendar_lastyear';
+				BtnLastYear[theMonth].src = 'img/resultset_first.png';
+				BtnLastYear[theMonth].alt = '上一年';
+
+				BtnLastMonth[theMonth] = D.createElement('img');
+				BtnLastMonth[theMonth].className = 'ycalendar_lastmonth';
+				BtnLastMonth[theMonth].src = 'img/resultset_previous.png';
+				BtnLastMonth[theMonth].alt = '上一月';
+				
+				BtnNextMonth[theMonth] = D.createElement('img');
+				BtnNextMonth[theMonth].className = 'ycalendar_nextmonth';
+				BtnNextMonth[theMonth].src = 'img/resultset_next.png';
+				BtnNextMonth[theMonth].alt = '下一月';
+
+				BtnNextYear[theMonth] = D.createElement('img');
+				BtnNextYear[theMonth].className = 'ycalendar_nextyear';
+				BtnNextYear[theMonth].src = 'img/resultset_last.png';
+				BtnNextYear[theMonth].alt = '下一年';
+				
+				monthContainer.appendChild(BtnLastYear[theMonth]);
+				monthContainer.appendChild(BtnLastMonth[theMonth]);
+				monthContainer.appendChild(BtnNextMonth[theMonth]);
+                monthContainer.appendChild(BtnNextYear[theMonth]);
+				
+				BtnLastYear[theMonth].onclick = function(index){
+					return function(){
+						that.lastYear.call(that, index);
+					}
+				}(theMonth);
+				BtnLastMonth[theMonth].onclick = function(index){
+					return function(){
+						that.lastMonth.call(that, index);
+					}
+				}(theMonth);
+				BtnNextMonth[theMonth].onclick = function(index){
+					return function(){
+						that.nextMonth.call(that, index);
+					}
+				}(theMonth);
+				BtnNextYear[theMonth].onclick = function(index){
+					return function(){
+						that.nextYear.call(that, index);
+					}
+				}(theMonth);
+			}
+			
+			// 创建月份标题
+			monthTitle = D.createElement('h4');
+			monthTitle.id = 'ycalendar_month' + theMonth;
+			monthTitle.innerHTML = '<span id="ycalendar_currentYear' + theMonth + '">' + theYear + '</span> 年 <span id="ycalendar_currentMonth' + theMonth + '">' + (theMonth + 1) + '</span> 月';
+			monthContainer.appendChild(monthTitle);
+			
+			// 创建星期列表
+			weekContainer = D.createElement('ul');
+			for (i = 0; i < 7; i += 1) {
+				weekItems[i] = D.createElement('li');
+				if (i === 0 || i === 6) {
+					weekItems[i].className = 'yweekend';
+				}
+				weekItems[i].innerHTML = day[i];
+				weekContainer.appendChild(weekItems[i]);
+			}
+			monthContainer.appendChild(weekContainer);
+			
+			// 创建每月的天数容器
+			datesContainer[theMonth] = D.createElement('div');
+			datesContainer[theMonth].className = 'ycalendar_days';
+			datesContainer[theMonth].id = 'ycalendar_Days' + theMonth;
+	
+			this.getDays(theYear, theMonth, datesContainer[theMonth]);	
+			monthContainer.appendChild(datesContainer[theMonth]);
+			monthContainer.style.display = 'block';
+			// 将完整的月份日历追加到日历容器中		
+			calendarContainer.appendChild(monthContainer);
+		},
+		getDays: function(year, month, parent){
+			var numDays = [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+			var theDays = numDays[month], len;
+			var dates = [], date = 0;
+			var i, n, m, emptyWeek = [], firstWeek = new Date(year, month, 1).getDay();
+			if (parent.firstChild) {
+				while (parent.firstChild) {
+					parent.firstChild.parentNode.removeChild(parent.firstChild);
+				}
+			}
+			for (n = 0; n < firstWeek; n += 1) {
+				emptyWeek.push(D.createElement('span'));
+				parent.appendChild(emptyWeek[n]);
+			}
+			for (i = 0; i < theDays; i += 1) {
+				dates[i] = this.setDay;
+			}
+			for (m = 0, len = dates.length; m < len; m += 1) {
+				date = m + 1;
+				dates[m](year, month, date, parent);
+			}
+		},
+		setDay: function(year, month, date, parent){
+			var dateContainer = D.createElement('span');
+			var curDate = time.getDate(), curMonth = time.getMonth();
+			var fullDate = year + '-' + (month + 1) + '-' + date;
+			var thisDay = (new Date(year, month, date)).getDay();
+
+			if (curDate === date && curMonth === month && currentYear === year) {
+				dateContainer.id = 'ycalendar_today';
+			}
+                        dateContainer.title=year+"-"+(month+1)+"-"+date;
+                        dateContainer.onmouseover=function(){
+                            dateContainer.className="is_today";
+                         }
+                        dateContainer.onmouseout=function(){
+                            dateContainer.className="no_today";
+                         }
+			if (thisDay === 0 || thisDay === 6) {
+				dateContainer.className = 'yweekend';
+			}
+			dateContainer.innerHTML = date;
+			parent.appendChild(dateContainer);
+			
+			dateContainer.onclick = function(){
+				//alert(fullDate+' '+'星期'+ day[thisDay]);
+		                window.returnValue =fullDate;
+		                window.close();
+			};
+		},
+		lastYear: function(index){
+			thisYear[index] -= 1;
+			if (thisYear[index] >= minYear) {
+				this.chgYear(index);
+				this.getDays(thisYear[index], (thisMonth[index] - 1), datesContainer[index]);
+			}
+		},
+		lastMonth: function(index){
+			thisMonth[index] -= 1;
+			if (thisMonth[index] < 1) {
+				thisMonth[index] = 12;
+				this.lastYear(index);
+			}
+			this.chgMonth(index);
+			this.getDays(thisYear[index], (thisMonth[index] - 1), datesContainer[index]);
+		},
+		nextMonth: function(index){
+			thisMonth[index] += 1;
+			if (thisMonth[index] > 12) {
+				thisMonth[index] = 1;
+				this.nextYear(index);
+			}
+			this.chgMonth(index);
+			this.getDays(thisYear[index], (thisMonth[index] - 1), datesContainer[index]);
+		},
+		nextYear: function(index){
+			thisYear[index] += 1;
+			if (thisYear[index] <= maxYear) {
+				this.chgYear(index);
+				this.getDays(thisYear[index], (thisMonth[index] - 1), datesContainer[index]);
+			}
+		},
+		chgYear: function(index){
+			var currYear = D.getElementById('ycalendar_currentYear' + index);
+			currYear.innerHTML = thisYear[index];
+		},
+		chgMonth: function(index){
+			var currMonth = D.getElementById('ycalendar_currentMonth' + index);
+			currMonth.innerHTML = thisMonth[index];
+		}
+	};
+}();
+YCalendar.setYear();	
+</script>
+</body>
+</html>

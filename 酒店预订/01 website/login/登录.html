@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=0.95, user-scalable=no" />
+<title>新用户登录</title>
+<meta name="description" content="说明" />
+<meta name="keywords" content="关键字" />
+<link rel="stylesheet" href="../css/login.css" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../js/base.js"></script>
+</head>
+
+<body>
+<!--HEADER-->
+<div class="header">
+	<div class="mar1000 clearfix">
+        <div class="logo"></div>
+        <div class="header_right">
+            <div class="homeinfo">
+                <label><span>免费预订电话：<strong>400-0559-700</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;|</label>
+                <label><a href="">会员登录</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">注册</a>&nbsp;&nbsp;&nbsp;&nbsp;|</label>
+                <label><a href="">设为首页</a></label>
+            </div>
+            <div class="nav">
+                <a href="" class="hover">首  页</a>
+                <a href="">温泉预定</a>
+                <a href="">酒店预定</a>
+                <a href="">醉悦旅居</a>
+                <a href="">养生餐饮</a>
+                <a href="">会议中心</a>
+                <a href="">促销活动</a>
+                <a href="">企业文化</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--HEADER-->
+
+<!--身-->
+<div class="container_wrap">
+<div class="container">
+<!--左-->
+<div class="container_l">
+<h1>用户登录</h1>
+<div class="form_list">
+<ul>
+<li class="clearfix">
+<span class="s1">用户名:</span>
+<span class="s2"><input type="text" class="valid_ipt" focustext="昵称或邮箱" errortext="用户名不正确" emptytext="请填写用户名" />
+</span></li>
+<li class="clearfix">
+<span class="s1">密　码:</span>
+<span class="s2"><input id="pass" type="password" class="valid_ipt" focustext="请填写密码" errortext="密码不正确" emptytext="请填写密码" regexp="all" length="6-16" />
+</span></li>
+<li class="clearfix">
+<span class="s1">验证码:</span>
+<span class="s2 clearfix"><input type="text" class="valid_ipt ipt_short" focustext="输入图中的验证码" errortext="验证码格式不正确" emptytext="请填写验证码" regexp="EnglishNum" /><div class="yzm_store"><img src="../img/yzm.jpg" width="79" height="36" /></div><div class="yzm_change"><a href="#">换一张</a></div></span></li>
+</ul>
+<div class="yes_rule"><input id="rememberMe" name="" type="checkbox" value="" checked="checked" /><label for="rememberMe">记住我(两周免登录)</label></div>
+<div class="btn_area clearfix"><a href="javascript:" id="sub_btn" class="btn1">登 录</a><a class="a1" href="忘记密码.html">忘记密码？</a></div>
+</div>
+<!--
+给要验证的表单元素加上验证class，这里是valid_ipt
+属性说明：
+focusText						当焦点在此表单元素上显示的内容
+errorText						当正则判断错误后显示的内容
+emptyText						当没有输入任何内容时显示的内容
+regexp							正则表达式。不加则无正则要求。本插件有默认的正则类型详见base.js，你也可以自定义
+length							定义输入内容的长度。不加则不判断长度。有三种形式  4 表示只能有4个字符  4- 表示4个或4个以上的字符  4-6 表示4到6个字符
+other_valiFun					如果有其他验证表单元素的函数可加在此处。可以获取本表单元素的ID来传入到你的验证函数。
+other_valiFunText				你定义的其他验证函数如果返回false，则显示的错误信息
+-->
+<script type="text/javascript">
+formValidate({
+	actOnCla:'.valid_ipt',						//作用于什么选择器上 推荐标签：输入框input 下拉框select 文本区域textarea
+	isStartVali:false,							//是否页面加载后立即验证一次
+	subBtn:'#sub_btn',							//提交按钮，可以是a标签
+	subBtn_gray:true,							//提交后按钮是否进入等待状态
+	subBtn_gray_img:'img/wait_ico.gif',			//按钮等待状态图标（如果是空文本则不加图标）
+	other_valiFunc:function(){
+		//其他验证条件 加入非表单验证的其他布尔函数。比如日期。如果表单提交超过指定日期，也是不能提交的！
+		//两个条件都必须满足的话可以：  return dateJudge()&&dateJudge1();
+		//return yes_rule();
+	},				
+	success_func:function(){
+		//通过验证后执行
+		location.href="http://www.hnebuy.com";
+	}
+});
+
+//表单的其他验证方法
+
+//其他验证条件 加入非表单验证的其他布尔函数。比如日期。如果表单提交超过指定日期，也是不能提交的！
+</script>
+</div>
+<!--右-->
+<div class="container_r">
+<div class="register_right">
+<h2>注册</h2>
+<div class="user_ishave">
+<p>还没有黄山 &middot; 醉温泉会员账号？</p>
+<p class="p1"><a href="新用户注册.html" class="btn2">轻松注册</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--尾部-->
+<div class="footer">
+Copyright &copy; 2014 黄山 &middot; 醉温泉 All Rights Reserved. 版权所有&nbsp;&nbsp;&nbsp;&nbsp;皖ICP备11009137号</div>
+
+</body>
+</html>

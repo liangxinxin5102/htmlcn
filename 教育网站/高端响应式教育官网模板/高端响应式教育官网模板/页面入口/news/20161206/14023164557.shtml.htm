@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset=utf-8"utf-8">
+<meta name="keywords" content="å‰ç«¯åŸ¹è®­,HTMLåŸ¹è®­" />
+<meta name="description" content="è¦åœ¨éå¸¸éå¸¸å¤šçš„äººé‡Œé¢ï¼Œæ‰¾å‡º 5 ä¸ªä»¥ Smith å¼€å¤´çš„ lastNameã€‚å¦‚æœåœ¨ä¸Šé¢çš„ pluck() å’Œ filter() çš„è¿‡ç¨‹ä¸­ï¼Œæ¯ä¸€æ­¥éƒ½äº§ç”Ÿäº†ä¸´æ—¶æ•°ç»„ï¼Œä¹Ÿå°±æ˜¯è¯´å¯¹ä¸Šä¸€æ­¥è¿”å›çš„æ•°æ®æ‰§è¡Œäº†ä¸€æ¬¡å¾ªç¯ã€å¤„ç†çš„è¿‡ç¨‹ï¼Œé‚£ä¹ˆæ•´ä¸ªæŸ¥æ‰¾çš„è¿‡ç¨‹å¯èƒ½ä¼šèŠ±è´¹å¾ˆé•¿çš„æ—¶é—´ã€‚" />
+<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" /> 
+<link rel="stylesheet" type="text/css" href="../../css/reset.css" tppabs="http://www.itcast.cn/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/style.css" tppabs="http://www.itcast.cn/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/other.css" tppabs="http://www.itcast.cn/css/other.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/banner.css" tppabs="http://www.itcast.cn/css/banner.css"/>
+<title>å‰ç«¯åŸ¹è®­ä¹‹lazy.js æƒ°æ€§æ±‚å€¼å®ç°åˆ†æ</title>
+<body>
+<div class="wrapper"> 
+	<!-- å¿«é€Ÿé€šé“ topbar S -->
+	<!-- å¤´éƒ¨é€šç”¨å¿«é€Ÿé€šé“ -->
+<div class="topbar">
+	<div class="inner">
+		<div class="top_l">
+			<p>ä¼ æ™ºæ’­å®¢æ——ä¸‹å“ç‰Œï¼š&nbsp; <a href="javascript:if(confirm('http://www.itheima.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.itheima.com/'" tppabs="http://www.itheima.com/" target="_blank">é»‘é©¬ç¨‹åºå‘˜</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.boxuegu.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">åšå­¦è°·</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.funit.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.funit.cn/'" tppabs="http://www.funit.cn/" target="_blank">è¶£IT</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.czxy.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.czxy.com/'" tppabs="http://www.czxy.com/" target="_blank">ä¼ æ™ºå­¦é™¢</a><!-- &nbsp; | &nbsp;<a href="http://www.kudingyu.com/" target="_blank">é…·ä¸é±¼</a> --></p>				
+		</div>
+		<div class="top_r">
+			<p class="slogan">æ”¹å˜ä¸­å›½ITæ•™è‚²ï¼Œæˆ‘ä»¬æ­£åœ¨è¡ŒåŠ¨ &nbsp;&nbsp;&nbsp;&nbsp;å…¨å›½å’¨è¯¢çƒ­çº¿ï¼š<strong>400-618-4000</strong> </p>			
+		</div>
+	</div>
+</div>
+
+<!-- <a href="http://www.itcast.cn/ucenter/Login.html" target="_blank"><span style="color:#FFFFFF;">ç™»å½•</span></a><span style="color:#FFFFFF;"> | </span><a href="http://www.itcast.cn/Ucenter/Register" target="_blank"><span style="color:#FFFFFF;">æ³¨å†Œ</span></a><span style="color:#FFFFFF;"> | </span><a href="http://www.itcast.cn/Ucenter/Register/vip" target="_blank"><span style="color:#FFFFFF;">VIPæ³¨å†Œ</span></a> -->	
+	<!-- å¿«é€Ÿé€šé“ topbar E --> 
+	
+	<!-- é¦–é¡µå¯¼èˆªåŒºåŸŸ S -->
+	<div class="header">
+		<!-- å¤´éƒ¨å…¶ä»–é¡µé¢é€šç”¨æ¨¡æ¿ -->
+<div class="header_con">
+	<div class="inner">
+		<h1><a href="../../index.htm" tppabs="http://www.itcast.cn/"><img src="../../images/logo.png" tppabs="http://www.itcast.cn/images/logo.png" alt="ä¼ æ™ºæ’­å®¢"/></a></h1>
+		<div class="nav">
+			<ul class="nav_li">
+				<li><a href="javascript:;" class="a_gd a_default a3_js">è¯¾ç¨‹ä»‹ç»</a></li>
+				<li><a href="javascript:;" class="a_gd a_default a_js">å…è´¹å­¦ä¹ èµ„æº</a></li>
+				<li><a href="../../course.shtml.htm" tppabs="http://www.itcast.cn/course.shtml" class="a_gd a_default a2_js" target="_blank">è¯¾ç¨‹ä¸­å¿ƒ</a></li>
+				<li><a href="javascript:if(confirm('http://www.czxy.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.czxy.com/'" tppabs="http://www.czxy.com/" class="a_gd a_default a2_js" target="_blank">ä¼ æ™ºå­¦é™¢</a></li>
+				<li><a href="javascript:if(confirm('http://i.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://i.itcast.cn/'" tppabs="http://i.itcast.cn/" class="a_gd a_default a2_js" target="_blank">å­¦å‘˜æ•…äº‹</a></li>
+				<li><a href="javascript:if(confirm('http://bbs.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://bbs.itcast.cn/'" tppabs="http://bbs.itcast.cn/" class="a_gd a_default a2_js" target="_blank">ä¼ æ™ºè®ºå›</a></li>
+				<!-- <li><a href="http://www.funit.cn/" class="a_gd a_default a2_js" target="_blank">è¶£IT</a></li> -->
+				<!-- <li><a href="http://d.itcast.cn/s" class="a_gd a_default a2_js" target="_blank">åœ¨çº¿è¯¾å ‚</a></li> -->
+				<!--<li><a href="http://www.itcast.cn/subject/onair/index.shtml?nav" class="a_gd a_default a2_js" target="_blank" style="color:#f00;">æ•™å­¦ç›´æ’­é—´<span style="position:relative; bottom:6px;"><img src="/images/hot.gif" style="display:inline-block;" /></span></a></li> -->
+			</ul>
+		</div>
+		<div class="school_btn">
+			    <span>å…¨å›½æ ¡åŒº <i class="iconfont sfont">&#xe609;</i></span>
+  		   			
+
+			<p class="linebg"></p>
+			<ul>
+				<li><a href="../../index.htm" tppabs="http://www.itcast.cn/" class="a_gd a_default">åŒ—äº¬æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://sh.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://sh.itcast.cn/'" tppabs="http://sh.itcast.cn/" class="a_gd a_default">ä¸Šæµ·æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://gz.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://gz.itcast.cn/'" tppabs="http://gz.itcast.cn/" class="a_gd a_default">å¹¿å·æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://sz.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://sz.itcast.cn/'" tppabs="http://sz.itcast.cn/" class="a_gd a_default">æ·±åœ³æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://wh.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://wh.itcast.cn/'" tppabs="http://wh.itcast.cn/" class="a_gd a_default">æ­¦æ±‰æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://zz.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://zz.itcast.cn/'" tppabs="http://zz.itcast.cn/" class="a_gd a_default">éƒ‘å·æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://xa.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://xa.itcast.cn/'" tppabs="http://xa.itcast.cn/" class="a_gd a_default">è¥¿å®‰æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://heb.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://heb.itcast.cn/'" tppabs="http://heb.itcast.cn/" class="a_gd a_default">å“ˆå°”æ»¨æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://cs.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://cs.itcast.cn/'" tppabs="http://cs.itcast.cn/" class="a_gd a_default">é•¿æ²™æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://jn.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://jn.itcast.cn/'" tppabs="http://jn.itcast.cn/" class="a_gd a_default">æµå—æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://cq.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://cq.itcast.cn/'" tppabs="http://cq.itcast.cn/" class="a_gd a_default">é‡åº†æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://nj.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://nj.itcast.cn/'" tppabs="http://nj.itcast.cn/" class="a_gd a_default">å—äº¬æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://hz.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://hz.itcast.cn/'" tppabs="http://hz.itcast.cn/" class="a_gd a_default">æ­å·æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://cd.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://cd.itcast.cn/'" tppabs="http://cd.itcast.cn/" class="a_gd a_default">æˆéƒ½æ ¡åŒº</a></li>
+<li><a href="javascript:if(confirm('http://sjz.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://sjz.itcast.cn/'" tppabs="http://sjz.itcast.cn/" class="a_gd a_default">çŸ³å®¶åº„æ ¡åŒº</a></li>
+	 			
+			</ul>	
+		</div>
+		<div class="bmbtn"><a href="../../channel/flow.shtml.htm" tppabs="http://www.itcast.cn/channel/flow.shtml" class="a_gd" target="_blank">æŠ¥åæµç¨‹</a> </div>			
+		<!-- <a href="http://home.itheima.com/" class="new2016" target="_blank" style="position:absolute; top:40px; right:288px; width:188px; display:block;"><img src="/images/2016.gif" /> -->
+	</div>
+</div>
+<div class="fdnav fdfree">
+	<ul>
+		<li> <a href="javascript:if(confirm('http://open.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://open.itcast.cn/'" tppabs="http://open.itcast.cn/" class="a_gd a_default" target="_blank"> <img src="../../images/openbg.jpg" tppabs="http://www.itcast.cn/images/openbg.jpg"/> <span>å…¬å¼€è¯¾</span> </a> </li>
+		<li class="li_s"> <a href="javascript:if(confirm('http://v.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://v.itcast.cn/'" tppabs="http://v.itcast.cn/" class="a_gd a_default" target="_blank"> <img src="../../images/kubg.jpg" tppabs="http://www.itcast.cn/images/kubg.jpg"/> <span>è§†é¢‘åº“</span> </a> </li>
+		<li> <a href="javascript:if(confirm('http://www.boxuegu.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" class="a_gd a_default" target="_blank"> <img src="../../images/yunbg.jpg" tppabs="http://www.itcast.cn/images/yunbg.jpg"/> <span>äº‘è¯¾å ‚</span> </a> </li>
+		<li> <a href="javascript:if(confirm('http://bbs.itcast.cn/plugin.php?id=tiny_mall  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://bbs.itcast.cn/plugin.php?id=tiny_mall'" tppabs="http://bbs.itcast.cn/plugin.php?id=tiny_mall" class="a_gd a_default" target="_blank"> <img src="../../images/studybg.jpg" tppabs="http://www.itcast.cn/images/studybg.jpg"/> <span>å­¦ä¹ å…‰ç›˜</span> </a> </li>		
+		<li> <a href="../../subject/book/index.shtml.htm" tppabs="http://www.itcast.cn/subject/book/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/bybg.jpg" tppabs="http://www.itcast.cn/images/bybg.jpg"/> <span>åŸåˆ›æ•™æ</span> </a> </li>
+		<li class="li_last"> <a href="javascript:if(confirm('http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21'" tppabs="http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21" class="a_gd a_default" target="_blank"> <img src="../../images/tkbg.jpg" tppabs="http://www.itcast.cn/images/tkbg.jpg" /> <span>ä¼ æ™ºç‰¹åˆŠ</span> </a> </li>
+	</ul>
+</div>
+<div class="fdnav fdcourse">
+	<ul>
+		<li> <a href="../../subject/javaeezly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/javaeezly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/java_icon.jpg" tppabs="http://www.itcast.cn/images/course/java_icon.jpg"/> <span>JavaEE</span> </a> </li>
+		<li> <a href="../../subject/androidzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/androidzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/android_icon.jpg" tppabs="http://www.itcast.cn/images/course/android_icon.jpg"/> <span>Android</span> </a> </li>
+		<li> <a href="../../subject/phpzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/phpzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/php_icon.jpg" tppabs="http://www.itcast.cn/images/course/php_icon.jpg"/> <span>PHP</span> </a> </li>
+		<li> <a href="../../subject/uizly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/uizly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/ui_icon.jpg" tppabs="http://www.itcast.cn/images/course/ui_icon.jpg"/> <span>UIè®¾è®¡</span> </a> </li>
+		<li> <a href="../../subject/ioszly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/ioszly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/ios_icon.jpg" tppabs="http://www.itcast.cn/images/course/ios_icon.jpg"/> <span>iOS</span> </a> </li>
+		<li> <a href="../../subject/webzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/webzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/web_icon.jpg" tppabs="http://www.itcast.cn/images/course/web_icon.jpg"/> <span>å‰ç«¯ä¸ç§»åŠ¨å¼€å‘</span> </a> </li>
+		<li> <a href="../../subject/czly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/czly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/c_icon.jpg" tppabs="http://www.itcast.cn/images/course/c_icon.jpg"/> <span>C/C++</span> </a> </li>
+		<li> <a href="../../subject/mzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/mzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/m_icon.jpg" tppabs="http://www.itcast.cn/images/course/m_icon.jpg"/> <span>ç½‘ç»œè¥é”€</span> </a> </li>
+		<li> <a href="../../subject/pythonzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/pythonzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/python_icon.jpg" tppabs="http://www.itcast.cn/images/course/python_icon.jpg"/> <span>Python</span> </a> </li>
+		<li> <a href="../../subject/cloudzly/index.html" tppabs="http://www.itcast.cn/subject/cloudzly/index.html" target="_blank" class="a_gd a_default"> <img src="../../images/course/yun_icon.jpg" tppabs="http://www.itcast.cn/images/course/yun_icon.jpg"/> <span>äº‘è®¡ç®—ä¹‹å¤§æ•°æ®</span> </a> </li>
+		<li class="li_last"> <a href="../../subject/stackzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/stackzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/stack_icon.jpg" tppabs="http://www.itcast.cn/images/course/stack_icon.jpg"/> <span>å…¨æ ˆå·¥ç¨‹å¸ˆ</span> </a> </li>
+		
+	</ul>
+</div>
+	</div>
+	<!-- é¦–é¡µå¯¼èˆªåŒºåŸŸ E --> 	
+	<div class="graybg">
+	<!-- main  S -->
+		<!--é¢åŒ…å±‘   S-->
+		<div class="bread_nav">
+			<div class="inner">
+				<i class="iconfont home">&#xe607;</i><a href="../../index.htm" tppabs="http://www.itcast.cn/">é¦–é¡µ</a><i class="iconfont right_arrow">&#xe614;</i><a href="javascript:;">å…¬å¸åŠ¨æ€</a><i class="iconfont right_arrow">&#xe614;</i><a href="">æŠ€æœ¯æ–‡ç« </a>
+			</div>
+		</div>
+		<!--é¢åŒ…å±‘  S-->				
+		<div class="sub_con">				
+			<div class="sub_l">
+				<h1 class="sub_tt">å‰ç«¯åŸ¹è®­ä¹‹lazy.js æƒ°æ€§æ±‚å€¼å®ç°åˆ†æ</h1>
+				<p class="time">æ›´æ–°æ—¶é—´:2016å¹´12æœˆ06æ—¥14æ—¶02åˆ† æ¥æº:ä¼ æ™ºæ’­å®¢webå‰ç«¯åŸ¹è®­å­¦é™¢</p>
+				<div class="sub_txt">
+					 <div>å‰ç«¯åŸ¹è®­ä¹‹lazy.js æƒ°æ€§æ±‚å€¼å®ç°åˆ†æ</div>
+æ¥çœ‹ä¸€ä¸ª lazy.js ä¸»é¡µæä¾›çš„ç¤ºä¾‹ï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6</td>
+	<td style="width: 581px">var people = getBigArrayOfPeople();<br />
+	var results = _.chain(people)<br />
+	&nbsp;&nbsp;.pluck(&#39;lastName&#39;)<br />
+	&nbsp;&nbsp;.filter(function(name) { return name.startsWith(&#39;Smith&#39;); })<br />
+	&nbsp;&nbsp;.take(5)<br />
+	&nbsp;&nbsp;.value();</td>
+	</tr>
+</tbody>
+</table>
+ä¸Šä¾‹ä¸­ï¼Œè¦åœ¨éå¸¸éå¸¸å¤šçš„äººé‡Œé¢ï¼Œæ‰¾å‡º 5 ä¸ªä»¥ Smith å¼€å¤´çš„ lastNameã€‚å¦‚æœåœ¨ä¸Šé¢çš„ pluck() å’Œ filter() çš„è¿‡ç¨‹ä¸­ï¼Œæ¯ä¸€æ­¥éƒ½äº§ç”Ÿäº†ä¸´æ—¶æ•°ç»„ï¼Œä¹Ÿå°±æ˜¯è¯´å¯¹ä¸Šä¸€æ­¥è¿”å›çš„æ•°æ®æ‰§è¡Œäº†ä¸€æ¬¡å¾ªç¯ã€å¤„ç†çš„è¿‡ç¨‹ï¼Œé‚£ä¹ˆæ•´ä¸ªæŸ¥æ‰¾çš„è¿‡ç¨‹å¯èƒ½ä¼šèŠ±è´¹å¾ˆé•¿çš„æ—¶é—´ã€‚<br />
+ä¸é‡‡ç”¨ä¸Šé¢çš„è¿™ç§å†™æ³•ï¼Œå•çº¯ä¸ºäº†æ€§èƒ½è€ƒè™‘ï¼Œå¯ä»¥è¿™æ ·å¤„ç†ï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9<br />
+	10</td>
+	<td style="width: 581px">var results = [];<br />
+	for (var i = 0; i &lt; people.length; ++i) {<br />
+	&nbsp;&nbsp;var lastName = people[i].lastName;<br />
+	&nbsp;&nbsp;if (lastName.startsWith(&#39;Smith&#39;)) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;results.push(value);<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;if (results.length === 5) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;}<br />
+	}</td>
+	</tr>
+</tbody>
+</table>
+é¦–å…ˆï¼Œå¯¹äºåŸå§‹æ•°æ®ï¼Œåªåšä¸€æ¬¡å¾ªç¯ï¼Œå•æ¬¡å¾ªç¯ä¸­å®Œæˆæ‰€æœ‰çš„è®¡ç®—ã€‚å…¶æ¬¡ï¼Œç”±äºåªéœ€è¦ 5 ä¸ªæœ€ç»ˆç»“æœï¼Œæ‰€ä»¥ï¼Œä¸€æ—¦å¾—åˆ°äº† 5 ä¸ªç»“æœï¼Œå°±ç»ˆæ­¢å¾ªç¯ã€‚<br />
+é‡‡å–è¿™ç§å¤„ç†æ–¹æ³•ï¼Œå¯¹äºæ¯”è¾ƒå¤§çš„æ•°ç»„ï¼Œåœ¨è®¡ç®—æ€§èƒ½ä¸Šåº”è¯¥ä¼šæœ‰æ˜æ˜¾çš„æå‡ã€‚<br />
+ä¸è¿‡ï¼Œå¦‚æœæ¯æ¬¡é‡åˆ°è¿™ç§ç±»ä¼¼çš„æƒ…å½¢ï¼Œä¸ºäº†æ€§èƒ½ï¼Œéƒ½è¦æ‰‹å†™è¿™æ ·çš„ä»£ç ï¼Œæœ‰ç‚¹éº»çƒ¦ï¼Œè€Œä¸”ä»£ç ä¸æ¸…æ™°ï¼Œä¸ä¾¿äºç†è§£ã€ç»´æŠ¤ã€‚ç¬¬ä¸€ä¸ªä¾‹å­ä¸­çš„å†™æ³•è¦å¥½äº›ï¼Œæ˜æ˜¾æ›´æ˜“è¯»ä¸€äº›ï¼Œä½†æ˜¯å¯¹äºæ€§èƒ½æ–¹é¢æœ‰äº›æ‹…å¿§ã€‚<br />
+æ‰€ä»¥ï¼Œå¦‚æœå¯ä»¥ç»“åˆç¬¬ä¸€ä¸ªä¾‹å­ä¸­çš„å†™æ³•ï¼Œä½†åˆèƒ½æœ‰ç¬¬äºŒä¸ªä¾‹å­ä¸­çš„æ€§èƒ½æå‡ï¼Œå²‚ä¸æ˜¯å¾ˆå¥½ï¼Ÿ<br />
+æ¥ä¸‹æ¥å†è¯´è¯´&ldquo;æƒ°æ€§æ±‚å€¼&rdquo;äº†ã€‚<br />
+Lazy evaluation &ndash; wikipedia<br />
+<a href="javascript:if(confirm('https://en.wikipedia.org/wiki/Lazy_evaluation  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ÊÇÒ»¸öÊ¹ÓÃÎ´Ö§³ÖĞ­ÒéµÄµØÖ·(ÀıÈç: gopher)¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='https://en.wikipedia.org/wiki/Lazy_evaluation'" tppabs="https://en.wikipedia.org/wiki/Lazy_evaluation" target="_blank">https://en.wikipedia.org/wiki/Lazy_evaluation</a><br />
+In&nbsp;<a href="javascript:if(confirm('https://en.wikipedia.org/wiki/Programming_language_theory  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ÊÇÒ»¸öÊ¹ÓÃÎ´Ö§³ÖĞ­ÒéµÄµØÖ·(ÀıÈç: gopher)¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='https://en.wikipedia.org/wiki/Programming_language_theory'" tppabs="https://en.wikipedia.org/wiki/Programming_language_theory" target="_blank">programming language theory</a>,&nbsp;<strong>lazy evaluation</strong>, or&nbsp;<strong>call-by-need</strong>&nbsp;is an&nbsp;<a href="javascript:if(confirm('https://en.wikipedia.org/wiki/Evaluation_strategy  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ÊÇÒ»¸öÊ¹ÓÃÎ´Ö§³ÖĞ­ÒéµÄµØÖ·(ÀıÈç: gopher)¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='https://en.wikipedia.org/wiki/Evaluation_strategy'" tppabs="https://en.wikipedia.org/wiki/Evaluation_strategy" target="_blank">evaluation strategy</a>&nbsp;which delays the evaluation of an&nbsp;<a href="javascript:if(confirm('https://en.wikipedia.org/wiki/Expression_(computer_science)  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ÊÇÒ»¸öÊ¹ÓÃÎ´Ö§³ÖĞ­ÒéµÄµØÖ·(ÀıÈç: gopher)¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='https://en.wikipedia.org/wiki/Expression_(computer_science)'" tppabs="https://en.wikipedia.org/wiki/Expression_(computer_science)" target="_blank">expression</a>&nbsp;until its value is needed (<a href="javascript:if(confirm('https://en.wikipedia.org/wiki/Non-strict_evaluation  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ÊÇÒ»¸öÊ¹ÓÃÎ´Ö§³ÖĞ­ÒéµÄµØÖ·(ÀıÈç: gopher)¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='https://en.wikipedia.org/wiki/Non-strict_evaluation'" tppabs="https://en.wikipedia.org/wiki/Non-strict_evaluation" target="_blank">non-strict evaluation</a>) and which also avoids repeated evaluations (<a href="javascript:if(confirm('https://en.wikipedia.org/wiki/Sharing_(computer_science)  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ÊÇÒ»¸öÊ¹ÓÃÎ´Ö§³ÖĞ­ÒéµÄµØÖ·(ÀıÈç: gopher)¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='https://en.wikipedia.org/wiki/Sharing_(computer_science)'" tppabs="https://en.wikipedia.org/wiki/Sharing_(computer_science)" target="_blank">sharing</a>).<br />
+ç”¨æˆ‘çš„è¯æ¥è¡¨è¾¾ï¼Œæƒ°æ€§æ±‚å€¼å°±æ˜¯ï¼š<strong>å¯¹äºä¸€ä¸ªè¡¨è¾¾å¼ï¼Œåœ¨ä¸éœ€è¦å€¼çš„æ—¶å€™ä¸è®¡ç®—ï¼Œéœ€è¦çš„æ—¶å€™æ‰è®¡ç®—</strong>ã€‚<br />
+JavaScript å¹¶éä»è¯­è¨€å±‚é¢å°±æ”¯æŒè¿™æ ·çš„ç‰¹æ€§ï¼Œè€Œæ˜¯è¦é€šè¿‡ä¸€äº›æŠ€æœ¯æ¥æ¨¡æ‹Ÿã€å®ç°ã€‚<br />
+é¦–å…ˆï¼Œä¸èƒ½æ˜¯è¡¨è¾¾å¼ï¼Œè¡¨è¾¾å¼åœ¨ JS ä¸­æ˜¯ç«‹å³æ±‚å€¼çš„ã€‚æ‰€ä»¥ï¼Œè¦åƒç¬¬ä¸€ä¸ªä¾‹å­ä¸­çš„é‚£æ ·ï¼Œå°†æ±‚å€¼çš„è¿‡ç¨‹åŒ…è£…ä¸ºå‡½æ•°ï¼Œåªåœ¨éœ€è¦æ±‚å€¼çš„æ—¶å€™æ‰è°ƒç”¨è¯¥å‡½æ•°ã€‚<br />
+ç„¶åï¼Œå»¶è¿Ÿè®¡ç®—è¿˜éœ€è¦é€šè¿‡&ldquo;ç²¾å¦™çš„&rdquo;è®¾è®¡å’Œçº¦å®šæ¥å®ç°ã€‚å¯¹äºç¬¬ä¸€ä¸ªä¾‹å­ï¼Œpluck()ã€filter()ã€take() æ–¹æ³•åœ¨è°ƒç”¨æ—¶ï¼Œä¸èƒ½ç›´æ¥å¯¹åŸå§‹æ•°æ®è¿›è¡Œè®¡ç®—ï¼Œè€Œæ˜¯è¦å»¶è¿Ÿåˆ°ç±»ä¼¼ value() è¿™æ ·çš„æ–¹æ³•è¢«è°ƒç”¨æ—¶å†è¿›è¡Œã€‚<br />
+åœ¨åˆ†æ Lazy.js çš„æƒ°æ€§æ±‚å€¼å®ç°å‰ï¼Œå…ˆæ€»ç»“ä¸‹è¿™é‡Œè¦è®¨è®ºçš„å€ŸåŠ©æƒ°æ€§æ±‚å€¼æŠ€æœ¯æ¥å®ç°çš„ç›®æ ‡ï¼š<br />
+<ul>
+<li align="left">è‰¯å¥½çš„ä»£ç å¯è¯»æ€§</li>
+<li align="left">è‰¯å¥½çš„ä»£ç æ‰§è¡Œæ€§èƒ½</li>
+</ul>
+è€Œå¯¹äº Lazy.js ä¸­çš„æƒ°æ€§æ±‚å€¼å®ç°ï¼Œå¯ä»¥æ€»ç»“ä¸ºï¼š<br />
+<ul>
+<li align="left">æ”¶é›†è®¡ç®—éœ€æ±‚</li>
+<li align="left">å»¶è¿Ÿå¹¶ä¼˜åŒ–è®¡ç®—çš„æ‰§è¡Œè¿‡ç¨‹</li>
+</ul>
+<h2>åˆ†æï¼šLazy.js çš„æƒ°æ€§æ±‚å€¼å®ç°</h2>
+ä¸ Underscoreã€Lo-Dash ä¸åŒï¼ŒLazy.js åªæä¾›é“¾å¼çš„ã€æƒ°æ€§æ±‚å€¼çš„è®¡ç®—æ¨¡å¼ï¼Œè¿™ä¹Ÿä½¿å¾—å…¶æƒ°æ€§æ±‚å€¼å®ç°æ¯”è¾ƒ&ldquo;çº¯ç²¹&rdquo;ï¼Œæ¥ä¸‹æ¥å°±è¿›å…¥ Lazy.js çš„å®ç°åˆ†æäº†ã€‚<br />
+å…ˆçœ‹ä¸‹ä½¿ç”¨ Lazy.js çš„ä»£ç ï¼ˆæ¥è‡ª&nbsp;<a href="javascript:if(confirm('http://www.luobotang.cn/simply-lazy/demo.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.luobotang.cn/simply-lazy/demo.html'" tppabs="http://www.luobotang.cn/simply-lazy/demo.html" target="_blank">simply-lazy &ndash; demo</a>ï¼‰ï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9<br />
+	10</td>
+	<td style="width: 581px">Lazy([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])<br />
+	&nbsp;&nbsp;.map(i =&gt; i * 2)<br />
+	&nbsp;&nbsp;.filter(i =&gt; i &lt;= 10)<br />
+	&nbsp;&nbsp;.take(3)<br />
+	&nbsp;&nbsp;.each(i =&gt; print(i))<br />
+	&nbsp;<br />
+	// output:<br />
+	// 2<br />
+	// 4<br />
+	// 6</td>
+	</tr>
+</tbody>
+</table>
+<em>æ³¨ï¼šä¸ºäº†ä¹¦å†™æ–¹æ³•ï¼Œå‡½æ•°å®šä¹‰é‡‡ç”¨ ES6 çš„ &ldquo;=&gt;&rdquo; è¯­æ³•ã€‚</em><br />
+è¿™æ˜¯ä¸€ä¸ªæœ‰ç‚¹æ— èŠçš„ä¾‹å­ï¼Œå¯¹ 1 &ndash; 10 å…ˆè¿›è¡Œä¹˜ 2 è¿ç®—ï¼Œç„¶åè¿‡æ»¤å‡ºå°äº 10 çš„å€¼ï¼Œå†å–å‰ 3 ä¸ªç»“æœå€¼è¾“å‡ºã€‚<br />
+å¦‚æœå¯¹ä¸Šè¿°ä»£ç çš„æ‰§è¡Œè¿›è¡Œç›‘æµ‹ï¼ˆå‚è€ƒï¼š<a href="javascript:if(confirm('http://web.jobbole.com/89258/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://web.jobbole.com/89258/'" tppabs="http://web.jobbole.com/89258/" target="_blank">å€ŸåŠ© Proxy å®ç°å›è°ƒå‡½æ•°æ‰§è¡Œè®¡æ•°</a>ï¼‰ï¼Œä¼šå¾—åˆ°ä»¥ä¸‹ç»“æœï¼š<br />
+<img src="file:///C:\Users\admin\AppData\Local\Temp\msohtmlclip1\01\clip_image001.png" /><br />
+demo &ndash; simply-lazy<br />
+map() å’Œ filter() çš„è¿‡ç¨‹éƒ½åªæ‰§è¡Œäº† 3 æ¬¡ã€‚<br />
+å…ˆå…³æ³¨ map() è°ƒç”¨ï¼Œæ˜¾ç„¶ï¼Œè¿™é‡Œæ²¡æœ‰ç«‹å³æ‰§è¡Œè®¡ç®—ï¼Œå› ä¸ºè¿™é‡Œçš„ä»£ç è¿˜ä¸èƒ½é¢„çŸ¥åˆ°åé¢çš„ filter() å’Œ take(3)ï¼Œæ‰€ä»¥ä¸ä¼šèªæ˜åœ°çŸ¥é“è‡ªå·±åªéœ€è¦æ‰§è¡Œ 3 æ¬¡è®¡ç®—å°±å¯ä»¥äº†ã€‚å¦‚æœæ²¡æœ‰æ‰§è¡Œè®¡ç®—ï¼Œé‚£ä¹ˆè¿™é‡Œåšäº†ä»€ä¹ˆï¼Œåˆè¿”å›äº†ä»€ä¹ˆå‘¢ï¼Ÿ<br />
+å…ˆè¯´ç­”æ¡ˆï¼šå…¶å®ä» Lazy() è¿”å›çš„æ˜¯ä¸€ä¸ª Sequence ç±»å‹çš„å¯¹è±¡ï¼ŒåŒ…å«äº†åŸå§‹çš„æ•°æ®ï¼›map() æ–¹æ³•æ‰§è¡Œåï¼Œåˆç”Ÿæˆäº†ä¸€ä¸ªæ–°çš„ Sequence å¯¹è±¡ï¼Œè¯¥å¯¹è±¡é“¾æ¥åˆ°ä¸Šä¸€ä¸ª Sequence å¯¹è±¡ï¼ŒåŒæ—¶è®°å½•äº†å½“å‰æ­¥éª¤è¦æ‰§è¡Œçš„è®¡ç®—ï¼ˆi =&gt; i * 2ï¼‰ï¼Œç„¶åè¿”å›æ–°çš„ Sequence å¯¹è±¡ã€‚åç»­çš„ filter() å’Œ take() ä¹Ÿæ˜¯ç±»ä¼¼çš„è¿‡ç¨‹ã€‚<br />
+ä¸Šé¢çš„ä»£ç ä¹Ÿå¯ä»¥å†™æˆï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7</td>
+	<td style="width: 581px">var seq0 = Lazy([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])<br />
+	var seq1 = seq0.map(i =&gt; i * 2)<br />
+	var seq2 = seq1.filter(i =&gt; i &lt;= 10)<br />
+	var seq3 = seq2.take(3)<br />
+	&nbsp;<br />
+	// æ±‚å€¼<br />
+	seq3.each(i =&gt; print(i))</td>
+	</tr>
+</tbody>
+</table>
+åœ¨æœ€åä¸€ä¸ªæ±‚å€¼æ—¶ï¼Œå·²ç»æœ‰ä¸€ä¸ª Sequence é“¾äº†ï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1</td>
+	<td style="width: 581px">seq0 &lt;- seq1 &lt;- seq2 &lt;- seq3</td>
+	</tr>
+</tbody>
+</table>
+åœ¨ seq3 è°ƒç”¨ each() æ–¹æ³•æ‰§è¡Œæ±‚å€¼å‰ï¼Œè¿™äº›é“¾ä¸Šçš„ seq éƒ½è¿˜æ²¡æœ‰æ‰§è¡Œè®¡ç®—ã€‚é‚£ä¹ˆè®¡ç®—çš„è¿‡ç¨‹æ˜¯æ€æ ·çš„å‘¢ï¼Ÿå…¶å®å°±ç±»ä¼¼äºæœ€å‰é¢ç¬¬äºŒä¸ªä¾‹å­é‚£æ ·ï¼Œåœ¨ä¸€ä¸ªå¾ªç¯ä¸­ï¼Œç”±é“¾ä¸Šçš„æœ€åä¸€ä¸ª seq å¼€å§‹ï¼Œä¾æ¬¡å‘å‰é¢ä¸€ä¸ª seq è·å–å€¼ï¼Œå†å°†å€¼è¿”å›ç»™è°ƒç”¨æ–¹ï¼ˆä¹Ÿå°±æ˜¯ä¸‹ä¸€ä¸ª seqï¼‰å‰ï¼Œä¼šåº”ç”¨å½“å‰ seq çš„è®¡ç®—ã€‚<br />
+è·å¾—ç¬¬ä¸€ä¸ªæœ€ç»ˆç»“æœå€¼çš„è¿‡ç¨‹ä¸ºï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6</td>
+	<td style="width: 648px">[1] seq3 è°ƒç”¨ seq2 è·å–ç¬¬ 1 ä¸ªå€¼<br />
+	[2] seq2 è°ƒç”¨ seq1 è·å–ç¬¬ 1 ä¸ªå€¼<br />
+	[3] seq1 ç›´æ¥ä» seq0 çš„ source å±æ€§å¯¹åº”çš„åŸå§‹æ•°å€¼å–å€¼ï¼ˆç¬¬ 1 ä¸ªå€¼ä¸º&nbsp;&nbsp;1ï¼‰<br />
+	[4] seq1 å¾—åˆ° 1ï¼Œåº”ç”¨è®¡ç®—ï¼ˆi =&gt; i * 2ï¼‰ï¼Œå¾—åˆ° 2ï¼Œè¿”å›ç»™è°ƒç”¨æ–¹ï¼ˆseq2ï¼‰<br />
+	[5] seq2 å¾—åˆ° 2ï¼Œåº”ç”¨è®¡ç®—ï¼ˆi =&gt; i &lt; 10ï¼‰ï¼Œæ»¡è¶³æ¡ä»¶ï¼Œå°† 2 è¿”å›ç»™è°ƒç”¨æ–¹ï¼ˆseq3ï¼‰<br />
+	[6] seq3 å¾—åˆ° 2ï¼Œåº”ç”¨è®¡ç®—ï¼ˆå·²è¿”å›å€¼æ•°ç›®æ˜¯å¦å°äº 3ï¼‰ï¼Œæ»¡è¶³æ¡ä»¶ï¼Œå°† 2 è¿”å›ç»™è°ƒç”¨æ–¹ï¼ˆseq3.eachï¼‰</td>
+	</tr>
+</tbody>
+</table>
+æœ€ç»ˆï¼Œseq3.each() å¾—åˆ°ç¬¬ 1 ä¸ªå€¼ï¼ˆ2ï¼‰ï¼Œåº”ç”¨è®¡ç®—ï¼ˆi =&gt; print(i)ï¼‰ï¼Œå°†å…¶è¾“å‡ºã€‚ç„¶åç»§ç»­è·å–ä¸‹ä¸€ä¸ªå€¼ï¼Œç›´åˆ°åœ¨æŸä¸ªè¿‡ç¨‹ä¸­è°ƒç”¨ç»ˆæ­¢ï¼ˆè¿™é‡Œæ˜¯ take() è®¡ç®—ä¸­å·²è¿”å› 3 ä¸ªå€¼æ—¶ç»ˆæ­¢ï¼‰ã€‚<br />
+é™¤äº† map()ã€filter()ã€take()ï¼ŒLazy.js è¿˜æä¾›äº†æ›´å¤šçš„è®¡ç®—æ¨¡å¼ï¼Œä¸è¿‡å…¶æƒ°æ€§è®¡ç®—çš„è¿‡ç¨‹å°±æ˜¯è¿™æ ·äº†ï¼Œæ€»ç»“ä¸ºï¼š<br />
+<ul>
+<li align="left">Lazy() è¿”å›åˆå§‹çš„ Sequence å¯¹è±¡</li>
+<li align="left">æƒ°æ€§è®¡ç®—æ–¹æ³•è¿”å›æ–°çš„ Sequence å¯¹è±¡ï¼Œå†…éƒ¨è®°å½•ä¸Šä¸€ä¸ª Sequence å¯¹è±¡ä»¥åŠå½“å‰è®¡ç®—é€»è¾‘</li>
+<li align="left">æ±‚å€¼è®¡ç®—æ–¹æ³•ä»å½“å‰ Sequence å¯¹è±¡å¼€å§‹ï¼Œä¾æ¬¡å‘ä¸Šä¸€ä¸ª Sequence å¯¹è±¡è·å–å€¼</li>
+<li align="left">Sequence å¯¹è±¡åœ¨å°†ä»ä¸Šä¸€ä¸ª Sequence å¯¹è±¡è·å¾—çš„å€¼è¿”å›ç»™ä¸‹ä¸€ä¸ª Sequence å‰ï¼Œåº”ç”¨è‡ªèº«çš„è®¡ç®—é€»è¾‘</li>
+</ul>
+Lazy.js çš„ Sequence çš„è®¾è®¡ï¼Œä½¿å¾—å–å€¼å’Œè®¡ç®—çš„è¿‡ç¨‹å½¢æˆä¸€ä¸ªé•¿é“¾ï¼Œé“¾æ¡ä¸Šçš„å•ä¸ªèŠ‚ç‚¹åªéœ€è¦å®Œæˆä¸Šä¼ ã€ä¸‹è¾¾ï¼Œå¹¶ä¸”åº”ç”¨è‡ªèº«è®¡ç®—é€»è¾‘å°±å¯ä»¥äº†ï¼Œå®ƒä¸éœ€è¦æ´æ‚‰æ•´ä½“çš„æ‰§è¡Œè¿‡ç¨‹ã€‚æ¯ä¸ªèŠ‚ç‚¹å„å¸å…¶èŒï¼Œæœ€ç»ˆå®ç°äº†æƒ°æ€§è®¡ç®—ã€‚<br />
+ä»£ç æœ‰æ—¶å€™èƒœè¿‡ä¸‡è¯­åƒè¨€ï¼Œä¸‹é¢é€šè¿‡å¯¹ç®€åŒ–ç‰ˆçš„ Lazy.jsï¼ˆ<a href="javascript:if(confirm('https://github.com/luobotang/simply-lazy  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ÊÇÒ»¸öÊ¹ÓÃÎ´Ö§³ÖĞ­ÒéµÄµØÖ·(ÀıÈç: gopher)¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='https://github.com/luobotang/simply-lazy'" tppabs="https://github.com/luobotang/simply-lazy" target="_blank">simply-lazy</a>ï¼‰çš„æºç åˆ†æï¼Œæ¥æ›´è¿›ä¸€æ­¥å±•ç¤º Lazy.js æƒ°æ€§è®¡ç®—çš„åŸç†ã€‚<br />
+<h2>å®ç°ï¼šç®€åŒ–ç‰ˆçš„ Lazy.js</h2>
+Lazy.js å¯ä»¥æ”¯æŒè¿›è¡Œè®¡ç®—çš„æ•°æ®ï¼Œé™¤äº†æ•°ç»„ï¼Œè¿˜æœ‰å­—ç¬¦ä¸²å’Œå¯¹è±¡ã€‚simply-lazy åªæä¾›äº†æ•°ç»„çš„æ”¯æŒï¼Œè€Œä¸”åªæ”¯æŒä¸‰ç§æƒ°æ€§æ±‚å€¼æ–¹æ³•ï¼š<br />
+<ul>
+<li align="left">map()</li>
+<li align="left">filter()</li>
+<li align="left">take()</li>
+</ul>
+åˆ†åˆ«çœ‹è¿™ä¸ªä¸‰ä¸ªæ–¹æ³•çš„å®ç°ã€‚<br />
+ï¼ˆä¸€ï¼‰map<br />
+Lazy() ç›´æ¥è¿”å›çš„ Sequence å¯¹è±¡æ˜¯æ¯”è¾ƒç‰¹æ®Šçš„ï¼Œå’Œé“¾ä¸Šçš„å…¶ä»– Sequence å¯¹è±¡ä¸åŒï¼Œå®ƒå·²ç»æ˜¯æ ¹èŠ‚ç‚¹ï¼Œè‡ªèº«è®°å½•äº†åŸå§‹æ•°æ®ï¼Œä¹Ÿä¸åŒ…å«è®¡ç®—é€»è¾‘ã€‚æ‰€ä»¥ï¼Œå¯¹è¿™ä¸ªå¯¹è±¡è¿›è¡Œéå†å…¶å®å°±æ˜¯éå†åŸå§‹æ•°æ®ï¼Œä¹Ÿä¸æ¶‰åŠæƒ°æ€§è®¡ç®—ã€‚<br />
+simple-lazy ä¸­ä¿ç•™äº† Lazy.js ä¸­çš„å‘½åæ–¹å¼ï¼Œå°½ç®¡åªæ”¯æŒæ•°ç»„ï¼Œè¿˜æ˜¯ç»™è¿™ä¸ªç±»å‹å–åä¸º ArrayWrapperï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9<br />
+	10<br />
+	11<br />
+	12<br />
+	13<br />
+	14<br />
+	15<br />
+	16<br />
+	17<br />
+	18<br />
+	19</td>
+	<td style="width: 581px">function ArrayWrapper(source) {<br />
+	&nbsp;&nbsp;var seq = ArrayLikeSequence()<br />
+	&nbsp;&nbsp;seq.source = source<br />
+	&nbsp;&nbsp;seq.get = i =&gt; source[i]<br />
+	&nbsp;&nbsp;seq.length = () =&gt; source.length<br />
+	&nbsp;&nbsp;seq.each = fn =&gt; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var i = -1<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var len = source.length<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;while (++i &lt; len) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (fn(source[i], i) === false) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;return true<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;seq.map = mapFn =&gt; MappedArrayWrapper(seq, mapFn)<br />
+	&nbsp;&nbsp;seq.filter = filterFn =&gt; FilteredArrayWrapper(seq, filterFn)<br />
+	&nbsp;&nbsp;return seq<br />
+	}</td>
+	</tr>
+</tbody>
+</table>
+simple-lazy ä¸ºäº†ç®€åŒ–ä»£ç ï¼Œå¹¶æ²¡æœ‰é‡‡ç”¨ Lazy.js é‚£ç§ä¸ºä¸åŒç±»å‹çš„ Sequence å¯¹è±¡æ„é€ ä¸åŒçš„ç±»çš„æ¨¡å¼ï¼ŒSequence å¯ä»¥çœ‹ä½œæ™®é€šçš„å¯¹è±¡ï¼Œåªæ˜¯æŒ‰ç…§çº¦å®šï¼Œéœ€è¦æ”¯æŒå‡ ä¸ªæ¥å£æ–¹æ³•è€Œå·²ã€‚åƒè¿™é‡Œçš„ ArrayWrapper()ï¼Œè¿”å›çš„ seq å¯¹è±¡å°½ç®¡æ¥è‡ª ArrayLikeSequence()ï¼Œä½†è‡ªèº«å·²ç»å®ç°äº†å¤§å¤šæ•°çš„æ¥å£ã€‚<br />
+Lazy å‡½æ•°å…¶å®å°±æ˜¯è¿”å›äº†è¿™æ ·çš„ ArrayWrapper å¯¹è±¡ï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6</td>
+	<td style="width: 581px">function Lazy(source) {<br />
+	&nbsp;&nbsp;if (source instanceof Array) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;return ArrayWrapper(source);<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;throw new Error(&#39;Sorry, only array is supported in simply-lazy.&#39;)<br />
+	}</td>
+	</tr>
+</tbody>
+</table>
+å¦‚æœå¯¹äº Lazy() è¿”å›çš„å¯¹è±¡ä¹‹é—´è¿›è¡Œæ±‚å€¼ï¼Œå¯ä»¥çœ‹åˆ°ï¼Œå…¶å®å°±æ˜¯æ‰§è¡Œäº†åœ¨ ArrayWrapper ä¸­å®šä¹‰çš„éå†åŸå§‹æ•°æ®çš„è¿‡ç¨‹ã€‚<br />
+ä¸‹é¢æ¥çœ‹ seq.map()ã€‚ArrayWrapper çš„ map() è¿”å›çš„æ˜¯ MappedArrayWrapper ç±»å‹çš„ Sequence å¯¹è±¡ï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9<br />
+	10<br />
+	11<br />
+	12<br />
+	13<br />
+	14<br />
+	15<br />
+	16<br />
+	17<br />
+	18</td>
+	<td style="width: 581px">function MappedArrayWrapper(parent, mapFn) {<br />
+	&nbsp;&nbsp;var source = parent.source<br />
+	&nbsp;&nbsp;var length = source.length<br />
+	&nbsp;&nbsp;var seq = ArrayLikeSequence()<br />
+	&nbsp;&nbsp;seq.parent = parent<br />
+	&nbsp;&nbsp;seq.get = i =&gt; (i &lt; 0 || i &gt;= length) ? undefined : mapFn(source[i])<br />
+	&nbsp;&nbsp;seq.length = () =&gt; length<br />
+	&nbsp;&nbsp;seq.each = fn =&gt; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var i = -1;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;while (++i &lt; length) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (fn(mapFn(source[i], i), i) === false) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;return true<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;return seq<br />
+	}</td>
+	</tr>
+</tbody>
+</table>
+è¿™å…¶å®ä¹Ÿæ˜¯ä¸ªç‰¹æ®Šçš„ Sequenceï¼ˆæ‰€ä»¥åå­—ä¸Šæ²¡æœ‰ Sequenceï¼‰ï¼Œå› ä¸ºå®ƒçŸ¥é“è‡ªå·±ä¸Šä¸€çº§ Sequence å¯¹è±¡æ˜¯ä¸åŒ…å«è®¡ç®—é€»è¾‘çš„åŸå§‹ Sequence å¯¹è±¡ï¼Œæ‰€ä»¥å®ƒç›´æ¥é€šè¿‡ parent.source å°±å¯ä»¥è·å–åˆ°åŸå§‹æ•°æ®äº†ã€‚<br />
+æ­¤æ—¶æ‰§è¡Œçš„æ±‚å€¼ï¼Œåˆ™æ˜¯ç›´æ¥åœ¨åŸå§‹æ•°æ®ä¸Šåº”ç”¨ä¼ å…¥çš„ mapFnã€‚<br />
+è€Œå¦‚æœæ˜¯å…ˆæ‰§è¡Œäº†å…¶ä»–çš„æƒ°æ€§è®¡ç®—æ–¹æ³•ï¼Œå¯¹äºå¾—åˆ°çš„ç»“æœå¯¹è±¡å†åº”ç”¨ map() å‘¢ï¼Œ è¿™ä¸ªæ—¶å€™å°±è¦çœ‹å…·ä½“çš„æƒ…å†µäº†ï¼Œsimply-lazy ä¸­è¿˜æœ‰ä¸¤ç§ç›¸å…³çš„ç±»å‹ï¼š<br />
+<ul>
+<li align="left">MappedSequence</li>
+<li align="left">IndexedMappedSequence</li>
+</ul>
+MappedSequence æ˜¯æ›´é€šç”¨çš„ç±»å‹ï¼Œå¯¹åº” map() å¾—åˆ° Sequence çš„ç±»å‹ï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9<br />
+	10<br />
+	11<br />
+	12<br />
+	13<br />
+	14<br />
+	15<br />
+	16<br />
+	17<br />
+	18<br />
+	19</td>
+	<td style="width: 581px">function MappedSequence(parent, mapFn) {<br />
+	&nbsp;&nbsp;var seq = new Sequence()<br />
+	&nbsp;&nbsp;seq.getIterator = () =&gt; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var iterator = parent.getIterator()<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var index = -1<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;return {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current() { return mapFn(iterator.current(), index) },<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;moveNext() {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (iterator.moveNext()) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;++index<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;seq.each = fn =&gt; parent.each((e, i) =&gt; fn(mapFn(e, i), i))<br />
+	&nbsp;&nbsp;return seq<br />
+	}</td>
+	</tr>
+</tbody>
+</table>
+æ¥çœ‹è¿™é‡Œçš„æ±‚å€¼ï¼ˆeachï¼‰è¿‡ç¨‹ï¼Œæ˜¯é—´æ¥è°ƒç”¨äº†å…¶ä¸Šçº§ Sequence çš„ each() æ¥å®Œæˆçš„ã€‚åŒæ—¶è¿˜å®šä¹‰äº† getIterator() æ¥å£ï¼Œä½¿å¾—å…¶ä¸‹çº§ Sequence å¯ä»¥ä»è¿™é‡Œå¾—åˆ°ä¸€ä¸ªè¿­ä»£å™¨ï¼Œå¯¹äºè¯¥ Sequence è¿›è¡Œéå†ã€‚è¿­ä»£å™¨åœ¨ Lazy.js ä¸­ä¹Ÿæ˜¯ä¸€ä¸ªçº¦å®šçš„åè®®ï¼Œå®ç°è¯¥åè®®çš„å¯¹è±¡è¦æ”¯æŒ current() å’Œ moveNext() ä¸¤ä¸ªæ¥å£æ–¹æ³•ã€‚ä»è¿­ä»£å™¨çš„é€»è¾‘ä¸­ï¼Œå¯ä»¥çœ‹åˆ°ï¼Œå½“ MappedSequence å¯¹è±¡ä½œä¸ºå…¶ä»– Sequence çš„ä¸Šçº§æ—¶ï¼Œå¦‚æœå®ç°&ldquo;ä¸Šä¼ ä¸‹è¾¾&rdquo;ã€‚<br />
+è€Œ IndexedMappedSequence çš„å®ç°è¦ç®€å•äº›ï¼Œå®ƒçš„ä¸»è¦åŠŸèƒ½éƒ½æ¥æºäº&ldquo;ç»§æ‰¿&rdquo; ï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9<br />
+	10<br />
+	11</td>
+	<td style="width: 581px">&nbsp;&nbsp;function IndexedMappedSequence(parent, mapFn) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var seq = ArrayLikeSequence()<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;seq.parent = parent<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;seq.get = (i) =&gt; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (i &lt; 0 || i &gt;= parent.length()) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return undefined;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return mapFn(parent.get(i), i);<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;return seq<br />
+	&nbsp;&nbsp;}</td>
+	</tr>
+</tbody>
+</table>
+IndexedMappedSequence åªæä¾›äº†è·å–ç‰¹å®šç´¢å¼•ä½ç½®çš„å…ƒç´ çš„åŠŸèƒ½ï¼Œå…¶ä»–çš„å¤„ç†äº¤ç”± ArrayLikeSequence æ¥å®ç°ã€‚<br />
+è€Œ ArrayLikeSequence åˆ™åˆ&ldquo;ç»§æ‰¿&rdquo;è‡ª Sequenceï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7</td>
+	<td style="width: 581px">function ArrayLikeSequence() {<br />
+	&nbsp;&nbsp;var seq = new Sequence()<br />
+	&nbsp;&nbsp;seq.length = () =&gt; seq.parent.length()<br />
+	&nbsp;&nbsp;seq.map = mapFn =&gt; IndexedMappedSequence(seq, mapFn)<br />
+	&nbsp;&nbsp;seq.filter = filterFn =&gt; IndexedFilteredSequence(seq, filterFn)<br />
+	&nbsp;&nbsp;return seq<br />
+	}</td>
+	</tr>
+</tbody>
+</table>
+Sequence ä¸­å®ç°çš„æ˜¯æ›´ä¸€èˆ¬æ„ä¹‰ä¸Šçš„å¤„ç†ã€‚<br />
+ä¸Šé¢ä»‹ç»çš„è¿™äº›ä¸ map æœ‰å…³çš„ Sequence ç±»å‹ï¼Œå…¶å®ç°å„æœ‰ä¸åŒï¼Œçš„ç¡®æœ‰äº›ç»•ã€‚ä½†æ— è®ºæ˜¯æ€æ ·è¿›è¡Œå®ç°ï¼Œå…¶æ ¸å¿ƒçš„é€»è¾‘æ²¡æœ‰å˜ï¼Œéƒ½æ˜¯è¦åœ¨å…¶ä¸Šçº§ Sequence çš„å€¼ä¸Šåº”ç”¨å…¶ mapFnï¼Œç„¶åè¿”å›ç»“æœå€¼ç»™ä¸‹çº§ Sequence ä½¿ç”¨ã€‚è¿™æ˜¯ map è®¡ç®—çš„ç‰¹å®šæ¨¡å¼ã€‚<br />
+ï¼ˆäºŒï¼‰filter<br />
+filter çš„è®¡ç®—æ¨¡å¼ä¸ map ä¸åŒï¼Œfilter å¯¹ä¸Šçº§ Sequence è¿”å›çš„å€¼åº”ç”¨ filterFn è¿›è¡Œåˆ¤æ–­ï¼Œæ»¡è¶³æ¡ä»¶åå†ä¼ é€’ç»™ä¸‹çº§ Sequenceï¼Œå¦åˆ™ç»§ç»­ä»ä¸Šçº§ Sequence è·å–æ–°ä¸€ä¸ªå€¼è¿›è¡Œè®¡ç®—ï¼Œç›´åˆ°æ²¡æœ‰å€¼æˆ–è€…æ‰¾åˆ°ä¸€ä¸ªæ»¡è¶³æ¡ä»¶çš„å€¼ã€‚<br />
+filter ç›¸å…³çš„ Sequence ç±»å‹ä¹Ÿæœ‰å¤šä¸ªï¼Œè¿™é‡Œåªçœ‹å…¶ä¸­ä¸€ä¸ªï¼Œå› ä¸ºå°½ç®¡å®ç°çš„æ–¹å¼ä¸åŒï¼Œå…¶è®¡ç®—æ¨¡å¼çš„æœ¬è´¨æ˜¯ä¸€æ ·çš„ï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9<br />
+	10<br />
+	11<br />
+	12<br />
+	13<br />
+	14<br />
+	15<br />
+	16<br />
+	17<br />
+	18<br />
+	19<br />
+	20<br />
+	21<br />
+	22<br />
+	23<br />
+	24<br />
+	25<br />
+	26<br />
+	27<br />
+	28<br />
+	29<br />
+	30<br />
+	31<br />
+	32</td>
+	<td style="width: 581px">function FilteredSequence(parent, filterFn) {<br />
+	&nbsp;&nbsp;var seq = new Sequence()<br />
+	&nbsp;&nbsp;seq.getIterator = () =&gt; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var iterator = parent.getIterator()<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var index = 0<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var value<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;return {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current() { return value },<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;moveNext() {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var _val<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (iterator.moveNext()) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_val = iterator.current()<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (filterFn(_val, index++)) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = _val<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return true<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = undefined<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return false<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;seq.each = fn =&gt; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var j = 0;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;return parent.each((e, i) =&gt; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (filterFn(e, i)) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return fn(e, j++);<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;})<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;return seq<br />
+	}</td>
+	</tr>
+</tbody>
+</table>
+FilteredSequence çš„ getIterator() å’Œ each() ä¸­éƒ½å¯ä»¥çœ‹åˆ° filter çš„è®¡ç®—æ¨¡å¼ï¼Œå°±æ˜¯å‰é¢è¯´çš„ï¼Œåˆ¤æ–­ä¸Šçº§ Sequence çš„å€¼ï¼Œæ ¹æ®ç»“æœå†³å®šæ˜¯è¿”å›ç»™ä¸‹ä¸€çº§ Sequence è¿˜æ˜¯ç»§ç»­è·å–ã€‚<br />
+ä¸å†èµ˜è¿°ã€‚<br />
+ï¼ˆä¸‰ï¼‰take<br />
+take çš„è®¡ç®—æ¨¡å¼æ˜¯ä»ä¸Šçº§ Sequence ä¸­è·å–å€¼ï¼Œè¾¾åˆ°æŒ‡å®šæ•°ç›®å°±ç»ˆæ­¢è®¡ç®—ï¼š<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9<br />
+	10<br />
+	11<br />
+	12<br />
+	13<br />
+	14<br />
+	15<br />
+	16<br />
+	17<br />
+	18<br />
+	19<br />
+	20<br />
+	21<br />
+	22<br />
+	23</td>
+	<td style="width: 581px">function TakeSequence(parent, count) {<br />
+	&nbsp;&nbsp;var seq = new Sequence()<br />
+	&nbsp;&nbsp;seq.getIterator = () =&gt; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var iterator = parent.getIterator()<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var _count = count<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;return {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current() { return iterator.current() },<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;moveNext() { return (--_count &gt;= 0) &amp;&amp; iterator.moveNext() }<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;seq.each = (fn) =&gt; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var _count = count<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var i = 0<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;var result<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;parent.each(e =&gt; {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (i &lt; count) { result = fn(e, i++); }<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (i &gt;= count) { return false; }<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return result<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;})<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;return i === count &amp;&amp; result !== false<br />
+	&nbsp;&nbsp;}<br />
+	&nbsp;&nbsp;return seq<br />
+	}</td>
+	</tr>
+</tbody>
+</table>
+åªçœ‹ TakeSequence ç±»å‹ï¼Œä¸ FilteredSequence ç±»ä¼¼ï¼Œå…¶ getIterator() å’Œ each() ä¸­éƒ½æç°äº†å…¶è®¡ç®—æ¨¡å¼ã€‚ä¸€æ—¦è·å¾—äº†æŒ‡å®šæ•°ç›®çš„å€¼ï¼Œå°±ç»ˆæ­¢è®¡ç®—ï¼ˆé€šè¿‡ return falseï¼‰ã€‚<br />
+<h2>æ€»ç»“</h2>
+simply-lazy ä¸­è™½ç„¶åªæ˜¯å®ç°äº† Lazy.js çš„ä¸‰ä¸ªæƒ°æ€§è®¡ç®—æ–¹æ³•ï¼ˆmapï¼Œfilterã€takeï¼‰ï¼Œä½†ä»ä¸­å·²ç»å¯ä»¥çœ‹å‡º Lazy.js çš„è®¾è®¡æ¨¡å¼äº†ã€‚ä¸åŒçš„è®¡ç®—æ–¹æ³•ä½“ç°çš„æ˜¯ä¸åŒçš„è®¡ç®—æ¨¡å¼ï¼Œè€Œè¿™è®¡ç®—æ¨¡å¼åˆ™æ˜¯é€šè¿‡ä¸åŒçš„ Sequence ç±»å‹æ¥å®ç°çš„ã€‚<br />
+å…·ä½“çš„ Sequence ç±»å‹åŒ…å«äº†ç‰¹å®šçš„è®¡ç®—æ¨¡å¼ï¼Œè¿™ä»å…¶ç±»å‹åç§°ä¸Šä¹Ÿèƒ½çœ‹å‡ºæ¥ã€‚ä¾‹å¦‚ï¼ŒMappedArrayWrapperã€MappedSequenceã€IndexedMappedSequence éƒ½æ˜¯å¯¹åº” map è®¡ç®—æ¨¡å¼ã€‚<br />
+è€Œæ±‚å€¼çš„è¿‡ç¨‹ï¼Œæˆ–è€…è¯´æ±‚å€¼çš„æ¨¡å¼æ˜¯ç»Ÿä¸€çš„ï¼Œéƒ½æ˜¯å€ŸåŠ© Sequence é“¾ï¼Œé“¾æ¡ä¸Šçš„æ¯ä¸ª Sequence èŠ‚ç‚¹åªè´Ÿè´£ï¼š<br />
+<ul>
+<li align="left">ä¸Šä¼ ï¼šå‘ä¸Šçº§ Sequence è·å–å€¼</li>
+<li align="left">ä¸‹è¾¾ï¼šå‘ä¸‹çº§ Sequence ä¼ é€’è‡³</li>
+<li align="left">æ±‚å€¼ï¼šåº”ç”¨ç±»å‹å¯¹åº”çš„è®¡ç®—æ¨¡å¼å¯¹æ•°æ®è¿›è¡Œè®¡ç®—æˆ–è€…è¿‡æ»¤ç­‰æ“ä½œ</li>
+</ul>
+ç”±å†…åµŒäº†ä¸åŒçš„è®¡ç®—æ¨¡å¼çš„ Sequence æ„æˆçš„é“¾ï¼Œå°±å®ç°äº†æƒ°æ€§æ±‚å€¼ã€‚<br />
+å½“ç„¶ï¼Œè¿™åªæ˜¯ Lazy.js ä¸­çš„æƒ°æ€§æ±‚å€¼çš„å®ç°ï¼Œå¹¶ä¸æ„å¤–è¿™&ldquo;æƒ°æ€§æ±‚å€¼&rdquo;å°±ç­‰äºè¿™é‡Œçš„å®ç°ï¼Œæˆ–è€…è¯´æƒ°æ€§æ±‚å€¼çš„å…¨éƒ¨ç‰¹æ€§å°±æ˜¯è¿™é‡Œ Lazy.js çš„å…¨éƒ¨ç‰¹æ€§ã€‚æ›´ä½•å†µï¼Œæœ¬æ–‡ä¸»è¦åˆ†æçš„ simply-lazy ä¹Ÿåªæ˜¯ä»æ¨¡å¼ä¸Šå¯¹ Lazy.js çš„æƒ°æ€§æ±‚å€¼è¿›è¡Œäº†è¯´æ˜ï¼Œä¹Ÿå¹¶ä¸åŒ…å« Lazy.js çš„å…¨éƒ¨ç‰¹æ€§ï¼ˆä¾‹å¦‚ç”Ÿæˆæ— é™é•¿åº¦çš„åˆ—è¡¨ï¼‰ã€‚<br />
+ä¸ç®¡æ€æ ·ï¼Œè¿˜æ˜¯é˜…è¯»è¿‡åèƒ½å¤Ÿç»™ä½ å¸¦æ¥ä¸€ç‚¹æœ‰ä»·å€¼çš„ä¸œè¥¿ã€‚å“ªæ€•åªæœ‰ä¸€ç‚¹ï¼Œæˆ‘ä¹Ÿå¾ˆé«˜å…´ã€‚<br />
+æ–‡ä¸­å¯¹ Lazy.js çš„æƒ°æ€§æ±‚å€¼çš„åˆ†æä»…æ˜¯æˆ‘ä¸ªäººçš„è§è§£ï¼Œå¦‚æœé”™æ¼ï¼Œæ¬¢è¿æŒ‡æ­£ï¼<br />
+&nbsp;<br />
+<span style="widows: 1; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; font: 14px/26px å¾®è½¯é›…é»‘; white-space: normal; letter-spacing: normal; color: rgb(105,105,105); word-spacing: 0px; -webkit-text-stroke-width: 0px; font-stretch: normal"><span style="font-size: 16px"><span style="font-size: 12px">æœ¬æ–‡ç‰ˆæƒå½’ä¼ æ™ºæ’­å®¢<a href="../../web/index.htm" tppabs="http://www.itcast.cn/web/" style="outline-style: none; outline-color: invert; outline-width: medium; color: rgb(51,51,51); text-decoration: none">webå‰ç«¯å¼€å‘</a>å­¦é™¢æ‰€æœ‰ï¼Œæ¬¢è¿è½¬è½½ï¼Œè½¬è½½è¯·æ³¨æ˜ä½œè€…å‡ºå¤„ï¼Œè°¢è°¢ï¼</span></span></span><br style="widows: 1; text-transform: none; background-color: rgb(250,255,255); text-indent: 0px; font: 14px/26px å¾®è½¯é›…é»‘; white-space: normal; letter-spacing: normal; color: rgb(35,35,35); word-spacing: 0px; -webkit-text-stroke-width: 0px; font-stretch: normal" />
+<span style="widows: 1; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; font: 14px/26px å¾®è½¯é›…é»‘; white-space: normal; letter-spacing: normal; color: rgb(105,105,105); word-spacing: 0px; -webkit-text-stroke-width: 0px; font-stretch: normal"><span style="font-size: 16px"><span style="font-size: 12px">ä½œè€…ï¼šä¼ æ™ºæ’­å®¢webå‰ç«¯åŸ¹è®­å­¦é™¢ï¼›<br />
+é¦–å‘ï¼š<a href="../../web/index.htm" tppabs="http://www.itcast.cn/web/" style="outline-style: none; outline-color: invert; outline-width: medium; color: rgb(51,51,51); text-decoration: none">http://www.itcast.cn/web/</a></span></span></span>
+				</div>
+				<!--ç™¾åº¦åˆ†äº«ä»£ç -->
+				<!-- ç™¾åº¦åˆ†äº«ä»£ç  -->
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">åˆ†äº«åˆ°ï¼š</a><a href="#" class="bds_qzone" data-cmd="qzone" title="åˆ†äº«åˆ°QQç©ºé—´">QQç©ºé—´</a><a href="#" class="bds_tsina" data-cmd="tsina" title="åˆ†äº«åˆ°æ–°æµªå¾®åš">æ–°æµªå¾®åš</a><a href="#" class="bds_tqq" data-cmd="tqq" title="åˆ†äº«åˆ°è…¾è®¯å¾®åš">è…¾è®¯å¾®åš</a><a href="#" class="bds_renren" data-cmd="renren" title="åˆ†äº«åˆ°äººäººç½‘">äººäººç½‘</a><a href="#" class="bds_weixin" data-cmd="weixin" title="åˆ†äº«åˆ°å¾®ä¿¡">å¾®ä¿¡</a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+				<!--ç™¾åº¦åˆ†äº«ä»£ç -->
+			</div>
+			<div class="sub_r">
+				<!--é€šç”¨é¡µé¢å³ä¾§å¹¿å‘Šä½ S-->
+				<div class="slideBox slide_global" id="slideBox">
+<div class="hd">
+<ul>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+<li><a href="../../subject/ioszly/index.shtml-zh101.htm" tppabs="http://www.itcast.cn/subject/ioszly/index.shtml?zh101" target="_blank"><img src="../../files/image/201605/20160530093223750.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093223750.jpg" style="height: 230px; width: 300px" /></a></li>
+<li><a href="../../subject/czly/index.shtml-zx102.htm" tppabs="http://www.itcast.cn/subject/czly/index.shtml?zx102" target="_blank"><img src="../../files/image/201605/20160530093440597.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093440597.jpg" style="height: 230px; width: 300px" /></a></li>
+<li><a href="../../subject/phpzly/index.shtml-zx102.htm" tppabs="http://www.itcast.cn/subject/phpzly/index.shtml?zx102" target="_blank"><img src="../../files/image/201605/20160530093524255.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093524255.jpg" style="height: 230px; width: 300px" /></a></li>
+</ul>
+</div>
+</div>
+
+				<!--é€šé¡µé¢å³ä¾§å¹¿å‘Šä½ E-->
+				<div class="sub_list">
+					<!--å†…å®¹è¯¦æƒ…é¡µå³ä¾§æ–°é—»æ¨è-->
+					<ul>
+<li><a class="a_default" href="../20151228/17131779766.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/17131779766.shtml">17ä¸ªæå‡iOSå¼€å‘æ•ˆç‡çš„å¿…ç”¨å·¥å…·</a></li>
+<li><a class="a_default" href="../20151228/16403185293.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/16403185293.shtml">Linuxç³»ç»ŸåŠ¨æ€åº“åŠ è½½è¿‡ç¨‹åˆ†æ</a></li>
+<li><a class="a_default" href="../20151228/15142937279.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/15142937279.shtml">å¾®ä¿¡å…¬ä¼—å·ä¸åŸç”Ÿappå‡ ç‚¹è§è§£</a></li>
+<li><a class="a_default" href="../20151228/13121067974.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/13121067974.shtml">Androidç³»ç»Ÿè§¦æ‘¸äº‹ä»¶ä¸‰æ­¥æ›²</a></li>
+<li><a class="a_default" href="../20151229/17185946419.shtml.htm" tppabs="http://www.itcast.cn/news/20151229/17185946419.shtml">æ•™ä½ ä½¿ç”¨AIç»˜åˆ¶ä¸€ç»„æ¸…æ–°ç®€çº¦çš„å¾®å›¾æ ‡</a></li>
+</ul>
+
+					<!--å†…å®¹è¯¦æƒ…é¡µå³ä¾§æ–°é—»æ¨è-->					
+				</div>
+			</div>
+		</div>
+
+	<!-- main  E -->
+	</div>
+	
+	<!-- åº•éƒ¨  S -->
+	<div class="footer">
+		<!--  åº•éƒ¨åˆ—è¡¨åŒº  -->
+		<div class="foot_ch about">
+<div class="div_list">
+<h3>å…³äºæˆ‘ä»¬</h3>
+<ul>
+<li><a class="a_gd" href="../../channel/about/about.shtml.htm" tppabs="http://www.itcast.cn/channel/about/about.shtml" target="_blank">ä¼ æ™ºç®€ä»‹</a></li>
+<li><a class="a_gd" href="../../subject/zhaopin/index.shtml.htm" tppabs="http://www.itcast.cn/subject/zhaopin/index.shtml" target="_blank">åŠ å…¥ä¼ æ™º</a><!--<li><a class="a_gd" href="/channel/about/about.shtml" target="_blank">è”ç³»ä¼ æ™º</a></li>--></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>æ——ä¸‹å“ç‰Œ</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.itheima.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.itheima.com/'" tppabs="http://www.itheima.com/">é»‘é©¬ç¨‹åºå‘˜</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.boxuegu.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">åšå­¦è°·</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.funit.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.funit.cn/'" tppabs="http://www.funit.cn/" target="_blank">è¶£IT</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>æ ¡åŒºæ”»ç•¥</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85619-1-1.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://bbs.itcast.cn/thread-85619-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85619-1-1.html" target="_blank">æ ¡åŒºç¯å¢ƒ</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85619-1-1.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://bbs.itcast.cn/thread-85619-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85619-1-1.html" target="_blank">ä½å®¿æ”»ç•¥</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85797-1-1.html  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://bbs.itcast.cn/thread-85797-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85797-1-1.html" target="_blank">æ¥æ ¡è·¯çº¿</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>å­¦ä¹ èµ„æº</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://v.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://v.itcast.cn/'" tppabs="http://v.itcast.cn/" target="_blank">èµ„æºä¸‹è½½</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://open.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://open.itcast.cn/'" tppabs="http://open.itcast.cn/" target="_blank">å…¬å¼€è¯¾</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.boxuegu.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">äº‘è¯¾å ‚</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>ä¼ æ™ºæ•…äº‹</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://i.itcast.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://i.itcast.cn/'" tppabs="http://i.itcast.cn/" target="_blank">å­¦å‘˜æ•…äº‹</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7'" tppabs="http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7" target="_blank">ç§‘æŠ€å–µå–µå–µ</a></li>
+</ul>
+</div>
+<div class="div_list div_wx">
+<div style="margin-right: 30px"><img src="../../images/wx_cz.jpg" tppabs="http://www.itcast.cn/images/wx_cz.jpg" />
+<p>ä¼ æ™ºæ’­å®¢å®˜æ–¹å¾®ä¿¡</p>
+</div>
+<div><img src="../../images/wx_hm.jpg" tppabs="http://www.itcast.cn/images/wx_hm.jpg" />
+<p>é»‘é©¬ç¨‹åºå‘˜å®˜æ–¹å¾®ä¿¡</p>
+</div>
+</div>
+</div>
+
+		<!--  åº•éƒ¨åˆ—è¡¨åŒº  -->
+		<!--  åº•éƒ¨ç‰ˆæƒåŒº  -->
+		<div class="foot_ch add">
+<h2><img alt="ä¼ æ™ºæ’­å®¢" src="../../images/logo3.png" tppabs="http://www.itcast.cn/images/logo3.png" width="145" /></h2>
+<p>ç‰ˆæƒæ‰€æœ‰ 2006 - 2017 åŒ—äº¬ä¼ æ™ºæ’­å®¢æ•™è‚²ç§‘æŠ€æœ‰é™å…¬å¸&nbsp;&nbsp;&nbsp;åœ°å€ï¼šåŒ—äº¬å¸‚æ˜Œå¹³åŒºå»ºæåŸè¥¿è·¯é‡‘ç‡•é¾™åŠå…¬æ¥¼ä¸€å±‚&nbsp;&nbsp;&nbsp;é‚®ç¼–ï¼š100096<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_4617777'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/stat.php%3Fid%3D4617777%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "../../../hm.baidu.com/hm.js-0cb375a2e834821b74efffa6c71ee607"/*tpa=http://hm.baidu.com/hm.js?0cb375a2e834821b74efffa6c71ee607*/;
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "../../../hm.baidu.com/hm.js-afb28582a41ea001acfa11b256c2e188"/*tpa=https://hm.baidu.com/hm.js?afb28582a41ea001acfa11b256c2e188*/;
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><br />
+ç”µè¯ï¼š400-618-4000&nbsp;&nbsp;&nbsp;é‚®ç®±: zhanghj@itcast.cn&nbsp;&nbsp;&nbsp;<a href="javascript:if(confirm('http://www.miitbeian.gov.cn/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.miitbeian.gov.cn/'" tppabs="http://www.miitbeian.gov.cn/" style="color:#333;" target="_blank">äº¬ICPå¤‡08001421å·</a>&nbsp;&nbsp;&nbsp;äº¬å…¬ç½‘å®‰å¤‡110108007702</p>
+<ul>
+<li><a href="javascript:if(confirm('http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn'" tppabs="http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn" target="_blank"><img src="../../images/360.jpg" tppabs="http://www.itcast.cn/images/360.jpg" /></a></li>
+<li><a href="javascript:if(confirm('http://t.knet.cn/index_new.jsp  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://t.knet.cn/index_new.jsp'" tppabs="http://t.knet.cn/index_new.jsp" target="_blank"><img src="../../images/chengxin.jpg" tppabs="http://www.itcast.cn/images/chengxin.jpg" /></a></li>
+<li><a href="javascript:if(confirm('http://www.bj.cyberpolice.cn/index.do  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.bj.cyberpolice.cn/index.do'" tppabs="http://www.bj.cyberpolice.cn/index.do" target="_blank"><img src="../../images/safe.jpg" tppabs="http://www.itcast.cn/images/safe.jpg" /></a></li>
+</ul>
+</div>
+<br />
+
+		<!--  åº•éƒ¨ç‰ˆæƒåŒº  -->
+	</div>
+	<!-- åº•éƒ¨  E -->
+</div>
+<!-- å…¨å±€js -->
+<script src="../../js/jquery-1.7.2.min.js" tppabs="http://www.itcast.cn/js/jquery-1.7.2.min.js"></script> 
+<script src="../../js/global.js" tppabs="http://www.itcast.cn/js/global.js"></script>
+<!-- ie7erroræç¤º -->
+<style type="text/css">
+#ie7-warning{background:rgb(255,255,225); position:absolute; top:0; left:0; font-size:12px; color:#333; width:100%; padding:5px 0; text-align:center; z-index:99999; }
+</style>
+<!--[if lte IE 7]>
+<div id="ie7-warning">æ‚¨æ­£åœ¨ä½¿ç”¨ Internet Explorer 7ï¼Œåœ¨æœ¬é¡µé¢çš„æ˜¾ç¤ºæ•ˆæœå¯èƒ½æœ‰å·®å¼‚ã€‚å»ºè®®æ‚¨å‡çº§åˆ° <a href="javascript:if(confirm('http://www.microsoft.com/china/windows/internet-explorer/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.microsoft.com/china/windows/internet-explorer/'" tppabs="http://www.microsoft.com/china/windows/internet-explorer/" target="_blank">Internet Explorer 8</a> æˆ–ä»¥ä¸‹æµè§ˆå™¨ï¼š <a href="javascript:if(confirm('http://www.mozillaonline.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.mozillaonline.com/'" tppabs="http://www.mozillaonline.com/">Firefox</a> / <a href="javascript:if(confirm('http://www.google.com/chrome/?hl=zh-CN  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.google.com/chrome/?hl=zh-CN'" tppabs="http://www.google.com/chrome/?hl=zh-CN">Chrome</a> / <a href="javascript:if(confirm('http://www.apple.com.cn/safari/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.apple.com.cn/safari/'" tppabs="http://www.apple.com.cn/safari/">Safari</a> / <a href="javascript:if(confirm('http://www.operachina.com/  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://www.operachina.com/'" tppabs="http://www.operachina.com/">Opera</a>
+</div>
+<script type="text/javascript">
+	function position_fixed(el, eltop, elleft){ 
+	if(!window.XMLHttpRequest) 
+		window.onscroll = function(){ 
+		el.style.top = (document.documentElement.scrollTop + eltop)+"px"; 
+		el.style.left = (document.documentElement.scrollLeft + elleft)+"px"; 
+		} 
+		else el.style.position = "fixed"; 
+		}
+		position_fixed(document.getElementById("ie7-warning"),0, 0);
+</script>
+<![endif]-->
+ 
+<!-- åå¤§å­¦ç§‘å’¨è¯¢ -->
+<link rel="stylesheet" type="text/css" href="../../css/zx.css" tppabs="http://www.itcast.cn/css/zx.css"/>
+<!-- åå¤§å­¦ç§‘å’¨è¯¢--> 
+<div class="zx">
+	<ul>
+		<li class="li_1">
+			<a href="javascript:if(confirm('http://d.itcast.cn/3  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://d.itcast.cn/3'" tppabs="http://d.itcast.cn/3" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>åœ¨çº¿å’¨è¯¢</p>	
+			</a>
+		</li>
+		<li class="li_qq">
+			<a href="javascript:if(confirm('http://d.itcast.cn/3  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://d.itcast.cn/3'" tppabs="http://d.itcast.cn/3" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>QQå’¨è¯¢</p>	
+			</a>							
+		</li>
+		<li class="li_2 li_qq">
+			<a href="javascript:if(confirm('http://d.itcast.cn/t  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://d.itcast.cn/t'" tppabs="http://d.itcast.cn/t" target="_blank"> 
+				<span class="icon_s">&nbsp;</span>
+				<p>åŒ¿åå’¨è¯¢</p>	 
+			</a>							 
+		</li>				
+		<li class="li_4">
+			<a href="../../channel/flow.shtml.htm" tppabs="http://www.itcast.cn/channel/flow.shtml" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>åœ¨çº¿æŠ¥å</p>	
+			</a>						
+		</li>	
+		<li class="li_5 li_gd">
+			<span class="icon_s">&nbsp;</span>
+			<p>ç”µè¯å’¨è¯¢</p>
+			<div>
+				<p>400-618-4000</p>
+			</div>
+		</li>												
+		<li class="li_6" id="back">
+			<a href="javascript:void(0);">
+				<span class="icon_s">&nbsp;</span>
+				<p>è¿”å›é¡¶éƒ¨</p>	
+			</a>						
+		</li>				
+	</ul>
+</div>	
+<script src="../../js/zx.js" tppabs="http://www.itcast.cn/js/zx.js"></script>
+<script src="../../js/jquery.SuperSlide.2.1.1.js" tppabs="http://www.itcast.cn/js/jquery.SuperSlide.2.1.1.js"></script> 
+<script src="../../js/other.js" tppabs="http://www.itcast.cn/js/other.js"></script>
+</body>
+</html>

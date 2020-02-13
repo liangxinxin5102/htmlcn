@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset=utf-8"utf-8">
+<meta name="keywords" content="Android培训,Android系统触摸事件三步曲" />
+<meta name="description" content="触摸事件的处理对于android手机来说恐怕是最重要的一个机制了，当你在使用手机时，绝大多事都是通过触摸屏幕来控制手机的。所以把触摸事件搞清楚对于我们理解android系统，开发android应用来说，都有着非常重要的意义。" />
+<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" /> 
+<link rel="stylesheet" type="text/css" href="../../css/reset.css" tppabs="http://www.itcast.cn/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/style.css" tppabs="http://www.itcast.cn/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/other.css" tppabs="http://www.itcast.cn/css/other.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/banner.css" tppabs="http://www.itcast.cn/css/banner.css"/>
+<title>Android培训实战教程之系统触摸事件三步曲</title>
+<body>
+<div class="wrapper"> 
+	<!-- 快速通道 topbar S -->
+	<!-- 头部通用快速通道 -->
+<div class="topbar">
+	<div class="inner">
+		<div class="top_l">
+			<p>传智播客旗下品牌：&nbsp; <a href="javascript:if(confirm('http://www.itheima.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.itheima.com/'" tppabs="http://www.itheima.com/" target="_blank">黑马程序员</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">博学谷</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.funit.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.funit.cn/'" tppabs="http://www.funit.cn/" target="_blank">趣IT</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.czxy.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.czxy.com/'" tppabs="http://www.czxy.com/" target="_blank">传智学院</a><!-- &nbsp; | &nbsp;<a href="http://www.kudingyu.com/" target="_blank">酷丁鱼</a> --></p>				
+		</div>
+		<div class="top_r">
+			<p class="slogan">改变中国IT教育，我们正在行动 &nbsp;&nbsp;&nbsp;&nbsp;全国咨询热线：<strong>400-618-4000</strong> </p>			
+		</div>
+	</div>
+</div>
+
+<!-- <a href="http://www.itcast.cn/ucenter/Login.html" target="_blank"><span style="color:#FFFFFF;">登录</span></a><span style="color:#FFFFFF;"> | </span><a href="http://www.itcast.cn/Ucenter/Register" target="_blank"><span style="color:#FFFFFF;">注册</span></a><span style="color:#FFFFFF;"> | </span><a href="http://www.itcast.cn/Ucenter/Register/vip" target="_blank"><span style="color:#FFFFFF;">VIP注册</span></a> -->	
+	<!-- 快速通道 topbar E --> 
+	
+	<!-- 首页导航区域 S -->
+	<div class="header">
+		<!-- 头部其他页面通用模板 -->
+<div class="header_con">
+	<div class="inner">
+		<h1><a href="../../index.htm" tppabs="http://www.itcast.cn/"><img src="../../images/logo.png" tppabs="http://www.itcast.cn/images/logo.png" alt="传智播客"/></a></h1>
+		<div class="nav">
+			<ul class="nav_li">
+				<li><a href="javascript:;" class="a_gd a_default a3_js">课程介绍</a></li>
+				<li><a href="javascript:;" class="a_gd a_default a_js">免费学习资源</a></li>
+				<li><a href="../../course.shtml.htm" tppabs="http://www.itcast.cn/course.shtml" class="a_gd a_default a2_js" target="_blank">课程中心</a></li>
+				<li><a href="javascript:if(confirm('http://www.czxy.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.czxy.com/'" tppabs="http://www.czxy.com/" class="a_gd a_default a2_js" target="_blank">传智学院</a></li>
+				<li><a href="javascript:if(confirm('http://i.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://i.itcast.cn/'" tppabs="http://i.itcast.cn/" class="a_gd a_default a2_js" target="_blank">学员故事</a></li>
+				<li><a href="javascript:if(confirm('http://bbs.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/'" tppabs="http://bbs.itcast.cn/" class="a_gd a_default a2_js" target="_blank">传智论坛</a></li>
+				<!-- <li><a href="http://www.funit.cn/" class="a_gd a_default a2_js" target="_blank">趣IT</a></li> -->
+				<!-- <li><a href="http://d.itcast.cn/s" class="a_gd a_default a2_js" target="_blank">在线课堂</a></li> -->
+				<!--<li><a href="http://www.itcast.cn/subject/onair/index.shtml?nav" class="a_gd a_default a2_js" target="_blank" style="color:#f00;">教学直播间<span style="position:relative; bottom:6px;"><img src="/images/hot.gif" style="display:inline-block;" /></span></a></li> -->
+			</ul>
+		</div>
+		<div class="school_btn">
+			    <span>全国校区 <i class="iconfont sfont">&#xe609;</i></span>
+  		   			
+
+			<p class="linebg"></p>
+			<ul>
+				<li><a href="../../index.htm" tppabs="http://www.itcast.cn/" class="a_gd a_default">北京校区</a></li>
+<li><a href="javascript:if(confirm('http://sh.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://sh.itcast.cn/'" tppabs="http://sh.itcast.cn/" class="a_gd a_default">上海校区</a></li>
+<li><a href="javascript:if(confirm('http://gz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://gz.itcast.cn/'" tppabs="http://gz.itcast.cn/" class="a_gd a_default">广州校区</a></li>
+<li><a href="javascript:if(confirm('http://sz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://sz.itcast.cn/'" tppabs="http://sz.itcast.cn/" class="a_gd a_default">深圳校区</a></li>
+<li><a href="javascript:if(confirm('http://wh.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://wh.itcast.cn/'" tppabs="http://wh.itcast.cn/" class="a_gd a_default">武汉校区</a></li>
+<li><a href="javascript:if(confirm('http://zz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://zz.itcast.cn/'" tppabs="http://zz.itcast.cn/" class="a_gd a_default">郑州校区</a></li>
+<li><a href="javascript:if(confirm('http://xa.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://xa.itcast.cn/'" tppabs="http://xa.itcast.cn/" class="a_gd a_default">西安校区</a></li>
+<li><a href="javascript:if(confirm('http://heb.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://heb.itcast.cn/'" tppabs="http://heb.itcast.cn/" class="a_gd a_default">哈尔滨校区</a></li>
+<li><a href="javascript:if(confirm('http://cs.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://cs.itcast.cn/'" tppabs="http://cs.itcast.cn/" class="a_gd a_default">长沙校区</a></li>
+<li><a href="javascript:if(confirm('http://jn.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://jn.itcast.cn/'" tppabs="http://jn.itcast.cn/" class="a_gd a_default">济南校区</a></li>
+<li><a href="javascript:if(confirm('http://cq.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://cq.itcast.cn/'" tppabs="http://cq.itcast.cn/" class="a_gd a_default">重庆校区</a></li>
+<li><a href="javascript:if(confirm('http://nj.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://nj.itcast.cn/'" tppabs="http://nj.itcast.cn/" class="a_gd a_default">南京校区</a></li>
+<li><a href="javascript:if(confirm('http://hz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://hz.itcast.cn/'" tppabs="http://hz.itcast.cn/" class="a_gd a_default">杭州校区</a></li>
+<li><a href="javascript:if(confirm('http://cd.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://cd.itcast.cn/'" tppabs="http://cd.itcast.cn/" class="a_gd a_default">成都校区</a></li>
+<li><a href="javascript:if(confirm('http://sjz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://sjz.itcast.cn/'" tppabs="http://sjz.itcast.cn/" class="a_gd a_default">石家庄校区</a></li>
+	 			
+			</ul>	
+		</div>
+		<div class="bmbtn"><a href="../../channel/flow.shtml.htm" tppabs="http://www.itcast.cn/channel/flow.shtml" class="a_gd" target="_blank">报名流程</a> </div>			
+		<!-- <a href="http://home.itheima.com/" class="new2016" target="_blank" style="position:absolute; top:40px; right:288px; width:188px; display:block;"><img src="/images/2016.gif" /> -->
+	</div>
+</div>
+<div class="fdnav fdfree">
+	<ul>
+		<li> <a href="javascript:if(confirm('http://open.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://open.itcast.cn/'" tppabs="http://open.itcast.cn/" class="a_gd a_default" target="_blank"> <img src="../../images/openbg.jpg" tppabs="http://www.itcast.cn/images/openbg.jpg"/> <span>公开课</span> </a> </li>
+		<li class="li_s"> <a href="javascript:if(confirm('http://v.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://v.itcast.cn/'" tppabs="http://v.itcast.cn/" class="a_gd a_default" target="_blank"> <img src="../../images/kubg.jpg" tppabs="http://www.itcast.cn/images/kubg.jpg"/> <span>视频库</span> </a> </li>
+		<li> <a href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" class="a_gd a_default" target="_blank"> <img src="../../images/yunbg.jpg" tppabs="http://www.itcast.cn/images/yunbg.jpg"/> <span>云课堂</span> </a> </li>
+		<li> <a href="javascript:if(confirm('http://bbs.itcast.cn/plugin.php?id=tiny_mall  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/plugin.php?id=tiny_mall'" tppabs="http://bbs.itcast.cn/plugin.php?id=tiny_mall" class="a_gd a_default" target="_blank"> <img src="../../images/studybg.jpg" tppabs="http://www.itcast.cn/images/studybg.jpg"/> <span>学习光盘</span> </a> </li>		
+		<li> <a href="../../subject/book/index.shtml.htm" tppabs="http://www.itcast.cn/subject/book/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/bybg.jpg" tppabs="http://www.itcast.cn/images/bybg.jpg"/> <span>原创教材</span> </a> </li>
+		<li class="li_last"> <a href="javascript:if(confirm('http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21'" tppabs="http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21" class="a_gd a_default" target="_blank"> <img src="../../images/tkbg.jpg" tppabs="http://www.itcast.cn/images/tkbg.jpg" /> <span>传智特刊</span> </a> </li>
+	</ul>
+</div>
+<div class="fdnav fdcourse">
+	<ul>
+		<li> <a href="../../subject/javaeezly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/javaeezly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/java_icon.jpg" tppabs="http://www.itcast.cn/images/course/java_icon.jpg"/> <span>JavaEE</span> </a> </li>
+		<li> <a href="../../subject/androidzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/androidzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/android_icon.jpg" tppabs="http://www.itcast.cn/images/course/android_icon.jpg"/> <span>Android</span> </a> </li>
+		<li> <a href="../../subject/phpzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/phpzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/php_icon.jpg" tppabs="http://www.itcast.cn/images/course/php_icon.jpg"/> <span>PHP</span> </a> </li>
+		<li> <a href="../../subject/uizly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/uizly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/ui_icon.jpg" tppabs="http://www.itcast.cn/images/course/ui_icon.jpg"/> <span>UI设计</span> </a> </li>
+		<li> <a href="../../subject/ioszly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/ioszly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/ios_icon.jpg" tppabs="http://www.itcast.cn/images/course/ios_icon.jpg"/> <span>iOS</span> </a> </li>
+		<li> <a href="../../subject/webzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/webzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/web_icon.jpg" tppabs="http://www.itcast.cn/images/course/web_icon.jpg"/> <span>前端与移动开发</span> </a> </li>
+		<li> <a href="../../subject/czly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/czly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/c_icon.jpg" tppabs="http://www.itcast.cn/images/course/c_icon.jpg"/> <span>C/C++</span> </a> </li>
+		<li> <a href="../../subject/mzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/mzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/m_icon.jpg" tppabs="http://www.itcast.cn/images/course/m_icon.jpg"/> <span>网络营销</span> </a> </li>
+		<li> <a href="../../subject/pythonzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/pythonzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/python_icon.jpg" tppabs="http://www.itcast.cn/images/course/python_icon.jpg"/> <span>Python</span> </a> </li>
+		<li> <a href="../../subject/cloudzly/index.html" tppabs="http://www.itcast.cn/subject/cloudzly/index.html" target="_blank" class="a_gd a_default"> <img src="../../images/course/yun_icon.jpg" tppabs="http://www.itcast.cn/images/course/yun_icon.jpg"/> <span>云计算之大数据</span> </a> </li>
+		<li class="li_last"> <a href="../../subject/stackzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/stackzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/stack_icon.jpg" tppabs="http://www.itcast.cn/images/course/stack_icon.jpg"/> <span>全栈工程师</span> </a> </li>
+		
+	</ul>
+</div>
+	</div>
+	<!-- 首页导航区域 E --> 	
+	<div class="graybg">
+	<!-- main  S -->
+		<!--面包屑   S-->
+		<div class="bread_nav">
+			<div class="inner">
+				<i class="iconfont home">&#xe607;</i><a href="../../index.htm" tppabs="http://www.itcast.cn/">首页</a><i class="iconfont right_arrow">&#xe614;</i><a href="javascript:;">公司动态</a><i class="iconfont right_arrow">&#xe614;</i><a href="">技术文章</a>
+			</div>
+		</div>
+		<!--面包屑  S-->				
+		<div class="sub_con">				
+			<div class="sub_l">
+				<h1 class="sub_tt">Android培训实战教程之系统触摸事件三步曲</h1>
+				<p class="time">更新时间:2015年12月28日13时12分 来源:传智播客Android培训学院</p>
+				<div class="sub_txt">
+					 <h1 align="center"></h1>
+<h2>一、前言：</h2>
+触摸事件的处理对于android手机来说恐怕是最重要的一个机制了，当你在使用手机时，绝大多事都是通过触摸屏幕来控制手机的。所以把触摸事件搞清楚对于我们理解android系统，开发android应用来说，都有着非常重要的意义。<br />
+对于一个初学者来说，搞清楚触摸事件的处理机制不是一件简单的事情，本文将触摸事件的讲解分为三步，由浅入深，循序渐进的为读者讲解，希望这遍文章对读者能有所帮助。<br />
+<h2>二、标准模型：事件的传递和消费</h2>
+我们都知道android中的view能够响应触摸事件，一般情况下是通过重写该View的onTouchEvent(MotionEvent event)方法来实现的，如果该方法返回true，意思是说当前对象需要消费触摸事件，如果返回false，那就是说当前这个view对象不需要消费触摸事件。那么现在问题来了，看下图当中：
+<div style="text-align: center"><img src="../../files/image/201512/20151228130923406.png" tppabs="http://www.itcast.cn/files/image/201512/20151228130923406.png" style="width: 215px; height: 213px" /></div>
+外框是一个普通的线性布局，布局当中有一个ImageView图片，红色的点是我们触摸的位置，那么这个触摸事件是应由谁来处理呢？我们先来回答一个问题：外面的布局和里面的图片，谁先收到这个触摸事件？答案是外面的布局，事件总是由最外层的布局，一层一层向里面传递的，最终传递给了这张图片。<br />
+如果这张图片需要响应事件，即这个ImageView的onTouchEvent方法返回true，那么事件就由这个ImageView来处理；如果这个图片不需要处理事件，那么事件就交由图片外面的布局来处理，即，去判断布局对象的onTouchEvent方法返回true，还是返回false。<br />
+&nbsp;<strong>一句话的经验</strong>：事件的传递是由外向里一层层的传递的，而消费时，是由里向外一层层的判断，最终找到某一个需要处理事件的对象。如下图所示：
+<div style="text-align: center"><img src="../../files/image/201512/20151228131003125.png" tppabs="http://www.itcast.cn/files/image/201512/20151228131003125.png" style="width: 507px; height: 449px" /></div>
+<strong>记忆小技巧：</strong>我们可以将顶级父view当做爷爷，父view就是父亲，子view就是儿子，而触摸事件就是一个苹果，爷爷拿到一个苹果，给了父亲，父亲又给了儿子，而儿子正好需要这个苹果，就把苹果给吃掉了，即儿子这个对象的onTouchEvent方法返回true，如果儿子现在不想吃苹果，对这个苹果不感兴趣，那么就把这个苹果又还给了父亲，由父亲来判断是否来消费这个苹果，就是看父view中的onTouchEvent方法是返回true还是返回false，如此循环，以次类推。<br />
+<strong>知识点说明：</strong>本文中为了便于理解，判断view是否处理事件，就是看该view的onTouchEvent方法是返回true，还是返回false来判断的。但我们都知道，一个view除了可以重写onTouchEvent方法外，还可以通过设置一个setOnTouchListener 来处理touch事件，那如果二个动作都做了，情况会是如何呢？<br />
+看类View中的如下代码：<br />
+<table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+	<tr>
+	<td style="width: 568px">&nbsp;&nbsp;&nbsp; <strong>public</strong> <strong>boolean</strong> dispatchTouchEvent(MotionEvent event) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>if</strong> (mOnTouchListener != <strong>null</strong><br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp;&amp; mOnTouchListener.onTouch(<strong>this</strong>, event)) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>return</strong> <strong>true</strong>;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>return</strong> onTouchEvent(event);<br />
+	&nbsp;&nbsp;&nbsp; }</td>
+	</tr>
+</tbody>
+</table>
+这里可以很明显的看出，如果一个view有touchListener对象，同时该对象的onTouch方法返回为true的时候，onTouchEvent方法根本就没有机会执行。<br />
+一个view是否消费了事件，其实看的是dispatchTouchEvent方法的返回结果，如果没有touchListener 的话，也可以认为是看 onTouchEvent 方法的返回结果。<br />
+<h2>三、进阶：事件的中断</h2>
+前面所说的是一个事件传递和消费的标准模型，但这个模型有些简陋，不能适应所有的情况，如下图所示：
+<div style="text-align: center"><img src="../../files/image/201512/20151228131039074.png" tppabs="http://www.itcast.cn/files/image/201512/20151228131039074.png" style="width: 248px; height: 143px" /></div>
+ListView的条目当中有一个按钮，点中这个按钮，上下滑动。在此场景中，如果按前面的标准模型来讲，这个事件应由按钮来处理，但此时显然并不是用户的本意，用户并非要真的点击按钮，而是要滑动listView，事件应该由ListView来处理，那这又是如何实现的呢？<br />
+我们先来考滤一个问题，上面我们已经说过了，当事件发生时，总是父view先收到的事件，然后通过计算将该事件传递给正确的子view，这是一般情况，那么，还有个特殊情况，就是父view拿到事件以后，他改变主意了，他并没有传递给子view，而是中断了事件的正常传递，由自己直接来处理了。对应的代码为：<br />
+<table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+	<tr>
+	<td style="width: 568px">&nbsp;&nbsp;&nbsp; <strong>public</strong> <strong>boolean</strong> onInterceptTouchEvent(MotionEvent ev) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>return</strong> <strong>false</strong>;<br />
+	&nbsp;&nbsp;&nbsp; }</td>
+	</tr>
+</tbody>
+</table>
+这个方法默认情况下返回false，意思就是：并不中断事件的传递，按标准模型进行，但如果某个ViewGroup重写该方法，并返回true，就意味着，当事件传递到该ViewGroup时，中断了事件的正常传递，由当前这个ViewGroup直接来处理该事件。于是我们可以将Touch事件的流程图改进如下：
+<div style="text-align: center"><img src="../../files/image/201512/20151228131146175.png" tppabs="http://www.itcast.cn/files/image/201512/20151228131146175.png" style="width: 550px; height: 394px" /></div>
+任何一个父view都有能力中断事件的正常传递，如果所有的父view都没有中断事件的正常传递，那么和前面的标准模型是一样的，如果某个父view收到事件后，将事件中断了，那么，就由当前这个父view直接来处理该事件。<br />
+还拿之前的爷孙仨分苹果的比喻来说明中断的问题：现在爷爷最先拿到，按正常的处理，将苹果传递给了父亲，而父亲现在正好想吃苹果呢，于是，吧唧一口，把苹果给吃掉了，那这样儿子就收不到这个苹果了。如上图所示：父view的 onInterceptTouchEvent方法返回true，那么触摸事件直接交收父view的onTouchEvent来处理，而后的操作和标准模型就一样了。<br />
+<h2>四、终级必杀：事件传递机制的代码分析</h2>
+知道了事件的传递、中断、消费以后，普通的开发工作就能够满足了，如果你对技术的追求永无止境的话，那么我们再来进行深一步的研究。在标准摸型中，我们在讲解事件的传递和消费时，都是用文字，和图表来说明的，其实我们都知道，这些机制肯定有对应的，可执行的代码。这些代码就在类ViewGroup中的dispatchTouchEvent方法，（我们以android2.3的源码来讲解）<br />
+<table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+	<tr>
+	<td style="width: 568px">&nbsp;&nbsp;&nbsp; <strong>public</strong> <strong>boolean</strong> dispatchTouchEvent(MotionEvent ev) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>final</strong> <strong>int</strong> action = ev.getAction(); // 获得触摸的动作类型<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>final</strong> <strong>float</strong> xf = ev.getX(); // 获得触摸点的X坐标<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>final</strong> <strong>float</strong> yf = ev.getY(); // 获得触摸点的Y坐标<br />
+	&nbsp;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>final</strong> Rect frame = mTempRect; // 获得一个临时需要的矩形<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 判断标记位，一般情况下为 true<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>boolean</strong> disallowIntercept = (mGroupFlags &amp; FLAG_DISALLOW_INTERCEPT) != 0;<br />
+	&nbsp;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>if</strong> (action == MotionEvent.<em>ACTION_DOWN</em>) {// 如果是down 事件，判断点中的目标是谁<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>if</strong> (mMotionTarget != <strong>null</strong>) { // 如果之前有目标，那么清空目标<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mMotionTarget = <strong>null</strong>;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 判断 是否要中断事件，<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>if</strong> (disallowIntercept || !onInterceptTouchEvent(ev)) {</td>
+	</tr>
+</tbody>
+</table>
+一开始，做一些准备性的工作，获得触摸点的X，Y坐标等。如果当前是down事件，那么就判断当前点击的目标是谁，每一个父view都有一个自己的目标，这些目标串起来，像链条一样，直接指向最终消费事件的对象。在这里调用onInterceptTouchEvent，默认返回的是false ，意思是不中断，没有中断，那就应该找一下，看目标是哪个，如果中断了，就不用找了，就由自己来处理事件了。<br />
+然后，我们看，是如何找的，继续看：<br />
+<table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+	<tr>
+	<td style="width: 568px">// 判断 是否要中断事件，<br />
+	<strong>if</strong> (disallowIntercept || !onInterceptTouchEvent(ev)) {<br />
+	&nbsp;&nbsp;&nbsp; <strong>final</strong> <strong>int</strong> scrolledXInt = (<strong>int</strong>) scrolledXFloat; // X坐标点<br />
+	&nbsp;&nbsp;&nbsp; <strong>final</strong> <strong>int</strong> scrolledYInt = (<strong>int</strong>) scrolledYFloat; // Y坐标点<br />
+	&nbsp;&nbsp;&nbsp; <strong>final</strong> View[] children = mChildren; // 获得当前所有的子view<br />
+	&nbsp;&nbsp;&nbsp; <strong>final</strong> <strong>int</strong> count = mChildrenCount; // 当前子view的数量，也就是这个数组的长度<br />
+	&nbsp;&nbsp;&nbsp; <strong>for</strong> (<strong>int</strong> i = count - 1; i &gt;= 0; i--) { // 遍历所有的子view<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>final</strong> View child = children[i]; // 获得其中一个子view<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>if</strong> ((child.mViewFlags &amp; VISIBILITY_MASK) == <em>VISIBLE</em> ) { // 这个view是否可见<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; child.getHitRect(frame); // 获得这个view的矩形区域<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>if</strong> (frame.contains(scrolledXInt, scrolledYInt)) { // 看这个区域是否包含当前触摸点</td>
+	</tr>
+</tbody>
+</table>
+通过这段代码我们可以看出，父view查找子view是通过for循环获得每一个子view的位置，然后，判断这个位置是否包含了触摸点的坐标，如果包含了，就是说，点中了这个子view，通过标准模型我们知道，下一步就该将这个事件传递给子view，收子view来处理:<br />
+<table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+	<tr>
+	<td style="width: 568px">&nbsp;&nbsp;&nbsp; <strong>if</strong> (frame.contains(scrolledXInt, scrolledYInt)) { // 看这个区域是否包含当前触摸点<br />
+	&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <strong>final</strong> <strong>float</strong> xc = scrolledXFloat - child.mLeft; // 对X坐标进行换算<br />
+	&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <strong>final</strong> <strong>float</strong> yc = scrolledYFloat - child.mTop; // 对Y坐标进行换算<br />
+	&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ev.setLocation(xc, yc); // 将新坐标设置给 MotionEvent 对象<br />
+	&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <strong>if</strong> (child.dispatchTouchEvent(ev)) { // 将这个事件，交由子view进行处理<br />
+	&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; mMotionTarget = child;<br />
+	&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <strong>return</strong> <strong>true</strong>;<br />
+	&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />
+	&nbsp;&nbsp;&nbsp; }</td>
+	</tr>
+</tbody>
+</table>
+如果点中了当前子view，首先将event的坐标进行换算，以保证，我们在处理touch时用，event.getX()方法获得的X坐标，是以前这个view的左上角为原点的坐标。其中child.mLeft是子view在父view中左边界的距离,child.mTop是子view在父view中上边界的距离。<br />
+然后调用 <strong>if</strong> (child.dispatchTouchEvent(ev)) 语句，将事件传递给子view，此时，这个child可能是一个布局，也可能只是一个普通的view,如果一个布局，那么我们在上面所分析的代码，会在这个child布局中，再一次被执行，如此嵌套执行。如果这个child不是布局，比如说是一个ImageView，或TextView，那么，会去执行这个view的dispatchTouchEvent方法，判断该view是否消费事件，该方法在标准模型中已经有介绍，如果此时child.dispatchTouchEvent返回值是true，即消费事件，那么当前这个ViewGroup就有了目标，就是当前这个child,同样，当前ViewGroup的父View就也有目标，就是当前这个ViewGroup，如果循环，我们就知道了，要消费事件的目标是谁。<br />
+也就是说：在down事件发生时，系统会确定点击的目标是谁，一但确定了目标，当move事件发生时，系统会直接将事件交给目标来执行：<br />
+<table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+	<tr>
+	<td style="width: 568px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // 将坐标换算成点击目标的坐标<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>final</strong> <strong>float</strong> xc = scrolledXFloat - (<strong>float</strong>) target.mLeft;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>final</strong> <strong>float</strong> yc = scrolledYFloat - (<strong>float</strong>) target.mTop;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ev.setLocation(xc, yc);<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>return</strong> target.dispatchTouchEvent(ev);</td>
+	</tr>
+</tbody>
+</table>
+&nbsp;<br />
+至此，标准模型中事件的传递和消费的代码逻辑就分析完了，知道了这些原理以后，在日常的工作和学习当中，就不会再有陌人摸象的感觉，对于事件的处理，就可以得心应手，甚至改变默认的处理机制，达到一些很神奇的效果。这也是android开源的魅力所在，让我们可以尽情的去研究他的原理，从而灵活应用，达到自己想要的效果。<br />
+<br />
+<br />
+<br />
+<span style="color: rgb(112, 112, 112); font-family: arial, 微软雅黑, 'Microsoft Yahei', 'Hiragino Sans GB', 宋体, 宋体, Tahoma, Arial, Helvetica, STHeiti; font-size: 14px; line-height: 26px;">本文版权归传智播客<a href="../../android/index.htm" tppabs="http://www.itcast.cn/android/" style="text-decoration: none; outline: none; color: rgb(51, 51, 51);">Android培训</a>学院所有，欢迎转载，转载请注明作者出处。谢谢！</span><br style="color: rgb(112, 112, 112); font-family: arial, 微软雅黑, 'Microsoft Yahei', 'Hiragino Sans GB', 宋体, 宋体, Tahoma, Arial, Helvetica, STHeiti; font-size: 14px; line-height: 26px;" />
+<span style="color: rgb(112, 112, 112); font-family: arial, 微软雅黑, 'Microsoft Yahei', 'Hiragino Sans GB', 宋体, 宋体, Tahoma, Arial, Helvetica, STHeiti; font-size: 14px; line-height: 26px;">作者：传智播客Android培训</span><span style="color: rgb(112, 112, 112); font-family: arial, 微软雅黑, 'Microsoft Yahei', 'Hiragino Sans GB', 宋体, 宋体, Tahoma, Arial, Helvetica, STHeiti; font-size: 14px; line-height: 26px;">学院</span><br style="color: rgb(112, 112, 112); font-family: arial, 微软雅黑, 'Microsoft Yahei', 'Hiragino Sans GB', 宋体, 宋体, Tahoma, Arial, Helvetica, STHeiti; font-size: 14px; line-height: 26px;" />
+<span style="color: rgb(112, 112, 112); font-family: arial, 微软雅黑, 'Microsoft Yahei', 'Hiragino Sans GB', 宋体, 宋体, Tahoma, Arial, Helvetica, STHeiti; font-size: 14px; line-height: 26px;">首发：</span><a href="../../android/index.htm" tppabs="http://www.itcast.cn/android/" style="text-decoration: none; outline: none; color: rgb(51, 51, 51); font-family: arial, 微软雅黑, 'Microsoft Yahei', 'Hiragino Sans GB', 宋体, 宋体, Tahoma, Arial, Helvetica, STHeiti; font-size: 14px; line-height: 26px;">http://www.itcast.cn/android/</a><br style="color: rgb(112, 112, 112); font-family: arial, 微软雅黑, 'Microsoft Yahei', 'Hiragino Sans GB', 宋体, 宋体, Tahoma, Arial, Helvetica, STHeiti; font-size: 14px; line-height: 26px;" />
+<br />
+&nbsp;<br />
+
+				</div>
+				<!--百度分享代码-->
+				<!-- 百度分享代码 -->
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+				<!--百度分享代码-->
+			</div>
+			<div class="sub_r">
+				<!--通用页面右侧广告位 S-->
+				<div class="slideBox slide_global" id="slideBox">
+<div class="hd">
+<ul>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+<li><a href="../../subject/ioszly/index.shtml-zh101.htm" tppabs="http://www.itcast.cn/subject/ioszly/index.shtml?zh101" target="_blank"><img src="../../files/image/201605/20160530093223750.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093223750.jpg" style="height: 230px; width: 300px" /></a></li>
+<li><a href="../../subject/czly/index.shtml-zx102.htm" tppabs="http://www.itcast.cn/subject/czly/index.shtml?zx102" target="_blank"><img src="../../files/image/201605/20160530093440597.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093440597.jpg" style="height: 230px; width: 300px" /></a></li>
+<li><a href="../../subject/phpzly/index.shtml-zx102.htm" tppabs="http://www.itcast.cn/subject/phpzly/index.shtml?zx102" target="_blank"><img src="../../files/image/201605/20160530093524255.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093524255.jpg" style="height: 230px; width: 300px" /></a></li>
+</ul>
+</div>
+</div>
+
+				<!--通页面右侧广告位 E-->
+				<div class="sub_list">
+					<!--内容详情页右侧新闻推荐-->
+					<ul>
+<li><a class="a_default" href="17131779766.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/17131779766.shtml">17个提升iOS开发效率的必用工具</a></li>
+<li><a class="a_default" href="16403185293.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/16403185293.shtml">Linux系统动态库加载过程分析</a></li>
+<li><a class="a_default" href="15142937279.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/15142937279.shtml">微信公众号与原生app几点见解</a></li>
+<li><a class="a_default" href="13121067974.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/13121067974.shtml">Android系统触摸事件三步曲</a></li>
+<li><a class="a_default" href="../20151229/17185946419.shtml.htm" tppabs="http://www.itcast.cn/news/20151229/17185946419.shtml">教你使用AI绘制一组清新简约的微图标</a></li>
+</ul>
+
+					<!--内容详情页右侧新闻推荐-->					
+				</div>
+			</div>
+		</div>
+
+	<!-- main  E -->
+	</div>
+	
+	<!-- 底部  S -->
+	<div class="footer">
+		<!--  底部列表区  -->
+		<div class="foot_ch about">
+<div class="div_list">
+<h3>关于我们</h3>
+<ul>
+<li><a class="a_gd" href="../../channel/about/about.shtml.htm" tppabs="http://www.itcast.cn/channel/about/about.shtml" target="_blank">传智简介</a></li>
+<li><a class="a_gd" href="../../subject/zhaopin/index.shtml.htm" tppabs="http://www.itcast.cn/subject/zhaopin/index.shtml" target="_blank">加入传智</a><!--<li><a class="a_gd" href="/channel/about/about.shtml" target="_blank">联系传智</a></li>--></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>旗下品牌</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.itheima.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.itheima.com/'" tppabs="http://www.itheima.com/">黑马程序员</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">博学谷</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.funit.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.funit.cn/'" tppabs="http://www.funit.cn/" target="_blank">趣IT</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>校区攻略</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85619-1-1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/thread-85619-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85619-1-1.html" target="_blank">校区环境</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85619-1-1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/thread-85619-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85619-1-1.html" target="_blank">住宿攻略</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85797-1-1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/thread-85797-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85797-1-1.html" target="_blank">来校路线</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>学习资源</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://v.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://v.itcast.cn/'" tppabs="http://v.itcast.cn/" target="_blank">资源下载</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://open.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://open.itcast.cn/'" tppabs="http://open.itcast.cn/" target="_blank">公开课</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">云课堂</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>传智故事</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://i.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://i.itcast.cn/'" tppabs="http://i.itcast.cn/" target="_blank">学员故事</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7'" tppabs="http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7" target="_blank">科技喵喵喵</a></li>
+</ul>
+</div>
+<div class="div_list div_wx">
+<div style="margin-right: 30px"><img src="../../images/wx_cz.jpg" tppabs="http://www.itcast.cn/images/wx_cz.jpg" />
+<p>传智播客官方微信</p>
+</div>
+<div><img src="../../images/wx_hm.jpg" tppabs="http://www.itcast.cn/images/wx_hm.jpg" />
+<p>黑马程序员官方微信</p>
+</div>
+</div>
+</div>
+
+		<!--  底部列表区  -->
+		<!--  底部版权区  -->
+		<div class="foot_ch add">
+<h2><img alt="传智播客" src="../../images/logo3.png" tppabs="http://www.itcast.cn/images/logo3.png" width="145" /></h2>
+<p>版权所有 2006 - 2017 北京传智播客教育科技有限公司&nbsp;&nbsp;&nbsp;地址：北京市昌平区建材城西路金燕龙办公楼一层&nbsp;&nbsp;&nbsp;邮编：100096<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_4617777'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/stat.php%3Fid%3D4617777%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "../../../hm.baidu.com/hm.js-0cb375a2e834821b74efffa6c71ee607"/*tpa=http://hm.baidu.com/hm.js?0cb375a2e834821b74efffa6c71ee607*/;
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "../../../hm.baidu.com/hm.js-afb28582a41ea001acfa11b256c2e188"/*tpa=https://hm.baidu.com/hm.js?afb28582a41ea001acfa11b256c2e188*/;
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><br />
+电话：400-618-4000&nbsp;&nbsp;&nbsp;邮箱: zhanghj@itcast.cn&nbsp;&nbsp;&nbsp;<a href="javascript:if(confirm('http://www.miitbeian.gov.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.miitbeian.gov.cn/'" tppabs="http://www.miitbeian.gov.cn/" style="color:#333;" target="_blank">京ICP备08001421号</a>&nbsp;&nbsp;&nbsp;京公网安备110108007702</p>
+<ul>
+<li><a href="javascript:if(confirm('http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn'" tppabs="http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn" target="_blank"><img src="../../images/360.jpg" tppabs="http://www.itcast.cn/images/360.jpg" /></a></li>
+<li><a href="javascript:if(confirm('http://t.knet.cn/index_new.jsp  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://t.knet.cn/index_new.jsp'" tppabs="http://t.knet.cn/index_new.jsp" target="_blank"><img src="../../images/chengxin.jpg" tppabs="http://www.itcast.cn/images/chengxin.jpg" /></a></li>
+<li><a href="javascript:if(confirm('http://www.bj.cyberpolice.cn/index.do  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.bj.cyberpolice.cn/index.do'" tppabs="http://www.bj.cyberpolice.cn/index.do" target="_blank"><img src="../../images/safe.jpg" tppabs="http://www.itcast.cn/images/safe.jpg" /></a></li>
+</ul>
+</div>
+<br />
+
+		<!--  底部版权区  -->
+	</div>
+	<!-- 底部  E -->
+</div>
+<!-- 全局js -->
+<script src="../../js/jquery-1.7.2.min.js" tppabs="http://www.itcast.cn/js/jquery-1.7.2.min.js"></script> 
+<script src="../../js/global.js" tppabs="http://www.itcast.cn/js/global.js"></script>
+<!-- ie7error提示 -->
+<style type="text/css">
+#ie7-warning{background:rgb(255,255,225); position:absolute; top:0; left:0; font-size:12px; color:#333; width:100%; padding:5px 0; text-align:center; z-index:99999; }
+</style>
+<!--[if lte IE 7]>
+<div id="ie7-warning">您正在使用 Internet Explorer 7，在本页面的显示效果可能有差异。建议您升级到 <a href="javascript:if(confirm('http://www.microsoft.com/china/windows/internet-explorer/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.microsoft.com/china/windows/internet-explorer/'" tppabs="http://www.microsoft.com/china/windows/internet-explorer/" target="_blank">Internet Explorer 8</a> 或以下浏览器： <a href="javascript:if(confirm('http://www.mozillaonline.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.mozillaonline.com/'" tppabs="http://www.mozillaonline.com/">Firefox</a> / <a href="javascript:if(confirm('http://www.google.com/chrome/?hl=zh-CN  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.google.com/chrome/?hl=zh-CN'" tppabs="http://www.google.com/chrome/?hl=zh-CN">Chrome</a> / <a href="javascript:if(confirm('http://www.apple.com.cn/safari/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.apple.com.cn/safari/'" tppabs="http://www.apple.com.cn/safari/">Safari</a> / <a href="javascript:if(confirm('http://www.operachina.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.operachina.com/'" tppabs="http://www.operachina.com/">Opera</a>
+</div>
+<script type="text/javascript">
+	function position_fixed(el, eltop, elleft){ 
+	if(!window.XMLHttpRequest) 
+		window.onscroll = function(){ 
+		el.style.top = (document.documentElement.scrollTop + eltop)+"px"; 
+		el.style.left = (document.documentElement.scrollLeft + elleft)+"px"; 
+		} 
+		else el.style.position = "fixed"; 
+		}
+		position_fixed(document.getElementById("ie7-warning"),0, 0);
+</script>
+<![endif]-->
+ 
+<!-- 十大学科咨询 -->
+<link rel="stylesheet" type="text/css" href="../../css/zx.css" tppabs="http://www.itcast.cn/css/zx.css"/>
+<!-- 十大学科咨询--> 
+<div class="zx">
+	<ul>
+		<li class="li_1">
+			<a href="javascript:if(confirm('http://d.itcast.cn/3  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://d.itcast.cn/3'" tppabs="http://d.itcast.cn/3" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>在线咨询</p>	
+			</a>
+		</li>
+		<li class="li_qq">
+			<a href="javascript:if(confirm('http://d.itcast.cn/3  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://d.itcast.cn/3'" tppabs="http://d.itcast.cn/3" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>QQ咨询</p>	
+			</a>							
+		</li>
+		<li class="li_2 li_qq">
+			<a href="javascript:if(confirm('http://d.itcast.cn/t  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://d.itcast.cn/t'" tppabs="http://d.itcast.cn/t" target="_blank"> 
+				<span class="icon_s">&nbsp;</span>
+				<p>匿名咨询</p>	 
+			</a>							 
+		</li>				
+		<li class="li_4">
+			<a href="../../channel/flow.shtml.htm" tppabs="http://www.itcast.cn/channel/flow.shtml" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>在线报名</p>	
+			</a>						
+		</li>	
+		<li class="li_5 li_gd">
+			<span class="icon_s">&nbsp;</span>
+			<p>电话咨询</p>
+			<div>
+				<p>400-618-4000</p>
+			</div>
+		</li>												
+		<li class="li_6" id="back">
+			<a href="javascript:void(0);">
+				<span class="icon_s">&nbsp;</span>
+				<p>返回顶部</p>	
+			</a>						
+		</li>				
+	</ul>
+</div>	
+<script src="../../js/zx.js" tppabs="http://www.itcast.cn/js/zx.js"></script>
+<script src="../../js/jquery.SuperSlide.2.1.1.js" tppabs="http://www.itcast.cn/js/jquery.SuperSlide.2.1.1.js"></script> 
+<script src="../../js/other.js" tppabs="http://www.itcast.cn/js/other.js"></script>
+</body>
+</html>

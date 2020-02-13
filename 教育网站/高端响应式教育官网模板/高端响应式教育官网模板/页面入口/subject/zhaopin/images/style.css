@@ -1,0 +1,101 @@
+@charset "utf-8";
+/*-------------初始化----------------*/
+/****  文字大小初始化,使1em=10px *****/
+body{font-size:62.5%; min-width: 1000px;}/* for IE/Win */
+html>body{font-size:12px;} /* for everything else */
+/*字体边框等初始化*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,tr,th,td,img{padding:0; margin:0; font-size:12px;}
+table{border-collapse:collapse; border-spacing:0;}
+fieldset,img,input{border:0;}
+address,caption,cite,code,dfn,th,var{font-weight:normal; font-style:normal;}
+ol,ul,li{list-style:none; vertical-align:top;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-weight:normal; font-size:100%;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;}
+a{text-decoration:none; outline:none;}
+a img{border:none;}/*for IE*/
+a:active{star:expression(this.onFocus=this.blur());}/*点击虚框去除*/
+/*--------------end------------*/
+body{background:url("bg.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/bg.png*/); font-size:14px; font-family:"微软雅黑"; color:#333;}
+
+/* banner */
+.banner{width: 100%; height: 760px; overflow: hidden;}
+.banner .inner{width:1000px; height:760px; margin:0 auto; position: relative;}
+.banner .inner img{position: absolute;}
+.banner .inner .img1{top:0; z-index: 9; right:0;}
+.banner .inner .img2{top:45px; left: 0;}
+.banner .inner .img3{left: 280px; top:150px; z-index:9;}
+.banner .inner .img4{left: 176px; bottom:194px; z-index:10;}
+
+/* banner */
+
+/* main */
+.box{width:100%; overflow:hidden; padding:45px 0;}
+.box .inner{width:1000px; margin:0 auto; overflow:hidden;}
+.box h2{height:30px; background:url("h1_bg.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/h1_bg.png*/) no-repeat center top; padding-top:80px; margin-bottom: 90px;  border-bottom:1px solid #ccc; text-align:center;}
+.box h2 p{font-size:36px; line-height:56px; color:#900; text-align:center; background:url("bg.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/bg.png*/); display:inline-block; padding:0 10px;}
+.box1 ul {width: 1100px; overflow: hidden; -webkit-perspective: 10000px; -moz-perspective: 10000px; perspective: 10000px; }
+.box1 ul li {width:333px; height:256px; margin-right:1px; float:left; text-transform: uppercase; text-align: center; position: relative; }
+.box1 ul li .normal{position: absolute; top: 0; left: 0; -webkit-backface-visibility: hidden; backface-visibility: hidden; transition: -webkit-transform .5s,opacity .5s;
+transition: transform .5s, opacity .5s; -webkit-transform: rotateY(0); -ms-transform: rotateY(0); transform: rotateY(0); -o-transform: rotateY(0); opacity: 1; filter:alpha(opacity=100);}
+.box1 ul li .staff{position: absolute; top: 0; left: 0; transition: -webkit-transform .5s ,opacity .5s; transition: transform .5s ,opacity .5s;
+-ms-transition: transform .5s ,opacity .5s; -webkit-transform: rotateY(-180deg); -ms-transform: rotateY(-180deg); transform: rotateY(-180deg); -moz-transform: rotateY(-180deg); -o-transform: rotateY(-180deg);
+opacity: 0; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: none\9; filter:alpha(opacity=0);}
+.box1 ul li:hover .normal{-webkit-transform: rotateY(-180deg); -ms-transform: rotateY(-180deg); transform: rotateY(-180deg); -o-transform: rotateY(-180deg); -moz-transform: rotateY(-180deg);opacity: 0; filter:alpha(opacity=0);}
+.box1 ul li:hover .staff{-webkit-transform: rotateY(0); -ms-transform: rotateY(0); transform: rotateY(0); -o-transform: rotateY(0); display: block\9; opacity: 1;
+filter:alpha(opacity=100);}
+
+.box2 h2{background-image:url("h2_bg.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/h2_bg.png*/);}
+/* .box2 ul{width:1000px; height:156px; background:url(js_bg.jpg) no-repeat; border-top:1px solid #ccc; border-bottom:1px solid #ccc;}
+.box2 ul li{float:left; width:166px; line-height: 156px; font-size: 28px; text-align: center; font-family: "新宋体"; height:156px; cursor:pointer; position:relative;}
+ */
+.box2 ul{width:500px; height:156px; border-top:1px solid #ccc; border-bottom:1px solid #ccc; margin:0 auto;}
+.box2 ul li{float:left; width:166px; line-height: 156px; border-right:1px solid #ccc; font-size: 28px; text-align: center; font-family: "新宋体"; height:156px; cursor:pointer; position:relative;}
+
+.box2 ul li span{display:none; width:15px; height:12px; background:url("arrow.jpg"/*tpa=http://www.itcast.cn/subject/zhaopin/images/arrow.jpg*/) no-repeat; position:absolute; bottom:-10px; left:80px; z-index:15;}
+.box2 ul li.cur{color:#900;}
+.box2 ul li:hover{color:#900; font-weight: bold;}
+.box2 ul li.cur span{display:block;}
+.box2 ul li.zh{font-size: 24px;}
+.box2 .tertxt .ter{display:none; background:url("hero.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/hero.png*/) no-repeat right bottom; margin-bottom:30px;}
+.box2 .tertxt .current{display:block;}
+.box2 .tertxt .ter h3{font-size:24px; line-height:110px;}
+.box2 .tertxt .ter span{font-size:14px; line-height:30px;}
+.box2 .tertxt .ter p{font-size:14px; line-height:30px; text-indent:2em;}
+.box2 .tertxt .ter p.plast{text-indent:0;}
+
+.box3 h2{background-image:url("h3_bg.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/h3_bg.png*/);}
+.box3 .inner{background:url("tuteng.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/tuteng.png*/) no-repeat right bottom;}
+.box3 h3{font-size:24px; padding-bottom:30px;}
+.box3 p{font-size:14px; line-height:30px; padding-bottom:60px;}
+
+.box4 h2{background-image:url("h4_bg.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/h4_bg.png*/);}
+.box4 ul{width:1010px; overflow:hidden;}
+.box4 ul li{float:left; width:332px; height:219px; border-bottom:1px solid #ccc; background:url("ter1.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/ter1.png*/) no-repeat left bottom;}
+.box4 ul li h3{height:43px; background:url("title_bg.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/title_bg.png*/) no-repeat 185px top; line-height:48px; font-size:18px; text-align:center;}
+.box4 ul li p{height:340px; border-right:1px solid #ccc; font-size:16px; line-height:30px; text-align:center; padding-top:40px;}
+.box4 ul li.li2{background-image:url("ter2.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/ter2.png*/);}
+.box4 ul li.li3{background-image:url("ter3.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/ter3.png*/);}
+.box4 ul li.li3 p{border-right:0;}
+.box4 .pro{font-size:15px; text-align:center; padding-top:20px;}
+
+.box5 .inner{position:relative;}
+.box5 h2{background-image:url("h5_bg.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/h5_bg.png*/); margin-bottom:120px;}
+.box5 img{padding-left:122px; display:block; margin-top:20px;}
+.box5 .p1{position:absolute; font-size:14px; line-height:30px; padding:40px; width:194px; background:url("p_BG.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/p_BG.png*/) no-repeat; left:10px; bottom:45px;}
+.box5 .p2{right:0; top:421px; left:inherit;}
+
+.box6{padding-bottom:0;}
+.box6 h2{padding-top:0; background:none;}
+/* main */
+
+/* footer*/ 
+.footer{width:100%; background:#000 url("footbg.jpg"/*tpa=http://www.itcast.cn/subject/zhaopin/images/footbg.jpg*/) no-repeat center top; padding:153px 0 35px 0;}
+.footer .foot{width:1000px; margin:0 auto;}
+.footer .foot p{color:#999; font-size:12px; line-height:30px; text-align:center;}
+
+#back{display:none; width:28px; text-align:center; border:1px solid #aaa; padding:3px 0 6px 0; border-radius:3px; background:#fff; font-size:10px; color:#aaa; text-decoration:none; position: absolute; left:50%; margin-left:580px; bottom:60px; cursor: pointer; height: 50px; overflow: hidden;}
+
+.zx{width: 80px; height: 263px; position: fixed; right: 0; top: 50%; margin-top: -181px; background: url("mazx.png"/*tpa=http://www.itcast.cn/subject/zhaopin/images/mazx.png*/) no-repeat;}
+.zx a{display: block; width: 80px; height: 263px;}

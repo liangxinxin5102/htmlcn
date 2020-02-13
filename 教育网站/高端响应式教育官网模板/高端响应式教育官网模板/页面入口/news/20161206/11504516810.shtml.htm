@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset=utf-8"utf-8">
+<meta name="keywords" content="前端培训,HTML培训" />
+<meta name="description" content="前言:框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法(工厂模式，适配器模式，单例模式，观察者模式 。。。 。。。)，他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式，切不要把他们的关系搞混。" />
+<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" /> 
+<link rel="stylesheet" type="text/css" href="../../css/reset.css" tppabs="http://www.itcast.cn/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/style.css" tppabs="http://www.itcast.cn/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/other.css" tppabs="http://www.itcast.cn/css/other.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/banner.css" tppabs="http://www.itcast.cn/css/banner.css"/>
+<title>前端培训之浅谈框架模式(MVC MVP MVVM)（一）</title>
+<body>
+<div class="wrapper"> 
+	<!-- 快速通道 topbar S -->
+	<!-- 头部通用快速通道 -->
+<div class="topbar">
+	<div class="inner">
+		<div class="top_l">
+			<p>传智播客旗下品牌：&nbsp; <a href="javascript:if(confirm('http://www.itheima.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.itheima.com/'" tppabs="http://www.itheima.com/" target="_blank">黑马程序员</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">博学谷</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.funit.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.funit.cn/'" tppabs="http://www.funit.cn/" target="_blank">趣IT</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.czxy.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.czxy.com/'" tppabs="http://www.czxy.com/" target="_blank">传智学院</a><!-- &nbsp; | &nbsp;<a href="http://www.kudingyu.com/" target="_blank">酷丁鱼</a> --></p>				
+		</div>
+		<div class="top_r">
+			<p class="slogan">改变中国IT教育，我们正在行动 &nbsp;&nbsp;&nbsp;&nbsp;全国咨询热线：<strong>400-618-4000</strong> </p>			
+		</div>
+	</div>
+</div>
+
+<!-- <a href="http://www.itcast.cn/ucenter/Login.html" target="_blank"><span style="color:#FFFFFF;">登录</span></a><span style="color:#FFFFFF;"> | </span><a href="http://www.itcast.cn/Ucenter/Register" target="_blank"><span style="color:#FFFFFF;">注册</span></a><span style="color:#FFFFFF;"> | </span><a href="http://www.itcast.cn/Ucenter/Register/vip" target="_blank"><span style="color:#FFFFFF;">VIP注册</span></a> -->	
+	<!-- 快速通道 topbar E --> 
+	
+	<!-- 首页导航区域 S -->
+	<div class="header">
+		<!-- 头部其他页面通用模板 -->
+<div class="header_con">
+	<div class="inner">
+		<h1><a href="../../index.htm" tppabs="http://www.itcast.cn/"><img src="../../images/logo.png" tppabs="http://www.itcast.cn/images/logo.png" alt="传智播客"/></a></h1>
+		<div class="nav">
+			<ul class="nav_li">
+				<li><a href="javascript:;" class="a_gd a_default a3_js">课程介绍</a></li>
+				<li><a href="javascript:;" class="a_gd a_default a_js">免费学习资源</a></li>
+				<li><a href="../../course.shtml.htm" tppabs="http://www.itcast.cn/course.shtml" class="a_gd a_default a2_js" target="_blank">课程中心</a></li>
+				<li><a href="javascript:if(confirm('http://www.czxy.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.czxy.com/'" tppabs="http://www.czxy.com/" class="a_gd a_default a2_js" target="_blank">传智学院</a></li>
+				<li><a href="javascript:if(confirm('http://i.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://i.itcast.cn/'" tppabs="http://i.itcast.cn/" class="a_gd a_default a2_js" target="_blank">学员故事</a></li>
+				<li><a href="javascript:if(confirm('http://bbs.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/'" tppabs="http://bbs.itcast.cn/" class="a_gd a_default a2_js" target="_blank">传智论坛</a></li>
+				<!-- <li><a href="http://www.funit.cn/" class="a_gd a_default a2_js" target="_blank">趣IT</a></li> -->
+				<!-- <li><a href="http://d.itcast.cn/s" class="a_gd a_default a2_js" target="_blank">在线课堂</a></li> -->
+				<!--<li><a href="http://www.itcast.cn/subject/onair/index.shtml?nav" class="a_gd a_default a2_js" target="_blank" style="color:#f00;">教学直播间<span style="position:relative; bottom:6px;"><img src="/images/hot.gif" style="display:inline-block;" /></span></a></li> -->
+			</ul>
+		</div>
+		<div class="school_btn">
+			    <span>全国校区 <i class="iconfont sfont">&#xe609;</i></span>
+  		   			
+
+			<p class="linebg"></p>
+			<ul>
+				<li><a href="../../index.htm" tppabs="http://www.itcast.cn/" class="a_gd a_default">北京校区</a></li>
+<li><a href="javascript:if(confirm('http://sh.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://sh.itcast.cn/'" tppabs="http://sh.itcast.cn/" class="a_gd a_default">上海校区</a></li>
+<li><a href="javascript:if(confirm('http://gz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://gz.itcast.cn/'" tppabs="http://gz.itcast.cn/" class="a_gd a_default">广州校区</a></li>
+<li><a href="javascript:if(confirm('http://sz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://sz.itcast.cn/'" tppabs="http://sz.itcast.cn/" class="a_gd a_default">深圳校区</a></li>
+<li><a href="javascript:if(confirm('http://wh.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://wh.itcast.cn/'" tppabs="http://wh.itcast.cn/" class="a_gd a_default">武汉校区</a></li>
+<li><a href="javascript:if(confirm('http://zz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://zz.itcast.cn/'" tppabs="http://zz.itcast.cn/" class="a_gd a_default">郑州校区</a></li>
+<li><a href="javascript:if(confirm('http://xa.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://xa.itcast.cn/'" tppabs="http://xa.itcast.cn/" class="a_gd a_default">西安校区</a></li>
+<li><a href="javascript:if(confirm('http://heb.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://heb.itcast.cn/'" tppabs="http://heb.itcast.cn/" class="a_gd a_default">哈尔滨校区</a></li>
+<li><a href="javascript:if(confirm('http://cs.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://cs.itcast.cn/'" tppabs="http://cs.itcast.cn/" class="a_gd a_default">长沙校区</a></li>
+<li><a href="javascript:if(confirm('http://jn.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://jn.itcast.cn/'" tppabs="http://jn.itcast.cn/" class="a_gd a_default">济南校区</a></li>
+<li><a href="javascript:if(confirm('http://cq.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://cq.itcast.cn/'" tppabs="http://cq.itcast.cn/" class="a_gd a_default">重庆校区</a></li>
+<li><a href="javascript:if(confirm('http://nj.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://nj.itcast.cn/'" tppabs="http://nj.itcast.cn/" class="a_gd a_default">南京校区</a></li>
+<li><a href="javascript:if(confirm('http://hz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://hz.itcast.cn/'" tppabs="http://hz.itcast.cn/" class="a_gd a_default">杭州校区</a></li>
+<li><a href="javascript:if(confirm('http://cd.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://cd.itcast.cn/'" tppabs="http://cd.itcast.cn/" class="a_gd a_default">成都校区</a></li>
+<li><a href="javascript:if(confirm('http://sjz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://sjz.itcast.cn/'" tppabs="http://sjz.itcast.cn/" class="a_gd a_default">石家庄校区</a></li>
+	 			
+			</ul>	
+		</div>
+		<div class="bmbtn"><a href="../../channel/flow.shtml.htm" tppabs="http://www.itcast.cn/channel/flow.shtml" class="a_gd" target="_blank">报名流程</a> </div>			
+		<!-- <a href="http://home.itheima.com/" class="new2016" target="_blank" style="position:absolute; top:40px; right:288px; width:188px; display:block;"><img src="/images/2016.gif" /> -->
+	</div>
+</div>
+<div class="fdnav fdfree">
+	<ul>
+		<li> <a href="javascript:if(confirm('http://open.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://open.itcast.cn/'" tppabs="http://open.itcast.cn/" class="a_gd a_default" target="_blank"> <img src="../../images/openbg.jpg" tppabs="http://www.itcast.cn/images/openbg.jpg"/> <span>公开课</span> </a> </li>
+		<li class="li_s"> <a href="javascript:if(confirm('http://v.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://v.itcast.cn/'" tppabs="http://v.itcast.cn/" class="a_gd a_default" target="_blank"> <img src="../../images/kubg.jpg" tppabs="http://www.itcast.cn/images/kubg.jpg"/> <span>视频库</span> </a> </li>
+		<li> <a href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" class="a_gd a_default" target="_blank"> <img src="../../images/yunbg.jpg" tppabs="http://www.itcast.cn/images/yunbg.jpg"/> <span>云课堂</span> </a> </li>
+		<li> <a href="javascript:if(confirm('http://bbs.itcast.cn/plugin.php?id=tiny_mall  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/plugin.php?id=tiny_mall'" tppabs="http://bbs.itcast.cn/plugin.php?id=tiny_mall" class="a_gd a_default" target="_blank"> <img src="../../images/studybg.jpg" tppabs="http://www.itcast.cn/images/studybg.jpg"/> <span>学习光盘</span> </a> </li>		
+		<li> <a href="../../subject/book/index.shtml.htm" tppabs="http://www.itcast.cn/subject/book/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/bybg.jpg" tppabs="http://www.itcast.cn/images/bybg.jpg"/> <span>原创教材</span> </a> </li>
+		<li class="li_last"> <a href="javascript:if(confirm('http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21'" tppabs="http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21" class="a_gd a_default" target="_blank"> <img src="../../images/tkbg.jpg" tppabs="http://www.itcast.cn/images/tkbg.jpg" /> <span>传智特刊</span> </a> </li>
+	</ul>
+</div>
+<div class="fdnav fdcourse">
+	<ul>
+		<li> <a href="../../subject/javaeezly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/javaeezly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/java_icon.jpg" tppabs="http://www.itcast.cn/images/course/java_icon.jpg"/> <span>JavaEE</span> </a> </li>
+		<li> <a href="../../subject/androidzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/androidzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/android_icon.jpg" tppabs="http://www.itcast.cn/images/course/android_icon.jpg"/> <span>Android</span> </a> </li>
+		<li> <a href="../../subject/phpzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/phpzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/php_icon.jpg" tppabs="http://www.itcast.cn/images/course/php_icon.jpg"/> <span>PHP</span> </a> </li>
+		<li> <a href="../../subject/uizly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/uizly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/ui_icon.jpg" tppabs="http://www.itcast.cn/images/course/ui_icon.jpg"/> <span>UI设计</span> </a> </li>
+		<li> <a href="../../subject/ioszly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/ioszly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/ios_icon.jpg" tppabs="http://www.itcast.cn/images/course/ios_icon.jpg"/> <span>iOS</span> </a> </li>
+		<li> <a href="../../subject/webzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/webzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/web_icon.jpg" tppabs="http://www.itcast.cn/images/course/web_icon.jpg"/> <span>前端与移动开发</span> </a> </li>
+		<li> <a href="../../subject/czly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/czly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/c_icon.jpg" tppabs="http://www.itcast.cn/images/course/c_icon.jpg"/> <span>C/C++</span> </a> </li>
+		<li> <a href="../../subject/mzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/mzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/m_icon.jpg" tppabs="http://www.itcast.cn/images/course/m_icon.jpg"/> <span>网络营销</span> </a> </li>
+		<li> <a href="../../subject/pythonzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/pythonzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/python_icon.jpg" tppabs="http://www.itcast.cn/images/course/python_icon.jpg"/> <span>Python</span> </a> </li>
+		<li> <a href="../../subject/cloudzly/index.html" tppabs="http://www.itcast.cn/subject/cloudzly/index.html" target="_blank" class="a_gd a_default"> <img src="../../images/course/yun_icon.jpg" tppabs="http://www.itcast.cn/images/course/yun_icon.jpg"/> <span>云计算之大数据</span> </a> </li>
+		<li class="li_last"> <a href="../../subject/stackzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/stackzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/stack_icon.jpg" tppabs="http://www.itcast.cn/images/course/stack_icon.jpg"/> <span>全栈工程师</span> </a> </li>
+		
+	</ul>
+</div>
+	</div>
+	<!-- 首页导航区域 E --> 	
+	<div class="graybg">
+	<!-- main  S -->
+		<!--面包屑   S-->
+		<div class="bread_nav">
+			<div class="inner">
+				<i class="iconfont home">&#xe607;</i><a href="../../index.htm" tppabs="http://www.itcast.cn/">首页</a><i class="iconfont right_arrow">&#xe614;</i><a href="javascript:;">公司动态</a><i class="iconfont right_arrow">&#xe614;</i><a href="">技术文章</a>
+			</div>
+		</div>
+		<!--面包屑  S-->				
+		<div class="sub_con">				
+			<div class="sub_l">
+				<h1 class="sub_tt">前端培训之浅谈框架模式(MVC MVP MVVM)（一）</h1>
+				<p class="time">更新时间:2016年12月06日11时50分 来源:传智播客web前端培训学院</p>
+				<div class="sub_txt">
+					 <strong>前言:框架模式不是一门写代码的学问，而是一门管理与组织代码的学问。其本质是一种软件开发的模型。与设计模式不同，设计模式是在解决一类问题时总结抽象出的公共方法(工厂模式，适配器模式，单例模式，观察者模式</strong>&nbsp;<strong>。。。&nbsp;。。。)，他们与某种具体的技术栈无关。一种框架模式往往使用了多种设计模式，切不要把他们的关系搞混。</strong><br />
+更多信息可以看看这本<a href="javascript:if(confirm('http://web.jobbole.com/89314/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://web.jobbole.com/89314/#marionettejs-backbone.marionette'" tppabs="http://web.jobbole.com/89314/#marionettejs-backbone.marionette">《Developing Backbone Application》</a><br />
+<h3><strong>一代目: 脚本式设计(无架构设计):</strong><img alt="" src="../../files/image/201612/20161206114207108.jpg" tppabs="http://www.itcast.cn/files/image/201612/20161206114207108.jpg" style="width: 500px; height: 375px" /></h3>
+<br />
+下面这样的代码，就是无任何设计模式的产物:<br />
+JavaScript<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9</td>
+	<td style="width: 581px">const a = document.createElement(&quot;a&quot;);<br />
+	a.innerHTML = &quot;www.google.com&quot;;<br />
+	a.href = &quot;//www.google.com&quot;;<br />
+	a.style.position = &quot;absolute&quot;;<br />
+	a.style.top = 100;<br />
+	a.onclick = function(){<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;google&quot;);<br />
+	}<br />
+	&nbsp;document.body.appendChild(a);</td>
+	</tr>
+</tbody>
+</table>
+&nbsp;<br />
+嗯嗯~先别吐槽，因为这种编码方式还是有他的优点的。<br />
+短短的几行代码，包含了创建，样式，绑定，插入。&nbsp;balabala。。。。。<br />
+这种搞法虽有不少缺点，但麻雀虽小五脏俱全，所有功能一应俱全。早些年由于UI程序还处在一个懵懂期，&nbsp;逻辑不算太复杂，代码量也不会太多。这样的搞法似乎也没有什么问题。&nbsp;<strong>毕竟到达A B两点最短的距离就是直线，上述代码可以说是实现某功能的最短路径。</strong>&nbsp;典型的例子就是 ASM (虽然汇编语言不是用来写UI的)，他们共有的缺点是 :入口单一&nbsp;功能简单&nbsp;不可维护<br />
+让我们修改一下上面的逻辑:<br />
+JavaScript<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9<br />
+	10<br />
+	11<br />
+	12<br />
+	13<br />
+	14<br />
+	15<br />
+	16<br />
+	17<br />
+	18</td>
+	<td style="width: 581px">function doCss(a) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;a.style.position = &quot;absolute&quot;;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;a.style.top = 100;<br />
+	}<br />
+	function doEvent(a) {<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;a.onclick = function(){<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(&quot;google&quot;);<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+	}<br />
+	function doAttribute(a){<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;a.innerHTML = &quot;www.google.com&quot;;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;a.href = &quot;//www.google.com&quot;;<br />
+	}<br />
+	const a = document.createElement(&quot;a&quot;);<br />
+	doCss(a);<br />
+	doEvent(a);<br />
+	doAttribute(a)<br />
+	document.body.appendChild(a);</td>
+	</tr>
+</tbody>
+</table>
+&nbsp;<br />
+这里我们将一个功能拆分成了3个部分，即外观 事件 和属性。<br />
+函数将他们重新分离成一个个独立的逻辑块，这样一定程度上达到了分离复用的目的，比如你想修改外观，就去doCss函数里去找。。。<br />
+就像有钱人追求更多的财富，权贵追求更多权利一样。<br />
+人类总在思考同一个问题，&nbsp;我们能不能做得更好。。<br />
+直到有一天。。。<br />
+<h3><strong>二代目: 代码文件分离(CodeBehind):</strong><img alt="" src="../../files/image/201612/20161206114230296.jpg" tppabs="http://www.itcast.cn/files/image/201612/20161206114230296.jpg" style="width: 500px; height: 313px" /></h3>
+<br />
+对asp。net尤其是webForm，winForm模式熟悉的同学，肯定对aspx 和 aspx。cs 这2种文件非常了解。<br />
+<img alt="" src="../../files/image/201612/20161206114254203.png" tppabs="http://www.itcast.cn/files/image/201612/20161206114254203.png" style="width: 500px; height: 150px" />&nbsp;&nbsp;&nbsp;&nbsp; <img alt="" src="../../files/image/201612/20161206114308875.png" tppabs="http://www.itcast.cn/files/image/201612/20161206114308875.png" style="width: 500px; height: 134px" /><br />
+aspx是视图文件，而对应的。cs文件是他的相关逻辑处理文件 事件驱动模式下，框架帮我们完成了基本的事件类型，我们要做的是在事件下完成相关业务逻辑。<br />
+在前端中，也可以找到二代目大人的影分身。。<br />
+JavaScript<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8</td>
+	<td style="width: 581px">&lt;html&gt;<br />
+	&lt;head&gt;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot; /&gt;<br />
+	&lt;/head&gt;<br />
+	&lt;body&gt;<br />
+	&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src=&quot;bundle.js&quot; &gt;&lt;/script&gt;<br />
+	&lt;/body&gt;<br />
+	&lt;/html&gt;</td>
+	</tr>
+</tbody>
+</table>
+&nbsp;<br />
+各文件各司其职，编写的时候分离，在运行的时候合并。这样进一步降低了功能之间的耦合度。&nbsp;视图看起来非常&rdquo;清爽&rdquo;，对应的逻辑也被分离成一个个文件，&nbsp;交由相应的开发人员处理。<br />
+如果你涉猎的技术范围很广，你会发现其实二代目大人已经出现在诸多成熟的技术栈中。。。。<br />
+<strong>但是，没过多久伊甸园欢乐的笑声被下面这个需求打破。。。</strong><br />
+<img alt="" src="../../files/image/201612/20161206114323813.png" tppabs="http://www.itcast.cn/files/image/201612/20161206114323813.png" style="width: 500px; height: 62px" /><br />
+为了实现他，在这里我只写伪代码了:<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5<br />
+	6<br />
+	7<br />
+	8<br />
+	9<br />
+	10<br />
+	11</td>
+	<td style="width: 581px">`购买苹果按钮`绑定事件如下:<br />
+	1.int 苹果数变量 + 1;<br />
+	2.显示苹果数控件的值 = 苹果数变量;<br />
+	&nbsp;<br />
+	`购买梨按钮`绑定事件如下:<br />
+	1.int 梨数变量 + 1;<br />
+	2.显示梨数控件的值 = 梨数变量;<br />
+	&nbsp;<br />
+	...`吃苹果`<br />
+	&nbsp;<br />
+	...`吃梨`</td>
+	</tr>
+</tbody>
+</table>
+&nbsp;<br />
+这里比较困难的是 第2步<br />
+就是如果显示苹果数的控件是另一个程序员开发的黑盒，&nbsp;<strong>如何修改其值</strong>?<br />
+于是程序员A&nbsp;去找&nbsp;程序员B&nbsp;寻求是否存在对应的&nbsp;get/set&nbsp;方法。<br />
+程序员B说<strong>有</strong>，&nbsp;&ldquo;有&rdquo; 字还没落地，&nbsp;开发买梨的程序员C&nbsp;又踹门进来了，问了同样的问题，&nbsp;后来才知道 开发吃苹果功能的程序员D正在路上。。。<br />
+于是程序员B&nbsp;不得不把接口的详细信息写到 wiki中，&nbsp;于是&nbsp;程序员CDEFGHIJKMLN&nbsp;都看了wiki 懂了。<br />
+完成这件事&nbsp;程序员B&nbsp;写wiki 花了 10分钟，&nbsp;程序员CDEFGHIJKMLN&nbsp;看wiki每人花 1分钟，一共团队成本 20分钟。<br />
+于是 wiki中这个&nbsp;get/set&nbsp;接口函数出现在了<strong>每一个被绑定的函数里。一共4个button 出现4次</strong><br />
+<em>ps: </em><em>这个get/set接口本质上就是一个view刷新接口</em><br />
+<strong>事情仍在在酝酿:</strong><br />
+产品大爷发话了，要改成下面这样:<br />
+<img alt="" src="../../files/image/201612/20161206114338611.png" tppabs="http://www.itcast.cn/files/image/201612/20161206114338611.png" style="width: 500px; height: 87px" /><br />
+多了一个求和。<br />
+于是伪代码变成了这样:<br />
+<textarea></textarea><br />
+<table border="0" cellpadding="0">
+<tbody>
+	<tr>
+	<td>1<br />
+	2<br />
+	3<br />
+	4<br />
+	5</td>
+	<td style="width: 581px">`购买苹果按钮`绑定事件如下:<br />
+	1.int 苹果数变量 + 1;<br />
+	2.int 总和变量 = 苹果数变量 + 梨数变量;<br />
+	2.显示苹果数控件的值 = 苹果数变量;<br />
+	3.显示总和控件的值 = 总和变量;</td>
+	</tr>
+</tbody>
+</table>
+<p>这次&nbsp;程序员B为了人身安全，提前把&nbsp;get/set&nbsp;接口发布到了 wiki上。。<br />
+于是&nbsp;总和控件的值 = 总和变量&nbsp;这行代码出现了 4次。<br />
+<strong>产品存在的意义，就是将程序狗虐到极致:</strong><strong> </strong><br />
+于是需求改成了这样:<br />
+<img alt="" src="../../files/image/201612/20161206114351908.png" tppabs="http://www.itcast.cn/files/image/201612/20161206114351908.png" style="width: 500px; height: 87px" /><br />
+只是删了一行。<br />
+于是 4个函数中所有相关代码都被删除。。。&nbsp;共影响 4行代码。。<br />
+<strong>段子讲完了，其核心问题在于，按照事件进行的业务模块划分，有时候是不合理的，事件是用户行为的入口，但不是程序逻辑的入口。&nbsp;一个button的click就可能横跨N个领域，&nbsp;需要N个人来进行协作，&nbsp;这部分逻辑到最后还是会耦合在一起，通过各种函数封装进行解耦，无疑是扬汤止沸，而我们需要的是釜底抽薪</strong><br />
+（第一节结束）</p>
+<p><span style="widows: 1; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; font: 14px/26px 微软雅黑; white-space: normal; letter-spacing: normal; color: rgb(105,105,105); word-spacing: 0px; -webkit-text-stroke-width: 0px; font-stretch: normal"><span style="font-size: 16px"><span style="font-size: 12px">本文版权归传智播客<a href="../../web/index.htm" tppabs="http://www.itcast.cn/web/" style="outline-style: none; outline-color: invert; outline-width: medium; color: rgb(51,51,51); text-decoration: none">web前端开发</a>学院所有，欢迎转载，转载请注明作者出处，谢谢！</span></span></span><br style="widows: 1; text-transform: none; background-color: rgb(250,255,255); text-indent: 0px; font: 14px/26px 微软雅黑; white-space: normal; letter-spacing: normal; color: rgb(35,35,35); word-spacing: 0px; -webkit-text-stroke-width: 0px; font-stretch: normal" />
+<span style="widows: 1; text-transform: none; background-color: rgb(255,255,255); text-indent: 0px; font: 14px/26px 微软雅黑; white-space: normal; letter-spacing: normal; color: rgb(105,105,105); word-spacing: 0px; -webkit-text-stroke-width: 0px; font-stretch: normal"><span style="font-size: 16px"><span style="font-size: 12px">作者：传智播客web前端培训学院；<br />
+首发：<a href="../../web/index.htm" tppabs="http://www.itcast.cn/web/" style="outline-style: none; outline-color: invert; outline-width: medium; color: rgb(51,51,51); text-decoration: none">http://www.itcast.cn/web/</a></span></span></span></p>
+
+				</div>
+				<!--百度分享代码-->
+				<!-- 百度分享代码 -->
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+				<!--百度分享代码-->
+			</div>
+			<div class="sub_r">
+				<!--通用页面右侧广告位 S-->
+				<div class="slideBox slide_global" id="slideBox">
+<div class="hd">
+<ul>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+<li><a href="../../subject/ioszly/index.shtml-zh101.htm" tppabs="http://www.itcast.cn/subject/ioszly/index.shtml?zh101" target="_blank"><img src="../../files/image/201605/20160530093223750.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093223750.jpg" style="height: 230px; width: 300px" /></a></li>
+<li><a href="../../subject/czly/index.shtml-zx102.htm" tppabs="http://www.itcast.cn/subject/czly/index.shtml?zx102" target="_blank"><img src="../../files/image/201605/20160530093440597.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093440597.jpg" style="height: 230px; width: 300px" /></a></li>
+<li><a href="../../subject/phpzly/index.shtml-zx102.htm" tppabs="http://www.itcast.cn/subject/phpzly/index.shtml?zx102" target="_blank"><img src="../../files/image/201605/20160530093524255.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093524255.jpg" style="height: 230px; width: 300px" /></a></li>
+</ul>
+</div>
+</div>
+
+				<!--通页面右侧广告位 E-->
+				<div class="sub_list">
+					<!--内容详情页右侧新闻推荐-->
+					<ul>
+<li><a class="a_default" href="../20151228/17131779766.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/17131779766.shtml">17个提升iOS开发效率的必用工具</a></li>
+<li><a class="a_default" href="../20151228/16403185293.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/16403185293.shtml">Linux系统动态库加载过程分析</a></li>
+<li><a class="a_default" href="../20151228/15142937279.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/15142937279.shtml">微信公众号与原生app几点见解</a></li>
+<li><a class="a_default" href="../20151228/13121067974.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/13121067974.shtml">Android系统触摸事件三步曲</a></li>
+<li><a class="a_default" href="../20151229/17185946419.shtml.htm" tppabs="http://www.itcast.cn/news/20151229/17185946419.shtml">教你使用AI绘制一组清新简约的微图标</a></li>
+</ul>
+
+					<!--内容详情页右侧新闻推荐-->					
+				</div>
+			</div>
+		</div>
+
+	<!-- main  E -->
+	</div>
+	
+	<!-- 底部  S -->
+	<div class="footer">
+		<!--  底部列表区  -->
+		<div class="foot_ch about">
+<div class="div_list">
+<h3>关于我们</h3>
+<ul>
+<li><a class="a_gd" href="../../channel/about/about.shtml.htm" tppabs="http://www.itcast.cn/channel/about/about.shtml" target="_blank">传智简介</a></li>
+<li><a class="a_gd" href="../../subject/zhaopin/index.shtml.htm" tppabs="http://www.itcast.cn/subject/zhaopin/index.shtml" target="_blank">加入传智</a><!--<li><a class="a_gd" href="/channel/about/about.shtml" target="_blank">联系传智</a></li>--></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>旗下品牌</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.itheima.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.itheima.com/'" tppabs="http://www.itheima.com/">黑马程序员</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">博学谷</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.funit.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.funit.cn/'" tppabs="http://www.funit.cn/" target="_blank">趣IT</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>校区攻略</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85619-1-1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/thread-85619-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85619-1-1.html" target="_blank">校区环境</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85619-1-1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/thread-85619-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85619-1-1.html" target="_blank">住宿攻略</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85797-1-1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/thread-85797-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85797-1-1.html" target="_blank">来校路线</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>学习资源</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://v.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://v.itcast.cn/'" tppabs="http://v.itcast.cn/" target="_blank">资源下载</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://open.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://open.itcast.cn/'" tppabs="http://open.itcast.cn/" target="_blank">公开课</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">云课堂</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>传智故事</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://i.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://i.itcast.cn/'" tppabs="http://i.itcast.cn/" target="_blank">学员故事</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7'" tppabs="http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7" target="_blank">科技喵喵喵</a></li>
+</ul>
+</div>
+<div class="div_list div_wx">
+<div style="margin-right: 30px"><img src="../../images/wx_cz.jpg" tppabs="http://www.itcast.cn/images/wx_cz.jpg" />
+<p>传智播客官方微信</p>
+</div>
+<div><img src="../../images/wx_hm.jpg" tppabs="http://www.itcast.cn/images/wx_hm.jpg" />
+<p>黑马程序员官方微信</p>
+</div>
+</div>
+</div>
+
+		<!--  底部列表区  -->
+		<!--  底部版权区  -->
+		<div class="foot_ch add">
+<h2><img alt="传智播客" src="../../images/logo3.png" tppabs="http://www.itcast.cn/images/logo3.png" width="145" /></h2>
+<p>版权所有 2006 - 2017 北京传智播客教育科技有限公司&nbsp;&nbsp;&nbsp;地址：北京市昌平区建材城西路金燕龙办公楼一层&nbsp;&nbsp;&nbsp;邮编：100096<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_4617777'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/stat.php%3Fid%3D4617777%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "../../../hm.baidu.com/hm.js-0cb375a2e834821b74efffa6c71ee607"/*tpa=http://hm.baidu.com/hm.js?0cb375a2e834821b74efffa6c71ee607*/;
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "../../../hm.baidu.com/hm.js-afb28582a41ea001acfa11b256c2e188"/*tpa=https://hm.baidu.com/hm.js?afb28582a41ea001acfa11b256c2e188*/;
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><br />
+电话：400-618-4000&nbsp;&nbsp;&nbsp;邮箱: zhanghj@itcast.cn&nbsp;&nbsp;&nbsp;<a href="javascript:if(confirm('http://www.miitbeian.gov.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.miitbeian.gov.cn/'" tppabs="http://www.miitbeian.gov.cn/" style="color:#333;" target="_blank">京ICP备08001421号</a>&nbsp;&nbsp;&nbsp;京公网安备110108007702</p>
+<ul>
+<li><a href="javascript:if(confirm('http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn'" tppabs="http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn" target="_blank"><img src="../../images/360.jpg" tppabs="http://www.itcast.cn/images/360.jpg" /></a></li>
+<li><a href="javascript:if(confirm('http://t.knet.cn/index_new.jsp  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://t.knet.cn/index_new.jsp'" tppabs="http://t.knet.cn/index_new.jsp" target="_blank"><img src="../../images/chengxin.jpg" tppabs="http://www.itcast.cn/images/chengxin.jpg" /></a></li>
+<li><a href="javascript:if(confirm('http://www.bj.cyberpolice.cn/index.do  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.bj.cyberpolice.cn/index.do'" tppabs="http://www.bj.cyberpolice.cn/index.do" target="_blank"><img src="../../images/safe.jpg" tppabs="http://www.itcast.cn/images/safe.jpg" /></a></li>
+</ul>
+</div>
+<br />
+
+		<!--  底部版权区  -->
+	</div>
+	<!-- 底部  E -->
+</div>
+<!-- 全局js -->
+<script src="../../js/jquery-1.7.2.min.js" tppabs="http://www.itcast.cn/js/jquery-1.7.2.min.js"></script> 
+<script src="../../js/global.js" tppabs="http://www.itcast.cn/js/global.js"></script>
+<!-- ie7error提示 -->
+<style type="text/css">
+#ie7-warning{background:rgb(255,255,225); position:absolute; top:0; left:0; font-size:12px; color:#333; width:100%; padding:5px 0; text-align:center; z-index:99999; }
+</style>
+<!--[if lte IE 7]>
+<div id="ie7-warning">您正在使用 Internet Explorer 7，在本页面的显示效果可能有差异。建议您升级到 <a href="javascript:if(confirm('http://www.microsoft.com/china/windows/internet-explorer/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.microsoft.com/china/windows/internet-explorer/'" tppabs="http://www.microsoft.com/china/windows/internet-explorer/" target="_blank">Internet Explorer 8</a> 或以下浏览器： <a href="javascript:if(confirm('http://www.mozillaonline.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.mozillaonline.com/'" tppabs="http://www.mozillaonline.com/">Firefox</a> / <a href="javascript:if(confirm('http://www.google.com/chrome/?hl=zh-CN  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.google.com/chrome/?hl=zh-CN'" tppabs="http://www.google.com/chrome/?hl=zh-CN">Chrome</a> / <a href="javascript:if(confirm('http://www.apple.com.cn/safari/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.apple.com.cn/safari/'" tppabs="http://www.apple.com.cn/safari/">Safari</a> / <a href="javascript:if(confirm('http://www.operachina.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.operachina.com/'" tppabs="http://www.operachina.com/">Opera</a>
+</div>
+<script type="text/javascript">
+	function position_fixed(el, eltop, elleft){ 
+	if(!window.XMLHttpRequest) 
+		window.onscroll = function(){ 
+		el.style.top = (document.documentElement.scrollTop + eltop)+"px"; 
+		el.style.left = (document.documentElement.scrollLeft + elleft)+"px"; 
+		} 
+		else el.style.position = "fixed"; 
+		}
+		position_fixed(document.getElementById("ie7-warning"),0, 0);
+</script>
+<![endif]-->
+ 
+<!-- 十大学科咨询 -->
+<link rel="stylesheet" type="text/css" href="../../css/zx.css" tppabs="http://www.itcast.cn/css/zx.css"/>
+<!-- 十大学科咨询--> 
+<div class="zx">
+	<ul>
+		<li class="li_1">
+			<a href="javascript:if(confirm('http://d.itcast.cn/3  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://d.itcast.cn/3'" tppabs="http://d.itcast.cn/3" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>在线咨询</p>	
+			</a>
+		</li>
+		<li class="li_qq">
+			<a href="javascript:if(confirm('http://d.itcast.cn/3  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://d.itcast.cn/3'" tppabs="http://d.itcast.cn/3" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>QQ咨询</p>	
+			</a>							
+		</li>
+		<li class="li_2 li_qq">
+			<a href="javascript:if(confirm('http://d.itcast.cn/t  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://d.itcast.cn/t'" tppabs="http://d.itcast.cn/t" target="_blank"> 
+				<span class="icon_s">&nbsp;</span>
+				<p>匿名咨询</p>	 
+			</a>							 
+		</li>				
+		<li class="li_4">
+			<a href="../../channel/flow.shtml.htm" tppabs="http://www.itcast.cn/channel/flow.shtml" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>在线报名</p>	
+			</a>						
+		</li>	
+		<li class="li_5 li_gd">
+			<span class="icon_s">&nbsp;</span>
+			<p>电话咨询</p>
+			<div>
+				<p>400-618-4000</p>
+			</div>
+		</li>												
+		<li class="li_6" id="back">
+			<a href="javascript:void(0);">
+				<span class="icon_s">&nbsp;</span>
+				<p>返回顶部</p>	
+			</a>						
+		</li>				
+	</ul>
+</div>	
+<script src="../../js/zx.js" tppabs="http://www.itcast.cn/js/zx.js"></script>
+<script src="../../js/jquery.SuperSlide.2.1.1.js" tppabs="http://www.itcast.cn/js/jquery.SuperSlide.2.1.1.js"></script> 
+<script src="../../js/other.js" tppabs="http://www.itcast.cn/js/other.js"></script>
+</body>
+</html>

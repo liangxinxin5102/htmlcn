@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>某某互联网金融平台</title>
+<meta name="description" content="招商贷-中天城投集团股份有限公司旗下核心互联网金融平台；招商贷中国西部领先的互联网金融平台，安全有保障的互联网金融平台，为投资人提供全方位安全、稳定的投资理财服务！招商贷使用五层风险隔离体系，保障投资安全！客服热线：400-666-6666，网址：www.zhaoshangdai.com" />
+<meta name="keywords" content="招商贷,互联网金融,互联网金融平台,p2p网贷" />
+<meta http_equiv="Content_Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=0.2,user-scalable=1"/>
+<link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico"/>
+<!-- 公共CSS样式 -->
+<!--<link href="css/style.css" rel="stylesheet" />-->
+<!-- 调整后公共样式style2.0css -->
+<!--<link href="css/style2.0.css" rel="stylesheet" />-->
+<link href="css/nstyle.css" rel="stylesheet" />
+<!-- 公共JS -->
+<script src="js/jquery.js"></script>
+<script src="js/app.js"></script>
+<script src="js/index.js"></script>
+
+<!-- IE8兼容 -->
+<!--[if lt IE 9]><script src="/themes/js/ie8.js"></script><![endif]-->
+<script type="text/javascript">
+var  basePath="";
+	var jsPath ="";
+	$(function(){
+		var location = (window.location+'').split('/');
+		jsPath = location[0]+'//'+location[2];
+	});
+</script>
+
+<script>
+        //计算导航的宽度 并设置值
+        $(function () {
+            var win_width = $(window).width();
+            if ($(window).width() >= 980) {
+                $(".g_out .g_bg2").css("width", "1200px");
+                $(".g_out").css("width", "100%");
+            } else {
+                $(".g_out .g_bg2").css("width", "980px");
+                $(".g_out").css("width", "980px");
+            }
+        });
+        //窗口改变时 重新计算导航的宽度 并设置值
+        window.onresize = function () {
+            var win_width = $(window).width();
+            if ($(window).width() >= 980) {
+                $(".g_out .g_bg2").css("width", "1200px");
+                $(".g_out").css("width", "100%");
+            } else {
+                $(".g_out .g_bg2").css("width", "980px");
+                $(".g_out").css("width", "980px");
+            }
+        }
+        </script>
+        <script>
+        //模拟select的处理js
+        $(function () {
+        	$.ajaxSetup ({
+     		   cache: false //关闭AJAX相应的缓存
+     		});
+        	
+            $(".arrow").click(function () {
+                var arrow = $(this),
+                    arrow_box = arrow.parent(".arrow_box"),
+                    arrow_i = arrow.find("i"),
+                    arrow_ul = arrow_box.find(".arrow_ul"),
+                    arrow_span = arrow_box.find(".select_value"),
+                    hidden_input = arrow_box.find(".hidden_input"),
+                    box = arrow_box.parent(".box"),
+                	by_day=$("#byDay");
+
+                if(by_day.attr("type")!=undefined){
+                	if(document.getElementById("byDay").checked==true){
+                		$('#day').show();
+            			$('#moth').hide();
+            			var cla = arrow_i.attr("class");
+    	                if (cla == "arrow_down") {
+    	                    arrow_i.removeClass("arrow_down").addClass("arrow_up");
+    	                    $('#day').css("display", "block").mouseleave(function () {
+    	                        $(this).css("display", "none");
+    	                        box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    });
+    	                    box.css("z-index","101");
+    	                    $('#day').find("li").click(function () {
+    	                        var text = $(this).text();
+    	                        var value = $(this).attr("value");
+    	                        $('#day').css("display", "none");
+    	                        arrow_box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                        arrow_span.text(text);
+    	                        hidden_input.val(value);
+    	                    });
+    	                } else {
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    $('#day').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                }
+    	
+    	                arrow_box.mouseleave(function () {
+    	                	$('#day').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                });
+                	}else{
+                		$('#day').hide();
+            			$('#moth').show();
+            			var cla = arrow_i.attr("class");
+    	                if (cla == "arrow_down") {
+    	                    arrow_i.removeClass("arrow_down").addClass("arrow_up");
+    	                    $('#moth').css("display", "block").mouseleave(function () {
+    	                        $(this).css("display", "none");
+    	                        box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    });
+    	                    box.css("z-index","101");
+    	                    $('#moth').find("li").click(function () {
+    	                        var text = $(this).text();
+    	                        var value = $(this).attr("value");
+    	                        $('#moth').css("display", "none");
+    	                        arrow_box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                        arrow_span.text(text);
+    	                        hidden_input.val(value);
+    	                    });
+    	                } else {
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    $('#moth').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                }
+    	
+    	                arrow_box.mouseleave(function () {
+    	                	$('#moth').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                });
+                	}
+                }else{
+	                var cla = arrow_i.attr("class");
+	                if (cla == "arrow_down") {
+	                    arrow_i.removeClass("arrow_down").addClass("arrow_up");
+	                    arrow_ul.css("display", "block").mouseleave(function () {
+	                        $(this).css("display", "none");
+	                        box.css("z-index", "0");
+	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                    });
+	                    box.css("z-index","101");
+	                    arrow_ul.find("li").click(function () {
+	                        var text = $(this).text();
+	                        var value = $(this).attr("value");
+	                        arrow_ul.css("display", "none");
+	                        arrow_box.css("z-index", "0");
+	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                        arrow_span.text(text);
+	                        hidden_input.val(value);
+	                    });
+	                } else {
+	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                    arrow_ul.css("display", "none");
+	                    box.css("z-index", "0");
+	                }
+	
+	                arrow_box.mouseleave(function () {
+	                    arrow_ul.css("display", "none");
+	                    box.css("z-index", "0");
+	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                });
+                }
+            });
+            
+        });
+            
+            
+
+        
+        
+        
+
+    </script></head>
+
+<body>
+<!--头部开始-->
+<header class="layout">
+    <!--顶部开始-->
+<header class="layout">
+    <!--顶部开始-->
+    <!--<div class="top">
+        <div class="container">
+            <div class="top-left hidden-l">
+                <span><img src="images/tel.jpg" /> 服务热线 <strong>400-666-6666</strong></span>
+                <span>服务时间 9:00-22:00</span>
+                关注我们
+               	<a id="weibo" target="_blank" href="http://weibo.com/3445450794/profile?rightmod=1&amp;wvr=5&amp;mod=personinfo" t="weiboDiv" point="20|26|0|26|-40|70"><img src="images/weibo.png" /><span><img src="images/ewb.jpg" /></span></a>
+                <a id="weixin"><img src="images/weixin.png" /><span><img src="images/ewm.png" /></span></a>
+            </div>
+            <div class="top-middle hidden-l"><img src="images/welcome.jpg" class="hidden-l" /></div>
+            <div class="top-right">
+            	<span>
+							<a href="/user/account/detail.html" title="tangqiang">tangqia...</a>
+							<a class="button bg-main" style="padding: 2px 10px" href="/user/account/detail.html">用户中心</a></li> 
+							|
+						<a href="/logout.html">[退出]</a>
+                </span>
+                <span><a href="/app.html" target="_blank" ><img src="images/mobile.jpg" />手机客户端</a></span>
+                <span class="hidden-l">
+                	<a href="http://www.zhaoshangdai.cn" target="_blank">论坛</a>
+                	<img src="images/new.gif" />
+                </span>
+            </div>
+        </div>
+    </div>
+    -->
+    <!--顶部开始-->
+    <div class="top">
+        <div class="container">
+            <div class="top-left hidden-l">
+                <span>服务热线 <strong>400-666-6666</strong></span>
+                <span>服务时间：9:00-22:00</span>
+                关注我们
+                <a target="_blank" href="http://weibo.com/3445450794/profile?rightmod=1&amp;wvr=5&amp;mod=personinfo"><img src="images/weibo.jpg" /></a>
+                <a href="#"><img src="images/weixin.jpg" /><span><img src="images/ewm.png" /></span></a>
+            </div>
+            <div class="top-right">
+                            <a href="/user/account/detail.html" title="tangqiang">tangqia...</a>
+                            <a href="/user/account/detail.html">用户中心</a>
+                    <em></em>
+                    <a href="/logout.html">[退出]</a>
+                    <em></em>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--顶部结束-->
+
+ <link href="css/myStyle.css" rel="stylesheet" />
+    
+ <!--顶部结束-->
+  <script type="text/javascript">
+  
+  $(function(){
+  
+  	$("#weibo").mouseenter(function(){
+  		$(this).find("img").first().attr("src","images/weibol.png");
+  	});
+  	$("#weibo").mouseleave(function(){
+  		$(this).find("img").first().attr("src","images/weibo.png");
+  	});
+  	
+  	$("#weixin").mouseenter(function(){
+  		$(this).find("img").first().attr("src","images/weixinl.png");
+  	});
+  	$("#weixin").mouseleave(function(){
+  		$(this).find("img").first().attr("src","images/weixin.png");
+  	});
+  });
+  
+  
+  var needReloadPage=false;
+  var needReloadUrl="";
+  	/*  显示错误提示弹出框 */
+ function showErrorMessageDialog(mes){
+	  $("#temp_prop").siblings("span").html(mes);
+	  $("#errorMessageDialog").show();
+	  //setTimeout(wait,5000);
+ }
+ 
+ /* 关闭错误提示弹出框 */
+function closeErrorMessageDialog(){
+	$("#errorMessageDialog").hide();
+	//是否需要刷新页面 true刷新
+	if(needReloadPage){
+		window.location.reload();
+	}
+	//如果传入了加载页面则直接加载
+	if(needReloadUrl!=""){
+	   location.href = needReloadUrl;
+	}
+}
+  </script>
+  <!-- 错误提示弹出框 -->
+    <div class="c-delBkcdByPhoneBox" id="errorMessageDialog" style="display: none ; margin: 0;  padding: 0 20px;" >
+		<div class="del_bank_card_div" id="del_bankcard_div">
+			<div class="del_bank_card_hd">
+				<a class="colse_del_bkcd colse_del_bidts" id="colse_del_bkcd_a" onclick="closeErrorMessageDialog()"  ><img alt="" src="images/v_code_wrong.png" class="colse_del_bkcd"></a>
+			</div>
+			<div class="del_bank_card_hd">
+				<font class="cert_wenxitishi" id="temp_prop">提示：</font><span></span>
+			</div>
+			<br/>
+			<div class="sure_del_bkcd">
+					<input type="button"  class="button bg-main"  onclick="closeErrorMessageDialog()" value="确定" id="prop_sure"/>
+			</div>
+		</div>
+	</div>
+<!-- 错误提示弹出框结束 -->
+</header>
+<!--头部结束-->		<!--顶部结束-->
+		<!--导航开始-->
+<!--导航开始-->
+  <header class="layout">
+    <div class="container naver">
+    	<div class="logo"><a href="/index.html"><img src="images/logo.png" class="img" /></a></div>
+        <nav>
+            <ul id="zsd_nav">
+                <!--首页，我要投资，我要借款，聚福专区，活动专区，关于我们-->
+                <li id="index_nav" class="active"><a href="/index.html">首页</a></li>
+                <li class="itm_1" id="financing_nav"><a href="/borrowlist/queryData.html">我要理财</a></li>
+                <!--<li class="itm_1" id="financing_nav"><a href="/borrowlist/queryData.html">我要投资</a></li>-->
+                <li class="itm_2" id="borrow_nav"><a href="/borrow/borrowList.html">我要借款</a></li>
+                <li><a href="/about_companyInfo.html">关于我们</a></li>
+            </ul>
+    	</nav>
+    </div>
+  </header>
+<!--导航结束-->
+<script>
+	/* $(function(){
+		$("#shopping").click(function(){
+		//http://shop.zhaoshangdai.com
+		//window.location.href="/shoppingUrl.html"
+		window.onload=function(){window.open("/shoppingUrl.html","_blank")}
+		//window.onload = function(){window.open("/shoppingUrl.html", "_blank");} 
+		//alert("ok");
+		});
+	}); */
+					
+					var basePath = "";
+					var url = getUrl();
+					var lis =$("#zsd_nav").find("li");
+					var index_nav = document.getElementById("index_nav");
+					var financing_nav = document
+							.getElementById("financing_nav");
+					var borrow_nav = document.getElementById("borrow_nav");
+					var new_nav = document.getElementById("new_nav");
+					var xbox_nav = document.getElementById("xbox_nav");
+                    var activity_nav=document.getElementById("activity_nav");
+					if (url.indexOf("borrowList") != -1||(url.indexOf("toborrow") != -1)) {
+						lis.removeClass(" active");
+						borrow_nav.className = borrow_nav.className + " active";
+					} else if (url.indexOf("queryData") != -1||(url.indexOf("tender") != -1)) {
+						lis.removeClass(" active");
+						financing_nav.className = financing_nav.className
+								+ " active";
+					} else if (url.indexOf("getPageNew") != -1) {
+						lis.removeClass(" active");
+						//new_nav.className = new_nav.className + " active";
+					} else if (url.indexOf("product/box") != -1) {
+						lis.removeClass(" active");
+						xbox_nav.className = xbox_nav.className + " active";
+					}else if (url.indexOf("activity") != -1) {
+                        lis.removeClass(" active");
+                        activity_nav.className = activity_nav.className + " active";
+                    }else {
+						lis.removeClass(" active");
+						index_nav.className += "active";
+					}
+
+					/**
+					 * 得到请求的url地址 去除参数
+					 * @returns {Array}
+					 */
+					function getUrl() {
+						var url = window.location.href;
+						var index = url.indexOf('?');
+						if (-1 != index) {
+							return url.substring(0, index);
+						}
+						return url;
+					}
+				</script>		<!--导航结束-->
+</header>
+<!--头部结束-->
+
+<div class="layout bg user">
+
+	 	<div class="container">
+    	<ul class="bread clearfix">
+        	<li>您所在的位置：
+        	 	<a href="/index.html">首页</a> 
+        	 	<span> &gt;</span> 
+        	 	<span class="txt-black">用户中心</span>
+        	 </li>
+        </ul>
+	</div>
+
+    <div class="container bg-white">
+		<!--菜单开始-->
+<!--菜单开始-->
+<aside class="menu">
+	<strong><a href="/user/account/detail.html"><img
+			src="images/uicon-home.png" /> 我的招商贷</a></strong>
+	<dl>
+		<dt>
+			<img src="images/uicon-user.png" /> 账户管理
+		</dt>
+		<dd>
+			<a class="active" href="/user/account/recharge/recordList.html">交易记录</a> 
+			<a href="/user/account/recharge.html">账户充值</a>
+			<a href="/user/account/toApply.html.html">资金提现</a> 
+			<a href="/user/account/info.html">个人资料</a> 
+			<a href="/user/account/messageList.html">站内信箱</a> 
+			<a href="/user/account/notice.html">通知设置</a>  
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<img src="images/uicon-inv.png" /> 投资管理
+		</dt>
+		<dd>
+		    <a href="/tender/bidTotal.html">投资项目</a>
+			<a href="/tender/tenderList.html">投资明细</a> 
+			<a href="/user/invest/unCollectList.html?status=0">待收款明细</a> 
+			<a href="/user/invest/collectList.html?status=1">已收款明细</a> 
+			<a href="/user/invest/autoBid.html">自动投标设置</a>
+		</dd>
+	</dl>
+	<dl style='display: none;'>
+		<dt>
+			<img src="images/uicon-borrow.png" /> 借款管理
+		</dt>
+		<dd>
+			<a href="/user/invest/borrow.html">借款项目</a>
+			<a href="/user/invest/unrepayment.html?status=0">待还款明细</a>
+			<a href="/user/invest/repayment.html?status=1">已还款明细</a>
+		</dd>
+	</dl>
+	<dl>
+		<dt>
+			<a href="/user/identify/security.html"><img src="images/uicon-safe.png" /> 安全中心</a>
+		</dt>
+		<!-- <dd>
+			<a href="/user/account/detail.html">绑定手机</a>
+			<a href="/user/account/detail.html">绑定邮箱</a>
+			<a href="/user/account/detail.html">实名认证</a>
+			<a href="/user/account/detail.html">密码管理</a> 
+			<a href="/user/account/detail.html">绑定银行卡</a>
+			<a href="/user/account/detail.html">VIP管理</a>
+		</dd> -->
+	</dl>
+
+    <!-- 我的奖励 -->
+    <dl>
+        <dt>
+            <img src="images/gifen.png" /> 我的奖励 <img alt="" style="margin-bottom:10px;" src="images/img/new.gif">
+        </dt>
+        <dd>
+            <a href="/couponRecord/getListByPages.html">我的奖券</a>
+            <a href="/gift/toGiftList.html">礼品中心</a>
+            <!-- /recommend/user/getRecommendUserList.html?page=1&rows=10 -->
+            <a href="/recommend/user/getRecommendUserList.html?page=1&rows=10">推荐用户</a>
+        </dd>
+    </dl>
+
+
+
+	<!-- <dl>
+		<dt>
+			<a href="/gift/toGiftList.html"><img src="images/gifen.png" /> 礼品中心</a>
+		</dt>
+	</dl> -->
+	<dl>
+		<dt>
+			<img src="images/uicon-money.png" /> 招商币管理
+		</dt>
+		<dd>
+			<a href="/user/account/viewCredit.html">用户招商币查询</a>
+			<a href="/user/account/viewCreditLog.html">用户招商币记录</a>
+		</dd>
+	</dl>
+</aside>
+<!--菜单结束-->
+
+<!--右侧快捷导航-->
+<div class="services user">
+	<ul>
+    	<li><a href="/user/invest/autoBid.html"><img src="images/ur-1.jpg" /></a><div class="drop"><span class="arrow">自动投标</span></div></li>
+        <li><a href="/user/account/messageList.html"><img src="images/ur-2.jpg" /></a><div class="drop"><span class="arrow">站内信箱</span></div></li>
+        <li><a href="/user/account/notice.html"><img src="images/ur-3.jpg" /></a><div class="drop"><span class="arrow">提醒设置</span></div></li>
+        <li><a href="/user/account/recharge/recordList.html"><img src="images/ur-4.jpg" /></a><div class="drop"><span class="arrow">交易记录</span></div></li>
+        <li><a id="calc" href="#news"><img src="images/ur-5.jpg" /></a><div class="drop"><span class="arrow">计算器</span></div></li>
+    </ul>
+</div>
+     	<div class="calwrap">
+			<form method="post" class="form-horizontal">
+				<div class="calCon">
+					<div class="control-group">
+						<label class="control-label" for="zhaoshangbiaozhong">招商标种：</label>
+						 <div class="controls">
+						 	<select id="zhaoshangbiaozhong">
+						 		<option value="">快速选择招商标种</option>
+						 		<option value="1">1</option>
+						 		<option value="2">2</option>
+						 		<option value="3">3</option>
+						 		<option value="6">6</option>
+						 	</select> 个月
+						 </div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="toubiaojine">投标金额：</label>
+						 <div class="controls">
+						 	<input type="text" id="toubiaojine" onblur="checkToubiaoJine(this.value)" value="10000"> 元
+						 	<span class="helpinline"><font color="red">*</font></span>
+						 	<span class="toubiaojine-alert helpinline"></span>
+						 </div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="jiekuanqixian">借款期限：</label>
+						 <div class="controls">
+						 	<input type="text" id="jiekuanqixian" onblur="checkJieKuanQiXian(this.value)" placeholder="请输入借款期限" class="span2">
+						 	<label class="radio inline" style="font-size:12px;">
+							 	<input type="radio" name="jiekuanType" value="0" checked="checked" id="anyue"> 按月
+						 	</label>
+						 	<label class="radio inline" style="font-size:12px;">
+							 	<input type="radio" name="jiekuanType" value="1" id="antian"> 按天
+						 		<font color="red">*</font>
+						 	</label>
+						 	<span class="jiekuanqixian-alert helpinline"></span>
+						 </div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="huankuanfangshi">还款方式：</label>
+						 <div class="controls">
+						 	<select id="huankuanfangshi" class="span4">
+						 		<option selected="selected" value="0">按月还款（按月等额还本付息）</option>
+								<option value="1">按季还款（按月支付利息，按季度偿还本金）</option>
+								<option value="2">到期还本（按月支付利息，到期偿还全部本金）</option>
+								<option value="3">到期一次性偿还本息</option>
+						 	</select>
+						 </div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="lianlilv">年利率：</label>
+						 <div class="controls">
+						 	<input type="text" id="lianlilv" onblur="checkLianlilv(this.value)" placeholder="请输入年利率" class="span2"> %
+						 	<span class="helpinline"><font color="red">*</font></span>
+						 	<span class="lianlilv-alert helpinline"></span>
+						 </div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="toubiaojiangli">投标奖励：</label>
+						 <div class="controls">
+						 	<input type="text" id="toubiaojiangli" value="0.00" class="span2"> %
+						 	<span class="toubiaojiangli-alert helpinline"></span>
+						 </div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="xuetoujiangli">续标奖励：</label>
+						 <div class="controls">
+						 	<input type="text" id="xuetoujiangli" value="0.00" class="span2"> %
+						 	<span class="xubiaojiangli-alert helpinline"></span>
+						 </div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="lixiguanlifei">利息管理费：</label>
+						 <div class="controls">
+						 	<input type="text" id="lixiguanlifei" value="10" class="span2"> %
+						 	<span class="lixiguanlifei-alert helpinline"></span>
+						 </div>
+					</div>
+					
+					<div class="control-group">
+						<label class="control-label" for="toubiaoshijian">投标时间：</label>
+						 <div class="controls">
+						 	<input type="text" id="toubiaoshijian" class="datepicker span2">
+						 </div>
+					</div>
+					
+					<div class="control-group">
+						 <div class="controls">
+						 	<button type="button" class="but_js btn btn-default">计&nbsp;&nbsp;算</button>
+						 </div>
+					</div>
+				</div>
+				<div class="calc_result">
+					<div class="calWin">
+					</div>
+					<div id="calNumContent">
+					</div>
+				</div>
+				<div class="close_btn"></div>
+			</form>
+		</div>
+<!--菜单结束-->
+<script>
+$(function(){
+	$('.menu dt').on("click",function(){
+		$(this).siblings("dd").slideToggle(1);
+	});
+	$('.security .setupdate').on("click",function(){
+		$('.update').removeClass("active");
+		$(this).closest(".security").find('.update').slideToggle();
+	});
+});
+</script>
+<script src="/themes/js/counter.js"></script>
+<link rel="stylesheet" href="css/counter.css"/> 			<!--菜单结束-->
+        <!--会员开始-->
+        <main>
+        	<div class="user-info clearfix">
+            	<div class="item">
+            	
+            	<img src="images/face.jpg" style="max-height: 80px;max-width: 80px"/>
+            	</div>
+                <div class="item info">
+                	<div class="welcome">
+                    	<span class="right">可用余额<span class="txt-main txt-big">&yen;0.00</span>元</span>
+                        欢迎您，tangqiang<span class="txt-sub"></span>
+                    </div>
+                    <div>
+                    	<span class="right icons">
+                  
+                            <a href="/user/identify/security.html?type=phone" title="绑定手机" >
+                              <span id="phone" ><img src="images/uicon-phone.jpg" /></span>
+                              <i id="phone2"><img  src="images/uicon-phone2.jpg" /></i>
+                            </a>
+                            
+                            <a href="/user/identify/security.html?type=mail" title="绑定邮箱" >
+                            	<span id ="email"><img  src="images/uicon-email.jpg" /></span>
+                            	<i id="email2"><img  src="images/uicon-email2.jpg" /></i>
+                            </a>
+                            
+                            <a href="/user/identify/security.html?type=realName" title="实名认证" >
+                            	<span id="book"><img  src="images/uicon-book.jpg" /></span>
+                            	<i id="book2"><img  src="images/uicon-book2.jpg" /></i>
+                            </a>
+                            <a href="/user/identify/security.html?type=payPassword" title="交易密码" >
+                            	<span id="lock"><img  src="images/uicon-lock.jpg" /></span>
+                            	<i id="lock2"><img  src="images/uicon-lock2.jpg" /></i>
+                            </a>
+                            <a href="/user/identify/security.html?type=bankCard" title="绑定银行卡" >
+                            	<span id="card"><img  src="images/uicon-card.jpg" /></span>
+                            	<i id="card2"><img  src="images/uicon-card2.jpg" /></i>
+                            </a>
+                            <a href="/user/identify/security.html?type=vip" title="vip管理" >
+	                            <span id="v"><img  src="images/uicon-v.jpg" /></span>
+	                            <i id="v2"><img  src="images/uicon-v2.jpg" /></i>
+                            </a>
+                        </span>
+                        
+                        <div style="width: 200px; font-size: 14px;">
+                       
+							<a href="/user/account/info.html"
+								class="right txt-dot">继续完善</a>
+								资料完善度：36.36%
+						</div>
+						<div class="precent" style="width: 200px;">
+							<div class="precent-bar" style="width: 36.36%;"></div>
+						</div>
+                        
+                        
+                    </div>
+                </div>
+                <div class="item"><br /><a class="button bg-main" href="/user/account/recharge.html">充值</a> <a class="button bg-sub" href="/user/account/toApply.html">提现</a></div>
+            </div>
+            <br />
+            
+            <strong class="title">账户详情</strong>
+            <ul class="user-statistics bg clearfix">
+            	<li>资金总额<span class="txt-sub">&yen;0.00</span></li>
+                <li>冻结总额<span>&yen;0.00</span></li>
+                <li>待收总额<span>&yen;0.00</span></li>
+                <li>待收利息<span>&yen;0.00</span></li>
+                <li  style="border-right: none;">已赚利息<span>&yen;0.00</span></li>
+            </ul>
+            <br /><br />
+            
+            <strong class="title"><a href="/user/invest/unCollectList.html?status=0" class="right txt-dot">更多明细 &gt;</a>近期待收</strong>
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%">
+                    <tr><th>借款账号</th><th>借款标</th><th>收款总额</th><th>收款期数</th><th>收款时间</th></tr>
+							<tr>
+								<td align="center" colspan="5" >暂无相关信息！</td>
+							</tr>
+                </table>
+            </div>
+            <br /><br />
+            <strong class="title"><a href="/user/invest/unrepayment.html?status=0" class="right txt-dot">更多明细 &gt;</a>近期待还</strong>
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%">
+                    <tr><th>借款账号</th><th>借款标</th><th>收款总额</th><th>借款期数</th><th>还款时间</th></tr>
+							<tr>
+								<td  colspan="5" align="center">暂无相关信息！</td>
+							</tr>
+                </table>
+            </div>
+            <br />
+        </main>
+        <!--会员结束-->
+    </div>
+    <br />
+</div>
+
+<!--底部开始-->
+<!--版权信息开始-->
+<!--
+
+底部开始
+<footer class="layout">
+    <div class="layout copyright">
+    	<div class="container container1" align="center">
+        	<p>Copyright Reserved @2013 招商贷 | 备案号:<a target="_blank" href="http://www.miibeian.gov.cn/">黔B2-20150014</a>
+        		<script type="text/javascript">
+					var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+					document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F72da47e93f114fd22a380c72f142d731' type='text/javascript'%3E%3C/script%3E"));
+				</script>
+				<script src="https://s19.cnzz.com/stat.php?id=5451485&web_id=5451485&show=pic" language="JavaScript"></script>
+        	</p>
+        	<p>地址：贵州省贵阳互联网金融特区大厦19楼（观山湖区长岭北路与金朱东路交汇处）</p>
+            <a href="https://ss.knet.cn/verifyseal.dll?sn=e13072411010041724izzi000000&comefrom=verify" target="_blank"><img src ="images/s1.png"></a>
+            <a href="https://www.itrust.org.cn/yz/pjwx.asp?wm=1065799941" target="_blank"><img src ="images/s2.jpg"></a>
+			<a href="https://trustsealinfo.verisign.com/splash?form_file=fdf/splash.fdf&dn=www.zhaoshangdai.com&lang=zh_cn" target="_blank"><img src ="images/s3.png"></a>
+        </div>
+    </div>
+    版权信息结束
+    
+    <div class="backhome">
+        <a href="#" class="backtop"><img src="images/top.png" /></a>
+        <a href="/index.html"><img src="images/home.png" /></a>
+    </div>
+</footer>
+底部结束
+-->
+
+
+<!--底部开始-->
+<footer class="layout">
+    <div class="fooderbox">
+        <dl>
+            <dt>
+            <p>
+                <span><b>400-666-6666</b><br/>服务时间：9:00-22:00</span>
+                <span><a href="javascript:void(0)"><img src="images/f3.png"><i><img src="images/ewm.png" /></i></a>
+                    <a href="http://weibo.com/3445450794/profile?rightmod=1&amp;wvr=5&amp;mod=personinfo" target="_blank"><img src="images/f1.png"></a></span>
+                <span>
+                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e13072411010041724izzi000000&comefrom=verify" target="_blank"><img src="images/s1.png" /></a>
+                    <a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1065799941" target="_blank"><img src="images/s2.jpg" /></a>
+                        <a href="https://trustsealinfo.verisign.com/splash?form_file=fdf/splash.fdf&dn=www.zhaoshangdai.com&lang=zh_cn" target="_blank"><img src="images/s3.png" /></a>
+                </span>
+            <div class="clear"></div>
+            </p>
+            <p>Copyright Reserved @2013 招商贷 | 备案号:<a target="_blank" href="http://www.miibeian.gov.cn/">黔ICP备13002215号-1</a></p>
+            <p>地址：贵州省贵阳互联网金融特区大厦19楼（观山湖区长岭北路与金朱东路交汇处）
+                <script type="text/javascript">
+                    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F72da47e93f114fd22a380c72f142d731' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+                <script src="https://s19.cnzz.com/stat.php?id=5451485&web_id=5451485&show=pic" language="JavaScript"></script>
+            </p>
+            </dt>
+            <dd><span><img src="images/appico.png"></span>
+            <span>
+                <b>下载手机客户端</b><br/>
+                扫 码 下 载<br/>
+                <img src="images/app_ico.png" class="appico">IOS版<br/>
+                <img src="images/app_ico2.png" class="appico">安卓版
+            </span>
+                <div class="clear"></div>
+            </dd>
+            <div class="clear"></div>
+        </dl>
+    </div>
+    <div class="backhome">
+        <a href="#" class="backtop"><img src="images/top.png" /></a>
+        <a href="/index.html"><img src="images/home.png" /></a>
+    </div>
+</footer>
+<!--底部结束-->
+<script type="text/javascript">
+	var _mvq = window._mvq || []; 
+	window._mvq = _mvq;
+	_mvq.push(['$setAccount', 'm-136753-0']);
+	
+	_mvq.push(['$setGeneral', '', '', /*用户名*/ '', /*用户id*/ '']);//如果不传用户名、用户id，此句可以删掉
+	_mvq.push(['$logConversion']);
+	(function() {
+		var mvl = document.createElement('script');
+		mvl.type = 'text/javascript'; mvl.async = true;
+		mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(mvl, s); 
+	})();
+</script>
+
+<script type="text/javascript">
+var _py = _py || [];
+_py.push(['a', 'zTs..3Jk4Kk9zkGw41pYbgLxwtX']);
+_py.push(['domain','stats.ipinyou.com']);
+_py.push(['e','']);
+-function(d) {
+	var s = d.createElement('script'),
+	e = d.body.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e),
+	f = 'https:' == location.protocol;
+	s.src = (f ? 'https' : 'http') + '://'+(f?'fm.ipinyou.com':'fm.p0y.cn')+'/j/adv.js';
+}(document);
+</script>
+<noscript><img src="//stats.ipinyou.com/adv.gif?a=zTs..3Jk4Kk9zkGw41pYbgLxwtX&e=" style="display:none;"/></noscript>	<!--底部结束-->
+
+<script src="/themes/js/counter.js"></script>
+<script type="text/javascript">
+$(function(){
+$.ajax({
+		url: jsPath+"/user/identify/checkCertificationState.html",
+		type:"post",
+		dataType: "json",
+		success: function(data){
+			var daArray = eval('(' + data + ')');
+			for(var i=0;i<daArray.length;i++){
+				if(daArray[i] == 0){//手机已验
+					$("#phone").hide();
+					$("#phone2").show();
+				}
+				if(daArray[i] == 1){//邮箱已验证
+					$("#email").hide();
+					$("#email2").show();
+				}
+				 if(daArray[i] == 2){//实名已验证
+					$("#book").hide();
+					$("#book2").show();
+				} 
+				
+				if(daArray[i] == 3){//交易密码已设置
+					$("#lock").hide();
+					$("#lock2").show();
+				}
+				if(daArray[i] == 4){//银行卡已验证
+				$("#card").hide();
+					$("#card2").show();
+					
+				}
+				if(daArray[i] == 5){//现场已验证
+				/* $("#card").hide();
+					$("#card2").show(); */
+					
+				} 
+				if(daArray[i] == 6){//VIP已经申请
+				$("#v").hide();
+					$("#v2").show();
+				}
+			}
+		}
+	});
+});
+
+
+</script>
+</body>
+</html>

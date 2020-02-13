@@ -1,0 +1,57 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Images View</title>
+<LINK href="/css/style.css" type=text/css rel=stylesheet>
+<script language="javascript">
+function resizeImages() 
+{ 
+var currentimage=opener.document.getElementById("currentimage");
+if(currentimage==null){window.close();}
+var theimage=document.getElementById("theimage");
+theimage.src=currentimage.value;
+var areaImages = document.getElementById("Content").getElementsByTagName("img"); 
+var areaImagesCount = areaImages.length; 
+var w = 0; 
+for(var i=0;i<areaImagesCount;i++) { 
+if(areaImages[i].width>700){ 
+w = areaImages[i].width ; 
+areaImages[i].width = 700 ; 
+} 
+} 
+theimage.style.display="";
+} 
+</script>
+</head>
+<body topmargin=0 leftmargin=0 onload="resizeImages()">
+<table border=0 cellpadding=0 cellspacing=0 width=100% align=center>
+ <tr>
+  <td height=20></td>
+ </tr>
+ <tr>
+  <td height=1 bgcolor=#cccccc></td>
+ </tr>
+ <tr>
+  <td height=5></td>
+ </tr>
+ <tr>
+  <td align=center id="Content"><img src="/e/images/noimage.gif" border=0 id="theimage" style="display:none"></td>
+ </tr>
+ <tr>
+  <td height=5></td>
+ </tr>
+ <tr>
+  <td height=1 bgcolor=#cccccc></td>
+ </tr>
+ <tr>
+  <td height=5></td>
+ </tr>
+ <tr>
+  <td height=25 align=center><img src="/e/images/public/close.gif" border=0 onclick="window.close()" style="cursor:pointer">&nbsp;&nbsp;</td>
+ </tr>
+ <tr>
+  <td height=20></td>
+ </tr>
+</table> 
+</body>
+</html>

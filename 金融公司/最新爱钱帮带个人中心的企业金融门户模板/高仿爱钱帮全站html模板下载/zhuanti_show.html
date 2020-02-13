@@ -1,0 +1,903 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="keywords" content="高收益理财产品,理财投资,网络投资理财平台,网贷理财,互联网金融,投资理财平台,投资理财,赚钱,小额投资理财,如何投资理财,投资理财知识,投资理财,北京p2p理财">
+    <meta name="description" content="爱钱帮可以为您赚钱的网络投资理财平台，为投资理财用户和贷款用户两端提供公平、透明、安全、高效的网贷理财服务，爱钱帮互联网金融中网贷投资理财平台的最好的选择。">
+    <title>爱钱帮_为您赚钱和提供高收益理财产品的理财投资投资理财平台</title>
+
+    <!--[if lt IE 9]>
+    <script src="statics/newcommon/js/html5shiv.js"></script>
+    <![endif]-->
+    <link  rel="Shortcut  Icon"  href="statics/home/images/minilogo.png?20160520">
+    <link rel="stylesheet" href="statics/newcommon/css/m2-commonNew.css?20160520">
+    <link rel="stylesheet" href="statics/home2/css/m2-main.css?20160520">
+    <link rel="stylesheet" href="statics/newcommon/css/m2-common.css?20160520">
+    <script type="text/javascript" src="statics/home/js/jquery.min.js"></script>
+    <script type="text/javascript" src="statics/newcommon/js/common.js?20160520"></script>
+
+    <!-- 右侧边栏start -->
+    <!-- 右侧登录窗口 -->
+
+    <!--右侧登录框-->
+    <div class="mo2-indexLoginbox" id="right-fix">
+        <!-- 登录注册start -->
+        <div class="mo2-indLogreg" style="display: none">
+            <div class="mo2-indLogtab">
+                <ul>
+                    <li class="mo2-logTab-unsel mo2-indTab-reg">
+                        <span>注册</span><b></b>
+                    </li>
+                    <li class="mo2-logTab-sel mo2-indTab-log">
+                        <span>登录</span><b></b>
+                    </li>
+                </ul>
+            </div>
+            <!-- 注册start -->
+            <div class="mo2-indRegboxRight" style="display:none;">
+                <div class="mo2-indLogitem" style="margin-bottom:6px;">
+                    <i class="mo2-indLogicon-tel"></i><input class="mo2-indIpt-all" id="regTelRight" maxlength="11" type="text" placeholder="输入手机号码"><b class="mo2-indLogwarRight"><em class="mo2-indlogWar-arr"></em><u></u></b>
+                </div>
+                <div class="mo2-indLogitem" style="margin-bottom:6px;">
+                    <i class="mo2-indLogicon-psw"></i><input class="mo2-indIpt-all m2-ind-banPsw" id="passRight" type="password" placeholder="6-20位数字与字母组合的密码"><b class="mo2-indLogwarRight"><em class="mo2-indlogWar-arr"></em><u></u></b>
+                </div>
+                <div class="mo2-indLogitem-step1">
+                    <div class="mo2-indLogreg-step1">
+                        <i class="mo2-indLogicon-code"></i><input class="mo2-indIptcod-step1" id="vcodeRight" type="text" placeholder="验证码">
+                    </div>
+                    <img class="mo2-indRegcode" src="Index-VerifyCode.png" onClick="document.getElementById('reverifyCodeRight').src='Index-VerifyCode.png?time='+Math.random();void(0);" id="reverifyCodeRight"  alt="">
+                    <span class="mo2-indReg-refresh">看不清？换一张</span>
+                    <b class="mo2-indLogwarRight"><em class="mo2-indlogWar-arr"></em><u></u></b>
+                </div>
+                <div class="mo2-indReg-btn" id="verifyregcode" onclick="verifycodeRight();" style="margin-top:8px;">
+                    <a class="mo2-indRegbtn-able" href="#">立即注册</a>
+                </div>
+                <div class="mo2-indRegagree">
+                    <i class="mo2-indReg-sel"></i><span>我已阅读并同意</span><b>《爱钱帮注册服务协议》</b>
+                </div>
+            </div>
+            <!-- 注册end -->
+            <!-- 注册step2 start -->
+            <div class="mo2-indRegbox2Right"  style="display:none;" >
+                <div class="mo2-indReg2-con">
+                    <ul>
+                        <li><i class="mo2-indRegicon-step1"></i><span>为了确保您手机可用，请填写您收到的手机动态码。</span></li>
+                        <li><i class="mo2-indRegicon-step2"></i><span>如收不到短信验证码，可点击下面的获取语音验证码。</span></li>
+                    </ul>
+                </div>
+                <div class="mo2-indLogitem">
+                    <i class="mo2-indLogicon-code"></i><input class="mo2-indIpt-half" id="codeRight" type="text" placeholder="验证码">
+                    <span class="mo2-indRegtim mo2-regTin-able"><u>60秒后</u><span>获取手机验证码</span></span>
+                    <b class="mo2-indLogwarRight" style="width:200px;"><em class="mo2-indlogWar-arr"></em><u>错误提示信息</u></b>
+                </div>
+                <div class="mo2-indRegvoice">
+                    <span class="mo2-indRegvoi-btn mo2-indRegvoi-able"><i></i>获取语音验证码</span>
+                </div>
+                <div class="mo2-indReg-btn" onclick="registerRight();" id="verifyregphone"  style="margin-top:8px;">
+                    <a class="mo2-indRegbtn-able"  href="#">立即注册</a>
+                </div>
+            </div>
+            <!-- 注册step2 end -->
+
+            <!-- 登录start -->
+            <div class="mo2-indLogboxRight">
+                <div class="mo2-indLogitem mo2-indLogitem-use" style="margin-bottom:9px;">
+                    <i class="mo2-indLogicon-use"></i><input class="mo2-indIpt-all" type="text" id="user_nameRight" placeholder="用户名/手机号">
+                    <b class="mo2-indLogwar" id="w_username"><em class="mo2-indlogWar-arr"></em><u id="r_usernameRight"></u></b>
+                </div>
+                <div class="mo2-indLogitem mo2-indLogitem-psw" style="margin-bottom:9px;">
+                    <i class="mo2-indLogicon-psw"></i><input class="mo2-indIpt-all m2-ind-banPsw" maxlength="20" id="pass_wordRight" type="password" id="pass_wordRight" placeholder="输入登录密码">
+                    <b class="mo2-indLogwar" id="w_password"><em class="mo2-indlogWar-arr"></em><u id="r_passwordRight"></u></b>
+                </div>
+                <div class="mo2-indLog-code" style="display:none;margin-bottom:8px;">
+                    <div class="mo2-indLogcod-lef">
+                        <i class="mo2-indLogicon-psw"></i>
+                        <input type="text" id="vcodeRight" placeholder="验证码"></div>
+                    <div class="mo2-indLogcod-rig"><img src="Index-VerifyCode.png" onClick="document.getElementById('reverifyCode').src='Index-VerifyCode.png?time='+Math.random();void(0);" alt=""></div>
+                </div>
+                <div class="mo2-indLog-forget"><a href="forget.html">忘记密码?</a></div>
+                <div style="padding-left: 24px;line-height: 30px;color:red;" id="error-hint"></div>
+                <div class="mo2-indReg-btn">
+                    <a class="mo2-indRegbtn-able" onclick="loginRight();">登录</a>
+                </div>
+            </div>
+            <!-- 登录end -->
+        </div>
+        <!-- 登录注册end -->
+    </div>
+    <!-- 右侧登录窗口 -->
+    <!--add by zml start-->
+    <!--<div id="fixbar" style="width:50px;position:fixed;top:0;right:0px;background:#ff6666;z-index:5;"></div>-->
+
+    <!--右侧悬浮条-->
+    <div id="fixbar">
+        <!-- 右侧边栏顶部 -->
+        <!--右侧上边栏start -->
+        <div class="m2-commonRight2"  id="m2-commonRight">
+            <ul class="m2-comRiglist myclick">
+                <li class="m2-comRigli m2-comRigli-ewm m2-comRigli_new" style="border-top:1px solid #fff;" data="#fixnavbar_one">
+                    <div></div>
+                    <img src="statics/home2/images/fixed-r1.png">
+                    <div class="toAbs">
+                        <div><img src="statics/home2/images/fixedl-1_v2.png"></div>
+                        <div></div>
+                    </div>
+                </li>
+                <li class="m2-comRigli m2-comRigli-tel m2-comRigli_new" data="#fixnavbar_two">
+                    <img src="statics/home2/images/fixed-r2.png">
+                    <div class="num num1">
+                        3                </div>
+                    <div class="toAbs">
+                        <div><img src="statics/home2/images/fixedl-2_v2.png"></div>
+                        <div></div>
+                    </div>
+                </li>
+                <li class="m2-comRigli m2-comRigli-qq m2-comRigli_new" data="#fixnavbar_three">
+                    <img src="statics/home2/images/fixed-r3.png">
+                    <div></div>            	<div class="toAbs">
+                    <div><img src="statics/home2/images/fixedl-3_v2.png"></div>
+                    <div></div>
+                </div>
+                </li>
+                <li class="m2-comRigli m2-comRigli-sug m2-comRigli_new" data="#fixnavbar_four">
+                    <img src="statics/home2/images/fixed-r4.png">
+                    <div></div>            	<div class="toAbs">
+                    <div><img src="statics/home2/images/fixedl-4_v2.png"></div>
+                    <div></div>
+                </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 右边侧栏顶部右边弹出 -->
+        <div class="fixbox_bar">
+            <div class="fixnavbar" id="fixnavbar_one">
+                <div class="sumtop">
+                    <div class="top" style="margin: 18px;text-align: center;font-size: 20px;position: relative;"><span style="position: absolute;top: 0;left: -18">>></span>我的账户</div>
+                    <div class="bottom">
+                        <img src="statics/home2/images/user-head.png">
+                        <div>
+                            <p id ="right_name_info"></p>
+                            <button id="right_recharge">充值</button>
+                        </div>
+                    </div>
+                </div>
+                <hr style="margin:0 10px;"/>
+                <div class="summiddle">
+                    <ul>
+                        <li style="border-top-left-radius:10px;">
+                            <p><span id="right_account_money"></span>元</p>
+                            <span>可用资金</span>
+                        </li>
+                        <li style="border-top-right-radius:10px;">
+                            <p><span id="right_reward_money"></span>元</p>
+                            <span>可用奖励金</span>
+                        </li>
+                    </ul>
+                    <div class="content">
+                        <p>待收本金：<span id="right_total_capital"></span>元</p>
+                        <p>待收收益：<span id="right_total_wait_interest"></span>元</p>
+                    </div>
+                    <p class="lastcontent">资产总计：<span id="right_total_asset"></span>元</p>
+                    <ul style="margin-top:30px;">
+                        <li style="border-top-left-radius:10px;border-bottom-left-radius:10px;">
+                            <p><span id="right_today_earn"></span>元</p>
+                            <span>今日赚取</span>
+                        </li>
+                        <li style="border-top-right-radius:10px;border-bottom-right-radius:10px;">
+                            <p><span id="right_total_reward_normal_interest"></span>元</p>
+                            <span>累计收益</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sumbottom" id ="accountCommon_right">查看更多>></div>
+            </div>
+
+            <div class="fixnavbar common" id="fixnavbar_two">
+
+            </div>
+
+            <div class="fixnavbar common" id="fixnavbar_three">
+
+            </div>
+
+            <div class="fixnavbar" id="fixnavbar_four">
+
+            </div>
+        </div>
+
+        <!-- 右侧边栏底部 -->
+        <div class="m2-commonRight">
+            <ul class="m2-comRiglist">
+                <li class="m2-comRigli m2-comRigli-ewm"  style="border-top:1px solid #fff;">
+                    <i class="m2-comRigli-icon"></i>
+                    <span class="m2-comRigli-hov">关注<br>微信</span>
+                    <div class="m2-comRighide m2-comRighide-ewm"><i></i></div>
+                </li>
+                <li class="m2-comRigli m2-comRigli-tel">
+                    <i class="m2-comRigli-icon"></i>
+                    <span class="m2-comRigli-hov">联系<br>我们</span>
+                    <div class="m2-comRighide m2-comRighide-tel">
+                        <div class="m2-comRighide-telSpace"></div>
+                        <b class="m2-comRighide-telBorder"></b>
+                        <div class="m2-comRigtel-lef">
+                            <div class="m2-comRigtel-lefTop">
+                                <input type="text" placeholder="请输入您的手机号"  id='phonenumber'>
+                            </div>
+                            <div class="m2-comRigtel-lefBot">
+                                <input type="text" placeholder="验证码" id="ivrSecurityCode">
+                                <img id="ivrSecurityCodeImg" onclick="getCode()" src="Index-VerifyCode.png" alt="验证码" title="点击更新验证码">
+                            </div>
+                        </div>
+                        <div class="m2-comRigtel-rig">
+                            <span  onclick='callback()'>免费<br>拨打</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="m2-comRigli m2-comRigli-qq" style="position:relative;">
+
+                    <div id="BizQQWPA" style="width:50px;height:50px;position:absolute;top:0;left:0;z-index:150;">
+
+                    </div>	                <i class="m2-comRigli-icon" style="z-index:100;"></i>
+                    <span class="m2-comRigli-hov" style="z-index:100;">在线<br>客服</span>
+                </li>
+                <li class="m2-comRigli m2-comRigli-sug" style="border-bottom: 1px solid #fff;">
+                    <i class="m2-comRigli-icon"></i>
+                    <span class="m2-comRigli-hov"><a href="guide.html" style="color:#fff;">帮助<br>中心</a></span>
+                </li>
+
+                <li class="m2-comRigli m2-comRigli-top">
+                    <i class="m2-comRigli-icon"></i>
+                    <span class="m2-comRigli-hov">返回<br>顶部</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function(){
+            $('#right_recharge').click(function(){
+                window.location.href="#";
+            });
+
+            $(".fixbox_bar").click(function(event){
+                event.stopPropagation();
+            });
+            $('#accountCommon_right').click(function(){
+                window.location.href="usercenter.html";
+            });
+//			$('#redbagCommon_right').click(function(){
+//				window.location.href="usercenter-rewardcontrol-redpacket.html";
+//			});
+//			$('#percentageCommon_right').click(function(){
+//				window.location.href="usercenter-rewardcontrol-interestcoupon.html";
+//			});
+//			$('#messageCommon_right').click(function(){
+//				window.location.href="usercenter-messagecontrol-sitemsg.html";
+//			});
+        })
+
+
+    </script>
+
+
+    <!--首页右侧提示悬浮窗、账户、红包、加息券 user_m_type -->
+    <script type="text/javascript">
+        $(function(){
+            $(".fixbox_bar").click(function(event){
+                event.stopPropagation();
+            });
+
+            $("#fixbar .myclick li").click(function(event){
+                var select=$(this).attr("data");
+                $(".fixnavbar").css("display","none");
+                $(select).css("display","block");
+                $('#fixbar').animate({ right: '300'}, "slow");
+                $("#fixbar .fixbox_bar").animate({ right: '-18'}, "slow");
+
+                // 阻止事件冒泡
+                event.stopPropagation();
+                if(select=="#fixnavbar_one"){
+                    $.ajax({
+                        type:'POST',
+
+                        url:"/Home-RightHomePage-account_right_new",
+                        success:function(msg){
+                            var obj = eval('('+msg+')');
+                            $("#right_today_earn").text(obj.today_earn);
+                            $("#right_total_capital").text(obj.total_capital);
+                            $("#right_account_money").text(obj.account_money);
+                            $("#right_reward_money").text(obj.reward_money);
+                            $("#right_total_asset").text(obj.total_asset);
+                            $("#right_total_wait_interest").text(obj.total_wait_interest);
+                            $("#right_name_info").text(obj.real_name);
+                            $("#right_total_reward_normal_interest").text(obj.total_reward_normal_interest);
+                        }
+
+                    });
+                }else if(select=="#fixnavbar_two"){
+                    $.ajax({
+                        type: "POST",
+                        url: '/Home-RightHomePage-hb_right_new',
+                        success: function(data) {
+                            $('#fixnavbar_two').empty();
+                            $('#fixnavbar_two').append(data);
+                        }
+                    });
+                }else if(select=="#fixnavbar_three"){
+                    $.ajax({
+                        type: "POST",
+                        url: '/Home-RightHomePage-jxq_right_new',
+                        success: function(data) {
+                            $('#fixnavbar_three').empty();
+                            $('#fixnavbar_three').append(data);
+                        }
+                    });
+                }else if(select=="#fixnavbar_four"){
+                    $.ajax({
+                        type: "POST",
+                        url: '/Home-RightHomePage-sitemsg_right_new',
+                        success: function(data) {
+                            $('#fixnavbar_four').empty();
+                            $('#fixnavbar_four').append(data);
+                        }
+                    });
+                }
+
+
+
+            });
+            // 点击页面其他地方框消失
+            $("body").click(function(){
+                $('#fixbar').animate({ right: '0'}, "slow");
+                $("#fixbar .fixbox_bar").animate({ right: '-318'}, "slow");
+            });
+
+        })
+    </script>
+    <script>
+        //注册方法
+        function verifycodeRight(){
+            var canSubmit=true;
+            $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html('');
+            if($("#vcodeRight").val().length==0){
+                $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html("验证码不能为空");
+                $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
+                canSubmit = false;
+            }
+            if($("#passRight").val().length==0){
+                $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html("密码不能为空");
+                $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
+                canSubmit = false;
+            }
+            if($("#regTelRight").val().length==0){
+                $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html("手机号不能为空");
+                $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
+                canSubmit = false;
+            }
+
+            $(".mo2-indRegbox .mo2-indLogwarRight u").each(function(){
+                if($(this).html().length>0){
+                    canSubmit = false;
+                }
+            });
+            if (canSubmit !== true) return false;
+            var p={"vcode":$("#vcodeRight").val()};
+            postData("/Home-Register-ckcode",p,function(d){
+                if(d.message!=" "){
+                    $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html(d.message);
+                    $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").show();
+                    return false;
+                }else{
+                    $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").children("u").html('');
+                    $("#reverifyCodeRight").siblings(".mo2-indLogwarRight").hide();
+                    $('.mo2-indRegboxRight').css('display','none');
+                    $('.mo2-indRegbox2Right').css('display','block');
+                }
+
+            });
+        }
+        //登录方法
+        function loginRight(){
+            var p = makevar(['user_nameRight','pass_wordRight','vcodeRight']);
+            var canSubmit = true;
+            if($('#user_nameRight').val()==""){
+                $('#error-hint').html('用户名不能为空！');
+            }else if($('#user_nameRight').val().lenght <6){
+                $('#error-hint').html('用户名长度错误！');
+            }else {
+                if ($('#pass_wordRight').val() == ""){
+                    $('#error-hint').html('密码不能为空！');
+                }else if ($('#pass_wordRight').val().length < 6 || $('#pass_wordRight').val().length > 20){
+                    $('#error-hint').html('密码长度错误！');
+                }else {
+                    $('#error-hint').html('');
+                    postData("/Home-Login-index_loginRight",p,function(d){
+                        if(d.status==0){
+                            $('#error-hint').html(d.message);
+                        }else if(d.status==1){
+                            window.location.reload();
+                        }else if(d.status==2){
+                            window.location.href = "dashiji_show.html#15319.html";
+                        }
+                    });
+                }
+            }
+        }
+
+        $(document).keydown(function(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if(e && e.keyCode==13){
+                loginRight();
+            }
+        });
+        // 注册登录tab切换
+        $('.mo2-indLogtab ul li').click(function(){
+            if ($(this).hasClass('mo2-logTab-unsel')) {
+                $(this).addClass('mo2-logTab-sel').removeClass('mo2-logTab-unsel');
+                $(this).siblings('.mo2-logTab-sel').addClass('mo2-logTab-unsel').removeClass('mo2-logTab-sel');
+            }
+        });
+        // 注册登录显示隐藏
+        $('.mo2-indTab-reg').click(function(){
+            $('.mo2-indRegboxRight').show();
+            $('.mo2-indRegbox2Right').hide();
+            $('.mo2-indLogboxRight').hide();
+        });
+        $('.mo2-indTab-log').click(function(){
+            $('.mo2-indRegboxRight').hide();
+            $('.mo2-indRegbox2Right').hide();
+            $('.mo2-indLogboxRight').show();
+        });
+
+        //右侧悬浮框
+        var aLi=$('.m2-comRigli_new');
+        for(var i=0;i<aLi.length;i++){
+            (function(index){
+                aLi[index].onmouseover=function(){
+                    var oDiv=aLi[index].children[2];
+                    var aDiv=oDiv.children;
+                    oDiv.style.display='block';
+                    //if(flag==1){
+                    var iNum=parseInt(aDiv[1].innerHTML);
+                    if(iNum>=100){
+                        aDiv[1].innerHTML='···';
+                    }
+                    //}
+                };
+            })(i)
+        }
+        for(var i=0;i<aLi.length;i++){
+            (function(index){
+                aLi[index].onmouseout=function(){
+                    var oDiv=aLi[index].children[2];
+                    var aDiv=oDiv.children;
+                    oDiv.style.display='none';
+                    //if(flag==1){
+                    var iNum=parseInt(aDiv[1].innerHTML);
+                    if(iNum>=100){
+                        aDiv[1].innerHTML='···';
+                    }
+                    //}
+                };
+            })(i)
+        }
+
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            var wHei = $(window).height();
+
+            $(document).scroll(function () {
+                // 判断返回顶部是否显示
+                visTop(wHei);
+            });
+
+            $('.m2-comRigli-top').click(function () {
+                $('body,html').animate({scrollTop: 0}, 600);
+                return false;
+            });
+        });
+
+        function visTop(high) {
+
+            if ($(document).scrollTop() > high + 100) {
+                $('.m2-comRigli-top').css('visibility', 'visible');
+            } else {
+                $('.m2-comRigli-top').css('visibility', 'hidden');
+            }
+        }
+    </script>
+    <!-- 右侧边栏end -->
+
+
+    <!-- headerStart -->
+    <div class="m2-commonTop-con">
+        <div class="m2-commonTop">
+            <div class="m2-commonTop-left">
+                <div class="m2-commonTop-tel"><i></i>4006&nbsp;-&nbsp;777&nbsp;-&nbsp;518</div>
+                <div class="m2-commonTop-service" style="padding-left:0;"><span style="float:left;">客服：</span>
+                    <div style="float:left;display:inline-block;width:92px;height:22px;padding:6px 0 13px 0;"></div>
+                </div>
+                <div class="m2-commonEwm">
+                    <span class="m2-commonEwm-tit">关注我们：</span>
+                    <div class="m2-commonEwmwx">
+                        <i class="m2-commonEwmicon"></i>
+                        <div class="m2-commonEwmhid">
+                            <em class="m2-commonEwmhid-arr"></em>
+                            <em class="m2-commonEwmhid-arrBg"></em>
+                            <b></b>
+                            <span>扫一扫<br>关注爱钱帮订阅号</span>
+                        </div>
+                    </div>
+                    <div class="m2-commonEwmwb">
+                        <i class="m2-commonEwmicon" onclick='window.open("http://weibo.com/iqianbang")'></i>
+                    </div>
+                </div>
+            </div>
+            <div class="m2-commonTop-right">
+                <div class="m2-commonTop-link">
+                    <ul>
+                        <!-- 论坛导航栏全部关闭 -->
+                        <!--<li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>-->
+                        <li class="m2-commonTop-loged">
+                            <span class="m2-commonTop-userName"><a href="usercenter.html">您好，iqb13737301354</a></span>
+                        </li>
+                        <li class="m2-commonTop-btn"><a href="#" style="border-right:none;">退出</a></li>
+                        <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>
+                        </li>
+                    </ul>
+                </div>
+                <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
+                    <a href="" class="m2-commonTop-and"></a>
+                    <a href="" class="m2-commonTop-ios"></a>
+                    <span>app下载入口</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  用户登陆后，（部分用户）导航栏显示论坛选项、现在全部关闭
+    <script type="text/javascript">
+        $(function () {
+           $('#bbslogin').click(function(){
+               var w = window.open();
+                $.ajax({
+                    type:"GET",
+                    url :"/api-bbslogin",
+                    success:function(msg){
+                        var obj = eval('('+msg+')');
+                        var obj = eval(obj);
+                        if (obj.status == 1){
+                            w.location = obj.message;
+                        }
+                    }
+                });
+           });
+           var _uid = Number(305497);
+           var _all_uid = Array(5277,320,25893,77960,70760,4762,36256,59960,126250,75980,4039,68689,133118,185);
+           function in_array(uid,array){
+                for(var i in array){
+                    if(array[i] == uid){
+                        $("#bbs").attr("style","display:block");
+                    }
+                }
+           }
+           in_array(_uid,_all_uid);
+        });
+    </script>
+    -->
+    </div>
+    <div class="m2-commonNav-con">
+        <div class="m2-commonNav-box">
+            <div class="m2-commonLogo">
+                <a class="m2-comImg-logo" href="index.html">
+                    <img src="statics/newcommon/images/m2-logo.png" title="爱钱帮投资理财平台logo" alt="爱钱帮标识">
+                </a>
+                <a class="m2-conImg-slogan" href="">
+                    <img src="statics/newcommon/images/m2-sloganHS.png" title="徽商银行投资理财托管" alt="">
+                </a>
+            </div>
+            <div class="m2-commonNav">
+                <ul class="m2-commonNavul-fir" data_page=''>
+                    <!--  <li class="m2-commonNav-fir"><a href="http://huifu.iqianbang.com" target="_blank" >汇付版本</a></li>-->
+                    <li class="m2-commonNav-fir"><a href="index.html" id="onepage">首页</a></li>
+                    <li class="m2-commonNav-fir"><a href="membermall.html" id="sevenpage">会员商城</a></li>
+                    <li class="m2-commonNav-fir"><a href="touzi_licai_chanpin.html" id="twopage">我要投资</a></li>
+                    <li class="m2-commonNav-fir"><a href="usercenter.html" id="threepage">我的账户</a></li>
+                    <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>
+                    <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang.html" id="fivepage">关于我们</a></li>
+                    <!-- <li class="m2-commonNav-fir"><a href="guide.html">新手引导</a></li> -->
+                    <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <style>
+        .vIVR{display:none}
+    </style>
+    <script>
+        var page=$(".m2-commonNavul-fir").attr("data_page");
+        $("#"+page).parent().css("borderBottom","2px solid #ff6666");
+
+        var queuename = '30017180006';
+        function callback() {
+            $('#tel').val($('#phonenumber').val());
+            call();
+        }
+        setCallResponse = function (json) {
+            var obj = eval('(' + json + ')');
+            if (obj['description']) {
+                $('#callBack-codeErr').css('display', 'block');
+                $('#ivrSecurityCode').val('');
+                getCode();
+                setTimeout(function () {
+                    $('#callBack-codeErr').css('display', 'none');
+                }, 3000);
+            }
+        }
+    </script>
+    <!-- headerEnd -->
+<head>
+    <meta charset="utf-8">
+    <title>火影忍者</title>
+    <style type="text/css">
+        button {outline: none;}
+        button:hover {cursor:pointer;}
+        #naruto {color: #3c3c3c;font-size: 16px;}
+        #naruto .topbanner {height: 242px;background: url(./statics/market/hotshadow/img/naruto1.jpg) no-repeat top center;padding-top: 106px;}
+        #naruto .topbanner .immediately_bao {width: 131px;height: 160px;display: inline-block;background-image: url(./statics/market/hotshadow/img/naruto15.png);}
+        #naruto .topbanner .immediately_bao:hover {background-image: url(./statics/market/hotshadow/img/naruto15sp.png);cursor: pointer;}
+        #naruto .first_content {width: 1000px;margin: 30px auto 0 auto;padding-bottom: 14px;}
+        #naruto h4 {font-size: 20px;margin: 16px auto;}
+        #naruto .first_content .look_news {font-size: 14px;color: #9a1b1f;padding-left: 30px;}
+        #naruto .detail {margin-bottom: 10px;}
+        #naruto .detail img {vertical-align: -7px;margin-right: 20px;}
+        #naruto .detail span + span {color: #787878;}
+        #naruto .container {text-align: center;display: inline-block;margin-top: 10px;margin-right: 136px;line-height: 30px;}
+        #naruto .container .task {width: 161px;height: 126px;}
+        #naruto .task1 {background: url(./statics/market/hotshadow/img/naruto4.png) no-repeat;}
+        #naruto .task1:hover{background-image: url(./statics/market/hotshadow/img/naruto4sp.png);cursor: pointer;}
+        #naruto .task2 {background: url(./statics/market/hotshadow/img/naruto5.png) no-repeat;}
+        #naruto .task2:hover{background-image: url(./statics/market/hotshadow/img/naruto5sp.png);cursor: pointer;}
+        #naruto .task3 {background: url(./statics/market/hotshadow/img/naruto6.png) no-repeat;}
+        #naruto .task3:hover{background-image: url(./statics/market/hotshadow/img/naruto6sp.png);cursor: pointer;}
+        #naruto .second_content {width: 1000px;margin: 0 auto;position: relative;}
+        #naruto .second_content .reword {background-color: white;padding: 16px;text-indent: 2em;color: #787878;line-height: 28px;}
+        #naruto .second_content .person {position: absolute;right: 0;top: 20px;}
+        #naruto .third_content {width: 1000px;margin: 0 auto;padding: 30px 0;line-height: 30px;text-align:center;}
+        #naruto_mask {display: none;position: fixed;top: 0;bottom: 0;left: 0;right: 0;background-color: black;opacity: 0.7;filter:alpha(opacity=70);z-index: 2000;}
+        .naruto_mask_content {display: none;position: fixed;top: 50%;left: 0;right: 0;z-index: 2001;text-align: center;font-size: 18px;}
+        .naruto_mask_content .warm_alarm {width: 505px;height: 326px;margin: 0 auto;background: url(./statics/market/hotshadow/img/naruto17.png) no-repeat top center;position: relative;}
+        .naruto_mask_content .warm_alarm .img_close_btn {position: absolute;right: 10px;top: 10px;}
+        .naruto_mask_content .warm_alarm .img_close_btn:hover {cursor:pointer;}
+        .naruto_mask_content .warm_alarm h4 {color: white;font-size: 22px;padding-top: 38px;letter-spacing: 2px;}
+        .naruto_mask_content .warm_alarm .warm_alram_content{text-align: justify;width: 90%;margin: 50px auto;line-height: 26px;display: none;}
+        .naruto_mask_content .warm_alarm .button_box button {border: 0;color: white;font-size: 20px;width: 147px;height: 37px;background: url(./statics/market/hotshadow/img/naruto19.png) no-repeat;}
+        .naruto_mask_content .warm_alarm .button_box .giveup {background-image: url(./statics/market/hotshadow/img/naruto19sp.png)}
+        .naruto_mask_content .warm_alarm .button_box button:hover{background-image: url(./statics/market/hotshadow/img/narutohover.png)}
+        .naruto_mask_content .warm_alarm .warm_alram_success {color:#fa5a28;font-size:20px;margin-top: 60px;display: none;}
+        .naruto_mask_content .task_body {white-space: nowrap;width: 541px;height: 362px;margin: 0 auto;background: url(./statics/market/hotshadow/img/naruto21.png) no-repeat 50%;position: relative;}
+        .naruto_mask_content .task_body .img_close_btn {margin-top: 30px;margin-right: 30px;}
+        .naruto_mask_content .task_body .img_close_btn:hover {cursor:pointer;}
+        .naruto_mask_content .task_body h4 {color: white;font-size: 22px;letter-spacing: 2px;margin-top: -18px;}
+        .naruto_mask_content .task_body .task_body_content{text-align: justify;width: 80%;margin: 50px auto;line-height: 26px;font-size: 16px;}
+        .naruto_mask_content .task_body .task_body_content .packet {color: #a11414;}
+        .naruto_mask_content .task_body .task_body_content .detail_packet {padding-left: 60px;}
+
+    </style>
+</head>
+<!-- 身体部分 -->
+<div id="naruto">
+    <div class="topbanner">
+        <div style="width:950px;margin:0 auto;text-align:right;"><div class="immediately_bao"></div></div>
+    </div>
+    <div class="first_content">
+        <img src="statics/market/hotshadow/img/naruto2.png">
+        <h4>挑战忍者悬赏任务，赢加息神券</h4>
+        <div class="detail"><img src="statics/market/hotshadow/img/naruto3.png"><span>活动时间：</span><span>2016年8月20日14点开始</span></div>
+        <div class="detail"><img src="statics/market/hotshadow/img/naruto3.png"><span>活动地点：</span><span>上海市浦东新区上南路168号世博源五区下沉式广场</span></div>
+        <div class="detail"><img src="statics/market/hotshadow/img/naruto3.png"><span>发布挑战：</span><span>发布忍者悬赏任务，暨爱钱帮用户答谢会(华东)</span><a href="javascript:vodi(0)" class="look_news">查看发布流程>></a></div>
+        <div class="detail"><img src="statics/market/hotshadow/img/naruto3.png"><span>接受挑战：</span><span>悬赏任务攻略和奖励介绍</span></div>
+        <div class="container" style="margin-left:90px;" data="three">
+            <div class="task1 task"></div>
+            <p><初级悬赏任务></p>
+        </div>
+        <div class="container" data="two">
+            <div class="task2 task"></div>
+            <p><中级悬赏任务></p>
+        </div>
+        <div class="container" data="one">
+            <div class="task3 task"></div>
+            <p><高级悬赏任务></p>
+        </div>
+    </div>
+    <div style="background-color:#f0f0f0;padding:20px 0;">
+        <div class="second_content">
+            <img src="statics/market/hotshadow/img/naruto7.png">
+            <h4>官方授权正版火影周边，全网限时派送</h4>
+            <div class="person">
+                <img src="statics/market/hotshadow/img/naruto8.png">
+                <img src="statics/market/hotshadow/img/naruto9.png" style="margin:0 40px;">
+                <img src="statics/market/hotshadow/img/naruto10.png">
+            </div>
+            <div class="reword">
+                <p>
+                    所有爱钱帮用户，8月6日至8月21日累计投资8万元，并新邀请3名好友注册投资爱钱帮，即可获得限量版30CM毛绒公仔一个（鸣人，卡卡西，我爱罗任选其一）。
+                    <!-- <a href="#" style="color:#9a1b1f;font-size:14px;margin-left:4px;">查询邀请好友记录</a> -->
+                </p>
+                <p>累计投资金额不包含承接债权转让和债权转让的标的金额，新邀请注册的好友必须是在活动期间，好友邀请关系以爱钱帮邀请好友活动系统记录为准。</p>
+                <p style="text-align:right;">活动奖品将在活动结束后的10个工作日陆续寄出</p>
+            </div>
+        </div>
+    </div>
+    <div class="third_content">
+        <div><img src="statics/market/hotshadow/img/naruto11.png"></div>
+        <div style="text-indent:2em;margin:10px auto;text-align:left;">中国大陆首个官方授权火影忍者动画实境展，两千平米超大空间，完美呈现火影忍者世界观，首次开发中国大陆地区火影忍者限定周边商品，独创忍者晋级体验互动，成为一名真正的忍者，爱钱帮投资用户除了体验官方设计的游戏互动外，还可参加爱钱帮专属活动。</div>
+        <img src="statics/market/hotshadow/img/naruto12.png">
+        <img src="statics/market/hotshadow/img/naruto13.png" style="margin:0 10px;">
+        <img src="statics/market/hotshadow/img/naruto14.png">
+    </div>
+</div>
+
+<!-- 整体遮罩 -->
+<div id="naruto_mask"></div>
+<!-- 报名的弹框__已经报名或者报名截止-->
+<div class="naruto_mask_content yijingbaomingle" style="color:#fab43c;font-size:28px;margin-top:-15px;"><img src="statics/market/hotshadow/img/naruto16.png" style="vertical-align:-5px;margin-right:8px;"><span class="error_bao"></span></div>
+
+<!-- 报名弹框__报名结果 -->
+<div class="naruto_mask_content baomingresult" style="margin-top:-158px;">
+    <div class="warm_alarm">
+        <img src="statics/market/hotshadow/img/naruto18.png" class="img_close_btn">
+        <h4>温馨提醒</h4>
+        <div class="warm_alram_success"><img src="statics/market/hotshadow/img/naruto20.png" style="vertical-align:-8px;margin-right:8px;">报名成功</div>
+        <div class="warm_alram_content"></div>
+        <div class="button_box" style="display: none;">
+            <button class="giveup" style="margin-right:20px;">放弃报名</button>
+            <button class="vilidatesubmit">确认报名</button>
+        </div>
+    </div>
+</div>
+
+<!-- 流程的弹框 -->
+<div class="naruto_mask_content challenge_flow" style="margin-top:-158px;">
+    <div class="warm_alarm" style="padding:0 20px;width:465px;">
+        <img src="statics/market/hotshadow/img/naruto18.png" class="img_close_btn">
+        <h4>挑战流程</h4>
+        <div style="line-height:30px;text-align:left;font-size:16px;margin-top:20px;">
+            <div>1. 爱钱帮联合创始人&COO致辞，介绍平台运营情况。</div>
+            <div style="text-align:right;">（约20分钟）</div>
+            <div>2. 爱钱帮COO与现场帮主深入交流,解答帮主们关切的投资问题。</div>
+            <div style="text-align:right;">（约30分钟）</div>
+            <div>3. 发布《忍者悬赏任务帖》(内含现场活动流程说明) ,根据提示完成任务，将获得丰厚奖励。</div>
+            <div style="text-align:right;">（约10分钟）</div>
+        </div>
+    </div>
+</div>
+
+<!-- 任务的弹框 -->
+<div class="naruto_mask_content mytaskes" style="margin-top:-181px;">
+    <div class="task_body" style="width: 0px;">
+        <div style="width:541px;text-align:right;"><img src="statics/market/hotshadow/img/naruto18.png" class="img_close_btn"></div>
+        <img src="statics/market/hotshadow/img/naruto22sp.png" style="position:absolute;left:-5px;top:0;">
+        <img src="statics/market/hotshadow/img/naruto22.png" style="position:absolute;right:-5px;top:0;">
+        <h4></h4>
+        <div class="task_body_content">
+            <div class="top_content"></div>
+            <div style="margin-top:8px;"><img src="statics/market/hotshadow/img/naruto23.png" style="vertical-align:-8px;"><span class="packet"></span></div>
+            <div class="detail_packet"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var login_flag='1';//登入
+    var isapply='0';//报名
+    var isallow='0';
+    var islevel='0';//等级
+    var isflag='0';
+    var userid ='305497';
+
+
+    $(".naruto_mask_content .img_close_btn,.giveup").click(function(){
+        $("#naruto_mask,.naruto_mask_content").hide();
+        $(".mytaskes .task_body").css("width","0");
+    });
+
+    // 挑战流程点击事件
+    $("#naruto .look_news").click(function(){
+        $("#naruto_mask,.challenge_flow").show();
+    });
+    // 确认报名点击事件
+    $(".vilidatesubmit").click(function(){
+        $(".warm_alram_content,.button_box").hide();
+        $.post("/market-HotShadow-ajax_doAdd",{uid:userid},function(data){
+            var jsonData=JSON.parse(data);
+            if(jsonData.status == '1'){
+                $(".button_box,.warm_alram_content").hide();
+                $(".warm_alram_success").show();
+                tim_Down();
+                isapply='1';
+            }else{
+                window.location.href="/home-index-index";
+            }
+        })
+    });
+    // 报名点击事件
+    $(".immediately_bao").click(function(){
+        if(login_flag == '1'){
+            //已登入
+            if(isapply == '0'){
+                if(isallow == '1'){
+                    $(".warm_alram_content,.button_box,#naruto_mask,.baomingresult").show();
+                    if(islevel == '1' || isflag == '1'){
+                        //截止7月31日待收本金大于10万或者铁帮主以上等级
+                        $(".warm_alram_content").html('受活动场地人数限制，我们将从所有报名用户数中抽选部分幸运帮主亲临现场参加，报名结果将在5个工作日内以系统短信告知，请注意查收。');
+                        $(".warm_alram_success").hide();
+                    } else {
+                        $(".warm_alram_content").html('本次现场活动仅限7月31日待收本金大于10万的帮主，或者铁帮主以上的投资用户报名，您可以参与《官方授权正版火影周边，全网限时派送》线上活动');
+                        $(".warm_alram_success,.button_box").hide();
+                    }
+                } else {
+                    //活动报名结束
+                    $(".yijingbaomingle .error_bao").html('报名已截止');
+                    $("#naruto_mask,.yijingbaomingle").show();
+                    tim_Down();
+                }
+            } else {
+                //已报名
+                $(".yijingbaomingle .error_bao").html('您已报名');
+                $("#naruto_mask,.yijingbaomingle").show();
+                tim_Down();
+            }
+        } else {
+            //未登入跳转至登入页面
+            window.location.href="/home-index-index";
+        }
+    });
+
+    // 任务的点击事件
+    $("#naruto .container").click(function(){
+        var data=$(this).attr("data");
+        if (data=="three") {
+            $(".task_body h4").html("初级悬赏任务");
+            $(".task_body_content .top_content").css("marginBottom","0px").html("<p>在火影实境展场馆内</p><p>找到任意一位爱钱帮专属NPC(即COSPLAY火影人物)</p><p>完成接头暗号，合影拍照后发朋友圈，即可完成此任务，获得</p><p>初级悬赏礼包一个</p>");
+            $(".task_body_content .packet").html("初级悬赏礼包奖励");
+            $(".task_body_content .detail_packet").html("0.5%~1.5%随机额度加息券");
+        }else if (data=="two") {
+            $(".task_body h4").html("中级悬赏任务");
+            $(".task_body_content .top_content").css("marginBottom","18px").html("<p>完成初级悬赏任务后，可从NPC处获得中级悬赏任务卡，根据</p><p>提示完成中级悬赏任务即可获得中级悬赏礼包一个(此处有机会</p><p>获得2.5%加息券哟)</p>");
+            $(".task_body_content .packet").html("中级悬赏礼包奖励");
+            $(".task_body_content .detail_packet").html("1%~2.5%随机额度加息券");
+        }else if (data=="one") {
+            $(".task_body h4").html("高级悬赏任务");
+            $(".task_body_content .top_content").css("marginBottom","32px").html("<p>完成中级悬赏任务后,在爱钱帮平台新增待收本金大于等于10万元</p><p>前5名完成任务的帮主可获得高级悬赏礼包</p>");
+            $(".task_body_content .packet").html("高级悬赏礼包奖励");
+            $(".task_body_content .detail_packet").html("爱钱帮3%加息神券一张（详见现场悬赏任务帖说明）");
+        }
+        $("#naruto_mask,.mytaskes").show();
+        $(".mytaskes .task_body").animate({width: "541px"},1000);
+    });
+
+
+    //倒计时
+    var tim=2
+    function tim_Down(){
+
+        if (tim>0) {
+            tim--;
+            setTimeout(function(){tim_Down()}, 1000);
+        }
+        else if (tim<=0) {
+            tim=2
+            $("#naruto_mask,.naruto_mask_content").hide();
+        }
+    }
+</script>
+</body>
+</html>

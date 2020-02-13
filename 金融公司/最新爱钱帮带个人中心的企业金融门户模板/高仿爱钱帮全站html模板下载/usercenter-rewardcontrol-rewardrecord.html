@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--[if lt IE 9]>
+    <script src="statics/newcommon/js/html5shiv.js"></script>
+    <![endif]-->
+    <meta name="keywords" content="网贷平台,网络借贷，网络赚钱项目,理财产品">
+    <meta name="description" content="爱钱帮网贷平台为您提供网络赚钱项目；为此相继推出了许多新的理财产品，在为您创造高收益的同时也优化了理财产品模式。网络借贷，就选爱钱帮。">
+    <meta charset="UTF-8">
+    <link  rel="Shortcut  Icon"  href="statics/home/images/minilogo.png">
+    <link rel="stylesheet" href="statics/newcommon/css/m2-commonNew.css?20160520">
+    <link rel="stylesheet" href="statics/newcommon/css/m2-common.css?20160520">
+    <link rel="Shortcut  Icon" href="statics/newcommon/images/minilogo.png?20160520">
+    <link rel="stylesheet" href="statics/usercenter/css/userCenter.css?20160520">
+    <script type="text/javascript" src="statics/newcommon/js/jquery.min.js?20160520"></script>
+    <script type="text/javascript" src="statics/newcommon/js/common.js?20160520"></script>
+    <script type="text/javascript" src="statics/usercenter/js/esl.js?20160520"></script>
+    <link rel="stylesheet" href="statics/usercenter/css/jquery.datetimepicker.css?20160520" />
+    <script type="text/javascript" src="statics/usercenter/js/jquery.datetimepicker.js?20160520"></script>
+</head>
+<title>奖励金流水--爱钱帮</title>
+<!-- 右侧边栏start -->
+<div class="m2-commonRight">
+    <ul class="m2-comRiglist">
+        <li class="m2-comRigli m2-comRigli-ewm">
+            <i class="m2-comRigli-icon"></i>
+            <span class="m2-comRigli-hov">关注<br>微信</span>
+            <div class="m2-comRighide m2-comRighide-ewm"><i></i></div>
+        </li>
+        <li class="m2-comRigli m2-comRigli-tel">
+            <i class="m2-comRigli-icon"></i>
+            <span class="m2-comRigli-hov">联系<br>我们</span>
+            <div class="m2-comRighide m2-comRighide-tel">
+                <div class="m2-comRighide-telSpace"></div>
+                <b class="m2-comRighide-telBorder"></b>
+                <div class="m2-comRigtel-lef">
+                    <div class="m2-comRigtel-lefTop">
+                        <input type="text" placeholder="请输入您的手机号"  id='phonenumber'>
+                    </div>
+                    <div class="m2-comRigtel-lefBot">
+                        <input type="text" placeholder="验证码" id="ivrSecurityCode">
+                        <img id="ivrSecurityCodeImg" onclick="getCode()" src="code.png" alt="验证码" title="点击更新验证码">
+                    </div>
+                </div>
+                <div class="m2-comRigtel-rig">
+                    <span  onclick='callback()'>免费<br>拨打</span>
+                </div>
+            </div>
+        </li>
+        <li class="m2-comRigli m2-comRigli-qq">
+            <a  target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes">
+                <i class="m2-comRigli-icon"></i>
+                <span class="m2-comRigli-hov">在线<br>客服</span>
+            </a>
+            <!-- <div class="m2-comRighide"></div> -->
+        </li>
+        <!--<li class="m2-comRigli m2-comRigli-sug">-->
+        <!--<i class="m2-comRigli-icon"></i>-->
+        <!--<span class="m2-comRigli-hov">意见<br>反馈</span>-->
+        <!-- <div class="m2-comRighide"></div> -->
+        <!--</li>-->
+        <li class="m2-comRigli m2-comRigli-top">
+            <i class="m2-comRigli-icon"></i>
+            <span class="m2-comRigli-hov">返回<br>顶部</span>
+            <!-- <div class="m2-comRighide"></div> -->
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var wHei = $(window).height();
+
+        $(document).scroll(function () {
+            // 判断返回顶部是否显示
+            visTop(wHei);
+        });
+
+        $('.m2-comRigli-top').click(function () {
+            $('body,html').animate({scrollTop: 0}, 600);
+            return false;
+        });
+    });
+
+    function visTop(high) {
+
+        if ($(document).scrollTop() > high + 100) {
+            $('.m2-comRigli-top').css('visibility', 'visible');
+        } else {
+            $('.m2-comRigli-top').css('visibility', 'hidden');
+        }
+    }
+</script>
+<!-- 右侧边栏end -->
+
+
+<!-- headerStart -->
+<div class="m2-commonTop-con">
+    <div class="m2-commonTop">
+        <div class="m2-commonTop-left">
+            <div class="m2-commonTop-tel"><i></i>4006&nbsp;-&nbsp;777&nbsp;-&nbsp;518</div>
+            <div class="m2-commonTop-service"><i></i><span>客服：</span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes" title="">2522274059</a></div>
+            <div class="m2-commonEwm">
+                <span class="m2-commonEwm-tit">关注我们：</span>
+                <div class="m2-commonEwmwx">
+                    <i class="m2-commonEwmicon"></i>
+                    <div class="m2-commonEwmhid">
+                        <em class="m2-commonEwmhid-arr"></em>
+                        <em class="m2-commonEwmhid-arrBg"></em>
+                        <b></b>
+                        <span>扫一扫<br>关注爱钱帮订阅号</span>
+                    </div>
+                </div>
+                <div class="m2-commonEwmwb">
+                    <i class="m2-commonEwmicon" onclick='window.open("http://weibo.com/iqianbang");'></i>
+                </div>
+            </div>
+        </div>
+        <div class="m2-commonTop-right">
+            <div class="m2-commonTop-link">
+                <ul>
+                    <li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>
+                    <li class="m2-commonTop-loged">
+                        <span class="m2-commonTop-userName"><a href="usercenter.html">您好，iqb13737301354</a></span>
+                    </li>
+                    <li class="m2-commonTop-btn"><a href="#" style="border-right:none;">退出</a></li>
+                    <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>
+                    </li>
+                </ul>
+            </div>
+            <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
+                <a href="" class="m2-commonTop-and"></a>
+                <a href="" class="m2-commonTop-ios"></a>
+                <span>app下载入口</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#bbslogin').click(function(){
+            var w = window.open();
+            $.ajax({
+                type:"GET",
+                url :"/api-bbslogin",
+                success:function(msg){
+                    var obj = eval('('+msg+')');
+                    var obj = eval(obj);
+                    if (obj.status == 1){
+                        w.location = obj.message;
+                    }
+                }
+            });
+        });
+        var _uid = Number(305497);
+        var _all_uid = Array(5277,320,25893,77960,70760,4762,36256,59960,126250,75980,4039,68689,133118,185);
+        function in_array(uid,array){
+            for(var i in array){
+                if(array[i] == uid){
+                    $("#bbs").attr("style","display:block");
+                }
+            }
+        }
+        in_array(_uid,_all_uid);
+    });
+</script>
+</div>
+<div class="m2-commonNav-con">
+    <div class="m2-commonNav-box">
+        <div class="m2-commonLogo">
+            <a href="index.html"><img src="statics/newcommon/images/m2-logo.png" title="爱钱帮官网" alt="爱钱帮_logo"></a>
+        </div>
+        <div class="m2-commonNav">
+            <ul class="m2-commonNavul-fir" data_page='threepage'>
+                <!--  <li class="m2-commonNav-fir"><a href="http://huifu.iqianbang.com" target="_blank" >汇付版本</a></li>-->
+                <li class="m2-commonNav-fir"><a href="index.html" id="onepage">首页</a></li>
+                <li class="m2-commonNav-fir"><a href="touzi_licai_chanpin.html" id="twopage">我要投资</a></li>
+                <li class="m2-commonNav-fir"><a href="membermall.html" id="sevenpage">会员商城</a></li>
+                <li class="m2-commonNav-fir"><a href="usercenter.html" id="threepage">我的账户</a></li>
+                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>
+                <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang.html" id="fivepage">关于我们</a></li>
+                <!-- <li class="m2-commonNav-fir"><a href="guide.html">新手引导</a></li> -->
+                <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</header>
+
+<style>
+    .vIVR{display:none}
+</style>
+<script>
+    var page=$(".m2-commonNavul-fir").attr("data_page");
+    $("#"+page).parent().css("borderBottom","2px solid #ff6666");
+    var queuename = '30017180006';
+    function callback() {
+        $('#tel').val($('#phonenumber').val());
+        call();
+    }
+    setCallResponse = function (json) {
+        var obj = eval('(' + json + ')');
+        if (obj['description']) {
+            $('#callBack-codeErr').css('display', 'block');
+            $('#ivrSecurityCode').val('');
+            getCode();
+            setTimeout(function () {
+                $('#callBack-codeErr').css('display', 'none');
+            }, 3000);
+        }
+    }
+</script>
+<!-- headerEnd -->
+
+<div class="m2-userCentermain">
+    <div class="m2-userCentermain-aside">
+        <ul>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item" href="usercenter.html"><i class="m2-asideIcon1"></i>我的账户</a>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item" href="usercenter-growth-index.html"><i class="m2-asideIcon-vip"></i>成长值中心</a>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon2"></i>投资管理<b class="m2-asideIcon-new"></b></a>
+                <ul class="m2-aside-secItem" style="display:none">
+                    <!--             取消自动投标-->
+                    <!--                   <li>-->
+                    <!--                        <a class="m2-aside-secLink-item" href="/usercenter-investcontrol-autoinvest"><b class="m2-asideIcon-new"></b>自动投标</a>-->
+                    <!--                    </li>-->
+
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord.html">投资记录</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-investcontrol-monthrepayment.html">回款计划</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-investcontrol-transfer.html">债权转让</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="touzi_licai_chanpin.html" target="_blank">立即投资</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item" href="usercenter-invitefriends.html">
+                    <i class="m2-asideIcon-invit"></i>
+                    <b class="m2-asideIcon-prize"></b>
+                    邀请好友
+                </a>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" href="home-register-openbankid.html"><i class="m2-asideIcon3"></i>徽商资金管理</a>            <ul class="m2-aside-secItem" style="display:none">
+                <li><a class="m2-aside-secLink-item" href="#">充&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值</a></li>
+                <li><a class="m2-aside-secLink-item" href="#">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现</a></li>
+                <li><a class="m2-aside-secLink-item" href="#">资金流水</a></li>
+
+            </ul>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
+                <ul class="m2-aside-secItem" style="display:none">
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord.html">奖励金流水</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket.html">我的红包</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon.html">我的加息券</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin.html">我的钱帮币</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon5"></i>消息管理 </a>
+                <ul class="m2-aside-secItem" style="display:none">
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg.html">站内消息</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message.html">通知设置</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon6"></i>账户管理</a>
+                <ul class="m2-aside-secItem" style="display:none" id='aaa'>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="#">账户设置</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 		$(document).ready(function(){
+        var href = window.location.href;
+        var search = window.location.search;
+        $('.m2-asideListitem ul a').each(function () {
+            if ($(this).prop('href') + search == href) {
+                if ($(this).prop('href') == "/usercenter-wangbaoqiang" || $(this).prop('href') == "/usercenter-sirendingqi") {
+                } else {
+                    $(this).parent().parent('ul').show();
+                    $(this).parent().parent('ul').prev('a').removeClass('m2-aside-item');
+                    $(this).parent().parent('ul').prev('a').addClass('m2-aside-cur');
+                    $(this).css('text-decoration', 'underline');
+                    $(this).css('color', '#0996CC');
+                }
+            }
+        });
+        $('.m2-asideListitem a:not(.m2-asideListitem ul a)').each(function () {
+            if ($(this).prop('href') + search == href) {
+                if ($(this).prop('href').search("usercenter-wangbaoqiang") > -1) {
+                    $(this).removeClass('m2-aside-wbq');
+                    $(this).addClass('m2-aside-cur');
+                } else if ($(this).prop('href').search("usercenter-sirendingqi") > -1) {
+                    $(this).removeClass('m2-aside-wbq');
+                    $(this).addClass('m2-aside-cur');
+                } else {
+                    $(this).removeClass('m2-aside-item');
+                    $(this).addClass('m2-aside-cur');
+                }
+            }
+        });
+        $('.m2-asideListitem a:not(.m2-asideListitem ul a)').click(function () {
+            if ($(this).prop('href') == '') {
+                $(this).siblings('ul').slideToggle();
+                $(this).parent().siblings('.m2-asideListitem').children('.m2-aside-secItem').slideUp();
+            }
+        });
+        // 		});
+    </script>
+
+    <style>
+        .m2-manageResult-item td{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 180px;
+        }
+        .m2-manageResult-head th{
+            white-space: nowrap;
+        }
+    </style>
+    <div class="m2-userPrizerecord-con">
+        <div class="m2-userPrizerecord-head">
+            <h3><i></i>我的奖励金记录</h3>
+            <a href="#" style="display: none;"></a>
+        </div>
+
+        <div class="m2-userCentermanage-accNum">
+            <div class="m2-userCentermanage-accNumlef">
+                <p class="m2-userCentermanage-accNumtit">
+                    <span>激活奖励金（元）</span>
+                    <b class="m2-userCentermanagedraw-moreDetail">
+                        <u style="top:-10px;line-height:26px;">
+                            <em style="top:8px" class="m2-draw-arr"></em>
+                            <em style="top:8px" class="m2-draw-arrBg"></em>
+                            奖励金激活部分，投资即可使用
+                        </u>
+                    </b>
+                </p>
+                <p class="m2-userCentermanage-accNum-leave">0.00</p>
+            </div>
+            <div class="m2-userCentermanage-accNumrig">
+                <p class="m2-userCentermanage-accNumtit">
+                    <span>待激活奖励金（元）</span>
+                    <b class="m2-userCentermanagedraw-moreDetail">
+                        <u>
+                            <em class="m2-draw-arr"></em>
+                            <em class="m2-draw-arrBg"></em>
+                            奖励金待激活部分，元老会成员专享，项目结清时即可激活
+                        </u>
+                    </b>
+                </p>
+                <p class="m2-userCentermanage-accNum-return">0.00</p>
+            </div>
+        </div>
+
+        <div class="m2-manage-search">
+            <div class="m2-manage-search-head">
+                <h3><i></i>奖励金流水记录</h3>
+            </div>
+
+
+            <div class="m2-manage-search-selector">
+                <ul class="m2-manageSearchsel-time">
+                    <li>时间范围：</li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-sel" data-days='0'>全部</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-unsel" data-days='7'>最近7天</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-unsel" data-days='30'>一个月</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-unsel" data-days='90'>三个月</span></li>
+                    <li>从<input id="m2-manSeadate-start" type="text"></li>
+                    <li>到<input id="m2-manSeadate-end" type="text"></li>
+                </ul>
+                <ul class="m2-manageSearchsel-type">
+                    <li>资金类型：</li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-sel" data-status="3">全部</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-unsel" data-status="1">未激活</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-unsel" data-status="2">已激活</span></li>
+                </ul>
+
+                <table class="m2-manageResult" cellpadding="0" cellspacing="0">
+                    <tr class="m2-manageResult-head">
+                        <th style="width:120px;">时间</th>
+                        <th style="width:155px;">资金类型</th>
+                        <th style="width:135px;">描述</th>
+                        <th style="width:120px;">金额(元)</th>
+                        <th style="width:100px;">激活余额(元)</th>
+                        <th style="width:110px;">待激活余额(元)</th>
+                    </tr>
+
+
+                    <tr class="m2-manageResult-sum">
+                        <td colspan="3"></td>
+                        <td>总计:<span class="m2-manageResult-total" id='sum_reward'>0.00</span></td>
+                        <td></td>
+                        <td><span class="m2-manageResult-more">加载更多</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<script type="text/javascript">
+
+    var start = 1;
+    var status = 3;
+    var time1 = '';
+    var time2 = '';
+    var pages = 3;
+    var days = 0;
+
+    $(document).ready(function(){
+        //加载初始数据
+        getRewordRecord();
+        //加载日历
+        ucDatepicker('#m2-manSeadate-start','usercenter-rewardcontrol-getRewardLogAjax',getSearchData,processData);
+        ucDatepicker('#m2-manSeadate-end','usercenter-rewardcontrol-getRewardLogAjax',getSearchData,processData);
+        //时间过滤按钮
+        $('.m2-manageSearchsel-time span').click(function(){
+            $('#m2-manSeadate-start').val('');
+            $('#m2-manSeadate-end').val('');
+            time1 = '';
+            time2 = '';
+            days = $(this).data('days');
+            clear();
+            getRewordRecord();
+            $('.m2-manageSearchsel-time span.m2-manSealink-sel').addClass('m2-manSealink-unsel');
+            $('.m2-manageSearchsel-time span.m2-manSealink-sel').removeClass('m2-manSealink-sel');
+            $(this).removeClass('m2-manSealink-unsel');
+            $(this).addClass('m2-manSealink-sel');
+        });
+        //状态过滤按钮
+        $('.m2-manageSearchsel-type span').click(function(){
+            status = $(this).data('status');
+            clear();
+            getRewordRecord();
+            $('.m2-manageSearchsel-type span.m2-manSealink-sel').addClass('m2-manSealink-unsel');
+            $('.m2-manageSearchsel-type span.m2-manSealink-sel').removeClass('m2-manSealink-sel');
+            $(this).removeClass('m2-manSealink-unsel');
+            $(this).addClass('m2-manSealink-sel');
+        });
+        //加载更多按钮
+        $('.m2-manageResult-more').click(function(){
+            getRewordRecord();
+        });
+    });
+
+    function getRewordRecord(){
+
+        $.ajax({
+            url:"usercenter-Rewardcontrol-getRewardLogAjax",
+            type:"POST",
+            data:{
+                time1:time1,
+                time2:time2,
+                days:days,
+                status:status,
+                start:start
+            },
+            success:function(data){
+                processData(data);
+            }
+        });
+    }
+
+    function processData(data){
+        obj = eval('('+data+')');
+        start++;
+        pages = obj['pages'];
+        checkBtn();
+        showData(obj['data']);
+    }
+
+    function showData(obj){
+
+        if(obj){
+            var sum = Number($('#sum_reward').text());
+            for(var i in obj){
+                var tr = '<tr class="m2-manageResult-item">';
+                tr += '<td>'+obj[i]['date']+'</td>';
+                tr += '<td>'+obj[i]['type_text']+'</td>';
+                tr += '<td title="'+obj[i]['info']+'">'+obj[i]['info']+'</td>';
+                if(obj[i]['affect_money']>=0){
+                    tr += '<td class="m2-manageResultitem-up">';
+                }else{
+                    tr += '<td class="m2-manageResultitem-down">';
+                }
+                tr += +obj[i]['affect_money']+'</td>';
+                tr += '<td>'+obj[i]['reward_money']+'</td>';
+                tr += '<td>'+(obj[i]['sum_inactive']?obj[i]['sum_inactive']:0)+'</td>';
+                tr += '</tr>';
+                $('.m2-manageResult-sum').before(tr);
+                sum = calPlus(sum,obj[i]['affect_money']);
+            }
+            $('#sum_reward').text(sum);
+            if(sum < 0){
+                $('#sum_reward').css('color','#E64648');
+            }else{
+                $('#sum_reward').css('color','#717171');
+            }
+        }
+        if($('.m2-manageResult-item').size() == 0){
+            $('.m2-manageResult-sum').before('<tr class="m2-manageResult-item"><td colspan="6">暂无数据</td></tr>');
+            $('.m2-manageResult-sum').hide();
+        }
+    }
+
+    function getSearchData(){
+        clear();
+        days = 0;
+        time1 = $('#m2-manSeadate-start').val();
+        time2 = $('#m2-manSeadate-end').val();
+        $('.m2-manageSearchsel-time span.m2-manSealink-sel').addClass('m2-manSealink-unsel');
+        $('.m2-manageSearchsel-time span.m2-manSealink-sel').removeClass('m2-manSealink-sel');
+        if(!time1 && !time2){
+            $('.m2-manageSearchsel-time span').eq(0).addClass('m2-manSealink-sel');
+        }
+        var data = {
+            time1:time1,
+            time2:time2,
+            days:days,
+            status:status,
+            start:start
+        };
+        return data;
+    }
+
+    function checkBtn(){
+        if(start > pages){
+            $('.m2-manageResult-more').hide();
+        }
+    }
+
+    function clear(){
+        start = 1;
+        $('.m2-manageResult-item').remove();
+        $('#sum_reward').text('0.00');
+        $('#sum_reward').css('color','#717171');
+        $('.m2-manageResult-more').show();
+    }
+
+    function calPlus(num1,num2){
+        var sq1,sq2,m;
+        try{sq1=num1.toString().split(".")[1].length;} catch(e){sq1=0;}
+        try{sq2=num2.toString().split(".")[1].length;} catch(e){sq2=0;}
+        m=Math.pow(10,Math.max(sq1,sq2));
+        return Math.round(( num1 * m + num2 * m ) / m * 100)/100;
+    }
+
+    function ucDatepicker(locator,url,datafunc,callback){
+        $(locator).datetimepicker({
+            lang:'ch',
+            timepicker:false,
+            format:'Y-m-d',
+            allowBlank:true,
+            onChangeDateTime:function(){
+                if(time1 != $('#m2-manSeadate-start').val() || time2 != $('#m2-manSeadate-end').val()){
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        dataType: 'json',
+                        data:datafunc(),
+                        success: function(data) {
+                            callback(data);
+                        }
+                    });
+                }
+            }
+        });
+    };
+</script>
+</body>
+</html>

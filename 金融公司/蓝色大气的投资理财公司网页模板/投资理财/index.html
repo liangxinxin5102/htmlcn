@@ -1,0 +1,1429 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<title>某某互联网金融平台</title>
+<meta name="description" content="招商贷-中天城投集团股份有限公司旗下核心互联网金融平台；招商贷中国西部领先的互联网金融平台，安全有保障的互联网金融平台，为投资人提供全方位安全、稳定的投资理财服务！招商贷使用五层风险隔离体系，保障投资安全！客服热线：400-666-6666，网址：www.zhaoshangdai.com" />
+<meta name="keywords" content="招商贷,互联网金融,互联网金融平台,p2p网贷" />
+<meta http_equiv="Content_Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=0.2,user-scalable=1"/>
+<link type="image/x-icon" rel="shortcut icon" href="/themes/images/favicon.ico"/>
+<!-- 公共CSS样式 -->
+<!--<link href="css/style.css" rel="stylesheet" />-->
+<!-- 调整后公共样式style2.0css -->
+<!--<link href="css/style2.0.css" rel="stylesheet" />-->
+<link href="css/nstyle.css" rel="stylesheet" />
+<!-- 公共JS -->
+<script src="js/jquery.js"></script>
+<script src="js/app.js"></script>
+<script src="js/index.js"></script>
+
+<!-- IE8兼容 -->
+<!--[if lt IE 9]><script src="js/ie8.js"></script><![endif]-->
+<script type="text/javascript">
+var  basePath="";
+	var jsPath ="";
+	$(function(){
+		var location = (window.location+'').split('/');
+		jsPath = location[0]+'//'+location[2];
+	});
+</script>
+
+<script>
+        //计算导航的宽度 并设置值
+        $(function () {
+            var win_width = $(window).width();
+            if ($(window).width() >= 980) {
+                $(".g_out .g_bg2").css("width", "1200px");
+                $(".g_out").css("width", "100%");
+            } else {
+                $(".g_out .g_bg2").css("width", "980px");
+                $(".g_out").css("width", "980px");
+            }
+        });
+        //窗口改变时 重新计算导航的宽度 并设置值
+        window.onresize = function () {
+            var win_width = $(window).width();
+            if ($(window).width() >= 980) {
+                $(".g_out .g_bg2").css("width", "1200px");
+                $(".g_out").css("width", "100%");
+            } else {
+                $(".g_out .g_bg2").css("width", "980px");
+                $(".g_out").css("width", "980px");
+            }
+        }
+        </script>
+        <script>
+        //模拟select的处理js
+        $(function () {
+        	$.ajaxSetup ({
+     		   cache: false //关闭AJAX相应的缓存
+     		});
+        	
+            $(".arrow").click(function () {
+                var arrow = $(this),
+                    arrow_box = arrow.parent(".arrow_box"),
+                    arrow_i = arrow.find("i"),
+                    arrow_ul = arrow_box.find(".arrow_ul"),
+                    arrow_span = arrow_box.find(".select_value"),
+                    hidden_input = arrow_box.find(".hidden_input"),
+                    box = arrow_box.parent(".box"),
+                	by_day=$("#byDay");
+
+                if(by_day.attr("type")!=undefined){
+                	if(document.getElementById("byDay").checked==true){
+                		$('#day').show();
+            			$('#moth').hide();
+            			var cla = arrow_i.attr("class");
+    	                if (cla == "arrow_down") {
+    	                    arrow_i.removeClass("arrow_down").addClass("arrow_up");
+    	                    $('#day').css("display", "block").mouseleave(function () {
+    	                        $(this).css("display", "none");
+    	                        box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    });
+    	                    box.css("z-index","101");
+    	                    $('#day').find("li").click(function () {
+    	                        var text = $(this).text();
+    	                        var value = $(this).attr("value");
+    	                        $('#day').css("display", "none");
+    	                        arrow_box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                        arrow_span.text(text);
+    	                        hidden_input.val(value);
+    	                    });
+    	                } else {
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    $('#day').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                }
+    	
+    	                arrow_box.mouseleave(function () {
+    	                	$('#day').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                });
+                	}else{
+                		$('#day').hide();
+            			$('#moth').show();
+            			var cla = arrow_i.attr("class");
+    	                if (cla == "arrow_down") {
+    	                    arrow_i.removeClass("arrow_down").addClass("arrow_up");
+    	                    $('#moth').css("display", "block").mouseleave(function () {
+    	                        $(this).css("display", "none");
+    	                        box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    });
+    	                    box.css("z-index","101");
+    	                    $('#moth').find("li").click(function () {
+    	                        var text = $(this).text();
+    	                        var value = $(this).attr("value");
+    	                        $('#moth').css("display", "none");
+    	                        arrow_box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                        arrow_span.text(text);
+    	                        hidden_input.val(value);
+    	                    });
+    	                } else {
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    $('#moth').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                }
+    	
+    	                arrow_box.mouseleave(function () {
+    	                	$('#moth').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                });
+                	}
+                }else{
+	                var cla = arrow_i.attr("class");
+	                if (cla == "arrow_down") {
+	                    arrow_i.removeClass("arrow_down").addClass("arrow_up");
+	                    arrow_ul.css("display", "block").mouseleave(function () {
+	                        $(this).css("display", "none");
+	                        box.css("z-index", "0");
+	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                    });
+	                    box.css("z-index","101");
+	                    arrow_ul.find("li").click(function () {
+	                        var text = $(this).text();
+	                        var value = $(this).attr("value");
+	                        arrow_ul.css("display", "none");
+	                        arrow_box.css("z-index", "0");
+	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                        arrow_span.text(text);
+	                        hidden_input.val(value);
+	                    });
+	                } else {
+	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                    arrow_ul.css("display", "none");
+	                    box.css("z-index", "0");
+	                }
+	
+	                arrow_box.mouseleave(function () {
+	                    arrow_ul.css("display", "none");
+	                    box.css("z-index", "0");
+	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                });
+                }
+            });
+            
+        });
+            
+            
+
+        
+        
+        
+
+    </script>        <!--引入自定义spinner样式(xiezepeng添加)-->
+        <link href="css/nivo-slider.css" rel="stylesheet" />
+        <!--引入自定义spinner模式样式(xiezepeng添加)-->
+        <link href="css/default.css" rel="stylesheet" />
+        <link href="css/n-style.css" rel="stylesheet" />
+	<script src="js/newyear.js"></script>
+        <link href="css/newyear.css" rel="stylesheet" />
+</head>
+
+<body>
+<!--头部开始-->
+<header class="layout">
+    <!--顶部开始-->
+<header class="layout">
+    <!--顶部开始-->
+    <!--<div class="top">
+        <div class="container">
+            <div class="top-left hidden-l">
+                <span><img src="images/tel.jpg" /> 服务热线 <strong>400-666-6666</strong></span>
+                <span>服务时间 9:00-22:00</span>
+                关注我们
+               	<a id="weibo" target="_blank" href="http://#weibo.com/3445450794/profile?rightmod=1&amp;wvr=5&amp;mod=personinfo" t="weiboDiv" point="20|26|0|26|-40|70"><img src="images/weibo.png" /><span><img src="images/ewb.jpg" /></span></a>
+                <a id="weixin"><img src="images/weixin.png" /><span><img src="images/ewm.png" /></span></a>
+            </div>
+            <div class="top-middle hidden-l"><img src="images/welcome.jpg" class="hidden-l" /></div>
+            <div class="top-right">
+            	<span>
+						<a class="button bg-main" href="/login.html">立即登录</a>
+                		<a class="button bg-sub" href="/register.html">免费注册</a>
+                </span>
+                <span><a href="/app.html" target="_blank" ><img src="images/mobile.jpg" />手机客户端</a></span>
+                <span class="hidden-l">
+                	<a href="http://#www.zhaoshangdai.cn" target="_blank">论坛</a>
+                	<img src="images/new.gif" />
+                </span>
+            </div>
+        </div>
+    </div>
+    -->
+    <!--顶部开始-->
+    <div class="top">
+        <div class="container">
+            <div class="top-left hidden-l">
+                <span>服务热线 <strong>400-666-6666</strong></span>
+                <span>服务时间：9:00-22:00</span>
+                关注我们
+                <a target="_blank" href="http://##weibo.com/3445450794/profile?rightmod=1&amp;wvr=5&amp;mod=personinfo"><img src="images/weibo.jpg" /></a>
+                <a href="#"><img src="images/weixin.jpg" /><span><img src="images/ewm.png" /></span></a>
+            </div>
+            <div class="top-right">
+                        <a href="/login.html">立即登录</a><em></em>
+                        <a href="/register.html" class="show">免费注册</a><em></em>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--顶部结束-->
+
+ <link href="css/mystyle.css" rel="stylesheet" />
+    
+ <!--顶部结束-->
+  <script type="text/javascript">
+  
+  $(function(){
+  
+  	$("#weibo").mouseenter(function(){
+  		$(this).find("img").first().attr("src","/themes/images/weibol.png");
+  	});
+  	$("#weibo").mouseleave(function(){
+  		$(this).find("img").first().attr("src","/themes/images/weibo.png");
+  	});
+  	
+  	$("#weixin").mouseenter(function(){
+  		$(this).find("img").first().attr("src","/themes/images/weixinl.png");
+  	});
+  	$("#weixin").mouseleave(function(){
+  		$(this).find("img").first().attr("src","/themes/images/weixin.png");
+  	});
+  });
+  
+  
+  var needReloadPage=false;
+  var needReloadUrl="";
+  	/*  显示错误提示弹出框 */
+ function showErrorMessageDialog(mes){
+	  $("#temp_prop").siblings("span").html(mes);
+	  $("#errorMessageDialog").show();
+	  //setTimeout(wait,5000);
+ }
+ 
+ /* 关闭错误提示弹出框 */
+function closeErrorMessageDialog(){
+	$("#errorMessageDialog").hide();
+	//是否需要刷新页面 true刷新
+	if(needReloadPage){
+		window.location.reload();
+	}
+	//如果传入了加载页面则直接加载
+	if(needReloadUrl!=""){
+	   location.href = needReloadUrl;
+	}
+}
+  </script>
+  <!-- 错误提示弹出框 -->
+    <div class="c-delBkcdByPhoneBox" id="errorMessageDialog" style="display: none ; margin: 0;  padding: 0 20px;" >
+		<div class="del_bank_card_div" id="del_bankcard_div">
+			<div class="del_bank_card_hd">
+				<a class="colse_del_bkcd colse_del_bidts" id="colse_del_bkcd_a" onclick="closeErrorMessageDialog()"  ><img alt="" src="images/v_code_wrong.png" class="colse_del_bkcd"></a>
+			</div>
+			<div class="del_bank_card_hd">
+				<font class="cert_wenxitishi" id="temp_prop">提示：</font><span></span>
+			</div>
+			<br/>
+			<div class="sure_del_bkcd">
+					<input type="button"  class="button bg-main"  onclick="closeErrorMessageDialog()" value="确定" id="prop_sure"/>
+			</div>
+		</div>
+	</div>
+<!-- 错误提示弹出框结束 -->
+</header>
+<!--头部结束-->        <!--顶部结束-->
+        <!--导航开始-->
+<!--导航开始-->
+<style>
+<!--
+nav li a{color: #555555;}
+nav li a:hover, nav li.active a {color: #2ea7e0;}
+-->
+</style>
+  <header class="layout">
+  <div class="header-ny-bg" style="margin-top: -2px;">
+    <div class="container naver">
+    	<div class="logo" style="margin-top: -10px;"><a href="index.html"><img src="images/logo.png" class="img" /></a></div>
+    	<!-- <div class="logo"><a href="index.html"><img src="images/logo.png" class="img" /></a></div> -->
+        <nav>
+            <ul id="zsd_nav">
+                <li id="index_nav" class="active" style="color: #FAAF16;"><a href="index.html">首页</a></li>
+                <li class="itm_1" id="financing_nav"><a href="queryData.html">我要理财</a></li>
+                <li class="itm_2" id="borrow_nav"><a href="borrowList.html">我要借款</a></li>
+                <li><a href="about_companyInfo.html">关于我们</a></li>
+            </ul>
+    	</nav>
+    </div>
+  </div>
+  </header>
+<!--导航结束-->
+<script>
+	/* $(function(){
+		$("#shopping").click(function(){
+		//http://shop.zhaoshangdai.com
+		//window.location.href="/shoppingUrl.html"
+		window.onload=function(){window.open("/shoppingUrl.html","_blank")}
+		//window.onload = function(){window.open("/shoppingUrl.html", "_blank");} 
+		//alert("ok");
+		});
+	}); */
+					
+					var basePath = "";
+					var url = getUrl();
+					var lis =$("#zsd_nav").find("li");
+					var index_nav = document.getElementById("index_nav");
+					var financing_nav = document
+							.getElementById("financing_nav");
+					var borrow_nav = document.getElementById("borrow_nav");
+					var new_nav = document.getElementById("new_nav");
+					var xbox_nav = document.getElementById("xbox_nav");
+                    var activity_nav=document.getElementById("activity_nav");
+					if (url.indexOf("borrowList") != -1||(url.indexOf("toborrow") != -1)) {
+						lis.removeClass(" active");
+						borrow_nav.className = borrow_nav.className + " active";
+					} else if (url.indexOf("queryData") != -1||(url.indexOf("tender") != -1)) {
+						lis.removeClass(" active");
+						financing_nav.className = financing_nav.className
+								+ " active";
+					} else if (url.indexOf("getPageNew") != -1) {
+						lis.removeClass(" active");
+						//new_nav.className = new_nav.className + " active";
+					} else if (url.indexOf("product/box") != -1) {
+						lis.removeClass(" active");
+						xbox_nav.className = xbox_nav.className + " active";
+					}else if (url.indexOf("activity") != -1) {
+                        lis.removeClass(" active");
+                        activity_nav.className = activity_nav.className + " active";
+                    }else {
+						lis.removeClass(" active");
+						index_nav.className += "active";
+					}
+
+					/**
+					 * 得到请求的url地址 去除参数
+					 * @returns {Array}
+					 */
+					function getUrl() {
+						var url = window.location.href;
+						var index = url.indexOf('?');
+						if (-1 != index) {
+							return url.substring(0, index);
+						}
+						return url;
+					}
+				</script>
+    <!--导航结束-->
+</header>
+<!--头部结束-->
+<!--广告条开始-->
+<div id="wrapper" >
+        <div id="banner" class="slider-wrapper theme-default">
+            <div id="slider" class="nivoSlider">
+				<a href="/activity/getById.html?id=142"><img src="images/banner001.jpg" data-thumb="/themes/images/banner001.jpg" alt="" title="" /></a>
+	       		<a href="/activity/getById.html?id=102"><img src="images/banner03.jpg" data-thumb="/themes/images/banner03.jpg" alt="" title="" /></a>
+            	<a target="_bank" href="/activity/getById.html?id=101"><img src="images/banner01.jpg" data-thumb="/themes/images/banner01.jpg" alt="" title="" /></a>
+				<a href="/article/getNewsByNewsId.html?newsId=10197&classId=10"><img src="images/banner06.jpg" data-thumb="/themes/images/banner06.jpg" alt="" title="" /></a>
+                <a href="/display/ckPdf.html?pdfurl=/file/201504.pdf"><img src="images/banner04.jpg" data-thumb="/themes/images/banner04.jpg" alt="" title="" /></a>
+                <a href="/article/getNewsByNewsId.html?newsId=10212&classId=10"><img src="images/banner02.jpg" data-thumb="/themes/images/banner02.jpg" alt="" title="" /></a>
+			</div>
+        </div>
+</div>
+<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+<script type="text/javascript">
+  //  $(window).load(function() {
+        $('#slider').nivoSlider();
+
+</script>
+<!--广告条结束-->
+
+<!--理财记录-->
+<div class="moneyinfo">
+    <div class="container">
+        <span><img src="images/line_1.png"></span>
+        <tt>已撮合融资<br>
+        		<b>75</b> 亿
+        		<b>0961</b> 万元
+        </tt>
+        <tt>为理财人赚取收益<br>
+        		<b>2</b> 亿
+        		<b>4852</b> 万元
+		</tt>
+        <tt>昨日交易额<br>
+        		<b>1010</b> 万元
+		</tt>
+        <span class="ico_r"><a href="/synthesize/moreData.html">查看更多</a></span>
+    </div>
+
+</div>
+<!--理财记录结束-->
+<div class="newyear-bg index-ny-bg">
+<!--<div class="index-ny-l"></div>
+<div class="index-ny-r"></div>
+<div class="index-nym-l"></div>
+<div class="index-nym-r"></div>
+左右猴子bg-->
+<!--公告开始-->
+<section class="container notice">
+    <span><a class="button border-moer" href="/article/getAnnounceList.html?classId=9">更多公告</a></span>
+    <div>
+        <ul>
+                <li><a href="/article/getAnnounceByAnnounceId.html?announceId=8200">关于《喜迎元宵，三重活动延期》的公告</a><time>2016-02-15</time></li>
+                <li><a href="/article/getAnnounceByAnnounceId.html?announceId=8195">关于春节期间提现安排的公告</a><time>2016-02-04</time></li>
+                <li><a href="/article/getAnnounceByAnnounceId.html?announceId=8194">关于PC端新增第三方支付通道“汇潮支付”的公告</a><time>2016-02-04</time></li>
+                <li><a href="/article/getAnnounceByAnnounceId.html?announceId=8193">《点灯笼• 赢大奖》微信活动公告</a><time>2016-02-01</time></li>
+                <li><a href="/article/getAnnounceByAnnounceId.html?announceId=8192">关于“手机APP”春节期间升级维护的公告</a><time>2016-02-01</time></li>
+        </ul>
+    </div>
+</section>
+<!--公告结束-->
+
+
+<section class="container">
+    <!--安全展示-->
+    <div class="safeshow">
+        <ul>
+            <li><img src="images/box-5.png">上市公司旗下互联网金融平台<br><b>公信力强</b></li>
+            <li><img src="images/box-6.png">银行级的风控信贷管理<br><b>优质度佳</b></li>
+            <li><img src="images/box-7.png">完备的信息技术安全保障<br><b>信息加密</b></li>
+            <li><img src="images/box-8.png">五层风险隔离体系<br><b>为资金安全保驾护航</b></li>
+            <li><img src="images/box-9.png">50元起投，低门槛高收益<br><b>投资收益高</b></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <!--安全展示结束-->
+</section>
+
+
+<section class="container">
+    <div class="actsub">
+        <!--活动专区-->
+        <div class="actbox">
+            <span>活动专区<b>最热活动，敬请期待</b></span>
+            <div class="act">
+                        <h1>喜迎元宵，福利“猴赛雷”</h1>
+                        <h2>欢度元宵喜乐会，我们“年”在一起，招商贷持续为您派… </h2>
+                            <p><i>79965</i>开年有礼, 提“钱”来送</p>
+                            <p><i>79963</i>招商合伙人全面启动，推荐有礼</p>
+                <!--           <h1>转介活动-418元红包等你拿！</h1>
+                           <h2>5人起算，25、58、118、418元的红包拿到手软~</h2>
+                           <p><i>263</i>拉新活动-注册送20元，投资再送20元~</p>
+                           <p><i>263</i>彩票还是要领的，万一哪天中了呢！！~</p>-->
+                <a href="huodong.html">参与更多活动，GO!</a>
+            </div>
+        </div>
+        <!--活动专区结束-->
+        <!--新手分享-->
+            <div class="actbox newhand">
+                <span>新手专享<b>稳定收益，从这里开始</b><em><a href="/borrowlist/getPageNew.html">更多>></a></em></span>
+                <div class="act">
+                    <h1 style="padding-left:0px;cursor:pointer" onclick="javascript:window.open('/borrow/tender.html?id=0854532df7804aa094af4e4d30661d3e','_self')">
+                        （新手专享）棚户区改造工程款</h1>
+                    <tt><i>15</i>%<br>年化利率</tt>
+                    <tt><i>6</i>个月<br>借款期限</tt>
+                    <tt>
+                    <i class="w">50.00</i>
+                      万
+<br>借款金额</tt>
+                    <div class="rate">
+                           	<a href="/borrow/tender.html?id=0854532df7804aa094af4e4d30661d3e" class="wbtn">还款中</a>
+                        <i>100</i>%<br>
+                        <s><b style="width:100px;">&nbsp;</b></s>
+                    </div>
+                </div>
+            </div>
+            <!--新手分享结束-->
+            <!--企业视频-->
+            <div class="comvedio">
+                <span>企业视频<b>招商贷的故事</b></span>
+                <div class="vediobox">
+
+                    <div id="video" class="carousel">
+                        <div class="banner" style="height:228px;">
+                           <div class="item"><a target="_blank" href="http://##player.youku.com/player.php/sid/XMTQyMDU3NTc0OA==/v.swf"><img src="images/ico_video.png"></a><img src="images/longqiuyang_log.png" width="288" height="228"/></div>
+                            <div class="item"><a target="_blank" href="http://##player.youku.com/player.php/sid/XMTQyMDQ2ODA0NA==/v.swf"><img src="images/ico_video.png"></a><img src="images/chenxiaoqiong_log.png" width="293" height="228"/></div>
+                            <div class="item"><a target="_blank" href="http://##player.youku.com/player.php/sid/XNzQ1OTU4NjU2/v.swf"><img src="images/ico_video.png"></a><img src="images/video3.png" width="293" height="228"/></div>
+
+                        </div>
+                        <ul id="vpoint" class="hide"></ul>
+                    </div>
+                    <a id="vprev" class="prev" href="javascript:void(0);"></a>
+                    <a id="vnext" class="next" href="javascript:void(0);"></a>
+
+                </div>
+                <br><br><br>
+            </div>
+    </div>
+    <!--企业视频结束-->
+            <div class="clear"></div>
+    </div>
+</section>
+
+<!--投标-->
+<section class="container" id="list">
+    <div class="tab">
+        <div class="tab-nav"><h1>热门标<b><a target="_blank" href="/app.html"><i>下载手机APP，抢手机标会有惊喜哦~</i></a><br>每天不定时发放借款标，请留意倒计时关注发标情况</b></h1><ul class="one"><li class="active">热门标</li><li>手机标</li></ul><div class="clear"></div></div>
+        <div class="tab-body">
+            <!--热门标开始-->
+            <div class="item active" id="bid_normal">
+                <div class="n-detail" style="padding-bottom:0px;padding-top: 0px;border-top:0px;">
+                    <div class="n-listdetail " style="padding-bottom:0px;padding-top:0px;margin-top:0px" >
+<ul class="clearfix list list-title" >
+    <li class="title"><span>借款标题</span></li>
+    <li class="attribute">
+        <span>借款金额</span>
+        <span>年化利率</span>
+        <span>借款期限</span>
+        <span>还款方式</span>
+    </li>
+    <li class="status">进度</li>
+    <li></li>
+ </ul>
+ <ul class="list clearfix listbg" >
+                <li class="title">
+                    <img src="images/icon-2.png" class="icon" />
+                <a href="/borrow/tender.html?id=d9cf38f4f7584f88a3cd3b0159f52440"  title="机械设备公司流动资金周转（增加贷款）4">
+                    机械设备公司流动资金周转（增加贷… </a>
+                 </a>
+                </li>
+        <li class="attribute">
+            <p style="position:absolute;z-index:11;margin-top:-37px;margin-left: 247px;"><img src="images/n_money_coupon.png"></p>
+                    <em>|</em><span><b class="m">100.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>12.6</b>%</span><em>|</em>
+                    <span><b>3</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月等额还本付息
+                                                  </span><em>|</em>
+                </li>
+              	<li class="status">
+                            <span class="progress" style="background-position:-0px 0px;">0%</span><em>|</em>
+	                        <span>
+	                           <a class="button bg-gray countdown"  href="javascript:void(0)"  borrowId="d9cf38f4f7584f88a3cd3b0159f52440"  countDown="2131">请稍候…</a>	                        	
+	                        </span>
+                    </li>
+                </ul>
+                
+                
+ <ul class="list clearfix" >
+                <li class="title">
+                    <img src="images/icon-2.png" class="icon" />
+                <a href="/borrow/tender.html?id=f8cbb0230567430c8916333239198f39"  title="品牌服装周转款10">
+                    品牌服装周转款10</a>
+                 </a>
+                </li>
+        <li class="attribute">
+            <p style="position:absolute;z-index:11;margin-top:-37px;margin-left: 247px;"><img src="images/n_money_coupon.png"></p>
+                    <em>|</em><span><b class="m">100.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>15</b>%</span><em>|</em>
+                    <span><b>12</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月付息到期还本
+                                                          </span><em>|</em>
+                </li>
+              	<li class="status">
+                            <span class="progress" style="background-position:-0px 0px;">0%</span><em>|</em>
+	                        <span>
+	                           <a class="button bg-gray countdown"  href="javascript:void(0)"  borrowId="f8cbb0230567430c8916333239198f39"  countDown="5731">请稍候…</a>	                        	
+	                        </span>
+                    </li>
+                </ul>
+                
+                
+ <ul class="list clearfix listbg" >
+                <li class="title">
+                    <img src="images/icon-4.png" class="icon" />
+                <a href="/borrow/tender.html?id=ef64b0a6be1a4c0987287b667a3408a8"  title="物流公司资金周转4">
+                    物流公司资金周转4</a>
+                 </a>
+                </li>
+        <li class="attribute">
+            <p style="position:absolute;z-index:11;margin-top:-37px;margin-left: 247px;"><img src="images/n_money_coupon.png"></p>
+                    <em>|</em><span><b class="m">76.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>15</b>%</span><em>|</em>
+                    <span><b>6</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月等额还本付息
+                                                  </span><em>|</em>
+                </li>
+              	<li class="status">
+                            <span class="progress3" style="background-position:-5600px 0px;">100%</span><em>|</em>
+                           <span>
+                        	<a class="button bg-blue" href="/borrow/tender.html?id=ef64b0a6be1a4c0987287b667a3408a8">还款中</a>
+                           </span>
+                    </li>
+                </ul>
+                
+                
+ <ul class="list clearfix" >
+                <li class="title">
+                    <img src="images/icon-2.png" class="icon" />
+                <a href="/borrow/tender.html?id=4d4da7c4b6384a04a2e247aa7ef1285b"  title="品牌服装周转款9">
+                    品牌服装周转款9</a>
+                 </a>
+                </li>
+        <li class="attribute">
+            <p style="position:absolute;z-index:11;margin-top:-37px;margin-left: 247px;"><img src="images/n_money_coupon.png"></p>
+                    <em>|</em><span><b class="m">100.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>15</b>%</span><em>|</em>
+                    <span><b>12</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月付息到期还本
+                                                          </span><em>|</em>
+                </li>
+              	<li class="status">
+                            <span class="progress3" style="background-position:-5600px 0px;">100%</span><em>|</em>
+                           <span>
+                        	<a class="button bg-blue" href="/borrow/tender.html?id=4d4da7c4b6384a04a2e247aa7ef1285b">还款中</a>
+                           </span>
+                    </li>
+                </ul>
+                
+                
+ <ul class="list clearfix listbg" >
+                <li class="title">
+                    <img src="images/icon-2.png" class="icon" />
+                <a href="/borrow/tender.html?id=a518059bf9e949a6a1df62f210d34ff3"  title="机械设备公司流动资金周转（增加贷款）3">
+                    机械设备公司流动资金周转（增加贷… </a>
+                 </a>
+                </li>
+        <li class="attribute">
+            <p style="position:absolute;z-index:11;margin-top:-37px;margin-left: 247px;"><img src="images/n_money_coupon.png"></p>
+                    <em>|</em><span><b class="m">100.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>12.6</b>%</span><em>|</em>
+                    <span><b>3</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月等额还本付息
+                                                  </span><em>|</em>
+                </li>
+              	<li class="status">
+                            <span class="progress3" style="background-position:-5600px 0px;">100%</span><em>|</em>
+                           <span>
+                        	<a class="button bg-blue" href="/borrow/tender.html?id=a518059bf9e949a6a1df62f210d34ff3">还款中</a>
+                           </span>
+                    </li>
+                </ul>
+                
+                
+ <ul class="list clearfix" >
+                <li class="title">
+                    <img src="images/icon-2.png" class="icon" />
+                <a href="/borrow/tender.html?id=34d4081caf694ab3acfcdc0fa6534d5f"  title="品牌服装周转款8">
+                    品牌服装周转款8</a>
+                 </a>
+                </li>
+        <li class="attribute">
+            <p style="position:absolute;z-index:11;margin-top:-37px;margin-left: 247px;"><img src="images/n_money_coupon.png"></p>
+                    <em>|</em><span><b class="m">100.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>15</b>%</span><em>|</em>
+                    <span><b>12</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月付息到期还本
+                                                          </span><em>|</em>
+                </li>
+              	<li class="status">
+                            <span class="progress3" style="background-position:-5600px 0px;">100%</span><em>|</em>
+                           <span>
+                        	<a class="button bg-blue" href="/borrow/tender.html?id=34d4081caf694ab3acfcdc0fa6534d5f">还款中</a>
+                           </span>
+                    </li>
+                </ul>
+                
+                
+                    </div>
+                </div>
+            </div>
+            <!--热门标结束-->
+            <!--手机开始-->
+            <div class="item" id="bid_new">
+                <div class="n-detail" style="padding-bottom:0px;padding-top: 0px;border-top:0px;">
+                    <div class="n-listdetail " style="padding-bottom:0px;padding-top:0px;margin-top:0px" >
+<ul class="clearfix list list-title" >
+    <li class="title"><span>借款标题</span></li>
+    <li class="attribute">
+        <span>借款金额</span>
+        <span>年化利率</span>
+        <span>借款期限</span>
+        <span>还款方式</span>
+    </li>
+    <li class="status">进度</li>
+    <li></li>
+ </ul>
+ <ul class="list clearfix listbg" >
+                <li class="title">
+                    <img src="images/icon-2.png" class="icon" />
+                <a href="/borrow/tender.html?id=360cc1b7354845c2af167a756ffb7adc"  title="电气公司工程款(增加贷款)1">
+                    <s><img src="images/n-mob-z.png"></s>
+                    电气公司工程款(增加贷款)1</a>
+                 </a>
+                </li>
+        <li class="attribute">
+            
+                    <em>|</em><span><b class="m">145.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>18</b>%</span><em>|</em>
+                    <span><b>6</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月等额还本付息
+                                                  </span><em>|</em>
+                </li>
+              	<li class="status">
+                            <span class="progress3" style="background-position:-5600px 0px;">100%</span><em>|</em>
+                           <span>
+                        	<a class="button bg-blue" href="/borrow/tender.html?id=360cc1b7354845c2af167a756ffb7adc">还款中</a>
+                           </span>
+                    </li>
+                </ul>
+                
+                
+ <ul class="list clearfix" >
+                <li class="title">
+                    <img src="images/icon-1.png" class="icon" />
+                <a href="/borrow/tender.html?id=af64063ec15248e5b09d616b2bec181b"  title="建材公司短期周转款8">
+                    <s><img src="images/n-mob-z.png"></s>
+                    建材公司短期周转款8</a>
+                 </a>
+                </li>
+        <li class="attribute">
+            
+                    <em>|</em><span><b class="m">150.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>16</b>%</span><em>|</em>
+                    <span><b>6</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月等额还本付息
+                                                  </span><em>|</em>
+                </li>
+              	<li class="status">
+                            <span class="progress3" style="background-position:-5600px 0px;">100%</span><em>|</em>
+                           <span>
+                        	<a class="button bg-blue" href="/borrow/tender.html?id=af64063ec15248e5b09d616b2bec181b">还款中</a>
+                           </span>
+                    </li>
+                </ul>
+                
+                
+ <ul class="list clearfix listbg" >
+                <li class="title">
+                    <img src="images/icon-9.png" class="icon" />
+                <a href="/borrow/tender.html?id=abc21dd3efcd45cb97b4b1c0df753465"  title="劳斯莱斯幻影加长版质押贷款4">
+                    <s><img src="images/n-mob-z.png"></s>
+                    劳斯莱斯幻影加长版质押贷款4</a>
+                 </a>
+                </li>
+        <li class="attribute">
+            
+                    <em>|</em><span><b class="m">30.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>15</b>%</span><em>|</em>
+                    <span><b>6</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月付息到期还本
+                                                          </span><em>|</em>
+                </li>
+              	<li class="status">
+                            <span class="progress3" style="background-position:-5600px 0px;">100%</span><em>|</em>
+                           <span>
+                        	<a class="button bg-blue" href="/borrow/tender.html?id=abc21dd3efcd45cb97b4b1c0df753465">还款中</a>
+                           </span>
+                    </li>
+                </ul>
+                
+                
+ <ul class="list clearfix" >
+                <li class="title">
+                    <img src="images/icon-1.png" class="icon" />
+                <a href="/borrow/tender.html?id=4f9f88f9175d4a1b877557f4d47cf323"  title="建材公司短期周转款4">
+                    <s><img src="images/n-mob-z.png"></s>
+                    建材公司短期周转款4</a>
+                 </a>
+                </li>
+        <li class="attribute">
+            
+                    <em>|</em><span><b class="m">200.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>16</b>%</span><em>|</em>
+                    <span><b>6</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月等额还本付息
+                                                  </span><em>|</em>
+                </li>
+              	<li class="status">
+                            <span class="progress3" style="background-position:-5600px 0px;">100%</span><em>|</em>
+                           <span>
+                        	<a class="button bg-blue" href="/borrow/tender.html?id=4f9f88f9175d4a1b877557f4d47cf323">还款中</a>
+                           </span>
+                    </li>
+                </ul>
+                
+                
+ <ul class="list clearfix listbg" >
+                <li class="title">
+                    <img src="images/icon-2.png" class="icon" />
+                <a href="/borrow/tender.html?id=f025bb5f328242a2af85b398842af6c8"  title="建材进货款1	">
+                    <s><img src="images/n-mob-z.png"></s>
+                    建材进货款1	</a>
+                 </a>
+                </li>
+        <li class="attribute">
+            
+                    <em>|</em><span><b class="m">39.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>12.6</b>%</span><em>|</em>
+                    <span><b>3</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月等额还本付息
+                                                  </span><em>|</em>
+                </li>
+              	<li class="status">
+                           <span class="progress2" style="background-position:-5600px 0px;">100%</span><em>|</em>
+                          <span>
+                        	<a class="button bg-gray" href="/borrow/tender.html?id=f025bb5f328242a2af85b398842af6c8">已还款</a>
+                          </span>
+                    </li>
+                </ul>
+                
+                
+ <ul class="list clearfix" >
+                <li class="title">
+                    <img src="images/icon-2.png" class="icon" />
+                <a href="/borrow/tender.html?id=c37318f708e8496cb4866689ccb32a00"  title="服装商流动资金周转1">
+                    <s><img src="images/n-mob-z.png"></s>
+                    服装商流动资金周转1</a>
+                 </a>
+                </li>
+        <li class="attribute">
+            
+                    <em>|</em><span><b class="m">74.00</b>
+                       万
+                   </span><em>|</em>
+                    <span><b>11</b>%</span><em>|</em>
+                    <span><b>2</b>个月</span><em>|</em>
+                    <span class="ms"><!--还款方式-->
+                          按月等额还本付息
+                                                  </span><em>|</em>
+                </li>
+              	<li class="status">
+                           <span class="progress2" style="background-position:-5600px 0px;">100%</span><em>|</em>
+                          <span>
+                        	<a class="button bg-gray" href="/borrow/tender.html?id=c37318f708e8496cb4866689ccb32a00">已还款</a>
+                          </span>
+                    </li>
+                </ul>
+                
+                
+                    </div>
+                 </div>
+            </div>
+            <!--手机结束-->
+        </div>
+        <!--查看更多-->
+        <div class="moerhot"><a href="queryData.html">查看更多投资项目 >></a></div>
+        <!--查看更多结束-->
+    </div>
+
+</section>
+
+
+
+<section class="container">
+    <div class="newsbox">
+        <!--聚福专区-->
+        <div class="fusub">
+            <span>聚福专区<b>汇聚幸福，我们还在继续努力中！</b><em><a href="toBoxList.html">更多聚福项目 >></a></em></span>
+            <div class="fusbox">
+                <dl>
+                    <dd>
+                        <div class="titbg">聚福盒子二期20</div>
+                        <tt><i>8</i>%<br>年化利率</tt>
+                        <tt><i>12</i>个月<br>借款期限</tt>
+                        <tt><i>1</i>万元/份<br>投资金额</tt>
+                        <p>借款金额：<i class="x">高清智能机顶盒+高清12个月套餐</i></p>
+                        <p>
+                            <s><b style="width:95px;">&nbsp;</b></s><i>95</i>%
+                        </p>
+                    </dd>
+                    <dt>
+                        <a href="/product/box/toBoxDetail.html?id=e830916ea93441f2b50c8edc7f88b2d6">立即投资</a>
+                    <p><h1>聚福盒子特点：</h1></p>
+                    <p>1.投资一万，享800元收益，送高清智能机顶盒。</p>
+                    <p>2.免费看12个月价值1400元以上高清增值套餐节目。</p>
+                    <p>“聚福盒子”是中天城投控股互联网金融平台招商贷携手贵州广电网络推出的跨界产品，老百姓可以通过“聚福盒子”，合理配置手中闲钱，在全家免费享受丰富精彩的高清电视节目的同时，产生可靠、可观的理财收益。</p>
+                    </dt>
+                    <div class="clear"></div>
+                </dl>
+            </div>
+        </div>
+        <!--聚福专区结束-->
+        <!--常见问题-->
+        <div class="newslist">
+            <span>常见问题<em><a href="/about_question.html">查看更多 >></a></em></span>
+            <dl>
+                <dd>
+                    <a href="/about_question.html?flag=7">如何在网站注册？</a>
+                    <a href="/about_question.html?flag=9">投资金额有限制吗？</a>
+                    <a href="/about_question.html?flag=3">投资人在投资过程中会产生哪些费用？</a>
+                    <a href="/about_question.html?flag=11">如何收回借出的投资资金？</a>
+                    <a href="/about_question.html?flag=8">如何对借款项目做判断？</a>
+
+                    <!--  <a href="#">关于提现的常见问题</a>
+                      <a href="#">投资人的费用有哪些？</a>
+                      <a href="#">怎样更改绑定的银行卡？</a>
+                      <a href="#">自动投标小规则</a>
+                      <a href="#">关于提现的常见问题</a>-->
+                </dd>
+            </dl>
+        </div>
+        <!--常见问题结束-->
+        <div class="clear"></div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="newsbox">
+        <!--媒体报道&招商风采-->
+        <div class="mediabbx">
+            <dl id="tags">
+                <dt>
+                	<s class="ashow" data-class="15"><a onClick="selectTag('tagContent0',this)"  href="javascript:void(0)">公司动态</a></s>
+                	<i></i>
+                    <s data-class="13"><a onClick="selectTag('tagContent1',this)"   href="javascript:void(0)">媒体报道</a></s>
+                    <em><a href="#"  onclick="openLink(this)">查看更多 >></a></em>
+                </dt>
+                <dd id="tagContent0">
+                	<ul>
+                            <li>
+                                <a href="/article/getNewsByNewsId.html?newsId=10261&classId=10" title="贵阳市委常委、副市长刘春成慰问统一战线代表招商贷">
+                                    贵阳市委常委、副市长刘春成慰问统一战线代表招商贷
+                                </a><em>2016-02-17</em>
+                                    <i></i>
+                            </li>
+                            <li>
+                                <a href="/article/getNewsByNewsId.html?newsId=10250&classId=10" title="蝶变2016  招商贷年会盛典完美落幕">
+                                    蝶变2016  招商贷年会盛典完美落幕
+                                </a><em>2016-02-05</em>
+                            </li>
+                            <li>
+                                <a href="/article/getNewsByNewsId.html?newsId=10241&classId=10" title="招商贷与省红十字会开展  “互联网+慈善”探索交流会议">
+                                    招商贷与省红十字会开展  “互联网+慈善”探索交流会议
+                                </a><em>2016-01-29</em>
+                            </li>
+                            <li>
+                                <a href="/article/getNewsByNewsId.html?newsId=10238&classId=10" title="招商贷荣获中国P2P网络借贷企业微信公众号年度影响力第34名">
+                                    招商贷荣获中国P2P网络借贷企业微信公众号年度影响力第34名
+                                </a><em>2016-01-26</em>
+                            </li>
+                            <li>
+                                <a href="/article/getNewsByNewsId.html?newsId=10236&classId=10" title="招商贷荣膺“2015年度互联网金融责任品牌”">
+                                    招商贷荣膺“2015年度互联网金融责任品牌”
+                                </a><em>2016-01-25</em>
+                            </li>
+                    </ul>
+                </dd>
+                <dd id="tagContent1">
+                    <ul>
+                            <li>
+                                <a href="/article/getNewsByNewsId.html?newsId=10262&classId=10" title="网络联结善行 奉献温暖人心">
+                                    网络联结善行 奉献温暖人心
+                                </a><em>2016-02-17</em>
+                                    <i></i>
+                            </li>
+                            <li>
+                                <a href="/article/getNewsByNewsId.html?newsId=10240&classId=10" title="助推网络精准扶贫9+1 贵阳在聚力">
+                                    助推网络精准扶贫9+1 贵阳在聚力
+                                </a><em>2016-01-29</em>
+                            </li>
+                            <li>
+                                <a href="/article/getNewsByNewsId.html?newsId=10233&classId=10" title="招商贷首席运营官、首席信息官刘锐: 重构贵州金服生态圈">
+                                    招商贷首席运营官、首席信息官刘锐: 重构贵州金服生态圈
+                                </a><em>2016-01-21</em>
+                            </li>
+                            <li>
+                                <a href="/article/getNewsByNewsId.html?newsId=10201&classId=10" title="杭州天杭小学与红枫湖镇民联小学结对帮扶">
+                                    杭州天杭小学与红枫湖镇民联小学结对帮扶
+                                </a><em>2015-12-28</em>
+                            </li>
+                            <li>
+                                <a href="/article/getNewsByNewsId.html?newsId=10135&classId=10" title="招商贷注册资本增至1.11亿元超过部分城商行">
+                                    招商贷注册资本增至1.11亿元超过部分城商行
+                                </a><em>2015-11-04</em>
+                            </li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+        <!--媒体报道&招商风采结束-->
+        <!--新闻行业-->
+        <div class="newslist">
+            <span>行业资讯<em><a href="/article/getZixunList.html?classId=14">查看更多 >></a></em></span>
+            <dl>
+                <dd>
+                        <a href="/article/getNewsByNewsId.html?newsId=10270&classId=10" title="刘士余：对互联网金融监管提出四点建议">
+                            刘士余：对互联网金融监管提出四点建议
+                        </a>
+                        <a href="/article/getNewsByNewsId.html?newsId=10264&classId=10" title="业内人士：互联网金融驶入规范发展“快车道”">
+                            业内人士：互联网金融驶入规范发展“快车道”
+                        </a>
+                        <a href="/article/getNewsByNewsId.html?newsId=10263&classId=10" title="中国支付清算协会网贷“黑名单”雏形初现">
+                            中国支付清算协会网贷“黑名单”雏形初现
+                        </a>
+                        <a href="/article/getNewsByNewsId.html?newsId=10260&classId=10" title="业内人士：监管趋严，2016是互联网金融规范发展年">
+                            业内人士：监管趋严，2016是互联网金融规范发展年
+                        </a>
+                        <a href="/article/getNewsByNewsId.html?newsId=10242&classId=10" title="中国互联网金融协会（筹）举办首次培训班">
+                            中国互联网金融协会（筹）举办首次培训班
+                        </a>
+                </dd>
+            </dl>
+        </div>
+        <!--新闻行业结束-->
+        <div class="clear"></div>
+    </div>
+</section>
+
+<!--合作伙伴开始-->
+<section class="container">
+    <br /><br />
+    <h3 class="parthh3">合作伙伴</h3>
+    <br />
+    <div class="partner">
+        <div id="partner" class="carousel">
+            <div class="banner" style="height:53px;">
+                    <div class="item"><img src="images/2015070909091816300296450015.jpg"  class="img"></div>
+                    <div class="item"><img src="images/201507090909367217237255297.jpg"  class="img"></div>
+                    <div class="item"><img src="images/2015070909103017544797415271.jpg"  class="img"></div>
+                    <div class="item"><img src="images/201507090910223337954244809.jpg"  class="img"></div>
+                    <div class="item"><img src="images/201507090910381079543537701.jpg"  class="img"></div>
+                    <div class="item"><img src="images/201507090910469145058868566.jpg"  class="img"></div>
+                    <div class="item"><img src="images/2015070909105319788184374336.jpg"  class="img"></div>
+            </div>
+            <ul id="ppoint" class="pointer hide"></ul>
+        </div>
+        <a id="pprev" class="prev" href="javascript:void(0);"></a>
+        <a id="pnext" class="next" href="javascript:void(0);"></a>
+    </div>
+</section>
+<br /><br />
+<!--合作伙伴结束-->
+<!--友情链接开始-->
+<div class="linkbox">
+    <section class="container">
+        <p class="links">
+            <span>友情链接：</span>
+                <a href="http://##www.gzhsss.com" target="_blank">合石诉讼</a>
+                <a href="http://##www.118114gz.com" target="_blank">贵州网址通</a>
+                <a href="http://##www.gzmv.com.cn" target="_blank">贵州元素音乐网</a>
+                <a href="http://##www.gzgov.gov.cn/" target="_blank">贵州省人民政府</a>
+                <a href="http://#www.qx162.com/" target="_blank">黔讯网</a>
+                <a href="http://#www.gzwht.gov.cn/" target="_blank">贵州省文化网</a>
+                <a href="http://#dcgz.gog.com.cn/" target="_blank">多彩贵州网</a>
+                <a href="http://#www.coolgy.com/" target="_blank">爽爽的贵阳网</a>
+                <a href="http://#www.gzcom.gov.cn/" target="_blank">贵州省商务厅</a>
+                <a href="http://#www.gz12301.com/" target="_blank">贵州旅游网游客服务中心</a>
+        </p>
+    </section>
+</div>
+<!--友情链接结束-->
+<!--版权信息开始-->
+<!--
+
+底部开始
+<footer class="layout">
+    <div class="layout copyright">
+    	<div class="container container1" align="center">
+        	<p>Copyright Reserved @2013 招商贷 | 备案号:<a target="_blank" href="http://#www.miibeian.gov.cn/">黔B2-20150014</a>
+        		<script type="text/javascript">
+					var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+					document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F72da47e93f114fd22a380c72f142d731' type='text/javascript'%3E%3C/script%3E"));
+				</script>
+				<script src="js/stat.js" language="JavaScript"></script>
+        	</p>
+        	<p>地址：贵州省贵阳互联网金融特区大厦19楼（观山湖区长岭北路与金朱东路交汇处）</p>
+            <a href="https://ss.knet.cn/verifyseal.dll?sn=e13072411010041724izzi000000&comefrom=verify" target="_blank"><img src ="images/s1.png"></a>
+            <a href="https://www.itrust.org.cn/yz/pjwx.asp?wm=1065799941" target="_blank"><img src ="images/s2.jpg"></a>
+			<a href="https://trustsealinfo.verisign.com/splash?form_file=fdf/splash.fdf&dn=www.zhaoshangdai.com&lang=zh_cn" target="_blank"><img src ="images/s3.png"></a>
+        </div>
+    </div>
+    版权信息结束
+    
+    <div class="backhome">
+        <a href="#" class="backtop"><img src="images/top.png" /></a>
+        <a href="index.html"><img src="images/home.png" /></a>
+    </div>
+</footer>
+底部结束
+-->
+
+<style>
+<!--
+footer{background: url("images/bottom_bg.png") repeat;height: 203px;}
+.fooderbox dd span{margin-left: 30px;}
+-->
+</style>
+<!--底部开始-->
+<footer class="layout">
+    <div class="fooderbox">
+        <dl>
+            <dt>
+            <p>
+                <span><b>400-666-6666</b><br/>服务时间：9:00-22:00</span>
+                <span><a href="javascript:void(0)"><img src="images/f3.png"><i><img src="images/ewm.png" /></i></a>
+                    <a href="http://#weibo.com/3445450794/profile?rightmod=1&amp;wvr=5&amp;mod=personinfo" target="_blank"><img src="images/f1.png"></a></span>
+                <span>
+                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e13072411010041724izzi000000&comefrom=verify" target="_blank"><img src="images/s1.png" /></a>
+                    <a href="http://#www.itrust.org.cn/yz/pjwx.asp?wm=1065799941" target="_blank"><img src="images/s2.jpg" /></a>
+                        <a href="https://trustsealinfo.verisign.com/splash?form_file=fdf/splash.fdf&dn=www.zhaoshangdai.com&lang=zh_cn" target="_blank"><img src="images/s3.png" /></a>
+                </span>
+            <div class="clear"></div>
+            </p>
+            <p>Copyright Reserved @2013 某某金融平台 | 备案号:<a target="_blank" href="http://#www.miibeian.gov.cn/">黔ICP备53554154号-5</a></p>
+            <p>地址：贵州省贵阳市花果园金融街2号24-12
+                <script type="text/javascript">
+                    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F72da47e93f114fd22a380c72f142d731' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+                <script src="js/stat.js" language="JavaScript"></script>
+            </p>
+            </dt>
+            <dd><span><img src="images/monkey-qrcode.png" style="margin-top: -13px;"></span>
+            <span>
+                <b>下载手机客户端</b><br/>
+                扫 码 下 载<br/>
+                <img src="images/app_ico.png" class="appico">IOS版<br/>
+                <img src="images/app_ico2.png" class="appico">安卓版
+            </span>
+                <div class="clear"></div>
+            </dd>
+            <div class="clear"></div>
+        </dl>
+    </div>
+    <div class="backhome">
+        <a href="#" class="backtop"><img src="images/top.png" /></a>
+        <a href="index.html"><img src="images/home.png" /></a>
+    </div>
+</footer>
+<!--底部结束-->
+<script type="text/javascript">
+	var _mvq = window._mvq || []; 
+	window._mvq = _mvq;
+	_mvq.push(['$setAccount', 'm-136753-0']);
+	
+	_mvq.push(['$setGeneral', '', '', /*用户名*/ '', /*用户id*/ '']);//如果不传用户名、用户id，此句可以删掉
+	_mvq.push(['$logConversion']);
+	(function() {
+		var mvl = document.createElement('script');
+		mvl.type = 'text/javascript'; mvl.async = true;
+		mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(mvl, s); 
+	})();
+</script>
+
+<script type="text/javascript">
+var _py = _py || [];
+_py.push(['a', 'zTs..3Jk4Kk9zkGw41pYbgLxwtX']);
+_py.push(['domain','stats.ipinyou.com']);
+_py.push(['e','']);
+-function(d) {
+	var s = d.createElement('script'),
+	e = d.body.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e),
+	f = 'https:' == location.protocol;
+	s.src = (f ? 'https' : 'http') + '://'+(f?'fm.ipinyou.com':'fm.p0y.cn')+'/j/adv.js';
+}(document);
+</script>
+<noscript><img src="images/adv.gif" style="display:none;"/></noscript><script type='text/javascript' src='js/imme1.js' async="async">
+</script>
+<script type="text/javascript">
+	$.getScript("http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODA0Nzk3NF8xMDU3NzdfNDAwODU1NTA1Nl8",function(){
+		BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 4008555056, selector: 'BizQQWPA4'});
+	})
+</script>
+
+
+<section class="container">
+    <!--浮动服务栏-->
+    <div class="services">
+        <ul>
+            <li>
+                <a href="about_companyInfo.html"><img src="images/services-1.png" /></a>
+                <div class="drop"><span class="arrow">公司简介</span></div>
+            </li>
+            <li>
+                <a href="/borrowlist/getPageNew.html"><img src="images/services-2.png" /></a>
+                <div class="drop"><span class="arrow">新手投标</span></div>
+            </li>
+            <li>
+                <a href="/article/getNewsList.html?classId=15"><img src="images/services-3.png" /></a>
+                <div class="drop"><span class="arrow">公司动态</span></div>
+            </li>
+            <li>
+                <img src="images/services-4.png" />
+                <div class="drop win">
+                    <div class="question">
+                        <strong>您可能遇到的常见问题？</strong>
+                        <ul>
+                            <li><a href="/about_question.html?flag=7">如何在网站注册？</a></li>
+                            <li><a href="/about_question.html?flag=8">如何对借款项目做判断？</a></li>
+                            <li><a href="/about_question.html?flag=9">投资金额有限制吗？</a></li>
+                            <li><a href="/about_question.html?flag=10">投资后是否可以取消？</a></li>
+                            <li><a href="/about_question.html?flag=11">如何收回借出的投资资金？</a></li>
+                            <li><a href="/about_question.html?flag=14">收款后可以马上再投资吗？</a></li>
+                        </ul>
+                    </div>
+                    <div class="talk">
+                        <ul class="clearfix">
+                            <li><img src="images/talk-1.png" /></li>
+                            <li><img src="images/talk-2.png" /></li>
+                            <li>咨询时间  9:00—22:00</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#"  id="calc"><img src="images/services-5.png" /></a>
+                <div class="drop"><span class="arrow">计算器</span></div>
+            </li>
+        </ul>
+    </div>
+    <!--浮动服务栏结束-->
+</section>
+<!-- 计算器 -->
+        <div class="calwrap">
+            <form method="post" class="form-horizontal">
+                <div class="calCon">
+                    <div class="control-group">
+                        <label class="control-label" for="zhaoshangbiaozhong">招商标种：</label>
+                        <div class="controls">
+                            <select id="zhaoshangbiaozhong">
+                                <option value="">快速选择招商标种</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="6">6</option>
+                            </select> 个月
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="toubiaojine">投标金额：</label>
+                        <div class="controls">
+                            <input type="text" id="toubiaojine" onblur="checkToubiaoJine(this.value)" value="10000"> 元
+                            <span class="helpinline"><font color="red">*</font></span>
+                            <span class="toubiaojine-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="jiekuanqixian">借款期限：</label>
+                        <div class="controls">
+                            <input type="text" id="jiekuanqixian" onblur="checkJieKuanQiXian(this.value)" placeholder="请输入借款期限" class="span2">
+                            <label class="radio inline" style="font-size:12px;">
+                                <input type="radio" name="jiekuanType" value="0" checked="checked" id="anyue"> 按月
+                            </label>
+                            <label class="radio inline" style="font-size:12px;">
+                                <input type="radio" name="jiekuanType" value="1" id="antian"> 按天
+                                <font color="red">*</font>
+                            </label>
+                            <span class="jiekuanqixian-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="huankuanfangshi">还款方式：</label>
+                        <div class="controls">
+                            <select id="huankuanfangshi" class="span4">
+                                <option selected="selected" value="0">按月还款（按月等额还本付息）</option>
+                                <option value="1">按季还款（按月支付利息，按季度偿还本金）</option>
+                                <option value="2">到期还本（按月支付利息，到期偿还全部本金）</option>
+                                <option value="3">到期一次性偿还本息</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="lianlilv">年利率：</label>
+                        <div class="controls">
+                            <input type="text" id="lianlilv" onblur="checkLianlilv(this.value)" placeholder="请输入年利率" class="span2"> %
+                            <span class="helpinline"><font color="red">*</font></span>
+                            <span class="lianlilv-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="toubiaojiangli">投标奖励：</label>
+                        <div class="controls">
+                            <input type="text" id="toubiaojiangli" value="0.00" class="span2"> %
+                            <span class="toubiaojiangli-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="xuetoujiangli">续标奖励：</label>
+                        <div class="controls">
+                            <input type="text" id="xuetoujiangli" value="0.00" class="span2"> %
+                            <span class="xubiaojiangli-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="lixiguanlifei">利息管理费：</label>
+                        <div class="controls">
+                            <input type="text" id="lixiguanlifei" value="10" class="span2"> %
+                            <span class="lixiguanlifei-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="toubiaoshijian">投标时间：</label>
+                        <div class="controls">
+                            <input type="text" id="toubiaoshijian" class="datepicker span2">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="button" class="but_js btn btn-default">计&nbsp;&nbsp;算</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="calc_result">
+                    <div class="calWin">
+                    </div>
+                    <div id="calNumContent">
+                    </div>
+                </div>
+                <div class="close_btn"></div>
+            </form>
+        </div>
+        <!--计算器结束-->
+<script src="js/counter.js"></script>
+<link rel="stylesheet" href="css/counter.css"/></body>
+<script src="js/countdown.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var lis = $("#bid_normal").find(".clearfix").find(".status");
+        var borrrowNew=$("#bid_new").find(".clearfix").find(".status");
+        for (var i = 0; i < lis.length; i++){
+            var countDown=$(lis.get(i)).find("a").attr("countDown")
+            if(countDown>0){
+                timer(lis.get(i));
+            }
+        }
+
+        for(var i=0;i<borrrowNew.length;i++){
+            var countDown=$(borrrowNew.get(i)).find("a").attr("countDown")
+            if(countDown>0){
+                timer(borrrowNew.get(i));
+            }
+        }
+        $('#partner').carousel({
+            'auto':'flase',
+            'interval':3000,
+            'triggers':'#ppoint',
+            'scroll':500,
+            'space':10,
+            'number':2,
+            'big':7,
+            'prev':'#pprev',
+            'next':'#pnext'
+        });
+    });
+
+    /**
+     * 打开链接
+     * @param key
+     */
+    function openLink(key){
+        var classId=$(key).parent().parent().find("s[class='ashow']").data("class");
+        if(classId == 15)
+        	window.open("/article/getNewsList.html?classId="+classId);
+       	else 
+        	window.open("/article/getMediaList.html?classId="+classId);
+    }
+
+</script>
+</html>

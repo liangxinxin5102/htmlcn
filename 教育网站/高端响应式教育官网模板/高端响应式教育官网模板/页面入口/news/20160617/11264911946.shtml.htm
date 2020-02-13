@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset=utf-8"utf-8">
+<meta name="keywords" content="iOS10,黑马程序员,教程" />
+<meta name="description" content="虽然6月13日WWDC2016的发布会结束了，但是本届大会的开发者session环节还在持续进行着。黑马程序员本着对技术的狂热，对学生负责的态度，仍然坚持每天对课程进行深入的研发。本文主要是黑马程序员对iOS 10 中SDK所更新的主要内容进行总结。根据黑马程序员惯例，在文章的最后，有相关相关教学视频及Demo会有分享链接，供各位下载!" />
+<link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" /> 
+<link rel="stylesheet" type="text/css" href="../../css/reset.css" tppabs="http://www.itcast.cn/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/style.css" tppabs="http://www.itcast.cn/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/other.css" tppabs="http://www.itcast.cn/css/other.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/banner.css" tppabs="http://www.itcast.cn/css/banner.css"/>
+<title>黑马程序员:赶紧下载iOS10开发教程第二弹</title>
+<body>
+<div class="wrapper"> 
+	<!-- 快速通道 topbar S -->
+	<!-- 头部通用快速通道 -->
+<div class="topbar">
+	<div class="inner">
+		<div class="top_l">
+			<p>传智播客旗下品牌：&nbsp; <a href="javascript:if(confirm('http://www.itheima.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.itheima.com/'" tppabs="http://www.itheima.com/" target="_blank">黑马程序员</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">博学谷</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.funit.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.funit.cn/'" tppabs="http://www.funit.cn/" target="_blank">趣IT</a>&nbsp; | &nbsp;<a href="javascript:if(confirm('http://www.czxy.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.czxy.com/'" tppabs="http://www.czxy.com/" target="_blank">传智学院</a><!-- &nbsp; | &nbsp;<a href="http://www.kudingyu.com/" target="_blank">酷丁鱼</a> --></p>				
+		</div>
+		<div class="top_r">
+			<p class="slogan">改变中国IT教育，我们正在行动 &nbsp;&nbsp;&nbsp;&nbsp;全国咨询热线：<strong>400-618-4000</strong> </p>			
+		</div>
+	</div>
+</div>
+
+<!-- <a href="http://www.itcast.cn/ucenter/Login.html" target="_blank"><span style="color:#FFFFFF;">登录</span></a><span style="color:#FFFFFF;"> | </span><a href="http://www.itcast.cn/Ucenter/Register" target="_blank"><span style="color:#FFFFFF;">注册</span></a><span style="color:#FFFFFF;"> | </span><a href="http://www.itcast.cn/Ucenter/Register/vip" target="_blank"><span style="color:#FFFFFF;">VIP注册</span></a> -->	
+	<!-- 快速通道 topbar E --> 
+	
+	<!-- 首页导航区域 S -->
+	<div class="header">
+		<!-- 头部其他页面通用模板 -->
+<div class="header_con">
+	<div class="inner">
+		<h1><a href="../../index.htm" tppabs="http://www.itcast.cn/"><img src="../../images/logo.png" tppabs="http://www.itcast.cn/images/logo.png" alt="传智播客"/></a></h1>
+		<div class="nav">
+			<ul class="nav_li">
+				<li><a href="javascript:;" class="a_gd a_default a3_js">课程介绍</a></li>
+				<li><a href="javascript:;" class="a_gd a_default a_js">免费学习资源</a></li>
+				<li><a href="../../course.shtml.htm" tppabs="http://www.itcast.cn/course.shtml" class="a_gd a_default a2_js" target="_blank">课程中心</a></li>
+				<li><a href="javascript:if(confirm('http://www.czxy.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.czxy.com/'" tppabs="http://www.czxy.com/" class="a_gd a_default a2_js" target="_blank">传智学院</a></li>
+				<li><a href="javascript:if(confirm('http://i.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://i.itcast.cn/'" tppabs="http://i.itcast.cn/" class="a_gd a_default a2_js" target="_blank">学员故事</a></li>
+				<li><a href="javascript:if(confirm('http://bbs.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/'" tppabs="http://bbs.itcast.cn/" class="a_gd a_default a2_js" target="_blank">传智论坛</a></li>
+				<!-- <li><a href="http://www.funit.cn/" class="a_gd a_default a2_js" target="_blank">趣IT</a></li> -->
+				<!-- <li><a href="http://d.itcast.cn/s" class="a_gd a_default a2_js" target="_blank">在线课堂</a></li> -->
+				<!--<li><a href="http://www.itcast.cn/subject/onair/index.shtml?nav" class="a_gd a_default a2_js" target="_blank" style="color:#f00;">教学直播间<span style="position:relative; bottom:6px;"><img src="/images/hot.gif" style="display:inline-block;" /></span></a></li> -->
+			</ul>
+		</div>
+		<div class="school_btn">
+			    <span>全国校区 <i class="iconfont sfont">&#xe609;</i></span>
+  		   			
+
+			<p class="linebg"></p>
+			<ul>
+				<li><a href="../../index.htm" tppabs="http://www.itcast.cn/" class="a_gd a_default">北京校区</a></li>
+<li><a href="javascript:if(confirm('http://sh.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://sh.itcast.cn/'" tppabs="http://sh.itcast.cn/" class="a_gd a_default">上海校区</a></li>
+<li><a href="javascript:if(confirm('http://gz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://gz.itcast.cn/'" tppabs="http://gz.itcast.cn/" class="a_gd a_default">广州校区</a></li>
+<li><a href="javascript:if(confirm('http://sz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://sz.itcast.cn/'" tppabs="http://sz.itcast.cn/" class="a_gd a_default">深圳校区</a></li>
+<li><a href="javascript:if(confirm('http://wh.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://wh.itcast.cn/'" tppabs="http://wh.itcast.cn/" class="a_gd a_default">武汉校区</a></li>
+<li><a href="javascript:if(confirm('http://zz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://zz.itcast.cn/'" tppabs="http://zz.itcast.cn/" class="a_gd a_default">郑州校区</a></li>
+<li><a href="javascript:if(confirm('http://xa.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://xa.itcast.cn/'" tppabs="http://xa.itcast.cn/" class="a_gd a_default">西安校区</a></li>
+<li><a href="javascript:if(confirm('http://heb.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://heb.itcast.cn/'" tppabs="http://heb.itcast.cn/" class="a_gd a_default">哈尔滨校区</a></li>
+<li><a href="javascript:if(confirm('http://cs.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://cs.itcast.cn/'" tppabs="http://cs.itcast.cn/" class="a_gd a_default">长沙校区</a></li>
+<li><a href="javascript:if(confirm('http://jn.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://jn.itcast.cn/'" tppabs="http://jn.itcast.cn/" class="a_gd a_default">济南校区</a></li>
+<li><a href="javascript:if(confirm('http://cq.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://cq.itcast.cn/'" tppabs="http://cq.itcast.cn/" class="a_gd a_default">重庆校区</a></li>
+<li><a href="javascript:if(confirm('http://nj.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://nj.itcast.cn/'" tppabs="http://nj.itcast.cn/" class="a_gd a_default">南京校区</a></li>
+<li><a href="javascript:if(confirm('http://hz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://hz.itcast.cn/'" tppabs="http://hz.itcast.cn/" class="a_gd a_default">杭州校区</a></li>
+<li><a href="javascript:if(confirm('http://cd.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://cd.itcast.cn/'" tppabs="http://cd.itcast.cn/" class="a_gd a_default">成都校区</a></li>
+<li><a href="javascript:if(confirm('http://sjz.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://sjz.itcast.cn/'" tppabs="http://sjz.itcast.cn/" class="a_gd a_default">石家庄校区</a></li>
+	 			
+			</ul>	
+		</div>
+		<div class="bmbtn"><a href="../../channel/flow.shtml.htm" tppabs="http://www.itcast.cn/channel/flow.shtml" class="a_gd" target="_blank">报名流程</a> </div>			
+		<!-- <a href="http://home.itheima.com/" class="new2016" target="_blank" style="position:absolute; top:40px; right:288px; width:188px; display:block;"><img src="/images/2016.gif" /> -->
+	</div>
+</div>
+<div class="fdnav fdfree">
+	<ul>
+		<li> <a href="javascript:if(confirm('http://open.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://open.itcast.cn/'" tppabs="http://open.itcast.cn/" class="a_gd a_default" target="_blank"> <img src="../../images/openbg.jpg" tppabs="http://www.itcast.cn/images/openbg.jpg"/> <span>公开课</span> </a> </li>
+		<li class="li_s"> <a href="javascript:if(confirm('http://v.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://v.itcast.cn/'" tppabs="http://v.itcast.cn/" class="a_gd a_default" target="_blank"> <img src="../../images/kubg.jpg" tppabs="http://www.itcast.cn/images/kubg.jpg"/> <span>视频库</span> </a> </li>
+		<li> <a href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" class="a_gd a_default" target="_blank"> <img src="../../images/yunbg.jpg" tppabs="http://www.itcast.cn/images/yunbg.jpg"/> <span>云课堂</span> </a> </li>
+		<li> <a href="javascript:if(confirm('http://bbs.itcast.cn/plugin.php?id=tiny_mall  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/plugin.php?id=tiny_mall'" tppabs="http://bbs.itcast.cn/plugin.php?id=tiny_mall" class="a_gd a_default" target="_blank"> <img src="../../images/studybg.jpg" tppabs="http://www.itcast.cn/images/studybg.jpg"/> <span>学习光盘</span> </a> </li>		
+		<li> <a href="../../subject/book/index.shtml.htm" tppabs="http://www.itcast.cn/subject/book/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/bybg.jpg" tppabs="http://www.itcast.cn/images/bybg.jpg"/> <span>原创教材</span> </a> </li>
+		<li class="li_last"> <a href="javascript:if(confirm('http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21'" tppabs="http://bbs.itcast.cn/plugin.php?id=tiny_mall:item&cid=21" class="a_gd a_default" target="_blank"> <img src="../../images/tkbg.jpg" tppabs="http://www.itcast.cn/images/tkbg.jpg" /> <span>传智特刊</span> </a> </li>
+	</ul>
+</div>
+<div class="fdnav fdcourse">
+	<ul>
+		<li> <a href="../../subject/javaeezly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/javaeezly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/java_icon.jpg" tppabs="http://www.itcast.cn/images/course/java_icon.jpg"/> <span>JavaEE</span> </a> </li>
+		<li> <a href="../../subject/androidzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/androidzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/android_icon.jpg" tppabs="http://www.itcast.cn/images/course/android_icon.jpg"/> <span>Android</span> </a> </li>
+		<li> <a href="../../subject/phpzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/phpzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/php_icon.jpg" tppabs="http://www.itcast.cn/images/course/php_icon.jpg"/> <span>PHP</span> </a> </li>
+		<li> <a href="../../subject/uizly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/uizly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/ui_icon.jpg" tppabs="http://www.itcast.cn/images/course/ui_icon.jpg"/> <span>UI设计</span> </a> </li>
+		<li> <a href="../../subject/ioszly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/ioszly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/ios_icon.jpg" tppabs="http://www.itcast.cn/images/course/ios_icon.jpg"/> <span>iOS</span> </a> </li>
+		<li> <a href="../../subject/webzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/webzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/web_icon.jpg" tppabs="http://www.itcast.cn/images/course/web_icon.jpg"/> <span>前端与移动开发</span> </a> </li>
+		<li> <a href="../../subject/czly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/czly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/c_icon.jpg" tppabs="http://www.itcast.cn/images/course/c_icon.jpg"/> <span>C/C++</span> </a> </li>
+		<li> <a href="../../subject/mzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/mzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/m_icon.jpg" tppabs="http://www.itcast.cn/images/course/m_icon.jpg"/> <span>网络营销</span> </a> </li>
+		<li> <a href="../../subject/pythonzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/pythonzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/python_icon.jpg" tppabs="http://www.itcast.cn/images/course/python_icon.jpg"/> <span>Python</span> </a> </li>
+		<li> <a href="../../subject/cloudzly/index.html" tppabs="http://www.itcast.cn/subject/cloudzly/index.html" target="_blank" class="a_gd a_default"> <img src="../../images/course/yun_icon.jpg" tppabs="http://www.itcast.cn/images/course/yun_icon.jpg"/> <span>云计算之大数据</span> </a> </li>
+		<li class="li_last"> <a href="../../subject/stackzly/index.shtml.htm" tppabs="http://www.itcast.cn/subject/stackzly/index.shtml" target="_blank" class="a_gd a_default"> <img src="../../images/course/stack_icon.jpg" tppabs="http://www.itcast.cn/images/course/stack_icon.jpg"/> <span>全栈工程师</span> </a> </li>
+		
+	</ul>
+</div>
+	</div>
+	<!-- 首页导航区域 E --> 	
+	<div class="graybg">
+	<!-- main  S -->
+		<!--面包屑   S-->
+		<div class="bread_nav">
+			<div class="inner">
+				<i class="iconfont home">&#xe607;</i><a href="../../index.htm" tppabs="http://www.itcast.cn/">首页</a><i class="iconfont right_arrow">&#xe614;</i><a href="javascript:;">公司动态</a><i class="iconfont right_arrow">&#xe614;</i><a href="">新闻动态</a>
+			</div>
+		</div>
+		<!--面包屑  S-->				
+		<div class="sub_con">				
+			<div class="sub_l">
+				<h1 class="sub_tt">黑马程序员:赶紧下载iOS10开发教程第二弹</h1>
+				<p class="time">更新时间:2016年06月17日11时26分 来源:传智播客</p>
+				<div class="sub_txt">
+					 <center>
+	<img alt="" src="../../files/image/201606/20160617110627242.png" tppabs="http://www.itcast.cn/files/image/201606/20160617110627242.png" style="height: 290px; width: 497px" /></center>
+<br />
+<p>　　虽然6月13日WWDC2016的发布会结束了，但是本届大会的开发者session环节还在持续进行着。黑马程序员本着对技术的狂热，对学生负责的态度，仍然坚持每天对课程进行深入的研发。本文主要是黑马程序员对iOS 10 中SDK所更新的主要内容进行总结。根据黑马程序员惯例，在文章的最后，有相关相关教学视频及Demo会有分享链接，供各位下载!</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617110717447.png" tppabs="http://www.itcast.cn/files/image/201606/20160617110717447.png" style="height: 165px; width: 500px" /></center>
+<br />
+<p>　　<strong><span style="font-size: 16px">1. Grand Center Dispatch</span></strong></p>
+<br />
+<p>　　GCD 在本次一更新主要有以下内容：</p>
+<br />
+<p>　　&bull; 创建私有队列</p>
+<br />
+<p>　　&bull; 安排异步执行的工作项目(items)</p>
+<br />
+<p>　　&bull; GCD能自动将工作项目使用自动释放池给包裹起来</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617110745104.png" tppabs="http://www.itcast.cn/files/image/201606/20160617110745104.png" style="height: 35px; width: 474px" /></center>
+<br />
+<p>　<strong><span style="font-size: 16px">　2. Foundation</span></strong></p>
+<br />
+<p>　　Swift的改进，表现在去掉前缀，API方法改变</p>
+<br />
+<p>　　单位和测量 (Units and measurements)，新增以下两个相关的类：</p>
+<br />
+<p>　　NSISO8601DateFormatter：有关ISO8601时间戳与Date之间转换。</p>
+<br />
+<p>　　NSDateInterval：用来表示一个封闭的日期间隔。</p>
+<br />
+<p>　<strong><span style="font-size: 16px">　3. UIPasteboard</span></strong></p>
+<br />
+<p>　　UIPasteboard是一个通用的剪贴板(Universal Clipboard)，可以在不同的苹果设备之间进行数据的复制粘贴。</p>
+<br />
+<p>　　UIPasteboard类，可以实现在多设备之间进行剪切复制：</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617110800198.png" tppabs="http://www.itcast.cn/files/image/201606/20160617110800198.png" style="height: 161px; width: 500px" /></center>
+<br />
+<p>　　UIPasteboardOption(结构体)，可以控制粘贴的选项：</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617110956638.png" tppabs="http://www.itcast.cn/files/image/201606/20160617110956638.png" style="height: 147px; width: 500px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　4. Wide Color</span></strong></p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111012607.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111012607.png" style="height: 356px; width: 500px" /></center>
+<br />
+<p>　　在 iOS 10 中苹果公司提供更加宽广的颜色，将iOS 9.3的 sRGB 提升到现在的sRGB Extention，从而使颜色的精度更高，优化界面样式。</p>
+<br />
+<p>　　UIColor 类的支持：</p>
+<br />
+<p>　　a) 新增构造方法 </p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111027405.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111027405.png" style="height: 75px; width: 500px" /></center>
+<br />
+<p>　　b) 图像渲染(Image Renderer)</p>
+<br />
+<p>　　在这之前使用UIGraphicsBeginImageContext和UIGraphicsEndImageContextde时，其问题在于只支持32位颜色和sRGB，并且开发过程中容易出错，扩展性不强。</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111042171.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111042171.png" style="height: 133px; width: 500px" /></center>
+<br />
+<p>　　而现在苹果提供一个新的类：UIGraphicsRenderer， 其特点如下：</p>
+<br />
+<p>　　&bull; 完全的色彩管理</p>
+<br />
+<p>　　&bull; 基于block</p>
+<br />
+<p>　　&bull; 拥有 image 与 PDF 的子类</p>
+<br />
+<p>　　&bull; 管理上下文的生命周期</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111115375.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111115375.png" style="height: 102px; width: 500px" /></center>
+<br />
+<p>　<strong><span style="font-size: 16px">　5. 语音识别 (Speech Recognition)</span></strong></p>
+<br />
+<p>　　在 iOS 10 中增加语音识别的API&mdash;&mdash;Speech ，其特点如下：</p>
+<br />
+<p>　　&bull; 可以实现连续的语音识别</p>
+<br />
+<p>　　&bull; 可以对语 音文件或者语音流进行识别</p>
+<br />
+<p>　　&bull; 最佳化自由格式的听写(可理解为多语言支持)和搜索式的字符串</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111128719.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111128719.png" style="height: 108px; width: 500px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　6. 动态类型(Dynamic Type)</span></strong></p>
+<br />
+<p>　　主要表现为文本内容的尺寸类型特征。例如，在用户调整系统字体大小时，应用内的字体也可以随之变化。其特点如下：</p>
+<p>　　&bull; 可以不用监听任何通知即可实现功能。</p>
+<br />
+<p>　　&bull; 支持 Extensions</p>
+<br />
+<p>　　&bull; 自动支持 UITextView 、UILabel及UIControl</p>
+<br />
+<p>　　代码实现：</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111142141.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111142141.png" style="height: 41px; width: 500px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　7. 提高可定制程度 (Improved Customization)</span></strong></p>
+<br />
+<p>　　可以对 TabBarItem 里面的内容进行定制，比如：</p>
+<br />
+<p>　　&bull; 自定义 badge 的颜色和文字的属性</p>
+<br />
+<p>　　&bull; 自定义未选中的Tint Color</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111223080.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111223080.png" style="height: 172px; width: 492px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　8. Peek &amp; Pop 手势</span></strong></p>
+<br />
+<p>　　添加对 WKWebView 的支持，体现在以下几点：</p>
+<br />
+<p>　　&bull; 更好的控制 Peek&amp;Pop 的行为</p>
+<br />
+<p>　　&bull; 自定义 viewController</p>
+<br />
+<p>　　&bull; 动作预览</p>
+<br />
+<p>　　&bull; 弹出你的app</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111250908.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111250908.png" style="height: 129px; width: 500px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　9. 刷新控件(Refresh Control)</span></strong></p>
+<br />
+<p>　　系统自带的刷新控件支持所有的 UIScrollView 以及其子类，比如说 UICollectionView。</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111313643.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111313643.png" style="height: 100px; width: 500px" /></center>
+<br />
+<p>　<strong><span style="font-size: 16px">　10. CollectionView</span></strong></p>
+<br />
+<p>　　优化快速滚动：</p>
+<br />
+<p>　　&bull; Cell的预先加载</p>
+<br />
+<p>　　&bull; 数据源的预先加载</p>
+<br />
+<p>　　&bull; 同样在 UITableView 中可用</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111328284.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111328284.png" style="height: 364px; width: 220px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　11. UIViewPropertyAnimator</span></strong></p>
+<br />
+<p>　　UIViewPropertyAnimator 是 iOS 10 中新增的一个执行 View 动画的类，具有以下特点：</p>
+<br />
+<p>　　&bull; 可中断性</p>
+<br />
+<p>　　&bull; 可擦除</p>
+<br />
+<p>　　&bull; 可反转性</p>
+<br />
+<p>　　&bull; 丰富的动画时间控制功能</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111404817.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111404817.png" style="height: 166px; width: 500px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　12. UIApplication</span></strong></p>
+<br />
+<p>　　新增了 openURL:options:completionHandler: 函数以替代原有的 openURL: 函数，特点如下：</p>
+<br />
+<p>　　&bull; 可以在异步线程中得到执行完成的回调</p>
+<br />
+<p>　　&bull; 会检查是否有应用支持此链接，并将结果通过回调中的参数返回</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111417692.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111417692.png" style="height: 118px; width: 500px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　13. Core Data</span></strong></p>
+<br />
+<p>　　在本次更新中， Core Data 最有用的更新就是提升了并发访问的性能。</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111434833.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111434833.png" style="height: 175px; width: 492px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　14. CloudKit</span></strong></p>
+<br />
+<p>　　本次更新CloudKit具有以下特点：</p>
+<br />
+<p>　　&bull; 公有的数据库</p>
+<br />
+<p>　　&bull; 私人的数据库</p>
+<br />
+<p>　　&bull; 数据记录的分享，新增UICloudSharingController</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111447146.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111447146.png" style="height: 277px; width: 492px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　15. 应用内搜索(App Search)</span></strong></p>
+<br />
+<p>　　在 iOS 10 中，可以搜索App里面的内容，那么如何让自己的App里面的内容让 Spotlight 搜索到呢，需要做以下几件事情：</p>
+<br />
+<p>　　&bull; 添加 CoreSpotlightContinuation 这个key到项目的 info.plist 文件中</p>
+<br />
+<p>　　&bull; 实现 UIApplicationDelegate 中的一个新方法： </p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111459568.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111459568.png" style="height: 176px; width: 462px" /></center>
+<br />
+<p>　　苹果还提供 CoreSpotlight 搜索的 API 进行搜索： </p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111647462.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111647462.png" style="height: 107px; width: 477px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　16. 苹果支付(Apple Pay)</span></strong></p>
+<br />
+<p>　　&bull; 可用于 SFSafariViewController</p>
+<br />
+<p>　　&bull; 可用于没有UI的extensions中</p>
+<br />
+<p>　　&bull; 在 iMessage 应用中也支持 ApplePay</p>
+<br />
+<p>　<strong><span style="font-size: 16px">　17. 桌面组件(Widgets)</span></strong></p>
+<p>　　在 iOS 10中，应用的组件也得到了更新，拥有 display model 的概念，其表现于：</p>
+<br />
+<p>　　&bull; 优化了用户的交互性</p>
+<br />
+<p>　　&bull; 添加紧凑型与展开型的模式</p>
+<br />
+<p>　　另外，也可以让widget出现在锁屏的界面上。</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111709947.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111709947.png" style="height: 220px; width: 500px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　18. 用户通知(User Notifications)</span></strong></p>
+<br />
+<p>　　一个新的通知框架(UNNotifications)应用于 iOS 10中，结合本地通知与远程通知，更易于管理，提供内容扩展，可以自定义通知内容的视图。</p>
+<br />
+<p><strong><span style="font-size: 16px">　　19. CallKit</span></strong></p>
+<br />
+<p>　　苹果提供 Api 用于拨打电话，开发者可以将 UI 整合到系统生成的电话 App 中。此处的更新包括两个层面，一个是主动拨号的部分，允许开发者将通讯 App 的功能内建在电话 App 的&ldquo;常用联络资讯&rdquo;，以及&ldquo;通话记录&rdquo;中，方便用户通过原生电话 App，就能直接使用这些第三方功能。因此用户日后如果想拨打QQ语音通话，将不再需要打开 App，而是直接通过原声电话 App 拨打就好，并且支持 Siri,CarPlay,蓝牙等。</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111736573.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111736573.png" style="height: 293px; width: 500px" /></center>
+<br />
+<p>　<strong><span style="font-size: 16px">　20. SiriKit</span></strong></p>
+<br />
+<p>　　在 iOS 10 中，苹果开放了 Siri 的 Api，我们可以用 SiriKit 来做以下几类事情：</p>
+<br />
+<p>　　&bull; 语音和视频通话</p>
+<br />
+<p>　　&bull; 发送消息</p>
+<br />
+<p>　　&bull; 发送或接收付款</p>
+<br />
+<p>　　&bull; 搜索照片</p>
+<br />
+<p>　　&bull; 约车</p>
+<br />
+<p>　　&bull; 管理健身</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111756324.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111756324.png" style="height: 307px; width: 500px" /></center>
+<br />
+<p><strong><span style="font-size: 16px">　　21. iMessage Apps</span></strong></p>
+<br />
+<p>　　苹果在 iOS 10 中提供 Message Extensions 的方式给 iMessage 提供多样的元素，开发者可以为 iMessage 开发扩展表情功能，还可以在 iMessage 的会话窗口中直接进行支付。</p>
+<br />
+<center>
+	<img alt="" src="../../files/image/201606/20160617111915154.png" tppabs="http://www.itcast.cn/files/image/201606/20160617111915154.png" style="height: 376px; width: 500px" /></center>
+<br />
+<p>　　iOS10开发教程第一弹：</p>
+<br />
+<p>　　有关iMessage及最新Xcode改版的相关功能的课程视频下载链接如下：<span style="font-size: 16px"><u><strong><a href="javascript:if(confirm('http://pan.baidu.com/s/1c2t3SGS  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://pan.baidu.com/s/1c2t3SGS'" tppabs="http://pan.baidu.com/s/1c2t3SGS" target="_blank"><span style="color: #ff0000">http://pan.baidu.com/s/1c2t3SGS</span></a></strong></u></span> 密码:di7k</p>
+<br />
+<p>　　iOS10开发教程第二弹：</p>
+<br />
+<p>　　有关iOS 10 SDK中所更新的主要内容课程，内容包括语音识别、属性动画器等五大内容，视频下载链接如下： <span style="font-size: 16px"><u><strong><a href="javascript:if(confirm('http://pan.baidu.com/s/1miaqPRi  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://pan.baidu.com/s/1miaqPRi'" tppabs="http://pan.baidu.com/s/1miaqPRi" target="_blank"><span style="color: #ff0000">http://pan.baidu.com/s/1miaqPRi</span></a></strong></u></span></p>
+<br />
+
+				</div>
+				<!--百度分享代码-->
+				<!-- 百度分享代码 -->
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more">分享到：</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{"bdSize":16}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+				<!--百度分享代码-->
+			</div>
+			<div class="sub_r">
+				<!--通用页面右侧广告位 S-->
+				<div class="slideBox slide_global" id="slideBox">
+<div class="hd">
+<ul>
+<li></li>
+</ul>
+</div>
+<div class="bd">
+<ul>
+<li><a href="../../subject/ioszly/index.shtml-zh101.htm" tppabs="http://www.itcast.cn/subject/ioszly/index.shtml?zh101" target="_blank"><img src="../../files/image/201605/20160530093223750.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093223750.jpg" style="height: 230px; width: 300px" /></a></li>
+<li><a href="../../subject/czly/index.shtml-zx102.htm" tppabs="http://www.itcast.cn/subject/czly/index.shtml?zx102" target="_blank"><img src="../../files/image/201605/20160530093440597.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093440597.jpg" style="height: 230px; width: 300px" /></a></li>
+<li><a href="../../subject/phpzly/index.shtml-zx102.htm" tppabs="http://www.itcast.cn/subject/phpzly/index.shtml?zx102" target="_blank"><img src="../../files/image/201605/20160530093524255.jpg" tppabs="http://www.itcast.cn/files/image/201605/20160530093524255.jpg" style="height: 230px; width: 300px" /></a></li>
+</ul>
+</div>
+</div>
+
+				<!--通页面右侧广告位 E-->
+				<div class="sub_list">
+					<!--内容详情页右侧新闻推荐-->
+					<ul>
+<li><a class="a_default" href="../20151228/17131779766.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/17131779766.shtml">17个提升iOS开发效率的必用工具</a></li>
+<li><a class="a_default" href="../20151228/16403185293.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/16403185293.shtml">Linux系统动态库加载过程分析</a></li>
+<li><a class="a_default" href="../20151228/15142937279.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/15142937279.shtml">微信公众号与原生app几点见解</a></li>
+<li><a class="a_default" href="../20151228/13121067974.shtml.htm" tppabs="http://www.itcast.cn/news/20151228/13121067974.shtml">Android系统触摸事件三步曲</a></li>
+<li><a class="a_default" href="../20151229/17185946419.shtml.htm" tppabs="http://www.itcast.cn/news/20151229/17185946419.shtml">教你使用AI绘制一组清新简约的微图标</a></li>
+</ul>
+
+					<!--内容详情页右侧新闻推荐-->					
+				</div>
+			</div>
+		</div>
+
+	<!-- main  E -->
+	</div>
+	
+	<!-- 底部  S -->
+	<div class="footer">
+		<!--  底部列表区  -->
+		<div class="foot_ch about">
+<div class="div_list">
+<h3>关于我们</h3>
+<ul>
+<li><a class="a_gd" href="../../channel/about/about.shtml.htm" tppabs="http://www.itcast.cn/channel/about/about.shtml" target="_blank">传智简介</a></li>
+<li><a class="a_gd" href="../../subject/zhaopin/index.shtml.htm" tppabs="http://www.itcast.cn/subject/zhaopin/index.shtml" target="_blank">加入传智</a><!--<li><a class="a_gd" href="/channel/about/about.shtml" target="_blank">联系传智</a></li>--></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>旗下品牌</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.itheima.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.itheima.com/'" tppabs="http://www.itheima.com/">黑马程序员</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">博学谷</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.funit.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.funit.cn/'" tppabs="http://www.funit.cn/" target="_blank">趣IT</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>校区攻略</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85619-1-1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/thread-85619-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85619-1-1.html" target="_blank">校区环境</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85619-1-1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/thread-85619-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85619-1-1.html" target="_blank">住宿攻略</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://bbs.itcast.cn/thread-85797-1-1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://bbs.itcast.cn/thread-85797-1-1.html'" tppabs="http://bbs.itcast.cn/thread-85797-1-1.html" target="_blank">来校路线</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>学习资源</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://v.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://v.itcast.cn/'" tppabs="http://v.itcast.cn/" target="_blank">资源下载</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://open.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://open.itcast.cn/'" tppabs="http://open.itcast.cn/" target="_blank">公开课</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.boxuegu.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.boxuegu.com/'" tppabs="http://www.boxuegu.com/" target="_blank">云课堂</a></li>
+</ul>
+</div>
+<div class="div_list">
+<h3>传智故事</h3>
+<ul>
+<li><a class="a_gd" href="javascript:if(confirm('http://i.itcast.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://i.itcast.cn/'" tppabs="http://i.itcast.cn/" target="_blank">学员故事</a></li>
+<li><a class="a_gd" href="javascript:if(confirm('http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7'" tppabs="http://www.funit.cn/label-1.html?tt=%BF%C6%BC%BC%DF%F7%DF%F7%DF%F7" target="_blank">科技喵喵喵</a></li>
+</ul>
+</div>
+<div class="div_list div_wx">
+<div style="margin-right: 30px"><img src="../../images/wx_cz.jpg" tppabs="http://www.itcast.cn/images/wx_cz.jpg" />
+<p>传智播客官方微信</p>
+</div>
+<div><img src="../../images/wx_hm.jpg" tppabs="http://www.itcast.cn/images/wx_hm.jpg" />
+<p>黑马程序员官方微信</p>
+</div>
+</div>
+</div>
+
+		<!--  底部列表区  -->
+		<!--  底部版权区  -->
+		<div class="foot_ch add">
+<h2><img alt="传智播客" src="../../images/logo3.png" tppabs="http://www.itcast.cn/images/logo3.png" width="145" /></h2>
+<p>版权所有 2006 - 2017 北京传智播客教育科技有限公司&nbsp;&nbsp;&nbsp;地址：北京市昌平区建材城西路金燕龙办公楼一层&nbsp;&nbsp;&nbsp;邮编：100096<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_4617777'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/stat.php%3Fid%3D4617777%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "../../../hm.baidu.com/hm.js-0cb375a2e834821b74efffa6c71ee607"/*tpa=http://hm.baidu.com/hm.js?0cb375a2e834821b74efffa6c71ee607*/;
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "../../../hm.baidu.com/hm.js-afb28582a41ea001acfa11b256c2e188"/*tpa=https://hm.baidu.com/hm.js?afb28582a41ea001acfa11b256c2e188*/;
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><br />
+电话：400-618-4000&nbsp;&nbsp;&nbsp;邮箱: zhanghj@itcast.cn&nbsp;&nbsp;&nbsp;<a href="javascript:if(confirm('http://www.miitbeian.gov.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.miitbeian.gov.cn/'" tppabs="http://www.miitbeian.gov.cn/" style="color:#333;" target="_blank">京ICP备08001421号</a>&nbsp;&nbsp;&nbsp;京公网安备110108007702</p>
+<ul>
+<li><a href="javascript:if(confirm('http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn'" tppabs="http://webscan.360.cn/index/checkwebsite/url/www.itcast.cn" target="_blank"><img src="../../images/360.jpg" tppabs="http://www.itcast.cn/images/360.jpg" /></a></li>
+<li><a href="javascript:if(confirm('http://t.knet.cn/index_new.jsp  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://t.knet.cn/index_new.jsp'" tppabs="http://t.knet.cn/index_new.jsp" target="_blank"><img src="../../images/chengxin.jpg" tppabs="http://www.itcast.cn/images/chengxin.jpg" /></a></li>
+<li><a href="javascript:if(confirm('http://www.bj.cyberpolice.cn/index.do  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.bj.cyberpolice.cn/index.do'" tppabs="http://www.bj.cyberpolice.cn/index.do" target="_blank"><img src="../../images/safe.jpg" tppabs="http://www.itcast.cn/images/safe.jpg" /></a></li>
+</ul>
+</div>
+<br />
+
+		<!--  底部版权区  -->
+	</div>
+	<!-- 底部  E -->
+</div>
+<!-- 全局js -->
+<script src="../../js/jquery-1.7.2.min.js" tppabs="http://www.itcast.cn/js/jquery-1.7.2.min.js"></script> 
+<script src="../../js/global.js" tppabs="http://www.itcast.cn/js/global.js"></script>
+<!-- ie7error提示 -->
+<style type="text/css">
+#ie7-warning{background:rgb(255,255,225); position:absolute; top:0; left:0; font-size:12px; color:#333; width:100%; padding:5px 0; text-align:center; z-index:99999; }
+</style>
+<!--[if lte IE 7]>
+<div id="ie7-warning">您正在使用 Internet Explorer 7，在本页面的显示效果可能有差异。建议您升级到 <a href="javascript:if(confirm('http://www.microsoft.com/china/windows/internet-explorer/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.microsoft.com/china/windows/internet-explorer/'" tppabs="http://www.microsoft.com/china/windows/internet-explorer/" target="_blank">Internet Explorer 8</a> 或以下浏览器： <a href="javascript:if(confirm('http://www.mozillaonline.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.mozillaonline.com/'" tppabs="http://www.mozillaonline.com/">Firefox</a> / <a href="javascript:if(confirm('http://www.google.com/chrome/?hl=zh-CN  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.google.com/chrome/?hl=zh-CN'" tppabs="http://www.google.com/chrome/?hl=zh-CN">Chrome</a> / <a href="javascript:if(confirm('http://www.apple.com.cn/safari/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.apple.com.cn/safari/'" tppabs="http://www.apple.com.cn/safari/">Safari</a> / <a href="javascript:if(confirm('http://www.operachina.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.operachina.com/'" tppabs="http://www.operachina.com/">Opera</a>
+</div>
+<script type="text/javascript">
+	function position_fixed(el, eltop, elleft){ 
+	if(!window.XMLHttpRequest) 
+		window.onscroll = function(){ 
+		el.style.top = (document.documentElement.scrollTop + eltop)+"px"; 
+		el.style.left = (document.documentElement.scrollLeft + elleft)+"px"; 
+		} 
+		else el.style.position = "fixed"; 
+		}
+		position_fixed(document.getElementById("ie7-warning"),0, 0);
+</script>
+<![endif]-->
+ 
+<!-- 十大学科咨询 -->
+<link rel="stylesheet" type="text/css" href="../../css/zx.css" tppabs="http://www.itcast.cn/css/zx.css"/>
+<!-- 十大学科咨询--> 
+<div class="zx">
+	<ul>
+		<li class="li_1">
+			<a href="javascript:if(confirm('http://d.itcast.cn/3  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://d.itcast.cn/3'" tppabs="http://d.itcast.cn/3" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>在线咨询</p>	
+			</a>
+		</li>
+		<li class="li_qq">
+			<a href="javascript:if(confirm('http://d.itcast.cn/3  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://d.itcast.cn/3'" tppabs="http://d.itcast.cn/3" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>QQ咨询</p>	
+			</a>							
+		</li>
+		<li class="li_2 li_qq">
+			<a href="javascript:if(confirm('http://d.itcast.cn/t  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://d.itcast.cn/t'" tppabs="http://d.itcast.cn/t" target="_blank"> 
+				<span class="icon_s">&nbsp;</span>
+				<p>匿名咨询</p>	 
+			</a>							 
+		</li>				
+		<li class="li_4">
+			<a href="../../channel/flow.shtml.htm" tppabs="http://www.itcast.cn/channel/flow.shtml" target="_blank">
+				<span class="icon_s">&nbsp;</span>
+				<p>在线报名</p>	
+			</a>						
+		</li>	
+		<li class="li_5 li_gd">
+			<span class="icon_s">&nbsp;</span>
+			<p>电话咨询</p>
+			<div>
+				<p>400-618-4000</p>
+			</div>
+		</li>												
+		<li class="li_6" id="back">
+			<a href="javascript:void(0);">
+				<span class="icon_s">&nbsp;</span>
+				<p>返回顶部</p>	
+			</a>						
+		</li>				
+	</ul>
+</div>	
+<script src="../../js/zx.js" tppabs="http://www.itcast.cn/js/zx.js"></script>
+<script src="../../js/jquery.SuperSlide.2.1.1.js" tppabs="http://www.itcast.cn/js/jquery.SuperSlide.2.1.1.js"></script> 
+<script src="../../js/other.js" tppabs="http://www.itcast.cn/js/other.js"></script>
+</body>
+</html>

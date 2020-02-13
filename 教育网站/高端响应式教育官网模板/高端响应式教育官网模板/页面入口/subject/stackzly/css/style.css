@@ -1,0 +1,653 @@
+@charset "utf-8";
+/*-------------初始化----------------*/
+/****  文字大小初始化,使1em=10px *****/
+body{font-size:62.5%;}/* for IE/Win */
+html>body{font-size:12px;} /* for everything else */
+/*字体边框等初始化*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,tr,th,td,img{padding:0; margin:0; font-size:12px;}
+table{border-collapse:collapse; border-spacing:0;}
+fieldset,img,input{border:0;}
+address,caption,cite,code,dfn,th,var{font-weight:normal; font-style:normal;}
+ol,ul,li{list-style:none; vertical-align:top;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{ font-size:100%;  font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;}
+a{text-decoration:none; outline:none;}
+a img{border:none;}/*for IE*/
+a:active{star:expression(this.onFocus=this.blur());}/*点击虚框去除*/
+/*--------------end------------*/
+body{font-size:14px; font-family: "Microsoft YaHei";}
+
+/*--------------ban------------*/
+.ban{ width:100%; background: #041527; height:800px; overflow: hidden; position: relative;}
+.ban .inner{ width:100%; height:965px; overflow: hidden; top:-120px; position:absolute;}
+.ban svg{ width:100%; height:100%; visibility:hidden; }
+.particle, .shape{ mix-blend-mode:soft-light;}
+#dot{ mix-blend-mode:screen;}
+.ban .ban_in{ width:1100px; height:565px; position:absolute; left:50%; top:266px; margin-left:-560px; color:#fff;}
+.ban .ban_con{ width:1100px; height:565px; position:relative; padding-top:30px; z-index:999;}
+.ban p{ text-align:center; font-size:32px;}
+.example{ letter-spacing:3px;}
+.ban .ban1{ font-size:88px; font-weight:bold; letter-spacing:3px; }
+.ban .ban3{ width:465px; height:115px; margin:0 auto 25px auto; background:url("../images/ban1.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/ban1.png*/) no-repeat center; overflow:hidden; position:relative;}
+.ban .ban3 .light{ position:absolute; top:5px; left: 0; animation:light 3s linear infinite running; -webkit-animation: light 3s linear infinite running; -moz-animation:light 3s linear infinite running; -ms-animation:light 3s linear infinite running; -o-animation:light 3s linear infinite running;}
+.ban .ban2{ font-size:28px; line-height:46px;}
+.ban p .span1{ display:inline-block; background:#006eff; margin:0 5px; padding:0 6px;}
+.ban p .span2{ display:block; color:#f9ff37;}
+/*--------------banner按钮------------*/
+.banbtn{ position:absolute; width:250px; height:85px;}
+.banbtn1{ left:5px; top:230px;}
+.banbtn2{ right:30px; top:80px;}
+.banbtn .bana{ display:block; width:250px; height:85px; font-size:22px; color:#fff; position:relative;}
+.banbtn .bana b{ font-weight:normal; position:absolute; left:110px; top:20px;}
+.banbtn .butterfly { transform: rotateZ(-30deg) rotate3d(0, 1, 0, 0deg) scale3d(0.5, 0.5, 0.5); transform-origin: 51% 50%; width: 158px; height: 78px; transform-style: preserve-3d; position:absolute; left:0;}
+.banbtn .wing { transform: rotateX(30deg)  translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg); transform-origin: top right; position: absolute; left: 200px; top: 0px;
+width: 78px; height: 58px; background:url("../images/ban4.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/ban4.png*/) no-repeat; animation-name: rightwingani; animation-duration: 0.6s; animation-delay: 2s; animation-iteration-count: infinite; animation-timing-function: ease-out; }
+.banbtn .butterfly .left{ transform: rotateX(30deg) rotate3d(0, 1, 0, 0deg); animation-name: leftwingani; left: 0px; top: 0px; }
+.banbtn .butterfly .right{ display:none\9;}
+.banbtn .bana:hover .wing{ animation-play-state:paused; -moz-animation-play-state:paused; -ms-animation-play-state:paused; -o-animation-play-state:paused; -webkit-animation-play-state:paused;}
+.banbtn .bana:hover{ color:#f9ff37;}
+/*--------------蝴蝶动画------------*/
+@keyframes rightwingani {
+	from {
+		transform:rotateX(30deg) translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+	}
+	50% {
+		transform:rotateX(30deg) translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 100deg);
+	}
+	to{
+		transform:rotateX(30deg) translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+	}
+}
+@-webkit-keyframes rightwingani {
+	from {
+		transform:rotateX(30deg) translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+	}
+	50% {
+		transform:rotateX(30deg) translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 100deg);
+	}
+	to{
+		transform:rotateX(30deg) translate3d(-200px, 0px, 0px) rotate3d(0, 1, 0, 160deg);
+	}
+}
+@keyframes leftwingani {
+	from {
+		transform:rotateX(30deg) rotate3d(0, 1, 0, 0deg);
+	}
+	50% {
+		transform:rotateX(30deg) rotate3d(0, 1, 0, 80deg);
+	}
+	to{
+		transform:rotateX(30deg) rotate3d(0, 1, 0, 00deg);
+	}
+}
+@-webkit-keyframes leftwingani {
+	from {
+		transform:rotateX(30deg) rotate3d(0, 1, 0, 0deg);
+	}
+	50% {
+		transform:rotateX(30deg) rotate3d(0, 1, 0, 80deg);
+	}
+	to{
+		transform:rotateX(30deg) rotate3d(0, 1, 0, 00deg);
+	}
+}
+.ban .banbox{ width:675px; height:865px; background:url("../images/ban2.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/ban2.png*/) no-repeat center; position:absolute; left:50%; top:40px;}
+.ban .ban_l{ margin-left:-953px;}
+.ban .ban_r{ width:662px; height:905px; background-image:url("../images/ban3.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/ban3.png*/); top:10px; margin-left:325px;}
+.ban .ban_t{ width:1002px; height:432px; background-image:url("../images/ban5.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/ban5.png*/); top:53px; margin-left:-575px; animation: fade-in 2s linear infinite alternate; -moz-animation: fade-in 2s linear infinite alternate; -ms-animation: fade-in 2s linear infinite alternate; -o-animation: fade-in 2s linear infinite alternate; -webkit-animation: fade-in 2s linear infinite alternate;}
+.ban .ban_b{ width:100%; height:96px; background:#f2ff33; position:absolute; bottom:45px; left:0;}
+.ban .ban_b p{ font-size:30px; color:#000; line-height:96px;}
+.ban .ban_b p a{ font-size:24px; color:#fff; display:inline-block; width:200px; height:50px; line-height:50px; margin-left:20px; text-align:center; background:#006eff; border-radius:8px;}
+/*--------------光动画------------*/
+@keyframes light {
+    0% {left: 0;}
+    20% {left: 110%;}
+    100% {left: 110%;}
+}
+@-webkit-keyframes light {
+    0% {left: 0;}
+    20% {left: 110%;}
+    100% {left: 110%;}
+}
+/*--------------彩条动画------------*/
+@keyframes fade-in {  
+    0% {opacity: .2;}/*初始状态 透明度为0*/  
+    40% {opacity: .6;}/*过渡状态 透明度为0*/  
+    100% {opacity: 1;}/*结束状态 透明度为1*/  
+}  
+@-webkit-keyframes fade-in {/*针对webkit内核*/  
+    0% {opacity: .2;}  
+    40% {opacity: .6;}  
+    100% {opacity: 1;} 
+}
+
+
+
+/*--------------box全局样式------------*/
+.box{ width: 100%; background:#232937; position: relative; overflow:hidden;}
+.box_in{ width: 1200px; margin: 0 auto; text-align: center; overflow:hidden;}
+.box .myh2{ width:965px; height:245px; background:url("../images/box11.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/box11.png*/) no-repeat center; position:absolute; left:50%; top:70px; margin-left:-955px; z-index:99;}
+.box ul{ overflow:hidden;}
+.a_btn{width:275px; height: 63px; line-height: 63px; text-align:center; display: block; margin: 40px auto 0; background: #E1FF00; border-radius: 8px; font-size: 26px; color: #112131; font-weight: bold; overflow: hidden; -webkit-transition: color 0.3s; transition: color 0.3s; position: relative; z-index: 1; -webkit-backface-visibility: hidden; -moz-osx-font-smoothing: grayscale;}
+.a_btn.button--inverted {background: none;color: #fff;}
+.a_btn::before,.a_btn::after {content: '';position: absolute;height: 100%;width: 100%;bottom: 100%;left: 0;z-index: -1;-webkit-transition: -webkit-transform 0.3s;transition: transform 0.3s;-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);}
+.a_btn::before {background: #7986cb;}
+.a_btn::after {background: #3f51b5;}
+.a_btn:hover {color: #fff;}
+.a_btn:hover::before,.a_btn:hover::after {-webkit-transform: translate3d(0, 100%, 0);transform: translate3d(0, 100%, 0);}
+.a_btn:hover::after {-webkit-transition-delay: 0.175s;transition-delay: 0.175s;}
+
+/*--------------box1-----------*/
+.box1{ height:1320px; }
+.box1 .box_in{ width:1120px; padding-top:255px; z-index:999; position:relative;}
+.box1 .box1_l{ width:450px; float:left; padding:110px 0 0 30px;}
+.box1 .box1_r{ width:485px; background:url("../images/mybg.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/mybg.png*/); padding:20px 15px 50px; float:right;}
+.box1 .box_in li h3{ width:240px; height:65px; background:url("../images/tit1.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/tit1.png*/) no-repeat 0 0; margin-bottom:15px;}
+.box1 .box_in li p{ font-size:16px; line-height:26px; text-align:left; color:#fff; padding-left:25px; margin-bottom:25px;}
+.box1 .box_in li img{ display:block; width:475px; height:220px; margin-bottom:15px; position:relative; top:0; transition:.3s; -moz-transition:.3s; -webkit-transition:.3s;}
+.box1 .box_in li img:hover{ top:-5px;}
+.box1 .box_in .li2 h3{ width:279px; height:82px; background-image:url("../images/tit2.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/tit2.png*/);}
+.box1 .box_in .li3 h3{ width:378px; height:70px; background-image:url("../images/tit3.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/tit3.png*/);}
+.box1 .box_in .li4 h3{ background-image:url("../images/tit4.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/tit4.png*/);}
+.box1 .con1{ width:1308px; height:1320px; position:absolute; left:50%; top:0; margin-left:-354px; z-index:9; animation: fade-in1 4s linear infinite alternate; -moz-animation: fade-in1 4s linear infinite alternate; -ms-animation: fade-in1 4s linear infinite alternate; -o-animation: fade-in1 4s linear infinite alternate; -webkit-animation: fade-in1 4s linear infinite alternate;}
+.box1 .con1 div{ width:100%; height:264px; background:url("../images/box1bg_01.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box1bg_01.jpg*/) no-repeat center top;}
+.box1 .con1 .div1{ background-image:url("../images/box1bg_02.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box1bg_02.jpg*/);}
+.box1 .con1 .div2{ background-image:url("../images/box1bg_03.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box1bg_03.jpg*/);}
+.box1 .con1 .div3{ background-image:url("../images/box1bg_04.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box1bg_04.jpg*/);}
+.box1 .con1 .div4{ background-image:url("../images/box1bg_05.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box1bg_05.jpg*/);}
+/*--------------box2-----------*/
+.box2{ padding-bottom:50px;}
+.box2 .myh2{ width:891px; background-image:url("../images/box21.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box21.jpg*/); margin-left:-55px; top:30px;}
+.box2 .con2{ width:750px; height:155px; background:url("../images/box22.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box22.jpg*/) no-repeat center; position:absolute; left:50%; top:0; margin-left:-994px; }
+.box2 .box_in{ width:1160px; padding-top:310px;}
+.box2 .mains{ width:580px; height:510px; float:left;}
+.box2 .mains .myh3{ height:50px; line-height:50px; font-size:24px; color:#0190ff; position:relative; text-align:left; padding-left:30px; margin-bottom:35px;}
+.box2 .mains .myh3 span{ display:block; width:6px; height:50px; background:#0190ff; position:absolute; left:0; top:0;}
+.box2 .ul1 li{ float:left; margin:0 15px 25px 0; width:170px; color:#fff;}
+.box2 .ul1 .h31{ font-size:20px; font-weight:bold; text-align:center; line-height:24px; margin-bottom:29px;}
+.box2 .ul1 .h31 span{ font-size:16px;}
+.box2 .ul1 img{ display:block; width:145px; height:160px; margin:0 auto 16px auto;}
+.box2 .ul1 .p1{ font-size:20px; text-align:center;}
+.box2 .mains .p2{ width:420px; margin:0 auto 66px auto; font-size:18px; line-height:26px; text-align:left; color:#b6daff;}
+.box2 .mains1 .myh3{ color:#f8ff35; margin-bottom:0px;}
+.box2 .mains1 .myh3 span{ background:#f8ff35;}
+.box2 .mains1 .p2{ color:#f8ff35;}
+.box2 .mains1_c{ margin-bottom:16px; height:300px;}
+.box2 .mains1_l{float:left; width: 330px; padding-left:10px;}
+.box2 .mains1_l .p3{ font-size:25px; font-weight:bold; color:#e8ff25;}
+.box2 .mains1_r{float:left; width: 240px;}
+.box2 .mains1_r .ul_table {width:100%;}
+.box2 .mains1_r .ul_table li{overflow: hidden; border-bottom: 1px solid #4b5b81; line-height: 36px; color:#fff;}
+.box2 .mains1_r .ul_table li span{float:left; width: 80px; font-weight: bold; font-size: 14px;}
+.box2 .mains1_r .ul_table li .jd{float:left; height: 16px;}
+.box2 .mains1_r .ul_table li .jd b{display: block; height: 16px; margin-left: 8px; margin-top: 13px;}
+.box2 .mains2 .myh3{ color:#02ebff;}
+.box2 .mains2 .myh3 span{ background:#02ebff;}
+.box2 .mains2 .p2{ color:#b2f9ff;}
+.box2 .mains2 .p4{ font-size:22px; text-align:center; margin-bottom:25px; color:#b2f9ff;}
+.box2 .mains2_c { width:100%; height:258px; background:url("../images/box2s.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box2s.jpg*/) no-repeat center; position:relative; margin-bottom:30px;}
+.box2 .mains2_c .imgs{ display:block; position:absolute; left:100px; top:35px;}
+.box2 .mains3 .myh3{ color:#fff; margin-bottom:14px;}
+.box2 .mains3 .myh3 span{ background:#fff;}
+.box2 .mains3 .p2{ color:#fff; width:520px;}
+.box2 .mains3 .p5{ color:#fff; font-size:18px; margin-bottom:10px;}
+.box2 .mains3 .p5 span{ display:inline-block; margin:0 80px 0 100px;}
+.box2 .mains3_c { padding:10px; background:#fff; border-radius:8px; margin-bottom:20px;}
+.box2 .mains3_c li{ width:170px; float:left;}
+.box2 .mains3_c li img{ display:block; width:170px; height:290px;}
+.box2 .mains3_c .mymar{ margin:0 19px; padding:0 5px; border-left:1px solid #eee; border-right:1px solid #eee;}
+
+/*--------------box3-----------*/
+.box3{ background:#253141; padding-bottom:70px;}
+.box3 .myh2{ width:842px; background-image:url("../images/box31.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box31.jpg*/); margin-left:-910px; top:30px;}
+.box3 .con3{ width:750px; height:155px; background:url("../images/box32.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box32.jpg*/) no-repeat center; position:absolute; left:50%; bottom:0; margin-left:364px; }
+.box3 .con3s{ width:202px; height:192px; background:url("../images/box33.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box33.jpg*/) no-repeat center; position:absolute; left:50%; top:0; margin-left:264px; animation: fade-in 2s linear infinite alternate; -moz-animation: fade-in 2s linear infinite alternate; -ms-animation: fade-in 2s linear infinite alternate; -o-animation: fade-in 2s linear infinite alternate; -webkit-animation: fade-in 2s linear infinite alternate;}
+.box3 .box_in{ width:972px; height:620px; margin:270px auto 60px auto; position:relative;}
+.box3 .box_in .spans{ display:block; position:absolute; background:#5c6b7e;}
+.box3 .box_in .spans2{ width:2px; height:620%; background:#5c6b7e; left:484px; top:0;}
+.box3 .box_in .spans1{ width:100%; height:2px; left:0px; top:309px;}
+.box3 .ulbox{ width:900px; margin:42px auto;}
+.box3 .ulbox li{ width:225x; height:267px; float:left; margin-bottom:2px;}
+.box3 .ulbox .txt{ width:175px; height:237px; padding:30px 25px 0; color:#fff;}
+.box3 .ulbox .txt h3{ text-align:center; font-size:20px; margin-bottom:20px;}
+.box3 .ulbox .txt p{ font-size:16px; line-height:26px; text-align:left;}
+.box3 .ulbox .pic{ width:225x; height:267px; overflow:hidden;}
+.box3 .ulbox .pic img{ display:block; width:225x; height:267px; -moz-transition: all 0.5s ease 0s; -o-transition: all 0.5s ease 0s; -ms-transition: all 0.5s ease 0s; -webkit-transition: all 0.5s ease 0s; transition: all 0.5s ease 0s;}
+.box3 .ulbox .pic:hover img{ -webkit-transform: scale(1.1); -moz-transform: scale(1.1); -ms-transform: scale(1.1); -o-transform: scale(1.1); transform: scale(1.1);}
+
+/*--------------box4-----------*/
+.box4{ width:100%; height:985px;}
+.box4 .con4{ width:100%; overflow:hidden; animation: fade-in1 4s linear infinite alternate; -moz-animation: fade-in2 5s linear infinite alternate; -ms-animation: fade-in2 5s linear infinite alternate; -o-animation: fade-in2 5s linear infinite alternate; -webkit-animation: fade-in2 5s linear infinite alternate;}
+.box4 .con4 div{ height:197px; background:url("../images/box4bg_01.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box4bg_01.jpg*/) no-repeat center top;}
+.box4 .con4 .div1{ background-image:url("../images/box4bg_02.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box4bg_02.jpg*/);}
+.box4 .con4 .div2{ background-image:url("../images/box4bg_03.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box4bg_03.jpg*/);}
+.box4 .con4 .div3{ background-image:url("../images/box4bg_04.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box4bg_04.jpg*/);}
+.box4 .con4 .div4{ background-image:url("../images/box4bg_05.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box4bg_05.jpg*/);}
+.box4 .box_in{ width:1100px; position:absolute; left:50%; top:55px; margin-left:-512px;}
+.box4 .box_in .mycon{ width:1100px; height:900px; position:relative;}
+.box4 .mycon div{ position:absolute;}
+.box4 .mycon .zxt1{ padding:25px 15px 25px; background:#132640; left:0; top:0;}
+.box4 .mycon .zxt1 h3{ font-size:38px; font-weight:bold; text-align:center; color:#0572f8; line-height:56px;}
+.box4 .mycon .zxt1 p{ font-size:38px; text-align:center; color:#0572f8;}
+.box4 .mycon .zxt1 img{ margin:0 auto;}
+.box4 .mycon .zxt2{ background:#132640; left:0; top:451px; padding:15px 10px; background:#634b41;}
+.box4 .mycon .zxt2 p{ font-size:18px; line-height:26px; color:#fff; width:285px;}
+.box4 .mycon .zxts{ width:335px; height:180px; padding:10px 15px 0 15px; background:url("../images/bg1.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/bg1.png*/); color:#fff; position:absolute; left:0px; bottom:115px; transition:.3s; -moz-transition:.3s;-ms-transition:.3s; -webkit-transition:.3s;}
+.box4 .mycon .zxts:hover{ bottom:120px;}
+.box4 .mycon .zxts h3{ font-size:20px; padding-left:30px; text-align:left; height:40px; line-height:40px; position:relative; margin-bottom:5px;}
+.box4 .mycon .zxts h3 span{ display:block; width:18px; height:18px; background:url("../images/zs.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/zs.png*/) no-repeat center; position:absolute; left:0 ;top:12px; -webkit-transition: .6s; -moz-transition: .6s; -ms-transition: .6s; transition: .6s;}
+.box4 .mycon .zxts:hover span{ -moz-transform: rotateY(180deg); -o-transform: rotateY(180deg); -webkit-transform: rotateY(180deg); -ms-transform: rotateY(180deg); ransform: rotateY(180deg);}
+.box4 .mycon .zxts p{ font-size:18px; line-height:28px; text-align:left;}
+.box4 .mycon .zxts1{ background-image:url("../images/bg2.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/bg2.png*/); color:#132640; left:365px;}
+.box4 .mycon .zxts1 h3 span{ background-image:url("../images/zs1.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/zs1.png*/);}
+.box4 .mycon .zxts2{ left:730px;}
+.box4 .a_btn{ position:absolute; left:390px; bottom:5px; width:320px; background:#00eaff;}
+.box4 .mycon .ztxzd{ width:725px; height:530px; position:absolute; right:0; top:0;}
+.box4 .mycon .ztxzd .ztvideo{ width:725px; height:448px; overflow:hidden; background:#000;}
+.box4 .mycon .ztxzd h3{ width:725px; height:82px; line-height:82px; background:#b1692d; color:#fff; text-align:center; font-size:30px;}
+
+/*--------------box5-----------*/
+.box5{ padding-bottom:80px;}
+.box5 .myh2{ width:957px; background-image:url("../images/box51.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/box51.png*/); margin-left:-55px; top:30px;}
+.box5 .box_in{ margin-top:160px;}
+.box5 .con5_l{ width:760px; height:540px; background:url("../images/box5bg.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box5bg.jpg*/) no-repeat bottom center; float:left; position:relative;}
+.box5 .con5_l .cir{ position:absolute; left:52px; top:118px;}
+.box5 .con5_l .cir1{ left:273px;}
+.box5 .con5_l .cir2{ left:500px; top:50px;}
+.box5 .con5_l .cir_in{ position:relative;}
+.box5 .con5_l .cir .circle{ display:block; width:210px;-webkit-animation:circle 4s linear infinite;-moz-animation:circle 4s linear infinite;-o-animation:circle 4s linear infinite; animation:circle 4s linear infinite;}
+.box5 .con5_l .cir:hover .circle{ animation-play-state:paused;}
+.box5 .con5_l .cir h3{ font-size:22px; line-height:40px; color:#fff; text-align:center; position:absolute; left:26px; top:59px;}
+.box5 .con5_l .cir h3 .b1{ color:#13fcfd;}
+.box5 .con5_l .cir2 h3{ font-size:21px; left:25px;}
+.box5 .con5_l .ztp{ font-size:20px; font-weight:bold; color:#fff; position:absolute; top:75px;}
+.box5 .con5_l .ztp1{ left:85px; }
+.box5 .con5_l .ztp2{ left:250px;}
+.box5 .con5_l .ztp3{ left:512px; top:11px;}
+.box5 .con5_r{ width:390px; height:300px; padding-top:240px; float:right;}
+.box5 .con5_r .txt{ padding:20px 10px; background:#10141c; margin-bottom:30px; position:relative; top:0; -webkit-transition: .6s; -moz-transition: .6s; -ms-transition: .6s; transition: .6s; box-sizing:border-box;}
+.box5 .con5_r .txt:hover{ top:-8px; border:1px solid #fff;}
+.box5 .con5_r .txt p{ font-size:22px; line-height:36px; color:#fff; text-align:center;}
+.box5 .con5_r .txt p span{ color:#fff602;}
+.box5 .con5_r .zta{ display:block; font-size:22px; color:#03edff; text-decoration:underline; text-align:right; margin-bottom:16px;}
+.box5 .con5_r .zta:hover{ color:#fff602;}
+.box5 .con5_r .zta1{ color:#056ef8;}
+
+/*--------------box6-----------*/
+.box6{ padding-bottom:80px;}
+.box6 .myh2{ width:878px; background-image:url("../images/box61.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box61.jpg*/); margin-left:30px; top:30px;}
+.box6 .box_in{ width:1180px; height:750px; margin-top:55px; position:relative;}
+.box6 .box_in .zth3{ width:302px; height:48px; text-align:center; line-height:48px; color:#fff; background:#0570f8; font-size:26px; margin-bottom:19px; -webkit-transition: .6s; -moz-transition: .6s; -ms-transition: .6s; transition: .6s; box-sizing:border-box; position:relative; top:0;}
+.box6 .box_in .zth31{ width:322px; height:64px; line-height:64px; font-size:42px; margin:4px 0 0 280px;}
+.box6 .box_in .zth31:hover{ border:1px solid #50dbff; background:#f3ff33; color:#232937; top:-5px;}
+.box6 .box_in .zxtp{ font-size:17px; line-height:28px; text-align:left; color:#fff;}
+.box6 .box_in .txt{ width: 365px; position:absolute;}
+.box6 .box_in .txt:hover .zth3{ border:1px solid #50dbff; background:#f3ff33; color:#232937; top:-5px;}
+.box6 .box_in .txt1{ left:0; top:280px;}
+.box6 .box_in .txt2{ left:0; top:515px;}
+.box6 .box_in .txt3{ right:0; top:280px;}
+.box6 .box_in .txt4{ right:0; top:515px;}
+.box6 .box_in .cir{ position:absolute; left:404px; top:305px;}
+.box6 .box_in .cir_in{ position:relative;}
+.box6 .box_in .cir .circle{ display:block; width:354px; height:354px; -webkit-animation:circle 4s linear infinite;-moz-animation:circle 4s linear infinite;-o-animation:circle 4s linear infinite; animation:circle 4s linear infinite;}
+.box6 .box_in .cir:hover .circle{ animation-play-state:paused;}
+.box6 .box_in .cir h3{ font-size:62px; line-height:80px; font-weight:bold; color:#232937; text-align:center; position:absolute; left:52px; top:78px;}
+
+/*--------------box7-----------*/
+.box7{ padding-bottom:80px;}
+.box7 .myh2{ width:1209px; height:293px; background-image:url("../images/box71.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/box71.png*/); margin-left:-910px; top:10px;}
+.box7 .box_in{ width:1160px; height:690px; margin-top:340px; position:relative; z-index:999;}
+.box7 .ulbox{ width:950px; height:690px; overflow:hidden;}
+.box7 .ulbox li{ float:left; margin:0 40px 40px 0;}
+.box7 .ulbox li h3{ font-size:26px; color:#fff; text-align:left; margin-bottom:22px;}
+.box7 .ulbox li .zttxt{ width:210px; height:210px; padding:20px 0 0 20px; background:url("../images/bg3.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/bg3.png*/); border-radius:20px;}
+.box7 .ulbox li .zttxt p{ font-size:18px; line-height:26px; color:#fff; text-align:left;}
+.box7 .ulbox li .zttxt1{ width:290px; padding-right:20px;}
+.box7 .ulbox li .zttxt2{ width:215px; padding-left:15px;}
+.box7 .ulbox li .zttxt3{ height:276px;}
+.box7 .btnbox{ width:240px; height:170px; position:absolute; right:0; bottom:120px;}
+.box7 .btnbox .a_btn{ width:240px; margin-top:20px; font-weight:normal;}
+.box7 .btnbox .a_btn1{ background:#02eeff;}
+.box7 .con7{ width:735px; height:874px; background:url("../images/box72.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/box72.png*/) no-repeat center; position:absolute; left:50%; margin-left:95px; top:175px; z-index:9; -webkit-animation:robot 3s linear infinite alternate;-moz-animation:robot 3s linear infinite alternate;-o-animation:robot 3s linear infinite alternate; animation:robot 3s linear infinite alternate;}
+
+/*--------------box8-----------*/
+.box8{}
+.box8 .myh2{ width:1030px; height:154px; background-image:url("../images/box81.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box81.jpg*/); margin-left:-185px; top:10px;}
+.box8 .con8 div{ width:100%; height:183px; background:url("../images/box8bg_01.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box8bg_01.jpg*/) no-repeat center top;}
+.box8 .con8 .div1{ background-image:url("../images/box8bg_02.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box8bg_02.jpg*/);}
+.box8 .con8 .div2{ background-image:url("../images/box8bg_03.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box8bg_03.jpg*/);}
+.box8 .con8 .div3{ background-image:url("../images/box8bg_04.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box8bg_04.jpg*/);}
+.box8 .con8 .div4{ background-image:url("../images/box8bg_05.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box8bg_05.jpg*/);}
+.box8 .box_in{ width:1160px; height:750px; position:absolute; left:50%; top:105px; margin-left:-580px; overflow:visible;}
+.slideTxtBox{ width:100%; }
+.slideTxtBox .hd{ position:absolute; left:0; top:0;}
+.slideTxtBox .hd ul li{cursor:pointer; width:169px; height:43px; background:url("../images/box82.jpg"/*tpa=http://www.itcast.cn/subject/stackzly/images/box82.jpg*/) no-repeat center; text-align:center; color:#fff; line-height:43px; font-size:24px; margin-bottom:6px;}
+.slideTxtBox .hd ul li.on{ background:#000;}
+.slideTxtBox .bd{ position:absolute; left:220px; top:125px;}
+.project-main { width: 1320px; height: 470px; overflow: hidden;}
+.project-box { width: 2656px; left: 0; top: 0; height: 470px;}
+.project-box li { overflow-y: hidden;}
+.project-img-box { margin-right: 20px;}
+.project-txt { width:240px; text-align: center; padding: 8px 0; color:#fff; background:#000; font-weight: bold; font-size: 20px; top: -10%;left: 50%;transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%); box-shadow: 0 0 15px rgba(0,0,0,0.5);  -o-box-shadow: 0 0 15px rgba(0,0,0,0.5);  -ms-box-shadow: 0 0 15px rgba(0,0,0,0.5);  -moz-box-shadow: 0 0 15px rgba(0,0,0,0.5); -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.5); position: absolute;}
+.fl { float: left; }
+.pr { position: relative; }
+.pa { position: absolute; }
+.clearfix:after {content: "."; display: block; height: 0; clear: both;visibility: hidden;}
+.clearfix { display: inline-block; }
+.mybox{ width:960px; overflow:hidden;}
+.mybox li{ overflow-y: hidden;}
+.box8 .all{ width:1320px; height:470px; overflow:hidden; position:relative;}
+.box8 .all ul{ width:8640px; height:470px; position:absolute; left:0; top:0;}
+.box8 .all ul li{margin-right:20px; overflow-y: hidden;}
+.box8 .myquan{ width:251px; height:251px; position:absolute; left:35px; top:235px; z-index:99999;}
+.box8 .quan{ width:251px; height:251px; position:relative;}
+.box8 .quan img{ position:absolute;}
+.box8 .quan .circlebg{ display:block; width:251px; height:251px; left:0; top:0;}
+.box8 .circle-outer{ display:block; width:190px; height:190px; left:30px; top:30px; -webkit-animation:circle-outer 6s linear infinite;-moz-animation:circle-outer 6s linear infinite;-o-animation:circle-outer 6s linear infinite;animation:circle-outer 6s linear infinite;}
+.box8 .circle-inner{ display:block; width:142px; height:142px; left:55px; top:55px; -webkit-animation:circle-inner 12s linear infinite;-moz-animation:circle-inner 12s linear infinite;-o-animation:circle-inner 12s linear infinite;animation:circle-inner 12s linear infinite;}
+.box8 .a_btn{ background:#00ecff; position:absolute; bottom:20px; left:450px;}
+
+/*--------------外圈旋转------------*/
+@-webkit-keyframes circle-outer{
+	from{-webkit-transform:rotate(0deg)}to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes circle-outer{
+	from{-moz-transform:rotate(0deg)}to{-moz-transform:rotate(360deg)}
+}
+@-o-keyframes circle-outer{
+	from{-o-transform:rotate(0deg)}to{-o-transform:rotate(360deg)}
+}
+@keyframes circle-outer{
+	from{transform:rotate(0deg)}to{transform:rotate(360deg)}
+}
+/*--------------内圈旋转------------*/
+@-webkit-keyframes circle-inner{
+	0%{-webkit-transform:rotate(0deg)}10.7%{-webkit-transform:rotate(-90deg)}25%{-webkit-transform:rotate(-90deg)}35.7%{-webkit-transform:rotate(-180deg)}50%{-webkit-transform:rotate(-180deg)}60.7%{-webkit-transform:rotate(-270deg)}75%{-webkit-transform:rotate(-270deg)}85.7%{-webkit-transform:rotate(-360deg)}100%{-webkit-transform:rotate(-360deg)}
+}
+@-moz-keyframes circle-inner{
+	0%{-moz-transform:rotate(0deg)}10.7%{-moz-transform:rotate(-90deg)}25%{-moz-transform:rotate(-90deg)}35.7%{-moz-transform:rotate(-180deg)}50%{-moz-transform:rotate(-180deg)}60.7%{-moz-transform:rotate(-270deg)}75%{-moz-transform:rotate(-270deg)}85.7%{-moz-transform:rotate(-360deg)}100%{-moz-transform:rotate(-360deg)}
+}
+@-o-keyframes circle-inner{
+	0%{-o-transform:rotate(0deg)}10.7%{-o-transform:rotate(-90deg)}25%{-o-transform:rotate(-90deg)}35.7%{-o-transform:rotate(-180deg)}50%{-o-transform:rotate(-180deg)}60.7%{-o-transform:rotate(-270deg)}75%{-o-transform:rotate(-270deg)}85.7%{-o-transform:rotate(-360deg)}100%{-o-transform:rotate(-360deg)}
+}
+@keyframes circle-inner{
+	0%{transform:rotate(0deg)}10.7%{transform:rotate(-90deg)}25%{transform:rotate(-90deg)}35.7%{transform:rotate(-180deg)}50%{transform:rotate(-180deg)}60.7%{transform:rotate(-270deg)}75%{transform:rotate(-270deg)}85.7%{transform:rotate(-360deg)}100%{transform:rotate(-360deg)}
+}
+
+/*--------------box9-----------*/
+.box9 .myh2{ width:700px; height:178px; background-image:url("../images/box91.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/box91.png*/); margin-left:-360px; top:60px;}
+.box9 .h3_hd{ font-size:26px; color:#fff; position:absolute; left:50%; margin-left:-346px; top:240px;}
+.box9 .h3_hd span{ color:#03edff;}
+.box9 .box_in{ width:1160px; height:540px; margin-top:340px; position:relative; z-index:999;}
+.box9 .box_in .teas{ position:absolute; z-index:99; }
+.box9 .box_in .tea1{ left:0; top:171px; -webkit-animation:tea1 1.5s linear infinite alternate;-moz-animation:tea1 1.5s linear infinite alternate;-o-animation:tea1 1.5s linear infinite alternate; animation:tea1 1.5s linear infinite alternate;}
+.box9 .box_in .tea2{ left:96px; top:0; -webkit-animation:tea2 1.5s linear infinite alternate;-moz-animation:tea2 1.5s linear infinite alternate;-o-animation:tea2 1.5s linear infinite alternate; animation:tea2 1.5s linear infinite alternate;}
+.box9 .box_in .tea3{ left:247px; top:217px; -webkit-animation:tea3 1.5s linear infinite alternate;-moz-animation:tea3 1.5s linear infinite alternate;-o-animation:tea3 1.5s linear infinite alternate; animation:tea3 1.5s linear infinite alternate;}
+.box9 .box_in .tea4{ left:370px; top:20px; -webkit-animation:tea4 1.5s linear infinite alternate;-moz-animation:tea4 1.5s linear infinite alternate;-o-animation:tea4 1.5s linear infinite alternate; animation:tea4 1.5s linear infinite alternate;}
+.box9 .box_in .tea5{ left:625px; top:276px; -webkit-animation:tea5 1.5s linear infinite alternate;-moz-animation:tea5 1.5s linear infinite alternate;-o-animation:tea5 1.5s linear infinite alternate; animation:tea5 1.5s linear infinite alternate;}
+.box9 .box_in .tea6{ left:713px; top:43px; -webkit-animation:tea6 1.5s linear infinite alternate;-moz-animation:tea6 1.5s linear infinite alternate;-o-animation:tea6 1.5s linear infinite alternate; animation:tea6 1.5s linear infinite alternate;}
+.box9 .box_in .tea7{ right:215px; top:219px; -webkit-animation:tea7 1.5s linear infinite alternate;-moz-animation:tea7 1.5s linear infinite alternate;-o-animation:tea7 1.5s linear infinite alternate; animation:tea7 1.5s linear infinite alternate;}
+.box9 .box_in .tea8{ right:35px; top:275px; -webkit-animation:tea8 1.5s linear infinite alternate;-moz-animation:tea8 1.5s linear infinite alternate;-o-animation:tea8 1.5s linear infinite alternate; animation:tea8 1.5s linear infinite alternate;}
+.box9 .box_in .tea9{ right:35px; top:0; -webkit-animation:tea2 1.5s linear infinite alternate;-moz-animation:tea2 1.5s linear infinite alternate;-o-animation:tea2 1.5s linear infinite alternate; animation:tea2 1.5s linear infinite alternate;}
+.box9 .box_in .mycurs{ animation-play-state:paused;}
+.box9 .box_in .lis{ padding:20px 15px; width:165px; background:url("../images/bg1.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/bg1.png*/); position:absolute; z-index:999; color:#fff; display:none;}
+.box9 .box_in .myons{ display:block;}
+.box9 .box_in .lis h3{ font-size:22px; text-align:left;}
+.box9 .box_in .lis p{ font-size:12px; line-height:24px; text-align:left;}
+.box9 .box_in .lis .p7{ margin-bottom:15px;}
+.box9 .box_in .lis1{ left:142px; top:185px;}
+.box9 .box_in .lis2{ left:272px; top:0px;}
+.box9 .box_in .lis3{ left:387px; top:165px;}
+.box9 .box_in .lis4{ left:475px; top:0px;}
+.box9 .box_in .lis5{ left:765px; top:200px;}
+.box9 .box_in .lis6{ left:840px; top:0px;}
+.box9 .box_in .lis7{ left:940px; top:160px;}
+.box9 .box_in .lis8{ right:166px; top:200px;}
+.box9 .box_in .lis9{ right:215px; top:0px;}
+.box9 .box_in .ztbtn{ display:block; width:170px; height:170px; background:url("../images/anniu.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/anniu.png*/) no-repeat 0 0; position:absolute; left:496px; top:106px;}
+.box9 .box_in .ztbtn:hover{ background:url("../images/anniu.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/anniu.png*/) no-repeat -170px 0; }
+.box9 .con9{ width:100%; height:310px; background:url("../images/box9bg.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/box9bg.png*/) no-repeat center; position:absolute; left:50%; margin-left:-951px; top:460px; -webkit-animation:tea9 2s linear infinite alternate;-moz-animation:tea9 2s linear infinite alternate;-o-animation:tea9 2s linear infinite alternate; animation:tea9 2s linear infinite alternate;}
+
+/*--------------box10-----------*/
+.box10 .myh2{ width:1016px; height:160px; background-image:url("../images/box101.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/box101.png*/); margin-left:-953px; top:0px;}
+.box10 .con10{ width:887px; height:113px; background:url("../images/box102.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/box102.png*/) no-repeat center; position:absolute; left:50%; margin-left:64px; top:0px; }
+.box10 .h3_hd1{ width:264px; height:42px; text-align:center; line-height:42px; font-size:28px; color:#fff; background:#0165cc; position:absolute; left:50%; margin-left:-135px; top:115px;}
+.box10 .box_in{ width:1160px; height:670px; margin-top:180px;}
+.box10 .box_in .p8{ font-size:22px; color:#fff; text-align:center; margin-bottom:35px;}
+.box10 .box_in .p8 span{ color:#f7ff00;}
+.box10 .box_in .p8 .span1{ color:#00cfff;}
+.box10 .mine{ width:100%; height:440px; background:url("../images/pcbg.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/pcbg.png*/) no-repeat center; position:relative;}
+.box10 .mine .ztcir{ display:block; width:100px; height:100px; position:absolute; top:150px; left:221px; z-index:999; -webkit-animation:fd 2s linear infinite alternate;-moz-animation:fd 2s linear infinite alternate;-o-animation:fd 2s linear infinite alternate; animation:fd 2s linear infinite alternate;}
+.box10 .mine .ztcir:hover{ animation-play-state:paused;}
+.box10 .mine .ztcir1{ left:834px;}
+.box10 .mine .tabs{ font-size:18px; color:#00cfff; height:40px; line-height:40px; width:162px; border:3px solid #00cfff; border-radius:8px; cursor:pointer; position:absolute;}
+.box10 .mine .tabsz{ left:0;}
+.box10 .mine .tabss{ right:0; color:#f9ff00; border-color:#f9ff00;}
+.box10 .mine .tabs1{ width:240px; top:75px;}
+.box10 .mine .tabs2{ width:210px; top:312px;}
+.box10 .mine .tabs3{ width:193px; top:312px;}
+.box10 .mine .tabs4{ width:180px; top:165px;}
+.box10 .mine .tabs5{ top:20px;}
+.box10 .mine .tabs6{ top:92px;}
+.box10 .mine .tabs7{ top:240px;}
+.box10 .mine .tabs8{ top:17px;}
+.box10 .mine .tabs9{ top:134px;}
+.box10 .mine .tabs10{ top:193px;}
+.box10 .mine .tabs11{ top:252px;}
+.box10 .mine .tabs:hover{ height:46px; line-height:46px; border:0; background:#fff; color:#232937;}
+.box10 .mine .zxtnow{ height:46px; line-height:46px; border:0; background:#fff; color:#232937;}
+.box10 .mine .tab_c{ width:554px; height:365px; position:absolute; left:295px; top:55px;}
+.box10 .mine .tabbox{ display:none;}
+.box10 .mine .zxthov{ display:block;}
+.box10 .mine .tabbox img{ display:block; margin:0 auto 10px auto;}
+.box10 .mine .tabbox p{ font-size:18px; line-height:26px; color:#fff;}
+
+/*--------------box11-----------*/
+.box11{ height:773px; overflow:hidden;}
+.box11 .box_in{ width:1160px; height:670px; position:absolute; left:50%; margin-left:-578px; top:65px;}
+.box11 .box_in .img10{ display:block; margin-bottom:65px;}
+.box11 .yytxt{ padding:10px 0 35px; background:url("../images/bg1.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/bg1.png*/); width:100%; overflow:hidden; box-sizing:border-box;}
+.box11 .yytxt:hover{ background:#232937; border:1px solid #02ecff;}
+.box11 td{ height:36px; line-height:36px; text-align:center; font-size:18px; color:#fff; border-right:1px solid #666;}
+.box11 .odd td{ height:68px; line-height:68px; font-size:26px; border-right:0;}
+.box11 td.td1{width:126px; color:#02ecff;}
+.box11 .odd td.td1{ color:#fff;}
+.box11 td.td2{width:240px;}
+.box11 td.td3{width:250px; color:#02ecff;}
+.box11 .odd td.td3{ color:#fff;}
+.box11 td.td4{width:280px;}
+.box11 td.td5{width:260px; borde-right:0;}
+.box11 .con11{ width:100%; height:773px; background:url("../images/box11bg.gif"/*tpa=http://www.itcast.cn/subject/stackzly/images/box11bg.gif*/) no-repeat center;}
+.box11 .a_btn{ margin-top:80px; background:#00edff; width:285px;}
+
+/*--------------box12-----------*/
+.box12{ height:780px; background:#232937 url("../images/box12bg.png"/*tpa=http://www.itcast.cn/subject/stackzly/images/box12bg.png*/) no-repeat center bottom; overflow:hidden;}
+.box12 .box_in{ width:850px; height:100%;}
+.box12 .box_in img{ display:block; margin:0 auto;}
+.box12 .qus{ overflow:hidden; margin:35px 0 70px;}
+.box12 .qus ul{ width:350px; float:left;}
+.box12 .qus .qus_l{ margin-right:65px; width:380px;}
+.box12 .qus li{ height:48px; line-height:48px; border-bottom:1px dashed #65769d; text-align:left;}
+.box12 .qus li a{ font-size:24px; color:#fff;}
+.box12 .qus li a:hover{ color:#eaff02;}
+.box12 .ball{ display:block; width:141px; height:135px; position:absolute; left:50%; margin-left:-640px; bottom:82px; }
+.box12 .ball2{ animation: myfirst 2s linear infinite alternate; -moz-animation: myfirst 2s linear infinite alternate; -webkit-animation: myfirst 2s linear infinite alternate; -o-animation: myfirst 2s linear infinite alternate;}
+.box12 .ball1{  margin-left:530px; bottom:112px; animation: myfirst1 2s linear infinite alternate; -moz-animation: myfirst1 2s linear infinite alternate; -webkit-animation: myfirst1 2s linear infinite alternate; -o-animation: myfirst1 2s linear infinite alternate;}
+
+/*--------------ball动画------------*/
+@keyframes myfirst
+{
+	from{bottom:82px;}to{ bottom:88px;}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+	from{bottom:82px;}to{ bottom:88px;}
+}
+
+@keyframes myfirst1
+{
+	from{bottom:112px;}to{ bottom:118px;}
+}
+
+@-webkit-keyframes myfirst1 /* Safari 和 Chrome */
+{
+	from{bottom:112px;}to{ bottom:118px;}
+}
+
+/*--------------软硬动画------------*/
+@keyframes fd {  
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}  
+@-webkit-keyframes fd {/*针对webkit内核*/  
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+
+  50% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+
+/*--------------cir旋转动画------------*/
+@-webkit-keyframes circle{
+	from{-webkit-transform:rotate(0deg)}to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes circle{
+	from{-moz-transform:rotate(0deg)}to{-moz-transform:rotate(360deg)}
+}
+@-o-keyframes circle{
+	from{-o-transform:rotate(0deg)}to{-o-transform:rotate(360deg)}
+}
+@keyframes circle{
+	from{transform:rotate(0deg)}to{transform:rotate(360deg)}
+}
+
+/*--------------box1背景动画------------*/
+@keyframes fade-in1 {  
+    0% {opacity: .1;}/*初始状态 透明度为0*/  
+    20% {opacity: .3;}/*初始状态 透明度为0*/  
+    40% {opacity: .6;}/*过渡状态 透明度为0*/  
+    60% {opacity: .8;}/*过渡状态 透明度为0*/  
+    80% {opacity: 1;}/*结束状态 透明度为1*/  
+    100% {opacity: 1;}/*结束状态 透明度为1*/  
+}  
+@-webkit-keyframes fade-in1 {/*针对webkit内核*/  
+    0% {opacity: .1;}  
+    20% {opacity: .3;}/*初始状态 透明度为0*/  
+    40% {opacity: .6;} 
+    60% {opacity: .8;}/*过渡状态 透明度为0*/  
+    80% {opacity: 1;}/*结束状态 透明度为1*/  
+    100% {opacity: 1;}  
+}
+/*--------------box4背景动画------------*/
+@keyframes fade-in2 {  
+    0% {opacity: 1;}/*初始状态 透明度为0*/  
+    20% {opacity: 1;}/*初始状态 透明度为0*/  
+    40% {opacity: .8;}/*过渡状态 透明度为0*/  
+    60% {opacity: .6;}/*过渡状态 透明度为0*/  
+    80% {opacity: .3;}/*结束状态 透明度为1*/  
+    100% {opacity: .3;}/*结束状态 透明度为1*/  
+}  
+@-webkit-keyframes fade-in2 {/*针对webkit内核*/  
+    0% {opacity: 1;}/*初始状态 透明度为0*/  
+    20% {opacity: 1;}/*初始状态 透明度为0*/  
+    40% {opacity: .8;}/*过渡状态 透明度为0*/  
+    60% {opacity: .6;}/*过渡状态 透明度为0*/  
+    80% {opacity: .3;}/*结束状态 透明度为1*/  
+    100% {opacity: .3;}/*结束状态 透明度为1*/  
+}
+/*--------------机器人动画------------*/
+@keyframes robot {  
+	from{top:175px}to{ top:165px}
+}  
+@-webkit-keyframes robot {/*针对webkit内核*/  
+	from{top:175px}to{ top:165px}
+}
+/*--------------讲师板块动画------------*/
+@keyframes tea1 {  
+	from{top:171px}to{ top:176px}
+}  
+@-webkit-keyframes tea1 {/*针对webkit内核*/  
+	from{top:171px}to{ top:176px}
+}
+
+@keyframes tea2 {  
+	from{top:0px}to{ top:6px}
+}  
+
+@-webkit-keyframes tea2 {/*针对webkit内核*/  
+	from{top:0px}to{ top:6px}
+}
+
+@keyframes tea3 {  
+	from{top:217px}to{ top:223px}
+}  
+@-webkit-keyframes tea3 {/*针对webkit内核*/  
+	from{top:217px}to{ top:223px}
+}
+
+@keyframes tea4 {  
+	from{top:20px}to{ top:26px}
+}  
+@-webkit-keyframes tea4 {/*针对webkit内核*/  
+	from{top:20px}to{ top:26px}
+}
+
+@keyframes tea5 {  
+	from{top:276px}to{ top:281px}
+}  
+@-webkit-keyframes tea5 {/*针对webkit内核*/  
+	from{top:276px}to{ top:281px}
+}
+
+@keyframes tea6 {  
+	from{top:43px}to{ top:49px}
+}  
+@-webkit-keyframes tea6 {/*针对webkit内核*/  
+	from{top:43px}to{ top:49px}
+}
+
+@keyframes tea8 {  
+	from{top:219px}to{ top:224px}
+}  
+@-webkit-keyframes tea7 {/*针对webkit内核*/  
+	from{top:219px}to{ top:224px}
+}
+
+@keyframes tea8 {  
+	from{top:275px}to{ top:280px}
+}  
+@-webkit-keyframes tea7 {/*针对webkit内核*/  
+	from{top:275px}to{ top:280px}
+}
+
+@keyframes tea9 {  
+	from{top:460px}to{ top:453px}
+}  
+@-webkit-keyframes tea9 {/*针对webkit内核*/  
+	from{top:460px}to{ top:453px}
+}

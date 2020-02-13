@@ -1,0 +1,1047 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--[if lt IE 9]>
+    <script src="statics/newcommon/js/html5shiv.js"></script>
+    <![endif]-->
+    <meta name="keywords" content="网贷平台,网络借贷，网络赚钱项目,理财产品">
+    <meta name="description" content="爱钱帮网贷平台为您提供网络赚钱项目；为此相继推出了许多新的理财产品，在为您创造高收益的同时也优化了理财产品模式。网络借贷，就选爱钱帮。">
+    <meta charset="UTF-8">
+    <link  rel="Shortcut  Icon"  href="statics/home/images/minilogo.png">
+    <link rel="stylesheet" href="statics/newcommon/css/m2-commonNew.css?20160520">
+    <link rel="stylesheet" href="statics/newcommon/css/m2-common.css?20160520">
+    <link rel="Shortcut  Icon" href="statics/newcommon/images/minilogo.png?20160520">
+    <link rel="stylesheet" href="statics/usercenter/css/userCenter.css?20160520">
+    <script type="text/javascript" src="statics/newcommon/js/jquery.min.js?20160520"></script>
+    <script type="text/javascript" src="statics/newcommon/js/common.js?20160520"></script>
+    <script type="text/javascript" src="statics/usercenter/js/esl.js?20160520"></script>
+    <link rel="stylesheet" href="statics/usercenter/css/jquery.datetimepicker.css?20160520" />
+    <script type="text/javascript" src="statics/usercenter/js/jquery.datetimepicker.js?20160520"></script>
+</head>
+<title>债权转让--爱钱帮</title>
+<!--公用提示框start-->
+<div class="m2-userCentercommon-bg" style='display:none' id='dialog-info-bg'>
+</div>
+<div class="m2-userCentercommon-confirm" style="top:30%;padding-top:10px;display:none"  id='dialog-info-div'>
+    <span class="m2-userCentercommon-confirmClose"></span>
+    <div style="text-align: center;padding: 20px 0 20px 0;">
+        <h3 id='dialog-info-text'></h3>
+    </div>
+    <p class="m2-userCommon-confirmBtn">
+        <a class="m2-user-confirmBtn">确定</a>
+    </p>
+</div>
+<div class="m2-userCentercommon-bg" style='display:none' id='dialog-del-bg'>
+</div>
+<div class="m2-userCentercommon-confirm" style="top:30%;padding-top:10px;display:none"  id='dialog-del-div'>
+    <span class="m2-userCentercommon-confirmClose"></span>
+    <div style="text-align: center;padding: 20px 0 20px 0;">
+        <h3>确认删除债权转让请求吗？<br>
+            删除后将不会在网站的债权转让列表中显示！</h3>
+    </div>
+    <p class="m2-userCommon-confirmBtn">
+        <a class="m2-user-confirmBtn" onclick="confirmDel()">确定</a>
+        <a class="m2-user-confirmBtn">取消</a>
+    </p>
+</div>
+<div class="m2-userCentercommon-bg" style='display:none' id='dialog-t-bg'>
+</div>
+<div class="m2-userCentercommon-confirm" style="top:30%;padding-top:10px;display:none" id='dialog-t-div'>
+    <span class="m2-userCentercommon-confirmClose"></span>
+    <h2>我要转让</h2>
+    <div class="m2-userCommonconfirm-transIpt">
+        <p>
+            <span>转让金额：</span>
+            <input type="text" placeholder="请输入转让金额" id='transfer_num' readOnly="true">
+            <span>元</span>
+            <span class="m2-userCommonconfirm-transAlert" id='transfer_error1'></span>
+        </p>
+        <p>
+            <span>转让价格：</span>
+            <input type="text" placeholder="请输入转让价格" id='transfer_price'>
+            <span>元</span>
+            <span class="m2-userCommonconfirm-transAlert" id='transfer_error2'></span>
+        </p>
+    </div>
+    <ul class="m2-userCommonconfirm-transList">
+        <li>
+            <span>服务费：</span>
+            <span id='dia-fee'>0元</span>
+            <i>
+                <u>
+                    <em class="m2-draw-arr" style='top:5px'></em>
+                    <em class="m2-draw-arrBg" style='top:5px'></em>
+                    按转让金额*0.5%计算
+                </u>
+            </i>
+        </li>
+        <li>
+            <a class="m2-userConfirm-transListlink" href="/imtbd-1035.shtml" target='_blank'>债权转让规则&gt;&gt;</a>
+        </li>
+        <li>
+            <span>原始投资金额：</span>
+            <span id='dia-invest'>0元</span>
+        </li>
+        <li>
+            <span>原始投资年化：</span>
+            <span id='dia-investrate'>0%</span>
+        </li>
+        <li>
+            <span>原债权总天数：</span>
+            <span id='dia-investdays'>0天</span>
+        </li>
+        <li>
+            <span>债权剩余天数：</span>
+            <span id='dia-leftdays'>0天</span>
+        </li>
+        <li>
+            <span>到账收益：</span>
+            <span id='dia-receive'>0元</span>
+        </li>
+        <li>
+            <span>待收收益：</span>
+            <span id='dia-leftinterest'>0元</span>
+            <i>
+                <u style="width: 150px;">
+                    <em class="m2-draw-arr" style='top:5px'></em>
+                    <em class="m2-draw-arrBg" style='top:5px'></em>
+                    该笔债权未到帐的所有收益
+                </u>
+            </i>
+        </li>
+        <li>
+            <span>转让年化：</span>
+            <span id='dia-transferrate'>0%</span>
+            <i>
+                <u style="width: 300px;">
+                    <em class="m2-draw-arr" style='top:5px'></em>
+                    <em class="m2-draw-arrBg" style='top:5px'></em>
+                    转让年化=（已收利息+转让收益差）/债权投资天数/债权金额*365*100%<br>
+                    其中：转让收益差=转让价格－转让金额－转让服务费
+                </u>
+            </i>
+        </li>
+        <li>
+            <span>承接年化：</span>
+            <span id='dia-getrate'>0%</span>
+            <i>
+                <u style="width: 300px;">
+                    <em class="m2-draw-arr" style='top:5px'></em>
+                    <em class="m2-draw-arrBg" style='top:5px'></em>
+                    受让人预期收益率=（待收利息+承接收益差）/债权剩余天数/债权售价*365*100%<br>
+                    其中：承接收益差=转让金额－转让价格
+                </u>
+            </i>
+        </li>
+        <li style="height:30px;" id="specialtransli" style="display: none;">
+            <span style="float:left;">定向债转：</span>
+            <span style="float:left;"><input type="checkbox" id='specialtrans' style="position: relative;top: 2px;margin-right: 2px;"></span>
+            <i>
+                <u>
+                    <em class="m2-draw-arr" style='top:5px'></em>
+                    <em class="m2-draw-arrBg" style='top:5px'></em>
+                    定向债转是针对特定类型的项目的债转，债转价格等于债转金额，无服务费。
+                </u>
+            </i>
+        </li>
+    </ul>
+    <p class="m2-userCommon-confirmBtn" style='margin-top: 13px;'>
+        <a class="m2-user-confirmBtn" onclick='confirmTransfer()'>确定提交</a>
+        <a class="m2-userTrans-planBtn m2-userTrans-downBtn">还款计划表
+            <i></i>
+        </a>
+    </p>
+    <ul class="m2-userCommonconfirm-transInfo">
+
+    </ul>
+</div>
+<script type="text/javascript">
+    $('.m2-userCentercommon-confirmClose,#dialog-del-div .m2-user-confirmBtn,#dialog-info-div .m2-user-confirmBtn').click(function () {
+        $('.m2-userCentercommon-confirm').hide();
+        $('.m2-userCentercommon-bg').hide();
+    });
+</script>
+<!--公用提示框end-->
+<!-- 右侧边栏start -->
+<div class="m2-commonRight">
+    <ul class="m2-comRiglist">
+        <li class="m2-comRigli m2-comRigli-ewm">
+            <i class="m2-comRigli-icon"></i>
+            <span class="m2-comRigli-hov">关注<br>微信</span>
+            <div class="m2-comRighide m2-comRighide-ewm"><i></i></div>
+        </li>
+        <li class="m2-comRigli m2-comRigli-tel">
+            <i class="m2-comRigli-icon"></i>
+            <span class="m2-comRigli-hov">联系<br>我们</span>
+            <div class="m2-comRighide m2-comRighide-tel">
+                <div class="m2-comRighide-telSpace"></div>
+                <b class="m2-comRighide-telBorder"></b>
+                <div class="m2-comRigtel-lef">
+                    <div class="m2-comRigtel-lefTop">
+                        <input type="text" placeholder="请输入您的手机号"  id='phonenumber'>
+                    </div>
+                    <div class="m2-comRigtel-lefBot">
+                        <input type="text" placeholder="验证码" id="ivrSecurityCode">
+                        <img id="ivrSecurityCodeImg" onclick="getCode()" src="code.png" alt="验证码" title="点击更新验证码">
+                    </div>
+                </div>
+                <div class="m2-comRigtel-rig">
+                    <span  onclick='callback()'>免费<br>拨打</span>
+                </div>
+            </div>
+        </li>
+        <li class="m2-comRigli m2-comRigli-qq">
+            <a  target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes">
+                <i class="m2-comRigli-icon"></i>
+                <span class="m2-comRigli-hov">在线<br>客服</span>
+            </a>
+            <!-- <div class="m2-comRighide"></div> -->
+        </li>
+        <!--<li class="m2-comRigli m2-comRigli-sug">-->
+        <!--<i class="m2-comRigli-icon"></i>-->
+        <!--<span class="m2-comRigli-hov">意见<br>反馈</span>-->
+        <!-- <div class="m2-comRighide"></div> -->
+        <!--</li>-->
+        <li class="m2-comRigli m2-comRigli-top">
+            <i class="m2-comRigli-icon"></i>
+            <span class="m2-comRigli-hov">返回<br>顶部</span>
+            <!-- <div class="m2-comRighide"></div> -->
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var wHei = $(window).height();
+
+        $(document).scroll(function () {
+            // 判断返回顶部是否显示
+            visTop(wHei);
+        });
+
+        $('.m2-comRigli-top').click(function () {
+            $('body,html').animate({scrollTop: 0}, 600);
+            return false;
+        });
+    });
+
+    function visTop(high) {
+
+        if ($(document).scrollTop() > high + 100) {
+            $('.m2-comRigli-top').css('visibility', 'visible');
+        } else {
+            $('.m2-comRigli-top').css('visibility', 'hidden');
+        }
+    }
+</script>
+<!-- 右侧边栏end -->
+
+
+<!-- headerStart -->
+<div class="m2-commonTop-con">
+    <div class="m2-commonTop">
+        <div class="m2-commonTop-left">
+            <div class="m2-commonTop-tel"><i></i>4006&nbsp;-&nbsp;777&nbsp;-&nbsp;518</div>
+            <div class="m2-commonTop-service"><i></i><span>客服：</span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes" title="">2522274059</a></div>
+            <div class="m2-commonEwm">
+                <span class="m2-commonEwm-tit">关注我们：</span>
+                <div class="m2-commonEwmwx">
+                    <i class="m2-commonEwmicon"></i>
+                    <div class="m2-commonEwmhid">
+                        <em class="m2-commonEwmhid-arr"></em>
+                        <em class="m2-commonEwmhid-arrBg"></em>
+                        <b></b>
+                        <span>扫一扫<br>关注爱钱帮订阅号</span>
+                    </div>
+                </div>
+                <div class="m2-commonEwmwb">
+                    <i class="m2-commonEwmicon" onclick='window.open("http://weibo.com/iqianbang");'></i>
+                </div>
+            </div>
+        </div>
+        <div class="m2-commonTop-right">
+            <div class="m2-commonTop-link">
+                <ul>
+                    <li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>
+                    <li class="m2-commonTop-loged">
+                        <span class="m2-commonTop-userName"><a href="usercenter.html">您好，iqb13737301354</a></span>
+                    </li>
+                    <li class="m2-commonTop-btn"><a href="#" style="border-right:none;">退出</a></li>
+                    <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>
+                    </li>
+                </ul>
+            </div>
+            <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
+                <a href="" class="m2-commonTop-and"></a>
+                <a href="" class="m2-commonTop-ios"></a>
+                <span>app下载入口</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#bbslogin').click(function(){
+            var w = window.open();
+            $.ajax({
+                type:"GET",
+                url :"/api-bbslogin",
+                success:function(msg){
+                    var obj = eval('('+msg+')');
+                    var obj = eval(obj);
+                    if (obj.status == 1){
+                        w.location = obj.message;
+                    }
+                }
+            });
+        });
+        var _uid = Number(305497);
+        var _all_uid = Array(5277,320,25893,77960,70760,4762,36256,59960,126250,75980,4039,68689,133118,185);
+        function in_array(uid,array){
+            for(var i in array){
+                if(array[i] == uid){
+                    $("#bbs").attr("style","display:block");
+                }
+            }
+        }
+        in_array(_uid,_all_uid);
+    });
+</script>
+</div>
+<div class="m2-commonNav-con">
+    <div class="m2-commonNav-box">
+        <div class="m2-commonLogo">
+            <a href="index.html"><img src="statics/newcommon/images/m2-logo.png" title="爱钱帮官网" alt="爱钱帮_logo"></a>
+        </div>
+        <div class="m2-commonNav">
+            <ul class="m2-commonNavul-fir" data_page='threepage'>
+                <!--  <li class="m2-commonNav-fir"><a href="http://huifu.iqianbang.com" target="_blank" >汇付版本</a></li>-->
+                <li class="m2-commonNav-fir"><a href="index.html" id="onepage">首页</a></li>
+                <li class="m2-commonNav-fir"><a href="touzi_licai_chanpin.html" id="twopage">我要投资</a></li>
+                <li class="m2-commonNav-fir"><a href="membermall.html" id="sevenpage">会员商城</a></li>
+                <li class="m2-commonNav-fir"><a href="usercenter.html" id="threepage">我的账户</a></li>
+                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>
+                <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang.html" id="fivepage">关于我们</a></li>
+                <!-- <li class="m2-commonNav-fir"><a href="guide.html">新手引导</a></li> -->
+                <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</header>
+
+<style>
+    .vIVR{display:none}
+</style>
+<script>
+    var page=$(".m2-commonNavul-fir").attr("data_page");
+    $("#"+page).parent().css("borderBottom","2px solid #ff6666");
+    var queuename = '30017180006';
+    function callback() {
+        $('#tel').val($('#phonenumber').val());
+        call();
+    }
+    setCallResponse = function (json) {
+        var obj = eval('(' + json + ')');
+        if (obj['description']) {
+            $('#callBack-codeErr').css('display', 'block');
+            $('#ivrSecurityCode').val('');
+            getCode();
+            setTimeout(function () {
+                $('#callBack-codeErr').css('display', 'none');
+            }, 3000);
+        }
+    }
+</script>
+<!-- headerEnd -->
+
+<div class="m2-userCentermain">
+    <div class="m2-userCentermain-aside">
+        <ul>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item" href="usercenter.html"><i class="m2-asideIcon1"></i>我的账户</a>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item" href="usercenter-growth-index.html"><i class="m2-asideIcon-vip"></i>成长值中心</a>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon2"></i>投资管理<b class="m2-asideIcon-new"></b></a>
+                <ul class="m2-aside-secItem" style="display:none">
+                    <!--             取消自动投标-->
+                    <!--                   <li>-->
+                    <!--                        <a class="m2-aside-secLink-item" href="/usercenter-investcontrol-autoinvest"><b class="m2-asideIcon-new"></b>自动投标</a>-->
+                    <!--                    </li>-->
+
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord.html">投资记录</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-investcontrol-monthrepayment.html">回款计划</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-investcontrol-transfer.html">债权转让</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="touzi_licai_chanpin.html" target="_blank">立即投资</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item" href="usercenter-invitefriends.html">
+                    <i class="m2-asideIcon-invit"></i>
+                    <b class="m2-asideIcon-prize"></b>
+                    邀请好友
+                </a>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" href="home-register-openbankid.html"><i class="m2-asideIcon3"></i>徽商资金管理</a>            <ul class="m2-aside-secItem" style="display:none">
+                <li><a class="m2-aside-secLink-item" href="#">充&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值</a></li>
+                <li><a class="m2-aside-secLink-item" href="#">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现</a></li>
+                <li><a class="m2-aside-secLink-item" href="#">资金流水</a></li>
+
+            </ul>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
+                <ul class="m2-aside-secItem" style="display:none">
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord.html">奖励金流水</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket.html">我的红包</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon.html">我的加息券</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin.html">我的钱帮币</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon5"></i>消息管理 </a>
+                <ul class="m2-aside-secItem" style="display:none">
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg.html">站内消息</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message.html">通知设置</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon6"></i>账户管理</a>
+                <ul class="m2-aside-secItem" style="display:none" id='aaa'>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="#">账户设置</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 		$(document).ready(function(){
+        var href = window.location.href;
+        var search = window.location.search;
+        $('.m2-asideListitem ul a').each(function () {
+            if ($(this).prop('href') + search == href) {
+                if ($(this).prop('href') == "/usercenter-wangbaoqiang" || $(this).prop('href') == "/usercenter-sirendingqi") {
+                } else {
+                    $(this).parent().parent('ul').show();
+                    $(this).parent().parent('ul').prev('a').removeClass('m2-aside-item');
+                    $(this).parent().parent('ul').prev('a').addClass('m2-aside-cur');
+                    $(this).css('text-decoration', 'underline');
+                    $(this).css('color', '#0996CC');
+                }
+            }
+        });
+        $('.m2-asideListitem a:not(.m2-asideListitem ul a)').each(function () {
+            if ($(this).prop('href') + search == href) {
+                if ($(this).prop('href').search("usercenter-wangbaoqiang") > -1) {
+                    $(this).removeClass('m2-aside-wbq');
+                    $(this).addClass('m2-aside-cur');
+                } else if ($(this).prop('href').search("usercenter-sirendingqi") > -1) {
+                    $(this).removeClass('m2-aside-wbq');
+                    $(this).addClass('m2-aside-cur');
+                } else {
+                    $(this).removeClass('m2-aside-item');
+                    $(this).addClass('m2-aside-cur');
+                }
+            }
+        });
+        $('.m2-asideListitem a:not(.m2-asideListitem ul a)').click(function () {
+            if ($(this).prop('href') == '') {
+                $(this).siblings('ul').slideToggle();
+                $(this).parent().siblings('.m2-asideListitem').children('.m2-aside-secItem').slideUp();
+            }
+        });
+        // 		});
+    </script>
+
+    <div class="m2-userTransfer-con">
+        <div class="m2-userTrans-head">
+            <h3><i></i>债权转让</h3>
+        </div>
+        <div class="m2-recharge-tips">
+            <h2>债转规则优势：</h2>
+            <ul>
+                <li><i class="m2-recharge-tips01"></i><b>投资成功后三天可转让，债权可多次转让；</b></li>
+                <li><i class="m2-recharge-tips02"></i><b>部分承接债权有效；</b></li>
+                <li><i class="m2-recharge-tips03"></i><b>转让当天收益归出让人，次日开始收益归受让人。</b></li>
+            </ul>
+            <a class="m2-transfer-tipsLink" href="/imtbd-1035.shtml" target='_blank'>债转规则细节</a>
+        </div>
+        <div class="m2-manage-search">
+            <div class="m2-manage-search-selector">
+                <ul class="m2-manageSearchsel-type">
+                    <li>交易类型：</li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-userTrans-btn1 m2-manSealink-sel" >可转让债权</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-userTrans-btn2 m2-manSealink-unsel">转让中的债权</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-userTrans-btn3 m2-manSealink-unsel" >已转让的债权</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-userTrans-btn4 m2-manSealink-unsel" >已认购的债权</span></li>
+                </ul>
+                <ul class="m2-manageSearchsel-time">
+                    <li>投资时间：</li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-sel" data-days='0'>全部</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-unsel" data-days='7'>最近7天</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-unsel" data-days='30'>一个月</span></li>
+                    <li class="m2-manageSearchsel-link"><span class="m2-manSealink-unsel" data-days='90'>三个月</span></li>
+                    <li>从<input id="m2-manSeadate-start" type="text"></li>
+                    <li>到<input id="m2-manSeadate-end" type="text"></li>
+                </ul>
+                <!--table1-->
+                <table class="m2-userTrans-tab1 m2-manageResult" cellpadding="0" cellspacing="0">
+                    <tr class="m2-manageResult-head">
+                        <th style="width:100px;">项目名称</th>
+                        <th style="width:90px;">年化收益</th>
+                        <th style="width:120px;">投资金额</th>
+                        <th style="width:120px;">剩余债权</th>
+                        <th style="width:90px;">剩余时间</th>
+                        <th style="width:120px;">应收利息</th>
+                        <th class="m2-userTranstable-tit" style="width:100px;">操作</th>
+                    </tr>
+                    <tr class="m2-manageResult-sum" style="display: none;">
+                        <td colspan="7"><span class="m2-manageResult-more" data-type='1'>加载更多</span></td>
+                    </tr>
+                </table>
+                <!--table2-->
+                <table style="display:none;"class="m2-userTrans-tab2 m2-manageResult" cellpadding="0" cellspacing="0">
+                    <tr class="m2-manageResult-head">
+                        <th style="width:75px;">项目名称</th>
+                        <th style="width:80px;">原始收益</th>
+                        <th style="width:100px;">转让金额</th>
+                        <th style="width:100px;">转让价格</th>
+                        <th style="width:110px;">申请时间</th>
+                        <th style="width:110px;">到期时间</th>
+                        <th style="width:80px;">转让进度</th>
+                        <th class="m2-userTranstable-tit" style="width:95px;">操作</th>
+                    </tr>
+                    <tr class="m2-manageResult-sum" style="display: none;">
+                        <td colspan="8"><span class="m2-manageResult-more" data-type='2'>加载更多</span></td>
+                    </tr>
+                </table>
+                <!--table3-->
+                <table style="display:none;"class="m2-userTrans-tab3 m2-manageResult" cellpadding="0" cellspacing="0">
+                    <tr class="m2-manageResult-head">
+                        <th style="width:90px;">项目名称</th>
+                        <th style="width:100px;">认购金额</th>
+                        <th style="width:100px;">承接价格</th>
+                        <th style="width:80px;">承接收益</th>
+                        <th style="width:110px;">承接时间</th>
+                        <th style="width:110px;">到期时间</th>
+                        <th class="m2-userTranstable-tit" style="width:100px;">合同</th>
+                    </tr>
+                    <tr class="m2-manageResult-sum" style="display: none;">
+                        <td colspan="8"><span class="m2-manageResult-more" data-type='3'>加载更多</span></td>
+                    </tr>
+                </table>
+                <!--table4-->
+                <table style="display:none;"class="m2-userTrans-tab4 m2-manageResult" cellpadding="0" cellspacing="0">
+                    <tr class="m2-manageResult-head">
+                        <th style="width:90px;">项目名称</th>
+                        <th style="width:100px;">认购金额</th>
+                        <th style="width:100px;">承接价格</th>
+                        <th style="width:80px;">预期收益</th>
+                        <th style="width:110px;">承接时间</th>
+                        <th style="width:110px;">到期时间</th>
+                        <th class="m2-userTranstable-tit" style="width:100px;">合同</th>
+                    </tr>
+                    <tr class="m2-manageResult-sum" style="display: none;">
+                        <td colspan="8"><span class="m2-manageResult-more" data-type='4'>加载更多</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    var start = Array(1, 1, 1, 1, 1);
+    var time1 = '';
+    var time2 = '';
+    var days = 0;
+    var tdata = {};
+    var getrate_tag = false;
+    var transfer_num = '';
+    var transfer_price = '';
+
+    $(function () {
+        //table切换
+        tableChange();
+        //时间切换
+        timeChange();
+        //日历
+        ucDatepicker('#m2-manSeadate-start');
+        ucDatepicker('#m2-manSeadate-end');
+        //弹窗
+        dialogFunc();
+        //取数据
+        getTransferData(0);
+        //加载更多
+        loadMore();
+        //检查债转金额
+        checkTransfer();
+        //定向债转选择
+        specialTrans();
+    });
+    //弹窗
+    function dialogFunc() {
+        $('.m2-userTrans-planBtn').click(function () {
+            if ($(this).hasClass('m2-userTrans-upBtn')) {
+                $(this).addClass('m2-userTrans-downBtn').removeClass('m2-userTrans-upBtn');
+                $('.m2-userCommonconfirm-transInfo').show();
+            } else if ($(this).hasClass('m2-userTrans-downBtn')) {
+                $(this).removeClass('m2-userTrans-downBtn');
+                $(this).addClass('m2-userTrans-upBtn');
+                $('.m2-userCommonconfirm-transInfo').hide();
+            }
+        });
+    }
+    //table切换
+    function tableChange() {
+        $('.m2-manageSearchsel-type span').click(function () {
+            $('.m2-manageSearchsel-type span').removeClass('m2-manSealink-sel');
+            $('.m2-manageSearchsel-type span').addClass('m2-manSealink-unsel');
+            $(this).removeClass('m2-manSealink-unsel');
+            $(this).addClass('m2-manSealink-sel');
+        });
+        $('.m2-userTrans-btn1').click(function () {
+            $('table.m2-userTrans-tab1').show();
+            $('table.m2-userTrans-tab1').siblings('table').hide();
+        });
+        $('.m2-userTrans-btn2').click(function () {
+            $('table.m2-userTrans-tab2').show();
+            $('table.m2-userTrans-tab2').siblings('table').hide();
+        });
+        $('.m2-userTrans-btn3').click(function () {
+            $('table.m2-userTrans-tab3').show();
+            $('table.m2-userTrans-tab3').siblings('table').hide();
+        });
+        $('.m2-userTrans-btn4').click(function () {
+            $('table.m2-userTrans-tab4').show();
+            $('table.m2-userTrans-tab4').siblings('table').hide();
+        });
+    }
+    //时间切换
+    function timeChange() {
+        $('.m2-manageSearchsel-time span').click(function () {
+            $('#m2-manSeadate-start').val('');
+            $('#m2-manSeadate-end').val('');
+            time1 = '';
+            time2 = '';
+            $('.m2-manageSearchsel-time span').removeClass('m2-manSealink-sel');
+            $('.m2-manageSearchsel-time span').addClass('m2-manSealink-unsel');
+            $(this).removeClass('m2-manSealink-unsel');
+            $(this).addClass('m2-manSealink-sel');
+            resetData();
+            days = $(this).data('days');
+            getTransferData(0);
+        });
+    }
+    //加载更多
+    function loadMore() {
+        $('.m2-manageResult-more').click(function () {
+            var type = $(this).data('type');
+            getTransferData(type);
+        });
+    }
+    //获取数据
+    function getTransferData(type) {
+
+        $.ajax({
+            url: "usercenter-Investcontrol-getTransferDataAjax",
+            type: "POST",
+            data: {
+                time1: time1,
+                time2: time2,
+                days: days,
+                type: type,
+                start: start[type]
+            },
+            success: function (data) {
+                processData(data);
+            }
+        });
+    }
+    //处理数据
+    function processData(data) {
+        var obj = eval('(' + data + ')');
+        if (obj[1]['data'] || obj[1]['pages'] >= 0) {
+            for (var i in obj[1]['data']) {
+                var tr = '<tr class="m2-manageResult-item">';
+                tr += '<td class="m2-userTransfer-proTit" title="' + obj[1]['data'][i]['borrow_name'] + '">' + obj[1]['data'][i]['borrow_name'] + '</td>';
+                tr += '<td>' + obj[1]['data'][i]['borrow_interest_rate'] + '%</td>';
+                tr += '<td>' + obj[1]['data'][i]['investor_capital'] + '元</td>';
+                tr += '<td>' + obj[1]['data'][i]['left_capital'] + '元</td>';
+                tr += '<td class="m2-userTransfer-timeLeft">';
+                tr += '<span class="m2-userTransfer-timeLefttit">' + obj[1]['data'][i]['left_days'] + '天</span>';
+                tr += '<div class="m2-userTransfer-timeHide">';
+                tr += '<em class="m2-userTransferhide-arr"></em>';
+                tr += '<em class="m2-userTransferhide-arrbg"></em>';
+                tr += '<ul><li>投标时间：<span>' + obj[1]['data'][i]['invest_date'] + '</span></li>';
+                tr += '<li>还款时间：<span>' + obj[1]['data'][i]['pay_date'] + '</span></li></ul></div></td>';
+                tr += '<td>' + obj[1]['data'][i]['investor_interest'] + '元</td>';
+                tr += '<td class="m2-userTrans-tdLink">';
+                tr += '<a class="m2-userTransbtn-transfer" onclick="tranferDialog(' + obj[1]['data'][i]['id'] + ')">转让</a>';
+                tr += '</td>';
+                tr += '</tr>';
+                if (obj[1]['data'][i]['id']) {
+                    $('.m2-userTrans-tab1 .m2-manageResult-sum').before(tr);
+                }
+            }
+            moreOrNo(obj[1]['pages'], 1);
+        }
+        if (obj[2]['data'] || obj[2]['pages'] >= 0) {
+            for (var i in obj[2]['data']) {
+                var tr = '<tr class="m2-manageResult-item">';
+                tr += '<td class="m2-userTransfer-proTit" title="' + obj[2]['data'][i]['borrow_name'] + '">' + obj[2]['data'][i]['borrow_name'] + '</td>';
+                tr += '<td>' + obj[2]['data'][i]['borrow_interest_rate'] + '%</td>';
+                tr += '<td>' + obj[2]['data'][i]['transfer_capital'] + '元</td>';
+                tr += '<td>' + obj[2]['data'][i]['plan_sale_price'] + '元</td>';
+                tr += '<td>' + obj[2]['data'][i]['invest_date'] + '</td>';
+                tr += '<td>' + obj[2]['data'][i]['end_date'] + '</td>';
+                tr += '<td>' + obj[2]['data'][i]['progress'] + '%</td>';
+                tr += '<td class="m2-userTrans-tdLink">';
+                // tr += '<a class="m2-userTransbtn-change" onclick="tranferDialog(' + obj[2]['data'][i]['invest_id'] + ',' + obj[2]['data'][i]['plan_sale_price'] + ')">变更</a>';
+                tr += '<a class="m2-userTransbtn-delete" onclick="delDialog(' + obj[2]['data'][i]['id'] + ')">删除</a></td>';
+                tr += '</tr>';
+                $('.m2-userTrans-tab2 .m2-manageResult-sum').before(tr);
+            }
+            moreOrNo(obj[2]['pages'], 2);
+        }
+        if (obj[3]['data'] || obj[3]['pages'] >= 0) {
+            for (var i in obj[3]['data']) {
+                var tr = '<tr class="m2-manageResult-item">';
+                tr += '<td class="m2-userTransfer-proTit" title="' + obj[3]['data'][i]['borrow_name'] + '">' + obj[3]['data'][i]['borrow_name'] + '</td>';
+                tr += '<td>' + obj[3]['data'][i]['investor_capital'] + '元</td>';
+                tr += '<td>' + obj[3]['data'][i]['investor_capital_trans'] + '元</td>';
+                tr += '<td>' + obj[3]['data'][i]['investor_interest'] + '</td>';
+                tr += '<td>' + obj[3]['data'][i]['sold_date'] + '</td>';
+                tr += '<td>' + obj[3]['data'][i]['end_date'] + '</td>';
+                tr += '<td class="m2-userTrans-tdLink"><a href="/member-contracttrans-investor.shtml?id=' + obj[3]['data'][i]['encryptedid'] + '" target="_blank">合同</a>/ <a href="/Member-Contract-createAndSendPdfbyid?flag=1&id='+ obj[3]['data'][i]['encryptedid'] +'" target="_blank">下载</a></td>';
+                tr += '</tr>';
+                $('.m2-userTrans-tab3 .m2-manageResult-sum').before(tr);
+            }
+            moreOrNo(obj[3]['pages'], 3);
+        }
+        if (obj[4]['data'] || obj[4]['pages'] >= 0) {
+            for (var i in obj[4]['data']) {
+                var tr = '<tr class="m2-manageResult-item">';
+                tr += '<td class="m2-userTransfer-proTit" title="' + obj[4]['data'][i]['borrow_name'] + '">' + obj[4]['data'][i]['borrow_name'] + '</td>';
+                tr += '<td>' + obj[4]['data'][i]['investor_capital'] + '元</td>';
+                tr += '<td>' + obj[4]['data'][i]['investor_capital_trans'] + '元</td>';
+                tr += '<td>' + obj[4]['data'][i]['investor_interest'] + '</td>';
+                tr += '<td>' + obj[4]['data'][i]['sold_date'] + '</td>';
+                tr += '<td>' + obj[4]['data'][i]['end_date'] + '</td>';
+                tr += '<td class="m2-userTrans-tdLink"><a href="/member-contracttrans-investor.shtml?id=' + obj[4]['data'][i]['encryptedid'] + '" target="_blank">合同</a>/ <a href="/Member-Contract-createAndSendPdfbyid?id='+ obj[4]['data'][i]['encryptedid'] +'" target="_blank">下载</a></td>';
+                tr += '</tr>';
+                $('.m2-userTrans-tab4 .m2-manageResult-sum').before(tr);
+            }
+            moreOrNo(obj[4]['pages'], 4);
+        }
+    }
+    //加载更多，暂无数据
+    function moreOrNo(pages, index) {
+        if (pages > start[index]) {
+            start[index]++;
+            $('.m2-userTrans-tab' + index + ' .m2-manageResult-sum').show();
+        } else {
+            $('.m2-userTrans-tab' + index + ' .m2-manageResult-sum').hide();
+        }
+        if (pages == 0) {
+            $('.m2-userTrans-tab' + index + ' .m2-manageResult-sum').before('<tr class="m2-manageResult-item"><td colspan="8">暂无数据</td></tr>');
+        }
+    }
+    //债转弹窗
+    function tranferDialog(id, price) {
+
+        if ($('.m2-userTrans-planBtn').hasClass('m2-userTrans-downBtn')) {
+            $('.m2-userTrans-planBtn').removeClass('m2-userTrans-downBtn');
+            $('.m2-userTrans-planBtn').addClass('m2-userTrans-upBtn');
+            $('.m2-userCommonconfirm-transInfo').hide();
+        }
+        clearData();
+        $('#dialog-t-bg').show();
+        $('#dialog-t-div').show();
+        $.ajax({
+            url: "/usercenter-Investcontrol-getTransferDetail",
+            type: "POST",
+            data: {
+                invest_id: id
+            },
+            success: function (data) {
+                var obj = eval('(' + data + ')');
+                $('#transfer_num').val(obj['investor_capital']);
+                transfer_num = obj['investor_capital'];
+                $('#transfer_num').data('id', obj['id']);
+                $('#transfer_num').data('max', obj['investor_capital']);
+                if (price) {
+                    $('#transfer_price').val(price.toFixed(2));
+                } else {
+                    $('#transfer_price').val('');
+                }
+                if (obj['vip'] == 1){
+                    $('#dia-fee').text('0元');
+                }else {
+                    $('#dia-fee').text((Math.round(obj['investor_capital'] * 0.5) / 100) + '元');
+                }
+
+                $('#dia-invest').text(obj['investor_capital'] + '元');
+                $('#dia-investrate').text(obj['borrow_interest_rate'] + '%');
+                $('#dia-investdays').text(obj['total_days'] + '天');
+                $('#dia-leftdays').text(obj['left_days'] + '天');
+                $('#dia-receive').text(obj['receive_interest'] + '元');
+                $('#dia-leftinterest').text(obj['left_interest'] + '元');
+                $('#dia-transferrate').text('0%');
+                $('#dia-getrate').text('0%');
+                if (obj['is_special'] == 1) {
+                    $('#specialtrans').prop('checked', true);
+                    $('#transfer_price').prop('readOnly', true);
+                } else {
+                    $('#specialtrans').prop('checked', false);
+                    $('#transfer_price').prop('readOnly', false);
+                }
+                if (obj['can_special'] == 1) {
+                    $('#specialtrans').prop('disabled', false);
+                    $('#specialtransli').show();
+                    if (!price) {
+                        $('#specialtrans').prop('checked', true);
+                        $('#transfer_price').prop('readOnly', true);
+                        $('#transfer_price').val(transfer_num);
+                        $('#dia-fee').text('0元');
+                        transfer_price = transfer_num;
+                        $('#dia-transferrate').text($('#dia-investrate').text());
+                        $('#dia-getrate').text($('#dia-investrate').text());
+                        getrate_tag = true;
+                    }
+                } else {
+                    $('#specialtrans').prop('disabled', true);
+                    $('#specialtransli').hide();
+                }
+                for (var i in obj['list']) {
+                    var li = '<li><span>支付时间：</span>';
+                    li += '<span style="margin-right:50px;">' + obj['list'][i]['date'] + '</span>';
+                    li += '<span>支付利息：</span>';
+                    li += '<span>' + obj['list'][i]['interest'] + '元</span></li>';
+                    $('.m2-userCommonconfirm-transInfo').append(li);
+                }
+            }
+        });
+    }
+    //定向债转选择
+    function specialTrans() {
+        $('#specialtrans').click(function () {
+            if ($('#specialtrans').prop('checked')) {
+                $('#transfer_price').prop('readOnly', true);
+                $('#transfer_price').val(transfer_num);
+                $('#dia-fee').text('0元');
+                transfer_price = transfer_num;
+                $('#dia-transferrate').text($('#dia-investrate').text());
+                $('#dia-getrate').text($('#dia-investrate').text());
+                getrate_tag = true;
+            } else {
+                $('#transfer_price').prop('readOnly', false);
+                $('#dia-fee').text((Math.round(transfer_num * 0.5) / 100) + '元');
+                $('#dia-transferrate').text('0%');
+                $('#dia-getrate').text('0%');
+            }
+        });
+    }
+    //清除弹窗数据
+    function clearData() {
+        $('.m2-userCommonconfirm-transInfo').html('');
+        $('#transfer_error2').html('');
+        $('#transfer_num').val('');
+        $('#transfer_num').data('id', '');
+        $('#transfer_num').data('max', '');
+        $('#transfer_price').val('');
+        $('#transfer_price').prop('readOnly', false);
+        $('#dia-fee').text('');
+        $('#dia-invest').text('');
+        $('#dia-investrate').text('');
+        $('#dia-investdays').text('');
+        $('#dia-leftdays').text('');
+        $('#dia-receive').text('');
+        $('#dia-leftinterest').text('');
+        $('#dia-transferrate').text('');
+        $('#dia-getrate').text('');
+        $('#specialtrans').prop('disabled', true);
+        $('#specialtrans').prop('checked', false);
+        $('#specialtransli').hide();
+    }
+    //债转金额检查
+    function checkTransfer() {
+
+        $('#transfer_num').keyup(function () {
+            if ($('#transfer_num').val() == '') {
+                $('#dia-fee').text('0元');
+                $('#transfer_error1').text('');
+            } else if (isNaN($('#transfer_num').val())) {
+                $('#transfer_num').val(transfer_num);
+            } else if (Number($('#transfer_num').val()) > Number($('#transfer_num').data('max'))) {
+                $('#transfer_num').val(transfer_num);
+                $('#transfer_error1').text('债转金额过大');
+            } else {
+                $('#transfer_error1').text('');
+                transfer_num = $('#transfer_num').val();
+                $('#dia-fee').text(Math.round(transfer_num * 0.5) / 100 + '元');
+            }
+        });
+        $('#transfer_price').keyup(function () {
+            getrate_tag = false;
+            var floor_price = Math.round(90 * transfer_num) / 100;
+            var ceil_price = Math.round(110 * transfer_num) / 100;
+            if ($('#transfer_price').val() == '') {
+                transfer_price = '';
+                $('#transfer_error2').text('');
+            } else if (isNaN($('#transfer_price').val())) {
+                $('#transfer_price').val(transfer_price);
+            } else if (Number($('#transfer_price').val()) > ceil_price || Number($('#transfer_price').val()) < floor_price) {
+                transfer_price = $('#transfer_price').val();
+                $('#transfer_error2').html('<br>转让价格应为转让金额的90%-110%,即' + floor_price + '元-' + ceil_price + '元');
+            } else {
+                $('#transfer_error2').text('');
+                transfer_price = $('#transfer_price').val();
+            }
+        });
+        $('#transfer_num').blur(getBuyRate);
+        $('#transfer_price').blur(getBuyRate);
+    }
+    //获取承接年化
+    function getBuyRate() {
+
+        if (transfer_num && transfer_price) {
+            $.ajax({
+                url: "/usercenter-Investcontrol-transfercalculate_new",
+                type: "POST",
+                data: {
+                    transferMoney: transfer_num,
+                    planPrice: transfer_price,
+                    investid: $('#transfer_num').data('id')
+                },
+                success: function (data) {
+                    var obj = eval('(' + data + ')');
+                    $('#dia-getrate').text(obj['received_interestRate'] + '%');
+                    $('#dia-transferrate').text(obj['planInterest'] + '%');
+                    if (Number(obj['received_interestRate']) >= 0) {
+                        getrate_tag = true;
+                        $('#transfer_error2').html('');
+                    } else {
+                        $('#transfer_error2').html('<br>承接年化不能小于0%');
+                    }
+                }
+            });
+        }
+    }
+    //确认债转
+    function confirmTransfer() {
+
+        if (transfer_num && transfer_price && getrate_tag) {
+            if (transfer_price <= 1.1 * transfer_num && transfer_price >= 0.9 * transfer_num) {
+                $('.m2-userCentercommon-confirm').hide();
+                $('.m2-userCentercommon-bg').hide();
+                $.ajax({
+                    url: "/usercenter-Investcontrol-transferoperate",
+                    type: "POST",
+                    data: {
+                        is_special: $('#specialtrans').prop('checked'),
+                        transferMoney: transfer_num,
+                        planPrice: transfer_price,
+                        invest_id: $('#transfer_num').data('id')
+                    },
+                    success: function (data) {
+                        var obj = eval('(' + data + ')');
+                        infoDialog(obj['message']);
+                        if (obj['status'] == 1) {
+                            resetData();
+                            getTransferData(0);
+                        }
+                    }
+                });
+            }
+        }
+    }
+    //删除弹窗
+    var trid = -1;
+    function delDialog(id) {
+        $('#dialog-del-bg').show();
+        $('#dialog-del-div').show();
+        trid = id;
+    }
+    function confirmDel() {
+
+        $.ajax({
+            url: "/usercenter-Investcontrol-deleteTransfer",
+            type: "POST",
+            data: {
+                trId: trid
+            },
+            success: function (data) {
+                var obj = eval('(' + data + ')');
+                infoDialog(obj['message']);
+                if (obj['status'] == 1) {
+                    resetData();
+                    getTransferData(0);
+                }
+            }
+        });
+    }
+    //重置
+    function resetData(id) {
+        start = Array(1, 1, 1, 1, 1);
+        $('.m2-manageResult-item').remove();
+        $('.m2-manageResult-sum').hide();
+    }
+    //日历
+    function ucDatepicker(locator) {
+        $(locator).datetimepicker({
+            lang: 'ch',
+            timepicker: false,
+            format: 'Y-m-d',
+            allowBlank: true,
+            onChangeDateTime: function () {
+                $('.m2-manageSearchsel-time span').removeClass('m2-manSealink-sel');
+                $('.m2-manageSearchsel-time span').addClass('m2-manSealink-unsel');
+                if (time1 != $('#m2-manSeadate-start').val() || time2 != $('#m2-manSeadate-end').val()) {
+                    resetData();
+                    time1 = $('#m2-manSeadate-start').val();
+                    time2 = $('#m2-manSeadate-end').val();
+                    getTransferData(0);
+                }
+            }
+        });
+    }
+    //提示框
+    function infoDialog(text) {
+        $('#dialog-info-bg').show();
+        $('#dialog-info-div').show();
+        $('#dialog-info-text').text(text);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,1177 @@
+/*共用样式
+－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+
+ /*typo css 中文处理
+ */
+
+/*body {
+    font-family: "Microsoft Yahei","微软雅黑" ,Tahoma , Helvetica , Arial ,"宋体" , "SimSun" , sans-serif;
+    font-family: 'Microsoft Yahei',"微软雅黑",arial,"宋体",'Open Sans',sans-serif;
+    font-size: 15px;
+    line-height: 1.50;
+    color: #383f49;
+    background-color: #ffffff;
+}*/
+
+
+@charset "utf-8";
+
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+  color: #333;
+  background: #fff;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-rendering: optimizelegibility;
+}
+
+/* 如果你的项目仅支持 IE9+ | Chrome | Firefox 等，推荐在 <html> 中添加 .borderbox 这个 class */
+html.borderbox *, html.borderbox *:before, html.borderbox *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html[lang=zh-CN] body{
+  font-family: 'PingFang SC','Microsoft Yahei','微软雅黑', 'HanHei SC', 'Helvetica Neue', 'Helvetica', 'Lantinghei SC', 'Hiragino Sans GB', 'STXihei', '华文细黑', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'SimSun', '宋体', 'sans'; }
+:lang(zh-CN) {
+  font-family: 'PingFang SC','Microsoft Yahei','微软雅黑', 'HanHei SC', 'Helvetica Neue', 'Helvetica', 'Lantinghei SC', 'Hiragino Sans GB', 'STXihei', '华文细黑', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'SimSun', '宋体', 'sans';
+}
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  display: block;
+}
+
+/* HTML5 媒体文件跟 img 保持一致 */
+audio, canvas, video {
+  display: inline-block;
+}
+
+/* 要注意表单元素并不继承父级 font 的问题 */
+body, button, input, select, textarea {
+  font: 300 1em/1.8 'PingFang SC','Microsoft Yahei','微软雅黑', 'HanHei SC', 'Helvetica Neue', 'Helvetica', 'Lantinghei SC', 'Hiragino Sans GB', 'STXihei', '华文细黑', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'SimSun', '宋体', 'sans';
+}
+body {
+  font-size: 12px;
+}
+span ， p {
+  font-size:1.02em;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+input::-ms-clear {
+  display:none;
+}
+
+/* 去掉各Table cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 去除默认边框 */
+fieldset, img {
+  border: 0;
+}
+
+/* 块/段落引用 */
+blockquote {
+  position: relative;
+  color: #999;
+  font-weight: 400;
+  border-left: 1px solid #db4453;
+  padding-left: 1em;
+  margin: 1em 3em 1em 2em;
+}
+
+@media only screen and ( max-width: 640px ) {
+  blockquote {
+    margin: 1em 0;
+  }
+}
+
+/* Firefox 以外，元素没有下划线，需添加 */
+acronym, abbr {
+  border-bottom: 1px dotted;
+  font-variant: normal;
+}
+
+/* 添加鼠标问号，进一步确保应用的语义是正确的（要知道，交互他们也有洁癖，如果你不去掉，那得多花点口舌） */
+abbr {
+  cursor: help;
+}
+
+/* 一致的 del 样式 */
+del {
+  text-decoration: line-through;
+}
+
+address, caption, cite, code, dfn, em, th, var {
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* 去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去 */
+ul, ol {
+  list-style: none;
+}
+
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption, th {
+  text-align: left;
+}
+
+q:before, q:after {
+  content: '';
+}
+
+/* 统一上标和下标 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+:root sub, :root sup {
+  vertical-align: baseline; /* for ie9 and other modern browsers */
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* 让链接在 hover 状态下显示下划线 */
+a {
+  color: #666666;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.typo a {
+  border-bottom: 1px solid #db4453;
+}
+
+.typo a:hover {
+  border-bottom-color: #555;
+  color: #555;
+  text-decoration: none;
+}
+
+/* 默认不显示下划线，保持页面简洁 */
+ins, a {
+  text-decoration: none;
+}
+
+/* 专名号：虽然 u 已经重回 html5 Draft，但在所有浏览器中都是可以使用的，
+ * 要做到更好，向后兼容的话，添加 class="typo-u" 来显示专名号
+ * 关于 <u> 标签：http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-u-element
+ * 被放弃的是 4，之前一直搞错 http://www.w3.org/TR/html401/appendix/changes.html#idx-deprecated
+ * 一篇关于 <u> 标签的很好文章：http://html5doctor.com/u-element/
+ */
+u, .typo-u {
+  text-decoration: underline;
+}
+
+/* 标记，类似于手写的荧光笔的作用 */
+mark {
+  background: #fffdd1;
+  border-bottom: 1px solid #ffedce;
+  padding: 2px;
+  margin: 0 5px;
+}
+
+/* 代码片断 */
+pre, code, pre tt {
+  font-family: Courier, 'Courier New', monospace;
+}
+
+pre {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 1em 1.5em;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 一致化 horizontal rule */
+hr {
+  border: none;
+  border-bottom: 1px solid #cfcfcf;
+  margin-bottom: 0.8em;
+  height: 10px;
+}
+.hr-dashed {
+    border: none;
+    border-bottom: 1px dashed #cfcfcf;
+    margin-bottom: 0.8em;
+    height: 10px;
+}
+
+/* 底部印刷体、版本等标记 */
+small, .typo-small,
+  /* 图片说明 */
+figcaption {
+  font-size: 0.9em;
+  color: #888;
+}
+
+strong, b {
+  font-weight: 600;
+  color: #000;
+  /*font-size: 12px;*/
+}
+
+/* 可拖动文件添加拖动手势 */
+[draggable] {
+  cursor: move;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+/* 强制文本换行 */
+.textwrap, .textwrap td, .textwrap th {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.textwrap-table {
+  table-layout: fixed;
+}
+
+/* 提供 serif 版本的字体设置: iOS 下中文自动 fallback 到 sans-serif */
+.serif {
+  font-family: Palatino, Optima, Georgia, serif;
+}
+
+/* 保证块/段落之间的空白隔行 */
+.typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr, .typo table,
+.typo-p, .typo-pre, .typo-ul, .typo-ol, .typo-dl, .typo-form, .typo-hr, .typo-table, blockquote {
+  margin-bottom: 1.2em
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'PingFang SC','Microsoft Yahei','微软雅黑', 'HanHei SC', 'Helvetica Neue', 'Helvetica', 'Lantinghei SC', 'Hiragino Sans GB', 'STXihei', '华文细黑', 'Microsoft Sans Serif', 'WenQuanYi Micro Hei', 'SimSun', '宋体', 'sans';
+  font-weight: 100;
+  color: #434a54;
+  line-height: 1.35;
+}
+
+/* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
+.typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6,
+.typo-h1, .typo-h2, .typo-h3, .typo-h4, .typo-h5, .typo-h6 {
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+  line-height: 1.35;
+}
+
+.typo h1, .typo-h1 {
+  font-size: 2em;
+}
+
+.typo h2, .typo-h2 {
+  font-size: 1.8em;
+}
+
+.typo h3, .typo-h3 {
+  font-size: 1.6em;
+}
+
+.typo h4, .typo-h4 {
+  font-size: 1.4em;
+}
+
+.typo h5, .typo h6, .typo-h5, .typo-h6 {
+  font-size: 1.2em;
+}
+
+/* 在文章中，应该还原 ul 和 ol 的样式 */
+.typo ul, .typo-ul {
+  margin-left: 1.3em;
+  list-style: disc;
+}
+
+.typo ol, .typo-ol {
+  list-style: decimal;
+  margin-left: 1.9em;
+}
+
+.typo li ul, .typo li ol, .typo-ul ul, .typo-ul ol, .typo-ol ul, .typo-ol ol {
+  margin-bottom: 0.8em;
+  margin-left: 2em;
+}
+
+.typo li ul, .typo-ul ul, .typo-ol ul {
+  list-style: circle;
+}
+
+/* 同 ul/ol，在文章中应用 table 基本格式 */
+.typo table th, .typo table td, .typo-table th, .typo-table td, .typo table caption {
+  border: 1px solid #ddd;
+  padding: 0.5em 1em;
+  color: #666;
+}
+
+.typo table th, .typo-table th {
+  background: #fbfbfb;
+}
+
+.typo table thead th, .typo-table thead th {
+  background: #f1f1f1;
+}
+
+.typo table caption {
+  border-bottom: none;
+}
+
+/* 去除 webkit 中 input 和 textarea 的默认样式  */
+.typo-input, .typo-textarea {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+.typo-em, .typo em, legend, caption {
+  color: #000;
+  font-weight: inherit;
+}
+
+/* 着重号，只能在少量（少于100个字符）且全是全角字符的情况下使用 */
+.typo-em {
+  position: relative;
+}
+
+.typo-em:after {
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  content: "・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・・";
+}
+
+/* Responsive images */
+.typo img {
+  max-width: 100%;
+}
+
+ .btn.btn-lg {
+    padding: 12px 12px;
+    font-size: 18px;
+    min-width: 210px;
+}
+
+.clear-both{
+  clear: both;
+}
+
+/*bootstrap reset*/
+.navbar-right {
+    float: right !important;
+}
+
+
+/*reset style.css
+ */
+.divider{
+    *width: 100%;
+    height: 1px;
+    margin: 9px 1px;
+    *margin: -5px 0 5px;
+    overflow: hidden;
+    background-color: #e5e5e5;
+    border-bottom: 1px solid #fff;
+}
+.divider-white{
+    *width: 100%;
+    height: 1px;
+    margin-top: 20px;
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #fff;
+    display: inline-block;
+    width: 100%;
+}
+.img-center{
+  margin: 0 auto;
+}
+.diplay-inline-block{
+  display: inline-block;
+}
+.a-block{
+    display: block;
+}
+.min-height-700{
+    min-height: 700px;
+}
+.min-height-300{
+    min-height: 300px;
+}
+.margin-clear{
+    margin: 0;
+}
+.margin-top-bottom-20{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.margin-top-bottom-15{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.margin-left-right-0{
+    margin-left: 0;
+    margin-right:  0;
+}
+.margin-left-right-20{
+    margin-left: 20px;
+    margin-right:  20px;
+}
+.margin-left-0{
+    margin-left: 0;
+}
+.margin-left-20{
+    margin-left: 20px;
+}
+.margin-left-50{
+    margin-left: 50px;
+}
+.margin-top-0{
+    margin-top: 0;
+}
+.margin-top-5{
+    margin-top: 5px;
+}
+.margin-top-10{
+    margin-top: 10px;
+}
+.margin-top-15{
+    margin-top: 15px;
+}
+.margin-top-20{
+    margin-top: 20px;
+}
+.margin-top-25{
+    margin-top: 25px;
+}
+.margin-top-30{
+    margin-top: 30px;
+}
+.margin-top-35{
+    margin-top: 35px;
+}
+.margin-top-40{
+    margin-top: 40px;
+}
+.margin-top-45{
+    margin-top: 45px;
+}
+.margin-top-50{
+    margin-top: 50px;
+}
+.margin-top-60{
+    margin-top: 60px;
+}
+.margin-top-100{
+    margin-top: 100px;
+}
+.margin-bottom-10{
+    margin-bottom: 10px;
+}
+.margin-bottom-0{
+    margin-bottom: 0;
+}
+.margin-bottom-15{
+    margin-bottom: 15px;
+}
+.margin-bottom-25{
+    margin-bottom: 25px;
+}
+.margin-bottom-20{
+    margin-bottom: 20px;
+}
+.margin-bottom-10{
+    margin-bottom: 10px;
+}
+.margin-bottom-5{
+    margin-bottom: 5px;
+}
+
+.margin-bottom-70{
+    margin-bottom: 70px;
+}
+.margin-bottom-80{
+    margin-bottom: 80px;
+}
+.margin-bottom-90{
+    margin-bottom: 90px;
+}
+.margin-left-150 {
+  margin-left: 150px;
+}
+.margin-left-15{
+    margin-left: 15px;
+}
+.margin-left-30{
+    margin-left: 30px;
+}
+.margin-right-0{
+    margin-right: 0;
+}
+.margin-right-20{
+    margin-right: 20px;
+}
+.margin-right-15{
+    margin-right: 15px;
+}
+.margin-right-30{
+  margin-right: 30px;
+}
+.margin-right-40{
+    margin-right: 40px;
+}
+.margin-bottom-5{
+    margin-bottom:5px;
+}
+.margin-bottom-130{
+    margin-bottom:130px;
+}
+.margin-bottom-40{
+    margin-bottom: 40px;
+}
+.margin-bottom-35{
+  margin-bottom: 35px;
+}
+.margin-bottom-30{
+  margin-bottom: 30px;
+}
+.margin-bottom-60{
+    margin-bottom: 60px;
+}
+.margin-top-bottom-20{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.margin-top-bottom-30{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.margin-top-d40{
+    margin-top: -40px;
+}
+.margin-left-d10{
+    margin-left: -10px;
+}
+.margin-left-right-d10{
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.margin-left-right-d15{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.margin-left-right-d35{
+    margin-left: -35px;
+    margin-right: -35px;
+}
+.margin-left-right-15{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.margin-left-d45{
+    margin-left: -45px;
+}
+.margin-right-88{
+    margin-right: 88px;
+}
+.margin-20{
+    margin: 20px;
+}
+
+.padding-top-40{
+    padding-top: 40px;
+}
+.padding-left-right-90{
+    padding-left: 90px;
+    padding-right: 90px;
+}
+.padding-left-right-2{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.padding-left-right-5{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.padding-clear{
+    padding: 0;
+}
+.padding-bottom-0{
+    padding-bottom: 0;
+}
+.padding-top-0{
+    padding-top: 0;
+}
+.padding-top-10{
+  padding-top: 10px;
+}
+.padding-top-25{
+  padding-top: 25px;
+}
+.padding-top-30{
+  padding-top: 30px;
+}
+.padding-top-40{
+  padding-top: 40px;
+}
+.padding-top-45{
+  padding-top: 45px;
+}
+.padding-top-60{
+    padding-top: 60px;
+}
+.padding-left-0{
+    padding-left: 0;
+}
+.padding-left-20{
+    padding-left: 20px;
+}
+.padding-left-80{
+    padding-left: 80px;
+}
+.padding-left-right-20{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.padding-left-right-10{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.padding-right-0{
+    padding-right: 0;
+}
+.padding-right-20{
+    padding-right: 20px;
+}
+.padding-right-25{
+    padding-right: 25px;
+}
+.padding-left-5{
+    padding-left: 5px;
+}
+.padding-left-15{
+    padding-left: 15px;
+}
+.padding-left-30{
+    padding-left: 30px;
+}
+.padding-left-40{
+    padding-left: 40px;
+}
+.padding-20{
+    padding: 20px;
+}
+.padding-right-15{
+    padding-right: 15px;
+}.padding-left-15{
+    padding-left: 15px;
+}
+.padding-left-20{
+    padding-left: 20px;
+}
+.common-table-box{
+
+}
+.padding-30{
+    padding: 30px;
+}
+.padding-rl-10{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.padding-right-10{
+    padding-right: 10px;
+}
+
+.padding-left-0{
+    padding-left: 0;
+}
+.padding-right-0{
+    padding-right: 0;
+}
+.padding-right-40{
+    padding-right: 40px;
+}
+.padding-right-30{
+    padding-right: 30px;
+}
+.padding-top-20{
+    padding-top: 20px;
+}
+.padding-top-15{
+    padding-top: 15px;
+}
+.padding-top-bottom-20{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.padding-top-bottom-30{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.padding-top-bottom-15{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.padding-top-bottom-10{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.padding-top-bottom-6{
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.padding-left-10{
+    padding-left: 10px;
+}
+.padding-left-50{
+    padding-left: 50px;
+}
+.padding-left-80{
+    padding-left: 80px;
+}
+.padding-bottom-15{
+    padding-bottom: 15px;
+}
+.padding-bottom-20{
+    padding-bottom: 20px;
+}
+.padding-bottom-25{
+    padding-bottom: 25px;
+}
+.padding-bottom-40{
+    padding-bottom: 40px;
+}
+.margin-bottom-50{
+  margin-bottom: 50px;
+}
+.padding-bottom-60{
+    padding-bottom: 60px;
+}
+.padding-bottom-70{
+    padding-bottom: 70px;
+}
+.padding-bottom-50{
+    padding-bottom: 50px;
+}
+.padding-bottom-10{
+    padding-bottom: 10px;
+}
+.padding-bottom-130{
+  padding-bottom: 130px
+}
+.padding-bottom-70{
+  padding-bottom: 70px
+}
+.padding-left-140{
+    padding-left: 140px;
+}
+.padding-left-272{
+    padding-left: 272px;
+}
+.clear-both{
+    clear: both;
+    height: 1px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.img-margin-0 img{
+    margin: 0;
+}
+.border-top-1px{
+    border-top: 1px solid #a4aeb9;
+}
+.border-left-1px{
+    border-left: 1px solid rgba(164, 174, 185, 0.19);
+}
+.border-right-1px{
+    border-right: 1px solid rgba(164, 174, 185, 0.19);
+}
+.border-none{
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+.search-box{
+   margin: 10px 0px;
+   padding:0px;
+
+}
+.search-box .form-group{
+	margin: 0;
+}
+
+.search-box .form-control,.search-box .form-control-feedback{
+	height: 30px;
+	line-height: 30px !important;
+}
+.border-set{
+    border: 1px solid #eee;
+}
+.border-set-white{
+    border: 1px solid #fff;
+}
+.border-set-red{
+    border: 1px solid #db4453;
+}
+.border-set-bottom{
+    border-bottom: 1px solid #eee;
+}
+.border-set-bottom-dark{
+    border-bottom: 1px solid #999999;
+}
+.border-set-right{
+    border-right: 1px solid #eee;
+}
+.border-set-bottom-gray {
+    border-bottom: 1px solid #ccc;
+}
+
+.line-1px-dark{
+    height: 1px;
+    border: none;
+    background-color: #ddd;
+    clear: both;
+    margin: 0;
+    padding: 0;
+}
+
+.box-style-banner img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+.banner {
+    background-color: #transparent;
+    border-bottom: 0 solid #eaeaea;
+}
+.parallax-bg-3 {
+	height:554px;
+    background: url("../images/fund-finance-img/banner-fund.png"/*tpa=http://www.thfund.com.cn/sites/all/themes/thfund/images/fund-finance-img/banner-fund.png*/) 100% 100%;
+    background-size: 100%;
+
+}
+.box-style-banner {
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+.box-style-banner i {
+   font-size: 50px;
+    margin: 0;
+    text-align: center;
+}
+.box-style-banner p{
+
+	margin-bottom: 0;
+	font-size: 12px;
+}
+.ptext{
+	width: 40%;
+	color:#fff;
+	font-size: 14px;
+	font-weight: lighter;
+	margin: 10px 0 20px 0;
+}
+.ptext-qa{
+	margin: 15px 0 25px 0;
+	color: #fff;
+	font-size: 14px;
+}
+.dark-bg {
+    background-color: #434a54;
+    color: #ffffff;
+}
+.gray-bg-th{
+    background-color: #f7f8fc;
+}
+.gray-bg:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    height: 0;
+    content: "";
+    width: 100%;
+}
+.white-bg {
+    background-color: #ffffff !important;
+    -webkit-box-shadow: 0px 0 0 rgba(0, 0, 0, .1);
+    box-shadow: 0px 0 0 0 rgba(0, 0, 0, 0.04);
+    border: none !important;
+}
+
+.white-box{
+    padding-top: 20px;
+}
+.main-container {
+    padding:  0 0 15px 0;
+    margin-top:-5px;
+}
+
+.btn-light-gray:hover,
+.btn-light-gray:focus,
+.btn-light-gray:active,
+.btn-light-gray.active,
+.open .dropdown-toggle.btn-light-gray {
+	color: #ffffff;
+	background-color: #d23337;
+	border-color: #e84c3d;
+}
+
+
+
+.box-title .box-title-head{
+  width: 10%;
+  float: left;
+  font-size: 26px;
+}
+.box-title{
+	width: 100%;
+	height: 40px;
+}
+.box-subtitle{
+	width:90%;
+	float:right;
+	font-size: 12px;
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px dashed #eee;
+}
+
+
+.overlay-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+.box-shadow-clear{
+	-webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, .06);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.04);
+    border: none !important;
+}
+.image-box-body {
+    padding: 20px 15px 15px;
+    text-align: center;
+}
+.tab-content {
+    border: 0px solid #f0f0f0;
+    padding: 0px;
+    border-top: none;
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.04);
+    position: relative;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    margin-bottom: 90px;
+}
+
+.tab-content:after {
+  width: 0;
+  content: "";
+  background-color: #e84c3d;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.tab-content:after {
+    background-color: #fff;
+}
+
+.table > thead > tr > th {
+    border-bottom: 1px solid #a4aeb9;
+    border-right: 1px solid #fff;
+    background-color: #a4aeb9;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 100;
+}
+.table-bordered {
+    border: 1px solid #ddd;
+}
+.nav-pills-fund-fiance{
+	padding-left:20px;
+	margin:15px 0;
+}
+.nav-pills-fund-fiance >.table > tbody > tr > td{
+
+	margin:0;
+}
+#table-pad-clear{
+	padding:0;
+}
+.table > tbody > tr > td{
+	border-top: 0;
+    font-size: 12px;
+    font-weight: 100;
+    border-right: 1px solid #fff;
+}
+.nav-pills > li.active > a{
+	    border: 1px solid #f3f3f3;
+    color: #fff;
+    background-color: #de3f54;
+}
+
+.nav-pills > li.active > a:hover{
+
+    background-color: #434a53;
+}
+
+.fund-finance-table-type{
+	margin:40px 0 0 0;
+}
+
+
+/* table
+ */
+
+.table-th-td-gray > tbody > tr > td, .table-striped > tbody > tr > th {
+    background-color: #fff;
+}
+.table-th-td-gray > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: #fff;
+}
+.table-th-td-gray.table > tbody > tr > td {
+    border-color: #e3e4e8;
+    vertical-align: middle;
+}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border-color: #ededed;
+}
+/*机构专户专项
+ －－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.section-title {
+    font-size: 30px;
+    color: #393f48;
+}
+.section-title-margin-40{
+    font-size: 30px;
+    font-weight: 100;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.table > thead > tr > th {
+    border-bottom: 1px solid #a4aeb9;
+    border-right: 1px solid #fff;
+    background-color: #959595;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 100;
+    text-align: center;
+}
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+    background-color: #fff;
+    text-align: center;
+    vertical-align: middle;f6f8fa
+}
+.table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even) > th {
+    background-color: #f6f8fa;
+    text-align: center;
+    vertical-align: middle;
+}
+.btn-small{
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  padding: 0;
+  min-width: 50px;
+  font-size: 10px;
+}
+.margin-bottom-0{
+    margin-bottom: 0;
+}
+.small-border{
+    height: 2px;
+    width: 20px;
+    background: #434a54 none repeat scroll 0% 0%;
+    display: block;
+    padding: 0;
+    margin: 15px auto;
+}
+.shadow-clear{
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*
+ *排序表格
+ **/
+.sort-table-box > thead > tr > th > .both {
+    background-image: url("../images/table-sort-icon.png"/*tpa=http://www.thfund.com.cn/sites/all/themes/thfund/images/table-sort-icon.png*/);
+}
+.sort-table-box > thead > tr > th > .desc {
+    background-image: url("../images/table-sort-icon-down.png"/*tpa=http://www.thfund.com.cn/sites/all/themes/thfund/images/table-sort-icon-down.png*/);
+}
+.sort-table-box > thead > tr > th > .asc {
+    background-image: url("../images/table-sort-icon-up.png"/*tpa=http://www.thfund.com.cn/sites/all/themes/thfund/images/table-sort-icon-up.png*/);
+}
+.sort-table-box > thead > tr > th > .sortable {
+    cursor: pointer;
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+}
+.table > thead > tr > th {
+    padding: 8px 0 8px 10px;
+}
+.cotent-list .list-title a {
+    color: #666666;
+}
+.cotent-list .list-title  a:hover , .cotent-list .list-title a:focus {
+    color: #db4453;
+    text-decoration: none;
+}
+.cotent-list .active a {
+    color: rgba(102, 102, 102, 0.56);
+    text-decoration: none;
+}
+.nav-tabs > li > a {
+    margin-right: 0;
+}
+.page-banner-box {
+    background-color: #fff;
+    border-bottom: none;
+    margin: 0;
+    padding: 0;
+}

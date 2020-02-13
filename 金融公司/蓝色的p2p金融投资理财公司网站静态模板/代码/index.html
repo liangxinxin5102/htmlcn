@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PPmoney</title>
+</head>
+<script src="jquery.js"></script>
+<link href="comment.css" rel="stylesheet"></link>
+<style>
+.banner{ position:relative; width:980px; height:365px; margin-left:auto; margin-right:auto; overflow:hidden;}
+.bannerbox{ width:980px; height:1815px; margin-left:auto; margin-right:auto; overflow:hidden;}
+.bannerctrl{ position:absolute; bottom:20px; left:50%; margin-left:-66px;}
+.bannerctrl span{ float:left; width:10px; height:10px; border-radius:50%; border:solid 2px white; margin-left:15px; margin-right:15px;}
+.bannerctrlcurrent{float:left; width:10px; height:10px; border-radius:50%; border:solid 2px white; background-color:white; margin-left:15px; margin-right:15px;}
+.bannerright{ width:260px; height:300px; background-image:url(images/bannerright.png); text-align:center; position:absolute; top:24px; right:80px;}
+.bannerright h1{font-family:"微软雅黑"; font-size:14px; color:#258ba1; padding-top:20px; padding-bottom:20px; background-image:url(images/bannerrightborder.png); background-position:bottom; background-repeat:no-repeat;}
+.bannerright h2{font-family:"微软雅黑"; font-size:18px; color:#258ba1;}
+.bannerright h3{font-family: Arial; font-size:36px; color:#e34b36;}
+.bannerright a{ display:block; width:210px;margin-left:auto; margin-right:auto; font-family:"微软雅黑"; font-size:14px; color:white; background-image: url(images/bannerrightbotton.png); line-height:38px;  background-repeat:no-repeat;}
+
+.box{}
+.title{ width:980px; height:66px; margin-left:auto; margin-right:auto; text-align:center;  background-color:#eaeaea; }
+.title h1{ font-family:"微软雅黑"; font-size:22px; color:#258ba1; }
+.title h2{ font-family:"微软雅黑"; font-size:12px; color:#333; margin-top:-18px;}
+.titlenav{ width:980px; height:60px; margin-left:auto; margin-right:auto; text-align:center;  background-color:#f4f3f3; }
+.titlenav a{ font-family:"微软雅黑"; font-size:14px; color:#333; padding-left:10px; padding-right:10px; line-height:60px; overflow:hidden;}
+.titlenav .titlenavcurrent { color:#258ba1;}
+.titlenavcurrent{ color:#258ba1;}
+.boxmain{width:980px; height:720px; margin-left:auto; margin-right:auto; text-align:center; background-image:url(images/mainbg.png); background-repeat:repeat-x;}
+.boxmain h1{ font-family:"微软雅黑"; font-size:24px; color:white; margin-top:60px;}
+.boxmain h2{ font-family:"微软雅黑"; font-size:14px; color:white; margin-top:-14px; margin-bottom:20px;}
+.newsbox{ width:766px; height:134px; margin-left:auto; margin-right:auto; background-image:url(images/newsbg.png); background-repeat:no-repeat; text-align:left;}
+.newsboxtext{ margin-left:50px; width:460px; float:left;}
+.newsboxtext h3{font-family:"微软雅黑"; font-size:11px; color:#333;}
+.newsboxtext h4{font-family:"微软雅黑"; font-size:14px; color:#333; line-height:0;}
+.newsboxtext p{font-family:"微软雅黑"; font-size:11px; color:#333; }
+.newsboximg{ float:right; width:150px; height:104px; padding-left:30px; margin-top:15px; margin-right:50px; border-left:solid 1px #eaeaea; overflow:hidden;}
+.boxmain h5{ font-family:"微软雅黑"; font-size:22px; color:#258ba1; margin-top:100px; }
+.boxmain h6{ font-family:"微软雅黑"; font-size:12px; color:#333; margin-top:-40px;}
+.solutionbox{ width:954px; margin-left:auto; margin-right:auto; margin-top:-10px;}
+.solution{ width:310px; height:280px; border:1px solid #CCC; border-top:none; border-bottom:#CCC 2px solid;margin-left:3px; margin-right:3px; text-align:center; background-color:#f9f9f9; float:left;}
+.solutionicon{ width:94px; height:100px; padding-left:103px; padding-right:103px; padding-top:25px; margin-bottom:0px;}
+.solution h1{ font-family:"微软雅体"; font-size:16px; color:#fa675d; line-height:20px; margin-top:10px; margin-bottom:60px;}
+.solution h6{ font-family:"微软雅体"; font-size:14px; color:#333; line-height:24px; }
+.solution h6 span{font-family:Arial; font-size:18px; color:#fa675d;}
+.solutioncolor2 h1{ color:#03e6b9;}
+.solutioncolor2 h6 span{ color:#03e6b9; edcc47;}
+.solutioncolor3 h1{ color:#edcc47;}
+.solutioncolor3 h6 span{ color:#edcc47;}
+
+.poductbox{ width:980px; margin-left:auto; margin-right:auto;}
+.poducttitle{ width:980px; background-color:#eaeaea; height:66px; text-align:center;}
+.poducttitle h1{ font-family:"微软雅黑"; font-size:22px; color:#258ba1; padding-top:10px;}
+.poducttitle h2{ font-family:"微软雅黑"; font-size:12px; color:#333; margin-top:-18px;}
+.poduct{ width:978px; height:155px; border:solid 1px #CCC; background-color:#f9f9f9; overflow:hidden; margin-top:10px;}
+.poduct h3{ width:70px; height:74px; line-height:70px; text-align:center; font-family:"微软雅黑"; font-size:30px; color:#FFF; background-image:url(images/poduct_03.png); float:left; margin-top:45px; margin-left:20px;}
+.poduct a{ display:block; width:105px; height:44px; line-height:40px; text-align:center; font-family:"微软雅黑"; font-size:16px; color:#FFF; background-image:url(images/poduct_06.png); float:right; margin-right:20px; margin-top:55px;}
+.poduct ul{ float:left; margin-top:40px; margin-right:40px;}
+.poduct ul li{ list-style:none; font-family:"微软雅黑"; font-size:14px; color:#575757; line-height:26px;}
+.poductp{ padding-bottom:9px; padding-top:9px;}
+.poduct ul li span{ color:#fc9a11; font-family: "微软雅黑"; font-size:16px;}
+
+.newscenter{ margin-top:10px;}
+.newscenterleft{ width:330px; height:295px;  float:left; background-color:#f9f9f9; overflow:hidden;}
+.newscenterleft h5{ padding-left:20px;margin-top:0px; width:185px; font-family:"微软雅黑"; font-size:12px; line-height:25px; background-color:#258ba1; color:white;}
+.newscenterleft p{ font-family:"微软雅黑"; font-size:12px; line-height:25px; color:#575757; padding-left:20px; padding-right:30px;}
+.newscenteright{ width:623px; height:295px;float:right; overflow:hidden;}
+
+.case{ height:155px; background-color:#f9f9f9; margin-top:10px; border:solid 1px #CCC;}
+.case a img{ display:block; width:70px; height:70px; margin-left:20px; margin-top:45px; float:left; margin-right:40px;}
+.case p{ width:500px; float:left; font-family:"微软雅黑"; font-size:14px; color:#575757; line-height:28px; margin-top:50px;}
+.case img{ width:223px; height:155px; overflow:hidden; margin-right:20px; float: right;}
+
+.about{margin-top:10px;}
+.about a img{ width:310px; height:280px; float:left; margin-right:25px;}
+.about a span{ width:310px; height:280px; float:left;}
+
+.cooperative{margin-top:10px;}
+.cooperative a img{ width:96px; height:67px; border:solid 1px #CCC; margin-left:21px; margin-right:21px; float:left;}
+</style>
+<body>
+<div class="topbox">
+    <div class="top overH">
+        <h1>客服热线：400-888-8902</h1>
+        <a href="#"><span>English</span></a>
+        <a href="#">中文&nbsp;&nbsp;|</a>    
+    </div>
+</div>
+
+<div class="nav">
+    <div class="logo"><img src="images/logo.png"></div>
+    <div class="navlink">
+        <a href="index.html" class="navcurrent">首页</a>
+        <a href="solution.html">我要理财</a>
+        <a href="want.html">我要借款</a>
+        <a href="news.html">新闻中心</a>
+        <a href="cases.html">成功案例</a>
+        <a href="about.html">关于我们</a>
+    </div>
+</div>
+
+<div class="banner">     
+        <img src="images/indexbanner_03.png">
+        <img src="images/indexbanner_04.png">
+        <img src="images/indexbanner_05.png"> 
+    <div class="bannerctrl">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="bannerright">
+       <h1>了解产品详情，现在投资有惊喜哦！</h1>
+       <h2>预期年化收益高达</h2>
+       <h3>17.3%</h3>
+       <a href="#">了解详情</a>
+    </div>
+</div>
+
+<div class="box"> 
+    <div class="title overH">
+         <h1>我要理财</h1>
+         <h2>I solutive money</h2>
+    </div>   
+    <div class="titlenav overH">
+         <a href="#" class="titlenavcurrent">案例精选</a>
+         <a href="#">超高收益</a>
+         <a href="#">安全理财</a>
+         <a href="#">随时赎回</a>
+         <a href="#">超低门槛</a>
+    </div>
+    <div class="boxmain overH  ">
+         <h1>最新动态</h1>
+         <h2>7%-14%预期年化收益率</h2>
+         <div class="newsbox">
+             <div class="newsboxtext">
+                 <h3>时间：2014-5-7</h3>
+                 <h4>【上海】融安生物医学有限公司流动资金周转</h4>
+                 <p>该公司以日常经营收入作为还款来源，与客户付款按合同执行。借款人在我司全权委托房产其中一套属外滩小区，周围配套生活设备齐全具有一定的变现能力，办理借款人的全权委托公证书已在公证借款人黄同借款签署借款担保合同。</p>
+             </div>
+             <div class="newsboximg"><img src="images/newsimg.png"></div>
+         </div>
+         <h5>理财方案</h5>
+         <h6>Product solution</h6>
+         <div class="solutionbox overH">
+             <div class="solution overH">
+                 <div class="solutionicon"><img src="images/solutionicon_03.png"></div>
+                 <h1>优先组合<br>超高收益</br></h1>
+                 <h6>最高可达<span>18%</span>收益是银行<br>活期收益<span>50</span>倍</br></h6>
+             </div>
+             <div class="solution solutioncolor2 overH">
+                 <div class="solutionicon"><img src="images/solutionicon_05.png"></div>
+                 <h1>资金理财<br>安全理财</br></h1>
+                 <h6><span>8</span>重认证审核保障您的<br>资金收益安全</br></h6>
+             </div>
+             <div class="solution solutioncolor3 overH">
+                 <div class="solutionicon"><img src="images/solutionicon_07.png"></div>
+                 <h1>零风险理财<br>随时赎回</br></h1>
+                 <h6>即可申请<span>3秒</span>锁定<br>最快当日到账</br></h6>
+             </div>              
+         </div>
+    </div>
+</div>
+
+<div class="poductbox overH">
+    <div class="poducttitle">
+        <h1>我要借款</h1>
+        <h2>we poduct money</h2>
+    </div>
+    <div class="poduct">
+        <h3>借</h3>
+        <ul>
+           <li>收款期限（3个月）</li>
+           <li>预期年化收益：<span>16%</span></li>
+           <li>还款方式：按月付息到期还本</li>
+        </ul>
+        <ul>
+           <li>30天投10万可得收益</li>
+           <li>投资期限：<span>3个月</span></li>
+        </ul>
+        <ul>
+           <li>剩余可投金额：<span>82,3780元</span></li>
+           <li class="poductp"><img src="images/poduct_09.png"></li>
+           <li>借款金额：<span>100万</span></li>
+        </ul>
+        <a href="#">了解详情</a>
+    </div>
+    <div class="poduct">
+        <h3>借</h3>
+        <ul>
+           <li>收款期限（3个月）</li>
+           <li>预期年化收益：<span>20%</span></li>
+           <li>还款方式：按月付息到期还本</li>
+        </ul>
+        <ul>
+           <li>30天投10万可得收益</li>
+           <li>投资期限：<span>6个月</span></li>
+        </ul>
+        <ul>
+           <li>剩余可投金额：<span>82,7960元</span></li>
+           <li class="poductp"><img src="images/poduct_09.png"></li>
+           <li>借款金额：<span>150万</span></li>
+        </ul>
+        <a href="#">了解详情</a>
+    </div>
+    <div class="poduct">
+        <h3>借</h3>
+        <ul>
+           <li>收款期限（3个月）</li>
+           <li>预期年化收益：<span>12%</span></li>
+           <li>还款方式：按月付息到期还本</li>
+        </ul>
+        <ul>
+           <li>30天投10万可得收益</li>
+           <li>投资期限：<span>6个月</span></li>
+        </ul>
+        <ul>
+           <li>剩余可投金额：<span>82,4520元</span></li>
+           <li class="poductp"><img src="images/poduct_09.png"></li>
+           <li>借款金额：<span>200万</span></li>
+        </ul>
+        <a href="#">了解详情</a>
+    </div>
+</div>
+
+<div class="poductbox overH">
+    <div class="poducttitle">
+        <h1>新闻中心</h1>
+        <h2>news center</h2>
+    </div>
+    <div class="newscenter">
+        <div class="newscenterleft">
+            <h5>行业动态</h5>
+            <p>1、交易日当天14：50之前申请的操盘当日生效<br>（当天开始收取账户管理费）</br></p>
+            <p>2、交易日当天14：50之后申请的操盘资金即时到账下个交易日生效<br>（下个交易日开始收取账户管理费）</br></p>
+            <p>3、个性化操盘定制今日限制股您想借多少操盘资金<br>(千的倍数)放大多少倍？操盘多久(天)</br></p>
+        </div>
+        <div class="newscenteright"><img src="images/newscenter_03.png"></div>
+    </div>
+</div>
+
+<div class="poductbox overH">
+    <div class="poducttitle">
+        <h1>成功案例</h1>
+        <h2>successful cases</h2>
+    </div>
+    <div class="case overH">
+        <a href="#"><img src="images/cases_06.png"></a>
+        <p>2013年12月成为上海海滨集团集资53.286.433.00元，投资参与人高达3681人模式是7+1模式，（第二天休息）将为投资人带来年化9%的收益。</p>
+        <img src="images/cases_03.png">
+    </div>
+    <div class="case overH">
+        <a href="#"><img src="images/cases_11.png"></a>
+        <p>2014年1月成为盛世海滨集团集资38.256.433.00元，投资参与人高达3681人模式是7+1模式，（第二天休息）将为投资人带来年化9%的收益。</p>
+        <img src="images/cases_10.png">
+    </div>
+    <div class="case overH">
+        <a href="#"><img src="images/cases_15.png"></a>
+        <p>2015年7月成为上海为有集团集资863.256.00元，投资参与人高达3681人模式是7+1模式，（第二天休息）将为投资人带来年化9%的收益。</p>
+        <img src="images/cases_14.png">
+    </div>
+</div>  
+
+<div class="poductbox overH">
+    <div class="poducttitle">
+        <h1>关于我们</h1>
+        <h2>about us</h2>
+    </div>
+    <div class="about">
+        <a href="#"><img src="images/about_03.png"></a>
+        <a href="#"><img src="images/about_05.png"></a>
+        <a href="#"><span><img src="images/about_07.png"></span></a>
+    </div>
+</div>  
+
+<div class="poductbox overH">
+    <div class="poducttitle">
+        <h1>合作伙伴</h1>
+        <h2>cooperative partners</h2>
+    </div> 
+    <div class="cooperative">
+        <a href="#"><img src="images/cooperative_13.png"></a>
+        <a href="#"><img src="images/cooperative_15.png"></a>
+        <a href="#"><img src="images/cooperative_17.png"></a>
+        <a href="#"><img src="images/cooperative_19.png"></a>
+        <a href="#"><img src="images/cooperative_21.png"></a>
+        <a href="#"><img src="images/cooperativepartner_03.png"></a>
+        <a href="#"><img src="images/cooperativepartner_05.png"></a>
+    </div>       
+</div>
+
+<div class="footerbox">
+    <div class="footer overH">
+        <div class="footerleft">
+            <ul>关于我们
+                <li><a href="#">公司简介</a></li>
+                <li><a href="#">企业规划</a></li>
+                <li><a href="#">企业文化</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+            <ul>我要借款
+                <li><a href="#">政府扶持</a></li>
+                <li><a href="#">投资理财</a></li>
+                <li><a href="#">本息保障</a></li>
+                <li><a href="#">收益稳健</a></li>
+            </ul>
+            <ul>我要理财
+                <li><a href="#">超低门槛</a></li>
+                <li><a href="#">债权优质</a></li>
+                <li><a href="#">安全运行</a></li>
+                <li><a href="#">收益整年</a></li>
+            </ul>
+        </div>
+        <div class="footerright">
+            <ul>
+                <li>客服电话：（工作时间：9:00-18:00）</li>
+                <li><span>4006-888-898</span></li>
+                <li>地址：广州市天河区体育西路153号新天河大厦</li>
+                <li>电话：400-00894-855</li>
+                <li>传真：020-2788 0889</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="copyrightbox">
+  <div class="copyright">Copyright   2008-2015PPMONEY （xuexindai.com）All Rrights Reserved 粤ICP备09063742号-35号 增值电信业务经营许可 电信与信息服务经营许可证</div>
+</div>
+<div class="back"><img src="images/back.png"></div>
+ 
+<script>
+/*导航*/ 
+$(document).scroll(
+	function(){
+		if(toppos>10){
+			$(".back").fadeIn();	
+		}else if(toppos==0){
+			$(".back").fadeOut();	
+		}
+	}
+)
+$(".back").click(
+	function(){		 
+		$("html,body").animate({scrollTop:0})
+	}
+)
+
+$(".navlink a").click(
+                  function(){
+					  $(this).addClass("navcurrent").siblings().removeClass("navcurrent");
+					  }
+)
+
+/*广告*/
+$(".banner img").hide();
+$(".banner img:eq(0)").show()
+var n=0;
+$(".bannerctrl span").click(function(){
+	n = $(".bannerctrl span").index(this);
+	document.title=n;
+	$(".banner img").hide();
+	$(".banner img:eq("+n+")").show();
+	$(".bannerctrl span").removeClass("bannerctrlcurrent");
+	$(this).addClass("bannerctrlcurrent");
+})
+function changeN(){
+	if(n<$(".banner img").length-1){
+		n=n+1;
+	}else{
+		n=0;
+	}
+	$(".banner img").hide();
+	$(".banner img:eq("+n+")").show();	
+	$(".bannerctrl span").removeClass("bannerctrlcurrent");
+	$(".bannerctrl span:eq("+n+")").addClass("bannerctrlcurrent");
+}
+var timer = setInterval(changeN,2000);
+$(".bannerctrl span").hover(function(){
+	clearInterval(timer);	
+},function(){
+	timer = setInterval(changeN,2000);
+})
+
+/*小导航*/
+$(".titlenav a").click(
+                  function(){
+					  $(this).addClass("titlenavcurrent").siblings().removeClass("titlenavcurrent");
+					  }
+)
+ 
+</script>
+</body>
+</html>

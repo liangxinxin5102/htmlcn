@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--[if lt IE 9]>
+    <script src="statics/newcommon/js/html5shiv.js"></script>
+    <![endif]-->
+    <meta name="keywords" content="网贷平台,网络借贷，网络赚钱项目,理财产品">
+    <meta name="description" content="爱钱帮网贷平台为您提供网络赚钱项目；为此相继推出了许多新的理财产品，在为您创造高收益的同时也优化了理财产品模式。网络借贷，就选爱钱帮。">
+    <meta charset="UTF-8">
+    <link  rel="Shortcut  Icon"  href="statics/home/images/minilogo.png">
+    <link rel="stylesheet" href="statics/newcommon/css/m2-commonNew.css?20160520">
+    <link rel="stylesheet" href="statics/newcommon/css/m2-common.css?20160520">
+    <link rel="Shortcut  Icon" href="statics/newcommon/images/minilogo.png?20160520">
+    <link rel="stylesheet" href="statics/usercenter/css/userCenter.css?20160520">
+    <script type="text/javascript" src="statics/newcommon/js/jquery.min.js?20160520"></script>
+    <script type="text/javascript" src="statics/newcommon/js/common.js?20160520"></script>
+    <script type="text/javascript" src="statics/usercenter/js/esl.js?20160520"></script>
+    <link rel="stylesheet" href="statics/usercenter/css/jquery.datetimepicker.css?20160520" />
+    <script type="text/javascript" src="statics/usercenter/js/jquery.datetimepicker.js?20160520"></script>
+</head>
+<title>投资记录--爱钱帮</title>
+<!-- 右侧边栏start -->
+<div class="m2-commonRight">
+    <ul class="m2-comRiglist">
+        <li class="m2-comRigli m2-comRigli-ewm">
+            <i class="m2-comRigli-icon"></i>
+            <span class="m2-comRigli-hov">关注<br>微信</span>
+            <div class="m2-comRighide m2-comRighide-ewm"><i></i></div>
+        </li>
+        <li class="m2-comRigli m2-comRigli-tel">
+            <i class="m2-comRigli-icon"></i>
+            <span class="m2-comRigli-hov">联系<br>我们</span>
+            <div class="m2-comRighide m2-comRighide-tel">
+                <div class="m2-comRighide-telSpace"></div>
+                <b class="m2-comRighide-telBorder"></b>
+                <div class="m2-comRigtel-lef">
+                    <div class="m2-comRigtel-lefTop">
+                        <input type="text" placeholder="请输入您的手机号"  id='phonenumber'>
+                    </div>
+                    <div class="m2-comRigtel-lefBot">
+                        <input type="text" placeholder="验证码" id="ivrSecurityCode">
+                        <img id="ivrSecurityCodeImg" onclick="getCode()" src="code.png" alt="验证码" title="点击更新验证码">
+                    </div>
+                </div>
+                <div class="m2-comRigtel-rig">
+                    <span  onclick='callback()'>免费<br>拨打</span>
+                </div>
+            </div>
+        </li>
+        <li class="m2-comRigli m2-comRigli-qq">
+            <a  target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes">
+                <i class="m2-comRigli-icon"></i>
+                <span class="m2-comRigli-hov">在线<br>客服</span>
+            </a>
+            <!-- <div class="m2-comRighide"></div> -->
+        </li>
+        <!--<li class="m2-comRigli m2-comRigli-sug">-->
+        <!--<i class="m2-comRigli-icon"></i>-->
+        <!--<span class="m2-comRigli-hov">意见<br>反馈</span>-->
+        <!-- <div class="m2-comRighide"></div> -->
+        <!--</li>-->
+        <li class="m2-comRigli m2-comRigli-top">
+            <i class="m2-comRigli-icon"></i>
+            <span class="m2-comRigli-hov">返回<br>顶部</span>
+            <!-- <div class="m2-comRighide"></div> -->
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        var wHei = $(window).height();
+
+        $(document).scroll(function () {
+            // 判断返回顶部是否显示
+            visTop(wHei);
+        });
+
+        $('.m2-comRigli-top').click(function () {
+            $('body,html').animate({scrollTop: 0}, 600);
+            return false;
+        });
+    });
+
+    function visTop(high) {
+
+        if ($(document).scrollTop() > high + 100) {
+            $('.m2-comRigli-top').css('visibility', 'visible');
+        } else {
+            $('.m2-comRigli-top').css('visibility', 'hidden');
+        }
+    }
+</script>
+<!-- 右侧边栏end -->
+
+
+<!-- headerStart -->
+<div class="m2-commonTop-con">
+    <div class="m2-commonTop">
+        <div class="m2-commonTop-left">
+            <div class="m2-commonTop-tel"><i></i>4006&nbsp;-&nbsp;777&nbsp;-&nbsp;518</div>
+            <div class="m2-commonTop-service"><i></i><span>客服：</span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2522274059&amp;site=qq&amp;menu=yes" title="">2522274059</a></div>
+            <div class="m2-commonEwm">
+                <span class="m2-commonEwm-tit">关注我们：</span>
+                <div class="m2-commonEwmwx">
+                    <i class="m2-commonEwmicon"></i>
+                    <div class="m2-commonEwmhid">
+                        <em class="m2-commonEwmhid-arr"></em>
+                        <em class="m2-commonEwmhid-arrBg"></em>
+                        <b></b>
+                        <span>扫一扫<br>关注爱钱帮订阅号</span>
+                    </div>
+                </div>
+                <div class="m2-commonEwmwb">
+                    <i class="m2-commonEwmicon" onclick='window.open("http://weibo.com/iqianbang");'></i>
+                </div>
+            </div>
+        </div>
+        <div class="m2-commonTop-right">
+            <div class="m2-commonTop-link">
+                <ul>
+                    <li class="m2-commonTop-btn" style="display: none" id="bbs"><a id="bbslogin" target="_blank">论坛</a></li>
+                    <li class="m2-commonTop-loged">
+                        <span class="m2-commonTop-userName"><a href="usercenter.html">您好，iqb13737301354</a></span>
+                    </li>
+                    <li class="m2-commonTop-btn"><a href="#" style="border-right:none;">退出</a></li>
+                    <li class="m2-commonTop-btn"><a href="company_finance.html" id="cfpage" style="border-right:none;width: 50px;">企业理财</a></li>
+                    </li>
+                </ul>
+            </div>
+            <div class="m2-commonTop-app" onclick='window.open("/appdownload.html")' style="cursor:pointer;">
+                <a href="" class="m2-commonTop-and"></a>
+                <a href="" class="m2-commonTop-ios"></a>
+                <span>app下载入口</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#bbslogin').click(function(){
+            var w = window.open();
+            $.ajax({
+                type:"GET",
+                url :"/api-bbslogin",
+                success:function(msg){
+                    var obj = eval('('+msg+')');
+                    var obj = eval(obj);
+                    if (obj.status == 1){
+                        w.location = obj.message;
+                    }
+                }
+            });
+        });
+        var _uid = Number(305497);
+        var _all_uid = Array(5277,320,25893,77960,70760,4762,36256,59960,126250,75980,4039,68689,133118,185);
+        function in_array(uid,array){
+            for(var i in array){
+                if(array[i] == uid){
+                    $("#bbs").attr("style","display:block");
+                }
+            }
+        }
+        in_array(_uid,_all_uid);
+    });
+</script>
+</div>
+<div class="m2-commonNav-con">
+    <div class="m2-commonNav-box">
+        <div class="m2-commonLogo">
+            <a href="index.html"><img src="statics/newcommon/images/m2-logo.png" title="爱钱帮官网" alt="爱钱帮_logo"></a>
+        </div>
+        <div class="m2-commonNav">
+            <ul class="m2-commonNavul-fir" data_page='threepage'>
+                <!--  <li class="m2-commonNav-fir"><a href="http://huifu.iqianbang.com" target="_blank" >汇付版本</a></li>-->
+                <li class="m2-commonNav-fir"><a href="index.html" id="onepage">首页</a></li>
+                <li class="m2-commonNav-fir"><a href="touzi_licai_chanpin.html" id="twopage">我要投资</a></li>
+                <li class="m2-commonNav-fir"><a href="membermall.html" id="sevenpage">会员商城</a></li>
+                <li class="m2-commonNav-fir"><a href="usercenter.html" id="threepage">我的账户</a></li>
+                <li class="m2-commonNav-fir"><a href="anquanlicai_baozhang.html" id="fourpage">安全保障</a></li>
+                <li class="m2-commonNav-fir"><a href="guanyu_aiqianbang.html" id="fivepage">关于我们</a></li>
+                <!-- <li class="m2-commonNav-fir"><a href="guide.html">新手引导</a></li> -->
+                <li class="m2-commonNav-fir"><a href="licaiwang_zhuantihuodong.html" id="sixpage">活动专区</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</header>
+
+<style>
+    .vIVR{display:none}
+</style>
+<script>
+    var page=$(".m2-commonNavul-fir").attr("data_page");
+    $("#"+page).parent().css("borderBottom","2px solid #ff6666");
+    var queuename = '30017180006';
+    function callback() {
+        $('#tel').val($('#phonenumber').val());
+        call();
+    }
+    setCallResponse = function (json) {
+        var obj = eval('(' + json + ')');
+        if (obj['description']) {
+            $('#callBack-codeErr').css('display', 'block');
+            $('#ivrSecurityCode').val('');
+            getCode();
+            setTimeout(function () {
+                $('#callBack-codeErr').css('display', 'none');
+            }, 3000);
+        }
+    }
+</script>
+<!-- headerEnd -->
+
+<div class="m2-userCentermain">
+    <div class="m2-userCentermain-aside">
+        <ul>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item" href="usercenter.html"><i class="m2-asideIcon1"></i>我的账户</a>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item" href="usercenter-growth-index.html"><i class="m2-asideIcon-vip"></i>成长值中心</a>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-toggle m2-aside-cur" ><i class="m2-asideIcon2"></i>投资管理<b class="m2-asideIcon-new"></b></a>
+                <ul class="m2-aside-secItem" style="display:none">
+                    <!--             取消自动投标-->
+                    <!--                   <li>-->
+                    <!--                        <a class="m2-aside-secLink-item" href="/usercenter-investcontrol-autoinvest"><b class="m2-asideIcon-new"></b>自动投标</a>-->
+                    <!--                    </li>-->
+
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-investcontrol-investrecord.html">投资记录</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-investcontrol-monthrepayment.html">回款计划</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-investcontrol-transfer.html">债权转让</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="touzi_licai_chanpin.html" target="_blank">立即投资</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item" href="usercenter-invitefriends.html">
+                    <i class="m2-asideIcon-invit"></i>
+                    <b class="m2-asideIcon-prize"></b>
+                    邀请好友
+                </a>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" href="home-register-openbankid.html"><i class="m2-asideIcon3"></i>徽商资金管理</a>            <ul class="m2-aside-secItem" style="display:none">
+                <li><a class="m2-aside-secLink-item" href="#">充&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;值</a></li>
+                <li><a class="m2-aside-secLink-item" href="#">提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现</a></li>
+                <li><a class="m2-aside-secLink-item" href="#">资金流水</a></li>
+
+            </ul>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon4"></i>奖励管理</a>
+                <ul class="m2-aside-secItem" style="display:none">
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-rewardrecord.html">奖励金流水</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-redpacket.html">我的红包</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-interestcoupon.html">我的加息券</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-rewardcontrol-mycoin.html">我的钱帮币</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon5"></i>消息管理 </a>
+                <ul class="m2-aside-secItem" style="display:none">
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-sitemsg.html">站内消息</a>
+                    </li>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="usercenter-messagecontrol-set_message.html">通知设置</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="m2-asideListitem">
+                <a class="m2-aside-item m2-aside-toggle" ><i class="m2-asideIcon6"></i>账户管理</a>
+                <ul class="m2-aside-secItem" style="display:none" id='aaa'>
+                    <li>
+                        <a class="m2-aside-secLink-item" href="#">账户设置</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // 		$(document).ready(function(){
+        var href = window.location.href;
+        var search = window.location.search;
+        $('.m2-asideListitem ul a').each(function () {
+            if ($(this).prop('href') + search == href) {
+                if ($(this).prop('href') == "/usercenter-wangbaoqiang" || $(this).prop('href') == "/usercenter-sirendingqi") {
+                } else {
+                    $(this).parent().parent('ul').show();
+                    $(this).parent().parent('ul').prev('a').removeClass('m2-aside-item');
+                    $(this).parent().parent('ul').prev('a').addClass('m2-aside-cur');
+                    $(this).css('text-decoration', 'underline');
+                    $(this).css('color', '#0996CC');
+                }
+            }
+        });
+        $('.m2-asideListitem a:not(.m2-asideListitem ul a)').each(function () {
+            if ($(this).prop('href') + search == href) {
+                if ($(this).prop('href').search("usercenter-wangbaoqiang") > -1) {
+                    $(this).removeClass('m2-aside-wbq');
+                    $(this).addClass('m2-aside-cur');
+                } else if ($(this).prop('href').search("usercenter-sirendingqi") > -1) {
+                    $(this).removeClass('m2-aside-wbq');
+                    $(this).addClass('m2-aside-cur');
+                } else {
+                    $(this).removeClass('m2-aside-item');
+                    $(this).addClass('m2-aside-cur');
+                }
+            }
+        });
+        $('.m2-asideListitem a:not(.m2-asideListitem ul a)').click(function () {
+            if ($(this).prop('href') == '') {
+                $(this).siblings('ul').slideToggle();
+                $(this).parent().siblings('.m2-asideListitem').children('.m2-aside-secItem').slideUp();
+            }
+        });
+        // 		});
+    </script>
+
+    <div style="width:100%; height:100%; position:fixed; z-index:100; top:0; display:none; left:0;" id="allP" >
+        <div style="width:100%; height:100%; position:absolute; top:0; left:0; background:#000; opacity:0.5;"></div>
+        <div style="width:404px; height:154px; background:#fff; position:absolute; top:50%; left:50%; margin-left:-252px; margin-top:-100px; border:2px solid #666;">
+            <p style="color: #666666;font-size: 16px;absolute;line-height:170px;text-align: center; font-family: Microsoft YaHei;;">该项目已还清，为保护企业隐私，不再公示项目信息</p>
+            <div style="width: 30px;height: 30px;position: absolute;top: 11px;right: 0px;color: #666;font-size: 20px;cursor: pointer;" id="close">X</div>
+        </div>
+
+    </div>
+    <div class="m2-userCentermanage-con">
+        <div class="m2-manage-search">
+            <div class="m2-manage-search-head">
+                <h3><i></i>投资记录</h3>
+            </div>
+            <div class="m2-manage-search-selector">
+                <ul class="m2-manageSearchsel-time m2-manageSearchsel-time1" style="margin-bottom:15px">
+                    <li>时间范围：</li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link1"><span class="m2-manSealink-sel" >全部</span></li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link1"><span class="m2-manSealink-unsel" >最近7天</span></li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link1"><span class="m2-manSealink-unsel" >一个月</span></li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link1"><span class="m2-manSealink-unsel" >三个月</span></li>
+                    <li>从<input id="m2-manSeadate-start" type="text"></li>
+                    <li>到<input id="m2-manSeadate-end" type="text"></li>
+                </ul>
+                <ul class="m2-manageSearchsel-time m2-manageSearchsel-time2" style="margin-bottom:15px">
+                    <li>回款状态：</li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link2"><span class="m2-manSealink-sel" >全部</span></li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link2"><span class="m2-manSealink-unsel" >还款中</span></li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link2"><span class="m2-manSealink-unsel" >已结清</span></li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link2"><span class="m2-manSealink-unsel" >已转让</span></li>
+                </ul>
+                <ul class="m2-manageSearchsel-time m2-manageSearchsel-time3" style="margin-bottom:15px">
+                    <li>投资方式：</li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link3"><span class="m2-manSealink-sel" >全部</span></li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link3"><span class="m2-manSealink-unsel" >自动投标</span></li>
+                    <li class="m2-manageSearchsel-link m2-manageSearchsel-link3"><span class="m2-manSealink-unsel" >手动投标</span></li>
+                </ul>
+                <table class="m2-userInvest-table"  cellpadding="0" cellspacing="0" >
+                    <tr class="m2-userInevst-head" >
+                        <th style="width:140px;">项目名称</th>
+                        <th style="width:120px;">投资金额</th>
+                        <th style="width:60px;">收益率</th>
+                        <th style="width:120px;">计息日</th>
+                        <th style="width:120px;">还款日</th>
+                        <th style="width:168px;"></th>
+                    </tr>
+                    <tr class="m2-userTable-noData"><td>暂无数据</td><td colspan="5"></td></tr>					</table>
+                <input type="hidden" value=1 class="nowpages">
+                <input type="hidden" value= class="recordpages">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var oP=document.getElementById('allP');
+    var oClose=document.getElementById('close');
+    //oP.style.display='none';
+    oClose.onclick=function(){
+        oP.style.display='none';
+    };
+    var investdata=new Array(0,0,0);
+    var capitalprogress=new Array();
+
+    /**
+     * 已结束的项目不允许查看合同
+     */
+    function linkContractContract(that){
+        var bid=that.getAttribute('bid');
+        var status = that.getAttribute('status');
+        if(status==7||status==11){
+            oP.style.display='block';
+        } else {
+            window.open("member-contract-investor.shtml?id="+bid,"_blank");
+        }
+    }
+    /**
+     * 已结束的项目不允许查看合同
+     */
+    function linkContracttransContract(that){
+        var bid=that.getAttribute('bid');
+        var status = that.getAttribute('status');
+        if(status==7||status==11){
+            oP.style.display='block';
+        } else {
+            window.open("member-contracttrans-investor.shtml?id="+bid,"_blank");
+        }
+    }
+    /**
+     * 已结束的项目不允许下载合同
+     */
+    function linkDownload(that){
+        var bid=that.getAttribute('bid');
+        var status = that.getAttribute('status');
+        if(status==7||status==11){
+            oP.style.display='block';
+        } else {
+            window.open("Member-Contract-createAndSendPdfbyid?id="+bid,"_blank");
+        }
+    }
+</script>
+
+<script type="text/javascript" src="statics/usercenter/js/m2-userCenter-invest.js"></script>
+
+</body>
+</html>

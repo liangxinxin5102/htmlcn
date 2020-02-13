@@ -1,0 +1,1771 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+    <meta http_equiv="Content_Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=0.2,user-scalable=1"/>
+<link type="image/x-icon" rel="shortcut icon" href="images/favicon.ico"/>
+<!-- 公共CSS样式 -->
+<!--<link href="css/style.css" rel="stylesheet" />-->
+<!-- 调整后公共样式style2.0css -->
+<!--<link href="css/style2.0.css" rel="stylesheet" />-->
+<link href="css/nstyle.css" rel="stylesheet" />
+<!-- 公共JS -->
+<script src="js/jquery.js"></script>
+<script src="js/app.js"></script>
+<script src="js/index.js"></script>
+
+<!-- IE8兼容 -->
+<!--[if lt IE 9]><script src="js/ie8.js"></script><![endif]-->
+<script type="text/javascript">
+var  basePath="";
+	var jsPath ="";
+	$(function(){
+		var location = (window.location+'').split('/');
+		jsPath = location[0]+'//'+location[2];
+	});
+</script>
+
+<script>
+        //计算导航的宽度 并设置值
+        $(function () {
+            var win_width = $(window).width();
+            if ($(window).width() >= 980) {
+                $(".g_out .g_bg2").css("width", "1200px");
+                $(".g_out").css("width", "100%");
+            } else {
+                $(".g_out .g_bg2").css("width", "980px");
+                $(".g_out").css("width", "980px");
+            }
+        });
+        //窗口改变时 重新计算导航的宽度 并设置值
+        window.onresize = function () {
+            var win_width = $(window).width();
+            if ($(window).width() >= 980) {
+                $(".g_out .g_bg2").css("width", "1200px");
+                $(".g_out").css("width", "100%");
+            } else {
+                $(".g_out .g_bg2").css("width", "980px");
+                $(".g_out").css("width", "980px");
+            }
+        }
+        </script>
+        <script>
+        //模拟select的处理js
+        $(function () {
+        	$.ajaxSetup ({
+     		   cache: false //关闭AJAX相应的缓存
+     		});
+        	
+            $(".arrow").click(function () {
+                var arrow = $(this),
+                    arrow_box = arrow.parent(".arrow_box"),
+                    arrow_i = arrow.find("i"),
+                    arrow_ul = arrow_box.find(".arrow_ul"),
+                    arrow_span = arrow_box.find(".select_value"),
+                    hidden_input = arrow_box.find(".hidden_input"),
+                    box = arrow_box.parent(".box"),
+                	by_day=$("#byDay");
+
+                if(by_day.attr("type")!=undefined){
+                	if(document.getElementById("byDay").checked==true){
+                		$('#day').show();
+            			$('#moth').hide();
+            			var cla = arrow_i.attr("class");
+    	                if (cla == "arrow_down") {
+    	                    arrow_i.removeClass("arrow_down").addClass("arrow_up");
+    	                    $('#day').css("display", "block").mouseleave(function () {
+    	                        $(this).css("display", "none");
+    	                        box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    });
+    	                    box.css("z-index","101");
+    	                    $('#day').find("li").click(function () {
+    	                        var text = $(this).text();
+    	                        var value = $(this).attr("value");
+    	                        $('#day').css("display", "none");
+    	                        arrow_box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                        arrow_span.text(text);
+    	                        hidden_input.val(value);
+    	                    });
+    	                } else {
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    $('#day').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                }
+    	
+    	                arrow_box.mouseleave(function () {
+    	                	$('#day').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                });
+                	}else{
+                		$('#day').hide();
+            			$('#moth').show();
+            			var cla = arrow_i.attr("class");
+    	                if (cla == "arrow_down") {
+    	                    arrow_i.removeClass("arrow_down").addClass("arrow_up");
+    	                    $('#moth').css("display", "block").mouseleave(function () {
+    	                        $(this).css("display", "none");
+    	                        box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    });
+    	                    box.css("z-index","101");
+    	                    $('#moth').find("li").click(function () {
+    	                        var text = $(this).text();
+    	                        var value = $(this).attr("value");
+    	                        $('#moth').css("display", "none");
+    	                        arrow_box.css("z-index", "0");
+    	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                        arrow_span.text(text);
+    	                        hidden_input.val(value);
+    	                    });
+    	                } else {
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                    $('#moth').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                }
+    	
+    	                arrow_box.mouseleave(function () {
+    	                	$('#moth').css("display", "none");
+    	                    box.css("z-index", "0");
+    	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+    	                });
+                	}
+                }else{
+	                var cla = arrow_i.attr("class");
+	                if (cla == "arrow_down") {
+	                    arrow_i.removeClass("arrow_down").addClass("arrow_up");
+	                    arrow_ul.css("display", "block").mouseleave(function () {
+	                        $(this).css("display", "none");
+	                        box.css("z-index", "0");
+	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                    });
+	                    box.css("z-index","101");
+	                    arrow_ul.find("li").click(function () {
+	                        var text = $(this).text();
+	                        var value = $(this).attr("value");
+	                        arrow_ul.css("display", "none");
+	                        arrow_box.css("z-index", "0");
+	                        arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                        arrow_span.text(text);
+	                        hidden_input.val(value);
+	                    });
+	                } else {
+	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                    arrow_ul.css("display", "none");
+	                    box.css("z-index", "0");
+	                }
+	
+	                arrow_box.mouseleave(function () {
+	                    arrow_ul.css("display", "none");
+	                    box.css("z-index", "0");
+	                    arrow_i.removeClass("arrow_up").addClass("arrow_down");
+	                });
+                }
+            });
+            
+        });
+            
+            
+
+        
+        
+        
+
+    </script>        <script src="js/layer/layer.min.js"></script>
+        <script src="js/loadmask.js"></script>
+</head>
+<body>
+<!--头部开始-->
+<header class="layout">
+    <!--顶部开始-->
+<header class="layout">
+    <!--顶部开始-->
+    <!--<div class="top">
+        <div class="container">
+            <div class="top-left hidden-l">
+                <span><img src="images/tel.jpg" /> 服务热线 <strong>400-855-5056</strong></span>
+                <span>服务时间 9:00-22:00</span>
+                关注我们
+               	<a id="weibo" target="_blank" href="http://weibo.com/3445450794/profile?rightmod=1&amp;wvr=5&amp;mod=personinfo" t="weiboDiv" point="20|26|0|26|-40|70"><img src="images/weibo.png" /><span><img src="images/ewb.jpg" /></span></a>
+                <a id="weixin"><img src="images/weixin.png" /><span><img src="images/ewm.png" /></span></a>
+            </div>
+            <div class="top-middle hidden-l"><img src="images/welcome.jpg" class="hidden-l" /></div>
+            <div class="top-right">
+            	<span>
+							<a href="/user/account/detail.html" title="tangqiang">tangqia...</a>
+							<a class="button bg-main" style="padding: 2px 10px" href="/user/account/detail.html">用户中心</a></li> 
+							|
+						<a href="/logout.html">[退出]</a>
+                </span>
+                <span><a href="/app.html" target="_blank" ><img src="images/mobile.jpg" />手机客户端</a></span>
+                <span class="hidden-l">
+                	<a href="http://www.zhaoshangdai.cn" target="_blank">论坛</a>
+                	<img src="images/new.gif" />
+                </span>
+            </div>
+        </div>
+    </div>
+    -->
+    <!--顶部开始-->
+    <div class="top">
+        <div class="container">
+            <div class="top-left hidden-l">
+                <span>服务热线 <strong>400-855-5056</strong></span>
+                <span>服务时间：9:00-22:00</span>
+                关注我们
+                <a target="_blank" href="http://weibo.com/3445450794/profile?rightmod=1&amp;wvr=5&amp;mod=personinfo"><img src="images/weibo.jpg" /></a>
+                <a href="#"><img src="images/weixin.jpg" /><span><img src="images/ewm.png" /></span></a>
+            </div>
+            <div class="top-right">
+                            <a href="/user/account/detail.html" title="tangqiang">tangqia...</a>
+                            <a href="/user/account/detail.html">用户中心</a>
+                    <em></em>
+                    <a href="/logout.html">[退出]</a>
+                    <em></em>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!--顶部结束-->
+
+ <link href="css/myStyle.css" rel="stylesheet" />
+    
+ <!--顶部结束-->
+  <script type="text/javascript">
+  
+  $(function(){
+  
+  	$("#weibo").mouseenter(function(){
+  		$(this).find("img").first().attr("src","images/weibol.png");
+  	});
+  	$("#weibo").mouseleave(function(){
+  		$(this).find("img").first().attr("src","images/weibo.png");
+  	});
+  	
+  	$("#weixin").mouseenter(function(){
+  		$(this).find("img").first().attr("src","images/weixinl.png");
+  	});
+  	$("#weixin").mouseleave(function(){
+  		$(this).find("img").first().attr("src","images/weixin.png");
+  	});
+  });
+  
+  
+  var needReloadPage=false;
+  var needReloadUrl="";
+  	/*  显示错误提示弹出框 */
+ function showErrorMessageDialog(mes){
+	  $("#temp_prop").siblings("span").html(mes);
+	  $("#errorMessageDialog").show();
+	  //setTimeout(wait,5000);
+ }
+ 
+ /* 关闭错误提示弹出框 */
+function closeErrorMessageDialog(){
+	$("#errorMessageDialog").hide();
+	//是否需要刷新页面 true刷新
+	if(needReloadPage){
+		window.location.reload();
+	}
+	//如果传入了加载页面则直接加载
+	if(needReloadUrl!=""){
+	   location.href = needReloadUrl;
+	}
+}
+  </script>
+  <!-- 错误提示弹出框 -->
+    <div class="c-delBkcdByPhoneBox" id="errorMessageDialog" style="display: none ; margin: 0;  padding: 0 20px;" >
+		<div class="del_bank_card_div" id="del_bankcard_div">
+			<div class="del_bank_card_hd">
+				<a class="colse_del_bkcd colse_del_bidts" id="colse_del_bkcd_a" onclick="closeErrorMessageDialog()"  ><img alt="" src="images/v_code_wrong.png" class="colse_del_bkcd"></a>
+			</div>
+			<div class="del_bank_card_hd">
+				<font class="cert_wenxitishi" id="temp_prop">提示：</font><span></span>
+			</div>
+			<br/>
+			<div class="sure_del_bkcd">
+					<input type="button"  class="button bg-main"  onclick="closeErrorMessageDialog()" value="确定" id="prop_sure"/>
+			</div>
+		</div>
+	</div>
+<!-- 错误提示弹出框结束 -->
+</header>
+<!--头部结束-->        <!--顶部结束-->
+        <!--导航开始-->
+        <!--导航开始-->
+  <header class="layout">
+    <div class="container naver">
+    	<div class="logo"><a href="index.html"><img src="images/logo.png" class="img" /></a></div>
+        <nav>
+            <ul id="zsd_nav">
+                <!--首页，我要投资，我要借款，聚福专区，活动专区，关于我们-->
+                <li id="index_nav" class="active"><a href="index.html">首页</a></li>
+                <li class="itm_1" id="financing_nav"><a href="queryData.html">我要理财</a></li>
+                <!--<li class="itm_1" id="financing_nav"><a href="queryData.html">我要投资</a></li>-->
+                <li class="itm_2" id="borrow_nav"><a href="borrowList.html">我要借款</a></li>
+                <li><a href="about_companyInfo.html">关于我们</a></li>
+            </ul>
+    	</nav>
+    </div>
+  </header>
+<!--导航结束-->
+<script>
+	/* $(function(){
+		$("#shopping").click(function(){
+		//http://shop.zhaoshangdai.com
+		//window.location.href="/shoppingUrl.html"
+		window.onload=function(){window.open("/shoppingUrl.html","_blank")}
+		//window.onload = function(){window.open("/shoppingUrl.html", "_blank");} 
+		//alert("ok");
+		});
+	}); */
+					
+					var basePath = "";
+					var url = getUrl();
+					var lis =$("#zsd_nav").find("li");
+					var index_nav = document.getElementById("index_nav");
+					var financing_nav = document
+							.getElementById("financing_nav");
+					var borrow_nav = document.getElementById("borrow_nav");
+					var new_nav = document.getElementById("new_nav");
+					var xbox_nav = document.getElementById("xbox_nav");
+                    var activity_nav=document.getElementById("activity_nav");
+					if (url.indexOf("borrowList") != -1||(url.indexOf("toborrow") != -1)) {
+						lis.removeClass(" active");
+						borrow_nav.className = borrow_nav.className + " active";
+					} else if (url.indexOf("queryData") != -1||(url.indexOf("tender") != -1)) {
+						lis.removeClass(" active");
+						financing_nav.className = financing_nav.className
+								+ " active";
+					} else if (url.indexOf("getPageNew") != -1) {
+						lis.removeClass(" active");
+						//new_nav.className = new_nav.className + " active";
+					} else if (url.indexOf("product/box") != -1) {
+						lis.removeClass(" active");
+						xbox_nav.className = xbox_nav.className + " active";
+					}else if (url.indexOf("activity") != -1) {
+                        lis.removeClass(" active");
+                        activity_nav.className = activity_nav.className + " active";
+                    }else {
+						lis.removeClass(" active");
+						index_nav.className += "active";
+					}
+
+					/**
+					 * 得到请求的url地址 去除参数
+					 * @returns {Array}
+					 */
+					function getUrl() {
+						var url = window.location.href;
+						var index = url.indexOf('?');
+						if (-1 != index) {
+							return url.substring(0, index);
+						}
+						return url;
+					}
+				</script> <!-- //引入导航 -->
+</header>
+<!--头部结束-->
+<link href="css/myStyle.css" rel="stylesheet" />
+<link href="css/n-style.css" rel="stylesheet" />
+
+<!--正文开始-->
+<div class="n-detail">
+<input id="borrowType" value="2" type="hidden" />
+<div class="container">
+     <!-- 当前所在位置 -->
+	<div class="container">
+    	<ul class="bread clearfix">
+        	<li>您所在的位置：
+        	 	<a href="index.html">首页</a> 
+        	 	<span> &gt;</span> 
+        	 	<span class="txt-black">我要理财</span>
+        	 </li>
+        </ul>
+	</div>
+            <!--详情介绍-->
+            <div class="detail-box" style="margin:0px">
+                <!--Detail-Left-->
+                <div class="detail-l">
+                    <h1><img src="images/icon-2.png">机械设备公司流动资金周转（增加贷款）4
+                        <p style="position:absolute;z-index:11;margin-top: -54px;margin-left: 585px;"><img src="images/n_money_coupon.png"></p>
+                    </h1>
+                    <ul>
+                        <li>
+                            <span class="no-l">年化率<p><b>12.6</b>%</p></span>
+                            <span>借款总额<p><b> 100.00</b>万元</p></span>
+                            <span>借款期限<p><p><b>3</b>个月</p></span>
+                            <div class="n-div"><em>剩余金额</em><tt>590,962.00 元</tt><div class="clear"></div></div>
+                            <div class="n-div"><em>投标进度</em><s><i style="width:81.8076px">&nbsp;</i>
+                            </s>
+                                    40.9%
+                                <div class="clear"></div></div>
+                        </li>
+                        <li><em>收益方式</em><tt>
+                            按月等额还本付息
+                                                        </tt><em>起息方式</em><tt>满标放款之日计息</tt><div class="clear"></div></li>
+                        <li><em>最小投标额</em><tt>50.00 </tt>
+                            <em>最大投标额</em><tt>未限制最大投标金额 </tt><div class="clear"></div></li>
+                        <li><em>借款用户名</em><tt>gm83</tt><em>投标数量</em><tt>7</tt><div class="clear"></div></li>
+                    </ul>
+                </div>
+                <!--Detail-Right-->
+                        <!-- 判断标进度是否完成 -->
+                                <!--  此标可投 -->
+                                <div class="detail-r">
+                                    <ul>
+                                        <li><em>可用余额</em><tt id="balance">
+                                                0.00
+                                                
+                                            元</tt><i><a href="/user/account/recharge.html">充值</a></i><div class="clear"></div></li>
+                                        <li class="bidd-box">
+                                            <p>
+<!--普通标-->
+                                            <i><a href="javascript:void(0)"  id="max" >可投余额</a></i>
+                                            <input type="text"  id="money" class="txt" placeholder="请输入投标金额" />
+                                            <b class="b-top"><tt class="bidd-li-active">现金券可加投<s id="addCoupon">0</s>元</tt><a href="javascript:void(0)" class="active">可用现金券</a></b>
+                                            </p>
+                                            </li>
+                                            <li class="bidd-li-hd">
+                                                <s>选用现金券</s><a href="javascript:void(0)" class="nobidd">不使用现金券</a>
+                                                <p class="p_t"><img src="images/n-top-ico.png" class="top-ico"><input type="radio" name="orderByStatus" checked value="1">
+                                                    <span>优先使用最高面额</span><input type="radio" name="orderByStatus" value="2">优先使用最快到期</p>
+                                                <!--    <p class="p_c">
+                                                        <input type="checkbox"><span class="s_1">现金券10元</span><span class="s_2">每满1000元抵10元</span><span class="s_3">2015-11-11到期</span>
+                                                    <div class="clear"></div>
+                                                    </p>-->
+                                                <p><a href="#" class="p-note" id="couponHelp" >了解使用规则</a></p>
+                                            </li>
+                        <li><em>投标总额</em><tt><s id="tenderMoney" style="color:#333" >0</s>元</tt><em>预计收益</em><tt><s id="earnings">0</s>元</tt><div class="clear"></div></li>
+                        <li><input type="radio" id="agree"  checked="true" class="radio">我同意<a href="#" id="borrow_protocol" class="b-link">《招商贷借款协议》</a></li>
+                            <li><input type="button" id="btn-tender" style="height:46px;width:388px" value="请稍候，正在获取时间…"  borowId="d9cf38f4f7584f88a3cd3b0159f52440"  intDiff="3"  class="btn"></li>
+                        </ul>
+            </div>
+            <div class="clear"></div>
+</div>
+<!--详情介绍结束-->
+
+<!--详情信息-->
+<div class="detailinfo">
+    <dl id="tags">
+        <dt>
+            <s ><a onClick="selectTag('tagContent1',this)" href="javascript:void(0)">详细信息</a></s>
+            <s class="ashow"><a onClick="selectTag('tagContent0',this)" href="javascript:void(0)">投标记录</a></s>
+            <s ><a onClick="selectTag('tagContent2',this)" href="javascript:void(0)">风险控制</a></s>
+        <div class="clear"></div>
+        </dt>
+        <dd id="tagContent1">
+            <h1 class="title"><span>借款描述</span></h1>
+            <p>
+                   <span style="font-size:16px;font-family:SimSun;line-height:22px;background-color:#FFFFFF;"><strong><span style="font-size:16px;line-height:2.5;">一、项目概况：</span></strong><span style="font-size:12px;font-family:Tahoma, Verdana, 微锟斤拷锟脚猴拷, 锟斤拷锟斤拷锟斤拷;line-height:2.5;">借款人贵州**机械设备有限公司，是上海**机械备件有限公司在西南地区总代理。 **厂是中国最大、最有实力的磨煤机主机及备件备品生产企业。西南地区又是我国重要的电力生产地，有***电力公司， **电厂，**电厂等多家发电厂，以上电力企业都是用**厂生产的磨煤机。目前贵州省开建高速铁路，公路、桥梁、新建电厂等，各种混凝土膜板需求急剧增大，为该公司的业务提供了新的商机。</span></span><br />
+<span style="font-size:16px;font-family:SimSun;line-height:22px;background-color:#FFFFFF;"><strong><span style="font-size:16px;line-height:2.5;">二、借款人基本情况：</span></strong><span style="font-size:12px;font-family:Tahoma, Verdana, 微锟斤拷锟脚猴拷, 锟斤拷锟斤拷锟斤拷;line-height:2.5;">贵州**机械设备有限公司成立于2001年，注册资金2亿元人民币，是一家集工贸、机电、大型设备销售为一体的多元化公司，也是国家机械工业部大型骨干企业上海**机器有限公司西南地区唯一授权的产品及备品备件经营公司。公司全部员工70 人，其中大专以上学历人员达到 80%，其中高层管理人员6人，公司内部管理机构完善，下设三室五部一中心，设董事长室、总经理室、行政办公室、财务部、审计部、销售部、供应部、售后服务部、人才管理中心，拥有一批高素质的现代化管理人才。</span></span><br />
+<span style="font-size:16px;font-family:SimSun;line-height:22px;background-color:#FFFFFF;"><strong><span style="font-size:16px;line-height:2.5;">三、经营状况：</span></strong><span style="font-size:12px;font-family:Tahoma, Verdana, 微锟斤拷锟脚猴拷, 锟斤拷锟斤拷锟斤拷;line-height:2.5;">上游合同订单情况：2015年，与贵州多家公司签订电网备件供应合同近1.3亿元。与**电力有限公司签订设备及物资销售合同8000万元。2015年预计销售收入4.3亿元，利润3700万元，经营状况良好。</span></span><br />
+<span style="font-size:16px;font-family:SimSun;line-height:22px;background-color:#FFFFFF;"><strong><span style="font-size:16px;line-height:2.5;">四、资金用途：</span></strong><span style="font-size:12px;font-family:Tahoma, Verdana, 微锟斤拷锟脚猴拷, 锟斤拷锟斤拷锟斤拷;line-height:2.5;">该笔贷款主要用于公司经营周转，申请增加贷款1500万元，期限一年。</span></span><br />
+<span style="font-size:16px;font-family:SimSun;line-height:22px;background-color:#FFFFFF;"><strong><span style="font-size:16px;line-height:2.5;">五、还款来源：</span></strong><span style="font-size:12px;font-family:Tahoma, Verdana, 微锟斤拷锟脚猴拷, 锟斤拷锟斤拷锟斤拷;line-height:2.5;">还款来源主要为公司销售收入。</span></span><br />
+<span style="font-size:16px;font-family:SimSun;line-height:22px;background-color:#FFFFFF;"><strong><span style="font-size:16px;line-height:2.5;">六、保证方式：</span></strong><span style="font-size:12px;font-family:Tahoma, Verdana, 微锟斤拷锟脚猴拷, 锟斤拷锟斤拷锟斤拷;line-height:2.5;">该笔贷款由贵州***担保有限公司提供担保。</span></span><br />
+<span style="font-size:16px;font-family:SimSun;line-height:22px;background-color:#FFFFFF;"> 
+<p style="font-size:12px;font-family:微软雅黑;vertical-align:baseline;color:#333333;">
+	<span style="font-size:16px;font-family:宋体, SimSun;font-style:inherit;line-height:2.5;vertical-align:baseline;">借款人有可能提前还款，所以暂借三个月，如有需要还会续借续发。</span> 
+</p>
+<p style="font-size:12px;font-family:微软雅黑;vertical-align:baseline;color:#333333;">
+	<span style="font-size:16px;font-family:宋体, SimSun;font-style:inherit;line-height:2.5;vertical-align:baseline;"><strong>还款保障：</strong></span><span style="font-size:16px;font-family:宋体, SimSun;font-style:inherit;line-height:2.5;vertical-align:baseline;">借款人发生逾期由贵州合石电子商务有限公司当天垫付。</span> 
+</p>
+<p style="font-size:12px;font-family:微软雅黑;vertical-align:baseline;color:#333333;">
+	<span style="font-size:14px;font-family:宋体, SimSun;font-style:inherit;line-height:inherit;vertical-align:baseline;"><span style="font-size:16px;font-family:Tahoma, Verdana, 微锟斤拷锟脚猴拷, 锟斤拷锟斤拷锟斤拷;font-style:inherit;line-height:2;vertical-align:baseline;"><strong><span style="font-size:16px;line-height:2.5;">详情：</span><a href="http://www.zhaoshangdai.cn/forum.php?mod=viewthread&amp;tid=26062&amp;extra=page%3D1" target="_blank"><span style="font-size:16px;line-height:2.5;">http://www.zhaoshangdai.cn/forum.php?mod=viewthread&amp;tid=26062&amp;extra=page%3D1</span></a></strong></span></span> 
+</p>
+</span>   
+            </p>
+
+            <h1 class="title"><span>审核抵押资料信息</span></h1>
+            <div id="date-info" class="carousel">
+                <div class="banner" style="height:180px;">
+                            <div class="item"  style="top:75px;">暂无图片资料信息</div>
+                </div>
+                <ul id="dpoint" class="pointer hide"></ul>
+            </div>
+            <a id="dprev" class="prev" href="javascript:void(0);"></a>
+            <a id="dnext" class="next" href="javascript:void(0);"></a>
+        </dd>
+        <dd id="tagContent0">
+            <table class="table table-bordered" width="100%">
+                <tr><th>投标序号</th><th>投标人</th><th>投标金额</th><th>有效金额</th><th>投标时间</th><th>投标来源</th><th>投标排名</th></tr>
+                    <tr>
+                                <td >1</td>
+                                <td >*aixut**</td>
+                                <td >100.00</td>
+                                <td >100.00</td>
+                                <td  >2016-02-22 12:54:08</td>
+                                <td >
+                                        自动投标
+                                </td>
+                                    <td >
+                                        251
+                                    </td>
+                    </tr>
+                    <tr>
+                                <td >2</td>
+                                <td >*雁啸**</td>
+                                <td >50.00</td>
+                                <td >50.00</td>
+                                <td  >2016-02-22 12:54:09</td>
+                                <td >
+                                        自动投标
+                                </td>
+                                    <td >
+                                        252
+                                    </td>
+                    </tr>
+                    <tr>
+                                <td >3</td>
+                                <td >*uo6**</td>
+                                <td >100,000.00</td>
+                                <td >100,000.00</td>
+                                <td  >2016-02-22 12:54:09</td>
+                                <td >
+                                        自动投标
+                                </td>
+                                    <td >
+                                        253
+                                    </td>
+                    </tr>
+                    <tr>
+                                <td >4</td>
+                                <td >*泓溪水_2***</td>
+                                <td >10,000.00</td>
+                                <td >10,000.00</td>
+                                <td  >2016-02-22 12:54:09</td>
+                                <td >
+                                        自动投标
+                                </td>
+                                    <td >
+                                        254
+                                    </td>
+                    </tr>
+                    <tr>
+                                <td >5</td>
+                                <td >*滨</td>
+                                <td >200,000.00</td>
+                                <td >200,000.00</td>
+                                <td  >2016-02-22 12:54:09</td>
+                                <td >
+                                        自动投标
+                                </td>
+                                    <td >
+                                        255
+                                    </td>
+                    </tr>
+                    <tr>
+                                <td >6</td>
+                                <td >*gqand***</td>
+                                <td >88,888.00</td>
+                                <td >88,888.00</td>
+                                <td  >2016-02-22 12:54:09</td>
+                                <td >
+                                        自动投标
+                                </td>
+                                    <td >
+                                        256
+                                    </td>
+                    </tr>
+                    <tr>
+                                <td >7</td>
+                                <td >*u2007**</td>
+                                <td >10,000.00</td>
+                                <td >10,000.00</td>
+                                <td  >2016-02-22 12:54:09</td>
+                                <td >
+                                        自动投标
+                                </td>
+                                    <td >
+                                        257
+                                    </td>
+                    </tr>
+            </table>
+            <div class="pagination clearfix">
+                <br/>
+            </div>
+        </dd>
+        <dd id="tagContent2">
+            <h1 class="title"><span>五层风险隔离体系</span></h1>
+            <img alt="" src="images/img/fk_01.png">
+            <h1 class="title"><span>产业生态闭环</span></h1>
+            <p>
+            	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在中天大金融产业生态闭环中，招商贷处于核心互联网金融交易平台的地位，通过外部债权平台、小贷公司、传统金融机构获得优质基础资产，再有旗下担保公司进行<br>显性担保，监管银行作为资金交易结算中介，形成资金流、信息流相互独立而又有机统一的闭环。
+            </p>
+            <img alt="" src="images/img/fk_02.png">
+        </dd>
+    </dl>
+</div>
+<!--详情信息结束-->
+</div>
+</div>
+<!--正文结束-->
+
+<!--       协议弹出框 dialog  开始 -->
+<div id="abr_text" style="width: 730px; height: 300px; overflow: auto; display: none; margin: 20px 0;  padding: 0 20px;">
+    <p align="center">
+        <span style="line-height:2;">现金券使用规则</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">1、使用现金券时需满足相应的投资金额；</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">2、单笔投资可叠加使用多张现金券，现金券叠加的同时投资金额也相应叠加；</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">3、单笔投资叠加使用多张现金券时，请务必在选用现金券时确认可用现金券已勾选；</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">4、现金券仅限投资具有“可用券”标识的借款标；</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5、聚福专区项目暂不支持现金券的使用；</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">6、现金券投资后可提现；</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">7、现金券仅限本人使用，不可转赠；</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">8、现金券仅限电脑端使用，手机端暂不支持；</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">9、自动投标暂不能使用现金券；</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">10、现金券的有效期参考所获现金券的期限说明；</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">11、使用过程中遇到问题，请拨打客服热线400-855-5056。</span>
+    </p>
+</div>
+<div id="borrow_protocol_text" style="width: 730px; height: 300px; overflow: auto; display: none; margin: 20px 0;  padding: 0 20px;">
+    <p align="center">
+        <span style="line-height:2;">招商贷网站服务协议</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">招商贷由贵州合石电子商务有限公司负责运营。在您注册成为招商贷用户前请务必仔细阅读以下条款。若您一旦注册，则表示您同意接受招商贷的服务并受以下条款的约束。如您不同意本服务条款的任意内容，请勿注册或使用招商贷用户服务。</span>
+    </p>
+    <p align="left">
+        <br />
+        <span style="line-height:2;"> 一、 本协议的签署、修订</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">1.1招商贷只接受持有中国有效身份证明的18周岁以上具有完全民事行为能力的自然人成为网站用户。如您不符合资格，请勿注册，否则招商贷有权随时中止或终止您的用户资格。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">1.2本协议内容包括以下条款及招商贷已经发布的或将来可能发布的各类规则。所有规则为本协议不可分割的一部分，与协议正文具有同等法律效力。本协议是您与招商贷共同签订的，适用于您在招商贷的全部活动。在您注册成为用户时，您已经阅读、理解并接受本协议的全部条款及各类规则，并承诺遵守中国的各类法律规定，如有违反而导致任何法律后果的发生，您将以自己的名义独立承担所有相应的法律责任。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">1.3招商贷有权根据需要不时地修改本协议或根据本协议制定、修改各类具体规则并在招商贷相关系统板块发布，无需另行单独通知您。您应不时地注意本协议及具体规则的变更，若您在本协议及具体规则内容公告变更后继续使用本服务的，表示您已充分阅读、理解并接受修改后的协议和具体规则内容，也将遵循修改后的协议和具体规则使用招商贷的服务；同时就您在协议和具体规则修订前通过招商贷进行的交易及其效力，视为您已同意并已按照本协议及有关规则进行了相应的授权和追认。若您不同意修改后的协议内容，您应停止使用招商贷的服务。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">1.4您通过自行或授权有关方根据本协议及招商贷有关规则、说明操作确认本协议后，本协议即在您和招商贷之间产生法律效力。本协议不涉及您与招商贷的其他用户之间因网上交易而产生的法律关系或法律纠纷，但您在此同意将全面接受和履行与招商贷其他用户在招商贷签订的任何电子法律文本，并承诺按该等法律文本享有和/或放弃相应的权利、承担和/或豁免相应的义务。</span>
+    </p>
+    <p align="left">
+        <br />
+        <span style="line-height:2;"> 二、 服务的内容</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">2.1招商贷提供的服务包括但不限于：发布借款需求、查阅交易机会、签订和查阅合同、资金充值、提现、代收、代付等，具体详情以招商贷当时提供的服务内容为准。您同意，针对借款人用户，招商贷有权根据借款人提供的各项信息及招商贷独立获得的信息评定借款人在招商贷所拥有的个人信用等级，或决定是否审核通过借款人的借款申请。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">2.2基于运行和交易安全的需要，招商贷可以暂时停止提供、限制或改变招商贷服务的部分功能，或提供新的功能。在任何功能减少、增加或者变化时，只要您仍然使用招商贷的服务，表示您仍然同意本协议或者变更后的协议。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">2.3您确认，您在招商贷网站上按招商贷服务流程所确认的交易状态将成为招商贷为您进行相关交易或操作（包括但不限于冻结资金、代为支付或收取款项、订立合同等）的明确指令。您同意招商贷有权按相关指令依据本协议和/或有关文件和规则对相关事项进行处理。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">2.4您未能及时对交易状态进行修改或确认或未能提交相关申请所引起的任何纠纷或损失由您本人负责，招商贷不承担任何责任。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">三、 服务的费用</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">3.1在您成功注册后，您可以自行或授权您的代理人根据招商贷有关规则和说明，通过招商贷确认签署有关协议并经招商贷审核通过后实现借款需求或资金的出借（出借方式包括但不限于向借款人直接出借或受让债权等形式）。详细操作规则及方式请见有关协议及招商贷相关页面的规则和说明。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">3.2招商贷将为您的借款、还款或资金的出借、回收等交易提供服务，并在服务过程中根据有关文件、协议和/或招商贷页面的相关规则、说明等收取必要的服务或管理费用，其具体内容、比例、金额等事项请参见有关文件及招商贷相关页面的规则和说明（包括但不限于，就您每一笔成功转让的债权，招商贷有权基于您所转让债权的金额向您收取一定比例的转让管理费等款项作为服务费用，具体比例及金额等请参见招商贷的债权转让相关规则和说明）。您同意，招商贷有权不时调整前述服务或管理费用的类型或金额等具体事项并根据本协议和相关规则进行公告、修改。</span>
+    </p>
+    <p align="left">
+        <br />
+        <span style="line-height:2;"> 四、 电子合同</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.1在招商贷平台交易需订立的协议采用电子合同方式，可以有一份或者多份并且每一份具有同等法律效力。您或您的代理人根据有关协议及招商贷的相关规则在招商贷确认签署的电子合同即视为您本人真实意愿并以您本人名义签署的合同，具有法律效力。您应妥善保管自己的账户密码等账户信息，您通过前述方式订立的电子合同对合同各方具有法律约束力，您不得以账户密码等账户信息被盗用或其他理由否认已订立的合同的效力或不按照该等合同履行相关义务。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.2您根据本协议以及招商贷的相关规则签署电子合同后，不得擅自修改该合同。招商贷向您提供电子合同的保管查询、核对等服务，如对电子合同真伪或电子合同的内容有任何疑问，您可通过招商贷的相关系统板块查阅有关合同并进行核对。如对此有任何争议，应以招商贷记录的合同为准。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">五、 用户信息授权及隐私权保护</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.1您有义务在注册时提供自己的真实资料，并保证诸如电子邮件地址、联系电话、联系地址、邮政编码等内容的有效性、安全性和及时更新，以便招商贷为您提供服务并与您进行及时、有效的联系。您应完全独自承担因通过这些联系方式无法与您取得联系而导致的您在使用本服务过程中遭受的任何损失或增加任何费用等不利后果。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.2招商贷可能自公开及私人资料来源收集您的额外资料，以更好地了解招商贷用户，并为其度身订造招商贷服务、解决争议和确保在网站进行交易的安全性。招商贷仅收集招商贷认为就此目的及达成该目的所必须的关于您的个人资料。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.3您同意招商贷可以自行或通过合作的第三方机构对您提交或招商贷搜集的用户信息（包括但不限于您的个人身份证信息等）进行核实，并对获得的核实结果根据本协议及有关文件进行查看、使用和留存等操作。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.4招商贷按照您在招商贷上的行为自动追踪并采集关于您的某些资料。招商贷利用这些资料进行有关招商贷之用户的人口统计、兴趣及行为的内部研究，以更好地了解您以便向您和招商贷的其他用户提供更好的服务。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.5如果您将个人通讯信息（例如：手机短信、电邮或信件）交付给招商贷，或如果其他用户或第三方向招商贷发出关于您在招商贷上的活动或登录事项的通讯信息，招商贷可以将这些资料收集在您的专门档案中。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.6您同意招商贷可使用关于您的个人资料（包括但不限于招商贷持有的有关您的档案中的资料，及招商贷从您目前及以前在招商贷上的活动所获取的其他资料）以解决争议、对纠纷进行调停、确保在招商贷进行安全交易，并执行招商贷的服务协议及相关规则。招商贷有时候可能调查多个用户以识别问题或解决争议。为限制在网站上的欺诈、非法或其他刑事犯罪活动，使招商贷免受其害，您同意招商贷可通过人工或自动程序对您的个人资料进行评价。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.7您同意招商贷可以使用您的个人资料以改进招商贷的推广和促销工作、分析网站的使用率、改善招商贷的内容和产品推广形式，并使招商贷的网站内容、设计和服务更能符合用户的要求。这些使用能改善招商贷的网页，以调整招商贷的网页使其更能符合您的需求，从而使您在使用招商贷服务时得到更为顺利、有效、安全及度身订造的交易体验。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.8您同意招商贷利用您的资料与您联络并（在某些情况下）向您传递针对您的兴趣而提供的信息，例如：有针对性的广告条、行政管理方面的通知、产品提供以及有关您使用招商贷的通讯。您接受本协议即视为您同意收取这些资料。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.9您注册成功后应妥善保管您的用户名和密码。您确认，无论是您还是您的代理人，用您的用户名和密码登录招商贷后在招商贷的一切行为均代表您并由您承担相应的法律后果。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.10招商贷对于您提供的、自行收集到的、经认证的个人信息将按照本协议及有关规则予以保护、使用或者披露。招商贷将采用行业标准惯例以保护您的个人资料，但鉴于技术限制，招商贷不能确保您的全部私人通讯及其他个人资料不会通过本协议中未列明的途径泄露出去。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.11您使用招商贷服务进行交易时，您即授权本公司将您的包括但不限于真实姓名、联系方式、信用状况等必要的个人信息和交易信息披露给与您交易的另一方或招商贷的合作机构（仅限于招商贷为完成拟向您提供的服务而合作的机构）。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.12招商贷有义务根据有关法律要求向司法机关和政府部门提供您的个人资料。在您未能按照与本协议、招商贷有关规则或者与招商贷其他用户签订的有关协议的约定履行自己应尽的义务时（包括但不限于当您作为借款人借款逾期或有其他违约时），招商贷有权根据自己的判断、有关协议和规则、国家生效裁决文书或者与该笔交易有关的其他用户的合理请求披露您的个人资料（包括但不限于在招商贷及互联网络上公布您的违法、违约行为，并有关将该内容记入任何与您相关的信用资料、档案或数据库），并且作为出借人的其他用户可以采取发布您的个人信息的方式追索债权或通过司法部门要求招商贷提供相关资料，招商贷对此不承担任何责任。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.13在招商贷提供的交易活动中，您无权要求招商贷提供其他用户的个人资料，除非符合以下条件：</span><br />
+        <span style="line-height:2;"> （1） 您已向法院起诉其他用户的在招商贷活动中的违约行为；</span><br />
+        <span style="line-height:2;"> （2） 与您有关的其他用户逾期未归还借款本息；</span><br />
+        <span style="line-height:2;"> （3） 招商贷被吊销营业执照、解散、清算、宣告破产或者其他有碍于您收回借款本息的情形。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">5.14如您通过签署有关协议等方式获得其他用户的个人信息，您同意不将该等个人信息用于除还本付息或向借款人追索债权以外的其他任何用途，除非该等信息根据适用的法律规定、被有管辖权的法院或政府部门要求披露。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">六、 免责声明及使用限制</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">6.1 招商贷不能保证也没有义务保证第三方网站上的信息的真实性和有效性。您应按照第三方网站的服务协议使用第三方网站，而不是按照本协议。第三方网站的内容、产品、广告和其他任何信息均由您自行判断并承担风险，而与招商贷无关。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">6.3因为招商贷或者涉及的第三方网站的设备、系统存在缺陷、黑客攻击、网络故障、电力中断、计算机病毒或其他不可抗力因素造成的损失，招商贷均不负责赔偿，您的补救措施只能是与招商贷协商终止本协议并停止使用招商贷。但是，中国现行法律、法规另有规定的除外。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">6.3您承诺合法使用招商贷提供的服务及网站内容。您不得利用本服务从事侵害他人合法权益之行为，不得在招商贷从事任何可能违反中国的法律、法规、规章和政府规范性文件的行为或者任何未经授权的行为，如擅自进入招商贷的未公开的系统、不正当的使用账号密码和网站的任何内容等。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">6.4您不得使用招商贷提供的服务或其他电子邮件转发服务发出垃圾邮件或其他可能违反本协议的内容。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">6.5招商贷没有义务监测网站内容，但是您确认并同意招商贷有权不时地根据法律、法规、政府要求透露、修改或者删除必要的信息，以便更好地运营招商贷并保护自身及招商贷的其他合法用户。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">6.6招商贷中全部内容的版权均属于招商贷所有，该等内容包括但不限于文本、数据、文章、设计、源代码、软件、图片、照片及其他全部信息（以下称“网站内容”）。网站内容受中华人民共和国著作权法及各国际版权公约的保护。未经招商贷事先书面同意，您承诺不以任何方式、不以任何形式复制、模仿、传播、出版、公布、展示网站内容，包括但不限于电子的、机械的、复印的、录音录像的方式和形式等。您承认网站内容是属于招商贷的财产。未经招商贷书面同意，您亦不得将招商贷包含的资料等任何内容镜像到任何其他网站或者服务器。任何未经授权对网站内容的使用均属于违法行为，招商贷将追究您的法律责任。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">6.7由于您违反本协议或任何法律、法规或侵害第三方的权利，而引起第三方对招商贷提出的任何形式的索赔、要求、诉讼，招商贷有权向您追偿相关损失，包括但不限于招商贷的法律费用、名誉损失、及向第三方支付的补偿金等。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">七、 协议终止及账户的暂停、注销或终止</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">7.1除非招商贷终止本协议或者您申请终止本协议且经招商贷同意，否则本协议始终有效。在您违反了本协议、相关规则，或在相关法律法规、政府部门的要求下，招商贷有权通过站内信、电子邮件通知等方式终止本协议、关闭您的账户或者限制您使用招商贷网站的功能。但招商贷的终止行为不能免除您根据本协议或在招商贷生成的其他协议项下的还未履行完毕的义务。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">7.2您若发现有第三人冒用或盗用您的用户账户及密码，或其他任何未经合法授权的情形，应立即以有效方式通知招商贷，要求招商贷暂停相关服务，否则由此产生的一切责任由您本人承担。同时，您理解招商贷对您的请求采取行动需要合理期限，在此之前，招商贷对第三人使用该服务所导致的损失不承担任何责任。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">7.3您决定不再使用用户账户时，应首先清偿所有应付款项（包括但不限于借款本金、利息、罚息、违约金、服务费、管理费等），再将用户账户中的可用款项（如有）全部提现或者向招商贷发出其它合法的支付指令，并向招商贷申请注销该用户账户，经招商贷审核同意后可正式注销用户账户。会员死亡或被宣告死亡的，其在本协议项下的各项权利义务由其继承人承担。若会员丧失全部或部分民事权利能力或民事行为能力，招商贷有权根据有效法律文书（包括但不限于生效的法院判决等）或其法定监护人的指示处置与用户账户相关的款项。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">7.4招商贷有权基于单方独立判断，在认为可能发生危害交易安全等情形时，不经通知而先行暂停、中断或终止向您提供本协议项下的全部或部分会员服务，并将注册资料移除或删除，且无需对您或任何第三方承担任何责任。前述情形包括但不限于：</span><br />
+        <span style="line-height:2;"> （1） 招商贷认为您提供的个人资料不具有真实性、有效性或完整性；</span><br />
+        <span style="line-height:2;"> （2） 招商贷发现异常交易或有疑义或有违法之虞时；</span><br />
+        <span style="line-height:2;"> （3） 招商贷认为您的账户涉嫌洗钱、套现、传销、被冒用或其他招商贷认为有风险之情形；</span><br />
+        <span style="line-height:2;"> （4） 招商贷认为您已经违反本协议中规定的各类规则及精神；</span><br />
+        <span style="line-height:2;"> （5） 招商贷基于交易安全等原因，根据其单独判断需先行暂停、中断或终止向您提供本协议项下的全部或部分会员服务，并将注册资料移除或删除的其他情形。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">7.5您同意在必要时，招商贷无需进行事先通知即有权终止提供用户账户服务，并可能立即暂停、关闭或删除您的用户账户及该用户账户中的所有相关资料及档案，并将您滞留在这些账户的全部合法资金退回到您的银行账户。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">7.6您同意，用户账户的暂停、中断或终止不代表您责任的终止，您仍应对您使用招商贷服务期间的行为承担可能的违约或损害赔偿责任，同时招商贷仍可保有您的相关信息。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">7.7若您使用第三方网站账号注册招商贷用户账户，则您应对您招商贷用户账户所对应的第三方网站账号拥有合法的使用权，如您因故对该第三方网站账号丧失使用权的，则招商贷可停止为您的该用户账户提供服务。但如该用户账户尚存有余额的，招商贷将会为您妥善保管。此时，如您欲取回其原有余额，招商贷将提供更换招商贷账户名的服务，即您可把您原招商贷账户下余额转移到您另外合法注册的招商贷账户中；如因故无法自助完成更换账户名，您可以向招商贷提出以银行账户接受原有资金的请求，经核验属实后，招商贷可配合您将原有资金转移到以您真实姓名登记的银行账户下。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">八、 通知</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">本协议项下的通知如以公示方式作出，一经在招商贷公示即视为已经送达。除此之外，其他向您个人发布的具有专属性的通知将由招商贷向您在注册时提供的电子邮箱，或招商贷在您的个人账户中为您设置的站内消息系统栏，或您在注册后在招商贷绑定的手机发送，一经发送即视为已经送达。请您密切关注您的电子邮箱 、站内消息系统栏中的邮件、信息及手机中的短信信息。您同意招商贷出于向您提供服务之目的，可以向您的电子邮箱、站内消息系统栏和手机发送有关通知或提醒；若您不愿意接收，请在招商贷相应系统板块进行设置。但您同时同意并确认，若您设置了不接收有关通知或提醒，则您有可能收不到该等通知信息，您不得以您未收到或未阅读该等通知信息主张相关通知未送达于您。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">九、 适用法律和管辖</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">10.1本协议之效力、解释、变更、执行与争议解决均适用中华人民共和国法律，没有相关法律规定的，参照国际惯例和/或行业惯例。</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">10.2凡因本协议产生的争议，双方应友好协商解决。协商不成的，任何一方均可向贵阳仲裁委员会提出仲裁申请。</span>
+    </p>
+    <p align="left">
+        <br />
+        <span style="line-height:2;"> 十、 协议的解释及补充</span>
+    </p>
+    <p align="left">
+        <span style="line-height:2;">招商贷对本协议拥有最终的解释权。本协议及招商贷有关页面的相关名词可互相引用参照，如有不同理解，则以本协议条款为准。此外，若本协议的部分条款被认定为无效或者无法实施时，本协议中的其他条款仍然有效。</span>
+    </p>
+    <p align="left">
+        <br />
+    </p>
+</div>
+        <!-- 协议弹出框结束  dialog -->
+
+        <!--底部开始-->
+        <footer class="layout">
+<!--版权信息开始-->
+<!--
+
+底部开始
+<footer class="layout">
+    <div class="layout copyright">
+    	<div class="container container1" align="center">
+        	<p>Copyright Reserved @2013 招商贷 | 备案号:<a target="_blank" href="http://www.miibeian.gov.cn/">黔B2-20150014</a>
+        		<script type="text/javascript">
+					var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+					document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F72da47e93f114fd22a380c72f142d731' type='text/javascript'%3E%3C/script%3E"));
+				</script>
+				<script src="https://s19.cnzz.com/stat.php?id=5451485&web_id=5451485&show=pic" language="JavaScript"></script>
+        	</p>
+        	<p>地址：贵州省贵阳互联网金融特区大厦19楼（观山湖区长岭北路与金朱东路交汇处）</p>
+            <a href="https://ss.knet.cn/verifyseal.dll?sn=e13072411010041724izzi000000&comefrom=verify" target="_blank"><img src ="images/s1.png"></a>
+            <a href="https://www.itrust.org.cn/yz/pjwx.asp?wm=1065799941" target="_blank"><img src ="images/s2.jpg"></a>
+			<a href="https://trustsealinfo.verisign.com/splash?form_file=fdf/splash.fdf&dn=www.zhaoshangdai.com&lang=zh_cn" target="_blank"><img src ="images/s3.png"></a>
+        </div>
+    </div>
+    版权信息结束
+    
+    <div class="backhome">
+        <a href="#" class="backtop"><img src="images/top.png" /></a>
+        <a href="index.html"><img src="images/home.png" /></a>
+    </div>
+</footer>
+底部结束
+-->
+
+
+<!--底部开始-->
+<footer class="layout">
+    <div class="fooderbox">
+        <dl>
+            <dt>
+            <p>
+                <span><b>400-855-5056</b><br/>服务时间：9:00-22:00</span>
+                <span><a href="javascript:void(0)"><img src="images/f3.png"><i><img src="images/ewm.png" /></i></a>
+                    <a href="http://weibo.com/3445450794/profile?rightmod=1&amp;wvr=5&amp;mod=personinfo" target="_blank"><img src="images/f1.png"></a></span>
+                <span>
+                    <a href="https://ss.knet.cn/verifyseal.dll?sn=e13072411010041724izzi000000&comefrom=verify" target="_blank"><img src="images/s1.png" /></a>
+                    <a href="http://www.itrust.org.cn/yz/pjwx.asp?wm=1065799941" target="_blank"><img src="images/s2.jpg" /></a>
+                        <a href="https://trustsealinfo.verisign.com/splash?form_file=fdf/splash.fdf&dn=www.zhaoshangdai.com&lang=zh_cn" target="_blank"><img src="images/s3.png" /></a>
+                </span>
+            <div class="clear"></div>
+            </p>
+            <p>Copyright Reserved @2013 招商贷 | 备案号:<a target="_blank" href="http://www.miibeian.gov.cn/">黔ICP备13002215号-1</a></p>
+            <p>地址：贵州省贵阳互联网金融特区大厦19楼（观山湖区长岭北路与金朱东路交汇处）
+                <script type="text/javascript">
+                    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F72da47e93f114fd22a380c72f142d731' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+                <script src="https://s19.cnzz.com/stat.php?id=5451485&web_id=5451485&show=pic" language="JavaScript"></script>
+            </p>
+            </dt>
+            <dd><span><img src="images/appico.png"></span>
+            <span>
+                <b>下载手机客户端</b><br/>
+                扫 码 下 载<br/>
+                <img src="images/app_ico.png" class="appico">IOS版<br/>
+                <img src="images/app_ico2.png" class="appico">安卓版
+            </span>
+                <div class="clear"></div>
+            </dd>
+            <div class="clear"></div>
+        </dl>
+    </div>
+    <div class="backhome">
+        <a href="#" class="backtop"><img src="images/top.png" /></a>
+        <a href="index.html"><img src="images/home.png" /></a>
+    </div>
+</footer>
+<!--底部结束-->
+<script type="text/javascript">
+	var _mvq = window._mvq || []; 
+	window._mvq = _mvq;
+	_mvq.push(['$setAccount', 'm-136753-0']);
+	
+	_mvq.push(['$setGeneral', '', '', /*用户名*/ '', /*用户id*/ '']);//如果不传用户名、用户id，此句可以删掉
+	_mvq.push(['$logConversion']);
+	(function() {
+		var mvl = document.createElement('script');
+		mvl.type = 'text/javascript'; mvl.async = true;
+		mvl.src = ('https:' == document.location.protocol ? 'https://static-ssl.mediav.com/mvl.js' : 'http://static.mediav.com/mvl.js');
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(mvl, s); 
+	})();
+</script>
+
+<script type="text/javascript">
+var _py = _py || [];
+_py.push(['a', 'zTs..3Jk4Kk9zkGw41pYbgLxwtX']);
+_py.push(['domain','stats.ipinyou.com']);
+_py.push(['e','']);
+-function(d) {
+	var s = d.createElement('script'),
+	e = d.body.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e),
+	f = 'https:' == location.protocol;
+	s.src = (f ? 'https' : 'http') + '://'+(f?'fm.ipinyou.com':'fm.p0y.cn')+'/j/adv.js';
+}(document);
+</script>
+<noscript><img src="//stats.ipinyou.com/adv.gif?a=zTs..3Jk4Kk9zkGw41pYbgLxwtX&e=" style="display:none;"/></noscript>        </footer>
+        <!--底部结束-->
+        <!-- 右侧导航 -->
+<script type='text/javascript' src='http://www.365webcall.com/IMMe1.aspx?settings=mw7m6XmmIwm6P7z3AwwX7Iz3A7mNwXz3A66mmNb' async="async">
+</script>
+<script type="text/javascript">
+	$.getScript("http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODA0Nzk3NF8xMDU3NzdfNDAwODU1NTA1Nl8",function(){
+		BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 4008555056, selector: 'BizQQWPA4'});
+	})
+</script>
+
+
+<section class="container">
+    <!--浮动服务栏-->
+    <div class="services">
+        <ul>
+            <li>
+                <a href="about_companyInfo.html"><img src="images/services-1.png" /></a>
+                <div class="drop"><span class="arrow">公司简介</span></div>
+            </li>
+            <li>
+                <a href="/borrowlist/getPageNew.html"><img src="images/services-2.png" /></a>
+                <div class="drop"><span class="arrow">新手投标</span></div>
+            </li>
+            <li>
+                <a href="/article/getNewsList.html?classId=15"><img src="images/services-3.png" /></a>
+                <div class="drop"><span class="arrow">公司动态</span></div>
+            </li>
+            <li>
+                <img src="images/services-4.png" />
+                <div class="drop win">
+                    <div class="question">
+                        <strong>您可能遇到的常见问题？</strong>
+                        <ul>
+                            <li><a href="/about_question.html?flag=7">如何在网站注册？</a></li>
+                            <li><a href="/about_question.html?flag=8">如何对借款项目做判断？</a></li>
+                            <li><a href="/about_question.html?flag=9">投资金额有限制吗？</a></li>
+                            <li><a href="/about_question.html?flag=10">投资后是否可以取消？</a></li>
+                            <li><a href="/about_question.html?flag=11">如何收回借出的投资资金？</a></li>
+                            <li><a href="/about_question.html?flag=14">收款后可以马上再投资吗？</a></li>
+                        </ul>
+                    </div>
+                    <div class="talk">
+                        <ul class="clearfix">
+                            <li><img src="images/talk-1.png" /></li>
+                            <li><img src="images/talk-2.png" /></li>
+                            <li>咨询时间  9:00—22:00</li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#"  id="calc"><img src="images/services-5.png" /></a>
+                <div class="drop"><span class="arrow">计算器</span></div>
+            </li>
+        </ul>
+    </div>
+    <!--浮动服务栏结束-->
+</section>
+<!-- 计算器 -->
+        <div class="calwrap">
+            <form method="post" class="form-horizontal">
+                <div class="calCon">
+                    <div class="control-group">
+                        <label class="control-label" for="zhaoshangbiaozhong">招商标种：</label>
+                        <div class="controls">
+                            <select id="zhaoshangbiaozhong">
+                                <option value="">快速选择招商标种</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="6">6</option>
+                            </select> 个月
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="toubiaojine">投标金额：</label>
+                        <div class="controls">
+                            <input type="text" id="toubiaojine" onblur="checkToubiaoJine(this.value)" value="10000"> 元
+                            <span class="helpinline"><font color="red">*</font></span>
+                            <span class="toubiaojine-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="jiekuanqixian">借款期限：</label>
+                        <div class="controls">
+                            <input type="text" id="jiekuanqixian" onblur="checkJieKuanQiXian(this.value)" placeholder="请输入借款期限" class="span2">
+                            <label class="radio inline" style="font-size:12px;">
+                                <input type="radio" name="jiekuanType" value="0" checked="checked" id="anyue"> 按月
+                            </label>
+                            <label class="radio inline" style="font-size:12px;">
+                                <input type="radio" name="jiekuanType" value="1" id="antian"> 按天
+                                <font color="red">*</font>
+                            </label>
+                            <span class="jiekuanqixian-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="huankuanfangshi">还款方式：</label>
+                        <div class="controls">
+                            <select id="huankuanfangshi" class="span4">
+                                <option selected="selected" value="0">按月还款（按月等额还本付息）</option>
+                                <option value="1">按季还款（按月支付利息，按季度偿还本金）</option>
+                                <option value="2">到期还本（按月支付利息，到期偿还全部本金）</option>
+                                <option value="3">到期一次性偿还本息</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="lianlilv">年利率：</label>
+                        <div class="controls">
+                            <input type="text" id="lianlilv" onblur="checkLianlilv(this.value)" placeholder="请输入年利率" class="span2"> %
+                            <span class="helpinline"><font color="red">*</font></span>
+                            <span class="lianlilv-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="toubiaojiangli">投标奖励：</label>
+                        <div class="controls">
+                            <input type="text" id="toubiaojiangli" value="0.00" class="span2"> %
+                            <span class="toubiaojiangli-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="xuetoujiangli">续标奖励：</label>
+                        <div class="controls">
+                            <input type="text" id="xuetoujiangli" value="0.00" class="span2"> %
+                            <span class="xubiaojiangli-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="lixiguanlifei">利息管理费：</label>
+                        <div class="controls">
+                            <input type="text" id="lixiguanlifei" value="10" class="span2"> %
+                            <span class="lixiguanlifei-alert helpinline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="toubiaoshijian">投标时间：</label>
+                        <div class="controls">
+                            <input type="text" id="toubiaoshijian" class="datepicker span2">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="button" class="but_js btn btn-default">计&nbsp;&nbsp;算</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="calc_result">
+                    <div class="calWin">
+                    </div>
+                    <div id="calNumContent">
+                    </div>
+                </div>
+                <div class="close_btn"></div>
+            </form>
+        </div>
+        <!--计算器结束-->
+<script src="js/counter.js"></script>
+<link rel="stylesheet" href="css/counter.css"/>
+
+            <!-- /！* 页面js脚本开始 */ -->
+            <script src="js/bidDetail.js"></script>
+            <script src="js/bidIndex.js"></script>
+            <script src="js/bidAccountMoney.js"></script>
+
+
+</body>
+</html>
+
+<script>
+var timeOutId;
+var isCoupon="1";
+var tenderCheckInterval;
+var tenderCheckTimer = 3;
+var borrowId = 'd9cf38f4f7584f88a3cd3b0159f52440';
+var tendered = false;
+var token='7422098e-6ccf-49e4-bfc0-c619a76c8ca9';
+var maximumAmount=parseFloat(""==""?"0":"");
+var minimumAmount=parseFloat("50"==""?50:"50");//最大投标金额
+var useMoney =parseFloat("0");
+var borrowAmount=parseFloat("1000000");//借款标总额
+var borrowSurplus=parseFloat("590962"==""?"0":"590962");
+var rate =parseFloat("12.6");//年利率
+var timeLimit =parseFloat("3");//期限
+var surplus=0;
+var borrowCodeDir=0;
+
+$(function(){
+
+    //借款协议
+    $("#borrow_protocol").click(function(){
+        var i = $.layer({
+            type : 1,
+            title : "招商贷借款协议",
+            offset:['150px' , ''],
+            border : false,
+            shadeClose: true,
+            area : ['770px','400px'],
+            page : {dom : '#borrow_protocol_text'}
+        });
+
+    });
+    //奖券规则
+    $("#couponHelp").click(function(){
+        var i = $.layer({
+            type : 1,
+            title : "奖券兑换帮助及规则",
+            offset:['150px' , ''],
+            border : false,
+            shadeClose: true,
+            area : ['770px','400px'],
+            page : {dom : '#abr_text'}
+        });
+    });
+    //标详情图片 滚动
+    $('#date-info').carousel({
+        'auto':'flase',
+        'interval':3000,
+        'triggers':'#dpoint',
+        'scroll':500,
+        'space':1,
+        'big':4,
+        'prev':'#dprev',
+        'next':'#dnext'
+    });
+
+    //计算预期收益
+    $("#money").keyup(function(){
+        var value =$(this).val();
+        if(!checkNumber(value)) return;
+        if(parseFloat(value)>useMoney){
+            // $("#earnings").css("color","red");
+            $("#earnings").text("投标金额不能大于可用余额");
+            $("#btn-tender").attr("class","button button-form button-block").attr('disabled',true);
+            //隐藏奖券
+            hideCoupon();
+            return;
+        }
+        checkMoney(value,function(money){
+            //显示投资金额 并 计算利息
+            showTenderMoney(value);
+            if(isCoupon=="1"){
+                //获取奖券
+                getCouponList(money);
+            }
+        })
+    });
+
+    $("#max").click(function(){
+        var total=tenderAllMoney();//可投余额
+        showTenderMoney(total);//显示投标金额
+        if(isCoupon=="1"){
+            getCouponList(total);//获取奖券
+        }
+    });
+
+    //奖券代码开始
+    $(".bidd-li-active").bind("mousedown",function(){
+        $(".bidd-li-hd").show();
+        $(".bidd-li-active").addClass("active-bidd-tt");
+    });
+    $(".bidd-li-hd").bind("mouseleave",function(){
+        $(".bidd-li-hd").hide();
+        $(".bidd-li-active").removeClass("active-bidd-tt");
+    });
+    $(".nobidd").bind("click",function(){
+        $(".bidd-li-hd").hide();
+        $(".bidd-li-active").removeClass("active-bidd-tt");
+
+        var money=$("#money").val();
+        $("#addCoupon").text(0);//已使用现金券
+        checkMoney(money,function(mon){
+            showTenderMoney(mon);
+        });
+        $(".bidd-li-hd").find("input[type='checkbox']").each(function(){
+            var $coupon=$(this);
+            $coupon.attr("checked",false);
+        });
+    })
+    $("input[name='orderByStatus']").click(function(){
+        var money=parseFloat($("#money").val());
+        getCouponList(money);
+    });
+    //隐藏奖券
+    hideCoupon();
+});
+//获取选中的所有奖券
+function getCheckedCoupon(){
+    var couponObj={
+        totalCoupon:0,//总额
+        total:0,
+        couponStr:""//id
+    };
+    var couponStr="";
+    $(".bidd-li-hd").find("input[type='checkbox']").each(function(){
+        var $coupon=$(this);
+        if(this.checked){
+            couponObj.totalCoupon+=parseFloat($coupon.data("discount"));
+            // couponObj.couponList.push($coupon.data("id"));
+            couponObj.total+=parseFloat($coupon.data("customprice"));
+            couponStr+=$coupon.data("id")+",";
+        }
+    });
+    if(couponStr) couponStr=couponStr.substr(0,couponStr.length-1);
+    couponObj.couponStr=couponStr;
+    return couponObj;
+}
+//可投余额
+function tenderAllMoney(){
+    var total=0;
+    if(useMoney<50){
+        $("#earnings").html("<a href='/user/account/recharge.html'" +
+                "style='color:blue;font-size:13px;'>余额不足,请充值！</a>");
+        return total;
+    }
+    if(maximumAmount){
+        total=Math.min(useMoney,borrowSurplus,maximumAmount);
+    }else{
+        total=Math.min(useMoney,borrowSurplus);
+    }
+    if(total<50){
+       total=50;
+    }
+    total = checkMoneyFormat(total);
+    $("#money").val(total);
+    return total;
+}
+//检查输入是否数字
+function checkNumber(value){
+    if(!value){return ;}
+    if(isNaN(value)){//去掉空格
+        $(this).val(value.replace(/[^0-9]/g,''));
+    }
+    //value=$(this).val();
+    var reg = /^[1-9][0-9]*(\.[0-9]{1,2})?$/g;
+    if(!reg.test(value)){//只允许输入数字
+        $("#earnings").css("color","red");
+        $("#earnings").text("投标金额有误");
+        $("#btn-tender").attr("class","button button-form button-block").attr('disabled',true);
+        //隐藏奖券
+        hideCoupon();
+        return false;
+    }
+    return true;
+}
+
+//检查输入的金额
+function checkMoney(value,callback){
+    clearTimeout(timeOutId);
+    timeOutId=setTimeout(function(){
+        value=parseFloat(value);
+
+        if(useMoney < minimumAmount){//可用小于最小投标
+        	$("#tenderMoney").html("");
+            $("#earnings").html("<a href='/user/account/recharge.html'" +
+                    "style='color:blue;font-size:13px;'>余额不足,请充值！</a>");
+            $("#btn-tender").attr("class","button button-form button-block").attr('disabled',true);
+            //隐藏奖券
+            hideCoupon();
+            return;
+        }else if(value<minimumAmount){//投标小于最低投标金额
+        		$("#tenderMoney").html("");
+                $("#earnings").text("最低"+minimumAmount+"元起投");
+                $("#btn-tender").attr("class","button button-form button-block").attr('disabled',true);
+                //隐藏奖券
+                hideCoupon();
+                return;
+        }else if (value>borrowSurplus){//不能大于 剩余金额
+            if(borrowSurplus>=minimumAmount){
+            	$("#tenderMoney").html("");
+                $("#earnings").text("超出该标的剩余可投金额");
+                $("#btn-tender").attr("class","button button-form button-block").attr('disabled',true);
+                //隐藏奖券
+                hideCoupon();
+                return;
+            }
+        }else if (maximumAmount>0&&(value>maximumAmount)){//大于最大投标金额
+        	$("#tenderMoney").html("");
+            $("#earnings").text("大于最大投标金额");
+            $("#btn-tender").attr("class","button button-form button-block").attr('disabled',true);
+            //隐藏奖券
+            hideCoupon();
+            return;
+        }
+        //获取奖券
+       if(callback){callback(parseFloat(value))}
+
+    },500);
+}
+//显示投资金额 并 计算利息
+function showTenderMoney(tenderMoney){
+    var totalAccount=0;
+    $("#btn-tender").attr("class","button button-form button-block bg-main").attr('disabled',false);
+    if (0 == 1){
+        totalAccount = calc2(tenderMoney, 1, rate, 0, 1);
+    }else{
+        totalAccount = calc2(tenderMoney, 0, rate, timeLimit, 1);
+    }
+    $("#earnings").text(totalAccount);
+    $("#tenderMoney").text(tenderMoney);
+}
+//时间格式化
+function FormatDate(strTime){
+    var date = new Date(strTime);
+    var year=date.getFullYear()+"";
+    var month=(date.getMonth()+1);
+    var da=date.getDate();
+    if(month<=9){
+        month='0'+month;
+    }
+    if(da<=9){
+        da='0'+da;
+    }
+    return year+"-"+month+"-"+da;
+}
+//显示现金券
+function showCoupon(){
+
+    var inputMoney=parseFloat($("#money").val());
+    $(".bidd-li-active").next().show().addClass("active");
+    $(".bidd-li-active").show();
+    $(".bidd-li-hd").find("input[type='checkbox']").click(function(){
+
+        var addCoupon=getCheckedCoupon();
+
+        $("#addCoupon").text(addCoupon.totalCoupon);//已使用现金券
+
+        if(inputMoney>=addCoupon.total){
+            // 检查输入+现金券
+            checkMoney(inputMoney+addCoupon.totalCoupon,function(money){
+                showTenderMoney(money);
+            });
+        }else{
+            $("#earnings").html("使用奖券过多");
+            $("#btn-tender").attr("class","button button-form button-block").attr('disabled',true);
+        }
+    });
+}
+//隐藏现金券
+function hideCoupon(){
+    $(".bidd-li-active").next().hide().removeClass("active");
+    $(".bidd-li-active").hide();
+}
+//加载奖券列表
+function getCouponList(money){
+    $.ajax({
+        url:"/couponRecord/getBorrowCouponRecordList.html",
+        type:"post",
+        data:{
+            //  borrowType:$("#borrowType").val(),
+            orderByStatus:$("input[name=orderByStatus]:checked").val(),
+            money:money
+        },
+        success:function(data){
+            var data = eval("("+ data +")")
+            if(data){
+                if(data.success){
+                    var showList = [],calculateList=[];
+                    showList = data.showList;//显示
+                    calculateList = data.calculateList;//计算
+                    if(showList&&showList.length>0){
+                        var html="",totalCoupon= 0,addCoupon= 0; //所有奖券、已加奖券、使用奖券后剩余金额
+                        surplus=money
+                        var couponIds=[];//可用代金劵
+                        var $couponList=$(".p_t");
+                        $couponList.siblings(".p_c").remove();//清除历史现金券
+
+                        for(var i=0;i<calculateList.length;i++){
+                            totalCoupon+=calculateList[i].discount;
+                            var totalTender=money+totalCoupon;
+                            if(totalTender<=borrowSurplus&&(maximumAmount>0&&totalTender<=maximumAmount)){
+                                if(surplus>=calculateList[i].customPrice){
+                                    addCoupon+=calculateList[i].discount;
+                                    couponIds.push(calculateList[i].couponRecordId);
+                                    surplus-=calculateList[i].customPrice;
+                                }
+                            }else if(totalTender<=borrowSurplus&&maximumAmount<=0){
+                                if(surplus>=calculateList[i].customPrice){
+                                    addCoupon+=calculateList[i].discount;
+                                    couponIds.push(calculateList[i].couponRecordId);
+                                    surplus-=calculateList[i].customPrice;
+                                }
+                            }
+                        }
+
+                        for(var i=0;i<showList.length;i++){
+                            var date=new Date(showList[i].deadlineTime);
+                            var checked= $.inArray(showList[i].couponRecordId,couponIds);//该奖券是否要勾选
+                            if(checked!=-1){
+                                html+='<p class="p_c"><input type="checkbox" checked  data-customprice="'+showList[i].customPrice+'" data-discount="'+showList[i].discount+'" data-id="'+showList[i].couponRecordId+'"><span class="s_1">' +
+                                        '现金券'+showList[i].discount+'元</span><span class="s_2">每满'+showList[i].customPrice+'元加投'+showList[i].discount+'元</span>' +
+                                        '<span class="s_3">'+FormatDate(date)+'到期</span><div class="clear"></div></p>';
+                            }else{
+                                html+='<p class="p_c"><input type="checkbox"  data-customprice="'+showList[i].customPrice+'" data-discount="'+showList[i].discount+'" data-id="'+showList[i].couponRecordId+'"><span class="s_1">' +
+                                        '现金券'+showList[i].discount+'元</span><span class="s_2">每满'+showList[i].customPrice+'元加投'+showList[i].discount+'元</span>' +
+                                        '<span class="s_3">'+FormatDate(date)+'到期</span><div class="clear"></div></p>';
+                            }
+                        }
+                        $couponList.after(html);
+                        $("#addCoupon").text(addCoupon);//已使用现金券
+                        showTenderMoney(money+addCoupon)//显示投标金额
+                        showCoupon();//显示现金券
+                    }else{
+                        $(".p_t").siblings(".p_c").remove();//清除历史现金券
+                        hideCoupon();
+                    }
+                }else{
+                    alert(data.msg);
+                }
+            }
+        }
+    });
+}
+
+
+//投标按钮事件
+function tender(){
+
+    var money=$('#money').val();
+    var couponObj=getCheckedCoupon();
+    var tenderMoney=$("#tenderMoney").text();
+    if(tenderMoney&&couponObj.totalCoupon){
+        if(((parseFloat(money)+couponObj.totalCoupon)!=parseFloat(tenderMoney))){
+            money=parseFloat(money)+couponObj.totalCoupon;
+        }else{
+            money=tenderMoney;
+        }
+    }
+    //输入金额不为空
+    if(!money){
+        showErrorMessageDialog("请输入投资的金额！");
+        return;
+    }
+    money=parseFloat(money);
+    //判断输入金额是否合法
+    if(maximumAmount){
+        if(maximumAmount<money){
+            showErrorMessageDialog("投资金额不能大于最大投标金额"+ toDecimal(maximumAmount));
+            return;
+        }
+    }
+    if(borrowSurplus<money){
+        if(borrowSurplus>=minimumAmount){
+            showErrorMessageDialog("投资金额不能大于剩余金额"+ toDecimal(borrowSurplus));
+            return;
+        }
+    }
+    if(money<minimumAmount){
+            showErrorMessageDialog("投资金额不能低于"+minimumAmount+"元");
+            return;
+    }
+    if(borrowSurplus<minimumAmount){
+        if(couponObj.couponStr){
+            showErrorMessageDialog("标剩余金额低于最小投标金额，不允许使用奖券");
+            return;
+        }
+    }
+
+    if(!document.getElementById("agree").checked){
+        showErrorMessageDialog("请选择‘我同意《招商贷借款协议》’,否则无法投资");
+        return;
+    }
+    //定向标需输入密码
+    if(borrowCodeDir==1){
+        var pwd=$("#password").val();
+        if(pwd==null||pwd==""){
+            showErrorMessageDialog("请输入密码！");
+            return ;
+        }
+    }
+
+    $("#btn-tender").attr("class","button button-form button-block");
+
+    //点击投标按钮之前判断是否已经开始投标
+    $.ajax({
+        url : '/borrow/getCountDown.html?borrowId=d9cf38f4f7584f88a3cd3b0159f52440',
+        dataType: 'json',
+        success: function(data){
+            if (data.countDown > 0){
+                return;
+            }else if(data.countDown <= 0){
+                //遮罩显示
+                $(".detail-r").loadmask("-",{opacity:0.2,bgcolor:"#333"});
+                $("#btn-tender").attr('disabled',true);
+                tendered = true;
+                $('#btn-tender').val("处理中("+tenderCheckTimer+")");
+                tenderCheckInterval = setInterval(function(){
+                    tenderCheckTimer--;
+                    $('#btn-tender').val("处理中("+tenderCheckTimer+")");
+                    if(tenderCheckTimer < 1){
+                        $('#btn-tender').val("等待结果…");
+                        clearInterval(tenderCheckInterval);
+
+                        //重新获取奖券  避免瞬间操作
+                        couponObj=getCheckedCoupon();
+
+                        $.ajax({
+                            url : '/tender/tender.html',
+                            type:'post',
+                            //contentType : 'application/json',
+                            data :{
+                                borrowId: borrowId,
+                                money: $("#money").val(),
+                                dirPwd : $('#password').val(),
+                                couponStr:couponObj.couponStr,
+                                token:token
+                            }
+                            , dataType : 'text'
+                            ,  success : function(data){
+                                //遮罩销毁
+                                $(".detail-r").loadmask(false);
+                                if(data != null && data != ""){
+                                    data = eval('(' + data + ')');
+                                    if(data.status == false){
+                                        showErrorMessageDialog(data.message);
+                                        needReloadPage=true;
+                                    }else{
+                                        $('#btn-tender').val('投标成功');
+                                        showErrorMessageDialog(data.message);
+                                        needReloadPage=true;
+                                        needSelectTender=true;
+                                    }
+                                    $("#money").val("");
+                                }
+                            }
+                        });
+                    }
+                }, 1000);
+            }
+        }
+    });
+}
+
+
+//倒计时 intDiff 倒计时总秒数 show_container 显示时间容器 如 ".class" "#id"
+function timer(con){
+    var show_container=con;
+    var intDiff =con.attr('intDiff');
+    var count_down = window.setInterval(function(){
+        var	day=0,
+                hour=0,
+                minute=0,
+                second=0;//默认值
+        if(intDiff > 0){
+            day= Math.floor(intDiff / (60 * 60*24));
+            hour = Math.floor(intDiff / (60 * 60))-(day*24);
+            minute = Math.floor(intDiff / 60) - (hour * 60)-(day*60*24);
+            second = Math.floor(intDiff)- (hour * 60 * 60) - (minute * 60)-(day*60*60*24);
+            if (hour <= 9) hour = '0' + hour;
+            if (minute <= 9) minute = '0' + minute;
+            if (second <= 9) second = '0' + second;
+            if(day>0){
+                show_container.val("倒计时： "+day+"天 "+hour+':' + minute+':'+second);
+            }else{
+                show_container.val("倒计时： "+hour+':' + minute+':'+second);
+            }
+
+            intDiff--;
+        }else{
+            if("0" ==="2"){
+                show_container.val("请下载手机APP");
+            }else{
+                show_container.val("确认投标");
+                show_container.bind('click',tender);
+                window.clearInterval(count_down);
+            }
+        }
+    }, 1000);
+
+}
+
+
+/* 调用倒计时 */
+timer($("#btn-tender"));
+
+var needReloadPage =false;
+var needSelectTender=false;
+
+
+function fnWheel(obj,fncc)
+{
+    obj ={};
+    obj.onmousewheel = fn;
+    if(obj.addEventListener)
+    {
+        obj.addEventListener('DOMMouseScroll',fn,false);
+    }
+
+    function fn(ev)
+    {
+        var oEvent = ev || window.event;
+        var down = true;
+
+        if(oEvent.detail)
+        {
+            down = oEvent.detail>0
+        }
+        else
+        {
+            down = oEvent.wheelDelta<0
+        }
+
+        if(fncc)
+        {
+            fncc.call(this,down,oEvent);
+        }
+
+        if(oEvent.preventDefault)
+        {
+            oEvent.preventDefault();
+        }
+
+        return false;
+    }
+
+
+}
+
+/*图片弹出框*/
+$(function(){
+    var width = document.body.clientWidth;
+    var height = document.body.clientHeight;
+    var a_img = $(".banner").find("a");
+
+    a_img.on('click', function ( e ) {
+        var img = $(this).find("img");
+        var _img = new Image();
+        _img.src = img.attr("src");
+        //	alert(this.src);
+        var img_width = _img.width;
+        var img_height = _img.height;
+
+        if (width <= img_width || height <= img_height){
+            var per = img_height/img_height;
+            img_height = height/2;
+            img_width = height/2*per;
+        }
+
+        var img_layer = $(this).html();
+
+        $.layer({
+            type: 1,
+            title: false, //不显示默认标题栏
+            shadeClose: true,
+            shade: [0.8, '#000'],
+            area : [img_width + 'px', img_height+'px'],
+            page: {html: img_layer}
+        });
+
+        $(".xubox_border").hide();
+        var iii = $(".xubox_layer")[0];
+        var oImg=$(".xubox_main .xubox_page .xuboxPageHtml img")[0];
+        fnWheel(iii,function (down,oEvent){
+            var oldWidth=this.offsetWidth;
+            var oldHeight=this.offsetHeight;
+            var oldLeft=this.offsetLeft;
+            var oldTop=this.offsetTop;
+            if (down){
+                this.style.width=this.offsetWidth*0.9+"px";
+                this.style.height=this.offsetHeight*0.9+"px";
+            }
+            else{
+                this.style.width=this.offsetWidth*1.1+"px";
+                this.style.height=this.offsetHeight*1.1+"px";
+            }
+
+            var clientHeight = document.body.offsetWidth;
+            var  clientWidth = document.body.offsetHeight;
+
+            var newWidth=this.offsetWidth;
+            var newHeight=this.offsetHeight;
+
+            this.style.position="absolute";
+            $(this).css("margin-left","0px");
+
+            this.style.top=Math.floor((clientWidth - newWidth) /2)+"px";
+            this.style.left=Math.floor((clientHeight - newHeight) /2)+"px";
+
+        });
+
+        $(".xuboxPageHtml").find("img").attr("width","100%");
+        $(".xuboxPageHtml").find("img").attr("height","100%");
+
+        fnWheel(oImg,function (down,oEvent){
+            var oldWidth=this.offsetWidth;
+            var oldHeight=this.offsetHeight;
+            var oldLeft=this.offsetLeft;
+            var oldTop=this.offsetTop;
+
+            if (down){
+                this.style.width=this.offsetWidth*0.9+"px";
+                this.style.height=this.offsetHeight*0.9+"px";
+            }
+            else{
+                this.style.width=this.offsetWidth*1.1+"px";
+                this.style.height=this.offsetHeight*1.1+"px";
+            }
+        });
+
+    });
+});
+
+
+/**
+ 金额保留两位小数
+ **/
+function checkMoneyFormat(val){
+    if(val!=null&&val!=""){
+        if(!isNaN(val)){
+            val =parseFloat(val).toFixed(7)+"";
+            val =val.substring(0,val.indexOf(".") + 3);
+        }
+    }
+    return parseFloat(val);
+}
+
+$("title").html("机械设备公司流动资金周转（增加贷款）4"); 
+
+</script>
+<script src="js/counter.js"></script>
