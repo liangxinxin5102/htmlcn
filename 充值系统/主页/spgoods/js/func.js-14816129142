@@ -1,0 +1,401 @@
+$(document).ready(function(){
+/*
+ * 商量数量增加和减少
+ */
+    var add,reduce,num,num_txt;
+    add=$(".J_jia");//添加数量
+    reduce=$(".J_jian");//减少数量
+    num="";//数量初始值
+    num_txt=$(".num");//接受数量的文本框
+    //var num_val=num_txt.val();//给文本框附上初始值
+
+    /*添加数量的方法*/
+    add.click(function(){
+        num = $(".num").val();
+        num++;
+        num_txt.val(num);
+        //ajax代码可以放这里传递到数据库实时改变总价
+        total_num(num);
+    });
+
+    /*减少数量的方法*/
+    reduce.click(function(){
+        //如果文本框的值大于0才执行减去方法
+        num = $(".num").val();
+        if(num >0){
+            //并且当文本框的值为1的时候，减去后文本框直接清空值，不显示0
+            if(num==1)
+            {
+                num_txt.val("1");
+            }
+            //否则就执行减减方法
+            else
+            {
+                num--;
+                num_txt.val(num);
+                total_num(num);
+            }
+
+        }
+    });
+
+    //手机网站点菜单
+    $('.cd-nav-trigger').click(function(){
+        event.preventDefault();
+        $([$('.cd-side-nav'), $('.cd-nav-trigger')]).toggleClass('nav-is-visible');
+    });
+});
+
+/*
+ * js删除字符串前后空格
+ */
+function trim(str){
+    str = str.replace(/^(\s|\u00A0)+/,'');
+    for(var i=str.length-1; i>=0; i--){
+        if(/\S/.test(str.charAt(i))){
+            str = str.substring(0, i+1);
+            break;
+        }
+    }
+    return str;
+}
+
+/*
+ * 搜索
+ */
+function checkSearchForm()
+{
+    var search_word = document.getElementById('keyword').value;
+    search_word = trim(search_word);
+    if( search_word!="" && search_word!="请输入游戏或点卡名称")
+    {
+        return true;
+    }
+    else
+    {
+        alert("请输入搜索关键词！");
+        return false;
+    }
+}
+
+/*
+ * 添加收藏
+ */
+function AddFavoriteUrl(sURL, sTitle){
+    try {
+        window.external.addFavorite(sURL, sTitle);
+    }
+    catch (e)
+    {
+        try {
+            window.sidebar.addPanel(sTitle, sURL, "");
+        }catch (e) {
+            alert("加入收藏失败，请使用Ctrl+D进行添加");
+        }
+    }
+}
+
+/*
+ * 显示微信
+ */
+function show_wx(o){
+    var o = document.getElementById(o);
+    o.style.display = "";
+}
+/*
+ * 隐藏微信
+ */
+function hide_wx(o){
+    var o = document.getElementById(o);
+    o.style.display = "none";
+}
+
+/*
+ * 获取用户余额
+ */
+function setUserBalance() {
+    Ajax.call('/do.php', 'act=gub', function(resp) {
+        if(/\d+\.?\d*/.test(resp)) {
+            var intVal = 0;
+            var dotVal = '00';
+            var rMtch = resp.match(/(\d+)\.?(\d*)/);
+            if(rMtch[1] > 0) {
+                intVal = rMtch[1];
+            }
+            if(rMtch[2] != '') {
+                dotVal = rMtch[2];
+            }
+            var bStr = '<span style="font-size:24px;">'+intVal+'.<'+'/span>'+dotVal;
+            var bhtml = '<div class="kyye_div"><div style="float:left;">可用余额:<span id="userBanlance"><a href="user.php?act=default">'+bStr+'<'+'/a><'+'/span><'+'/div>  <span class="kyye_usd">USD<'+'/span><'+'/div>';
+            document.getElementById('userBalanceBox').innerHTML = bhtml;
+        }
+    }, 'GET', 'TEXT', true, true);
+}
+
+/*
+ * 选择不同面值
+ */
+function sel_amount(id, obj, other, goodsmoney, goodsunit, isnewdoing){
+
+    var par = obj.parent();
+    var is_now_sel = par.hasClass('selected');
+
+    if (!is_now_sel){
+        $(".choose-money div").removeClass('selected');
+        par.addClass('selected');
+
+        if(other == 'other'){
+            $('#other_money_title').show();
+            $('#other_money_num').show();
+            $('#bun_num_title').hide();
+            $('#bun_num_num').hide();
+            $('#seltype').val(id);
+            $('#selmoney').val(goodsmoney);
+            $('#selunit').val(goodsunit);
+            $('#isnewdoing').val(isnewdoing);
+        }else{
+            $('#other_money_title').hide();
+            $('#other_money_num').hide();
+            $('#bun_num_title').show();
+            $('#bun_num_num').show();
+            $('#seltype').val(id);
+            $('#selmoney').val(goodsmoney);
+            $('#selunit').val(goodsunit);
+            $('#isnewdoing').val(isnewdoing);
+        }
+        $('#other').val(1);//其他面值
+        $('#num').val(1);//购买数量
+        if (GoodsArrayObj['name'+id]){
+            $('#goods_title').html(GoodsArrayObj['name'+id]);
+        }
+        if (GoodsArrayObj['img'+id]){
+            $('#goods_img').attr('src',GoodsArrayObj['img'+id]);
+        }
+
+
+        var goods_sj = getCookie("goods_sj_"+id);
+        var goods_vip = getCookie("goods_vip_"+id);
+        var goods_res = getCookie("goods_res_"+id);
+
+        if ( goods_sj && goods_vip && goods_res ){
+            $('#dg_money').html(goods_res);
+            $('#bdsj').html(goods_sj);
+            $('#vipsj').html(goods_vip);
+        } else {
+            Ajax_amount(1,$('#seltype').val());
+        }
+    }
+}
+
+/*
+ * 选择充值用途
+ */
+function sel_method(obj){
+    $(".choose-method div").removeClass('selected');
+    var par = obj.parent();
+    par.addClass('selected');
+    $('#syongtu').val(obj.html());
+}
+
+/*
+ * 输入其他金额
+ */
+function otherFn(money,type){
+    var re = /^[1-9]+[0-9]*]*$/;
+    var other_id = $('#other_id').val();
+    if ( $('#seltype').val() != other_id ){
+        $('#seltype').val(other_id);
+    }
+
+    $('#num').val(1);
+    if (!re.test(money)){
+        $('#other').val(money.replace(/[^\d]/g,''));
+        this.focus();
+        return false;
+    }
+    Ajax_amount(money, other_id, type);
+}
+
+/*
+ * 计算数量价格
+ */
+function total_num(num,type){
+    var re = /^[1-9]+[0-9]*]*$/;
+    if (!re.test(num)){
+        $('#num').val(num.replace(/[^\d]/g,''));
+        $('#other').val(num.replace(/[^\d]/g,''));
+        this.focus();
+        return false;
+    }
+
+    Ajax_amount(num,$('#seltype').val(),type);
+}
+
+/*
+ * 获取商品id和数量
+ */
+function Ajax_amount(number,id,type){
+    $('#number').val(number);
+    dg_price(number,id,type);
+}
+
+/*
+ * 计算当前价格
+ */
+function dg_price(number,id,type)
+{
+    if( /.*[^0-9]+.*$/.test(number)) {
+        document.getElementById('number').value=number.replace(/[^\d]/g,'');
+    }
+    else {
+        var act = '';
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        if(id == $('#other_id').val() ){
+            act = 'dg_price'
+        } else {
+            act = 'dg_price_NRate'
+        }
+        var selmoney = document.getElementById("selmoney").value;
+        if(flag){
+            if(type=="wx" && selmoney){
+                Ajax.call('/do.php', 'act='+act+'&id='+id+'&number=' + number+'&type='+ type +"&selmoney="+selmoney, changedgPriceResponse, 'GET', 'JSON', true, true);
+            }else{
+                Ajax.call('/do.php', 'act='+act+'&id='+id+'&number=' + number, changedgPriceResponse, 'GET', 'JSON', true, true);
+            }
+        }else{
+            if(type=="wx" && selmoney){
+                Ajax.call('/mobile/do.php', 'act='+act+'&id='+id+'&number=' + number+'&type='+ type +"&selmoney="+selmoney, changedgPriceResponse, 'GET', 'JSON', true, true);
+            }else{
+                Ajax.call('/mobile/do.php', 'act='+act+'&id='+id+'&number=' + number, changedgPriceResponse, 'GET', 'JSON', true, true);
+            }
+
+        }
+    }
+}
+
+/*
+ * 计算价格后显示
+ */
+function changedgPriceResponse(res)
+{
+    // console.log(res);
+    if (res.err_msg.length <= 0)
+    {
+        if ($('#dg_money')){
+            $('#dg_money').html(res.result);
+        }
+        if (res.rmb == 1){
+            $('#bdsj').html(res.dj_sj);
+            $('#vipsj').html(res.dj_vip);
+            addCookie('goods_res_'+res.goods_id, res.result, 2);
+            addCookie('goods_sj_'+res.goods_id, res.dj_sj, 2);
+            addCookie('goods_vip_'+res.goods_id, res.dj_vip, 2);
+        }
+    }else{
+		alert(res.err_msg);
+		$('#num').val(1);
+		$('#other').val(1);
+		$('#num').keyup();
+	}
+}
+
+/*
+ * mobile搜索关键词验证
+ */
+/* 搜索验证 */
+function check(Id){
+
+    var strings = document.getElementById(Id).value;
+    var keywordleng = strings.replace(/(^\s*)|(\s*$)/g, "").length
+    if(keywordleng == 0){
+        alert("请输入关键词！");
+        return false;
+    } else {
+        return true;
+    }
+}
+/*
+ *获取t值
+ */
+function getpara()
+{
+    var url=document.URL;
+    var para="";
+    var t=""
+    if(url.lastIndexOf("?")>0){
+        para=url.substring(url.lastIndexOf("?")+1,url.length);
+        var arr=para.split("&");
+        para="";
+        for(var i=0;i<arr.length;i++){
+            if(arr[i].split("=")[0] == "t"){
+                t = arr[i].split("=")[1];
+            }
+        }
+    }
+    /**by xy 20150722*/
+    if(t.indexOf("#")>-1){
+        t = t.substring(0,t.indexOf("#"));
+    }
+
+    return t;
+}
+
+/*
+ * 添加cookie
+ */
+function addCookie(objName,objValue,objHours){//添加cookie
+    var str = objName + "=" + escape(objValue);
+    if(objHours > 0){//为0时不设定过期时间，浏览器关闭时cookie自动消失
+        var date = new Date();
+        var ms = objHours*3600*1000;
+        date.setTime(date.getTime() + ms);
+        str += "; expires=" + date.toGMTString();
+    }
+    str += "; path=/";
+    document.cookie = str;
+    //alert(str);
+}
+
+/*
+ * 获取cookie
+ */
+function getCookie(objName){//获取指定名称的cookie的值
+    var arrStr = document.cookie.split("; ");
+    for(var i = 0;i < arrStr.length;i ++){
+        var temp = arrStr[i].split("=");
+        if(temp[0] == objName) return unescape(temp[1]);
+    }
+}
+
+/*
+ * 显示隐藏面额块
+ */
+function show_moneys(id, obj) {
+    addCookie('display_mode', id);
+    var num = $(".choose-money").length;
+    for ( var i=1; i<=num; i++){
+        $('#show'+i).hide();
+    }
+    $('#show'+id).show();
+
+    var par = obj.parent();
+    var is_now_sel = par.hasClass('selected');
+
+    if (!is_now_sel){
+        $(".choose-mode").removeClass('selected');
+        par.addClass('selected');
+
+        var son = $('#show'+id).children();
+        if(!(son.hasClass('selected'))){
+            $("#show"+id+" div:first-child > a").click();
+        }
+    }
+}

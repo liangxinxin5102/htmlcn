@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<meta HTTP-EQUIV="Expires" CONTENT="0">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="applicable-device" content="pc,mobile">
+ <link rel="canonical" href="http://www.ka-cn.com/special/20150812.html" />
+<link href="20150812/style.css" tppabs="http://www.ka-cn.com/special/20150812/style.css" rel="stylesheet" type="text/css" />
+<title>KA-CN海外点卡商城 - 限时秒杀</title>
+<script src="../js/cookie.js" tppabs="http://www.ka-cn.com/js/cookie.js" language="JavaScript" type="text/javascript"></script>
+<script type="text/javascript" src="func.js" tppabs="http://www.ka-cn.com/special/func.js"></script>
+<script type="text/javascript">
+//PC统计代码
+var _hmt = _hmt || [];
+(function () {
+	var hm = document.createElement("script");
+	hm.src = "../../hm.baidu.com/hm.js-66b2b168302d5e0b6d22cf27371def23"/*tpa=http://hm.baidu.com/hm.js?66b2b168302d5e0b6d22cf27371def23*/;
+	var s = document.getElementsByTagName("script")[0];
+	s.parentNode.insertBefore(hm, s);
+})();
+
+//google统计
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-22446201-1']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+	var ga = document.createElement('script');
+	ga.type = 'text/javascript';
+	ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www/') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+	<script type="text/javascript" src="../js/jquery-1.4.3.min.js" tppabs="http://www.ka-cn.com/js/jquery-1.4.3.min.js"></script>
+<script>
+var IsPC = IsPC();
+var gt = getpara();	
+var t = '';
+if(gt){
+	addCookie('fromt', gt, 0);
+	t='?t='+gt;
+}
+var url_refer=document.referrer;
+url_refer = url_refer.toLowerCase(); //转为小写
+var aSites = new Array('google.','baidu.','soso.','so.','360.','yahoo.','youdao.','sogou.','gougou.');
+var i = 0;
+for (i in aSites){
+	if (url_refer.indexOf(aSites[i]) > 0){
+		addCookie('url_refer', url_refer, 0);
+	}
+}
+var interval = 1000; 
+function ShowCountDown(year,month,day,hour,mins,sec,IsPC,t) 
+{ 
+	//var now = new Date(); 
+	var yy,mm,dd,hh,ii,ss;
+    jQuery.ajax({
+        type: "get",
+        url: "http://www.ka-cn.com/special/time.php",
+        cache: false,
+        async: false,
+        dataType: 'json',
+        success: function (data) {
+           yy = data.y;
+           mm = data.m;
+           dd = data.d;
+           hh = data.h;
+           ii = data.i;
+           ss = data.s;
+        }
+    });
+	var now = new Date(yy, mm-1, dd, hh, ii, ss);
+	var endDate = new Date(year, month-1, day, hour, mins,sec); //alert(endDate);return;
+	var leftTime=endDate.getTime()-now.getTime();
+	var leftsecond = parseInt(leftTime/1000); 
+	var day1=Math.floor(leftsecond/(60*60*24)); 
+	var hour=Math.floor((leftsecond-day1*24*60*60)/3600); 
+	var minute=Math.floor((leftsecond-day1*24*60*60-hour*3600)/60); 
+	var second=Math.floor(leftsecond-day1*24*60*60-hour*3600-minute*60); 
+	
+	var timeshow = jQuery("#timeshow"); 
+	var overdiv  = jQuery("#overdiv"); 
+	var hhdiv    = jQuery("#hh"); 
+	var minsdiv  = jQuery("#mins"); 
+	var secsdiv  = jQuery("#secs"); 
+    var hours    = day1*24+hour;
+	var startdate = new Date(2015, 9, 30, 9, 00,0);// 开始时间
+	var start_time = startdate.getTime()-now.getTime();
+	if(leftTime <=0){
+		//活动已结束
+		
+		jQuery("#timeshow").hide();
+		jQuery("#overdiv").show();
+	
+	}else if(start_time>0){
+		//活动未开始
+		
+		hhdiv.html(hours);
+		minsdiv.html(minute);
+		secsdiv.html(second);
+		jQuery("#timeshow").hide();
+		jQuery("#unopendiv").show();
+		
+	}else {
+
+		if(!IsPC){
+			jQuery("#b1").attr('href','http://m.ka-cn.com/goods-832.html'+t);
+			jQuery("#b2").attr('href','http://m.ka-cn.com/goods-1139.html'+t);
+			jQuery("#b3").attr('href','http://m.ka-cn.com/goods-442.html'+t);
+		} else {
+			jQuery("#b1").attr('href','/goods-832.html'+t);
+			jQuery("#b2").attr('href','/goods-1139.html'+t);
+			jQuery("#b3").attr('href','/goods-442.html'+t);
+		}
+		jQuery("#img1").attr('src','20150812/goods/f3.gif'/*tpa=http://www.ka-cn.com/special/20150812/goods/f3.gif*/);
+		jQuery("#img2").attr('src','20150812/goods/f7.gif'/*tpa=http://www.ka-cn.com/special/20150812/goods/f7.gif*/);
+		jQuery("#img3").attr('src','20150812/goods/f2.gif'/*tpa=http://www.ka-cn.com/special/20150812/goods/f2.gif*/);
+		
+		hhdiv.html(hours);
+		minsdiv.html(minute);
+		secsdiv.html(second);
+		//cc.innerHTML = day1+"天"+hours+"小时"+minute+"分"+second+"秒"; 
+	}
+
+}
+window.setInterval(function(){ShowCountDown(2015,10,31,00,55,00,IsPC,t);}, interval); //结束时间
+
+</script>
+<script type="text/javascript">
+function chenga(id, ahref){
+	document.getElementById(id).href=ahref;
+}
+
+if(!IsPC){
+	
+	chenga('a1', 'http://m.ka-cn.com/'+t);
+	chenga('a2', 'http://m.ka-cn.com/category-7-b0.html'+t);
+	chenga('a3', '/spgoods/goods_zfb.php'+t);
+	chenga('a4', 'http://m.ka-cn.com/goods-198.html'+t);
+	chenga('a5', 'http://m.ka-cn.com/goods-386.html'+t);
+	chenga('a6', 'http://m.ka-cn.com/goods-410.html'+t);
+		
+}
+</script>
+</head>
+<body>
+<div class="top">
+  <div class="center">
+    <div class="logo"><img src="20150812/images/logo_1.jpg" tppabs="http://www.ka-cn.com/special/20150812/images/logo_1.jpg" ></div>
+    <div class="nav">
+      <ul>
+        <li><a href="../default.html" tppabs="http://www.ka-cn.com/" target="_blank" id="a1">首页</a></li>
+        <li><a href="../category-7-b0.html" tppabs="http://www.ka-cn.com/category-7-b0.html" target="_blank" id="a2">点卡</a></li>
+        <li><a href="../spgoods/goods_zfb.php.htm" tppabs="http://www.ka-cn.com/spgoods/goods_zfb.php" target="_blank" id="a3">支付宝</a></li>
+        <li><a href="../goods-198.html" tppabs="http://www.ka-cn.com/goods-198.html" target="_blank" id="a4">淘宝代购</a></li>
+        <li><a href="../goods-386.html" tppabs="http://www.ka-cn.com/goods-386.html" target="_blank" id="a5">5173</a></li>
+        <li><a href="../goods-410.html" tppabs="http://www.ka-cn.com/goods-410.html" target="_blank" id="a6">藏宝阁</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="b1 fl"></div>
+
+<div class="main-box fl">
+  <div class="center">
+    <div class="v1 fl">
+      <div class="dao" id="timeshow"><span class="d_bg" id="hh"></span><span>时</span><span class="d_bg" id="mins"></span><span>分</span><span class="d_bg" id="secs"></span><span>秒</span></div>
+      <div class="js" style="display:none" id="overdiv"><img src="20150812/images/js.png" tppabs="http://www.ka-cn.com/special/20150812/images/js.png" width="160"/></div>
+       <div class="js" style="display:none" id="unopendiv"><img src="20150812/images/js2.png" tppabs="http://www.ka-cn.com/special/20150812/images/js2.png" width="160"/></div>
+    </div>
+    <div class="i1 fl" > <a href="javascript:void(0)" id="b1"><img src="20150812/images/over.jpg" tppabs="http://www.ka-cn.com/special/20150812/images/over.jpg" width="241" height="329" id="img1" /></a> <a href="javascript:void(0)" id="b2"><img src="20150812/images/over.jpg" tppabs="http://www.ka-cn.com/special/20150812/images/over.jpg" width="241" height="329" id="img2" /></a> <a href="javascript:void(0)" id="b3"><img src="20150812/images/over.jpg" tppabs="http://www.ka-cn.com/special/20150812/images/over.jpg" width="241" height="329" id="img3" /></a> </div>
+    <div class="j1 fl">
+      <table border="0" class="table">
+        <tr>
+          <td width="20%" align="right" class="td_1">参与方式：</td>
+          <td width="80%">注册成为KA-CN 网站用户的会员即可参与活动。</td>
+        </tr>
+        <tr>
+          <td  align="right" valign="top" class="td_1">注 意：</td>
+          <td>1.近期每日都会上架打折商品，亲们要每天都来网站看哦！折扣力度相当大，真的非常实惠！<br/>
+            2.每期活动，需要在限制时间内进行，下单购买、 如未在此时间段下单，付款，将不会享受优惠。</br>
+            3.本活动最终解释权归KA-CN所有。</td>
+        </tr>
+      </table>
+    </div>
+    <div class="f1 fl" > <img src="20150812/images/f1.jpg" tppabs="http://www.ka-cn.com/special/20150812/images/f1.jpg" /> <img src="20150812/images/f2.jpg" tppabs="http://www.ka-cn.com/special/20150812/images/f2.jpg" /> <img src="20150812/images/f3.jpg" tppabs="http://www.ka-cn.com/special/20150812/images/f3.jpg" /> </div>
+  </div>
+</div>
+<div class="foot fl">
+  <p style="text-align: center">Copyright &copy; 2010 - 2015 KA-CN. All Rights Reserved<br/>
+    KA-CN  版权所有</p>
+</div>
+</body>
+</html>

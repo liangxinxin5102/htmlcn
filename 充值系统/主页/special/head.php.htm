@@ -1,0 +1,191 @@
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<base target="_parent">
+<link href="../themes/2009jingdong/style.css" tppabs="http://www.ka-cn.com/themes/2009jingdong/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/jquery-1.4.3.min.js" tppabs="http://www.ka-cn.com/js/jquery-1.4.3.min.js"></script> 
+<script src="../js/cookie.js" tppabs="http://www.ka-cn.com/js/cookie.js" language='JavaScript' type='text/javascript'></script>
+<style>
+div {
+    margin: 0px auto;
+    padding: 0px;
+}
+.k1{
+	background: url("../themes/2009jingdong/images/kimg.jpg"/*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*//*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*/) no-repeat ;
+	float: left;
+	height: 46px;
+	width: 46px;
+}
+.k1:hover{
+	background: url("../themes/2009jingdong/images/kimg.jpg"/*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*//*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*/) no-repeat 0px -62px;
+	}
+.k2{
+	background-image: url("../themes/2009jingdong/images/pp.gif"/*tpa=http://www.ka-cn.com/themes/2009jingdong/images/pp.gif*//*tpa=http://www.ka-cn.com/themes/2009jingdong/images/pp.gif*/);
+	background-repeat: no-repeat;
+	float: left;
+	height: 46px;
+	width: 46px;
+}
+.k2:hover{
+	background: url("../themes/2009jingdong/images/kimg.jpg"/*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*//*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*/) no-repeat -180px -67px;
+	}
+.k3{
+	background: url("../themes/2009jingdong/images/kimg.jpg"/*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*//*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*/) no-repeat -130px 0px ;
+	float: left;
+	height: 46px;
+	width: 46px;
+}
+.k3:hover{
+	background: url("../themes/2009jingdong/images/kimg.jpg"/*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*//*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*/) no-repeat -130px -62px ;
+	}
+.k4{
+	background: url("../themes/2009jingdong/images/kimg.jpg"/*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*//*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*/) no-repeat -65px 0px ;
+	float: left;
+	height: 46px;
+	width: 46px;
+}
+.k4:hover{
+	background: url("../themes/2009jingdong/images/kimg.jpg"/*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*//*tpa=http://www.ka-cn.com/themes/2009jingdong/images/kimg.jpg*/) no-repeat -65px -62px ;
+}
+.kacn_toubu_sousuo_text {
+    width: 320px;
+    height: 31px;
+}
+</style>
+
+<div class="home_bg" style="margin:0 auto !important">
+<script>
+//by xc htmlé¡µé¢è·å–å‚æ•°t
+function getpara()
+{
+	var url=document.URL;
+	var para="";
+	var t=""
+	if(url.lastIndexOf("?")>0){
+		para=url.substring(url.lastIndexOf("?")+1,url.length);
+		var arr=para.split("&");
+		para="";
+		for(var i=0;i<arr.length;i++){
+			if(arr[i].split("=")[0] == "t"){
+				t = arr[i].split("=")[1];
+			}
+		}
+	}
+	/**by xy 20150722*/
+	if(t.indexOf("#")>-1){
+		t = t.substring(0,t.indexOf("#"));
+	}
+	return t;
+}
+var gt = getpara();
+if(gt){
+	addCookie('fromt', gt, 0);
+}
+var url_refer=document.referrer;
+url_refer = url_refer.toLowerCase(); //è½¬ä¸ºå°å†™
+var aSites = new Array('google.','baidu.','soso.','so.','360.','yahoo.','youdao.','sogou.','gougou.');
+var i = 0;
+for (i in aSites){
+	if (url_refer.indexOf(aSites[i]) > 0){
+		addCookie('url_refer', url_refer, 0);
+	}
+}
+</script>
+<script type="text/javascript">
+<!--
+function checkSearchForm()
+{
+	var search_word = document.getElementById('keyword').value;
+	search_word = trim(search_word);
+    if( search_word!="" && search_word!="è¯·è¾“å…¥æ¸¸æˆæˆ–ç‚¹å¡åç§°")
+    {
+		return true;
+	}
+	else
+	{
+		alert("è¯·è¾“å…¥æœç´¢å…³é”®è¯ï¼");
+		return false;
+	}
+}
+-->
+function trim(str){   
+	str = str.replace(/^(\s|\u00A0)+/,'');   
+	for(var i=str.length-1; i>=0; i--){   
+		if(/\S/.test(str.charAt(i))){   
+			str = str.substring(0, i+1);   
+			break;   
+		}   
+	}   
+	return str;   
+}
+function AddFavoriteUrl(sURL, sTitle){ 
+		try { 
+		window.external.addFavorite(sURL, sTitle);
+	} 
+	catch (e) 
+	{ 
+		try {
+			window.sidebar.addPanel(sTitle, sURL, ""); 
+		}catch (e) {
+			alert("åŠ å…¥æ”¶è—å¤±è´¥ï¼Œè¯·ä½¿ç”¨Ctrl+Dè¿›è¡Œæ·»åŠ ");
+		} 
+	}
+}
+function goto() {
+	var gt = getpara();
+	var gtm = "";
+	if( gt ){
+		gtm = "&t="+gt;
+	}
+    window.open("/user.php?act=register"+gtm);
+}
+</script>
+<div class="home_bg">
+  <div id="HeadTop" class="clearfix">
+    <div class="f_l logo">
+      <div class="f_l"><a class="kacn_top_scwz" onClick="AddFavoriteUrl('../default.html'/*tpa=http://www.ka-cn.com/*/,'KA-CNç‚¹å¡å……å€¼');" id="favorite"><font color="#FF0000" style="font-weight:bolder">Ctrl+D</font> æ”¶è—æœ¬ç«™</a></div>
+      <a href="../default.html" tppabs="http://www.ka-cn.com/" class="f_l" > <img src="../themes/2009jingdong/images/logo.jpg" tppabs="http://www.ka-cn.com/themes/2009jingdong/images/logo.jpg"/> </a>
+    </div>
+    <div class="f_r logoRight" >
+      <div class="f_r TopNav">
+          <a class="kacn_top_xinlangweibo" href="javascript:if(confirm('http://weibo.com/2975155947/profile?topnav=1&wvr=5  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://weibo.com/2975155947/profile?topnav=1&wvr=5'" tppabs="http://weibo.com/2975155947/profile?topnav=1&wvr=5" target="_blank" id="favorite"> <font color="#ff8c01">å¥½å¡ä¹‹å®¶</font></a> <span class="left"></span><span class="right"></span>
+          <a href="../user.php-act=login.htm" tppabs="http://www.ka-cn.com/user.php?act=login" id="kacnloginurl" style="padding:0 5px;">ç™»å½•</a>|<a href="../user.php-act=register.htm" tppabs="http://www.ka-cn.com/user.php?act=register" id="kacnregisterid" style="padding:0 5px;">æ³¨å†Œ</a>|
+
+                  <a href="../user.php-act=default.htm" tppabs="http://www.ka-cn.com/user.php?act=default"  id="nav_1">ç”¨æˆ·ä¸­å¿ƒ</a> </div>
+        <div class="kf"> </div>
+      <div class="kacn_toubu_layout">
+        <div> KA-CNæ¥å—ç¾é‡‘,æ¬§å…ƒ,æ¾³å¸,åŠ å…ƒ,è‹±é•‘,æ—¥å…ƒç­‰ä¸€åˆ‡å›½é™…è´§å¸. </div>
+        <div class="kacn_toubu_sousuo" style="width:417px;">
+          <form id="searchForm" name="searchForm" method="get" action="http://www.ka-cn.com/special/search.php" onSubmit="return checkSearchForm()" class="f_l">
+            <input name="keywords" type="text" id="keyword"  class="kacn_toubu_sousuo_text"  onblur="if (this.value =='') this.value='è¯·è¾“å…¥æ¸¸æˆæˆ–ç‚¹å¡åç§°'" onfocus=this.select() onclick="if (this.value=='è¯·è¾“å…¥æ¸¸æˆæˆ–ç‚¹å¡åç§°') this.value=''"/>
+            <input name="searchkey" type="hidden"  value="a3391e41872d276b709e1a"/>
+            <input name="imageField" type="submit"  class="kacn_toubu_sousuo_botton" value="æœ ç´¢" id="searchBtn" style="height:35px;"/>
+          </form>
+        </div>
+        <div class="home_hot_keyword"> <strong> çƒ­é—¨å…³é”®è¯ï¼š</strong>
+        
+         <a href="../search.php-encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjY6IuaImOe9kSI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE0ODE3MTQ0Mjg7fQ==.htm" tppabs="http://www.ka-cn.com/search.php?keywords=æˆ˜ç½‘">æˆ˜ç½‘</a> <a href="../search.php-encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjY6Im15Y2FyZCI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE0ODE3MTM1MTA7fQ==.htm" tppabs="http://www.ka-cn.com/search.php?keywords=mycard">mycard</a> <a href="../search.php-encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjc6IuWJkee9kTMiO3M6MTg6InNlYXJjaF9lbmNvZGVfdGltZSI7aToxNDgxNzE0NDI4O30=.htm" tppabs="http://www.ka-cn.com/search.php?keywords=å‰‘ç½‘3">å‰‘ç½‘3</a> <a href="../search.php-encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjI6IlFRIjtzOjE4OiJzZWFyY2hfZW5jb2RlX3RpbWUiO2k6MTQ4MTcxMzUwNzt9.htm" tppabs="http://www.ka-cn.com/search.php?keywords=QQ">QQ</a> <a href="../search.php-encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjEyOiLmoqblubvopb-muLgiO3M6MTg6InNlYXJjaF9lbmNvZGVfdGltZSI7aToxNDgxNzE0NDI4O30=.htm" tppabs="http://www.ka-cn.com/search.php?keywords=æ¢¦å¹»è¥¿æ¸¸">æ¢¦å¹»è¥¿æ¸¸</a> <a href="../search.php-encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjk6Iua4r+acjVBTTiI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE0ODE3MTQ0Mjg7fQ==.htm" tppabs="http://www.ka-cn.com/search.php?keywords=æ¸¯æœPSN">æ¸¯æœPSN</a> <a href="../search.php-encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjEyOiLml6XmnKzoi7nmnpwiO3M6MTg6InNlYXJjaF9lbmNvZGVfdGltZSI7aToxNDgxNzE0NDMwO30=.htm" tppabs="http://www.ka-cn.com/search.php?keywords=æ—¥æœ¬è‹¹æœ">æ—¥æœ¬è‹¹æœ</a> 
+        </div>
+      </div>
+      <table border="0" align="right" class="fl_ri kacn_toubu_right_layout">
+        <tr>
+          <td align="center" nowrap="" height="60" width="108" ><a href="../kefu.php-com=spe-but&type=2.htm" tppabs="http://www.ka-cn.com/kefu.php?com=spe-but&type=2" target="_blank" rel="nofollow"><img src="../themes/2009jingdong/images/kf2.png" tppabs="http://www.ka-cn.com/themes/2009jingdong/images/kf2.png" id="serviceImg"></a></td>
+          <td width="46"><span id="qqspan" name="qqspan" ><a href="javascript:if(confirm('http://wpa.qq.com/msgrd?v=3&uin=859220229&site=ka-cn&menu=yes&r=1710602291  \n\n¸ÃÎÄ¼şÎ´±» Teleport Pro ÏÂÔØ£¬ÒòÎª ËüÎ»ÓÚÆğÊ¼µØÖ·ÒÔÉèÖÃµÄ±ß½çÒÔÍâµÄÓò»òÂ·¾¶ÖĞ¡£  \n\nÄãÏëÒª´Ó·şÎñÆ÷´ò¿ªËüÂğ?'))window.location='http://wpa.qq.com/msgrd?v=3&uin=859220229&site=ka-cn&menu=yes&r=1710602291'" tppabs="http://www.ka-cn.com/kefu.php?com=top-qq&qq=859220229" target="_blank" rel="nofollow" id="indexqq859220229" class="k1"></a></span></td>
+          <td width="46"><a href="../kefu.php-com=spe-but&type=2.htm" tppabs="http://www.ka-cn.com/kefu.php?com=spe-but&type=2" target="_blank" rel="nofollow" class="k2"></a></td>
+          <td width="46"><a href="javascript:void(0);" onclick = "show_wx('popx');" class="k3"></a></td>
+          <td width="46"><a href="skype:ka-cn.com?call" target="_blank" rel="nofollow" class="k4"></a>
+            <p style=" position:absolute; display:none;background:#fff;top:0px;width:140px;right:10%; z-index:1" id="popx"> <img src="../themes/2009jingdong/images/XX.gif" tppabs="http://www.ka-cn.com/themes/2009jingdong/images/XX.gif" onClick="hide_wx('popx')" style="margin-left:116px;margin-top:10px;"> <img src="../themes/2009jingdong/images/kacn_top_sjwz2.gif" tppabs="http://www.ka-cn.com/themes/2009jingdong/images/kacn_top_sjwz2.gif" style="margin: -20px 13px 0px 13px;" width="100" /></p></td>
+          <script type="text/javascript">
+function show_wx(o){
+	var o = document.getElementById(o);
+	o.style.display = "";
+}
+function hide_wx(o){
+	var o = document.getElementById(o);
+	o.style.display = "none";
+}
+</script> 
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
