@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/chuangye">创业</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">互联网创业失败启示录 和成功一样有意义</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-11-14　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2093.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2093.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><img src="../../ueditor/php/upload/image/20161130/1480474328132589.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161130/1480474328132589.jpg" title="Udk6-fxxsmih9620043.jpg" alt="Udk6-fxxsmih9620043.jpg" style="border: 0px; vertical-align: middle; display: block; width: auto; height: auto; max-width: 100%; margin: 0px auto;"/></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">看十个成功的故事，不如看一个失败的故事更让人警醒。互联网走过风风雨雨，创业者无数，不计其数的互联网创业公司进入视野，一些公司凭借自身创新的理念、借助互联网加速器，飞速发展、颠覆传统，创造了业界奇迹。但相比创业大军，成功者可谓寥寥，大多数互联网创业公司则被湮没在历史的长河中，慢慢被人们淡忘，其中不乏一些曾经一度被公众看好的优秀公司。今天，互联网创业热情不减，了解互联网创业失败的启示录，和成功一样有意义。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><strong>没有定位、定位错误、定位超前都不行</strong></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">2014年，锤子手机遇到了不少麻烦，产品发布供不上货，产品品质和设计被质疑，只能降价清库存，打脸罗永浩“定价不低于2500”的宣传。所幸锤子在2014年末、2015年初拿到了新的一轮投资，挺过了最困难的时刻。但是回顾这次险些导致锤子失败的危机，不难发现，错误的定位是根本问题之一。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">锤子手机定位复合高端设计、情怀路线的溢价品，但销售渠道却主要以线上为主，而线上用户更注重性价比，所以目标用户与其销售渠道所集中的主要消费群之间产生了矛盾。也就直接导致了，在互联网电商渠道卖3000元的锤子远不是卖2000元小米的对手，错误的定位导致锤子手机实际转化率偏低。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">当下，不少互联网创业公司没有认识到定位的重要性，对于企业而言，没有定位、定位错误、定位超前都不行，只有基于自身所拥有的资源，确立清晰正确的定位，企业才能够做正确的事，有明确的方向，像飞轮一样逐渐向前推进。否则，厄运的巨轮迟早会降临到企业的头上。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><strong>盈利模式模糊，盲目扩张，“烧钱”模式考验着脆弱的资金链</strong></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">1999年，刚刚获得哈佛商学院MBA的<a href="javascript:if(confirm('http://data.iresearch.cn/people/13519.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://data.iresearch.cn/people/13519.shtml'" tppabs="http://data.iresearch.cn/people/13519.shtml" target="_blank" style="cursor: pointer; text-decoration: none; color: rgb(62, 67, 62); border-bottom-width: 1px; border-bottom-style: dotted; border-bottom-color: rgb(105, 198, 43);">唐海松</a>创建了亿唐公司，致力于通过网络、零售和无线服务创造和引进国际先进水平的生活时尚产品，其“梦幻团队”由5个哈佛大学MBA和两个芝加哥大学MBA组成。凭借诱人的创业方案和精英团队，亿唐从两家著名美国风险投资公司DFJ、Sevin Rosen手中拿到两期共5000万美元左右的融资。亿唐网一夜之间横空出世，迅速在各大高校攻城略地，在全国范围快速“烧钱”：除了在北京、广州、深圳三地建立分公司外，亿唐还广招人手，并在各地进行规模浩大的宣传造势活动。2000年年底，互联网的寒冬突如其来，亿唐钱烧光了大半，仍然无法盈利。此后的转型也一直没有取得成功，2008年的亿唐公司只剩下空壳，昔日的“梦幻团队”在公司烧光钱后也纷纷选择出走。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">亿唐网的失败，关键在于模糊的盈利模式，其凭借美好的“故事”和“概念”虚张声势，不惜一切代价盲目地扩张“烧钱”，却没有洞察用户的真正需求，深刻认识和理解商业模式，这使得创业中本来就脆弱的资金链，一旦遇到外界资本的波动就轰然崩盘。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">对于任何一家创业公司而言，如何创造持久、强劲的现金流和利润率以保持公司的良好运营，是实现企业从优秀走向卓越的基本要求，因而扩张的基础应该建立在对三个基本问题的思考之上，即“你能在什么方面成为世界上最优秀的”“是什么驱动你的经济引擎”“你对什么充满热情”，唯有如此才能让公司的每一步行动都变得有目标。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><strong>是否拥有连贯一致的文化是公司保持活力的关键</strong></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">酷6作为视频网站当年的三杰(优酷、土豆和酷6)之一，风风火火仅一年后，便掉队了。当年，<a href="javascript:if(confirm('http://data.iresearch.cn/people/5188.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://data.iresearch.cn/people/5188.shtml'" tppabs="http://data.iresearch.cn/people/5188.shtml" target="_blank" style="cursor: pointer; text-decoration: none; color: rgb(62, 67, 62); border-bottom-width: 1px; border-bottom-style: dotted; border-bottom-color: rgb(105, 198, 43);">陈天桥</a>与<a href="javascript:if(confirm('http://data.iresearch.cn/people/6480.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://data.iresearch.cn/people/6480.shtml'" tppabs="http://data.iresearch.cn/people/6480.shtml" target="_blank" style="cursor: pointer; text-decoration: none; color: rgb(62, 67, 62); border-bottom-width: 1px; border-bottom-style: dotted; border-bottom-color: rgb(105, 198, 43);">李善友</a>就<a href="javascript:if(confirm('http://data.iresearch.cn/company/18895.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://data.iresearch.cn/company/18895.shtml'" tppabs="http://data.iresearch.cn/company/18895.shtml" target="_blank" style="cursor: pointer; text-decoration: none; color: rgb(62, 67, 62); border-bottom-width: 1px; border-bottom-style: dotted; border-bottom-color: rgb(105, 198, 43);">酷6网</a>的发展战略产生分歧，陈天桥希望酷6的发展方向是“视频资讯新闻”，而李善友则更希望坚持购买正版版权的“大片模式”，最终创始人李善友离职，双方不欢而散，亏损逐年变大，最后只能裁员后再转型，放弃购买长视频版权，包括电影和电视剧等，转而关注于社区化、UGC(用户生成内容)和短视频。盛大在酷6投入了将近两亿美元，却颗粒未收，是促使酷6转型的最直接原因。从此酷6的命运就像一只在温水中的青蛙。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">管理方与创始人理念不同，企业就不会有正确的方向和终点。连贯一致的文化来自于共同的价值理念，对于创业企业而言，合适的人是最重要的资产，从外部寻求管理层不如由内部培养人才，这是先于愿景、战略、战术、组织结构、技术问题的最重要的一环。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">以铜为镜，可以正衣冠，了解互联网创业失败的启示录的意义就在于为今天的创业者提出警醒，切莫重蹈覆辙，优秀可能是卓越的大敌，追求卓越才是企业的终极目标。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

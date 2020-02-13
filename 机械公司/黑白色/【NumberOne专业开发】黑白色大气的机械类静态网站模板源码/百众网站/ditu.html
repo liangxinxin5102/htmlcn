@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>河北百众机电</title>
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<div id="header">
+<div class="logo"><img src="image/logo.png"></div>
+<div class="biaoyu"><img src="image/biaoyu.jpg"></div>
+<div class="lianxi"><div class="ditu"><a>网站首页</a>|<a>网站地图</a></div>
+<div class="tell">TEL：<span>0311-66175058</span></div>
+</div></div>
+<div style="clear:both"></div>
+<div id="nav">
+<div class="conent">
+<ul>
+<li><a href="index.html">关于百众</a></li>
+<li><a href="xinwen.html">新闻展会</a></li>
+<li><a href="chanpin.html">产品展示</a></li>
+<li><a href="hangye.html">行业应用</a></li>
+<li><a href="jiejue.html">解决方案</a></li>
+<li><a href="fuwu.html">客服服务</a></li>
+<li><a href="jihui.html">工作机会</a></li>
+<li style="background:none;"><a  class="hover" href="lianxi.html">联系我们</a></li>
+</ul>
+</div>
+</div>
+<div class="banner" id="banner" >
+	<a href="" class="d1" style="background:url(image/banner1.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner2.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner3.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner1.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner2.jpg) center no-repeat;"></a>
+	<div class="d2" id="banner_id">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+<script type="text/javascript">
+function banner(){	
+	var bn_id = 0;
+	var bn_id2= 1;
+	var speed33=5000;
+	var qhjg = 1;
+    var MyMar33;
+	$("#banner .d1").hide();
+	$("#banner .d1").eq(0).fadeIn("slow");
+	if($("#banner .d1").length>1)
+	{
+		$("#banner_id li").eq(0).addClass("nuw");
+		function Marquee33(){
+			bn_id2 = bn_id+1;
+			if(bn_id2>$("#banner .d1").length-1)
+			{
+				bn_id2 = 0;
+			}
+			$("#banner .d1").eq(bn_id).css("z-index","2");
+			$("#banner .d1").eq(bn_id2).css("z-index","1");
+			$("#banner .d1").eq(bn_id2).show();
+			$("#banner .d1").eq(bn_id).fadeOut("slow");
+			$("#banner_id li").removeClass("nuw");
+			$("#banner_id li").eq(bn_id2).addClass("nuw");
+			bn_id=bn_id2;
+		};
+	
+		MyMar33=setInterval(Marquee33,speed33);
+		
+		$("#banner_id li").click(function(){
+			var bn_id3 = $("#banner_id li").index(this);
+			if(bn_id3!=bn_id&&qhjg==1)
+			{
+				qhjg = 0;
+				$("#banner .d1").eq(bn_id).css("z-index","2");
+				$("#banner .d1").eq(bn_id3).css("z-index","1");
+				$("#banner .d1").eq(bn_id3).show();
+				$("#banner .d1").eq(bn_id).fadeOut("slow",function(){qhjg = 1;});
+				$("#banner_id li").removeClass("nuw");
+				$("#banner_id li").eq(bn_id3).addClass("nuw");
+				bn_id=bn_id3;
+			}
+		})
+		$("#banner_id").hover(
+			function(){
+				clearInterval(MyMar33);
+			}
+			,
+			function(){
+				MyMar33=setInterval(Marquee33,speed33);
+			}
+		)	
+	}
+	else
+	{
+		$("#banner_id").hide();
+	}
+}
+</script>
+<script type="text/javascript">banner()</script>
+</div>
+<!--搜索-->
+<div id="search">
+<div class="coen1">
+<div class="left"><span>他们都在搜：</span><a>自立袋机型</a>、<a>给袋式机型</a>、<a>高速机型</a>、<a>标准机型</a></div>
+<div class="sear_right"><input type="text" class="text" value="请输入关键词搜索" onfocus="if(value == '请输入关键词搜索'){value = ''} " onblur="if(value == ''){value = '请输入关键词搜索'}"/><input type="button" class="button_sear"  value=""/></div>
+</div></div>
+<!--产品-->
+<div id="main2">
+<div class="left_zhanshi">
+<div class="menu"><div class="tittle"><span>联系我们</span></div>
+<div class="menu_warp">
+<ul>
+<a href="lianxi.html"><li>联系我们</li></a>
+<a href="liuyan.html"><li>留言反馈</li></a>
+<a href="ditu.html"><li class="yanse">网站地图</li></a>
+</ul>
+</div>
+</div>
+<div class="tongdao">
+<div class="tittle"><span>产品快速通道</span></div>
+<div class="kuai_warp"><select type="text" class="text_chaxub" ><option>请选择类别</option></select><select type="text" class="text_chaxub" ><option>请选择型号</option></select>
+<input type="button" class="button_sousuo" value="搜索" />
+</div>
+</div>
+</div>
+
+<div class="right_chanpin"><div class="tittle"><span>联系我们</span><tt>></tt><span>网站地图</span></div>
+<div style="clear:both;"></div>
+<div class="right_con_cp">
+<div class="linian"><img src="image/lianxi.jpg"></div>
+<div class="linian">
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+      <tr>
+        <td><div style="border-bottom:1px dotted #777; height:30px;"><a href="#">关于百众</a></div>
+          <div id="nav03">
+            <ul>
+              <li id="li01"><a href="#" title="公司简介">公司简介</a></li>
+              <li id="li02"><a href="#" title="企业文化">企业文化</a></li>
+              <li id="li03"><a href="#" title="领导致辞">领导致辞</a></li>
+              <li id="li058"><a href="#" title="企业资质">企业资质</a></li>
+              <li><a href="#">荣誉资质</a></li>
+            </ul>
+          </div></td>
+      </tr>
+      <tr>
+        <td height="25"></td>
+      </tr>
+      <tr>
+        <td><div style="border-bottom:1px dotted #777; height:30px;"> <a href="#">新闻展会</a></div>
+          <div id="nav03">
+            <ul>
+              <li><a href="#" title="公司公告">公司公告</a></li>
+              <li><a href="#" title="公司新闻">公司新闻</a></li>
+              <li><a href="#" title="行业资讯">行业资讯</a></li>
+            </ul>
+          </div></td>
+      </tr>
+      <tr>
+        <td height="25"></td>
+      </tr>
+      <tr>
+        <td><div style="border-bottom:1px dotted #777; height:30px;"> <a href="">产品展示</a></div>
+          <div id="nav03">
+            <ul>
+              <li><a href="#">水平式全自动包装机</a></li>
+              <li><a href="#">直线式灌装机</a></li>
+              <li><a href="#">立式包装机</a></li>
+              <li><a href="#">辅助装置</a></li>
+              <li><a href="#" title="纸盒灌装机">纸盒灌装机</a></li>
+              <li><a href="#" title="枕式自动包装机">枕式自动包装机</a></li>
+            </ul>
+          </div></td>
+      </tr>
+      <tr>
+        <td height="25"></td>
+      </tr>
+      <tr>
+        <td><div style="border-bottom:1px dotted #777; height:30px;"> <a href="#">行业应用</a></div>
+          <div id="nav03">
+            <ul>
+              <li><a href="#" title="食品">食品</a></li>
+              <li><a href="#" title="饮料">饮料</a></li>
+              <li><a href="#" title="化妆品">化妆品</a></li>
+              <li><a href="#" title="医药">医药</a></li>
+              <li><a href="#" title="日化">日化</a></li>
+              <li><a href="#" title="农化">农化</a></li>
+              <li><a href="#" title="其他">其他</a></li>
+            </ul>
+          </div></td>
+      </tr>
+      <tr>
+        <td height="25"></td>
+      </tr>
+      <tr>
+        <td><div style="border-bottom:1px dotted #777; height:30px;"><a href="#">解决方案</a></div>
+          <div id="nav03">
+            <ul>
+              <li><a href="#">案例展示</a></li>
+              <li><a href="#">包装需求检索</a></li>
+            </ul>
+          </div></td>
+      </tr>
+      <tr>
+        <td height="25"></td>
+      </tr>
+      <tr>
+        <td><div style="border-bottom:1px dotted #777; height:30px;"><a href="#">客服服务</a></div>
+          <div id="nav03">
+            <ul>
+              <li id="li07"><a href="#" title="服务理念">服务理念</a></li>
+            </ul>
+          </div></td>
+      </tr>
+      <tr>
+        <td height="25"></td>
+      </tr>
+      <tr>
+        <td><div style="border-bottom:1px dotted #777; height:30px;"><a href="#">工作机会</a></div>
+          <div id="nav03">
+            <ul>
+              <li id="li010"><a href="#" title="人才理念">人才理念</a></li>
+              <li id="li011"><a href="#" title="人才招聘">人才招聘</a></li>
+            </ul>
+          </div></td>
+      </tr>
+      <tr>
+        <td height="25"></td>
+      </tr>
+      <tr>
+        <td><div style="border-bottom:1px dotted #777; height:30px;"> <a href="#">联系我们</a></div>
+          <div id="nav03">
+            <ul>
+              <li id="li08"><a href="#" title="联系我们">联系我们</a></li>
+              <li><a href="#">在线留言</a></li>
+              <li><a href="#">网站地图</a></li>
+            </ul>
+          </div></td>
+      </tr>
+      <tr>
+        <td height="25"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div style="height:10px; clear:both"></div>
+</div>
+</div>
+
+<div style="clear:both"></div>
+</div>
+<div style="clear:both; cursor:pointer;"></div>
+</div>
+<!--footer-->
+<div id="footer">
+<div class="conent_foter">
+<div class="nav_foot">
+<a>关于百众</a>  |   <a>新闻展会</a>  |   <a>产品展示</a>  |   <a>行业应用 </a> |  <a>解决方案</a>   |   <a>客户服务 </a> |  <a>工作机会 </a> | 
+<a>联系我们</a>
+</div>
+<div style="height:20px;"></div>
+<p>权所有 © 河北百众机电科技有限公司  冀ICP备10204030-1号</p><p>公司网址：www.hbbzjd.com  公司地址：石家庄市 建通街塔南路29号  联系电话：13901624119</p>
+<div style="padding-left:288px; padding-right:100px;">
+<div class="chengxin"><a href="#"><img src="image/a.jpg"></a></div>
+<div class="chengxin"><a href="#"><img src="image/b.jpg"></a></div>
+<div class="chengxin"><a href="#"><img src="image/c.jpg"></a></div>
+</div>
+</div>
+</div>
+</body>
+</html>

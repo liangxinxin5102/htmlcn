@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>城市选择</title>
+    <link rel="stylesheet" type="text/css" href="style/index.css">
+    <script type="text/javascript" src="js/xiangqye/jquery-1.11.2.min.js"></script>
+</head>
+<style>
+    body{background: #fc2626;}
+    .city-choosebot{text-align:center; color: #fff; font-family: "微软雅黑"; height:180px;line-height:20px;width:700px; margin:30px auto;}
+    .yde-bottomimg{background: url("images/city-bottom_02.png") no-repeat center;position:fixed; width: 100%; height:105px; bottom:0;}
+</style>
+<body>
+<!--顶部开始-->
+<div id="top">
+    <div class="top-con">
+        <a href="" style=" color: #FFF; float:left; height: 20px; margin-top: 10px;">返回导航</a>
+    <ul>
+
+        <li><a href="#">登录</a></li>
+        <li><a href="#">注册</a></li>
+        <li><a href="#">会员中心</a></li>
+        <li><a href="#">的我收藏</a></li>
+        <li><a href="#">资讯</a></li>
+        <li><a href="#">问题</a></li>
+        <li><a href="#">反馈</a></li>
+    </ul>
+</div>
+</div>
+<!--顶部结束-->
+<!--导航区域开始-->
+<div id="nav">
+<div class="nav-con">
+<div class="nav-logo"><a href=""><img src="images/logo.jpg"></a> </div>
+    <div class="city-choose">
+        <div class="nice-select" name="nice-select">
+            <input type="text" value="北京" readonly>
+            <ul>
+                <li data-value="0">天津</li>
+                <li data-value="1">上海</li>
+                <li data-value="2">石家庄</li>
+            </ul>
+        </div>
+        <script>
+            $('[name="nice-select"]').click(function(e){
+                $('[name="nice-select"]').find('ul').hide();
+                $(this).find('ul').show();
+                e.stopPropagation();
+            });
+            $('[name="nice-select"] li').hover(function(e){
+                $(this).toggleClass('on');
+                e.stopPropagation();
+            });
+            $('[name="nice-select"] li').click(function(e){
+                var val = $(this).text();
+                var dataVal = $(this).attr("data-value");
+                $(this).parents('[name="nice-select"]').find('input').val(val);
+                $('[name="nice-select"] ul').hide();
+                e.stopPropagation();
+            });
+            $(document).click(function(){
+                $('[name="nice-select"] ul').hide();
+            });
+        </script>
+
+    </div>
+
+<div class="contactway"><img src="images/contactway_03.jpg"> </div>
+</div>
+
+    <div class="nav-navdh">
+<div class="navdh-con">
+<ul>
+    <li><a href="#">首页</a> </li>
+    <li><a href="#">婚纱摄影</a></li>
+    <li><a href="#">婚礼策划</a></li>
+    <li><a href="#">结婚商城</a></li>
+    <li><a href="#">婚礼社区</a></li>
+    <li><a href="#">百花商城</a></li>
+    <li><a href="#">月老婚恋</a></li>
+</ul>
+</div>
+    </div>
+</div>
+<!--导航区域结束-->
+<div id="xzcontent">
+    <div class="xz-logo"><img src="images/csxz_03.png"> </div>
+    <div class="xz-city-img">
+        <ul>
+            <li><a href=""><img src="images/csxz_07.png"></a></li>
+            <li class="xz-right"><a href=""><img src="images/csxz_08.png"></a></li>
+            <li><a href=""><img src="images/csxz_09.png"></a></li>
+            <li class="xz-right"><a href=""><img src="images/csxz_10.png"></a></li>
+
+        </ul>
+    </div>
+
+</div>
+<div class="city-choosebot">
+    <br/><br/>
+    <div>婚纱摄影 // 婚纱礼服 // 婚礼策划 // 婚宴酒店 // 结婚珠宝 // 蜜月旅游 // 婚礼用品 // 婚车租赁 // 婚典花艺 // 婚礼跟拍</div>
+    <div>司仪督导 // 化妆造型 // 美容纤体 // 床上用品 // 婚房家装 // 婚房家居 // 婚房家电 // 婚房家具 // 新婚理财 // 新婚楼盘</div>
+<div style="text-align: center; margin-top: 30px;">版权所有： 新郎官~婚嫁网  工信部网站备案号14008906号-2  京公安网备 110110110110  www.591jh.com <br/>
+    © CopyRight 新郎官~婚嫁网  All Rights Resrved  京ICP备14008906号 <br/>
+    全程技术支持：北京祝天合地文化传媒有限公司</div>
+</div>
+<div class="yde-bottomimg"></div>
+</body>
+</html>

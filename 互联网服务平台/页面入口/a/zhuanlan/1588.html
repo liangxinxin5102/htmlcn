@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/zhuanlan">专栏</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">除了机票、酒店，这个旅游行业大会谈的更多的是这些</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-06-24　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/1588.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/1588.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="text-indent: 2em;">旅游为人们体验异域文化、生活和风土人情提供了机会，并成为人们休闲消费的最重要的一项内
+容。旅游大消费时代已经到来，旅游的内涵和外延不断扩大，旅游上下游产业链新的跨界和融合不断深入发展，逐渐形成以旅游为核心，以体育、户外、文化、游
+学、亲子等周边产业为外延的旅游大消费产业新生态。</p><p style="text-indent: 2em;">在这一背景下，6月16日，由执惠主办、左驭资本、淳时资本协办的首届《中国旅游大消费创新峰会》在北京国家会议中心成功举行，现场汇聚了旅游、投资、体育、户外、娱乐、营销等领域的多位行业精英，数十家国内主流媒体，以及近1500位来自世界各地的观众。</p><p style="text-indent: 2em;">参加本次大会的企业大多是近几年刚刚创立的小企业，没有稳坐江山的携程、去哪儿，人们谈到更多的不是机票、酒店话题，大家谈到更多的是消费升级趋势下，中国旅游市场新的需求和新的供给，以体育、户外、文化、游学、亲子、定制游等垂直细分需求与供给。<img src="../../ueditor/php/upload/image/20160624/1466750876698534.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160624/1466750876698534.jpg" title="主会???.jpg" style="text-align: center; float: none;" border="0" hspace="0" vspace="0"/></p><p style="text-indent: 2em;">大会现场观众</p><p style="text-indent: 2em;">本
+届峰会的主题是“融合?新生态”，上午九点，峰会在中国旅游研究院戴斌院长的开场致辞及执惠创始人兼CEO刘照慧的主办方致辞后正式拉开帷幕，本次峰会有
+来自旅游产业链上不同领域的13位嘉宾先后进行了主题演讲，21位来自旅游企业、资本方的嘉宾参与圆桌研讨，此外，作为本次峰会的最大亮点，9家旅游创业
+创新企业在现场进行了精彩的路演并接受了资本方的犀利提问。会上，执惠还宣布与优酷旅游达成战略合作，双方将共同打造业内首档旅游大咖脱口秀节目《旅游大
+咖说》。旅游卫视总裁韩国辉最后进行了总结致辞。</p><p style="text-indent: 2em;">纵观整场峰会，各位嘉宾都围绕“消费升级”“跨界”“融合”“创新”等关键词展开了精彩演讲，从不同层面带领现场观众一起思考旅游大消费背景下的产业跨界与融合如何进行，探讨消费升级背景下的企业创新与市场新机会。</p><p style="text-indent: 2em;"><img src="../../ueditor/php/upload/image/20160624/1466750877733218.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160624/1466750877733218.jpg" style="float:none;" title="老刘一2.jpg" border="0" hspace="0" vspace="0"/></p><p style="text-indent: 2em;">执惠旅游创始人兼CEO刘照慧作为主办方致辞</p><p style="text-indent: 2em;">一、大众旅游时代，“消费升级”给整个行业带了哪些新的变化？</p><p style="text-indent: 2em;">1.大众旅游时代消费需求出现新变化</p><p style="text-indent: 2em;">在
+峰会开场演讲中，中国旅游研究院院长戴斌指出，大众旅游时代旅游正在加速进入老百姓的日常生活选项，成为人民群众生活水平提高的重要指标。同时，在大众旅
+游时代，人们的消费需求也在发生一些变化，广大游客越来越多地采取自由行的方式广泛地介入到目的地的生活消费空间。旅行社服务也转向了旅行服务。以前景区
+景点的旅游走向了全域旅游。一个旅游目的地，不管是城市还是农村，都在成为本地居民和外来游客共享的一个生活空间。在中国旅游产业方面，戴斌认为中国旅游
+的创业创新正在消费变迁的影响下，在传统的旅游集团和新势力的推动下，向着旅游强国发展所必要的市场主体支撑的方向演化。</p><p style="text-indent: 2em;">2.跨界融合大航海时代已经到来，行业更需要创新</p><p style="text-indent: 2em;">执惠创始人兼CEO刘照慧在演讲中谈到，旅游大消费时代来临，以旅游为核心，以体育、户外、文化、游学等周边产业为外延的旅游大消费产业喷薄欲出。</p><p style="text-indent: 2em;">左驭资本董事韩泽表示，“旅游+”的时代，跨界融合加速。旅游产业和教育、住宿、交通、体育、休闲等产业都有很多交集。例如体育跟旅游产生户外旅游，文化产业里有主题公园、主题旅游演艺，教育行业里有亲子游、游学等。</p><p style="text-indent: 2em;">新生态下我们需要打破对产业的传统认知，需要看一看我们与发达国家的差距，需要打破产业内部彼此之间的芥蒂，需要打破我们对消费群体一成不变的服务模式，我们也许需要资源，也许需要技术，也许需要人才，也许需要资金，但更需要的是创新。</p><p style="text-indent: 2em;"><img src="../../ueditor/php/upload/image/20160624/1466750877115828.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160624/1466750877115828.jpg" style="float:none;" title="主题演讲.jpg" border="0" hspace="0" vspace="0"/></p><p style="text-indent: 2em;">二、在消费升级背景下，旅游产业未来该如何发展？有哪些新的机会与挑战？</p><p style="text-indent: 2em;">1.旅游消费升级下的10个趋势与机会</p><p style="text-indent: 2em;">洪
+泰基金创始人盛希泰在主题演讲《旅游消费升级的机构性机会》中指出，旅游消费升级下有以下10个趋势与机会：共享经济仍是最大的机会，非标领域是旅游行业
+新的增长点，线上与线下融合开始加速，旅行社的供给侧改革仍有机会，专业自由人向导服务刚刚开始，中产及高收入人群的高端旅游潜力巨大，互联网创业公司的
+机会集中在出境游，电商领域的内容化出现在旅游市场，金融服务加速渗透到旅游行业，“互联网+大数据”助力智慧景区。</p><p style="text-indent: 2em;">2.线上线下旅行社的突围之道：打造以服务为核心的竞争力</p><p style="text-indent: 2em;">同
+程旅游创始人兼CEO吴志祥认为，当前的旅游企业还没有意识到为游客服务的价值，更没有深刻认识到旅行社的本质就是服务。旅游企业应该踏踏实实把每一位游
+客照顾好，为游客带来更大的价值，而不是口水战、价格战、名次战。吴志祥呼吁行业回归初心，回归本原，“这个行业除口水战、价格战之外，还有很多事情可以
+做。”</p><p style="text-indent: 2em;">3.旅游电商风口已过，等待一个新时代的崛起</p><p style="text-indent: 2em;">戈
+壁创投合伙人蒋涛认为，旅游电商风口已经过去，下一个机会是消费升级趋势下的出行体验改善，目的地的行中服务是改善体验最大的机会；其次，针对千禧一代，
+他们需要一些不一样的旅游产品，如何满足他们的消费需求是一个机会；最后，互联网将会变革旅游的实体运营，包括目的地度假酒店、客栈民宿、景区运营，甚至
+目的地地接的组织形式，因此如何利用互联网技术、概念去改善整个行中的体验，会是另一个大的机会。</p><p style="text-indent: 2em;">4.共享经济未来仍是旅游大消费领域的一个热点</p><p style="text-indent: 2em;">作
+为该领域的代表，Uber、Airbnb、滴滴出行估值还在持续走高，融资额也在不断攀升，这说明共享经济企业的价值继续得到了资本方的肯定。在本次峰会
+上，住百家创始人兼CEO张亨德和世界邦旅行网创始人兼CEO张平合介绍了共享经济在住宿和定制旅行服务领域的发展状况。</p><p style="text-indent: 2em;">张亨德表示，共享经济的商业本质是用户利益+用户体验，但用户进行消费决策的前提是信任，企业如何建立信任？住百家总结了自己的一套公式：货币成本＋机遇成本＝信任。</p><p style="text-indent: 2em;">定
+制旅行服务满足了消费升级趋势下的用户个性化需求，但是规模化一直是一个行业难点。世界邦尝试用“盛大文学+Uber”综合体的模式来解决个性化和规模化
+的矛盾问题，世界邦平台上的分享是知识、经验分享（不是实体分享），世界邦通过互联网手段收集和分配达人的经验智慧，节约了大量人工成本。</p><p style="text-indent: 2em;"><img src="../../ueditor/php/upload/image/20160624/1466750877132929.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160624/1466750877132929.jpg" style="float:none;" title="6人游.jpg" border="0" hspace="0" vspace="0"/></p><p style="text-indent: 2em;">新势力企业6人游在做路演</p><p style="text-indent: 2em;">三、创新路演各显神通，谁是最后的胜者？</p><p style="text-indent: 2em;">从
+报名、海选到初赛、复赛，经过三个多月的层层选拨，最终麦淘亲子游、赞那度、世界邮轮网、iGola、游谱旅行、6人游旅行网、一块去旅行网、户外星球、
+巴士专车共9家旅游新势力创业创新企业从数百家参选企业中脱颖而出，获得了大会现场的路演资格。在创新路演环节，9家企业的负责人分别进行了10分钟的演
+讲，并接受了现场专家评审团的提问。经过激烈的现场比拼，最终四家企业斩获了本届峰会的三项大奖，它们分别是：最具投资潜力奖获得者世界邮轮网、最佳商业
+创新奖获得者iGola（骑鹅旅行）以及并列获得最佳品牌营销奖的游谱旅行和赞那度。这些创业创新企业是未来中国旅游市场供给的重要力量，将推动我国旅游
+业不断升级发展。</p><p style="text-indent: 2em;"><img src="../../ueditor/php/upload/image/20160624/1466750877126276.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160624/1466750877126276.jpg" style="float:none;" title="研讨.jpg" border="0" hspace="0" vspace="0"/></p><p style="text-indent: 2em;">圆桌研讨环节一</p><p style="text-indent: 2em;">四、三场圆桌研讨环节，精彩纷呈</p><p style="text-indent: 2em;">针对当前行业内的热点话题，本次峰会特意设置了三场研讨，邀请了相关领域行业大咖，围绕“供需两端如何创新”“旅游大消费时代如何跨界融合”“文化旅游生态体系如何创新”展开精彩对话，从不同角度为现场观众带来了三场脑洞大开的行业发展问题探讨。</p><p style="text-indent: 2em;">1.供需两端如何创新？</p><p style="text-indent: 2em;">旅
+游大消费时代，哪里有痛点，哪里就有最大的机会。TripAdvisor(猫途鹰)中国区首席运营官林松认为，旅游是本地生活的异地化，但是到了国外，游
+客来到一个新的国度，游客碰到的问题不是本地场景的异地化那么简单，其中还有很大的痛点在里面。穷游网创始人兼CEO肖异从提高消费决策效率方面，提出旅
+游大消费时代已经到来，但是在信息过载的时代，需要提高用户获取信息的效率，降低游客的消费决策成本。</p><p style="text-indent: 2em;">左驭资本创始人兼CEO胡伟东认为，在旅游消费产品供给端，有很多产品、服务满足不了用户需求，还有很多潜在的机会在里面。</p><p style="text-indent: 2em;">红
+杉资本中国基金合伙人王岑认为，在供给端，国内旅游更有机会。虽然出境游客单价很高，但是出境游属于低频，而且国内的企业赚不到多少游客目的地消费的钱，
+国内旅游却更符合消费趋势：首先，时效性优势大；其次，国内游距离近，交通方便，随着国内旅游优质产品供给越来越多，会产生高频消费。神州专车副总裁龙杰
+从供给端角度提出，供给端要把线下做强、增强线下服务能力才能形成壁垒，如何提供便利、安全、高效率、高品质的服务是供给端需要解决的问题。</p><p style="text-indent: 2em;">2.旅游大消费的跨界趋势有哪些？</p><p style="text-indent: 2em;">随
+着用户需求的多元化，旅游与其他领域的跨界融合越来越多、越明显。旅游+体育、科技、教育、娱乐、金融等发展迅速。在探路者集团旅行事业群副总
+裁&amp;易游天下董事总经理钟晖主持的《旅游大消费如何跨界融合? 
+》研讨环节中，淳时资本合伙人郑乃瑞表示，旅游的跨界是“科技+旅游”或者是旅游+某一个模式，如果纯粹把旅游看作消费的一个分支，那它不存在跨界。来跑
+吧CEO叶颖涛认为跨界是必然，因为整个用户的生命周期一直都在不断跨界。而且跨界是重新整合、重新分配的过程，任何一个行业都难以逃脱跨界融合的阶段。</p><p style="text-indent: 2em;">跨界是必须的，但是企业在进行跨界时最大的挑战是什么？</p><p style="text-indent: 2em;">乐道旅行总经理陈栩认为，对企业来说，跨界融合最大的挑战来自未知，因为没有前人的标杆参照物，其成功率很低。叶颖涛从自身实践的角度提出，跨界要注意三个角度，分别是专业性、用户习惯养成和量化数据运营体系，跨界到最后，还要衡量能够带来多少销售转化率。</p><p style="text-indent: 2em;">华
+谊嘉信首席娱乐官瞿玮认为，跨界不能仅仅作为一个活动，而要把跨界变成一种产品，并且把跨界而来的用户真正长期留在平台上。搜床科技(Xbed)集团创始
+人兼CEO李春田则表示企业不要为了跨界而跨界，在跨界运营过程中，是一个模式的变化，而不是一个营销活动，更多的是一个战略上的变化而不是战术的变化，
+同时它最核心的挑战在于运营体系设计过程中是否兼顾两个专业两个领域的融合。</p><p style="text-indent: 2em;">3.文化旅游生态体系如何创新？</p><p style="text-indent: 2em;">巅峰智业董事兼常务副总裁刘惠认为，文化旅游本身是感性与理性的结合，除了要构建消费和产业的链条之外，还需要在功能、服务以及体验上去满足以人为本的需求，其中情感的需求是最重要的，有情怀的人才能做出有情怀的文化旅游产品。</p><p style="text-indent: 2em;">国
+家发改委“互联网+”行动专家咨询委委员、浙江旅游信息中心原主任、浙江智旅信息董事长汪成设认为，文化旅游的核心问题就是文化的活态化；其次，文化旅游
+是文化科技化的展现，比如VR技术的应用。为什么中国每年有那么多人出境旅游？汪成设认为国内文化旅游产品创意不够，同质化现象严重是重要原因。未来，如
+何用文化的创意来提升整体文化旅游体验、可参与性和体验性，提高效益，是各家旅游企业应该做的事情。</p><p style="text-indent: 2em;">中青旅控股总裁助理兼战略投资总监丁重阳表示文化创意和旅游的关系是，文化让我们玩得更有意义，创意则让我们玩得更好，更有趣。</p><p style="text-indent: 2em;">最后，本次峰会在旅游卫视总裁韩国辉的总结致辞中顺利落下帷幕。作为旅游大消费产业的首次盛会，本次峰会得到了业界的一致认可和好评，执惠也将再接再厉，继续在行业深耕，为行业贡献更多的好内容、好服务。</p><p>
+							</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

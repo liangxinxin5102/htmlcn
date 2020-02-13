@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/guojiyaowen">营销</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">丽维家论剑新零售发展 汇聚互联网大咖共话未来</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-12-15　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2246.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2246.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">当消费者在“双十二”新一轮购物狂欢节“剁手血拼”的时候，成都互联网零售业正上演着一幕思想交锋的饕餮盛宴。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">12月12日，“新零售时代·未来三年——2016中国(成都)互联网融合创新高峰论坛”在成都香格里拉大酒店举行。本次高峰论坛由成都商报主办、每日经济新闻协办、“互联网木匠”丽维家全程支持，论坛唯一指定用车“神马专车”。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-align: center; text-indent: 2em;"><a href="javascript:if(confirm('http://img.ea3w.com/456/455001.jpg  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://img.ea3w.com/456/455001.jpg'" tppabs="http://img.ea3w.com/456/455001.jpg" style="color: rgb(155, 88, 165); text-decoration: none;"><img src="../../../img.ea3w.com/456/455001.jpg" tppabs="http://img.ea3w.com/456/455001.jpg" alt="丽维家论剑新零售发展 汇聚互联网大咖共话 " align="0" style="border: 0px solid black; margin: 0px; padding: 0px;"/></a></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">本次峰会“大咖”荟萃，包括小米科技、苏宁云商、有“互联网木匠”之称的丽维家、咕咚等在内的多家国内知名互联网科技企业，以及圣象、伊藤洋华堂、万达等知名企业高管受邀出席，并就新零售时代下，渠道变革、线上线下融合、产业链构建等话题进行探讨，带来一场头脑风暴，探寻未来发展新机遇。嘉宾们精到的见解，对于新零售实战经验毫无保留的分享，及对未来趋势的专业预见，赢得现场阵阵掌声。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;"><strong>“新零售”实战 大咖干货分享</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">峰会现场，座无虚席。来自互联网、零售等众多领域的企业家、创业者报名，来到现场聆听本次峰会，共享这一互联网零售思想盛宴。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-align: center; text-indent: 2em;"><a href="javascript:if(confirm('http://img.ea3w.com/456/455002.jpg  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://img.ea3w.com/456/455002.jpg'" tppabs="http://img.ea3w.com/456/455002.jpg" style="color: rgb(155, 88, 165); text-decoration: none;"><img src="../../../img.ea3w.com/456/455002.jpg" tppabs="http://img.ea3w.com/456/455002.jpg" alt="丽维家论剑新零售发展 汇聚互联网大咖共话 " align="0" style="border: 0px solid black; margin: 0px; padding: 0px;"/></a></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">什么是“新零售”?就如丽维家CEO周宇翔所说，自阿里巴巴董事局主席日前提出“新零售”，这一概念已成为又一“爆款”词。对于新零售及面对互联网，大家有怎样的新“打法”?现场嘉宾结合自身实战经历，提出不同的见解，分享了各自“秘笈”。<br/></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">在周宇翔看来，“新零售未来是一个大融合的趋势，没有完全的线上，也没有完全的线下，一定是线上线下相结合的，通过线上跟线下的融合，去满足并引导消费者需求，达到消费者升级，做出真正好的产品和服务。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">圣象集团副总裁朱玲英认为，新零售时代核心的是品牌价值的提升、产品价值的提升。成都伊藤副总经理黄亚美，在转型升级的当下，伊藤要做的第一件事情仍然是商品上的创新，就是做出特色和差异化，此外，宣传以及和消费者的互动，加上“互联网+”的概念，让消费者在其中体验到温暖、年轻。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">万达商管成都区域总经理陈胜新解密，万达广场能快速开业，就是将所有品牌和商业项目相结合成一个招商平台，建成一个客户端，这是可以逐步向公众和所有的商家和商业地产项目开放的一个平台。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">摩拜单车总经理李玉贤则认为，“互联网就像水和电， 我们单车创新、环保、美观，这个产品结合广阔的互联网技术才得以实现。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">咕咚CEO申波则表示，“移动互联网的发展，跑步可以用咕咚记录下来，然后可以放到微信朋友圈，我们把运动从一个个体的事情，变成一个团队的事情，变成好朋友朋友圈的事情，这个共享的过程可以持续鼓励你做这个运动。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-align: center; text-indent: 2em;"><a href="javascript:if(confirm('http://img.ea3w.com/456/455003.jpg  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://img.ea3w.com/456/455003.jpg'" tppabs="http://img.ea3w.com/456/455003.jpg" style="color: rgb(155, 88, 165); text-decoration: none;"><img src="../../../img.ea3w.com/456/455003.jpg" tppabs="http://img.ea3w.com/456/455003.jpg" alt="丽维家论剑新零售发展 汇聚互联网大咖共话 " align="0" style="border: 0px solid black; margin: 0px; padding: 0px;"/></a></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;"><strong>前瞻探讨 洞见未来趋势</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">移动互联网时代下，零售行业将如何变革，未来发展又将呈现怎样的趋势?现场嘉宾进行了前瞻探讨。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">苏宁云商西南地区执行总裁助理、四川苏宁总经理杨万波认为，“我们可以肯定的是，用不了20年，整个行业的AR、VR，以及基于大数据深度学习的人工智能前沿科技的创新迭代将逐步普及成为我们生活的一部分，新科技催生的伟大产品，用好互联网技术的伟大公司还将颠覆当前业已形成的行业格局。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">小米生态链副总裁高自光认为，互联网时代有三个大的时代，PC互联网时代、移动互联网时代，还有一个时代就是万物互联的时代。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">在丽维家CEO周宇翔看来，融合与创新，是大势所趋。打通渠道，改变通路，落地终端，才是电商企业的出路。传统行业，只有充分利用好“工具+平台”，才是活路。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">【嘉宾观点】</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-align: center; text-indent: 2em;"><a href="javascript:if(confirm('http://img.ea3w.com/456/455004.jpg  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://img.ea3w.com/456/455004.jpg'" tppabs="http://img.ea3w.com/456/455004.jpg" style="color: rgb(155, 88, 165); text-decoration: none;"><img src="../../../img.ea3w.com/456/455004.jpg" tppabs="http://img.ea3w.com/456/455004.jpg" alt="丽维家论剑新零售发展 汇聚互联网大咖共话 " align="0" style="border: 0px solid black; margin: 0px; padding: 0px;"/></a></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-align: center; text-indent: 2em;">苏宁云商西南地区执行总裁助理、四川苏宁总经理杨万波</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">互联网进入了下半程，新经济也进入了下半程。今年的双十一，国务院出台了78号文《关于推动实体零售转型创新的意见》，选在双十一发布意义深远。 总的来说，在过去的七年，苏宁围绕互联网零售的定位一直专注于做了三件事，一是借助产业升级激发新活力，延展消费服务生态链。 二是通过渠道拓展开辟新市场，从二维世界走向多维空间。三是通过能力共享打造新优势，助力更多企业推广发展，通过“互联网+”，苏宁二十多年的零售服务优势全面激活，物流、金融、数据作为我们的核心能力，已经发展成为可对外开放的物流云、金融云、数据云，并逐渐成为合作的新支点。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">　　苏宁的转型心得。第一，要在技术的快速变化中始终把握行业的本质。第二，转型要有超前规划。第三，在压力面前需要坚持创业的精神。第四，要注意节奏，谋定而后动。第五，所有的转型最后都要固化成团队的文化。互联网企业的文化特征是注重用户的体验，用开放的分享重塑价值链，用平等的氛围来创新。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-align: center; text-indent: 2em;"><a href="javascript:if(confirm('http://img.ea3w.com/456/455005.jpg  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://img.ea3w.com/456/455005.jpg'" tppabs="http://img.ea3w.com/456/455005.jpg" style="color: rgb(155, 88, 165); text-decoration: none;"><img src="../../../img.ea3w.com/456/455005.jpg" tppabs="http://img.ea3w.com/456/455005.jpg" alt="丽维家论剑新零售发展 汇聚互联网大咖共话 " align="0" style="border: 0px solid black; margin: 0px; padding: 0px;"/></a></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-align: center; text-indent: 2em;">小米生态链副总裁高自光</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">我对这个行业大的认识。第一是家居智能化是非常热的话题，尤其是在企业端。第二，智能硬件出现了一大波创新热潮，出现了很多以前新的不存在的创新，而且在单品、局部上取得了很多创新。第三，今年人工智能非常炙手可热。第四，消费升级和智能技术相结合是重要方向。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">我们认为互联网时代有三个大的时代，PC互联网时代、移动互联网时代，移动互联网时代才诞生了像苹果、小米这样的手机公司，因为这个时代的到来决定了一个大时代的到来。还有一个时代可能存在也可能不存在，我认为的时代就是万物互联的时代，IOT的时代。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-align: center; text-indent: 2em;"><a href="javascript:if(confirm('http://img.ea3w.com/456/455006.jpg  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://img.ea3w.com/456/455006.jpg'" tppabs="http://img.ea3w.com/456/455006.jpg" style="color: rgb(155, 88, 165); text-decoration: none;"><img src="../../../img.ea3w.com/456/455006.jpg" tppabs="http://img.ea3w.com/456/455006.jpg" alt="丽维家论剑新零售发展 汇聚互联网大咖共话 " align="0" style="border: 0px solid black; margin: 0px; padding: 0px;"/></a></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-align: center; text-indent: 2em;">丽维家创始人兼CEO周宇翔</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">　　新零售我理解未来是一个大融合的趋势，没有完全的线上，也没有完全的线下，一定是线上线下相结合的，而以往电子商务冲击的说法其实也将被否定，电商与线下实体商业，应该是由原先的独立、冲突，走向混合、融合，真正的应该是说通过线上跟线下的融合，去满足并引导消费者需求，达到消费者升级，做出真正好的产品和服务。丽维家在过去三年，误打误撞，已经把现在炙手可热的“新零售”做完了!</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;"><span style="text-indent: 2em;">丽维家在成立之初，也只是专注于定制家具O2O的打造。但是在发展过程中，我发现材料的源头，才是优质家具的根本。没有好木头，便难有好家具。</span></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">所以，有了“木头来了”。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">“木头来了”，现在是中国家居原材料全产业链跨境电商平台，而且是世界最大板材商克诺斯邦官方授权的中国唯一代理。每一块板材，都有一张属于它的身份证。解决了原材料，我发现，定制家具行业最难的一环，其实是安装。所以，有了“安达人”。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">我们让最没标准的安装行业，从此有了一个系统化的执行标准。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">“安达人”截止目前，已经有4000多位专业安装师傅入驻，覆盖全国100多座城市。我们已经覆盖一二线城市，并抢先登陆了三四线城市的安装市场!</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">3年，丽维家集团完成了“供应链闭环→产业链闭环→服务链闭环”这一系列生态圈的打造，成为定制家具O2O生态链闭环第一品牌。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-align: center; text-indent: 2em;"><a href="javascript:if(confirm('http://img.ea3w.com/456/455007.jpg  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://img.ea3w.com/456/455007.jpg'" tppabs="http://img.ea3w.com/456/455007.jpg" style="color: rgb(155, 88, 165); text-decoration: none;"><img src="../../../img.ea3w.com/456/455007.jpg" tppabs="http://img.ea3w.com/456/455007.jpg" alt="丽维家论剑新零售发展 汇聚互联网大咖共话 " align="0" style="border: 0px solid black; margin: 0px; padding: 0px;"/></a></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">丽维家用3年时间便完成了A、B轮融资，打动资本市场的，也恰恰就是这种线上线下相结合的“零售+平台产业生态链”模式。丽维家也在新零售背景下，启动了&quot;城市合伙人&quot;计划和&quot;绿肺行动&quot;。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 8px 0px; color: rgb(51, 51, 51); line-height: 30px; font-family: 微软雅黑; white-space: normal; text-indent: 2em;">新零售时代的未来三年，你想达到什么样的创业目标?如果有一条通往新零售黄金时代的捷径摆在你面前，你走还是不走?我说的这条捷径，便是丽维家“城市运营合伙人”计划。城市运营合伙人计划，是“销售与服务分离”的互联网模式，它实现了资源整合和专业分工，让线下门店充分共享丽维家的产业闭环资源与互联网资源，回归营销本质，实现传统门店向互联网转型。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/xinwen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/xinwen/'" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/guoneiyaowen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/guoneiyaowen/'" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

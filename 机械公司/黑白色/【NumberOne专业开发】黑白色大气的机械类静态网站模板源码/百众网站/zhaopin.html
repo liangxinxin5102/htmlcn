@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>河北百众机电</title>
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<div id="header">
+<div class="logo"><img src="image/logo.png"></div>
+<div class="biaoyu"><img src="image/biaoyu.jpg"></div>
+<div class="lianxi"><div class="ditu"><a href="index.html">网站首页</a>|<a>网站地图</a></div>
+<div class="tell">TEL：<span>0311-66175058</span></div>
+</div></div>
+<div style="clear:both"></div>
+<div id="nav">
+<div class="conent">
+<ul>
+<li><a href="guanyu.html">关于百众</a></li>
+<li><a href="xinwen.html">新闻展会</a></li>
+<li><a href="chanpin.html">产品展示</a></li>
+<li><a href="hangye.html">行业应用</a></li>
+<li><a href="jiejue.html">解决方案</a></li>
+<li><a href="fuwu.html">客服服务</a></li>
+<li><a href="jihui.html" class="hover">工作机会</a></li>
+<li style="background:none;"><a href="lianxi.html">联系我们</a></li>
+</ul>
+</div>
+</div>
+<div class="banner" id="banner" >
+	<a href="" class="d1" style="background:url(image/banner1.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner2.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner3.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner1.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner2.jpg) center no-repeat;"></a>
+	<div class="d2" id="banner_id">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+<script type="text/javascript">
+function banner(){	
+	var bn_id = 0;
+	var bn_id2= 1;
+	var speed33=5000;
+	var qhjg = 1;
+    var MyMar33;
+	$("#banner .d1").hide();
+	$("#banner .d1").eq(0).fadeIn("slow");
+	if($("#banner .d1").length>1)
+	{
+		$("#banner_id li").eq(0).addClass("nuw");
+		function Marquee33(){
+			bn_id2 = bn_id+1;
+			if(bn_id2>$("#banner .d1").length-1)
+			{
+				bn_id2 = 0;
+			}
+			$("#banner .d1").eq(bn_id).css("z-index","2");
+			$("#banner .d1").eq(bn_id2).css("z-index","1");
+			$("#banner .d1").eq(bn_id2).show();
+			$("#banner .d1").eq(bn_id).fadeOut("slow");
+			$("#banner_id li").removeClass("nuw");
+			$("#banner_id li").eq(bn_id2).addClass("nuw");
+			bn_id=bn_id2;
+		};
+	
+		MyMar33=setInterval(Marquee33,speed33);
+		
+		$("#banner_id li").click(function(){
+			var bn_id3 = $("#banner_id li").index(this);
+			if(bn_id3!=bn_id&&qhjg==1)
+			{
+				qhjg = 0;
+				$("#banner .d1").eq(bn_id).css("z-index","2");
+				$("#banner .d1").eq(bn_id3).css("z-index","1");
+				$("#banner .d1").eq(bn_id3).show();
+				$("#banner .d1").eq(bn_id).fadeOut("slow",function(){qhjg = 1;});
+				$("#banner_id li").removeClass("nuw");
+				$("#banner_id li").eq(bn_id3).addClass("nuw");
+				bn_id=bn_id3;
+			}
+		})
+		$("#banner_id").hover(
+			function(){
+				clearInterval(MyMar33);
+			}
+			,
+			function(){
+				MyMar33=setInterval(Marquee33,speed33);
+			}
+		)	
+	}
+	else
+	{
+		$("#banner_id").hide();
+	}
+}
+</script>
+<script type="text/javascript">banner()</script>
+</div>
+<!--搜索-->
+<div id="search">
+<div class="coen1">
+<div class="left"><span>他们都在搜：</span><a>自立袋机型</a>、<a>给袋式机型</a>、<a>高速机型</a>、<a>标准机型</a></div>
+<div class="sear_right"><input type="text" class="text" value="请输入关键词搜索" onfocus="if(value == '请输入关键词搜索'){value = ''} " onblur="if(value == ''){value = '请输入关键词搜索'}"/><input type="button" class="button_sear"  value=""/></div>
+</div></div>
+<!--产品-->
+<div id="main2">
+<div class="left_zhanshi">
+<div class="menu"><div class="tittle"><span>工作机会</span></div>
+<div class="menu_warp">
+<ul>
+<a href="jihui.html"><li>人才理念</li></a>
+<a href="zhaopin.html"><li class="yanse">人才招聘</li></a>
+</ul>
+</div>
+</div>
+<div class="tongdao">
+<div class="tittle"><span>产品快速通道</span></div>
+<div class="kuai_warp"><select type="text" class="text_chaxub" ><option>请选择类别</option></select><select type="text" class="text_chaxub" ><option>请选择型号</option></select>
+<input type="button" class="button_sousuo" value="搜索" />
+</div>
+</div>
+</div>
+
+<div class="right_chanpin"><div class="tittle"><span>工作机会</span><tt> > </tt><span>人才招聘</span></div>
+<div style="clear:both;"></div>
+<div class="right_con_cp">
+<div class="linian"><img src="image/jihui.gif"></div>
+<div class="linian">
+  <div>
+    <p><strong>岗位一：机械设计工程师   3名</strong></p>
+    <p>1.机械制造或机电一体化专业；</p>
+    <p>2.具有较强的设计开发理念，熟练操作AUTOCAD、SOLIDWORKS和PROE绘图软件；<br />
+    </p>
+    <p>3.3-5年机械设计经验，有包装机设计经验的可适当放宽；</p>
+    <p> </p>
+    <p><strong>岗位二：机械装配工程师   10名</strong></p>
+    <p>1.机电一体化专业；</p>
+    <p>2.能吃苦耐劳，有较强责任心机团队精神;有行业工作经验优先录用；</p>
+    <p>3.公司提供不定期的出国出差机会，帮助办理签证；</p>
+    <p>4.本工作职责为在车间从事包装机的机械装配工作；</p>
+    <p><strong>岗位三：电气装配工程师   5名</strong></p>
+    <p>1.机电一体化专业，懂机床电器原理；能吃苦耐劳，有较强责任心及团队精神；</p>
+    <p>2.有行业工作经验优先录用；提供不定期出国出差机会，帮助办理签证；</p>
+    <p>3.本工作职责为在车间从事包装机的电气装配工作； </p>
+    <p>  </p>
+    <p><strong>岗位四：国际贸易外贸专员  5名 </strong></p>
+    <p>1.外语口语能力强，具有一定的外贸市场开拓能力；</p>
+    <p>2.口齿清楚，具有一定的外贸业务谈判技巧和能力；</p>
+    <p>3.薪资形式：底薪+提成</p>
+    <p>  </p>
+    <p><strong>岗位五：国内销售工程师   5名</strong></p>
+    <p>1.年龄25-35岁，大专以上学历，有包装机械相关行业经验者优先；</p>
+    <p>2.具有一定的销售能力，能吃苦耐劳，承受压力，具有较强的团队意识；</p>
+    <p>3.口齿清楚，具有一定的业务谈判技巧和能力； </p>
+    <p> </p>
+    <p><strong>福利待遇：双休；享受工作午餐；加班另计；按国家要求缴纳保险；签订劳动合同；转正后享受员工生日福利等其他公司福利。</strong></p>
+  </div>
+</div>
+<div style="height:10px; clear:both"></div>
+</div>
+</div>
+
+<div style="clear:both"></div>
+</div>
+<div style="clear:both; cursor:pointer;"></div>
+</div>
+<!--footer-->
+<div id="footer">
+<div class="conent_foter">
+<div class="nav_foot">
+<a>关于百众</a>  |   <a>新闻展会</a>  |   <a>产品展示</a>  |   <a>行业应用 </a> |  <a>解决方案</a>   |   <a>客户服务 </a> |  <a>工作机会 </a> | 
+<a>联系我们</a>
+</div>
+<div style="height:20px;"></div>
+<p>权所有 © 河北百众机电科技有限公司  冀ICP备10204030-1号</p><p>公司网址：www.hbbzjd.com  公司地址：石家庄市 建通街塔南路29号  联系电话：13901624119</p>
+<div style="padding-left:288px; padding-right:100px;">
+<div class="chengxin"><a href="#"><img src="image/a.jpg"></a></div>
+<div class="chengxin"><a href="#"><img src="image/b.jpg"></a></div>
+<div class="chengxin"><a href="#"><img src="image/c.jpg"></a></div>
+</div>
+</div>
+</div>
+</body>
+</html>

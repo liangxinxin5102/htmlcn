@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin">国内动态</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">互联网金融的兴起、转折与破局之道</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-11-28　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2056.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2056.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;"><span style="font-family: KaiTi_GB2312, KaiTi;">渠道变革是互联网金融上半场的主要驱动因素，随着人口红利和场景红利的消失，渠道的驱动作用逐步削减，行业的高速增长逐步成为过去。在此背景下，若企业依旧延续过去的业务模式和经营思路，无疑会事倍功半、收效甚微。</span></p><p><img src="../../ueditor/php/upload/image/20161128/1480297902847855.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161128/1480297902847855.jpg" alt="互联网金融的兴起、转折与破局" data-link="" style="margin: 0px auto; padding: 0px; border: 1px solid rgb(231, 231, 231); display: block;"/><span class="img_descr" style="line-height: 20px; padding: 6px 0px; margin: 5px auto; display: inline-block; zoom: 1; text-align: left;">互联网金融的兴起、转折与破局</span></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　任何行业的快速崛起都不是偶然的，基本都是各类“天时地利人和”因素的综合作用使然，才会形成所谓的风口。十年前互联网产业的快速崛起是如此，三年前互联网金融的快速崛起也是如此。同样，随着时间发展，当曾经的促进因素逐步消退，行业发展往往会迎来转折点，需要找到新的驱动力量才能二次腾飞。本文就围绕2013年以来互联网金融的发展变化，谈一谈互联网金融曾经的兴起、如今的转折及未来的破局之道。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　<strong>助力互联网金融兴起的四大外因</strong></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　2013年被称作“互联网金融元年”，以宝宝类理财为起点，P2P、第三方支付、众筹、消费金融等各类业态均取得跨越式发展。在笔者看来，除了互联网金融企业自身的努力等内因之外，还有四大外因不可忽视。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　<strong>外因一：网民数量快速提升，“互联网+”成为风口</strong></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　随着新一代智能手机的普及，从2011年开始，中国网民数量进入了快速增长期。2011-2013年间，国内网民数量累计新增1.6亿人，为整个互联网产业的快速发展奠定了坚实的人口基础。</p><p><img src="../../ueditor/php/upload/image/20161128/1480297902680805.png" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161128/1480297902680805.png" alt="数据来源：CNNIC，苏宁金融研究院" data-link="" style="margin: 0px auto; padding: 0px; border: 1px solid rgb(231, 231, 231); display: block;"/><span class="img_descr" style="line-height: 20px; padding: 6px 0px; margin: 5px auto; display: inline-block; zoom: 1; text-align: left;">数据来源：CNNIC，苏宁金融研究院</span></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　2013年前后，国内出现一波了互联网颠覆传统产业的浪潮，“互联网+”成为潮流。相对于以大规模生产、大规模销售和大规模传播为特征的工业化思维而言，互联网思维通过对市场、用户、产品以及产业价值链的重构，对零售业、批发业、制造业、广告业、新闻业、通信业、物流业、酒店业与旅游行业、餐饮业等传统产业产生了巨大的“颠覆”效应。一时间，免费思维、用户思维、迭代思维、极致思维、流量思维、平台思维、跨界思维等词汇火遍大江南北。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　随着互联网对传统产业的成功重构，“躺着赚钱的”金融业作为“最后”一个堡垒成为互联网企业“觊觎”的对象，为金融的“互联网化”奠定了基础。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　<strong>外因二：PE/VC业态成熟，为互联网金融早期的快速发展提供了资本支撑</strong></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　截至2012年末，活跃在中国大陆的VC/PE机构已超过5000家，为互联网金融创业企业融资提供了便利的条件。自互联网金融于2013年初露头角，就很快被PE/VC视作新的投资风口，2014年，国内互联网金融行业发生股权投资193起，同比增长339%；披露金额1420亿元，同比增长695.38%。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　PE/VC的助力使得互联网金融在早期得以延续互联网的“免费”思维，通过大量的补贴获得客户和市场，并通过对客户体验的极度重视重现口碑效应，完成了早期的积累。借助互联网的易于传播、快速复制等特征，互联网金融在实现“从0到1”跨越后，很快实现了规模的几何级数上升，成为金融体系内部越来越重要的一支力量。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　<strong>外因三：“钱荒”持续，成为“宝宝理财”快速崛起的导火索</strong></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　2013年6月份钱荒事件之前，商业银行对于央行在关键时点会向市场注水充满信心（实际上央行也一直这么做的），对流动性风险重视不足。银行业界普遍存在着将短期资金用于中长期用途以获取更高利差的现象，而对于短期的资金支出需求，则通过银行间市场拆借来解决，资产负债期限结构严重错配。在2013年6月的关键时点，市场在经历了外汇占款增速下降、季末现金需求增加、银行表外理财业务整顿等各种情况的冲击后，流动性需求大增，银行业一如既往地在等待央行注水救急。而央行为了强化银行的流动性风险管理意识，选择了观望和等待，迅速引致银行间市场资金紧张，银行间同业拆借利率快速飙升，钱荒事件爆发。</p><p><img src="../../ueditor/php/upload/image/20161128/1480297903722374.png" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161128/1480297903722374.png" alt="" data-link="" style="margin: 0px auto; padding: 0px; border: 1px solid rgb(231, 231, 231); display: block;"/><span class="img_descr" style="line-height: 20px; padding: 6px 0px; margin: 5px auto; display: inline-block; zoom: 1; text-align: left;"></span></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　2013年6月，凭借金融市场“钱荒弥漫”的天时地利，宝宝类理财异军突起，凭借一度高达6%以上的收益率，互联网宝宝类理财攻城略地，爆发式增长。在2015年6月份之前的长达两年时间内，宝宝理财的7日年化收益率都在4%以上，互联网理财也就势成为人们活期理财的首选产品。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　外因四：宽松的舆论环境，助力互金创业潮</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　从2013-2014年间，互联网金融作为新兴事物，社会各界均给予了较为积极的评价，为互联网金融的快速发展创造了较为宽松的舆论环境。关于互联网金融，当时主要有两类观点，或重视或轻视，均从不同的角度促进了行业在早期的快速发展。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　一种观点是互联网金融意义重大，需要鼓励与扶持。这部分观点以学者和从业者为代表，认为云计算和大数据可以有效解决小微金融领域的信用风险评估难题，而互联网渠道的长尾效应则大大降低了金融服务的门槛，从而将“开放、平等、创新、服务”的基因植入金融领域，为中小投资者带来收益，也给传统金融企业带来一股新生活力，最终有助于推动金融的民主化。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　另外一种观点则认为互联网金融尚未有根本性的技术变革，仅仅是将传统金融产品重新“包装上网”，只是渠道的改变，难成大气候。这类观点以传统金融机构从业者为主要代表，在他们看来，宝宝理财本质上就是货币基金，而P2P平台的“本息保障”潜规则也有很大的隐患，难以从根本上撼动传统金融机构。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　在上述外部环境因素的助力下，互联网金融在P2P、在线借贷、第三方支付、众筹、理财平台等业务领域和大数据征信、坏账催收、智能投顾、支付聚合、第三方信息平台、金融产品搜索等辅助业务领域均取得了突破性进展。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　图 3 互联网金融分业务发展指数</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　数据来源：北京大学互联网金融研究中心，苏宁金融研究院；以2014年1月为指数100</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　<strong>四大因素加速行业拐点来临</strong></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　互联网金融的快速崛起本身也产生了一系列的负面因素，从而在方方面面改变着行业发展环境，最终加速了行业拐点的来临。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　<strong>困局一：合规门槛提升</strong></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　自2015年7月份《关于促进互联网金融健康发展的指导意见》发布以来，互联网金融逐步进入集中规范期，互联网金融行业的整体合规门槛提升，成为加速行业分化的催化剂，也成为很多中小平台生存面临的第一道坎。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　以网贷平台的资金存管要求为例，《网络借贷信息中介机构业务活动管理暂行办法》明确要求“网络借贷信息中介机构应当实行自身资金与出借人和借款人资金的隔离管理，并选择符合条件的银行业金融机构作为出借人与借款人的资金存管机构。”然而，据融360不完全统计，截止2016年9月末，国内已经上线银行资金存管的平台仅为95家，另外有接近200家宣称已经与银行签订了资金存管协议。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　考虑到对商业银行而言，一旦开展存管业务的平台破产倒闭，不仅前期的IT投入无法回本，还容易面临潜在的与资金兑付相关的声誉风险问题。虽然在法律上银行无需承担兑付责任，但理财者在资金兑付无门的情况下往往会找银行讨说法，对银行的声誉有一定的负面影响。基于此，银行开展资金存管业务时，往往会涉及较高的准入门槛，以尽可能地降低合作平台破产倒闭的可能性。结合银行对平台交易规模、资产质量等条件要求，笔者认为未来至少有70%以上的平台会被挡在资金存管门外。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　<strong>困局二：场景饱和及获客困局</strong></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　一方面，互联网金融具有易于复制和快速传播的特征，经过两年的快速发展，优质的金融场景已经趋于饱和；另一方面，自2014年以来，网民数量增速已经从10%左右大幅下降至6%左右，网民数量红利已呈现明显的逐年下降态势，不足以支撑行业的高速增长。结果是互联网金融行业陷入到明显的获客困局。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　佐证之一是很多互联网金融平台的线上有效获客成本已经达到了千元以上，一两年前，这个成本可能还在百元以下，甚至是二三十块钱。佐证之二是基本所有优质的电商平台和社交平台，都推出了自己的理财产品和信贷产品，场景与金融产品的关系由之前的合作变成了现在的自营，自然也就把很多第三方的金融产品排除在外，加大了金融产品外拓优质场景的成本。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　<strong>困局三：盈利困局</strong></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　经过几年的高速发展，互联网金融行业仍然面临着普遍的盈利难题。第三方支付、网贷平台甚至消费金融等主流的业务平台，普遍处于亏损或微利经营的状态，且在短期内仍找不到可持续的盈利路径，已经开始影响资本市场对行业的发展预期，并加速了资本寒冬的到来。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　以网贷平台为例，截止2016年10月末，国内正常运营的平台数量为2154家，其中，仅有8家平台在官网或财务报告中披露了盈利信息，有10家平台在企业负责人媒体访谈中披露了盈利信息，合计18家，不足正常运营平台数量的1%。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　<strong>困局四：资本寒冬</strong></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　互联网金融企业普遍不盈利，主要依赖风险资本获得维持高速发展所需的资金投入。然而，行业的长期不盈利使得风险资本逐步失去了耐心和信心，操作风格由激进变得谨慎，最终引发了资本寒冬的到来。从下表可以看出，互联网产业风险投资在2015年出现了峰值，共发生融资5334家；截止2016年1-8月，融资数量同比出现了大幅下滑。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　在资本寒冬下，得不到足够的外部资金支持，互联网金融企业大跃进式的发展模式难以持续，加速推动行业进入分化和整合阶段。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　在上述因素的共同作用下，行业发展的两级分化成为当前整个互联网金融行业的共同特征，在P2P、第三方支付等行业表现地非常明显，在互联网消费金融领域也出现了赢者通吃的苗头。互联网金融行业迎来了拐点期，整个行业已经进入到下半场。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　<strong>互联网金融的下半场</strong></p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　渠道变革是互联网金融上半场的主要驱动因素，随着人口红利和场景红利的消失，渠道的驱动作用逐步削减，行业的高速增长逐步成为过去。在此背景下，若企业依旧延续过去的业务模式和经营思路，无疑会事倍功半、收效甚微。在笔者看来，所谓的下半场只不过是旧的驱动因素衰竭的自然结果，只要找到新的驱动因素，行业依旧可以迎来快速增长的“又一春”。在目前来看，至少互联网金融还有“金融科技”这张牌可打。</p><p style="margin-top: 15px; margin-bottom: 15px; padding: 0px; font-size: 14px; line-height: 23px; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, SimSun, 宋体; white-space: normal;">　　为了抓住新的风口，互联网金融企业要从以客户新增和交易规模为核心KPI指标的传统模式中挣脱出来，着重实现存量用户的精细化挖掘和从交易规模向盈利能力的转变，并在实现盈利的基础上，加大对金融科技的布局。毕竟，风口只会留给有准备的企业。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

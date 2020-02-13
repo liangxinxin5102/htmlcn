@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/guojiyaowen">营销</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">“互推”还有用吗？新榜统计了20万+篇内容</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-11-24　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2036.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2036.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">在公众号出现之初，就有运营者推送图文盘点值得关注的公众号，“互推”雏形由此产生。几年过去，新榜专访众多优质大号运营者后发现：直到现在，互推依旧是提及频率较高的一种引流方式。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">新榜将以2016年8月500强发布的104655篇内容与2015年8月500强发布的107339篇内容为统计样本进行研究，尝试回答以下几个问题：</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">当前的互推形式主要有哪些？</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">相较一年前，互推发生了哪些变化？</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">哪些账号特别依赖互推？</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">互推真的对涨粉引流具有奇效吗？</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">1.互推由来已久</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">新榜在今年6月25日和8月27日分别对话优质原创账号“大家”和“小北”，访谈中他们都提到互推是重要的引流手段。追溯公众号的互推历史后发现：2013年12月30日（在微信公开阅读数以前）“果壳网”就盘点过《2013年十大公众号推荐》；去年10月13日，“人民日报”也曾撰文《关注最权威的号，了解最真实的中国》。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941065-2816-0926.jpg-imageView2-2-w-720-h-1215.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941065-2816-0926.jpg?imageView2/2/w/720/h/1215" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941065-2816-0926.jpg?imageView2/2/w/720/h/1215 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941065-2816-0926-89x150.jpg 89x" alt="1474941065-2816-0926" width="720" height="1215" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">2.互推是微信的灰色地界</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">对于公众号而言，互推是一种常见的引流方式，更衍生出形形色色的互推模式。这其中有一些互推模式违背了微信公众平台一直尊崇的“用户体验至上”原则。因此微信公众平台在去年4月29日发布一则处罚公告，旨在管理违规运用阅读原文放置违规关注链接的公众号，试图净化平台。与此同时，在《微信公众平台运营规范》的第3.2.1条中也明文将公众号互推定义为微信禁止的刷粉行为。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">由于互推之于公众号是强需求，当公众号的互推行为未触及平台底线时，微信亦未强行干预。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941063-3242-0926.jpg-imageView2-2-w-720-h-711.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941063-3242-0926.jpg?imageView2/2/w/720/h/711" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941063-3242-0926.jpg?imageView2/2/w/720/h/711 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941063-3242-0926-152x150.jpg 152x" alt="1474941063-3242-0926" width="720" height="711" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">3.常见的互推模式</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">互推作为常见的涨粉方式，基于以下逻辑：</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">1）</span>多个公众号一同互推能够有效共享订阅用户的注意力</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">2）</span>在用户粘性较高的公众号中存在用户附着在公众号的信任价值</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">3）互推的公众号群也会考虑彼此间用户调性与差异，以使互推文有效曝光在潜在用户面前</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">由此衍生出以下几种常见的互推模式：</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">3.1 全文互推</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">互推内容为内容主体，在标题中直接告知用户此为互推内容</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941064-1456-0926.jpg-imageView2-2-w-720-h-1006.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941064-1456-0926.jpg?imageView2/2/w/720/h/1006" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941064-1456-0926.jpg?imageView2/2/w/720/h/1006 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941064-1456-0926-107x150.jpg 107x" alt="1474941064-1456-0926" width="720" height="1006" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">3.2 文末互推</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">互推内容置于文末，性质更接近日常广告位；独立于内容主体，这种互推方式应用最广。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941066-5216-0926.jpg-imageView2-2-w-720-h-879.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941066-5216-0926.jpg?imageView2/2/w/720/h/879" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941066-5216-0926.jpg?imageView2/2/w/720/h/879 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941066-5216-0926-123x150.jpg 123x" alt="1474941066-5216-0926" width="720" height="879" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">3.2 关注后互推</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">在对话框中以关键词回复，或者以被添加后自动回复的欢迎语进行互推。（此种互推模式并非出现在推送图文中，因而不在本次统计范围内）</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941065-9388-0926.jpg-imageView2-2-w-720-h-1289.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941065-9388-0926.jpg?imageView2/2/w/720/h/1289" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941065-9388-0926.jpg?imageView2/2/w/720/h/1289 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941065-9388-0926-84x150.jpg 84x" alt="1474941065-9388-0926" width="720" height="1289" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">4.互推文的判定方法</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">新榜发现，互推文常常会在内容中放置推荐公众号的二维码，同时提示用户进行关注扫描，提示语较为固定，多为“长按二维码识别关注”。由于互推形式的多样化，且多数形式不便于统计，因而新榜选用上述最常见的一种模式进行研究，即计算一篇内容中出现“长按二维码”五个字的次数，当出现次数超过两次以上可说明内容中至少存在一个被推荐的公众号，故而判定为“互推文”。这种判定方式可能存在少量误判（如所放置的二维码并非微信公众号），也不免有所遗漏（如仅在全文放置一个二维码或不放置二维码的互推方式），但此种获取方式仍然有效获取了大量互推文。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">基于这一逻辑，新榜将形式各异的互推文从数据海洋中打捞出来，在非完全统计背景下，观察互推现象的细节。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941064-7954-0926.jpg-imageView2-2-w-720-h-1097.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941064-7954-0926.jpg?imageView2/2/w/720/h/1097" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941064-7954-0926.jpg?imageView2/2/w/720/h/1097 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941064-7954-0926-98x150.jpg 98x" alt="1474941064-7954-0926" width="720" height="1097" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">5.500强互推概况</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">统计发现，去年8月间所有500强都参与了互推活动，今年8月仅约有37%的500强账号（185个）在发布互推文。而从发布内容上来看，互推文占比并未有明显变化，约为9%。说明互推需求越来越集中于少数公众号当中。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941066-1792-0926.jpg-imageView2-2-w-720-h-1029.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941066-1792-0926.jpg?imageView2/2/w/720/h/1029" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941066-1792-0926.jpg?imageView2/2/w/720/h/1029 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941066-1792-0926-105x150.jpg 105x" alt="1474941066-1792-0926" width="720" height="1029" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">6.互推最密集的10个公众号</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">为进一步探究互推内容出现的频度，新榜以账号为单位将互推文数量除以该账号当月发文数量得到该账号的互推内容占比。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">统计发现，80%的互推内容集中于20%的公众号中，其中“做个会穿衣的女子”在8月间发布的所有内容均被判定为包含互推。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">新榜将互推比例大于50%的公众号昵称进行词频统计，发现这些公众号多为美人丽妆类或美厨菜谱类，精准聚焦女性用户。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">下图为互推最为密集的10个公众号，其中9个公众号的地域属性为深圳。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941067-1861-0926.jpg-imageView2-2-w-720-h-1693.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941067-1861-0926.jpg?imageView2/2/w/720/h/1693" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941067-1861-0926.jpg?imageView2/2/w/720/h/1693 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941067-1861-0926-64x150.jpg 64x" alt="1474941067-1861-0926" width="720" height="1693" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">7.互推内容的推送位置逐渐后移</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">统计还发现，去年高频分布于头条至三条之间的互推内容，如今已后移至三条至五条之间。互推内容后置，透露出运营者对资源利用及分配的谨慎考量。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941067-1046-0926.jpg-imageView2-2-w-720-h-1075.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941067-1046-0926.jpg?imageView2/2/w/720/h/1075" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941067-1046-0926.jpg?imageView2/2/w/720/h/1075 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941067-1046-0926-100x150.jpg 100x" alt="1474941067-1046-0926" width="720" height="1075" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">8.一篇互推文平均推荐11个公众号</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">对比去年8月数据可知，单篇内容的推荐公众号的平均数量基本维持不变，约为11个。值得注意的是，经过一年的发展，单篇内容的推荐体量逐渐分化，以推荐11-15个公众号最为频繁，其次是推荐2-5个公众号，其他区间的互推文篇数减少，猜测为互推的模式逐渐趋于固定。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941068-3541-0926.jpg-imageView2-2-w-720-h-1052.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941068-3541-0926.jpg?imageView2/2/w/720/h/1052" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941068-3541-0926.jpg?imageView2/2/w/720/h/1052 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941068-3541-0926-103x150.jpg 103x" alt="1474941068-3541-0926" width="720" height="1052" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">9.“中国经济网”：总在第三条互推</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">一些公众号已经将互推活动发展为固定栏目，表现为：在指定位置，以指定的标题形式或者指定的封面图开展互推。例如，“中国经济网”从去年8月至今沿用相同的版式进行互推：在三条位置以“推广”字样对互推内容进行标识。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">根据统计，“中国经济网”将该位置用于互推的频率高达80%以上。这说明互推的需求源源不断，已成为“刚需”。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941068-8269-0926.jpg-imageView2-2-w-720-h-892.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941068-8269-0926.jpg?imageView2/2/w/720/h/892" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941068-8269-0926.jpg?imageView2/2/w/720/h/892 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941068-8269-0926-121x150.jpg 121x" alt="1474941068-8269-0926" width="720" height="892" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;"><span style="box-sizing: border-box; font-weight: 700;">10.用户对于互推文反馈较为消极</span></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">公众号如此迷信互推，互推真的对于引流有奇效吗？新榜对此展开进一步探究。将互推文和500强账号群体整体发文进行数据比对，发现在去年8月，用户对于互推内容并未表现出明显的抗拒。而一年之后的今天，互推文平均阅读数比整体下降21%，平均点赞数下降尤为严重，降幅约为94%。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">数据表明，相比去年同期，用户对于互推文的反馈更加消极。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; text-align: center; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><center style="box-sizing: border-box; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><img class="attachment-full size-full" src="../../../img.yixieshi.com/wp-content/uploads/2016/09/1474941069-8496-0926.jpg-imageView2-2-w-720-h-1110.jpg" tppabs="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941069-8496-0926.jpg?imageView2/2/w/720/h/1110" sizes="(max-width: 720px) 100vw, 720px" srcset="http://img.yixieshi.com/wp-content/uploads/2016/09/1474941069-8496-0926.jpg?imageView2/2/w/720/h/1110 720x, http://img.yixieshi.com/wp-content/uploads/2016/09/1474941069-8496-0926-97x150.jpg 97x" alt="1474941069-8496-0926" width="720" height="1110" data-tag="bdshare" style="box-sizing: border-box; border: 0px; vertical-align: middle; display: block; margin: 20px auto; max-width: 100%; background-image: none; background-attachment: scroll; background-color: rgb(255, 255, 255); height: auto !important; background-position: 0px 0px; background-repeat: repeat repeat;"/></center><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;"><br/></p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 20px; color: rgb(42, 42, 42); font-family: &#39;Microsoft Yahei&#39;; white-space: normal;">&nbsp;</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">由于互推带来的关注转化率暂无数据可支持分析，故目前无法探究。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">众多账号经过权衡后已经用行为表示，虽然明知互推并不讨喜，但用户的注意力绝对不能被浪费。他们用具有庞大用户公众号他们用具有庞大用户基础的公众号滋养刚刚注册的小号刚注册的小号，当小号变成大号后继续循环该模式，滋养新的小号。但过于频繁地互推始终会透支用户的信任。</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">互推之于公众号是一种强需求，之于平台却会产生生态环境负影响，如何取舍？</p><p style="box-sizing: border-box; margin-top: 0px; margin-bottom: 15px; white-space: normal; line-height: 28px; widows: 2; background-color: rgb(255, 255, 255); text-indent: 2em; font-family: tahoma, arial, 宋体; orphans: 2; color: rgb(37, 37, 37); font-size: 14px; font-variant-ligatures: normal; padding: 0px;">从新榜不完全统计中，公众号运营者应当深思，在互推模式固化的趋势下，如何才能创新真正受益于互推，而非一味“狼吞虎咽”地打包强推；新榜期待平台能与公众号运营者实现共赢。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

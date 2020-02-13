@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>商城首页</title>
+    <link rel="stylesheet" type="text/css" href="style/index.css">
+    <script type="text/javascript" src="js/xiangqye/jquery-1.42.min.js"></script>
+    <script type="text/javascript" src="js/xiangqye/jquery-1.11.2.min.js"></script>
+ <style>
+body{background:#fff;}
+form {display: block;  margin-top: 0em; text-align: left;}
+.pop_bg_order {height: auto;left: 50%;margin-left: -281px !important;margin-top: -165px !important;overflow: hidden;position: fixed !important;top: 50%;width: 562px;z-index: 990;display: none;}
+.order0506_topBorder {
+background-image:url("images/order140506_03.png");
+background-repeat: no-repeat;height: 6px;overflow: hidden;width: 562px;}
+.orderFc {background-image: url("images/order140506_14.png");background-repeat: repeat-y;height: 313px;overflow: hidden;padding-left: 53px;width: 509px;}
+.order0506_subButton input {background-color: #ff4b4b;border: medium none;color: #fff;font-size: 16px;font-weight: bold;height: 34px;width: 108px;cursor: pointer;}
+.sub_mobilePhone_ {border: 1px solid #999;color: #666;font-family: Arial;font-size: 16px;font-weight: bold;height: 30px;line-height: 32px;padding-left: 5px;width: 220px;}
+.order0506_subButton {height: 60px;padding-top: 15px;}
+.order0506_mobilePhone {height: 48px;padding-top: 10px;}
+.order0506_des {color: #666;font-size: 14px;height: 45px;line-height: 45px;}
+.order0506_companyName {color: #666;font-family: "微软雅黑","宋体";font-size: 24px;height: 43px;line-height: 43px;padding-bottom: 5px;}
+.order0506_closeButton {padding-left: 470px;padding-top: 16px;}
+    </style>
+
+</head>
+<body>
+
+<div class="pop_bg_order" id="pop_bg_order">
+    <p class="order0506_topBorder"></p>
+    <form action=" index.php?app=threehssy&amp;act=bespeak&amp;id=75" method="post">
+        <div id="orderFc" class="orderFc main_top_title">
+            <p class="order0506_closeButton">
+                <img src="images/xx.jpg">
+            </p>
+            <p class="order0506_companyName needd">
+                <font color="#ff4b4b">预约：</font>
+                北京巴黎婚纱摄影						<input type="hidden" name="store_name" value="北京巴黎婚纱摄影">
+            </p>
+            <p class="order0506_des needd">
+                先预约再订单，即可领取网站补贴，
+                <a target="_blank" href="javaScript:;" style="color:#FF4B4B">最高可享受网站返现300元</a>
+            </p>
+            <p class="order0506_mobilePhone">
+                <input id="mobilePhone" class="sub_mobilePhone_" type="text" maxlength="11" name="shouji" onblur="on_shouji();">
+                <span class="msgErr" id="Reg_phone_pic" style="color:#FF4B4B">请输入手机号码</span>
+            </p>
+            <p class="order0506_subButton">
+                <input type="submit" value="提 交" onclick="return user_submit();">
+            </p>
+            <p class="order0506_private">
+                中国婚庆传媒网尊重
+                <a target="_blank" href="javaScript:;">会员隐私</a>
+                ，不会泄露您的个人信息。
+            </p>
+        </div>
+    </form>
+    <!--div id='orderFc1' class='orderFc main_top_title' style='display:none' >
+                  <p class="order0506_closeButton">
+                  <img src="thenew/images/dianpu/xx.jpg">
+                  </p>
+                  <p class="orderFs1">提交成功，我们会尽快与您联系。</p>
+                  <p class='order_text1'>恭喜您,您已成为本站会员!</p>
+                  <p class='table_text'>您的帐号为:<span>21312312</span></p>
+                  <p class='table_text'>您的密码为:<span>123456</span></p>
+                  <p class='table_text'>请牢记您的密码,如要修改密码请点击修改密码</p>
+              </div>
+      <p class="order0506_bottomBorder"></p-->
+</div>
+<div id="mybody" style="position: absolute; z-index: 498; left: 0px; top: 0px; background-color: rgb(0, 0, 0); opacity: 0.7; height: 5591px; width: 1903px; display:none; background-position: initial initial; background-repeat: initial initial;"></div>
+
+<script>
+    $(function (){
+        $('#mybody').css({'height':$('body').height(),'width':$('body').width()});
+        $('.order0506_closeButton').click(function (){
+            $('#orderFc1,.pop_bg_order,#mybody').hide();
+            $('#orderFc').show();
+        })
+        $('.pop_btn_yuyue').click(function (){
+            $('#mybody,.pop_bg_order').show();
+        })
+        $('#subPhone').click(function (){
+            $('#orderFc').hide();
+            $('#orderFc1').show();
+        })
+    })
+    function on_shouji(){
+        var mobilePhone = $('#mobilePhone').val();
+        if(mobilePhone == ''){
+            $('#Reg_phone_pic').html('手机不能为空');
+            return false;
+        }else{
+            var pattern = /^13[0-9]{1}[0-9]{8}$|15[0189]{1}[0-9]{8}$|189[0-9]{8}|182[0-9]{8}$/;
+            if(pattern.test(mobilePhone)){
+                $('#Reg_phone_pic').html('1111');
+                return true;
+            }else{
+                $('#Reg_phone_pic').html('错误请检查(手机为11位)');
+                return false;
+            }
+        }
+    }
+    function user_submit(){
+        if(on_shouji()==false) return false;
+        return true;
+    }
+</script>
+<!--顶部开始-->
+<div id="top">
+    <div class="top-con">
+        <ul>
+            <li><a href="#">登录</a></li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#">会员中心</a></li>
+            <li><a href="#">的我收藏</a></li>
+            <li><a href="#">资讯</a></li>
+            <li><a href="#">问题</a></li>
+            <li><a href="#">反馈</a></li>
+        </ul>
+    </div>
+</div>
+<!--顶部结束-->
+<!--导航区域开始-->
+<div id="nav">
+    <div class="nav-con">
+        <div class="nav-logo"><a href="#"><img src="images/logo.jpg"></a> </div>
+        <  <div class="city-choose">
+        <div class="nice-select" name="nice-select">
+            <input type="text" value="北京" readonly>
+            <ul>
+                <li data-value="0">天津</li>
+                <li data-value="1">上海</li>
+                <li data-value="2">石家庄</li>
+            </ul>
+        </div>
+        <script>
+            $('[name="nice-select"]').click(function(e){
+                $('[name="nice-select"]').find('ul').hide();
+                $(this).find('ul').show();
+                e.stopPropagation();
+            });
+            $('[name="nice-select"] li').hover(function(e){
+                $(this).toggleClass('on');
+                e.stopPropagation();
+            });
+            $('[name="nice-select"] li').click(function(e){
+                var val = $(this).text();
+                var dataVal = $(this).attr("data-value");
+                $(this).parents('[name="nice-select"]').find('input').val(val);
+                $('[name="nice-select"] ul').hide();
+                e.stopPropagation();
+            });
+            $(document).click(function(){
+                $('[name="nice-select"] ul').hide();
+            });
+        </script>
+
+    </div>
+        <div class="contactway"><img src="images/contactway_03.jpg"> </div>
+        <div id="sousuo">
+            <div class="sousuo_med">
+                <div class="i-search">
+                    <div class="form">
+                        <input type="text" class="text" placeholder="婚纱摄影"  accesskey="s" id="key"  >
+                        <input type="button" value="搜索" class="button" onclick="">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="nav-navdh">
+        <div class="navdh-con">
+            <ul>
+                <li><a href="#">首页</a> </li>
+                <li><a href="#">婚纱摄影</a></li>
+                <li><a href="#">婚礼策划</a></li>
+                <li><a href="#">结婚商城</a></li>
+                <li><a href="#">婚礼社区</a></li>
+                <li><a href="#">百花商城</a></li>
+                <li><a href="#">月老婚恋</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--导航区域结束-->
+
+<!--banner开始-->
+<div id="bannersilde" class="bannersilde">
+    <script type="text/javascript" src="js/ydyjs/Slide.2.1.1.js"></script>
+    <div class="bd">
+        <ul>
+            <li><a href="" target="_blank"><img src="images/buy-mallbanner_02.jpg" /></a></li>
+            <li><a href="" target="_blank"><img src="images/ydbanner.jpg" /></a></li>
+            <li><a href="" target="_blank"><img src="images/buy-mallbanner_02.jpg" /></a></li>
+        </ul>
+    </div>
+
+    <a class="prev" href="javascript:">&lt;</a>
+    <a class="next" href="javascript:">&gt;</a>
+</div>
+<script type="text/javascript">
+    jQuery(".bannersilde").slide({mainCell:".bd ul",autoPlay:true});
+</script>
+<!--banner结束-->
+<!--内容开始-->
+<div class="bmlist-con">
+    <div class="bmlist-dqwz">当前位置：<a href="">首页&gt;</a><a href="">婚礼策划&gt;</a>全部 </div>
+    <div class="bmlist-con1">
+        <div class="bmlist-con1tit">商家列表</div>
+        <div class="bmlist-con1min">
+<div class="bmlist-cmts">
+    <div class="bmlist-cmtsb"></div>
+    <a class="bmlist-chese">特色</a>
+    <a class="bmlist-cred">全部</a>
+    <a href="">中式婚礼</a>
+    <a href="">西式婚礼</a>
+    <a href="">草坪婚礼</a>
+    <a href="">主题婚礼</a>
+    <a href="">创意婚礼</a>
+    <a href="">教堂婚礼</a>
+    <a href="">沙滩婚礼</a>　　　　　　　　　　　　　　　
+</div>
+            <div class="bmlist-cmts bmlist-cmqy">
+    <div class="bmlist-cmtsb"></div>
+    <a class="bmlist-chese">特色</a>
+    <a class="bmlist-cred">全部</a>
+    <a href="">东城区</a>
+    <a href="">西城区</a>
+    <a href="">朝阳区</a>
+    <a href="">丰台区</a>
+    <a href="">石景山区</a><a href="">石景山区</a><a href="">石景山区</a>
+    <a href="">淀区</a><a href="">门头沟区</a><a href="">房山区</a><a href="">通州区</a><a href="">顺义区</a>
+　　　　　　　　　　　　　　　<input type="button" id="gengduo"value="更多"/>
+
+                <div class="bmlist-cmqyGD">
+                    <a href="">东城区</a>
+                    <a href="">西城区</a>
+                    <a href="">朝阳区</a>
+                    <a href="">丰台区</a>
+                    <a href="">石景山区</a>
+                    <a href="">淀区</a>
+                    <a href="">东城区</a>
+                    <a href="">西城区</a>
+                    <a href="">朝阳区</a>
+                    <a href="">丰台区</a>
+                    <a href="">石景山区</a>
+                    <a href="">淀区</a>
+                    <a href="">东城区</a>
+                    <a href="">西城区</a>
+                    <a href="">朝阳区</a>
+                    <a href="">丰台区</a>
+                    <a href="">石景山区</a>
+                    <a href="">淀区</a>
+                </div>
+</div>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $(".bmlist-cmqyGD").hide();
+                    $("#gengduo").click(function(){
+                        $(".bmlist-cmqyGD").toggle(10);
+                    });
+                });
+            </script>
+            <div class="bmlist-cmts">
+                <div class="bmlist-cmtsb"></div>
+                <a class="bmlist-chese">价格</a>
+                <a class="bmlist-cred">全部</a>
+                <a href="">4999以下</a>
+                <a href="">5000-7999</a>
+                <a href="">8000-12999</a>
+                <a href="">13000-15999</a>
+                <a href="">16000以上</a>　　　　　　　　　　　　　　
+            </div>
+        </div>
+    </div>
+
+<div class="bmlist-con2"><a href=""><img src="images/dplby_07.jpg" alt=""/></a></div>
+    <div class="bmlist-con3">
+        <div class="bmlist-con3-left">
+            <div class="bmt-con3lttit">全部店铺</div>
+            <div class="bmt-con3ltcon">
+<ul>
+    <li>
+        <div class="bmt-con3llipic"><a href=""><img src="images/dplby_14.jpg" alt=""/></a></div>
+        <div class="bmt-con3llitxt">
+            <div class="bmt-con3llitxt1">水晶之恋 <span>官网认证</span>
+                <a class="fl pop_btn_yuyue" href="javaScript:;">立即预约</a></div>
+            <div class="bmt-con3llitxt2">商家地址： 葆台路大溪地别墅区1号楼</div>
+            <div class="bmt-con3llitxt3">会员等级：金牌会员</div>
+            <div class="bmt-con3llitxt4">特色： 韩式   欧式   中式</div>
+            <div class="bmt-con3llitxt5">区域：朝阳区</div>
+            <div class="bmt-con3llitxt5">口碑值：<span></span></div>
+            <div class="bmt-con3llitxt6"><input type="button" value="去逛逛" /><span></span></div>
+        </div>
+    </li><li>
+        <div class="bmt-con3llipic"><a href=""><img src="images/dplby_14.jpg" alt=""/></a></div>
+        <div class="bmt-con3llitxt">
+            <div class="bmt-con3llitxt1">水晶之恋 <span>官网认证</span><a class="fl pop_btn_yuyue" href="javaScript:;">立即预约</a></div>
+            <div class="bmt-con3llitxt2">商家地址： 葆台路大溪地别墅区1号楼</div>
+            <div class="bmt-con3llitxt3">会员等级：金牌会员</div>
+            <div class="bmt-con3llitxt4">特色： 韩式   欧式   中式</div>
+            <div class="bmt-con3llitxt5">区域：朝阳区</div>
+            <div class="bmt-con3llitxt5">口碑值：<span></span></div>
+            <div class="bmt-con3llitxt6"><input type="button" value="去逛逛"/><span></span></div>
+        </div>
+    </li><li>
+        <div class="bmt-con3llipic"><a href=""><img src="images/dplby_14.jpg" alt=""/></a></div>
+        <div class="bmt-con3llitxt">
+            <div class="bmt-con3llitxt1">水晶之恋 <span>官网认证</span><a class="fl pop_btn_yuyue" href="javaScript:;">立即预约</a></div>
+            <div class="bmt-con3llitxt2">商家地址： 葆台路大溪地别墅区1号楼</div>
+            <div class="bmt-con3llitxt3">会员等级：金牌会员</div>
+            <div class="bmt-con3llitxt4">特色： 韩式   欧式   中式</div>
+            <div class="bmt-con3llitxt5">区域：朝阳区</div>
+            <div class="bmt-con3llitxt5">口碑值：<span></span></div>
+            <div class="bmt-con3llitxt6"><input type="button" value="去逛逛"/><span></span></div>
+        </div>
+    </li><li>
+        <div class="bmt-con3llipic"><a href=""><img src="images/dplby_14.jpg" alt=""/></a></div>
+        <div class="bmt-con3llitxt">
+            <div class="bmt-con3llitxt1">水晶之恋 <span>官网认证</span><a class="fl pop_btn_yuyue" href="javaScript:;">立即预约</a></div>
+            <div class="bmt-con3llitxt2">商家地址： 葆台路大溪地别墅区1号楼</div>
+            <div class="bmt-con3llitxt3">会员等级：金牌会员</div>
+            <div class="bmt-con3llitxt4">特色： 韩式   欧式   中式</div>
+            <div class="bmt-con3llitxt5">区域：朝阳区</div>
+            <div class="bmt-con3llitxt5">口碑值：<span></span></div>
+            <div class="bmt-con3llitxt6"><input type="button" value="去逛逛"/><span></span></div>
+        </div>
+    </li><li>
+        <div class="bmt-con3llipic"><a href=""><img src="images/dplby_14.jpg" alt=""/></a></div>
+        <div class="bmt-con3llitxt">
+            <div class="bmt-con3llitxt1">水晶之恋 <span>官网认证</span><a class="fl pop_btn_yuyue" href="javaScript:;">立即预约</a></div>
+            <div class="bmt-con3llitxt2">商家地址： 葆台路大溪地别墅区1号楼</div>
+            <div class="bmt-con3llitxt3">会员等级：金牌会员</div>
+            <div class="bmt-con3llitxt4">特色： 韩式   欧式   中式</div>
+            <div class="bmt-con3llitxt5">区域：朝阳区</div>
+            <div class="bmt-con3llitxt5">口碑值：<span></span></div>
+            <div class="bmt-con3llitxt6"><input type="button" value="去逛逛"/><span></span></div>
+        </div>
+    </li><li>
+        <div class="bmt-con3llipic"><a href=""><img src="images/dplby_14.jpg" alt=""/></a></div>
+        <div class="bmt-con3llitxt">
+            <div class="bmt-con3llitxt1">水晶之恋 <span>官网认证</span><a class="fl pop_btn_yuyue" href="javaScript:;">立即预约</a></div>
+            <div class="bmt-con3llitxt2">商家地址： 葆台路大溪地别墅区1号楼</div>
+            <div class="bmt-con3llitxt3">会员等级：金牌会员</div>
+            <div class="bmt-con3llitxt4">特色： 韩式   欧式   中式</div>
+            <div class="bmt-con3llitxt5">区域：朝阳区</div>
+            <div class="bmt-con3llitxt5">口碑值：<span></span></div>
+            <div class="bmt-con3llitxt6"><input type="button" value="去逛逛"/><span></span></div>
+        </div>
+    </li><li>
+        <div class="bmt-con3llipic"><a href=""><img src="images/dplby_14.jpg" alt=""/></a></div>
+        <div class="bmt-con3llitxt">
+            <div class="bmt-con3llitxt1">水晶之恋 <span>官网认证</span><a class="fl pop_btn_yuyue" href="javaScript:;">立即预约</a></div>
+            <div class="bmt-con3llitxt2">商家地址： 葆台路大溪地别墅区1号楼</div>
+            <div class="bmt-con3llitxt3">会员等级：金牌会员</div>
+            <div class="bmt-con3llitxt4">特色： 韩式   欧式   中式</div>
+            <div class="bmt-con3llitxt5">区域：朝阳区</div>
+            <div class="bmt-con3llitxt5">口碑值：<span></span></div>
+            <div class="bmt-con3llitxt6"><input type="button" value="去逛逛"/><span></span></div>
+        </div>
+    </li><li>
+        <div class="bmt-con3llipic"><a href=""><img src="images/dplby_14.jpg" alt=""/></a></div>
+        <div class="bmt-con3llitxt">
+            <div class="bmt-con3llitxt1">水晶之恋 <span>官网认证</span><a class="fl pop_btn_yuyue" href="javaScript:;">立即预约</a></div>
+            <div class="bmt-con3llitxt2">商家地址： 葆台路大溪地别墅区1号楼</div>
+            <div class="bmt-con3llitxt3">会员等级：金牌会员</div>
+            <div class="bmt-con3llitxt4">特色： 韩式   欧式   中式</div>
+            <div class="bmt-con3llitxt5">区域：朝阳区</div>
+            <div class="bmt-con3llitxt5">口碑值：<span></span></div>
+            <div class="bmt-con3llitxt6"><input type="button" value="去逛逛"/><span></span></div>
+        </div>
+    </li><li>
+        <div class="bmt-con3llipic"><a href=""><img src="images/dplby_14.jpg" alt=""/></a></div>
+        <div class="bmt-con3llitxt">
+            <div class="bmt-con3llitxt1">水晶之恋 <span>官网认证</span><a class="fl pop_btn_yuyue" href="javaScript:;">立即预约</a></div>
+            <div class="bmt-con3llitxt2">商家地址： 葆台路大溪地别墅区1号楼</div>
+            <div class="bmt-con3llitxt3">会员等级：金牌会员</div>
+            <div class="bmt-con3llitxt4">特色： 韩式   欧式   中式</div>
+            <div class="bmt-con3llitxt5">区域：朝阳区</div>
+            <div class="bmt-con3llitxt5">口碑值：<span></span></div>
+            <div class="bmt-con3llitxt6"><input type="button" value="去逛逛"/><span></span></div>
+        </div>
+    </li>
+</ul>
+                <div class="right-cppd-yema right-cppd-yema-list">
+                    <a href="">上一页</a>
+                    <a href="">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <a href="">4</a>
+                    <a href="">5</a>
+                    <a style="border: none">...</a>
+                    <a href="">下一页</a> <a href="">尾页</a>
+                </div>
+            </div>
+        </div>
+        <div class="bmlist-con3-right">
+            <div class="bmlist-con3-right1">
+                <div class="bmlist-con3-r1tit">精品活动&gt;</div>
+                <div class="bmlist-con3-r1con">
+                    <ul>
+                        <li><a href=""><img src="images/dplby_11.jpg" alt=""/></a></li>
+                        <li><a href=""><img src="images/dplby_18.jpg" alt=""/></a></li>
+                        <li><a href=""><img src="images/dplby_18.jpg" alt=""/></a></li>
+                        <li><a href=""><img src="images/dplby_21.jpg" alt=""/></a></li>
+                        <li><a href=""><img src="images/dplby_24.jpg" alt=""/></a></li>
+                        <li><a href=""><img src="images/dplby_11.jpg" alt=""/></a></li>
+                        <li><a href=""><img src="images/dplby_18.jpg" alt=""/></a></li>
+                        <li><a href=""><img src="images/dplby_18.jpg" alt=""/></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bmlist-con3-right1">
+                <div class="bmlist-con3-r1tit bmlist-con3-r1tit2">精品文章&gt;<span><a href="">更多</a></span></div>
+                <div class="bmlist-con3-r1con bmlist-con3-r1con2">
+                    <ul>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风的不</a></li>
+                        <li><a href="">【雪翎枫原创】个性的香草影堂，中国风的不</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bmlist-con5"><a href=""><img src="images/dplby_07.jpg" alt=""/></a></div>
+</div>
+
+<!--内容结束-->
+
+<div class="bottom">
+
+    <div class="bottom-con">
+
+        <div class="bottom-con_tit">中国婚庆传媒网 <span>China wedding media network</span></div>
+        <div class="bottom-con_mine">
+            <ul>
+                <li class="con_mine-color">公司地址</li>
+                <li>北京市昌平区沙河松兰堡西孵化器B座11层</li>
+                <li>400-680-8992</li>
+            </ul>
+
+            <ul>
+                <li class="con_mine-color">新手帮助</li>
+                <li>购物流程</li>
+                <li>会员注册</li>
+                <li>预约服务手册</li>
+            </ul>
+
+            <ul>
+                <li class="con_mine-color">商家服务
+
+
+                </li>
+                <li>商家入驻流程</li>
+                <li> 商家常见问题</li>
+                <li>商家店铺装修与管理</li>
+            </ul>
+            <ul>
+                <li class="con_mine-color">合作通道
+                </li>
+                <li>广告服务</li>
+                <li> 项目合作</li>
+                <li> 战略合作</li>
+            </ul>
+            <ul>
+                <img src="images/erweima_18.jpg" alt=""/>
+            </ul>
+            <ol>
+                <div class="con_mine-color">友情链接</div>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#">网站地图</a></li>
+                <li><a href="#">免责申明</a> </li>
+                <li><a href="#">诚聘英才</a></li>
+                <li><a href="#">友情链接</a></li>
+                <li><a href="#">申请店铺</a></li>
+            </ol>
+        </div>
+        <div class="bottom-conbot"></div>
+    </div>
+</div>
+<div class="ydy-bottom">
+    <div class="ydy-bottom-main">
+
+        <div class="bottom-main-img"><img src="images/ydy-bottom_22.jpg" alt=""/></div>
+        <div class="bottom-main-text">版权所有： 新郎官~婚嫁网  工信部网站备案号14008906号-2  京公安网备 110110110110  www.591jh.com <br/>
+            © CopyRight 新郎官~婚嫁网  All Rights Resrved  京ICP备14008906号 <br/>
+            全程技术支持：北京祝天合地文化传媒有限公司</div>
+    </div>
+
+</div>
+</body>
+</html>

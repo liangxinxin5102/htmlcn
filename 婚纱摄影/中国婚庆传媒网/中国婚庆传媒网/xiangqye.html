@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>商城首页</title>
+    <link rel="stylesheet" type="text/css" href="style/index.css">
+    <script type="text/javascript" src="js/xiangqye/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/xiangqye/jquery.imagezoom.min.js"></script>
+    <script type="text/javascript" src="js/xiangqye/jquery.tab.2.1.1.js"></script>
+    <style>
+        body{background:#fff;}
+
+    </style>
+</head>
+<body>
+<!--顶部开始-->
+<div id="top">
+    <div class="top-con">
+        <ul>
+            <li><a href="#">登录</a></li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#">会员中心</a></li>
+            <li><a href="#">的我收藏</a></li>
+            <li><a href="#">资讯</a></li>
+            <li><a href="#">问题</a></li>
+            <li><a href="#">反馈</a></li>
+        </ul>
+    </div>
+</div>
+<!--顶部结束-->
+<!--导航区域开始-->
+<div id="nav">
+    <div class="nav-con">
+        <div class="nav-logo"><a href="#"><img src="images/logo.jpg"></a> </div>
+        <div class="city-choose">
+            <div class="nice-select" name="nice-select">
+                <input type="text" value="北京" readonly>
+                <ul>
+                    <li data-value="0">天津</li>
+                    <li data-value="1">上海</li>
+                    <li data-value="2">石家庄</li>
+                </ul>
+            </div>
+            <script>
+                $('[name="nice-select"]').click(function(e){
+                    $('[name="nice-select"]').find('ul').hide();
+                    $(this).find('ul').show();
+                    e.stopPropagation();
+                });
+                $('[name="nice-select"] li').hover(function(e){
+                    $(this).toggleClass('on');
+                    e.stopPropagation();
+                });
+                $('[name="nice-select"] li').click(function(e){
+                    var val = $(this).text();
+                    var dataVal = $(this).attr("data-value");
+                    $(this).parents('[name="nice-select"]').find('input').val(val);
+                    $('[name="nice-select"] ul').hide();
+                    e.stopPropagation();
+                });
+                $(document).click(function(){
+                    $('[name="nice-select"] ul').hide();
+                });
+            </script>
+
+        </div>
+        <div class="contactway"><img src="images/contactway_03.jpg"> </div>
+        <div id="sousuo">
+            <div class="sousuo_med">
+                <div class="i-search">
+                    <div class="form">
+                        <input type="text" class="text" placeholder="婚纱摄影"  accesskey="s" id="key"  >
+                        <input type="button" value="搜索" class="button" onclick="">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="nav-navdh">
+        <div class="navdh-con">
+            <ul>
+                <li><a href="#">首页</a> </li>
+                <li><a href="#">婚纱摄影</a></li>
+                <li><a href="#">婚礼策划</a></li>
+                <li><a href="#">结婚商城</a></li>
+                <li><a href="#">婚礼社区</a></li>
+                <li><a href="#">百花商城</a></li>
+                <li><a href="#">月老婚恋</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--导航区域结束-->
+<!--内容开始-->
+<div class="xianqy-con">
+
+    <div class="xianqy-con_left">
+        <div class="xianqy-con_left1">
+        <div class="xicon_leftl">
+            <div class="xicon_leftlimg1"><a></a><img src="images/buymall_22.jpg" rel="images/xiaqingyebig.jpg" alt="" class="jqzoom"/></div>
+            <div class="xicon_leftlimg2">
+                <ul class="tbbooth">
+                    <li class="tb-selected"><a><img src="images/xiangqye_03.jpg" big="images/xiaqingyebig.jpg" mid="images/buymall_22.jpg" alt=""/></a></li>
+                    <li><a><img src="images/buymall_37.jpg" big="images/xiaqingyebig.jpg" mid="images/buymall_35.jpg" alt=""/></a></li>
+                    <li><a><img src="images/xiangqye_03.jpg" big="images/xiaqingyebig.jpg" mid="images/buymall_22.jpg" alt=""/></a></li>
+                    <li><a><img src="images/buymall_37.jpg" big="images/xiaqingyebig.jpg" mid="images/buymall_35.jpg" alt=""/></a></li>
+                </ul>
+                
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $(".jqzoom").imagezoom();
+                    $(".xicon_leftlimg2 li a").click(function(){
+                        $(this).parents("li").addClass("tb-selected").siblings().removeClass("tb-selected");
+                        $(".jqzoom").attr('src',$(this).find("img").attr("mid"));
+                        $(".jqzoom").attr('rel',$(this).find("img").attr("big"));
+                    });
+                });
+            </script>
+        </div>
+        <div class="xicon_leftr">
+            <div class="xlproduct-tit">婚礼司仪—吉普森</div>
+            <div class="xlproduct-pic">官网价格：￥3000</div>
+            <div class="xlproduct-pic2">市场价：￥5000</div>
+
+            <div class="xlproduct-pop">人气：10241 <span>分享到</span>
+                <a href=""><img src="images/xiangqingye2_03.jpg" alt=""/></a>
+                <a href=""><img src="images/xiangqingye2_05.jpg" alt=""/></a>
+                <a href=""><img src="images/xiangqingye2_07.jpg" alt=""/></a>
+                <a href=""><img src="images/xiangqingye2_09.jpg" alt=""/></a>
+                <a href=""><img src="images/xiangqingye2_11.jpg" alt=""/></a>
+                <a href=""><img src="images/xiangqingye2_13.jpg" alt=""/></a>
+            </div>
+            <div class="xlproduct-dqi"><span>档期</span>
+            <input class="xlproduct-dqiy" type="text" value="请选择"/>
+            <input class="xlproduct-dqiy" type="datetime" value="请选择"/>
+            <input class="xlproduct-dqiy" type="text" value="请选择"/>
+            </div>
+            <div class="xlproduct-dqi-choose">
+<ul>
+    <li>2015年</li>
+    <li>2015年</li>
+    <li>2015年</li>
+    <li>2015年</li>
+    <li>2015年</li>
+    <li>2015年</li>
+    <li>2015年</li>
+    <li>2015年</li>
+</ul>
+
+            </div>
+            <div class="xqy-gwbut">
+            <input type="button" value="立即抢购"/>
+            <input type="button" value="加入购物车"/>
+        </div>
+        </div>
+        </div>
+        <div class="xianqy-con_left2">
+            <div class="xianqy-con_left2tit">品牌推荐</div>
+            <div class="xianqy-con_left2con">
+                <div class="xianqy-c-left2sp1"><a href=""><img src="images/xiangqye_11.jpg" alt=""/></a></div><span></span>
+                <div class="xianqy-c-left2sp1"><a href=""><img src="images/xiangqye_11.jpg" alt=""/></a></div><span></span>
+                <div class="xianqy-c-left2sp1"><a href=""><img src="images/xiangqye_11.jpg" alt=""/></a></div><s></s>
+                <div class="xianqy-c-left2sp2">
+                    <div class="xi-c-lft2s2tit">套餐价2050</div>
+                    <div class="xi-c-lft2s2tit1">市场价：5500</div>
+                    <div class="xi-c-lft2s2tit2">立省：3000</div>
+                    <div class="xi-c-lft2s2titbutton">
+                        <input type="button"value="立即购买"/><br/>
+                        <input type="button"value="加入购物车"/>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="xianqy-con_left3">
+
+<div class="xianqy-con_left3-l">
+    <div class="zhfw_con-right xianqy-conzl">
+        <div class="zcon-right-top">
+            <div class="zcon-right-toptit">销售排行 <span><a href="">更多</a></span></div>
+
+            <div class="zcon-right-topcp">
+                <ul>
+                    <li>
+                        <div class="zight-topcp_tu"><img src="images/ydy_21.jpg" alt=""/>
+                            <div class="zight-topcpetop"><img src="images/zhfurxb_10.png" alt=""/>
+                            </div>
+                        </div>
+                        <div class="zight-topcp_txt">
+                            <div class="zight-topcp_txt1">婚礼司仪—吉普森</div>
+                            <div class="zight-topcp_txt2">官网价格：2000</div>
+                            <div class="zight-topcp_txt3">市场价：5000</div>
+                            <div class="zight-topcp_txt4"><a href="">立即预约</a></div>
+
+                        </div>
+                    </li> <li>
+                    <div class="zight-topcp_tu"><img src="images/ydy_21.jpg" alt=""/>
+                        <div class="zight-topcpetop"><img src="images/zhfurxb1_03.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="zight-topcp_txt">
+                        <div class="zight-topcp_txt1">婚礼司仪—吉普森</div>
+                        <div class="zight-topcp_txt2">官网价格：2000</div>
+                        <div class="zight-topcp_txt3">市场价：5000</div>
+                        <div class="zight-topcp_txt4"><a href="">立即预约</a></div>
+
+                    </div>
+                </li> <li>
+                    <div class="zight-topcp_tu"><img src="images/ydy_21.jpg" alt=""/>
+                        <div class="zight-topcpetop"><img src="images/zhfurxb1_06.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="zight-topcp_txt">
+                        <div class="zight-topcp_txt1">婚礼司仪—吉普森</div>
+                        <div class="zight-topcp_txt2">官网价格：2000</div>
+                        <div class="zight-topcp_txt3">市场价：5000</div>
+                        <div class="zight-topcp_txt4"><a href="">立即预约</a></div>
+
+                    </div>
+                </li><li>
+                    <div class="zight-topcp_tu"><img src="images/ydy_21.jpg" alt=""/>
+                    </div>
+                    <div class="zight-topcp_txt">
+                        <div class="zight-topcp_txt1">婚礼司仪—吉普森</div>
+                        <div class="zight-topcp_txt2">官网价格：2000</div>
+                        <div class="zight-topcp_txt3">市场价：5000</div>
+                        <div class="zight-topcp_txt4"><a href="">立即预约</a></div>
+
+                    </div>
+                </li><li>
+                    <div class="zight-topcp_tu"><img src="images/ydy_21.jpg" alt=""/>
+                    </div>
+                    <div class="zight-topcp_txt">
+                        <div class="zight-topcp_txt1">婚礼司仪—吉普森</div>
+                        <div class="zight-topcp_txt2">官网价格：2000</div>
+                        <div class="zight-topcp_txt3">市场价：5000</div>
+                        <div class="zight-topcp_txt4"><a href="">立即预约</a></div>
+
+                    </div>
+                </li><li>
+                    <div class="zight-topcp_tu"><img src="images/ydy_21.jpg" alt=""/>
+                    </div>
+                    <div class="zight-topcp_txt">
+                        <div class="zight-topcp_txt1">婚礼司仪—吉普森</div>
+                        <div class="zight-topcp_txt2">官网价格：2000</div>
+                        <div class="zight-topcp_txt3">市场价：5000</div>
+                        <div class="zight-topcp_txt4"><a href="">立即预约</a></div>
+
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="xianqy-con_left3-r">
+    <div class="slideTxtBox">
+        <div class="hd">
+            <ul><li>课程介绍</li><li>案例展示</li><li>案例视频</li><li>相关服务</li><li>评价咨询</li></ul>
+        </div>
+        <div class="bd">
+            <ul>
+                <li><div class="bd-pic"><img src="images/xiangqye_06.jpg" alt=""/></div>
+                <div class="bd-pic-txt"> 姓名：吉普森 <br/>
+                    English Name：SKY<br/>
+                    职业：主持人<br/>
+                    生日：5月14日<br/>
+                    身高：178cm<br/>
+                    民族：汉<br/>
+                    星座：金牛座<br/>
+                    血型：A型<br/>
+                    住址：传媒大学<br/>
+                    场次数：428场<br/>
+                    从业时长：5年</div>
+                </li>
+                <li> <h3>自我介绍：</h3>
+
+                    文化素质优、现场表现力强、拍摄多场电视剧、控场互动能力强、现场反应能力强，师从中国首席婚礼司仪
+
+                    马智宇。</li> <li> <h3> 从业经历：</h3>
+
+
+
+                2008年圣诞节在山东索菲特法式酒店的圣诞节狂欢夜中，担任主持。 <br/>
+
+                2008年至2009年在山东烟台从事蒙牛，康师傅，娃哈哈，等品牌的户外演出宣传及企业宴会，会议中担任<br/>
+
+                主持。
+                <br/>
+                2009年10月山东省举办全省大学生文艺汇演中担任晚会主持人。<br/>
+
+                2009年11月至2010年4月在烟台海之恋文化传媒公司担任演出指导和主持。<br/>
+
+                2010年7月“丝芝”品牌家居服在济南大型宣传推广秀中，担任发布会主持。<br/>
+
+                2010年9月在人民大会堂举办世界旅游形象大使国际区总决赛新闻发布会担任主持人。</li>
+                <li> <h3>婚礼服务格言：</h3>
+
+                    用一生力量来铸每一场的婚礼。让舞台上的你们精彩一刻，幸福一生。</li>
+
+            </ul>
+            <ul>
+
+            </ul>
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">jQuery(".slideTxtBox").slide();</script>
+</div>
+        </div>
+    </div>
+    <div class="xianqy-con_right">
+        <div class="picScroll-top">
+
+            <div class="bd">
+                <div class="picScrollbd-klyk">看了又看</div>
+                <ul class="picList">
+                    <li>
+                        <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                    </li><li>
+                    <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                </li><li>
+                    <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                </li><li>
+                    <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                </li><li>
+                    <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                </li><li>
+                    <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                </li><li>
+                        <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                    </li><li>
+                    <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                </li><li>
+                    <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                </li><li>
+                    <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                </li><li>
+                    <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                </li><li>
+                    <div class="pic"><a href="#" target="_blank"><img src="images/buymall_28.jpg" /></a></div>
+                </li>
+                </ul>
+            </div>
+            <div class="hd">
+                <a class="next"></a>
+                <a class="prev"></a>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            jQuery(".picScroll-top").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"top",autoPlay:true,vis:3,trigger:"click",scroll:1});
+        </script>
+    </div>
+
+
+</div>
+
+<!--内容结束-->
+<div class="bottom">
+    <div class="bottom-con">
+        <div class="bottom-con_tit">中国婚庆传媒网 <span>China wedding media network</span></div>
+        <div class="bottom-con_mine">
+            <ul>
+                <li class="con_mine-color">公司地址</li>
+                <li>北京市昌平区沙河松兰堡西孵化器B座11层</li>
+                <li>400-680-8992</li>
+            </ul>
+
+            <ul>
+                <li class="con_mine-color">新手帮助</li>
+                <li>购物流程</li>
+                <li>会员注册</li>
+                <li>预约服务手册</li>
+            </ul>
+
+            <ul>
+                <li class="con_mine-color">商家服务
+
+
+                </li>
+                <li>商家入驻流程</li>
+                <li> 商家常见问题</li>
+                <li>商家店铺装修与管理</li>
+            </ul>
+            <ul>
+                <li class="con_mine-color">合作通道
+                </li>
+                <li>广告服务</li>
+                <li> 项目合作</li>
+                <li> 战略合作</li>
+            </ul>
+            <ul>
+                <img src="images/erweima_18.jpg" alt=""/>
+            </ul>
+            <ol>
+                <div class="con_mine-color">友情链接</div>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#">网站地图</a></li>
+                <li><a href="#">免责申明</a> </li>
+                <li><a href="#">诚聘英才</a></li>
+                <li><a href="#">友情链接</a></li>
+                <li><a href="#">申请店铺</a></li>
+            </ol>
+        </div>
+        <div class="bottom-conbot"></div>
+    </div>
+</div>
+<div class="ydy-bottom">
+    <div class="ydy-bottom-main">
+        <div class="bottom-main-img"><img src="images/ydy-bottom_22.jpg" alt=""/></div>
+        <div class="bottom-main-text">版权所有： 新郎官~婚嫁网  工信部网站备案号14008906号-2  京公安网备 110110110110  www.591jh.com <br/>
+            © CopyRight 新郎官~婚嫁网  All Rights Resrved  京ICP备14008906号 <br/>
+            全程技术支持：北京祝天合地文化传媒有限公司</div>
+    </div>
+
+</div></div>
+</body>
+</html>

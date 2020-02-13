@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen">研究</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">“互联网+农业” 也许是农民的新样子</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-11　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2897.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2897.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">当过摄影师，做过翻译，还干过银行理财师，这样的谢明曾做起了生态农业。是向往“田园生活”的生活新选择？还是新形势下贴合人们生活方式的“大事业”？这一切恐怕谢明也说不清楚。四年前，谢明曾跟他的女朋友一起辞职回到女友的家乡山东烟台栖霞，他们想种出安全又好吃的生态<a href="javascript:if(confirm('http://app.finance.china.com.cn/stock/cate/detail.php?symbol=400128162  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://app.finance.china.com.cn/stock/cate/detail.php?symbol=400128162'" tppabs="http://app.finance.china.com.cn/stock/cate/detail.php?symbol=400128162" target="_blank" title="苹果 400128162" style="padding: 0px; margin: 0px; color: rgb(13, 81, 156); text-decoration: none; outline: none;">苹果</a>。现在，他是恩然自然农庄创始人，他的生态苹果终于“有点甜”了。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　如今网易养猪、褚时健销售“励志橙”，传统农业似乎越来越难满足人们的要求了。谈到从事生态农业的初衷，其实仍是人们对吃的新需求。我国化肥农药用量世界第一，平均化肥施用强度是国际公认化肥施用安全上限的1.61倍，化肥过量使用会造成土壤酸化，增加骨痛病等疑难病症的患病风险；而农残成为消费者对<a href="javascript:if(confirm('http://app.finance.china.com.cn/stock/cate/detail.php?symbol=400128184  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://app.finance.china.com.cn/stock/cate/detail.php?symbol=400128184'" tppabs="http://app.finance.china.com.cn/stock/cate/detail.php?symbol=400128184" target="_blank" title="食品安全 400128184" style="padding: 0px; margin: 0px; color: rgb(13, 81, 156); text-decoration: none; outline: none;">食品安全</a>担忧的重点。根据国务院印发的《“十三五”生态环境保护规划》，要求到2020年，实现化肥农药使用量零增长，化肥利用率提高到40%以上，京津冀、<a href="javascript:if(confirm('http://finance.china.com.cn/stock/quote/sz399355/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://finance.china.com.cn/stock/quote/sz399355/'" tppabs="http://finance.china.com.cn/stock/quote/sz399355/" target="_blank" title="长三角 399355" style="padding: 0px; margin: 0px; color: rgb(13, 81, 156); text-decoration: none; outline: none;">长三角</a>、<a href="javascript:if(confirm('http://finance.china.com.cn/stock/quote/sz399356/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://finance.china.com.cn/stock/quote/sz399356/'" tppabs="http://finance.china.com.cn/stock/quote/sz399356/" target="_blank" title="珠三角 399356" style="padding: 0px; margin: 0px; color: rgb(13, 81, 156); text-decoration: none; outline: none;">珠三角</a>等区域提前一年完成。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　这样渐渐告别农药的生活，怎样才能来得更顺当？如何才能让人们更信任生态农业，拥抱更自然的饮食？</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　<strong>&nbsp;生态农业的转变 竟是从品质下降开始</strong></p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　“我们从2011年10月开始做实验，2011年栖霞当地果农每亩使用复合肥、有机肥约一千斤，即一亩地是两吨肥的投入量；农药一年用6到8次，种类加起来是8种左右，平均亩产苹果6500到7500斤，次果率10%，每亩投资在3000元左右。”谢明说。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　由于谢明和女友都没有从事农业的经验，2012年他们在承包的果园里种了2400棵苹果树，把复合肥砍掉了90%，仅用了100斤，把农药减到6次。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　“2012年的实验几乎全部失败了。”让谢明非常沮丧的是，苹果产量没有下降多少，约6500斤，但次果率高达在50%左右。于是，2013年他们在上一年失败的基础上，对农药种类跟培育时间上做了些调整，次果率下降到35%，产量增加10%左右。2014年他们把农药限制到4次，彻底杜绝化肥使用，次果率继续下降到25%左右，苹果品质开始往上升。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　“在做农业之前，我们想象中，如果常规农业按照可持续农业方法去做，<a href="javascript:if(confirm('http://finance.china.com.cn/stock/quote/sz000061/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://finance.china.com.cn/stock/quote/sz000061/'" tppabs="http://finance.china.com.cn/stock/quote/sz000061/" target="_blank" title="农产品 000061" style="padding: 0px; margin: 0px; color: rgb(13, 81, 156); text-decoration: none; outline: none;">农产品</a>品质应该是直接上升、产量下降。但事实并非如此。”谢明说，常规农业在往可持续生态农业转变的过程中，前三年产品品质是逐年下降的，到第四年才达到平衡。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　“我说的是综合品质包括糖度、外观、脆度、果香和保存期限等。2016年是最好的一年，农残23项全部零检出。2011年我们开始做合作，农户从1户增加到现在11户，合作面积从1亩增加到现在70亩。我们跟农户合作模式是我们给他提供融资和技术支持，农户生产的苹果全部包销，包销价格比市场价高20%左右。从2013年开始跟我们合作的农户差不多都有20%到30%的增收。”谢明说，从长远看，有机农业比常规农业产量持平，品质更好，物料等成本低，但之所以市场售价相对较高，是因为前期投入大，成本回收压力大。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　<strong>可信农场 诚信透明获得更多“铁粉”</strong></p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　一墩青永续农场创始人成鹏飞曾是地方的扶贫办官员，2010年扶贫项目结束后，他站到了人生的十字路口。2011年，一墩青农场成立，依靠永续农业和生物动力农业原理，进行生态农业种植，拒绝农药，不用化肥，在保护环境的同时，为周边农户树立一个可学习的榜样。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　“我们在2012年就开始组织农户做可持续的农耕记录项目。这个记录究竟是给谁看，怎么去做记录，我们做了一些尝试。这个标签上就写了我们产品的品种、谁来生产，以及在生产过程中我们是怎么样做的。”让成鹏飞非常欣慰但是，经销商和消费者都非常欢迎这样的记录。“有一些客户会质疑你的产品以及它的安全性，面对这样的问题，做这样的记录是很有必要的。有了微信后，我们也用微信和微博来发一些记录，这种记录有及时性，当你想改这个资料的时候很难改。记录具有透明性，体现了生产者的诚信。因此，我们获得了更多的客户、更好的口碑、更多的‘铁粉’。”</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　近几年来，类似农事宝、农管家等农场管理APP层出不穷，基于<a href="javascript:if(confirm('http://app.finance.china.com.cn/stock/cate/detail.php?symbol=400129720  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://app.finance.china.com.cn/stock/cate/detail.php?symbol=400129720'" tppabs="http://app.finance.china.com.cn/stock/cate/detail.php?symbol=400129720" target="_blank" title="移动互联网 400129720" style="padding: 0px; margin: 0px; color: rgb(13, 81, 156); text-decoration: none; outline: none;">移动互联网</a>提升农场生产效率，体现诚信并不是一件新鲜事。北京乐平公益基金会也推出了“可信农场”数字化生产记录平台。这是一个基于生态信任农业理念，以提升农场生产力、建立生产者与消费者之间信任关系为目的开发的一个农事管理、信息共享平台。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　北京乐平公益基金会秘书长沈东曙说，“可信农场”平台旨在服务两种人群，一为加入生态信任农业的生产者提供强大的数据收集与分析功能，并辅以专家在线指导、同行交流及市场推广等服务，进而提升农场的生产、运营效率；二为消费者提供能直接了解食材整个生产过程的入口，以“公开、透明”的态度取得消费者的信任，从而改善生产者和消费者之间的信任关系。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　为保证“可信农场”数字化生产记录的真实性与准确性，避免虚假信息的干扰，北京乐平公益基金会生态信任农业事业部还制定了平台使用标准。在尊重农户个人差异、尊重实际生产情况的前提下，农户需在生产过程中尽量不使用或完全不使用化肥、农药等人工合成化学物质，并保证上传至“可信农场”平台的信息与实际情况吻合。在生产过程中，乐平派出的巡查员根据每个农作物的特性，在特定时间节点进行田间巡查，判断实际情况是否与上传至平台内容相符。产品上市前由第三方检测机构进行农药残留检测。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　<strong>劳动力成本 已从农业的优势变成劣势</strong></p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　“我觉得‘互联网+农业’是农业在线化和数据化，即通过现代信息技术对传统农业的水、土、气、肥、水、药、装备、劳动力、市场、信息重新配置，让它进入一个新的生产方式，新的经营方式、管理方式，跳升到新状态。”中国农业大学教授李道亮说。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　我国的传统农业的生产规模很小，每户仅八亩地；组织化程度很低，合作社占比还不到31%，合作社规模小；农业劳动生产率比较低，欧美发达国家的一个劳动力生产率相当于我国的20倍。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　“老龄化凸显，越来越多的农民是老人。有一个大致的统计，我国农业一线劳动力平均年龄约在50到60岁，越发达地区年龄越大，越落后地区越年轻。但年轻是相对的，即都超过45岁，45岁以下几乎没有。”李道亮认为，如今劳动力成本已从优势变成了农业的劣势。“互联网+农业”是指转变传统的生产方式，比如现在一个人种八亩地，将来一个人要种一千亩地或一万亩地；现在一个人养两百头猪，将来能养一万头猪，“是从一种状态转向另一种状态”。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　“我国农业每年病害发生的面积约是70亿亩次，防治面积是80亿亩次。”中国农科院植物保护研究所生物防治室副主任张礼生研究员说，现代农业的转变方式之一就是要转变病虫害防治方式，以传统以化学农药为主的防控方式向以生物防控为主转型。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　“农药减量是政策要求，我们的试验是技术保障，我们要让大家知道从科学上来说，农药减量是可实现的。”张礼生说，比如用益虫来吃掉害虫，以虫吃虫；用有益的微生物农药，对人和畜没害处，“让害虫得传染病死掉”；物理防治措施，通过空间阻隔及声、光等调控等，如防虫网、反光绳等“傻瓜技术”让农民能很快接受和使用。</p><p style="font-family: 微软雅黑; padding: 7px 0px; margin-top: 0px; margin-bottom: 0px; color: rgb(51, 51, 51); line-height: 32px; white-space: normal;">　　“生态信任农业提供的技术一定要让生产者有利益可图，并提高产品品质。”张礼生说，生态信任农业需建立在各方信任基础之上，如此一来，生态信任农业才有可能向前推进。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

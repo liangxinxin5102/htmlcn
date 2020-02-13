@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>河北百众机电</title>
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<div id="header">
+<div class="logo"><img src="image/logo.png"></div>
+<div class="biaoyu"><img src="image/biaoyu.jpg"></div>
+<div class="lianxi"><div class="ditu"><a>网站首页</a>|<a>网站地图</a></div>
+<div class="tell">TEL：<span>0311-66175058</span></div>
+</div></div>
+<div style="clear:both"></div>
+<div id="nav">
+<div class="conent">
+<ul>
+<li><a href="index.html" class="hover">关于百众</a></li>
+<li><a href="xinwen.html">新闻展会</a></li>
+<li><a href="chanpin.html">产品展示</a></li>
+<li><a href="hangye.html">行业应用</a></li>
+<li><a href="jiejue.html">解决方案</a></li>
+<li><a href="fuwu.html">客服服务</a></li>
+<li><a href="jihui.html">工作机会</a></li>
+<li style="background:none;"><a href="lianxi.html">联系我们</a></li>
+</ul>
+</div>
+</div>
+<div class="banner" id="banner" >
+	<a href="" class="d1" style="background:url(image/banner1.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner2.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner3.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner1.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner2.jpg) center no-repeat;"></a>
+	<div class="d2" id="banner_id">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+<script type="text/javascript">
+function banner(){	
+	var bn_id = 0;
+	var bn_id2= 1;
+	var speed33=5000;
+	var qhjg = 1;
+    var MyMar33;
+	$("#banner .d1").hide();
+	$("#banner .d1").eq(0).fadeIn("slow");
+	if($("#banner .d1").length>1)
+	{
+		$("#banner_id li").eq(0).addClass("nuw");
+		function Marquee33(){
+			bn_id2 = bn_id+1;
+			if(bn_id2>$("#banner .d1").length-1)
+			{
+				bn_id2 = 0;
+			}
+			$("#banner .d1").eq(bn_id).css("z-index","2");
+			$("#banner .d1").eq(bn_id2).css("z-index","1");
+			$("#banner .d1").eq(bn_id2).show();
+			$("#banner .d1").eq(bn_id).fadeOut("slow");
+			$("#banner_id li").removeClass("nuw");
+			$("#banner_id li").eq(bn_id2).addClass("nuw");
+			bn_id=bn_id2;
+		};
+	
+		MyMar33=setInterval(Marquee33,speed33);
+		
+		$("#banner_id li").click(function(){
+			var bn_id3 = $("#banner_id li").index(this);
+			if(bn_id3!=bn_id&&qhjg==1)
+			{
+				qhjg = 0;
+				$("#banner .d1").eq(bn_id).css("z-index","2");
+				$("#banner .d1").eq(bn_id3).css("z-index","1");
+				$("#banner .d1").eq(bn_id3).show();
+				$("#banner .d1").eq(bn_id).fadeOut("slow",function(){qhjg = 1;});
+				$("#banner_id li").removeClass("nuw");
+				$("#banner_id li").eq(bn_id3).addClass("nuw");
+				bn_id=bn_id3;
+			}
+		})
+		$("#banner_id").hover(
+			function(){
+				clearInterval(MyMar33);
+			}
+			,
+			function(){
+				MyMar33=setInterval(Marquee33,speed33);
+			}
+		)	
+	}
+	else
+	{
+		$("#banner_id").hide();
+	}
+}
+</script>
+<script type="text/javascript">banner()</script>
+</div>
+<!--搜索-->
+<div id="search">
+<div class="coen1">
+<div class="left"><span>他们都在搜：</span><a>自立袋机型</a>、<a>给袋式机型</a>、<a>高速机型</a>、<a>标准机型</a></div>
+<div class="sear_right"><input type="text" class="text" value="请输入关键词搜索" onfocus="if(value == '请输入关键词搜索'){value = ''} " onblur="if(value == ''){value = '请输入关键词搜索'}"/><input type="button" class="button_sear"  value=""/></div>
+</div></div>
+<!--产品-->
+<div id="main2">
+<div class="left_zhanshi">
+<div class="menu"><div class="tittle"><span>解决方案</span></div>
+<div class="menu_warp">
+<ul>
+<a href="fangan.html"><li >案例展示</li></a>
+<a href="dingzhi.html"><li>定制设备</li></a>
+<a href="xunqiu.html"><li  class="yanse">包装需求检索</li></a>
+</ul>
+</div>
+</div>
+<div class="tongdao">
+<div class="tittle"><span>产品快速通道</span></div>
+<div class="kuai_warp"><select type="text" class="text_chaxub" ><option>请选择类别</option></select><select type="text" class="text_chaxub" ><option>请选择型号</option></select>
+<input type="button" class="button_sousuo" value="搜索" />
+</div>
+</div>
+</div>
+
+<div class="right_chanpin"><div class="tittle"><span>定制设备</span></div>
+<div style="clear:both;"></div>
+<div class="right_con_cp">
+  <div class="xunqiu" style="padding-top:30px;">
+    <table border="0" cellpadding="0" cellspacing="0" width="670" style="border-collapse:collapse; margin:0 auto;">
+      <tbody>
+        <tr>
+          <td width="90" height="40"><div align="right" style="font-weight:bold; font-size:14px;">包装物料：</div></td>
+          <td width="580"><span id="rbList1">
+            <input id="rbList1_0" name="rbList1" value="食品" type="radio" />
+            <label for="rbList1_0">食品</label>
+            <input id="rbList1_1" name="rbList1" value="饮料" type="radio" />
+            <label for="rbList1_1">饮料</label>
+            <input id="rbList1_2" name="rbList1" value="化妆品" type="radio" />
+            <label for="rbList1_2">化妆品</label>
+            <input id="rbList1_3" name="rbList1" value="医药" type="radio" />
+            <label for="rbList1_3">医药</label>
+            <input id="rbList1_4" name="rbList1" value="日化" type="radio" />
+            <label for="rbList1_4">日化</label>
+            <input id="rbList1_5" name="rbList1" value="农化" type="radio" />
+            <label for="rbList1_5">农化</label>
+            <input id="rbList1_6" name="rbList1" value="其它" type="radio" />
+            <label for="rbList1_6">其它</label>
+          </span></td>
+        </tr>
+        <tr>
+          <td height="37"><div align="right" style="font-weight:bold; font-size:14px;">物料形态：</div></td>
+          <td><span id="rbList2">
+            <input id="rbList2_0" name="rbList2" value="粉末" type="radio" />
+            <label for="rbList2_0">粉末</label>
+            <input id="rbList2_1" name="rbList2" value="液体" type="radio" />
+            <label for="rbList2_1">液体</label>
+            <input id="rbList2_2" name="rbList2" value="颗粒" type="radio" />
+            <label for="rbList2_2">颗粒</label>
+            <input id="rbList2_3" name="rbList2" value="块状" type="radio" />
+            <label for="rbList2_3">块状</label>
+            <input id="rbList2_4" name="rbList2" value="其它" type="radio" />
+            <label for="rbList2_4">其它</label>
+          </span></td>
+        </tr>
+        <tr>
+          <td height="43" colspan="2">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                <tr>
+                  <td width="91"><div align="right" style="font-weight:bold; font-size:14px;">包装速度：</div></td>
+                  <td width="104"><select name=""><option>≤20</option></select></td>
+                  <td width="122"><div align="right" style="font-weight:bold; font-size:14px;">最大容量：</div></td>
+                  <td width="107"><select name=""><option>60ml</option></select></td>
+                  <td width="102"><div align="right" style="font-weight:bold; font-size:14px;">包装材料：</div></td>
+                  <td width="144"><select name=""><option>成品袋</option></select></td>
+                  </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td width="90" height="563"><div align="right" style="font-weight:bold; font-size:14px;">袋型选择：</div></td>
+          <td>
+          <div class="xuanze">
+            <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;" >
+              <tbody>
+                <tr>
+                  <td width="144" height="55"><div class="dxBox"><a class="dx01"></a></div></td>
+                  <td width="143"><div class="dxBox"><a class="dx02"></a></div></td>
+                  <td width="143"><div class="dxBox"><a class="dx03"></a></div></td>
+                  <td width="210"><div class="dxBox"><a class="dx04"></a></div></td>
+                </tr>
+                <tr>
+                  <td height="27"><div align="center">
+                    <input value="平式袋" name="radio6" id="rbl1" checked="checked" type="radio" />
+                    平式袋</div></td>
+                  <td><div align="center">
+                    <input value="双连袋" name="radio6" id="rbl2" type="radio" />
+                    双连袋</div></td>
+                  <td><div align="center">
+                    <input value="挂孔平袋" name="radio6" id="rbl3" type="radio" />
+                    挂孔平袋</div></td>
+                  <td><div align="center">
+                    <input value="拉链平袋" name="radio6" id="rbl4" type="radio" />
+                    拉链平袋</div></td>
+                </tr>
+                <tr>
+                  <td height="80"><div class="dxBox"><a class="dx05"></a></div></td>
+                  <td><div class="dxBox"><a class="dx06"></a></div></td>
+                  <td><div class="dxBox"><a class="dx07"></a></div></td>
+                  <td><div class="dxBox"><a class="dx08"></a></div></td>
+                </tr>
+                <tr>
+                  <td height="27"><div align="center">
+                    <input value="直吸嘴平袋" name="radio6" id="rbl5" type="radio" />
+                    直吸嘴平袋</div></td>
+                  <td><div align="center">
+                    <input value="自立袋" name="radio6" id="rbl6" type="radio" />
+                    自立袋</div></td>
+                  <td><div align="center">
+                    <input value="拉链自立袋" name="radio6" id="rbl7" type="radio" />
+                    拉链自立袋</div></td>
+                  <td><div align="center">
+                    <input value="挂孔自立袋" name="radio6" id="rbl8" type="radio" />
+                    挂孔自立袋</div></td>
+                </tr>
+                <tr>
+                  <td height="135"><div class="dxBox"><a class="dx09"></a></div></td>
+                  <td><div class="dxBox"><a class="dx10"></a></div></td>
+                  <td><div class="dxBox"><a class="dx11"></a></div></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td height="27"><div align="center">
+                    <input value="直吸嘴自立袋" name="radio6" id="rbl9" type="radio" />
+                    直吸嘴自立袋</div></td>
+                  <td><div align="center">
+                    <input value="斜吸嘴自立袋" name="radio6" id="rbl10" type="radio" />
+                    斜吸嘴自立袋</div></td>
+                  <td><div align="center">
+                    <input value="异型袋" name="radio6" id="rbl11" type="radio" />
+                    异型袋</div></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><input type="button"  value="立即搜索" /><input type="button"  value="重置"  style="margin-left:10px;"/></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<div style="height:10px; clear:both"></div>
+</div>
+</div>
+
+<div style="clear:both"></div>
+</div>
+<div style="clear:both; cursor:pointer;"></div>
+</div>
+<!--footer-->
+<div id="footer">
+<div class="conent_foter">
+<div class="nav_foot">
+<a>关于百众</a>  |   <a>新闻展会</a>  |   <a>产品展示</a>  |   <a>行业应用 </a> |  <a>解决方案</a>   |   <a>客户服务 </a> |  <a>工作机会 </a> | 
+<a>联系我们</a>
+</div>
+<div style="height:20px;"></div>
+<p>权所有 © 河北百众机电科技有限公司  冀ICP备10204030-1号</p><p>公司网址：www.hbbzjd.com  公司地址：石家庄市 建通街塔南路29号  联系电话：13901624119</p>
+<div style="padding-left:288px; padding-right:100px;">
+<div class="chengxin"><a href="#"><img src="image/a.jpg"></a></div>
+<div class="chengxin"><a href="#"><img src="image/b.jpg"></a></div>
+<div class="chengxin"><a href="#"><img src="image/c.jpg"></a></div>
+</div>
+</div>
+</div>
+</body>
+</html>

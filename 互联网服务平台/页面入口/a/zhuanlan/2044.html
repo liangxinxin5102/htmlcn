@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/zhuanlan">专栏</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">杨元庆谈国际化比拼：国产手机能改变全球市场格局吗？</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-11-24　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2044.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2044.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><img src="../../../pic.iresearch.cn/user/201611/2016-11-21-48df4a3c57-03de-4c1e-8042-5bffb9bcb9bc.jpg" tppabs="http://pic.iresearch.cn/user/201611/2016-11-21-48df4a3c57-03de-4c1e-8042-5bffb9bcb9bc.jpg" title="628028145762209.jpg" border="0" hspace="0" vspace="0" style="border: 0px; vertical-align: middle; display: block; width: auto; height: auto; max-width: 100%; margin: 0px auto; float: none;"/></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">文/王新喜</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">17日下午在乌镇互联网大会举行的新闻发布会上，联想集团董事长兼CEO杨元庆与华为、小米达成共识，“争取三家（联想、华为、小米）将来成为全球的前三名，到那时候，我们再比拼谁是第一，谁是第二，谁是第三”。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><img src="../../../pic.iresearch.cn/user/201611/2016-11-21-585df7052f-9a56-477e-a776-a072fef78d44.jpg" tppabs="http://pic.iresearch.cn/user/201611/2016-11-21-585df7052f-9a56-477e-a776-a072fef78d44.jpg" title="645156774007934889.jpg" border="0" hspace="0" vspace="0" style="border: 0px; vertical-align: middle; display: block; width: auto; height: auto; max-width: 100%; margin: 0px auto; float: none;"/></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><strong>杨元庆从国际视野谈比拼：血拼国内市场的国产厂商未来必由之路</strong></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">中国手机市场已经进入了激烈竞争的阶段。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">杨元庆对媒体称：“中国智能手机市场大，也不过是全球30%的市场，世界的市场更大，另外70%的市场在海外。我们今天在中国使用的这些手段到海外是不一定能用的，甚至有些是非法、违法的，所以，如果你在这个地方习惯了，到那个地方去做违法的事，根本不可能在世界的范围内，让企业的发展突破这个天花板。所以企业也要互相监督，我们应该把目光瞄向全球的市场。争取三家（联想、小米和华为）将来成为全球的前三名，到那时候，再比拼谁是第一，谁是第二，谁是第三。这个是一个很好的共识。”</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">杨元庆这一番话其实为正在国内市场血拼的国产手机厂商指出了一条更具前景的道路。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">长期以来，国产厂商聚焦在国内市场比拼性价比与线上线下的渠道战争，尽管近两年不少厂商出海征战，但出海的重点市场基本都在扎堆印度市场，主力依然在国内。但随着国内市场饱和，人口红利已尽，出海征战事实上也将是一条必然之路。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">因为从目前来看，国产手机也面临着相对较好的内外部环境。一方面是苹果iPhone陷入颓势，产品创新趋缓，用户对苹果的期待值正在降低，三星受到note7电池事件的影响，还处于恢复期。从目前国际手机市场的现状来看，国产手机比拼国际市场正当时。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">另一方面，国产手机军团的实力正在增强。根据小米董事长雷军的说法，国内手机过去五年增长很快，越做越好。目前全球前十名，中国占六个。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">事实上，杨元庆跳出区域性市场，洞察全球市场资源，也源于这两年联想手机业务自身的经验与布局，联想的PC与移动业务一直以来并没有依赖国内市场，在中国以外市场，联想的出货量上升态势明显。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">数据显示，联想移动业务出货量环比上升25%，其中，中国以外市场环比大幅增长达27%，Moto的业务量提升较为明显，环比上升近40%。亚太地区，尤其是印度区呈持续强劲增长态势。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><strong>印度市场是国际化比拼第一站：增长速度还有巨大的想象空间</strong></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">因此从整个国际市场来看，联想事实上是全球智能手机的主力军。据杨元庆透露，联想在三四十个国家排名市场前五。而在印度市场，联想的增速非常快。据国际数据公司IDC的报告显示，以出货金额排名，联想目前已超越苹果、Micromax等竞争对手，成为印度智能手机市场第二大手机品牌，市场份额达到9.6%。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">当然这与联想扎根印度本土已久以及对当地的市场需求与政策的了解程度相关，联想在印度已经经营了11年，相对于其他国产厂商匆匆进军印度不同，而11年的时间已经足够联想打好一个稳固的市场渠道布局以及用户基础。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">对于贫穷的人口大国印度来说，其市场政策的一个重要特点是印度欢迎国外大厂来印度开设工厂与零售店来解决就业问题，但不欢迎只通过电商渠道销售产品的厂商。而目前联想在印度的专营联想PC、手机的旗舰店在印度全国有232家，在印度当地也有代工厂，这对于带动当地市场的就业与繁荣有一定帮助，某种程度上契合了印度的国情与政策。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">我们知道，去年印度智能手机销量约为1.3亿部，到今年第一季度已经超越美国成为仅次于中国的全球第二大智能手机市场。虽然市场很大，但印度人均收入低，数据显示，45%的用户使用100美元以下的功能机，40%的用户使用100-250美元的中端手机，还有15%的用户偏爱250美元以上的高端手机。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">对于国产手机而言，印度市场显然还存在着巨大的人口红利有待挖掘。所以我们看到，在印度市场，魅族、酷派、联想、OPPO、小米、华为、金立和vivo等多家中国手机品牌厂商都已经驻扎于此，而国产手机的性价比战略在印度市场依然适用，在印度市场的增长速度也在加快，包括小米、OPPO和vivo在内的国产手机品牌都争取到了更多用户。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">联想在印度市场的扩张，一方面源自于其本身PC、移动等业务在国际市场的深耕与布局，从制造供应链、销售渠道、售后、实体店等做到了多方面的支撑，也在于其产品战略分布合理相关。从目前看，联想一方面锁定中高端用户，一方面夯实专利，另一方面继续走高性价比路线，这很好地覆盖了各种需求层次的人群，确保联想在各个价位都拥有优势产品。包括K5Plus、ZUK Z1、Moto E、Moto G、 Moto X Play等，都取得了不错的市场成绩。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">而相比之下印度本土智能手机品牌Micromax、Lava和Intex的销量不断下滑，这和国产手机的冲击有很大关系。但对于国产手机而言，印度市场或许只是国际战场比拼的第一站，虽然目前联想暂时取得领先优势，但其他国产手机增长速度依然很快，因此国际市场的比拼，印度市场由于人口基数大，还远未到市场格局落定的时候。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><strong>印度之外的第三世界海外市场有待挖掘</strong></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">而在印度市场之外，我们看到有些国产手机正在有针对性的通过线下渠道与营销战布局欧洲与美国市场，市场份额与销量也在逐步提升，但进入美欧市场，专利是最大障碍，如何应付当地的专利诉讼将是重大难题。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">从某种程度上说，联想的国际化布局相对更为均衡一些，根据杨元庆的说法是，目前联想的移动业务在海外占比达到90%，联想旗下的手机（包括Lenovo品牌和moto品牌）在巴西市场第二，印度市场第二，俄罗斯市场第二，乌克兰市场第二，希腊市场第二。在捷克、卡塔尔、智利、哥伦比亚和阿根廷都是市场第三。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">某种程度上，联想的国际化程度与全球各区域市场布局的均衡性，也可以是国产手机出海值得借鉴的厂商。在近日海关公布的2016年第三季度中国手机整机口排名中，联想以1348万部的出货量排名第四，而在中国手机厂商最难进入的美国市场，联想的出货量达到了121万部。当然，这也是杨元庆在乌镇大谈国际化比拼的底气。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">尽管对于国产手机而言，联想在海外市场具备一定的样本意义，但联想一家显然也难以支撑起整个手机出口与销量的大幅增长。数据显示，与国内市场第三季度总销量1.15亿部市场空间相比，第三季度中国手机整机出口量达到了2.8亿部（扣除苹果出口的6726万部），整整超过了一倍还多。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">在实际销售量上，第三季度全球手机销量达到了3.62亿部，同样，正如杨元庆所言，中国市场只占到了全球市场的30%，因此对中国手机厂商而言，更应广阔的市场空间应该在国外。在国产手机当中，联想是中国国际化程度最早也最高的科技企业之一，无论是PC行业还是现在的智能手机行业，其国际化的经验都是中国企业走向国际的一些相对有用的思路，此次联想若携手华为、小米结盟，共赴国际市场，对全球手机格局无疑也将形成深刻影响。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><strong>国产厂商迎来利好环境：但还需要适应国际规则、当地政策与市场土壤</strong></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">从目前的国产厂商总的布局来看，虽然近两年中国手机企业国际化的脚步加快，但许多厂商进展不大，即使是在成长最快的印度市场，部分厂商已经铩羽而归，部分企业比如小米则在印度遭遇到爱立信的专利诉讼。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">而在遭遇海外巨头专利诉讼这一事情上，魅族的麻烦更大些，比如最近高通已经向美国国际贸易委员会、慕尼黑地方法院起诉魅族侵犯公司专利，并且还在法国倡导侵权扣押行动。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">在这些现象背后，是中国手机企业还没有学会适应国际规则与不同于国内的环境土壤，在专利上尚未夯实自身的基础，通过国内的方式处理国际市场的问题，必然会遭遇水土不服的难题，带来的是阵痛与不适应。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">国际化程度不足是当前许多国产手机的短板，也会让各大厂商很容易看到天花板，加上局限国内市场也必然导致品牌知名度与用户群扩展乏力，导致的结果必然是品牌影响力受限，难以提升自身的品牌溢价也压制着各自的高端战略，而国际化则有助于扩展品牌上行的空间。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">这里面我们知道苹果三星占据了绝大部分的利润，这显然与它们的国际化布局尤其是美欧等高端市场地区的布局扩展息息相关，国际化有助于打破国内市场局限拉升利润提升品牌溢价，但更重要的是，国际化战略由于面向更广阔的市场与用户需求，它能倒逼厂商推动产品创新。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">比较典型的联想的Moto Z，这款产品颠覆性创新突破传统手机局限，让手机功能无限扩展，带来了不一样的用户体验，模块化手机的由来也与当前市场受阻的增长瓶颈与各种用户群体对手机创新的需求相关。Moto Z有标准的ID和16个开放的摩磁触点，对接的是人们的智能设备越来越多之后，它们之间互联互通、协同应用的用户需求与新玩法，比如杨元庆说到的，Moto Z连上JBL音箱就是一个非常好的音效设备，连上哈苏模块就变成单反相机。这种玩法显然是有效的。根据联想Q2财季，Moto产品销量的大幅提升，相比前一季度增长了近40%。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">从目前国际手机市场的现状来看，国产手机或许迎来了一个更好的时刻。目前三星需要时间从电池事件中恢复，而苹果下滑颓势明显，其新产品在新技术的应用方面进一步趋缓，下行态势明显。在国际两大巨头销售下降，这对于中国厂商也是一种利好消息。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">进军国际市场，联想、华为和小米等代表性的手机巨头更需要在产品创新和与当地市场渠道扎根布局做强，并熟悉国际规则与区域性的市场的政策，在未来几年要改变全球手机市场的格局，也并非没有可能。但国内手机厂商更应讲究谋略，必须考虑需求在哪里，懂得取悦当地市场并改善与当地政府关系，扎根当地渠道与制造业产业链，并需要懂得致力于推动当地市场繁荣与就业率的增长，谋求一种互利依赖捆绑关系做强。而不是仅仅为自身市场增长与生态布局去推动业务落地。而国际化市场的开拓则能有效冲淡国内市场压力并通过全球视野倒逼产品创新空间。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">总的来说，这些年来，国产厂商在供应链、专利、用户基础、技术等诸多方面已经有所积累，冲击高端与布局国际化市场都迎来了最好的时间窗口，也是时候在国际市场有所作为并与苹果三星争雄了，在未来几年，还需要看国产厂商能否冷静而有效的抓住这一波机遇。正如杨元庆所说，到那个时候，再比拼谁是第一，谁是第二，谁是第三。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

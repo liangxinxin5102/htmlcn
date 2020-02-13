@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/zhengce">政策</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">区块链，让价值互联网露出曙光</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-10　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2840.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2840.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="text-align:center;padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;"><img id="{123E0DA7-BBF5-47E7-AB25-486AB2149131}" alt="" src="../../../news.xinhuanet.com/world/2017-01/10/129439083_14840082139661n.jpg" tppabs="http://news.xinhuanet.com/world/2017-01/10/129439083_14840082139661n.jpg" style="padding: 0px; margin: 0px; border: none; cursor: pointer;"/></p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　2014年2月20日，美国波士顿火车站内安装比特币自动柜员机。比特币是一种数字货币，能够被匿名买卖，在网络世界中能够代替现金或者信用卡使用。图为顾客正在使用比特币自动柜员机进行交易。人民视觉</p><p style="text-align:center;padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;"><img id="{A5AC1131-FDF5-4E3E-902E-C3B11938AE03}" alt="" src="../../../news.xinhuanet.com/world/2017-01/10/129439083_14840082144041n.jpg" tppabs="http://news.xinhuanet.com/world/2017-01/10/129439083_14840082144041n.jpg" style="padding: 0px; margin: 0px; border: none; cursor: pointer;"/></p><p class="pictext" style="text-align:center;padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　中国人民银行（央行）数字货币大事记。人民视觉</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　二十国集团（G20）杭州峰会首次将数字经济列为一项重要议题，并通过了《G20数字经济发展与合作倡议》。区块链是数字货币的技术载体，是发展数字经济的重要形态。它不仅可能重塑货币市场、支付系统、金融服务及经济形态的方方面面，而且将会改变人们生活的多个领域</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　学理基础是共识算法和智能合约</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　2009年1月上线运行的区块链技术，被誉为第二代互联网，人们预测它必可能会像第一代互联网一样，给人们生活带来翻天覆地的变化。一般意义上，我们把第一代互联网叫做信息互联网，主要是利用互联网技术来更快更好地进行信息传输，中国的“BAT”（百度、阿里巴巴和腾讯）这三家公司，其实做的都是信息传播的生意；区块链技术的运用，预示着价值互联网时代的到来。所谓价值互联网，就是使得人们能够在互联网上，像传递信息一样方便、快捷、低成本地传递价值，尤其是资金。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　区块链技术是一种互联网数据库技术，其特点是去中心化、公开透明，让每个人均可参与数据库记录。这是一种全民参与记账的方式，所有的系统背后都有一个数据库，也就是一个大账本。那么谁来记这个账本就变得很重要。目前就是谁的系统谁来记账，各个银行的账本就是各个银行在记，支付宝的账本就是阿里巴巴在记。但现在区块链系统中，系统中的每个人都可以有机会参与记账。在一定时间段内如果有新的交易数据变化，系统中每个人都可以来进行记账，系统会评判这段时间内记账最快最好的人，将其记录的内容写到账本，并将这段时间内账本内容发给系统内其他人进行备份。这样系统中的每个人都有了一本完整的账本。因此，这些数据就会变得非常安全。篡改者需要同时修改超过半数的系统节点数据才能真正地篡改数据，其代价极高，导致几乎不可能。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　同时资金传递不再需要金融中介来作为信任背书，而是依靠一整套数学算法来约束，人们可以点对点地发起自助金融交换。毕竟，点对点的交换可以省去不菲的中介费用。据粗略统计，全球每年的小额跨境汇款，光手续费就要花费近200亿美元，如果用区块链解决方案，这笔费用几乎可以完全省去。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　区块链如何实现信息社会的分布式架构？首先，作为分布式账本技术，它第一次对几百年来一成不变的记账方法——复式记账法，作了较大的改进。这个改进有可能改变金融行业的清结算方法，变净额交收为实时全额交收。交收方式的改变意味着金融系统也可以像区块链一样，24小时运转，实时结算，实时到账。其次，作为分布式数据库技术，它可以建立一个共享信息的公共系统，任何人都可以成为数据录入员，任何人都拥有完整的数据。依靠一套共识算法，就可以保证数据的真实、准确和透明，该数据库记录的数据可追踪、可审计、不可篡改。第三，作为可编程技术，汇丰银行去年的一份研究报告认为，各国央行可以利用区块链的可编程技术，追踪央行发行的法定数字货币的流动，精准地执行货币政策。区块链业界也在使用区块链的可编程性，创设能够帮助人们自动执行约定的计算机程序，即智能合约。智能合约技术成熟后，不仅金融交易完全自动化，节省大量的中后台行政人员，而且可编程经济时代将能真正实现。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　区块链其实并不新鲜，早在上世纪60年代就有人开始进行学术探讨。当时有数学家就发表过论文，探讨区块链的基础算法——共识算法。上世纪90年代初，一位叫尼克扎博的密码学家也开始探讨智能合约。智能合约是指当一个预先编好的条件被触发时，智能合约执行相应的合同条款。可以说，区块链技术有幸诞生在2009年，只是在移动互联网时代，区块链各项相关技术在分布式网络技术上得以集成而已。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　除了技术背景之外，我们还可以看到区块链的经济学背景——哈耶克的自由主义经济学。从社会思潮来看，区块链技术的发展明显受到著名社会学家凯文·凯利的《失控》的影响。《失控》是一本论述人类社会、自然万物和科学技术如何进化的书籍，凯文·凯利在书里把工业社会的进化论总结为基于机械逻辑的进化论，把信息社会的进化论总结为基于生物逻辑的进化论。基于生物逻辑的进化论可以概括为三个词：分布式、去中心、自组织。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　金融街和物联网得风气之先</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　区块链应用前景几乎不可限量。金融行业因为是最数字化的行业，所以被认为是可以最先应用区块链技术的行业。目前，大部分区块链创业者的目标，确实是瞄准各种各样的金融行业应用，比较成熟的已经有支付、跨境汇款、众筹、数字资产交易等。还有几十个金融应用场景，正在各大金融机构的区块链创新实验室里进行试验、验证，不久的将来陆续加入到金融行业的生产环境中。预计10年之后，区块链技术将成为金融行业核心生产系统的基础平台，金融业面貌必将焕然一新。与对待互联网金融的态度不同，这次全球主要金融机构在金融科技（FinTech）上行动非常积极。不仅华尔街的几位重量级人物纷纷跨界到区块链行业创业；而且全球最重要的两个区块链联盟都设立在纽约；据报道，2016年对金融科技的风险投资，纽约也超过了硅谷。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　区块链技术的另一个巨大应用前景在物联网方面。美国国际商业机器公司（IBM）2014年发表的物联网白皮书《设备民主》给出了这样一个结论：当2050年联网在线的设备达到1000亿台时，通信带宽以及中心数据库都不可能承担传输、存储和处理这个当量的数据，而且这个数量级设备的身份认证也是现有技术无法管理好的。区块链也许是千亿设备级物联网的最优雅的解决方案。要真正地实现所有权与使用权分离的共享经济社会，区块链技术也许确实是最优的解决方案：把租车人的身份和汽车的身份都登记在区块链总账上，那么租车就像下楼开自己的车一样方便，车辆的出租方也能在区块链上以秒级时间确认租车人的身份，如果再加上智能合约，一切都自动完成，拥有它与使用它也就完全没有区别了。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　我们已经从信息互联网时代走向价值互联网时代，互联网正在成为各行各业的基础设施。作为第二代互联网，区块链技术是互联网TCP/IP结构中与超文本传输协议（HTTP）同等重要的价值传输协议，也可以说，HTTP与区块链价值传输协议（BLOCKCHAIN）是互联网应用协议中最核心的两个协议。因为信息互联网，人类社会已经发生了翻天覆地的变化，社会福利因此大幅增加；因为价值互联网，人类社会也必将迎来一场更完美的革命。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　正是因为这样的共识， 一些国家政府对区块链持积极态度。对区块链上的第一个产品——数字货币比特币，欧盟承认比特币是货币，按照货币监管；美国把比特币归为资产，等同于石油等大宗商品。区块链是金融科技的基础设施和核心技术之一，一些国家还设立了沙盒机制支持区块链技术等金融科技。沙盒机制是指在计算机世界，一个新的系统要上线应用，为安全起见，一般都会先设置一个测试环境，在测试之后才能进入真正的生产系统中。英国、新加坡和澳大利亚三国监管机构还宣布认可对方的沙盒机制，创业公司在任何一方沙盒的实验成果在三国都通用。近一年，美英等国的央行都宣称正在研究发行法定数字货币。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　区块链技术已经进入了加速发展的新阶段。最初区块链是由一群草根技术极客们以社区的方式开发；近几年一批创业者们开始利用风险投资基金的支持，从小做起；2016年，微软、IBM、英特尔等公司纷纷进入区块链行业，预计区块链技术的成熟速度将会加快。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　借区块链发展或可弯道超车</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　全球市值最大的10家互联网公司分布在中美两国。预计在第二代互联网——价值互联网时代，这个市场格局仍能够保持。美国互联网公司胜在既有市场规模，又有原创技术；中国互联网公司目前还只是拥有市场规模，缺乏原创技术。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　目前区块链技术还处于发展的初期阶段，离金融行业的实际应用尚有一段距离。区块链的两个核心技术，即共识算法和加密算法，都存在很大优化、完善的空间，甚至也还有创新创造的空间。抓住区块链发展的关键机遇期，也许能提供给我们一次弯道超车、领先世界的机会。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　不妨可以考虑使用区块链的可编程性，实现依靠智能合约自动执行央行的货币政策。所谓“买酱油的钱不能打醋”。我们还可以借助区块链技术，建立一个智能债券平台。在智能债券平台上，债券的发行、交易、结算全部自动化，不再需要银行的中后台进行交易后的清结算，就可以利用可编程性约定发行的规模、利率，也可以约定投资者限制、发行债券的资金用途、募集资金的流通范围等。智能债券平台只允许“<a href="javascript:if(confirm('http://www.news.cn/silkroad/index.htm  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.news.cn/silkroad/index.htm'" tppabs="http://www.news.cn/silkroad/index.htm" target="_blank" style="padding: 0px; margin: 0px; border: 0px; color: rgb(0, 0, 0); text-decoration: none; outline: none;">一带一路</a>”沿线国家在这个智能债券平台上发债融资。区块链可编程性可以保证在这个智能债券平台上发行的债券，其资金会真正用在“一带一路”建设中。因为智能合约会自动按照事先的约定来识别条件并自动执行约定，不给任何人修改的可能。这对中国资本市场为“一带一路”提供精准的金融支持，提供了一种可靠的技术保证。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　金融科技的核心技术主要在于两点：人工智能和区块链。以阿尔法围棋（AIphaGo）为标志，人工智能在经历60年的缓慢发展后，开始进入指数级增长时代；以区块链为标志，一场重构金融行业底层基础设施的工程正在快速展开。中国在互联网金融领域领先全球，互联网金融企业的前三大公司都诞生在中国。但在金融科技上，我们距欧美国家的行动有些许落后。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 10px; border: 0px; line-height: 32px; color: rgb(57, 57, 57); font-family: 宋体; white-space: normal;">　　我国可以联合创新区块链技术，占领全球区块链的制高点，努力做到区块链技术的自主可控。创业者们需要耐心地从底层技术开发做起，拥有应用场景的机构要积极拥抱新事物，以开放心态积极与区块链创业者合作。政府对区块链技术的监管政策和鼓励措施都不应过度，一方面应该“让子弹再飞一会儿”，有一定基础之后，再制定监管政策和行业标准，另一方面也要防止一哄而上，拔苗助长。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

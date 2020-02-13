@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>首页</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link href="css/index.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+	
+	
+});
+</script>
+<script type="text/javascript">
+		sfHover = function() {
+		var sfEls = document.getElementById("navMenu").getElementsByTagName("LI");
+		for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+		this.className+=" sfhover";
+		}
+		sfEls[i].onmouseout=function() {
+		this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
+		}
+		}
+		}
+		if (window.attachEvent) window.attachEvent("onload", sfHover);
+		</script>
+</head>
+
+<body>
+	<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="images/logo.jpg" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <UL class="menu1">
+                    <li class="onelink"><a href="index.html">网站首页</a></li>
+                    <li class="navthis1"><a href="photo.html"  rel='dropmenu1'>作品欣赏</a>
+                        <ul>
+                            <li><a href="#">特色内景</a></li>
+                            <li><a href="#">时尚写真</a></li>
+                            <li><a href="#">高端外景</a></li>
+                        </ul>
+                    </li> 
+                     <li class="navthis22"><a href="customers.html" >每日客照</a></li>
+                    <li class="navthis8"><a href="activity.html"  rel='dropmenu8'>最近活动</a>
+                    </li>
+                    <li class="navthis27"><a href="#" >微博评价</a></li>   
+                    <li class="navthis9"><a href="news.html"  rel='dropmenu9'>新闻动态</a>
+                    </li>  
+                    <li class="navthis24"><a href="message.html" >留言板</a></li>
+                    <li class="navthis25"><a href="contact.html" >联系我们</a></li>
+                    </ul>
+			</div>
+        </div>
+	 </div>
+     <div class="wrap_banner">
+     	<div class="banner"></div>
+     </div>
+     
+     
+<div class="mian">
+            <div class="ad1"></div>
+            <div class="matter1">
+            	<div class="left">
+                	<div class="info">最新上传 <SPAN>JATEST SUBMISSIONS</SPAN></div>
+                    <div id="slider3" class="slider">
+			<div class="conbox">
+				<div><a href="#" title=""><img src="tp/1.jpg" width="632" height="210" /></a></div>
+				<div><a href="#" title=""><img src="tp/1.jpg" width="632" height="210" /></a></div>
+				<div><a href="#" title=""><img src="tp/1.jpg" width="632" height="210" /></a></div>
+				<div><a href="#" title=""><img src="tp/1.jpg" width="632" height="210" /></a></div>
+				<div><a href="#" title=""><img src="tp/1.jpg" width="632" height="210" /></a></div>
+			</div>
+			<div class="switcher">
+				<a href="#" class="cur">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+			</div>
+		</div>
+                </div>
+                <div class="right">
+                	<div class="info"><div class="more"><a href="#">+more</a></div></div>
+                    <div class="content">
+                    	<ul>
+                        	<li><a href="#">拍完了婚纱照了，好累，但是一天下来沈老..拍完了婚纱照了，好累，但是一天下来沈老</a></li>
+                          <li><a href="#">[color=#ff0000][size=120][b]很漂亮的婚纱照...</a></li>
+                          <li><a href="#">感觉很不错的照片，很喜欢这种感觉的</a></li>
+                          <li><a href="#">拍完了婚纱照了，好累，但是一天下来沈老...</a></li>
+                          <li><a href="#">拍完了婚纱照了，好累，但是一天下来沈老...</a></li>
+                          <li><a href="#">拍完了婚纱照了，好累，但是一天下来沈老...</a></li>
+                          <li><a href="#">拍完了婚纱照了，好累，但是一天下来沈老...</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="matter2">
+            	<div class="info">
+                	<div class="title"></div>
+                	<div class="more"><a href="#">+more</a></div>
+                </div>
+              <div class="content">
+                	<div class="left">
+                   	 <div class="tp1"><img src="tp/2.jpg" onload="javascript:DrawImage(this,210,276)" /></div>
+                     <div class="biaoti"><strong>拍摄主题：新年吉祥</strong><br />
+                      拍摄时间：2013-5-15</div>
+                  </div>
+                    <div class="right">
+                    <div class="prod">
+                        <div class="tip"><a href="#"><img src="tp/3.jpg" onload="javascript:DrawImage(this,205,125)"></a></div>
+                        <div class="scrt">
+                        <a href="#">2010瑞龙跆拳道第四次晋级部分学员留影8</a></div>
+              		</div>
+                    <div class="prod">
+                        <div class="tip"><a href="#"><img src="tp/3.jpg" onload="javascript:DrawImage(this,205,125)"></a></div>
+                        <div class="scrt">
+                        <a href="#">2010瑞龙跆拳道第四次晋级部分学员留影8</a></div>
+              		</div>
+                    <div class="prod">
+                        <div class="tip"><a href="photo详细.html"><img src="tp/3.jpg" onload="javascript:DrawImage(this,205,125)"></a></div>
+                        <div class="scrt">
+                        <a href="#">2010瑞龙跆拳道第四次晋级部分学员留影8</a></div>
+              		</div>
+                    <div class="prod">
+                        <div class="tip"><a href="#"><img src="tp/3.jpg" onload="javascript:DrawImage(this,205,125)"></a></div>
+                        <div class="scrt">
+                        <a href="#">2010瑞龙跆拳道第四次晋级部分学员留影8</a></div>
+              		</div>
+                    <div class="prod">
+                        <div class="tip"><a href="photo详细.html"><img src="tp/3.jpg" onload="javascript:DrawImage(this,205,125)"></a></div>
+                        <div class="scrt">
+                        <a href="#">2010瑞龙跆拳道第四次晋级部分学员留影8</a></div>
+              		</div>
+                    <div class="prod">
+                        <div class="tip"><a href="photo详细.html"><img src="tp/3.jpg" onload="javascript:DrawImage(this,205,125)"></a></div>
+                        <div class="scrt">
+                        <a href="#">2010瑞龙跆拳道第四次晋级部分学员留影8</a></div>
+              		</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="matter3">
+            	<div class="info">
+                	<div class="title"></div>
+                	<div class="more"><a href="#">+more</a></div>
+                </div>
+              <div class="content">
+                	<div class="tp2"><a href="#"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="#"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="#"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="#"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="photo详细.html"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="photo详细.html"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="#"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="#"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="#"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="#"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="#"><img src="tp/4.jpg" width="115" height="146" /></a></div>
+                    <div class="tp2"><a href="#"><img src="tp/4.jpg" width="115" height="146" /></a></div>                    
+              </div>
+            </div>
+            <div class="matter4">
+            	<div class="info">
+                	<div class="title"></div>
+                	<div class="more"><a href="#">+more</a></div>
+                </div>
+              <div class="content">  
+              	<div class="left"><a href="#"><img src="tp/5.jpg" width="330" height="218" /></a></div>
+                <div class="right">
+                <div class="ghtr">
+               	  <div class="tp3">
+                    	<div class="sbr"><a href="#"><img src="tp/6.jpg" width="193" height="128" /></a></div>
+                        <div class="jiy">posttime:2013-1-15</div>
+                        <div class="dfr">浪漫婚纱</div>
+                    </div>
+                  <div class="tp3">
+                    	<div class="sbr"><a href="#"><img src="tp/6.jpg" width="193" height="128" /></a></div>
+                        <div class="jiy">posttime:2013-1-15</div>
+                        <div class="dfr">浪漫婚纱</div>
+                    </div>
+                  <div class="tp3">
+                    	<div class="sbr"><a href="#"><img src="tp/6.jpg" width="193" height="128" /></a></div>
+                        <div class="jiy">posttime:2013-1-15</div>
+                        <div class="dfr">浪漫婚纱</div>
+                    </div>
+                  </div>
+                    <div class="sbzl"><img src="images/img_12.jpg" width="620" height="44" /></div>
+                </div>                 
+              </div> 
+            </div>
+            <div class="ad2"><a href="#"><img src="images/ad2.jpg" width="1000" height="69" /></a></div>
+            <div class="matter5">
+            	<div class="news">
+                	<div class="info">
+                        <div class="title"></div>
+                        <div class="more"><a href="#">+more</a></div>
+               		 </div>
+                     <div class="content">
+                    	<ul>
+                         
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                       <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                         <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                       	 
+                      </ul>
+                    </div>
+                </div>
+                <div class="news">
+                	<div class="info1">
+                        <div class="title"></div>
+                        <div class="more"><a href="#">+more</a></div>
+               		 </div>
+                     <div class="content">
+                    	<ul>
+                         
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                       <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                         <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                       	 
+                      </ul>
+                    </div>
+                </div>
+                <div class="news">
+                	<div class="info2">
+                        <div class="title"></div>
+                        <div class="more"><a href="#">+more</a></div>
+               		 </div>
+                     <div class="content">
+                    	<ul>
+                         
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                       <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                        <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                         <li><div class="time">2013-12-16</div><a href="#" class="newslist_time" title="#">新人婚前需了解结婚时大概都有什么流程
+ </a></li>
+                        
+                       	 
+                      </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ad3"></div>
+            <div class="matter6">
+            	<div class="info">
+                        <div class="title"></div>
+                        <div class="more"><a href="#">+more</a></div>
+                 </div>
+              <div class="content">
+                  	<div class="leftbotton"><a href="#"><img src="images/img_18.jpg" width="12" height="114" /></a></div>
+                    <div class="cont" id="turnroll" style="position:relative;overflow:hidden;height:160px;">
+                    <div class="film">
+                    
+                        <div class="box"> 
+                        <a href="#"><img src="tp/7.jpg" width="144" height="185" /></a> 
+                         <a href="#">室内摄影</a> 
+                         </div>                   
+                   
+                        <div class="box"> 
+                        <a href="#"><img src="tp/7.jpg" width="144" height="185" /></a> 
+                         <a href="#">室内摄影</a> 
+                         </div>                   
+                   
+                        <div class="box"> 
+                        <a href="#"><img src="tp/7.jpg" width="144" height="185" /></a> 
+                         <a href="#">室内摄影</a> 
+                         </div>                  
+                   
+                        <div class="box"> 
+                        <a href="#"><img src="tp/7.jpg" width="144" height="185" /></a> 
+                         <a href="#">室内摄影</a> 
+                         </div>                   
+                   
+                        <div class="box"> 
+                        <a href="#"><img src="tp/7.jpg" width="144" height="185" /></a> 
+                         <a href="#">室内摄影</a> 
+                         </div> 
+                          <div class="box"> 
+                        <a href="#"><img src="tp/7.jpg" width="144" height="185" /></a> 
+                         <a href="#">室内摄影</a> 
+                         </div>                                  
+                      
+                </div>
+                    </div>
+                    <div class="rightbotton"><a href="#"><img src="images/img_19.jpg" width="12" height="113" /></a></div>
+                  </div>
+            </div>
+            <div class="ad3"></div>
+            <div class="ad4"></div>        
+</div>
+<div class="bottomwrap">
+	<div class="bottom">
+	<div class="logo1"></div>
+    <div class="wenzi">何拉拉 设计制作 伯爵婚纱摄影 版权所有 - 网站统计<br />
+Copyright © 2013 STBJHS PHOTOGRAPHY AGENCY,SUPPORT BY STBJHS ad-agency CO.,Ltd.</div>
+    </div>
+</div>
+</body>
+</html>

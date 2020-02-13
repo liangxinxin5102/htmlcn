@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/shuju">数据</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">2016年度盘点：一家典型互联网公司的必备工具宝箱</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-10　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2853.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2853.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">2016年刚刚过去，2017年已经来临。在过去的一年，作为互联网从业人员的你肯定和我有同样的感受：无论是产品研发、市场还是运营人员，大家在工作中使用的工具产品越来越多，对工具的依赖程度也越来越重。值此岁末年初之际，现在就盘点一下2016年互联网公司最常用的20款工具产品及服务。正是在这些工具的助力下，众多互联网公司才能以如此矫健的步伐跨入这充满希望的2017年，而没有倒在2016年的资本寒冬里。</p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">产品原型设计工具：墨刀</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">身为一名PM，画原型写文档是我们的看家必备技能了，在寻觅尝试了众多国内外原型工具后，我们锁定了墨刀这款利器，一用上便爱不释手。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">墨刀采用拖拽式的原型制作和交互方式，十分钟即可上手，学习成本非常低。墨刀的功能非常强大：用墨刀可以完成从原型制作-交互动效-团队协同作业-实时分析查看效果-跟踪团队及用户反馈整个产品开发流程中大部分让人挠墙的问题。实时扫一扫预览、打点评论，不仅方便真机演示，还大大降低了沟通协作成本。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://modao.cc/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://modao.cc/'" tppabs="https://modao.cc/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://modao.cc/</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">企业的云端文档协作平台：WPS云文档</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">文案校稿时，需要通过QQ/邮件在多人间反复往返发送稿件，异常繁琐低效；团队资料到处都是，需要时常常找不到；团队资料无法全平台同步，无法移动办公。如果你也在被这些问题困扰，不妨试试WPS云文档。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">WPS云文档是一个企业文档的存储、共享与协作平台，支持多人同时编辑一个文档、文档内评论和历史版本还原等功能。团队可将文档资料全部存储在云端，方便查找与管理。云文档能满足不同人群的文档协作需求，产品研发用它协作撰写需求文档、管理项目进度和搜集bug；运营团队可以多人在同一个文档里协作撰稿与校稿。WPS云文档既有免费版也有付费版。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://drive.wps.cn/landing.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://drive.wps.cn/landing.html'" tppabs="https://drive.wps.cn/landing.html" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://drive.wps.cn/landing.html</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">思维导图工具：MindManager</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">MindManager是一款专业思维导图工具，它可以将你的思想、策略及商务信息转换为行为导图，让你直观感受整个进度。它可以帮助你进行项目管理、头脑风暴、记录笔记、演示演讲，无论你是商务人员、老师还是学生，Mindmanager图文并茂的展示形式都可以为你提供高效清晰的思维方式。MindManager有免费试用版和付费版，试用30日后可付费购买使用。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('http://www.mindmanager.cc/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.mindmanager.cc/'" tppabs="http://www.mindmanager.cc/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">http://www.mindmanager.cc</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">表单与联系人管理工具：麦客CRM</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">作为现代企业营销工作者，我们需要更加有理有据地管理市场活动、品牌建设和线上线下的营销行为，了解这些工作能为企业带来的潜在客户，他们都是谁，他们在哪里，他们的质量高低。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">麦客CRM能满足你在营销、获客和客户管理方面的需求。麦客是一款在线表单制作工具，同时也是强大的客户信息处理和关系管理系统，可以帮助你轻松完成信息收集与整理，实现客户挖掘与消息推送，并开展持续营销。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://www.mikecrm.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://www.mikecrm.com/'" tppabs="https://www.mikecrm.com/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://www.mikecrm.com</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">在线图形设计工具：创客贴</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">身为一个新媒体运营，老板指望我三头六臂，八项全能：开会要做ppt，得简洁美观；<br/>文案不能干巴巴，要丰富有趣；热点追图、双微首图，必须好看刺激…还好有创客贴。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">创客贴是一款极简的网站式平面设计工具，解决了大多数人的设计痛点，让不会使用专业制图软件的运营人员也能快速制作出自己想要的图片：可使用平台提供的大量图片、字体和模板等素材，通过简单的拖拉拽操作，就可以轻松设计出精美的海报、PPT、公号文章首图等图片。另有团队协作版和ipad版会让你的做图工作更加直接高效。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://www.chuangkit.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://www.chuangkit.com/'" tppabs="https://www.chuangkit.com/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://www.chuangkit.com</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">用户行为分析工具：神策分析</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">近期哪个渠道用户注册量最高？变化趋势如何？新增的注册引导流程是否提升用户粘性……作为产品运营的你如果想知道这些问题的答案，那么可以使用神策分析。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">神策分析是一款可以私有化部署的用户行为分析产品，致力帮助用户实现数据驱动。在保障数据安全的前提下，产品实现秒级数据导入与查询，带来灵活的PaaS平台，并针对多业务场景提供专业的数据分析服务，为业务决策提供数据支撑。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://www.sensorsdata.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://www.sensorsdata.cn/'" tppabs="https://www.sensorsdata.cn/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://www.sensorsdata.cn/</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">商业管理云：数据观</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">作为企业运营管理部门，需要每天关注各渠道的运营数据（用户、推广、客服、营销）等，整合这些数据孤岛很耗费人力和时间成本，我们需要一个实时的可视化看板以了解企业的运营动态，然后才能针对企业运营过程中的问题及时做出决策。<br/>数据观可以把我们的注册用户、百度推广、在线客服、微信、微博等数据全部关联起来，并基于全量数据进行可视化分析，以便我们实时、准确的了解企业的运营状况。现在公司的销售、市场、运营都在用数据观做日常的业务分析。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://www.shujuguan.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://www.shujuguan.cn/'" tppabs="https://www.shujuguan.cn/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://www.shujuguan.cn</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">图文排版工具：135编辑器</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">内容运营每天都有大量的工作要做，要追热点，写原创，上午想着如何涨粉，下午想着如何促活。在做好内容的同时，如何快速做出既漂亮又有自己独特风格的排版，是很多内容运营的目标。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">135编辑器是一款在线图文排版工具，功能比较全面，操作也非常简单。比如一键导入，多平台发布，一键排版和定时群发等大大节约了时间。样式库丰富，自己排列组合自定义为模板，形成自己的风格。企业用户也可以将其嵌入企业内部系统，提升企业排版能力。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://www.135editor.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://www.135editor.com/'" tppabs="https://www.135editor.com/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://www.135editor.com</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">深度链接企业服务商：LinkedME</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">当今，每个移动APP都是独立的，内容和服务之间的链接消失，应用搜索断裂，APP的内容被局限在每个APP内。我们能在电脑网页所监测的用户意图、广告曝光和其它盈利指标都不能在移动端很好进行。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">LinkedME打破了束缚我们的APP孤岛，它是一个企业级深度链接服务平台，可以帮忙APP解决用户增长和流量变现问题。它旗下的Linkpage提供APP一键直达和推广渠道监测服务，帮助APP企业获取社交媒体和广告曝光用户，提高运营转化，优化渠道投放策略。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://www.linkedme.cc/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://www.linkedme.cc/'" tppabs="https://www.linkedme.cc/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://www.linkedme.cc/</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">SEM优化工具：九枝兰</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">搜索竞价推广真不是人干的活儿。单是最基础的调价，一个关键词优化师就需要管理1440种价格！如果以5万关键词的账户为例，每天每个关键词调价1440次，每天竟然需要进行7200万次调价！一个优化师即使有洪荒之力，也极难完成。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">于是九枝兰SEM优化工具应运而生，解决SEM优化师力所不能及的事，在需要发挥人的聪明才智的方向投入精力，如：拓词、创意、着陆页优化。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('http://www.jiuzhilan.com/sem-tool-highlights/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.jiuzhilan.com/sem-tool-highlights/'" tppabs="http://www.jiuzhilan.com/sem-tool-highlights/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">http://www.jiuzhilan.com/sem-tool-highlights/</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">广告效果监测与分析平台：【友盟+】U-ADplus</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">U-ADplus广效监测是【友盟+】旗下聚焦营销全链路的第三方数据服务。其中AppTrack是面向App广告主推出的监测与分析平台。它能满足不同类型使用者的推广监测需求。提供基础、电商、游戏应用场景，使用者可根据想监控的指标选择适合的应用场景。支持多样的推广形式，不管是广告平台、信息流广告还是广告联盟 ，它都可以帮使用者监控推广效果。除了能监控推广点击和激活，还能监测用户注册、登陆、行为和付费，让使用者真正了解推广带来用户的转化情况。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://at.umeng.com/fuia0z  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://at.umeng.com/fuia0z'" tppabs="https://at.umeng.com/fuia0z" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://at.umeng.com/fuia0z</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">企业消费与报销管理平台：易快报</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">起初臃肿冗长的报销流程令我们非常头疼，很难进行费用管控。使用易快报后才深切感受到了原来报销流程也可以如此便捷。易快报打通了从提交申请到支付的全部环节，使员工报销的时间大为缩短，还能对企业进行实时全程费用控制，效率提高了不少。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">易快报是一个敏捷的企业消费和报销管理平台，面向企业提供专业的订购、费控和报销管理服务。据官网公布的数据，公司目前已经为超过5万家企业客户和220万个人用户提供了这种全新的报销服务。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://www.ekuaibao.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://www.ekuaibao.com/'" tppabs="https://www.ekuaibao.com/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://www.ekuaibao.com/</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">云客服平台：逸创云客服</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">企业发展最郁闷的是什么？品牌打出去了，客户服务却跟不上：客户数量水涨船高，客户问题随之而来，企业缺乏好的服务，不仅损害企业形象更可能拖垮企业。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">逸创云客服基于网页端和移动端，打通客户服务全流程，整合邮件、电话、短信、网页表单、反馈组件、微信、在线IM、API接口等10大客服渠道，快速响应和受理客户问题。以工单为载体，打通企业售前售中售后客户服务全流程，提高客服效率。提供帮助中心、智能机器人、讨论社区等自助服务，引导客户自助解决问题。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：www.kf5.com</p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">快速建站服务：友好速搭</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">要做电商，渠道是个问题，入驻各大平台还不够，要有自己的独立的门户网站，但创业初期，资金有限，技术太贵，维护太难，加上服务器配置、域名备案一堆事，一想头就大，有了友好速搭，60 秒轻松搭建门户网站，就算是技术小白，也能做出稳定可靠的官网。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">友好速搭可以为企业提供了一站式建站服务，集成域名、DNS、安全证书等基础设施，提供SaaS 建站系统，开放全部API并提供互联网、营销、传媒等资源服务，目前已服务超过2.3万个品牌。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://www.youhaosuda.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://www.youhaosuda.com/'" tppabs="https://www.youhaosuda.com/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://www.youhaosuda.com</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">移动应用分发与监控平台：酷传</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">酷传是一个一站式APP发布及监控平台。开发者不需要添加任何SDK，即可通过酷传把自己的APP同时上架到30家主流安卓应用商店，后续还可以实时跟进各个商店的审核进度，不再需要运营人员一一去各家应用商店进行操作；通过酷传的监控产品，还可以查询一百多万款APP的各项数据表现，目前已经支持安卓和IOS两个平台十多家应用商店。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://www.coolchuan.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://www.coolchuan.com/'" tppabs="https://www.coolchuan.com/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://www.coolchuan.com</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">企业级云服务商：七牛云</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">对于有大量数据存储需求的互联网公司，现在不仅仅是把数据托管到云存储供应商就够了，围绕数据展开的一站式的服务，成为当下互联网迫切所需。<br/>七牛云作为企业级云服务商，除了存储、CDN加速服务，和完整的直播云解决方案，围绕数据还有许多玩法。存储在七牛的数据，不需要下载下来，就可以进行批量加水印、裁剪、反垃圾等处理。通过提供稳定、高效、可信赖的底层服务，让客户能集中精力在自身业务的实现和创新上。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：www.qiniu.com</p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">应用性能监测平台：OneAPM</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">网络访问缓慢？用户无法登录？接口突然失效？你是否也经常由于很多IT系统故障的原因，眼睁睁地看着用户流失？作为一个应用性能监测平台，OneAPM可以帮助你预先发现性能问题。OneAPM目前支持Java、PHP、Ruby、.Net、Python等多种编程语言，同时也支持iOS 和Android操作系统。它可以帮你实时抓取缓慢的程序代码和SQL语句，让你的应用运行更加流畅、稳定。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('http://www.oneapm.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.oneapm.com/'" tppabs="http://www.oneapm.com/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">http://www.oneapm.com/</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">APP测试服务商：Testin云测</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">移动互联网的竞争越来越激烈，迫使互联网公司必须要根据用户需求快速对APP进行迭代。每次迭代过程中最担心的是出现Bug，伤害到用户体验可能会是导致用户流失的重要原因。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">Testin专注于面向全球范围内的移动互联网应用开发者，如移动APP开发者、移动手机游戏开发商及互联网＋相关移动应用企业提供“一站式测试服务”。包括从移动应用内测到功能测试、性能测试、兼容测试及移动应用发布后持续质量监控，解决APP终端在功能、性能、碎片化、兼容性、稳定性等广大移动互联网企业及开发者不易克服的难题。Testin一站式测试服务覆盖开发者从开发完成到版本迭代的全过程。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('https://www.testin.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://www.testin.cn/'" tppabs="https://www.testin.cn/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">https://www.testin.cn</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">推送技术和大数据服务商：个推</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">“这么大个红包，再不使用就过期啦！”、“美妆热搜销量王，全场五折起”，收到这样的消息，你肯定也会忍不住打开一探究竟。通过小小的消息，传递用户所需的信息，提高用户活跃度和留存率，这就是推送技术的力量。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">个推所做的就是搭建APP与用户沟通的桥梁，确保消息的毫秒级到达，用户即便足不出户，也能第一时间尽知天下事。个推给用户分群组、打标签，通过大数据分析送让合适的消息找到合适的用户。个推提供免费推送和VIP增值服务，并为各垂直领域提供专业大数据解决方案，目前已服务于50万APP，SDK累计接入用户数超过130亿。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('http://www.getui.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.getui.com/'" tppabs="http://www.getui.com/" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">http://www.getui.com/</a></p><ul style="list-style-type: square;" class=" list-paddingleft-2"><li><p><strong style="margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; color: inherit;">IM SDK：环信</strong></p></li></ul><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">微信、陌陌引领了社交媒体的爆发后，移动社交已成使用最多的产品功能之一，社交不仅可以让用户更具黏性， 越来越多的企业倾向在App上添加社交功能。但IM底层开发繁重的问题，也是让很多企业望而却步。<br/>环信作为集成通讯云服务商，通过云端开放的 Rest API 和客户端 SDK 包的方式让App内置聊天功能和以前网页中嵌入分享功能一样简单。不必为基础功能组件耗费自己太多精力，为开发者省钱省力，更是加速了APP的上线速度。</p><p style="margin-top: 0px; margin-bottom: 1.5em; padding: 0px; border: 0px; vertical-align: baseline; color: rgb(85, 85, 85); font-family: &#39;Microsoft YaHei&#39;, 微软雅黑, STHeiti, &#39;WenQuanYi Micro Hei&#39;, SimSun, sans-serif, &#39;Open Sans&#39;, Arial; white-space: normal; font-size: 1.2em !important; line-height: 2em !important;">产品官网：<a href="javascript:if(confirm('http://www.easemob.com/product/im  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.easemob.com/product/im'" tppabs="http://www.easemob.com/product/im" target="_blank" style="margin: 0px; padding: 0px; border: 0px; font-size: 17.279998779296875px; vertical-align: baseline; outline: none; color: rgb(51, 102, 153); text-decoration: none;">http://www.easemob.com/product/im</a></p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

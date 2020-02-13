@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/zhuanlan">专栏</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">农村电商不仅是电商，更是农村互联网商业生态重构</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-10-27　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/1816.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/1816.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><img src="../../ueditor/php/upload/image/20161031/1477883552334486.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161031/1477883552334486.jpg" title="20150306094410_8906.jpg" border="0" hspace="0" vspace="0" style="border: 0px; vertical-align: middle; display: block; width: auto; height: auto; max-width: 100%; margin: 0px auto; float: none;"/></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">对大多数在一线城市工作的人来说，电商意味着上午11点下单，下午便能窝在办公室里等待签收。但对于中西部很多农村来说，电商形态呈现出了高度复杂性。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">这些天前往西部某山区县城，亲眼目睹了物流、支付、电商观念等各个环节在此处遭遇的障碍。种种状况着实让人感慨，农村电商绝非仅仅只是连上网、修好路就能解决问题。连上网、修好路之后，背后的竞争和比拼才真正刚刚开始。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">恰逢阿里在这些天谈到，农村淘宝不仅要购物和卖货，还要接入电商、金融、医疗、教育到文娱的全部资源。这其实正是表明，农村电商的机会其实是在于整个服务体系的下沉。农村电商比的其实是对农村的渗透程度以及对农村商业生态的塑造程度。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><strong>农村电商的封闭泥淖以及孤岛色彩</strong></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">电商在农村其实很大程度上面临的是一个封闭的泥淖和孤岛，你很难用城市的逻辑去思考这个市场。这是由各方面因素所决定的。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">首先是观念层面上的，在农村虽然电商受到欢迎，但是随处可见一些和城市完全不同的面貌。比方说货到付款的比例极高，某些中西部县城货到付款的比例甚至达到了50%以上，货到付款的原因又在于对于电商产品以及在线支付不够信任，所以部分用户常常是同时下单多件产品，在现场验货之后把不满意的直接退货。这一系列的问题很大程度上有会给物流带来负担，尤其是在农村地区订单分散且区域广袤的情况下，物流效率会成为很大的一个问题。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">在这里无论是物流、支付都远非一线城市那样流畅。前些年，各大电商平台尤其是自营平台，都想在农村解决的主要是最后一公里的物流问题，但是物流问题的解决远非农村电商各项问题的结束，这恰恰意味着开始。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">对很多自营平台来说，农村尤其是落后的农村地区会成为泥淖，因为这是一个效率极低的市场，无法用城市中的那种电商逻辑去复制。事实上，在农村电商市场，这就是一场汪洋大海的“人民战争”，在这里想靠一支自己的精锐部队去解决物流、支付等一系列的问题，这将会陷入高成本、低收益的困境。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">农村的电商问题，恰恰不能靠外部力量去解决，唯有靠内部因素去逐渐化解，才是最有效的方式。而且农村电商问题，本质上去看，它是县乡以及农村社会和互联网依旧存在壁垒的问题。这种问题不能靠电商的手段去解决，因为用电商问题解决电商问题，这始终是个逻辑怪圈，无论是在支付、物流等各个环节去看，都存在一系列的内在矛盾，都会带来另一项成本的提升。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">唯有从根本上去逐渐改造农村的商业环境，让农村真正实现触网，真正在互联网的生态环境之中去运转，才能够真正维持农村电商长期健康发展的唯一根基。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><strong>从群众中来到群众中去的渠道下沉</strong></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">你会看到，阿里在农村电商这条道路上的探索，恰恰是反映了这种内在矛盾和趋势变迁。从2014年-2015年，阿里一直都是在通过电商的思路去进行渠道下沉。这种思路却一直在发生变化，从一开始无从下嘴到后来的融入当地，这恰恰是展现出了农村电商市场的高度复杂，颇有“从群众中来到群众中去”的作派。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">早在2014年10月的时候，阿里刚刚开启所谓的“农村淘宝1.0模式”，当时的目标是让村民“看到外面的世界”，真正接触到电商和网络。当时因为网购的村民有限，采取的办法是从许多乡村便利店店主资源中选出一批懂网购的店主，兼职为村民做代购。可以说，这种策略几乎是用一种特别间接的办法实现电商的落地，完成第一轮市场教育。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">这种模式的优势在于充分利用了农村的已有商业基础，一定程度上加快了电商服务和渠道下沉的落地速度，不足之处则是这种方式相对还是间接，而且小卖部的专业化程度不够，只能采取坐商、兼职的办法，制约了村点的服务效率。坦率来说，这是当时那个阶段的唯一办法，面对一个渗透率极低的市场，只能用这种“笨办法”去执行。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">事实上，这种笨办法在今天还逐渐体现了红利和优势。因为无论是物流还是信息，其实每一个村子都是最好的中转站。部分自营平台做物流，大多只能做到县城这个级别，县城通过自营的模式分发给各个乡村无论是时间成本还是物力成本都会极高，因为在县城尤其是到了农村，单量小、地域分散，全靠自己来做几乎是无穷无尽的小号。但是通过县到村，再通过村进行周转，这种做法无论是在时间上还是成本上来考虑，都反而比自营效率更高。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">而从另一个角度来看，这种站点也正在连成线，因为在2015年年中的时候，阿里逐渐试图把当时一些兼职的代购店主变成全职、专业的“农村淘宝合伙人”，这一做法也被阿里内部称之为“农村淘宝2.0”。这个计划恰恰是以当时一批兼职为村民为基础而搭建起来的。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">想要把兼职的店主变成全职的“合伙人”，必须要有配套的基础设施。而基础设施的搭建早在2014年就已经开始，当时阿里召开县长大会，被人们戏称为马云亲切“会见”百位县长。当时“农村淘宝2.0”的主要动作大致是三点，第一是希望推动从省到村出台相应的政策来支持电商落地；第二则是物流和信息渠道的打通，主要是通过菜鸟网络来搭建村淘物流网；第三则是瞄准那些思维灵活、有较强服务和宣传意识、熟悉互联网和网购的本地人，尤其是返乡青年，希望他们能够在农村进行电商创业，培育和构建起农村的电商市场。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">当时竞争对手实际上也在做渠道下沉的事情，深入农村市场。今天来看，全靠“正规军”确实面临了一定的成本问题，而且农村市场正在成为“正规军”的泥淖。所幸的是，阿里下沉到农村大多靠的是寻找合作伙伴和当地人，所以这种“从群众中来到群众中去”的下沉其实相对而言规模、格局都较为开阔，在县域层面实现了物流、信息流、交易流的搭建。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;"><strong>服务体系和农村生态的丰满和构建</strong></p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">物流、信息流、交易流的搭建其实仅仅只是基础框架，因为在农村最大的问题还是在于真正实现“互联网+“。今天看农村会发现，虽然人人都已经上网，但是在商业交易以及生活服务等层面的问题上，线上依旧很难触及。我们可以在城市里面享受到滴滴、饿了么、大众点评这样的生活服务，但是在县乡以及农村，这些服务几乎为零。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">但是农村是不可能不完成这个互联网+的转型的，电商可能是第一步，而整个互联网服务体系的升级则是第二步。其实在城市之中我们明显能够感受到，O2O服务实质上就是电商的进化模式，只不过过去是通过网上订单的模式在数天时间内实现包裹的配送，而现在是短短几十分钟、一个小时的时间内完成生活服务的触达。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">就像在今年云栖大会上，马云所说到的那样，“电子商务”这个名词将很快被淘汰，未来将是新零售、新制造、新金融、新技术和新资源的时代。其实O2O在前两年的高度繁荣已经隐隐让人看到了电商的危机。农村虽然电商才刚刚起步，但是农村电商终究会被各项线上服务所替代。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">所以阿里会提到，农村淘宝合伙人的概念过时，而是成为村小二，农村电商在村淘的带领下全面进入“服务时代”，曾经的创业者需要改变，转而成为“乡村服务者”。村淘的战略重点也从过去物流、信息流、交易流的搭建，转向构建生态服务、推动创业孵化和推广文化公益。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">这一系列手段恰恰是在创造在农村创业的土壤，通过人才回流、整合培训机构，以及资金政策，培养出更多的做本地服务的商家；从水电煤开始，把要所有老百姓在城市里办的所有活一站式解决，包括交通罚款、养老金、社保金到贷款，真正通过互联网的方式”，实现整个服务体系在农村的下沉；还要让城市和乡村之间互通健康、旅行、文娱等各业务线资源，使得平台两端连接起城市文明和乡村文化。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">在实现从群众中来到群众中去的下沉之后，农村电商本质来看，事实上正在成为农村“互联网+”转型的一个重要的通道。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">因为下一个机会实质上依旧还是在农村。虽然北上广深这样的大城市正在呈现出越来越强的虹吸效应，县城、农村越来越呈现出空心化的沉寂，但县城、农村的互联网化依旧没有真正启动，这一片市场无论是在经济、文化、社交、教育等各个层面上都体现着乡村非主流的色彩。无论是县乡、农村未来走向欧美的田园牧歌模式还是发展出之前一直在提的中小城镇化，它都需要互联网以及背后的数据在其中提供服务支撑。</p><p style="margin-top: 20px; margin-bottom: 20px; padding: 0px; letter-spacing: 0.2px; width: 640px; overflow: hidden; text-indent: 2em; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, arial, 宋体; font-size: 18px; white-space: normal;">更况且，今天的中国的县乡、农村在产业承接上正在呈现出空档，无数人离开耕地之后正在成为一股盲流，这样一个问题终究需要有产业来承接，在互联网飞速发展的今天，互联网终究需要袍泽这样一个似乎正在被遗忘和抛弃的市场。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

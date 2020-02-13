@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>contact</title>
+<link href="css/public.css" rel="stylesheet" type="text/css" />
+<link href="css/register.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+function initMenu() {
+  $('#piece0 ul').hide();
+  $('#piece0 ul:first').show();
+   $('#menu ul').hide();
+  $('#menu ul:first').show();
+  $('#menu li a').click(
+    function() {
+      var checkElement = $(this).next();
+      if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+        return false;
+        }
+      if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+        $('#menu ul:visible').slideUp('normal');
+        checkElement.slideDown('normal');
+        return false;
+        }
+      }
+    );
+  }
+$(document).ready(function() {
+initMenu();
+$(".close").click(
+			function () {
+				$(this).parent().fadeTo(400, 0, function () { // Links with the class "close" will close parent
+					$(this).slideUp(400);
+				});
+				return false;
+			}
+		);
+});
+<!--
+/*第一种形式 第二种形式 更换显示样式*/
+function setTab(m,n){
+ var tli=document.getElementById("menu"+m).getElementsByTagName("li");
+ var mli=document.getElementById("piece"+m).getElementsByTagName("ul");
+ for(i=0;i<tli.length;i++){
+  tli[i].className=i==n?"hover":"";
+  mli[i].style.display=i==n?"block":"none";
+ }
+}
+//-->
+</script>
+<script type="text/javascript" src="js/jquery.Xslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	// 焦点图片水平滚动
+	$("#slider1").Xslider({
+		// 默认配置
+		affect: 'scrollx', //效果  有scrollx|scrolly|fade|none
+		speed: 800, //动画速度
+		space: 6000, //时间间隔
+		auto: true, //自动滚动
+		trigger: 'mouseover', //触发事件 注意用mouseover代替hover
+		conbox: '.conbox', //内容容器id或class
+		ctag: 'div', //内容标签 默认为<a>
+		switcher: '.switcher', //切换触发器id或class
+		stag: 'a', //切换器标签 默认为a
+		current:'cur', //当前切换器样式名称
+		rand:false //是否随机指定默认幻灯图片
+	});
+	
+	// 焦点图片垂直滚动
+	$("#slider2").Xslider({
+		affect:'scrolly',
+		ctag: 'div',
+		speed:400
+	});
+	
+	// 焦点图片淡隐淡现
+	$("#slider3").Xslider({
+		affect:'fade',
+		ctag: 'div'
+	});
+	
+	// 选项卡
+	$("#slider4").Xslider({
+		affect:'none',
+		ctag: 'div',
+		speed:10
+	});
+	
+	
+});
+</script>
+</head>
+
+<body> 
+<div class="wrap_top">
+    	<div class="top">
+        	<div class="logo"><a href="#"><img src="images/logo.jpg" width="200" height="74" /></a></div>
+            <div id="navMenu">
+                <UL class="menu1">
+                    <li class="onelink"><a href="index.html">网站首页</a></li>
+                    <li class="navthis1"><a href="photo.html"  rel='dropmenu1'>作品欣赏</a>
+                        <ul>
+                            <li><a href="http://51xuediannao.com/JS/nav/">特色内景</a></li>
+                            <li><a href="http://51xuediannao.com/JS/Slide/">时尚写真</a></li>
+                            <li><a href="http://51xuediannao.com/JS/texiao/">高端外景</a></li>
+                        </ul>
+                    </li> 
+                    <li class="navthis22"><a href="customers.html" >每日客照</a></li>
+                    <li class="navthis8"><a href="activity.html"  rel='dropmenu8'>最近活动</a>
+                    </li>
+                    <li class="navthis27"><a href="#" >微博评价</a></li>   
+                    <li class="navthis9"><a href="news.html"  rel='dropmenu9'>新闻动态</a>
+                    </li>  
+                    <li class="navthis24"><a href="message.html" >留言板</a></li>
+                    <li class="navthis25"><a href="contact.html" >联系我们</a></li>
+                    </ul>
+			</div>
+        </div>
+	 </div> 
+ <div class="mian">
+ <div id="slider1" class="slider">
+			<div class="conbox">
+				<div><a href="#" title=""><img src="tp/ddf.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img src="tp/dde.jpg" width="1000" height="355" /></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-02-22/f4fe9dd611bd459c0244159163109bc4.jpg"></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-08-13/323ce4b13f72648e096bd1a86cba762a.jpg"></a></div>
+				<div><a href="#" title=""><img width="620" height="340" alt="" src="http://www.jsfoot.com/d/file/jquery/items/2011-08-17/9fae30738c94fb8e47dd2ba3e6003290.jpg"></a></div>
+			</div>
+
+			<div class="switcher">
+				<a href="#" class="cur">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+			</div>
+</div>
+	<div id="tabs0">
+        <div class="hdk">
+         <ul class="menu0" id="menu0">
+          <li onClick="setTab(0,0)" class="hover">关于我们</li>
+          <li onClick="setTab(0,1)">联系我们</li>
+          <li onClick="setTab(0,2)">加入我们</li>
+         </ul>
+         </div>
+         <div class="piece" id="piece0">
+          <ul class="block">
+          <li>
+          	<div class="about">尊贵的客户，您好！欢迎进入伯爵婚纱摄影客户服务中心！这里将为您展示新人的幸福瞬间。与此同时，并将最美好的祝福送给每对新人。
+伯爵婚纱摄影客户咨询热线：0754-86865141 太阳城欢迎广大追求美的新人前来咨询，我们将留给您不一样的记忆。
+了解我们，从这里开始 | 摄影常见问题解答 | 服务须知：拍摄当天 | 服务须知：拍摄前准备 | 高端定制服务服务流程 | 高端定制服务服务说明
+郑重声明：伯爵客户服务频道所展示的作品均来自真实客人定制照片，并经由客户本人同意在唯一官方网站www.stbjhs.com进行发表。
+未经允许不得转载或用于任何商业用途，违者必究！伯爵婚纱摄影客户咨询热线：0754-86865141 太阳城欢迎广大追求美的新人前来咨询，我们将留给您不一样的记忆。
+了解我们，从这里开始 | 摄影常见问题解答 | 服务须知：拍摄当天 | 服务须知：拍摄前准备 | 高端定制服务服务流程 | 高端定制服务服务说明
+郑重声明：伯爵客户服务频道所展示的作品均来自真实客人定制照片，并经由客户本人同意在唯一官方网站www.stbjhs.com进行发表。
+未经允许不得转载或用于任何商业用途，伯爵婚纱摄影客户咨询热线：0754-86865141 太阳城欢迎广大追求美的新人前来咨询，我们将留给您不一样的记忆。
+了解我们，从这里开始 | 摄影常见问题解答 | 服务须知：拍摄当天 | 服务须知：拍摄前准备 | 高端定制服务服务流程 | 高端定制服务服务说明
+郑重声明：伯爵客户服务频道所展示的作品均来自真实客人定制照片，并经由客户本人同意在唯一官方网站www.stbjhs.com进行发表。
+未经允许不得转载或用于任何商业用途，</div>
+          </li>
+		   </ul>
+          <ul>
+          <li>
+          	<div class="contact">
+            <p><strong>中国时通运营中心</strong></p> 
+            <p>地址：厦门市湖里区仙岳路860号台商会馆8楼A02</p>
+            <>电话:   +86-4506-3d33-770,+86-05d92-5588644</p> 
+            <p>传真:   +86-592-55555649</p>  
+            <p>电子邮箱:  sto5nebtbs@stonebtb.com</p> 
+               
+            <p><strong>销售中心:</strong></p>    
+            <p>电话:   +86-592-555588646</p> 
+            <p>传真:   +86-592-55588649</p>  
+            <p>电子邮箱:  market@stonebtb.com</p> 
+                
+            <p><strong>市场 & 广告部  林先生</strong></p>  
+            <p>电话:   +86-592-555588646 </p> 
+            <p>传真:   +86-592-555858649</p>  
+             <p>电子邮箱:  eric@5stonebtb.com</p>  
+                
+            <p><strong>展会联系人：林小姐</strong></p>   
+            <p>热线:   +86-592-55858640</p>  
+            <p>电子邮箱:  info5@stonebtb.com </p> 
+            </div></li>
+ 		</ul>
+        <ul class="block">
+          <li>
+          	<div class="jiaru">
+            <p style=" font-size:24px; font-weight:bold; color:#F00;">招聘启示  </p>
+              <p style=" font-size:16px; font-weight:bold;">摄影师：</p>
+                    <p style=" color:#333; padding-left:20px;">● 按照视频制作要求，配合策划、编辑完成各种拍摄任务</p>
+                      <p style=" color:#333; padding-left:20px;">  ● 完成专题片或宣传片拍摄任务</p> 
+                      <p style=" color:#333; padding-left:20px;">  ● 在导播指挥下，完成演播室摄像工作</p> 
+                       <p style=" color:#333; padding-left:20px;"> ● 摄象机，照明设备以及摇臂等相关器材的日常维护和保养。</p> 
+                       <p style=" color:#333; padding-left:20px;"> ● 为了提高整体视频拍摄的工作效率，积极配合和帮助其他部门，确保拍摄在规定时间内保质保量完成</p><br /> 
+                     </p>
+              <p style=" font-size:16px; font-weight:bold;">岗位要求：</p>
+              <p style=" color:#333; padding-left:20px;">● 大专或以上学历，影视编导、新闻传播等相关专业毕业。</p>
+                      <p style=" color:#333; padding-left:20px;">  ● 2-3年拍摄工作经验，熟悉各种摄像机，较强的镜头感和创意感，能独立拍摄，熟练操作premiere、photoshop、 dps等非线性编辑软件，进行后期图片，视频处理</p> 
+                      <p style=" color:#333; padding-left:20px;">  ● 良好的文字功底和丰富的创意能力，熟悉影视广告，栏目包装和视频制作流程，能与编导很好沟通。</p> 
+                       <p style=" color:#333; padding-left:20px;"> ● 对光、构图、声音均有一定造诣，能承受高强度工作，能独立完成拍摄以及视频前期创意策划，脚本撰写、指导拍摄、后期制作的相关工作</p> <br /> 
+                          <p style="padding-left:40px;"><strong>招聘人数：</strong>10名</p>
+                          <p style="padding-left:40px;"><strong>工作年限：</strong> 2年</p>
+                          <p style="padding-left:40px;"><strong>学历要求：</strong> 大专</p>
+                          <p style="padding-left:40px;"><strong>性别要求：</strong> 不限</p>
+                          <p style="padding-left:40px;"><strong>年龄要求： </strong>18-35岁</p>
+                          <p style="padding-left:40px;"><strong>薪资待遇：</strong> 3000-8000</p>
+            </div>
+          </li>
+		   </ul>
+          <ul>
+         </div>
+        </div>
+ </div>
+ <div class="bottomwrap">
+	<div class="bottom">
+	<div class="logo1"></div>
+    <div class="wenzi">何拉拉 设计制作 伯爵婚纱摄影 版权所有 - 网站统计<br />
+Copyright © 2013 STBJHS PHOTOGRAPHY AGENCY,SUPPORT BY STBJHS ad-agency CO.,Ltd.</div>
+    </div>
+</div>
+</body>
+</html>

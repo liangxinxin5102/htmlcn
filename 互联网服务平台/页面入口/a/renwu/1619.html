@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/renwu">人物</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">谷歌董事长：我可以直接地说，互联网将消失</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-06-27　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/1619.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/1619.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p class="newtext">当互联网概念在中国资本市场上方兴未艾之时，互联网巨头谷歌公司的执行董事长埃里克?施密特在前段时间举行的座谈会上大胆预言：互联网即将消失，一个高度个性化、互动化的有趣世界——物联网即将诞生。施密特的此番言论可谓自我颠覆。他说：“我可以非常直接地说，互联网将消失。”</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991485592031.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991485592031.jpg"/></p><p class="newtext">1</p><p class="newtext">互联网即将消失，物联网将无所不能</p><p class="newtext">施密特称，未来将有数量巨大的IP地址、传感器、可穿戴设备，以及虽感觉不到却可与之互动的东西，时时刻刻伴随你。“设想下你走入房间，房间会随之变化，有了你的允许和所有这些东西，你将与房间里发生的一切进行互动。”</p><p class="newtext">他
+表示，这种变化对科技公司而言是前所未有的机会，“世界将变得非常个性化、非常互动化和非常非常有趣”。这位谷歌掌门人认为：“所有赌注此刻都与智能手机
+应用基础架构有关，似乎将出现全新的竞争者为智能手机提供应用，智能手机已经成为超级电脑。我认为这是一个完全开放的市场。”</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991485120540.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991485120540.jpg"/></p><p class="newtext">美国市场研究公司Gartner预测：到2020年，物联网将带来每年300亿美元的市场利润，届时将会出现25亿个设备连接到物联网上，并将继续快速增长。由此带来的巨大市场潜力已经成为美国科技公司新的增长引擎，包括思科、AT&amp;T、Axeda、亚马逊、苹果、通用电气、谷歌与IBM等在内的美国公司争相抢占在物联网产业的主导地位。</p><p class="newtext">2</p><p class="newtext">看高科技500强争相布局物联网</p><p class="newtext">在1月9日刚刚落幕的2015国际消费电子展(CES)上，物联网概念成为最大看点之一。智能家居、数字医疗、车联网等产品的推出，使得物联网技术真正服务于智能生活。</p><p class="newtext">“物联网不是趋势，它是现实。”三星电子总裁兼首席执行官尹富根(Yoon Boo-keun)在CES的演讲上，把物联网作为了三星重点业务方向。尹富根同时透露了三星技术支持物联网的时间表：到2017年，所有三星电视将成为物联网设备;五年内所有三星硬件设备均将支持物联网。</p><p class="newtext">无独有偶，芯片巨头高通也
+在CES上披露了自己的物联网计划。高通总裁德雷克?阿伯勒(DerekAberle)在CES上表示，高通向全球超过30个国家推出了15款物联网设
+备，涉及数字眼镜、儿童跟踪器、智能手表等多个产品。未来，高通将以智能手机为支点，拓展车联网、医疗、可穿戴设备等领域。</p><p class="newtext">制造业巨头也希望在物联网中确立自己的领导者地位。通用电气去年十月宣布与一众技术巨头结盟建立起物联网联盟。通用电气此举的目的是寻求各方对旗下Predix平台的支持。Predix软件旨在令各种物联网端点具备智能化。</p><p class="newtext">全
+球范围内的其他合作也正在展开。英特尔已携手美国圣何塞市，利用公司强项，进一步推动该市的“绿色视野(GreenVision)”计划。英特尔公司全球
+物联网业务开发销售总监Gregg 
+Berkeley表示，英特尔目前正与二三十个全球合作伙伴，讨论如何利用英特尔的物联网技术建设智能城市，有些合作在亚洲，有些遍及欧洲。</p><p class="newtext">3</p><p class="newtext">物联网和互联网究竟有什么区别?</p><p class="newtext">作为互联网的延伸，物联网利用通信技术把传感器、控制器、机器、人员和物等通过新的方式联在一起，形成人与物、物与物相联，而它对于信息端的云计算和实体段的相关传感设备的需求，使得产业内的联合成为未来必然趋势，也为实际应用的领域打开无限可能。</p><p class="newtext">在
+过去一年，云计算和大数据继续发酵，物联网也成为未来大趋势之一。很多网友对于物联网和互联网之间有何关系存在疑惑，让我们一起来看看。什么是互联网?即
+Internet，又称网际网路，因特网等，是网络和网络之间串联而成的庞大网络。而物联网是的英文缩写是The Internet of 
+things，也即物物相连的网络。</p><p class="newtext">物联网的定义是通过射频识别(RFID)、红外感应器、全球定位系
+统、激光扫描器等信息传感设备，按约定的协议，把任何物品与互联网相连接，进行信息交换和通信，以实现对物品的智能化识别、定位、跟踪、监控和管理的一种
+网络。简单地说，物联网是一种建立在互联网上的泛在网络。物联网技术的重要基础和核心仍旧是互联网，通过各种有线和无线网络与互联网融合，将物体的信息实
+时准确地传递出去。</p><p class="newtext">4</p><p class="newtext">物联网是一个新的江湖，一个比互联网大太多太多的江湖</p><p class="newtext">互联网在20多年来帮助人们解决了信息共享、交互，几乎在瞬间颠覆了很多传统的商业模式，把卖产品变为卖内容和服务，是个了不起的产业成就。雷军很早前曾说过：“未来没有所谓的互联网企业，未来每个公司都变成物联网公司。”这个江湖够大了吧。</p><p class="newtext">但
+从分工上理解，互联网还只是物联网中的一部分，主要是IT服务方面。物联网因为其“连接一切”的特点(“连接一切”是马化腾在2013的WE大会上提出来
+的未来第一路标)，它具有很多互联网所没有的新特性。比如，互联网已经连接了所有的人和信息内容，提供标准化服务，而物联网则要考虑各种各样的硬件融合，
+多种场景的应用，人们的习惯差异等问题。相对于互联网，物联网需要更有深度的内容和服务，以及更加差异化的应用，也将更加的人性化，这也符合们不停地追求
+更好的服务体验，这是个亘古不变的刚需。</p><p class="newtext">因此，也可以这样断言，未来所有的公司都是物联网企业。他们享受着物联网的各种便利，利用物联网工具和技术，生产物联网产品，为人们提供物联网服务。</p><p class="newtext">5</p><p class="newtext">物联网的关键技术</p><p class="newtext">针对互联网的特性，专家总结了物联网应用中的三项关键技术：</p><p class="newtext">1.传感器技术</p><p class="newtext">这也是计算机应用中的关键技术。大家都知道，到目前为止绝大部分计算机处理的都是数字信号。自从有计算机以来就需要传感器把模拟信号转换成数字信号计算机才能处理。</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991485123148.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991485123148.jpg"/></p><p class="newtext">2.RFID标签</p><p class="newtext">也是一种传感器技术，RFID技术是融合了无线射频技术和嵌入式技术为一体的综合技术，RFID在自动识别、物品物流管理有着广阔的应用前景。</p><p class="newtext">3.嵌入式系统技术</p><p class="newtext">是
+综合了计算机软硬件、传感器技术、集成电路技术、电子应用技术为一体的复杂技术。经过几十年的演变，以嵌入式系统为特征的智能终端产品随处可见;小到人们
+身边的MP3，大到航天航空的卫星系统。嵌入式系统正在改变着人们的生活，推动着工业生产以及国防工业的发展。如果把物联网用人体做一个简单比喻，传感器
+相当于人的眼睛、鼻子、皮肤等感官，网络就是神经系统用来传递信息，嵌入式系统则是人的大脑，在接收到信息后要进行分类处理。这个例子很形象的描述了传感
+器、嵌入式系统在物联网中的位置与作用。</p><p class="newtext">总之，我们可以发现物联网概念是在互联网概念的基础上，将其用户端延伸和扩展到任何物品与任何物品之间，进行信息交换和通信的一种网络概念。物联网和物联网概念的关系也是相互依存的关系。</p><p class="newtext">根据TechNode评选，2015年国内最值得期待的Top10物联网创新公司，是最被看好的10家正在“连接一切”新硬件创业公司。</p><p class="newtext">2015年国内物联网创新经过近两年的积累，已经初成气候。物联网市场在中国被迅速开拓和发展，并且在智能家居、可穿戴设备、城市和汽车之间的互联，以及某些产业中产巨大的影响甚至是颠覆。而到了2015年，这10家企业或许代表着中国物联网创新的走向。</p><p class="newtext">1.小米</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991506112442.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991506112442.jpg"/></p><p class="newtext">小米正试图在硬件行业中复制其在智能手机市场的商业模式，毕竟它在智能手机市场还是非常成功的。凭借物美价
+廉的智能手环在智能穿戴市场取得初步成功后，小米推出了100家硬件公司战略，企图通过这个战略来使小米能连接到更多的智能小工具的领域，譬如医疗保健
+（iHealth），智能家居（Ants，Yeelink）等等（前面括号中的是在智能硬件相应区域的产品供应商中的佼佼者）。该公司还宣布与中国家电巨
+头美达成战略合作伙伴关系。</p><p class="newtext">2.Broadlink</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991506443184.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991506443184.jpg"/></p><p class="newtext">Broadlink
+是智能家居解决方案的供应商，他们的产品主要面向物联网的无线网络连接。除了现有的智能插座和红外设备的远程控制，Broadlink也在发展丰富自身的
+产品，而这有助于传统家电制造商研发更智能的产品。现在Broadlink的Wi-Fi解决方案已经被集成到小米的智能路由器。</p><p class="newtext">3.Gizwits</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991506227939.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991506227939.jpg"/></p><p class="newtext">Gizwits
+是中国物联网技术平台，它所做的工作是把家用电器和电子产品连接到互联网或智能手机上。GizWits提供给物联网开发者一些数据分析和相关开发工具，譬
+如远程接入，通知，和OTA固件升级。该公司已经为智能家居设备推出了自助式软件开发平台Gizwits2.0和一个可编程微控制器板GoKit。</p><p class="newtext">4.Ayla</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991506144199.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991506144199.jpg"/></p><p class="newtext">Ayla
+中国网络公司是美国Ayla在中国的分公司，它为中国开关制造商提供云连接解决方案和HVAC等智能设备。今年得到的1450万美元的投资后，该公司进入
+中国市场采取了一系列动作:推出中国网站，与新浪合作来推广公司，加入了中国导演协会。该公司的CEO和联合创始人，戴夫?弗里德曼，认为中国将在这一领
+域引领世界潮流。</p><p class="newtext">5.Lifesmart</p><p class="newtext">Lifesmart是杭州的一家本土公司，主要从事智能家居设备的开发，其产品线包括智能控制中心，智能插座，监控摄像机，环境传感器等。</p><p class="newtext">6.Yeelink</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991506825392.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991506825392.jpg"/></p><p class="newtext">Yeelink帮助制造商打造智能产品，他们为制造商提供从硬件设计到移动应用程序的开发，从概念阶段到最初的产品的一条龙服务。</p><p class="newtext">7.Landing</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991506109830.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991506109830.jpg"/></p><p class="newtext">Landing科技是一家总部位于深圳的智能家居公司，致力于开发、生产和销售智能家居设备和可穿戴设备并且提供相关的技术支持。他们的“IVYLINK”和“Goldweb”品牌分别涵盖智能设备和网络设备及其配件。</p><p class="newtext">8.万物云</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991507450671.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991507450671.jpg"/></p><p class="newtext">（http://www.wanwuyun.com/）</p><p class="newtext">万
+物云——智能硬件大数据免费托管平台，为物联网与智能硬件提供一站式的数据托管服务。每一个接入其中的智能设备都将成为一个传感器，它们将数据源源不断地
+上传并汇聚到一起，以便用户随时调用。通过实用的门户平台与账户服务，用户可轻松查询、调用、计算与处理各种数据，并将节省下来的大量时间用以各种硬件与
+APP的研发。换言之，万物云可提供简单易用的物联网与智能硬件数据接入、存储和处理以及数据应用等一站式数据托管服务，在大幅度缩短开发周期、降低研发
+和营运成本的同时，打造一个万物互联的世界。</p><p class="newtext">9.环境云</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991507887745.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991507887745.jpg"/></p><p class="newtext">（http://www.envicloud.cn/）</p><p class="newtext">环
+境云——云创大数据开发的环境大数据免费开放平台，可为开发者免费提供可靠的气象、水文、灾害以及地理等数据服务。利用全面布设的环境监测传感器网络，环
+境云同时集成中国气象网、中央气象台、国家环保部数据中心、美国全球地震信息中心等权威数据源，结合自有的海量分布式数据存储计算技术——数据立方和数据
+托管服务平台——万物云，为用户提供全面而稳定的数据整合、环境信息汇总等数据服务。昨日，环境云的注册用户已经突破1000，访问量更是突破了1000
+万次。</p><p class="newtext">10.Orvibo</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991507117481.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991507117481.jpg"/></p><p class="newtext">Orvibo专注于物联网和智能家居设备。其产品线包括智能小工具，全数字可视门铃，并为成千上万的物联网终端提供智能服务云平台。该公司的旗舰产品Kepler是一台智能气体检测仪，它承诺保护您的家庭和亲人远离任何潜在的危险气体泄漏。</p><p class="newtext">11.MXchip</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991507244205.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991507244205.jpg"/></p><p class="newtext">MXchip在2005年年初成立于上海，主打方向是短距离无线网络技术及产品。</p><p class="newtext">12.Phantom</p><p style="text-align:center"><img src="../../ueditor/php/upload/image/20160627/1466991507133613.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466991507133613.jpg"/></p><p class="newtext">Phantom是一家智能家居解决方案供应商，专注于智能照明和监控产品。报道称该公司去年的A轮融资中获得了150万美元。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/xinwen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/xinwen/'" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/guoneiyaowen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/guoneiyaowen/'" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

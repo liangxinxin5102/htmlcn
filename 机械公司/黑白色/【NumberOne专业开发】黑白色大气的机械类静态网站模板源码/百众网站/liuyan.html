@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>河北百众机电</title>
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<div id="header">
+<div class="logo"><img src="image/logo.png"></div>
+<div class="biaoyu"><img src="image/biaoyu.jpg"></div>
+<div class="lianxi"><div class="ditu"><a>网站首页</a>|<a>网站地图</a></div>
+<div class="tell">TEL：<span>0311-66175058</span></div>
+</div></div>
+<div style="clear:both"></div>
+<div id="nav">
+<div class="conent">
+<ul>
+<li><a href="index.html">关于百众</a></li>
+<li><a href="xinwen.html">新闻展会</a></li>
+<li><a href="chanpin.html">产品展示</a></li>
+<li><a href="hangye.html">行业应用</a></li>
+<li><a href="jiejue.html">解决方案</a></li>
+<li><a href="fuwu.html">客服服务</a></li>
+<li><a href="jihui.html">工作机会</a></li>
+<li style="background:none;"><a  class="hover" href="lianxi.html">联系我们</a></li>
+</ul>
+</div>
+</div>
+<div class="banner" id="banner" >
+	<a href="" class="d1" style="background:url(image/banner1.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner2.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner3.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner1.jpg) center no-repeat;"></a>
+	<a href="" class="d1" style="background:url(image/banner2.jpg) center no-repeat;"></a>
+	<div class="d2" id="banner_id">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+<script type="text/javascript">
+function banner(){	
+	var bn_id = 0;
+	var bn_id2= 1;
+	var speed33=5000;
+	var qhjg = 1;
+    var MyMar33;
+	$("#banner .d1").hide();
+	$("#banner .d1").eq(0).fadeIn("slow");
+	if($("#banner .d1").length>1)
+	{
+		$("#banner_id li").eq(0).addClass("nuw");
+		function Marquee33(){
+			bn_id2 = bn_id+1;
+			if(bn_id2>$("#banner .d1").length-1)
+			{
+				bn_id2 = 0;
+			}
+			$("#banner .d1").eq(bn_id).css("z-index","2");
+			$("#banner .d1").eq(bn_id2).css("z-index","1");
+			$("#banner .d1").eq(bn_id2).show();
+			$("#banner .d1").eq(bn_id).fadeOut("slow");
+			$("#banner_id li").removeClass("nuw");
+			$("#banner_id li").eq(bn_id2).addClass("nuw");
+			bn_id=bn_id2;
+		};
+	
+		MyMar33=setInterval(Marquee33,speed33);
+		
+		$("#banner_id li").click(function(){
+			var bn_id3 = $("#banner_id li").index(this);
+			if(bn_id3!=bn_id&&qhjg==1)
+			{
+				qhjg = 0;
+				$("#banner .d1").eq(bn_id).css("z-index","2");
+				$("#banner .d1").eq(bn_id3).css("z-index","1");
+				$("#banner .d1").eq(bn_id3).show();
+				$("#banner .d1").eq(bn_id).fadeOut("slow",function(){qhjg = 1;});
+				$("#banner_id li").removeClass("nuw");
+				$("#banner_id li").eq(bn_id3).addClass("nuw");
+				bn_id=bn_id3;
+			}
+		})
+		$("#banner_id").hover(
+			function(){
+				clearInterval(MyMar33);
+			}
+			,
+			function(){
+				MyMar33=setInterval(Marquee33,speed33);
+			}
+		)	
+	}
+	else
+	{
+		$("#banner_id").hide();
+	}
+}
+</script>
+<script type="text/javascript">banner()</script>
+</div>
+<!--搜索-->
+<div id="search">
+<div class="coen1">
+<div class="left"><span>他们都在搜：</span><a>自立袋机型</a>、<a>给袋式机型</a>、<a>高速机型</a>、<a>标准机型</a></div>
+<div class="sear_right"><input type="text" class="text" value="请输入关键词搜索" onfocus="if(value == '请输入关键词搜索'){value = ''} " onblur="if(value == ''){value = '请输入关键词搜索'}"/><input type="button" class="button_sear"  value=""/></div>
+</div></div>
+<!--产品-->
+<div id="main2">
+<div class="left_zhanshi">
+<div class="menu"><div class="tittle"><span>联系我们</span></div>
+<div class="menu_warp">
+<ul>
+<a href="lianxi.html"><li>联系我们</li></a>
+<a href="liuyan.html"><li class="yanse">留言反馈</li></a>
+<a href="ditu.html"><li>网站地图</li></a>
+</ul>
+</div>
+</div>
+<div class="tongdao">
+<div class="tittle"><span>产品快速通道</span></div>
+<div class="kuai_warp"><select type="text" class="text_chaxub" ><option>请选择类别</option></select><select type="text" class="text_chaxub" ><option>请选择型号</option></select>
+<input type="button" class="button_sousuo" value="搜索" />
+</div>
+</div>
+</div>
+
+<div class="right_chanpin"><div class="tittle"><span>联系我们</span><tt>></tt><span>留言反馈</span></div>
+<div style="clear:both;"></div>
+<div class="right_con_cp">
+<div class="linian"><img src="image/lianxi.jpg"></div>
+<div class="linian">
+  <div>
+    <table width="602" height="307">
+      <tbody>
+        <tr>
+          <td width="150" height="41" align="right">您的姓名：</td>
+          <td><input name="txtName" id="txtName" type="text"  class="text_wenb"/></td>
+        </tr>
+        <tr>
+          <td width="150" height="39" align="right">联系电话：</td>
+          <td><input name="txtTel" id="txtTel" type="text"  class="text_wenb" /></td>
+        </tr>
+        <tr>
+          <td align="right" width="150">电子邮箱：</td>
+          <td><input name="txtEmail" id="txtEmail" type="text"   class="text_wenb"/></td>
+        </tr>
+        <tr>
+          <td width="150" height="43" align="right">留言标题：</td>
+          <td><input name="txtTitle" id="txtTitle" type="text"  class="text_wenb" /></td>
+        </tr>
+        <tr>
+          <td align="right" valign="top" width="150">留言内容：</td>
+          <td><textarea name="txtDetails" rows="2" cols="20" id="txtDetails" class="text_wenb" style="width:280px; height:80px;"></textarea></td>
+        </tr>
+        <tr>
+          <td width="150" height="33" align="right">验证码：</td>
+          <td><input name="txtCode" id="txtCode" type="text" class="text_wenb" style="width:100px;"/>
+            <a onclick="open_window();"> <img id="img_1" src="http://acepackgroup.com/VerifyCode.aspx" alt="点击更换" border="0" /> 点击更换 </a></td>
+        </tr>
+        <tr>
+          <td align="right" width="150"></td>
+          <td><input type="button" value="提交留言"/></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+  </div>
+</div>
+<div style="height:10px; clear:both"></div>
+</div>
+</div>
+
+<div style="clear:both"></div>
+</div>
+<div style="clear:both; cursor:pointer;"></div>
+</div>
+<!--footer-->
+<div id="footer">
+<div class="conent_foter">
+<div class="nav_foot">
+<a>关于百众</a>  |   <a>新闻展会</a>  |   <a>产品展示</a>  |   <a>行业应用 </a> |  <a>解决方案</a>   |   <a>客户服务 </a> |  <a>工作机会 </a> | 
+<a>联系我们</a>
+</div>
+<div style="height:20px;"></div>
+<p>权所有 © 河北百众机电科技有限公司  冀ICP备10204030-1号</p><p>公司网址：www.hbbzjd.com  公司地址：石家庄市 建通街塔南路29号  联系电话：13901624119</p>
+<div style="padding-left:288px; padding-right:100px;">
+<div class="chengxin"><a href="#"><img src="image/a.jpg"></a></div>
+<div class="chengxin"><a href="#"><img src="image/b.jpg"></a></div>
+<div class="chengxin"><a href="#"><img src="image/c.jpg"></a></div>
+</div>
+</div>
+</div>
+</body>
+</html>

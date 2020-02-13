@@ -1,0 +1,858 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>商城首页</title>
+    <link rel="stylesheet" type="text/css" href="style/index.css">
+    <script type="text/javascript" src="js/xiangqye/jquery-1.11.2.min.js"></script>
+    <style>
+        body{background:#fff;}
+        #nav{ height:153px; background: #FFF; width: 100%;}
+         .buy-hlsy_right ul li{position: relative; overflow: hidden;}
+        .buy-hlsy_right ul li .photo{overflow:hidden;}
+        /*.buy-hlsy_right .rsp{width:197px;height:206px;overflow:hidden;position: absolute;background:#000;top:0px;left:0px;}*/
+        .buy-hlsy_right .text{width:197px;height:206px;z-index:100;overflow:hidden;}
+        .buy-hlsy_right .text i{ text-decoration-color:#FC2626; text-decoration:line-through; font-size: 13px;font-style:normal;}
+        .buy-hlsy_right .text input{ background:#FC2626; color:#fff;border: 0;outline: none; font-size: 14px;margin-top: 10px;cursor: pointer; border-radius:3px; height: 30px; width:80px; }
+        .buy-hlsy_right .text input:hover{opacity:0.9;}
+        .buy-hlsy_right .text div{text-align:center;color:#FC2626;font-size:22px;margin-top:60px; }
+        .guundorsop{width:197px;height:206px;z-index:101;background:rgba(0,0,0,0.5);position:absolute;top:0px;left:-197px;}
+        .b-hlsy_main{position: relative;overflow: hidden;}
+        .guundorsop1{ width: 400px; height: 415px;z-index:100;background:rgba(0,0,0,0.5);position:absolute;top:-415px;left:0px;}
+        .guundorsop1 .text1{width:400px;height:415px;z-index:100;overflow:hidden;}
+        .guundorsop1 .text1 div{text-align:center;color:#FC2626;font-size:30px;margin-top:120px; }
+        .guundorsop1 .text1 i{ text-decoration-color:#FC2626; text-decoration:line-through; font-size:15px;font-style:normal;}
+        .guundorsop1 .text1 input{ background:#FC2626;font-family:"微软雅黑"; color:#fff;border: 0;outline: none; font-size:25px;margin-top: 10px;cursor: pointer; border-radius:3px; height:50px; width:150px; }
+        .guundorsop1 .text1 input:hover{opacity:0.9;}
+    </style>
+</head>
+<body>
+<script>
+    $(function(){
+        /*           $(".buy-hlsy_right ul li .guundorsop").hide();*/
+        $(".buy-hlsy_right ul li").hover(function(){
+                    /*$(this).find(".rsp").stop().fadeTo(500,0.5)*/
+                    $(this).find(".guundorsop").stop().animate({left:'0'}, {duration:200})
+                },
+                function(){
+                    /* $(this).find(".rsp").stop().fadeTo(500,0)*/
+                    $(this).find(".guundorsop").stop().animate({left:'-197'}, {duration: "fast"})
+                    $(this).find(".guundorsop").animate({left:'-197'}, {duration: 0})
+                });
+    });
+</script>
+<script>
+    $(function(){
+        /*           $(".buy-hlsy_right ul li .guundorsop").hide();*/
+        $(".b-hlsy_main").hover(function(){
+                    /*$(this).find(".rsp").stop().fadeTo(500,0.5)*/
+                    $(this).find(".guundorsop1").stop().animate({top:'0'}, {duration:200})
+                },
+                function(){
+                    /* $(this).find(".rsp").stop().fadeTo(500,0)*/
+                    $(this).find(".guundorsop1").stop().animate({top:'-415'}, {duration: "fast"})
+                    $(this).find(".guundorsop1").animate({top:'-415'}, {duration: 0})
+                });
+    });
+</script>
+<!--顶部开始-->
+<div id="top">
+    <div class="top-con">
+        <ul>
+            <li><a href="#">登录</a></li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#">会员中心</a></li>
+            <li><a href="#">的我收藏</a></li>
+            <li><a href="#">资讯</a></li>
+            <li><a href="#">问题</a></li>
+            <li><a href="#">反馈</a></li>
+        </ul>
+    </div>
+</div>
+<!--顶部结束-->
+<!--导航区域开始-->
+<div id="nav">
+    <div class="nav-con">
+        <div class="nav-logo"><a href="#"><img src="images/logo.jpg"></a> </div>
+        <  <div class="city-choose">
+        <div class="nice-select" name="nice-select">
+            <input type="text" value="北京" readonly>
+            <ul>
+                <li data-value="0">天津</li>
+                <li data-value="1">上海</li>
+                <li data-value="2">石家庄</li>
+            </ul>
+        </div>
+        <script>
+            $('[name="nice-select"]').click(function(e){
+                $('[name="nice-select"]').find('ul').hide();
+                $(this).find('ul').show();
+                e.stopPropagation();
+            });
+            $('[name="nice-select"] li').hover(function(e){
+                $(this).toggleClass('on');
+                e.stopPropagation();
+            });
+            $('[name="nice-select"] li').click(function(e){
+                var val = $(this).text();
+                var dataVal = $(this).attr("data-value");
+                $(this).parents('[name="nice-select"]').find('input').val(val);
+                $('[name="nice-select"] ul').hide();
+                e.stopPropagation();
+            });
+            $(document).click(function(){
+                $('[name="nice-select"] ul').hide();
+            });
+        </script>
+
+    </div>
+        <div class="contactway"><img src="images/contactway_03.jpg"> </div>
+        <div id="sousuo">
+            <div class="sousuo_med">
+                <div class="i-search">
+                    <div class="form">
+                        <input type="text" class="text" placeholder="婚纱摄影"  accesskey="s" id="key"  >
+                        <input type="button" value="搜索" class="button" onclick="">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="nav-navdh">
+        <div class="navdh-con">
+            <ul>
+                <li><a href="#">首页</a> </li>
+                <li><a href="#">婚纱摄影</a></li>
+                <li><a href="#">婚礼策划</a></li>
+                <li><a href="#">结婚商城</a></li>
+                <li><a href="#">婚礼社区</a></li>
+                <li><a href="#">百花商城</a></li>
+                <li><a href="#">月老婚恋</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--导航区域结束-->
+<!--banner开始-->
+<div id="buymall-banner">
+    <div class="buy-banner_con">
+<div class="buy-banner_left">
+    <ul>
+        <li><a href="">婚礼录像</a></li>
+        <li><a href="">新娘跟妆</a></li>
+        <li><a href="">舞台搭建</a></li>
+        <li><a href="">豪华婚车</a></li>
+        <li><a href="">婚礼策划师</a></li>
+        <li><a href="">婚庆用品</a></li>
+        <li><a href="">婚房装修</a></li>
+        <li><a href="">婚礼酒水</a></li>
+    </ul>
+
+</div>
+<div class="buy-banner_right">
+    
+    <div class="banner_right-tu"><a href=""><img src="images/buymall_03.jpg" alt=""/></a></div>
+    <div><a href=""><img src="images/buymall_07.jpg" alt=""/></a></div>
+    
+</div>
+    </div>
+</div>
+<!--banner结束-->
+<!--内容开始-->
+
+<div class="buymall-con">
+<!--热门名牌开始-->
+    <div class="buy-rmmp" >
+        <div class="buy-rmmp_tit">热门品牌 <span style="font-size:16px;">HOT BRAND</span></div>
+        <div class="buy-rmmp_con">
+            <div class="buy-rmmp_left"><a href=""><img src="images/buymall_11.jpg" alt=""/></a></div>
+            <div class="buy-rmmp_main">
+                <ul>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                    <li><a href=""><img src="images/buymall_13.jpg" alt=""/></a></li>
+                </ul>
+            </div>
+            <div class="buy-rmmp_right"><a href=""><img src="images/buymall_15.jpg" alt=""/></a></div>
+        </div>
+
+    </div>
+<!--热门名牌结束-->
+
+<!--广告图1开始-->
+    <div class="buy-rmmp-gg" ><img src="images/index_55.png"/></div>
+    <!--广告图1结束-->
+
+<!--婚礼司仪开始-->
+    <div class="buy-hlsy">
+<div class="buy-hlsy_left">
+    <div class="bhlsy_tit"></div>
+
+    <div class="bhlsy_con">
+<div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+<div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+<div class="bhlsy_left3">
+    <a href="#">婚礼司仪</a>
+    <a href="">舞台搭建</a>
+    <a href="">灯光舞美</a>
+    <a href="">婚庆用品</a>
+    <a href="">婚礼录像</a>
+    <a href="">豪华婚车</a>
+    <a href="">新娘跟妆</a>
+    <a href="">婚礼策划</a>
+</div>
+    </div>
+</div>
+<div class="b-hlsy_main">
+    <div class="guundorsop1">
+        <div class="text1"><a href="">
+            <div>
+                樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                <input type="button" value="立即预约"/>
+            </div>  </a></div></div>
+    <a href=""><img src="images/buymall_22.jpg" alt=""/></a>
+</div>
+<div class="buy-hlsy_right">
+    <ul>
+
+        <li>
+            <div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div>
+            <a href=""><img src="images/buymall_22.jpg" alt=""/></a>
+
+        </li>
+        <li> <div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li> <div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li> <div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li> <div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li> <div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+    </ul>
+
+
+
+</div>
+    </div>
+<!--婚礼司仪结束-->
+
+
+    <!--灯光舞美开始-->
+    <div class="buy-hlsy">
+<div class="buy-hlsy_left">
+    <div class="bhlsy_tit2"></div>
+    <div class="bhlsy_con">
+<div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+<div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+<div class="bhlsy_left3">
+    <a href="">婚礼司仪</a>
+    <a href="">舞台搭建</a>
+    <a href="">灯光舞美</a>
+    <a href="">婚庆用品</a>
+    <a href="">婚礼录像</a>
+    <a href="">豪华婚车</a>
+    <a href="">新娘跟妆</a>
+    <a href="">婚礼策划</a>
+</div>
+    </div>
+</div>
+<div class="b-hlsy_main"><div class="guundorsop1">
+    <div class="text1"><a href="">
+        <div>
+            樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+            <input type="button" value="立即预约"/>
+        </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></div>
+<div class="buy-hlsy_right">
+    <ul>
+
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+    </ul>
+
+
+</div>
+    </div>
+<!--灯光舞美结束-->
+<!--广告图2开始-->
+<div class="buy-rmmp-gg" ><img src="images/index_55.png"/></div>
+<!--广告图2结束-->
+    <!--婚礼录像开始-->
+    <div class="buy-hlsy">
+<div class="buy-hlsy_left">
+    <div class="bhlsy_tit3"></div>
+    <div class="bhlsy_con">
+<div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+<div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+<div class="bhlsy_left3">
+    <a href="">婚礼司仪</a>
+    <a href="">舞台搭建</a>
+    <a href="">灯光舞美</a>
+    <a href="">婚庆用品</a>
+    <a href="">婚礼录像</a>
+    <a href="">豪华婚车</a>
+    <a href="">新娘跟妆</a>
+    <a href="">婚礼策划</a>
+</div>
+    </div>
+</div>
+<div class="b-hlsy_main"><div class="guundorsop1">
+    <div class="text1"><a href="">
+        <div>
+            樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+            <input type="button" value="立即预约"/>
+        </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></div>
+<div class="buy-hlsy_right">
+    <ul>
+
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+    </ul>
+
+
+</div>
+    </div>
+<!--婚礼录像结束-->
+
+    <!--新娘跟妆开始-->
+    <div class="buy-hlsy">
+<div class="buy-hlsy_left">
+    <div class="bhlsy_tit4"></div>
+    <div class="bhlsy_con">
+<div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+<div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+<div class="bhlsy_left3">
+    <a href="">婚礼司仪</a>
+    <a href="">舞台搭建</a>
+    <a href="">灯光舞美</a>
+    <a href="">婚庆用品</a>
+    <a href="">婚礼录像</a>
+    <a href="">豪华婚车</a>
+    <a href="">新娘跟妆</a>
+    <a href="">婚礼策划</a>
+</div>
+    </div>
+</div>
+<div class="b-hlsy_main"><div class="guundorsop1">
+    <div class="text1"><a href="">
+        <div>
+            樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+            <input type="button" value="立即预约"/>
+        </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></div>
+<div class="buy-hlsy_right">
+    <ul>
+
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        <li><div class="guundorsop">
+            <div class="text"><a href="">
+                <div>
+                    樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                    <input type="button" value="立即预约"/>
+                </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+    </ul>
+
+
+</div>
+    </div>
+<!--新娘跟妆结束-->
+<!--广告图4开始-->
+<div class="buy-rmmp-gg" ><img src="images/index_55.png"/></div>
+<!--广告图4结束-->
+<!--舞台搭建开始-->
+<div class="buy-hlsy">
+    <div class="buy-hlsy_left">
+        <div class="bhlsy_tit5"></div>
+        <div class="bhlsy_con">
+            <div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+            <div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+            <div class="bhlsy_left3">
+                <a href="">婚礼司仪</a>
+                <a href="">舞台搭建</a>
+                <a href="">灯光舞美</a>
+                <a href="">婚庆用品</a>
+                <a href="">婚礼录像</a>
+                <a href="">豪华婚车</a>
+                <a href="">新娘跟妆</a>
+                <a href="">婚礼策划</a>
+            </div>
+        </div>
+    </div>
+    <div class="b-hlsy_main"><div class="guundorsop1">
+        <div class="text1"><a href="">
+            <div>
+                樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                <input type="button" value="立即预约"/>
+            </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></div>
+    <div class="buy-hlsy_right">
+        <ul>
+
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        </ul>
+
+
+    </div>
+</div>
+<!--舞台搭建结束-->
+<!--婚庆用品开始-->
+<div class="buy-hlsy">
+    <div class="buy-hlsy_left">
+        <div class="bhlsy_tit6"></div>
+        <div class="bhlsy_con">
+            <div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+            <div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+            <div class="bhlsy_left3">
+                <a href="">婚礼司仪</a>
+                <a href="">舞台搭建</a>
+                <a href="">灯光舞美</a>
+                <a href="">婚庆用品</a>
+                <a href="">婚礼录像</a>
+                <a href="">豪华婚车</a>
+                <a href="">新娘跟妆</a>
+                <a href="">婚礼策划</a>
+            </div>
+        </div>
+    </div>
+    <div class="b-hlsy_main"><div class="guundorsop1">
+        <div class="text1"><a href="">
+            <div>
+                樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                <input type="button" value="立即预约"/>
+            </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></div>
+    <div class="buy-hlsy_right">
+        <ul>
+
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        </ul>
+
+
+    </div>
+</div>
+<!--婚庆用品结束-->
+<!--广告5开始-->
+<div class="buy-rmmp-gg" ><img src="images/index_55.png"/></div>
+<!--广告图5结束-->
+<!--豪华婚车开始-->
+<div class="buy-hlsy">
+    <div class="buy-hlsy_left">
+        <div class="bhlsy_tit7"></div>
+        <div class="bhlsy_con">
+            <div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+            <div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+            <div class="bhlsy_left3">
+                <a href="">婚礼司仪</a>
+                <a href="">舞台搭建</a>
+                <a href="">灯光舞美</a>
+                <a href="">婚庆用品</a>
+                <a href="">婚礼录像</a>
+                <a href="">豪华婚车</a>
+                <a href="">新娘跟妆</a>
+                <a href="">婚礼策划</a>
+            </div>
+        </div>
+    </div>
+    <div class="b-hlsy_main"><div class="guundorsop1">
+        <div class="text1"><a href="">
+            <div>
+                樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                <input type="button" value="立即预约"/>
+            </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></div>
+    <div class="buy-hlsy_right">
+        <ul>
+
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        </ul>
+
+
+    </div>
+</div>
+<!--豪华婚车结束-->
+<!--婚礼策划开始-->
+<div class="buy-hlsy">
+    <div class="buy-hlsy_left">
+        <div class="bhlsy_tit8"></div>
+        <div class="bhlsy_con">
+            <div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+            <div class="bhlsy_left1"><a href=""><img src="images/buymall_13.jpg" alt=""/></a></div>
+            <div class="bhlsy_left3">
+                <a href="">婚礼司仪</a>
+                <a href="">舞台搭建</a>
+                <a href="">灯光舞美</a>
+                <a href="">婚庆用品</a>
+                <a href="">婚礼录像</a>
+                <a href="">豪华婚车</a>
+                <a href="">新娘跟妆</a>
+                <a href="">婚礼策划</a>
+            </div>
+        </div>
+    </div>
+    <div class="b-hlsy_main"><div class="guundorsop1">
+        <div class="text1"><a href="">
+            <div>
+                樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                <input type="button" value="立即预约"/>
+            </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></div>
+    <div class="buy-hlsy_right">
+        <ul>
+
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+            <li><div class="guundorsop">
+                <div class="text"><a href="">
+                    <div>
+                        樱花树婚纱照<br>¥1500 <i>¥3000</i><br>
+                        <input type="button" value="立即预约"/>
+                    </div>  </a></div></div><a href=""><img src="images/buymall_22.jpg" alt=""/></a></li>
+        </ul>
+
+
+    </div>
+</div>
+<!--婚礼策划结束-->
+<!--广告图6开始-->
+<div class="buy-rmmp-gg" ><img src="images/index_55.png"/></div>
+<!--广告图6结束-->
+</div>
+<!--内容结束-->
+
+<div class="bottom">
+
+    <div class="bottom-con">
+
+        <div class="bottom-con_tit">中国婚庆传媒网 <span>China wedding media network</span></div>
+        <div class="bottom-con_mine">
+            <ul>
+                <li class="con_mine-color">公司地址</li>
+                <li>北京市昌平区沙河松兰堡西孵化器B座11层</li>
+                <li>400-680-8992</li>
+            </ul>
+
+            <ul>
+                <li class="con_mine-color">新手帮助</li>
+                <li>购物流程</li>
+                <li>会员注册</li>
+                <li>预约服务手册</li>
+            </ul>
+
+            <ul>
+                <li class="con_mine-color">商家服务
+
+
+                </li>
+                <li>商家入驻流程</li>
+                <li> 商家常见问题</li>
+                <li>商家店铺装修与管理</li>
+            </ul>
+            <ul>
+                <li class="con_mine-color">合作通道
+                </li>
+                <li>广告服务</li>
+                <li> 项目合作</li>
+                <li> 战略合作</li>
+            </ul>
+            <ul>
+                <img src="images/erweima_18.jpg" alt=""/>
+            </ul>
+            <ol>
+                <div class="con_mine-color">友情链接</div>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#">网站地图</a></li>
+                <li><a href="#">免责申明</a> </li>
+                <li><a href="#">诚聘英才</a></li>
+                <li><a href="#">友情链接</a></li>
+                <li><a href="#">申请店铺</a></li>
+            </ol>
+        </div>
+        <div class="bottom-conbot"></div>
+    </div>
+</div>
+<div class="ydy-bottom">
+    <div class="ydy-bottom-main">
+
+        <div class="bottom-main-img"><img src="images/ydy-bottom_22.jpg" alt=""/></div>
+        <div class="bottom-main-text">版权所有： 新郎官~婚嫁网  工信部网站备案号14008906号-2  京公安网备 110110110110  www.591jh.com <br/>
+            © CopyRight 新郎官~婚嫁网  All Rights Resrved  京ICP备14008906号 <br/>
+            全程技术支持：北京祝天合地文化传媒有限公司</div>
+    </div>
+
+</div>
+</body>
+</html>
