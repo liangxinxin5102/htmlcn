@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>广告企业网</title>
+<link href="css/cssn_whir.css" rel="stylesheet" type="text/css" />
+<script src="script/time.js" type="text/javascript"></script>
+<script src="script/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="script/common.js" type="text/javascript"></script>
+<script src="script/column.js" type="text/javascript"></script>
+<script type=text/javascript src="script/slides.jquery.js"></script>
+</head>
+<body>
+<!--头部-->
+<div id="header">
+  <div class="top">
+    <div class="topT">
+      <div class="loginh"><a href="登陆.html" target="_blank" class="on">请登录</a><a href="注册.html" target="_blank">免费注册</a></div>
+      <div class="time">今天是：<span id="divT"></span></div>
+      <div class="weather">
+        <iframe allowtransparency="true" frameborder="0" width="180" height="36" scrolling="no" src="http://tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=1&bd=0&k=&f=000000&q=1&e=1&a=1&c=58321&w=180&h=36&align=center"></iframe>
+      </div>
+      <div class="set"><a href='http://www.17sucai.com' onClick="this.style.behavior='url(#default#homepage)'; this.setHomePage('http://www.17sucai.com');">设为首页</a><a href="javascript:window.external.AddFavorite('http://www.17sucai.com','广告企业网');">加入收藏</a></div>
+    </div>
+  </div>
+  <!--搜索-->
+  <div class="topM">
+    <div class="logo"><a href="#"><img src="images/logo.jpg" /></a></div>
+    <div class="searchbox">
+      <div class="search_box"> <span class="left l_bg"></span> <span class="right r_bg"></span>
+        <div class="search">
+          <form name=search_form onSubmit="return bottomForm(this);" target="_blank" method=post>
+            <div id="pt1" class="select"> <a id="s0">全站搜索</a>
+              <div style="display:none;" id="pt2" class="part">
+                <p> <a id="s1">广告资讯</a> <a id="s2">分类广告</a> <a id="s3">供求广告</a> <a id="s4">分类广告</a> <a id="s5">资讯</a> <a id="s6">分类广告</a> <a id="s7">资讯</a> <a id="s8">分类广告</a> <a id="s9">广告资讯</a> <a id="s10">广告资讯</a> <a id="s11">供求广告</a> <a id="s12">广告资讯</a> </p>
+              </div>
+            </div>
+            <input id="catid" name="catid" type="hidden" value="7">
+            <input id="q" class="enter" name="infos" onFocus="if(this.value==''){this.value='';}else{this.select();}this.style.color='black';"  value="">
+            <input class="sb" name="Input" type="submit" value="">
+          </form>
+        </div>
+      </div>
+      <div class="hotkeywords">热点：<a href="#" target="_blank">广告资讯</a><a href="#" target="_blank">分类广告</a><a href="#" target="_blank">供求广告</a></div>
+    </div>
+  </div>
+  <!--顶部导航-->
+  <div class="topB">
+    <div class="nav">
+      <ul>
+        <li><a href="index.html" target="_blank" class="on">首页</a></li>
+        <li><a href="行业资讯列表.html" target="_blank">行业资讯</a></li>
+        <li><a href="企业名录列表.html" target="_blank">企业名录</a></li>
+        <li><a href="#" target="_blank">电子期刊</a></li>
+        <li><a href="供求信息列表.html" target="_blank">供求信息</a></li>
+        <li><a href="招聘列表.html" target="_blank">招聘信息</a></li>
+        <li><a href="专题专栏.html" target="_blank">专题专栏</a></li>
+        <li><a href="#" target="_blank">论坛专区</a></li>
+        <li><a href="政策法规列表.html" target="_blank">政策法规</a></li>
+        <li><a href="#" target="_blank">广告投放</a></li>
+        <li><a href="关于我们.html" target="_blank">联系我们</a></li>
+      </ul>
+    </div>
+    <div class="city"> <span>地方站：</span><a href="#" target="_blank">合肥市</a> | <a href="#" target="_blank">六安市</a> |<a href="#" target="_blank"> 芜湖市</a> | <a href="#" target="_blank">黄山市</a> | <a href="#" target="_blank">池州市</a> | <a href="#" target="_blank">马鞍山市</a> | <a href="#" target="_blank"> 淮北市</a> | <a href="#" target="_blank">阜阳市</a> | <a href="#" target="_blank"> 安庆市</a> | <a href="#" target="_blank"> 宣城市</a> | <a href="#" target="_blank"> 铜陵市</a> | <a href="#" target="_blank"> 滁州</a> | <a href="#" target="_blank">巢湖</a> | <a href="#" target="_blank">蚌埠</a> | <a href="#" target="_blank">淮南</a> | <a href="#" target="_blank">宿州</a> | <a href="#" target="_blank">亳州</a> </div>
+  </div>
+</div>
+<!--所在位置-->
+<div class="location">
+  <div class="postion">
+    <div style="float:left"><img src="images/psl.jpg" /></div>
+    <div class="wz">您当前的位置： <a href="#">首页</a> > <span>供求信息</span> </div>
+    <div style="float:left"><img src="images/psr.jpg" /></div>
+  </div>
+</div>
+<!--广告-->
+<div class="clear_0"></div>
+<!--中间内容-->
+<div class="mainsub">
+  <!--左侧内容-->
+  <div class="left702">
+  <div class="ad2"><img src="images/zcad.jpg" /></div>
+    <div class="titlei">
+      <h1><span id="one1" onmouseover="setTab('one',1,3)" class="hover">广告法规</span><span id="one2" onmouseover="setTab('one',2,3)">广告商标</span><span id="one3" onmouseover="setTab('one',3,3)">地方政策</span></h1>
+    </div>
+    <div class="supply" id="con_one_1">
+      <!--信息列表-->
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="page"><span class="prev">上一页</span><span class="num"><a href="#" class="on">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a></span><span class="next"><a href="#">下一页</a></span><em>217/5</em>转到
+        <input name="textfield" type="text" value="5" class="input"/>
+        页
+        <input type="submit" name="Submit" value="GO" class="btn"/>
+      </div>
+    </div>
+	<div class="supply" id="con_one_2" style="display:none">
+      <!--信息列表-->
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="page"><span class="prev">上一页</span><span class="num"><a href="#" class="on">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a></span><span class="next"><a href="#">下一页</a></span><em>217/5</em>转到
+        <input name="textfield" type="text" value="5" class="input"/>
+        页
+        <input type="submit" name="Submit" value="GO" class="btn"/>
+      </div>
+    </div>
+    <div class="supply" id="con_one_3" style="display:none">
+      <!--信息列表-->
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="list5">
+        <div class="title14">
+          <h2>·<a href="#" target="_blank">安徽环宇智业给铜陵三泉现代农业的策划邀约函</a></h2>
+        </div>
+        <div class="list_con">我们知道，电子商务属战略性新兴产业，无污染，占地少，产值效益高，与传统产业相比，电子商务通过虚拟交易创...</div>
+        <div class="fbtime"><span style="float:left;">发布时间：2014-06-16</span><span style="float:right">
+          <!-- JiaThis Button BEGIN -->
+          <div class="jiathis_style"> <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt" target="_blank"><img src="http://v2.jiathis.com/code_mini/images/btn/v1/jiathis1.gif" border="0" /></a> <a class="jiathis_counter_style_margin:3px 0 0 2px"></a> </div>
+          <script type="text/javascript" >
+var jiathis_config={
+	summary:"",
+	shortUrl:false,
+	hideMore:false
+}
+</script>
+          <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js" charset="utf-8"></script>
+          <!-- JiaThis Button END -->
+          </span></div>
+      </div>
+      <div class="page"><span class="prev">上一页</span><span class="num"><a href="#" class="on">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a></span><span class="next"><a href="#">下一页</a></span><em>217/5</em>转到
+        <input name="textfield" type="text" value="5" class="input"/>
+        页
+        <input type="submit" name="Submit" value="GO" class="btn"/>
+      </div>
+    </div>
+  </div>
+  <!--右侧内容-->
+  <div class="right278">
+    <!--最新供求信息-->
+    <div class="zxgqxx">
+      <div class="title6">
+        <h1>最新<span>供求</span>信息</h1>
+      </div>
+      <div class="latest">
+        <div class="leibie">【供应】</div>
+        <div class="l_infor">
+          <div class="l_title"><a href="#">高档月饼礼盒定制 </a></div>
+          <div class="l_gs"><a href="#">合肥博涵包装彩印有限公司</a></div>
+          <div class="l_time">2014.6.20</div>
+        </div>
+      </div>
+      <div class="latest">
+        <div class="leibie">【供应】</div>
+        <div class="l_infor">
+          <div class="l_title"><a href="#">高档月饼礼盒定制 </a></div>
+          <div class="l_gs"><a href="#">合肥博涵包装彩印有限公司</a></div>
+          <div class="l_time">2014.6.20</div>
+        </div>
+      </div>
+      <div class="latest">
+        <div class="leibie">【供应】</div>
+        <div class="l_infor">
+          <div class="l_title"><a href="#">高档月饼礼盒定制 </a></div>
+          <div class="l_gs"><a href="#">合肥博涵包装彩印有限公司</a></div>
+          <div class="l_time">2014.6.20</div>
+        </div>
+      </div>
+      <div class="latest" style="border:none">
+        <div class="leibie">【供应】</div>
+        <div class="l_infor">
+          <div class="l_title"><a href="#">高档月饼礼盒定制 </a></div>
+          <div class="l_gs"><a href="#">合肥博涵包装彩印有限公司</a></div>
+          <div class="l_time">2014.6.20</div>
+        </div>
+      </div>
+    </div>
+	<!--广告-->
+	<div class="ad1"><a href="#"><img src="images/gqad.jpg" /></a></div>
+	<!--行业视点-->
+	<div class="column">
+	<div class="title7"><h1>行业视点</h1></div>
+	<ul class="list2">
+	<li>·<a href="#" target="_blank">转型或将成为今年快印业发展要点</a></li>
+	<li>·<a href="#" target="_blank">包装材料绿色化将成日化产品包装趋势</a></li>
+	<li>·<a href="#" target="_blank">印刷企业：集聚核心竞争力 定位...</a></li>
+	<li>·<a href="#" target="_blank">浅析我国包装印刷行业发展现状</a></li>
+	<li>·<a href="#" target="_blank">浅析：危机背后 中国印刷行业的症结</a></li>
+	<li>·<a href="#" target="_blank">小标签有望引领未来印刷大潮</a></li>
+	<li>·<a href="#" target="_blank">浅析：危机背后 中国印刷行业的症结</a></li>
+	<li>·<a href="#" target="_blank">小标签有望引领未来印刷大潮</a></li>
+	</ul>
+	</div>
+	<!--商会动态-->
+	<div class="column">
+	<div class="title7"><h1>商会动态</h1></div>
+	<ul class="list2">
+	<li>·<a href="#" target="_blank">转型或将成为今年快印业发展要点</a></li>
+	<li>·<a href="#" target="_blank">包装材料绿色化将成日化产品包装趋势</a></li>
+	<li>·<a href="#" target="_blank">印刷企业：集聚核心竞争力 定位...</a></li>
+	<li>·<a href="#" target="_blank">浅析我国包装印刷行业发展现状</a></li>
+	<li>·<a href="#" target="_blank">浅析：危机背后 中国印刷行业的症结</a></li>
+	<li>·<a href="#" target="_blank">小标签有望引领未来印刷大潮</a></li>
+	<li>·<a href="#" target="_blank">浅析：危机背后 中国印刷行业的症结</a></li>
+	<li>·<a href="#" target="_blank">小标签有望引领未来印刷大潮</a></li>
+	</ul>
+	</div>
+	<!--广告-->
+	    <div class="ad1">
+      <div id="slides" class="banner">
+        <div class="bannerImg">
+          <div class="slides_container">
+            <div id="banner_pic_1"><a href="#" target="_blank"><img  src="images/gqad1.jpg" width="278" height="273"></a></div>
+            <div style="DISPLAY: none" id="banner_pic_2"><a href="#" target="_blank"><img  src="images/gqad1.jpg" width="278" height="273"></a></div>
+            <div style="DISPLAY: none" id="banner_pic_3"><a href="#" target="_blank"><img  src="images/gqad1.jpg" width="278" height="273"></a></div>
+            <div style="DISPLAY: none" id="banner_pic_4"><a href="#" target="_blank"><img  src="images/gqad1.jpg" width="278" height="273"></a></div>
+            <div style="DISPLAY: none" id="banner_pic_5"><a href="#" target="_blank"><img  src="images/gqad1.jpg" width="278" height="273"></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+	//保证导航栏背景与图片轮播背景一起显示
+	$("#mainbody").removeClass();
+	$("#mainbody").addClass("index_bg05");
+</script>
+    <script>
+	$(function(){
+		//滚动Banner图片的显示
+		$('#slides').slides({
+			preload: false,
+			preloadImage: 'images/loading.gif',
+			effect: 'fade',
+			slideSpeed: 400,
+			fadeSpeed: 100,
+			play: 3000,
+			pause: 100,
+			hoverPause: true
+		});
+        	$('#js-news').ticker();
+    	});
+	</script>
+  </div>
+</div>
+<div class="clear_0"></div>
+<!--底部-->
+<div id="footer">
+  <div class="link"><a href="#">关于我们</a>　|　<a href="#">联系我们</a>　|　<a href="#">加盟代理</a>　|　<a href="#">法律声明</a>　|　<a href="#">广告投放</a>　|　<a href="#">电子期刊</a>　|　<a href="#">在线留言</a></div>
+  <div class="copyright">Copyright 2014 广告企业网 All Rights Reserved. 皖ICP备07040713号  Designed </div>
+</div>
+</body>
+</html>

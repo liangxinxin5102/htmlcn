@@ -1,0 +1,744 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--[if IE]>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<script>
+if(navigator.appVersion.match(/6./i)=="6." || navigator.appVersion.match(/7./i)=="7." || navigator.appVersion.match(/8./i)=="8." || navigator.appVersion.match(/9./i)=="9."){
+ alert('尊敬的客户，您使用的浏览器版本过低，会造成文件不兼容的情况，为了获得较好的体验，请尝试使用IE10或以上版本的浏览器访问本网站！');
+}
+</script>
+<![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>卓码名片</title>
+<meta name="description" content="Mobile Apps Landing Page for Marketing"/>
+<meta name="keywords" content="mobile apps, landing page, responsive website, marketing"/>
+<meta name="author" content="Jenn Pereira"/>
+<link rel="icon" type="themes/web/fengsu/member/image/png" href="./themes/web/fengsu/member/img/favicon.ico"/>
+<link href="css/bootstrap.min_1.css" rel="stylesheet">
+<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/flexslider.css" rel="stylesheet">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/animate.css">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<script src="js/modernizr.custom.12691.js"></script>
+<style type="text/css">
+</style>
+</head>
+<body>
+<div style='position:fixed;top:12%;left:95%;z-index:10000;'>
+	<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2130846081&site=qq&menu=yes"><img border="0" style='height:100%;width:100%' src="picture/637b916d11284034b6722ec2027eabb0.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+</div>
+<div style="clear:both;">
+</div>
+<div style='position:fixed;top:30%;left:95%;z-index:10000;'>
+	<a onClick="Qrcode();"><img border="0" style='height:100%;width:100%' src="picture/kefuqrcode2.png" alt="客服二维码" title="客服二维码"/></a>
+</div>
+<div style="clear:both;">
+</div>
+<div class="modal fade" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h3 class="modal-title" align='center' style='color:black'>客服二维码</h3>
+			</div>
+			<div class="modal-body" style='text-align:center'>
+				<img src="picture/kefu.png">
+			</div>
+		</div>
+	</div>
+</div>
+<div style='position:fixed;top:34%;left:95%;z-index:10000;'>
+	<a onClick="Qrcode2();"><img border="0" style='height:100%;width:100%' src="picture/kefuqrcode.png" alt="微信公众号" title="微信公众号"/></a>
+</div>
+<div style="clear:both;">
+</div>
+<div class="modal fade" id="myModal2">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h3 class="modal-title" align='center' style='color:black'>微信公众号</h3>
+			</div>
+			<div class="modal-body" style='text-align:center'>
+				<img src="picture/gotop.png">
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+function Qrcode(){
+	 $("#myModal").modal('show');
+	 $("#myModal2").modal('hide');
+}
+function Qrcode2(){
+	 $("#myModal2").modal('show');
+	 $("#myModal").modal('hide');
+}
+</script>
+<script src="js/jquery.min_1.js"></script>
+<script src="js/layer.js"></script>
+<script type="text/javascript">
+	function btnSubmitClick(){
+		$("#loginForm").submit();
+	}
+	function checkForm(obj){
+		var u=$("#username").val();
+		var p=$("#password").val();
+			//cookie.set('remember', 1);
+		if(u==""){
+			layer.msg('请输入登录账号！', {icon: 2, time:1000});
+			return false;
+		}
+		if(p==""){
+			layer.msg('请输入密码！',  {icon: 2, time:1000});
+			return false;
+		}
+		return true;
+	}
+	$(function(){
+		setTimeout(function(){
+			$('#preloader').css('display','none');	
+		},1000);	
+	});
+</script>
+<div id="preloader" style="">
+	<div id="status" style="">
+		&nbsp;
+	</div>
+</div>
+<section id="navigation" class="navbar-fixed-top not-visible-nav">
+<div class="menu-position">
+	<div class="nav-logo">
+		<a href="index.html" class="logo"><img src="picture/nav-logo.png" alt="logo"></a>
+	</div>
+	<a class="mini-nav-button"><i class="nav-fa fa fa-bars"></i></a>
+	<div class="nav-menu">
+		<ul class="nav">
+			<li class="active"><a href="#home" class="scroll"><strong>首页</strong></a></li>
+			<li class="#"><a href="#about" class="scroll"><strong>功能介绍</strong></a></li>
+			<li class="#"><a href="#features" class="scroll"><strong>产品亮点</strong></a></li>
+			<li class="#"><a href="#team" class="scroll"><strong>团队</strong></a></li>
+			<li class="#"><a href="#screenshots" class="scroll"><strong>产品界面</strong></a></li>
+			<li class="#"><a href="#downloads" class="scroll"><strong>立即试用</strong></a></li>
+			<li class="#"><a href="#contact" class="scroll"><strong>联系我们</strong></a></li>
+		</ul>
+	</div>
+</div>
+</section><section id="home" class="banner" style="height: 750px;">
+<div id="bannerSlider" class="carousel carousel-fade slide" data-ride="carousel">
+	<ol class="carousel-indicators waypoint">
+		<li data-target="#bannerSlider" data-slide-to="0" class="active"></li>
+		<li data-target="#bannerSlider" data-slide-to="1" class=""></li>
+		<li data-target="#bannerSlider" data-slide-to="2" class=""></li>
+		<li data-target="#bannerSlider" data-slide-to="3" class=""></li>
+	</ol>
+	<div class="carousel-inner">
+		<div class="item active slider1">
+			<div class="carousel-caption">
+				<div class="container">
+					<div class="col-md-12">
+						<div class="content">
+							<a href="#about" class="scroll wow bounceIn"><img src="picture/logo.png" alt="mobile-apps"></a><br>
+							<div class="divider-top">
+							</div>
+							<h1 class="wow bounce"><span class="highlight">卓码</span>名片</h1>
+							<div class="divider">
+							</div>
+							<h3>让销售变得更简单！</h3>
+							<br>
+							<div class='getToHere0'>
+								<div id='divLogin'>
+									<form id="loginForm" action="" method="post" target="_top" onSubmit="return checkForm(this);">
+										<input type="hidden" name="token" value="b1c1c5d9">
+										<div class="wow bounceInRight loginDiv">
+											<div>
+												<input type="text" placeholder="登录账号" autocomplete="off" name="username" id="username" style="text-indent:0.6em;width:208px;background-color:white;height:25px;">
+											</div>
+											<div>
+												<input type="password" placeholder="密码" autocomplete="off" name="password" id="password" style="text-indent:0.6em;width:208px;background-color:white;height:25px;margin-top:3px">
+											</div>
+											<div style="margin-right:133px;margin-top:-3px;">
+												<input id="remember" type="checkbox" style='margin-top:5px;' value="1" checked><label for="remember"><font color="#FFFFFF">记住密码</font></label>
+											</div>
+										</div>
+										<div class="wow bounceInLeft">
+											<input type="submit" id="submit" name="submit" class="subscribe-btn" value="登录" style='width:208px;'>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="phone1 wow bounceInUp" data-wow-delay="0.4s">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="item slider2">
+			<div class="carousel-caption">
+				<div class="container">
+					<div class="col-md-12">
+						<div class="content">
+							<a href="#about" class="scroll wow bounceIn"><img src="picture/logo.png" alt="mobile-apps"></a><br>
+							<div class="divider-top">
+							</div>
+							<h1><span class="highlight">卓码</span>名片</h1>
+							<div class="divider">
+							</div>
+							<h3>一键保存至手机通讯录 </h3>
+							<h3>一键通话 一键发送短信功能</h3>
+							<br>
+							<div class='getToHere1'>
+							</div>
+							<div class="phone2 wow bounceInUp" data-wow-delay="0.4s">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="item slider3">
+			<div class="carousel-caption">
+				<div class="container">
+					<div class="col-md-12">
+						<div class="content">
+							<a href="#about" class="scroll wow bounceIn"><img src="picture/logo.png" alt="mobile-apps"></a><br>
+							<div class="divider-top">
+							</div>
+							<h1><span class="highlight">卓码</span>名片</h1>
+							<div class="divider">
+							</div>
+							<h3>即刻，让世界认识你！</h3>
+							<h3>专属你的名片</h3>
+							<br>
+							<div class='getToHere2'>
+							</div>
+							<div class="phone3 wow bounceInUp" data-wow-delay="0.4s">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="item slider4">
+			<div class="carousel-caption">
+				<div class="container">
+					<div class="col-md-12">
+						<div class="content">
+							<a href="#about" class="scroll wow bounceIn"><img src="picture/logo.png" alt="mobile-apps"></a><br>
+							<div class="divider-top">
+							</div>
+							<h1><span class="highlight">卓码</span>名片</h1>
+							<div class="divider">
+							</div>
+							<h3>一个包罗万象的操作平台</h3>
+							<h3>更好的兼容性、更便捷的操作性、更直观的数据分析</h3>
+							<br>
+							<div class='getToHere3'>
+							</div>
+							<div class="phone4 wow bounceInUp" data-wow-delay="0.4s">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<a class="left carousel-control" href="#bannerSlider" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a><a class="right carousel-control" href="#bannerSlider" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+<div style="clear: both;">
+</div>
+</section>
+<script type="text/javascript">
+			$(function() {
+				var time1;//定时触发器
+				 var TimeFn = null;
+				  $('#bannerSlider').carousel({
+					  interval: false
+					}); 	
+				var number=0;
+				$('a[data-slide="prev"]').bind('click',function(){
+					clearTimeout(TimeFn);
+					number=number-1;
+					if(number<0){
+						number=3;
+					}
+					clearInterval(time1);
+					setTimeout(showForm,500);	
+					  time1=setInterval(triggleNext,5000);
+				});
+				$('a[data-slide="prev"]').bind('dblclick',function(){
+					clearTimeout(TimeFn);
+					number=number-1;
+					if(number<0){
+						number=3;
+					}
+					clearInterval(time1);
+					setTimeout(showForm,500);	
+					  time1=setInterval(triggleNext,5000);
+				});
+				$('a[data-slide="next"]').bind('click',function(){
+					clearTimeout(TimeFn);
+					number=number+1;
+					if(number>3){
+						number=0;
+					}
+					clearInterval(time1);
+					setTimeout(showForm,500);	
+					  time1=setInterval(triggleNext,5000);
+				});
+				$('a[data-slide="next"]').bind('dblclick',function(){
+					clearTimeout(TimeFn);
+					number=number-1;
+					if(number<0){
+						number=3;
+					}
+					clearInterval(time1);
+					setTimeout(showForm,500);	
+					  time1=setInterval(triggleNext,5000);
+				});
+				 function showForm(){
+		            	var sss=$('#divLogin').clone(true);
+		            	$('#divLogin').remove();
+						sss.appendTo('.getToHere'+number);	
+		            }
+				//暂停   or 触发轮播事件	 
+                  $("input#username").focus(function(){
+                	clearInterval(time1);
+				 }); 
+                  $("input#password").focus(function(){
+                  	clearInterval(time1);
+  				 });
+                var nameFocus=$("input#username").is(":focus");
+                var pwdFocus=$("input#password").is(":focus");                
+               if(false==nameFocus && false==pwdFocus){
+            	   time1=setInterval(triggleNext,5000);           	 
+               }
+                  $("#username").blur(function(){
+                	time1=setInterval(triggleNext,5000);
+				 });
+                 $("#password").blur(function(){
+                 	time1=setInterval(triggleNext,5000);
+ 				 }); 
+				function triggleNext(){
+					$('a[data-slide="next"]').trigger('click');
+				}
+			});
+			/* function stopSlider(){
+				$("#bannerSlider").carousel('pause');
+			} */
+      </script>
+<section id="about">
+<div class="container">
+	<div class="col-md-12">
+		<div class="about wow bounce">
+			<h2>功能介绍<span>一站式营销策划、培训、推广、资源整合服务</span></h2>
+			<div class="divider add-bottom">
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-4 wow bounceIn" style="margin-top:-30px;">
+			<img src="picture/1.png" class="img-responsive" alt="mobile-apps">
+		</div>
+		<div class="col-md-4 col-sm-4 add-top">
+			<div class="list wow fadeInUp">
+				<img class="flat-icons" src="picture/cog-icons.png" alt="flaticons">
+				<h5>[数字化更环保]</h5>
+				<p>
+					基于移动互联网和二维码技术，名片电子化、信息数字化，无需印刷，比纸质名片更低碳环保。
+				</p>
+			</div>
+			<div class="list wow fadeInUp" data-wow-delay="0.4s">
+				<img class="flat-icons" src="picture/brush-icons.png" alt="flaticons">
+				<h5>[交换、分享更便捷]</h5>
+				<p>
+					拇指点一点，好友即可把您的名片信息保存至手机。还可通过短信、邮件、微博、微信等方式一键分享给好友。
+				</p>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-4 add-top">
+			<div class="list wow fadeInUp" data-wow-delay="0.2s">
+				<img class="flat-icons" src="picture/pencil-icons.png" alt="flaticons">
+				<h5>[海量精品模板]</h5>
+				<p>
+					根据行业、性别、年龄、职业等不同需求设计大量精美名片模板，总有一款能匹配您的身份，能秀出您的个人魅力。
+				</p>
+			</div>
+			<div class="list wow fadeInUp" data-wow-delay="0.6s">
+				<img class="flat-icons" src="picture/mobile-icons.png" alt="flaticons">
+				<h5>[管理方便]</h5>
+				<p>
+					名片信息随时随地任意修改，省去因信息变更而重新设计、印刷等繁杂工序。好友只需访问您的微名片地址，即可获取您的最新联系方式。再也不用担心由于联系方式变更，导致与好友失去联系。
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section><section id="features">
+<div class="container">
+	<div class="col-md-12">
+		<div class="features wow bounce add-bottom">
+			<h2>产品亮点<span>在移动互联网实现了企业名片与个人名片并存，而且操作简单，传播快，强大的功能将成为商家不可或缺的依赖性产品。</span></h2>
+			<div class="divider add-bottom">
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-4">
+			<div class="list wow fadeInUp">
+				<img class="flat-icons" src="picture/thumbsup-icons.png" alt="responsive">
+				<h5>视觉设计</h5>
+				<p>
+					我们相信每个客户企业都有它的个性，就如它的每个公司客户的传奇性一般。如何将它的个性发光发亮，我们一直都专研此道。从视觉，颜色、版式、个人喜好、
+呈现载体等，每一个元素都寄托了它的灵魂，每套卓码微名片我们都赋予它强大的灵魂。
+				</p>
+			</div>
+			<div class="list wow fadeInUp" data-wow-delay="0.4s">
+				<img class="flat-icons" src="picture/diamond-icons.png" alt="responsive">
+				<h5>互动转发</h5>
+				<p>
+					触摸移动互联网革命！我们基于目前微名片增加了图片文章功能，用户可以自行编写文章转发，通过转发获得更多人的访问带来更多的商机！
+				</p>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-4">
+			<div class="list wow fadeInUp" data-wow-delay="0.2s">
+				<img class="flat-icons" src="picture/html5-icons.png" alt="responsive">
+				<h5>便捷美观</h5>
+				<p>
+					我们基于目前客户上网方式，设计了一系列的快捷功能：一键短信、一键拨号、一键导航等。此外我们所设计的多种风格的底部快捷菜单，让您的名片高大上。
+				</p>
+			</div>
+			<div class="list wow fadeInUp" data-wow-delay="0.6s">
+				<img class="flat-icons" src="picture/video-icons.png" alt="responsive">
+				<h5>微信功能</h5>
+				<p>
+					将微信与名片融为一体！微信用户日益增涨，微信不乏是个很好的营销途径。综合微信特点我们设计了自动图文回复、文字回复、语音回复、音乐回复等功能板块；为增加粉丝粘度，我们开发了粉丝管理、信息群发等功能。
+				</p>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-4 wow bounceIn" style="margin-top:-30px;">
+			<img src="picture/2.png" class="img-responsive" alt="responsive">
+		</div>
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section><section id="action">
+<div class="container">
+	<div class="col-md-12 center">
+		<div class="content-action wow bounce">
+			潜力巨大、引领潮流
+		</div>
+		<h3>本产品已经推出，以其强大、实用的功能，将改变企业和个人交换名片的习惯。</h3>
+		<h3>时尚、实用、创新，引领交际新朝流。</h3>
+		<br>
+		<a href="#benefits" class="btn btn-learn btn-learna fa fa-plus scroll wow bounceInLeft">了解更多</a><a href="#downloads" class="btn btn-download btn-downloada fa fa-download scroll wow bounceInRight">立即试用</a>
+	</div>
+</div>
+</section><section id="team">
+<div class="container">
+	<div class="col-md-12">
+		<div class="team wow bounce add-bottom">
+			<h2>我们的团队<span>移动互联网正在改变我们身边的一切，每一个行业都应该从中受益，我们也希望和你一起推动这种进步！</span></h2>
+			<div class="divider add-bottom">
+			</div>
+		</div>
+		<ul class="grid cs-style-3 cs-hover">
+			<li class="wow fadeInRightBig"><figure><img src="picture/1.png" alt="img01"><figcaption>
+			<h3>Jimi</h3>
+			<h5>高级电商运营总经理 卓码名片创始人</h5>
+			<a href="#"><span class="social-icon fa fa-facebook-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-twitter-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-linkedin-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-google-plus-square fa-2x"></span></a></figcaption></figure></li>
+			<li class="wow fadeInUpBig"><figure><img src="picture/2.png" alt="img01"><figcaption>
+			<h3>Vincent</h3>
+			<h5>资深电商操盘手 卓码名片创始人</h5>
+			<a href="#"><span class="social-icon fa fa-facebook-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-twitter-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-linkedin-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-google-plus-square fa-2x"></span></a></figcaption></figure></li>
+			<li class="wow fadeInLeftBig"><figure><img src="picture/3.png" alt="img01"><figcaption>
+			<h3>Gerry</h3>
+			<h5>卓码名片高级技术总监</h5>
+			<a href="#"><span class="social-icon fa fa-facebook-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-twitter-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-linkedin-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-google-plus-square fa-2x"></span></a></figcaption></figure></li>
+			<li class="wow fadeInRightBig"><figure><img src="picture/4.png" alt="img01"><figcaption>
+			<h3>Alex</h3>
+			<h5>首席电商操盘手</h5>
+			<a href="#"><span class="social-icon fa fa-facebook-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-twitter-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-linkedin-square fa-2x"></span></a><a href="#"><span class="social-icon fa fa-google-plus-square fa-2x"></span></a></figcaption></figure></li>
+		</ul>
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section><section id="benefits">
+<div class="container">
+	<div class="col-md-12">
+		<div class="benefits wow bounce add-bottom">
+			<h2>更多功能 完美呈现<span>看到的是细节，感受到的是用心！</span></h2>
+			<div class="divider add-bottom">
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-4">
+			<div class="list wow bounceInLeft">
+				<img class="flat-icons" src="picture/pc-icons.png" alt="html5">
+				<h5>海量模板 智能匹配</h5>
+				<p>
+					每个微名片前端都是有HTML5+CSS3开发，从功能开发到微名片上线维护，我们一如既往地根据用户的需求、市场环境、个人信息等进行综合分析并提供真实可靠的解决方案，有效提升个人形象及企业形象。
+				</p>
+			</div>
+			<div class="list wow bounceInLeft">
+				<img class="flat-icons" src="picture/flag-icons.png" alt="html5">
+				<h5>丰富的编辑器功能</h5>
+				<p>
+					带来巨大的商机！设有标题/正文、图片各种常见素材编辑排版，就算你是小白也能做出高大上的名片。
+				</p>
+			</div>
+			<div class="list wow bounceInLeft">
+				<img class="flat-icons" src="picture/search-icons.png" alt="html5">
+				<h5>实时查看访问统计数据</h5>
+				<p>
+					随时打开查看入口，轻松掌握实时名片流量统计。
+				</p>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-4 wow bounceIn" style="margin-top:-30px;">
+			<img src="picture/3.png" class="img-responsive center" alt="html5">
+		</div>
+		<div class="col-md-4 col-sm-4">
+			<div class="list wow bounceInRight">
+				<img class="flat-icons" src="picture/rocket-icons.png" alt="html5">
+				<h5>能祝福贺卡 高调送祝福</h5>
+				<p>
+					我们开发了多种类型的祝福贺卡，扔掉传统的短信祝福吧！让您的祝福从此以后高大上！
+				</p>
+			</div>
+			<div class="list wow bounceInRight">
+				<img class="flat-icons" src="picture/coffee-icons.png" alt="html5">
+				<h5>留言功能</h5>
+				<p>
+					手机上实时查看留言内容，不错过任何一条有价值的留言。
+				</p>
+			</div>
+			<div class="list wow bounceInRight">
+				<img class="flat-icons" src="picture/papers-icons.png" alt="html5">
+				<h5>地图位置导航</h5>
+				<p>
+					精准定位，轻松导航，让客户轻松与您会面！
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section><section id="video">
+<div class="row wow fadeIn">
+	<div class="video-bg" style="padding-top:60px;">
+		<a class="popup-vimeo" href="http://player.vimeo.com/video/66737183?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff"><i class="play-icon fa-play-circle-o fa-3x"></i></a>
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section>
+<div style="padding-top:80px;">
+</div>
+<section id="screenshots">
+<div class="container">
+	<div class="main">
+		<div id="ac-wrapper" class="ac-wrapper">
+			<h2 style='font-size:40px'>功能界面 尽在掌握<span>交互界面简洁大方、易于操作</span></h2>
+			<div class="ac-device">
+				<a href="#"><img src="picture/1.jpg" alt="screenshots"></a>
+				<h3 class="ac-title">基于移动互联网和二维码技术。</h3>
+				<nav>
+				<p>
+					微名片除了可以展示常规名片信息外，还可与微博、微信进行捆绑，展示更丰富个人信息，是拓展业务的必备工具。
+				</p>
+				<span>&lt;</span><span>&gt;</span></nav>
+			</div>
+			<div class="ac-grid">
+				<a href="#"><img src="picture/1.jpg" alt="img1"><span>快分享、易存储</span></a><a href="#"><img src="picture/2.jpg" alt="img1"><span>永久保“鲜”</span></a><a href="#"><img src="picture/3.jpg" alt="img1"><span>海量精美模板</span></a><a href="#"><img src="picture/4.jpg" alt="img1"><span>方便、快捷、时尚</span></a><a href="#"><img src="picture/5.jpg" alt="img1"><span>引领商务社交新时尚。</span></a><a href="#"><img src="picture/6.jpg" alt="img1"><span>随时随地轻松分享。</span></a><a href="#"><img src="picture/7.jpg" alt="img1"><span>行业资讯任性传播。</span></a><a href="#"><img src="picture/8.jpg" alt="img1"><span>让销售变得更简单！</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section><section id="downloads">
+<div class="container">
+	<div class="col-md-12">
+		<div class="downloads wow bounce add-bottom animated" style="visibility: visible;">
+			<h2>卓码名片提供行业一体化营销解决方案<span class="btn-danger">我们致力于通过移动互联网来改变整个传统软件行业，做智慧营销领导者。</span></h2>
+			<div class="divider add-bottom">
+			</div>
+		</div>
+		<div class="wow fadeIn STYLE3 animated" style="visibility: visible;">
+			<div align="center" class="STYLE8" style='font-size:18px;font-weight:bold'>
+				    珠海风速网络科技有限公司2015年已获得天使投资，目前正处于高速发展时期。公司汇聚了一批在软件开发、营销策划等多个领域的专业技术人才，形成了从信息化项目的策划、开发、管理、营销的全程服务体系和专业服务团队，具备强大的研发和推广能力, 以高素质的人才、精湛的专业技术为基础，坚持以客户为先的服务理念，为客户提供完善的咨询、营销策划服务。
+			</div>
+		</div>
+		<br>
+	</div>
+	<br>
+	<div class="divider">
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section><section id="counter">
+<div class="container">
+	<div class="col-md-12">
+		<div class="col-md-3 col-xs-6">
+			<h1 class="count">13121</h1>
+			<h6>用户数</h6>
+		</div>
+		<div class="col-md-3 col-xs-6">
+			<h1 class="count">12057</h1>
+			<h6>注册渠道用户</h6>
+		</div>
+		<div class="col-md-3 col-xs-6">
+			<h1 class="count">26038</h1>
+			<h6>登录使用次数</h6>
+		</div>
+		<div class="col-md-3 col-xs-6">
+			<h1 class="count">283</h1>
+			<h6>持续更新周期</h6>
+		</div>
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section><section id="testimonials">
+<div class="quote">
+	<div class="container">
+		<div class="col-md-12">
+			<div class="flexslider center">
+				<ul class="slides">
+					<li>
+					<div>
+						<span class="STYLE5">欢迎使用卓码名片移动互联网营销平台。卓码名片简约而不简单！让您丢掉繁琐与复杂的纸张名片，独一无二的排版设计体现您与您的企业高端潮流和高尊贵身份。</span><span class="testimonial"></span>
+					</div>
+					<div class="divider">
+					</div>
+					<img class="center" src="picture/1.jpg" alt="client"><br>
+					<span class="client-info">jimi</span><span>| CEO</span>
+					<div class="site-info">
+						 www.zhuoma360.com
+					</div>
+					</li>
+					<li>
+					<div class="STYLE5">
+						他们都在使用了，您还在等什么？ 优质云数据服务，系统安全更有保障。卓码名片您值得信赖的伙伴！
+					</div>
+					<div class="divider">
+					</div>
+					<img class="center" src="picture/2.jpg" alt="client"><br>
+					<span class="client-info">alex</span><span>| CTO</span>
+					<div class="site-info">
+						 www.zhuoma360.com
+					</div>
+					</li>
+					<li>
+					<div class="STYLE5">
+						让销售变得简单，让您和您的企业即刻展现在6亿微信用户群，不仅提供专业平台保障，更为您扩展无限商机！
+					</div>
+					<div class="divider">
+					</div>
+					<img class="center" src="picture/3.jpg" alt="client"><br>
+					<span class="client-info">vincent</span><span>| COO</span>
+					<div class="site-info">
+						 www.zhuoma360.com
+					</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section><section id="contact">
+<div class="container">
+	<div class="col-md-12">
+		<div class="contact wow bounce add-bottom animated" style="visibility: visible;">
+			<h2>联系我们<span class="btn-warning"><strong>免费赠送9800元《行业全网营销解决方案》</strong></span></h2>
+			<div class="divider add-bottom">
+			</div>
+		</div>
+		<div class="wow fadeIn animated" style="visibility: visible;">
+			<div class="col-md-4" style="padding-top:20px; text-align:center;">
+				<a class="popup-gmaps" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0583380616117!2d122.54929799999998!3d10.72998399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aee4d82b80eef7%3A0x1c5b598c2f3b43aa!2sCentral+Philippine+University!5e0!3m2!1sen!2s!4v1399513381994"><span class="map-icon fa fa-map-marker fa-3x"></span></a>
+				<div class="contact-info STYLE2">
+					广东省珠海市香洲区
+				</div>
+				<div class="contact-info STYLE2">
+					凤凰北路2042号农行商业大厦905室
+				</div>
+				<div class="contact-info STYLE2">
+					Tell:0756-3325698
+				</div>
+				<div class="contact-info STYLE2">
+					客服QQ:2130846081
+				</div>
+				<div class="contact-info STYLE2">
+					Email:nhshiyuan@163.com
+				</div>
+				<a href="https://www.google.com/maps/place/Central+Philippine+University/@10.729984,122.549298,17z/data=!3m1!4b1!4m6!1m3!3m2!1s0x33aee4d82b80eef7:0x1c5b598c2f3b43aa!2sCentral+Philippine+University!3m1!1s0x33aee4d82b80eef7:0x1c5b598c2f3b43aa" class="map-btn btn-default map-btn STYLE1">在地图上查看我们的位置</a>
+			</div>
+		</div>
+		<form action="contact.php">
+			<div class="wow fadeIn animated" style="visibility: visible;">
+				<div class="col-md-4">
+					<input type="email" placeholder="Email" name="email" required="required" class="c-text"><input type="text" placeholder="Name" name="name" required="required" class="c-text"><input type="text" placeholder="Subject" name="subject" required="required" class="c-text">
+				</div>
+			</div>
+			<div class="wow fadeIn animated" style="visibility: visible;">
+				<div class="col-md-4">
+					<textarea name="message" class="m-text" required="required" placeholder="Your Message" rows="3"></textarea><button type="button" name="subscribe" class="send-text contact-btn">发送留言信息</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section><section id="subscription">
+<div class="container">
+	<div class="col-md-12">
+		<div class="col-md-4 wow bounceIn">
+			<img src="picture/4.png" class="img-responsive" alt="phone">
+		</div>
+		<div class="col-md-8">
+			<h2 class="wow flipInX">快来使用卓码名片带来的全新方式的销售、服务和推广体验！</h2>
+			<h3 class="wow flipInX">一个包罗万象的操作平台，可以不限行业地满足您对微信平台的基本使用需求，通过展示、推广、互动、成交的各个环节快速进入微信营销轨道。它的功能远超你想象！</h3>
+			<div class="input-group">
+				<input type="text" placeholder="Email" name="email" class="form-control subscribe-text"><button class="subscribe-btn btn-fengsu" type="button">订阅邮件</button>
+			</div>
+			<div class="wow fadeIn">
+				<span class="footer-icon fa fa-facebook-square fa-3x"></span><span class="footer-icon fa fa-twitter-square fa-3x"></span><span class="footer-icon fa fa-linkedin-square fa-3x"></span><span class="footer-icon fa fa-pinterest-square fa-3x"></span><span class="footer-icon fa fa-flickr fa-3x"></span><span class="footer-icon fa fa-google-plus-square fa-3x"></span>
+			</div>
+			<div>
+				&copy; 2010-2025&nbsp;&nbsp;珠海风速网络科技有限公司 &nbsp;&nbsp;版权所有&nbsp;&nbsp;备案号：<a style="color:white" href="http://www.miitbeian.gov.cn">粤ICP备16009897号 </a>
+			</div>
+		</div>
+	</div>
+</div>
+<div style="clear: both;">
+</div>
+</section>
+<script src="js/jquery.min_1.js"></script>
+<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="js/appshowcase_3.js"></script>
+<script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="js/wow.js"></script>
+<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+<script type="text/javascript" src="js/smoothscroll.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/toucheffects.js"></script>
+<script type="text/javascript" src="js/plugins.js"></script>
+</body>
+</html>

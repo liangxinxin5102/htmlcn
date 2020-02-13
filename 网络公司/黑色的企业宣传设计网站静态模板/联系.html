@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="jquery.js"></script>
+<script src="jquery.transit.js"></script>
+<link href="CSS1.css" type="text/css" rel="stylesheet"></link>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<div class="back">
+<div class="navbox">
+<div class="nav">
+	<div class="logo"><a href="首页.html"><img src="image/nav-logo.png"></a></div>
+    <ul>
+    	<li><a href="首页.html"><img src="image/nav-1.png"><br />首页</a></li>
+        <li><a href="服务.html"><img src="image/nav-2.png"><br />服务</a></li>
+        <li><a href="案例.html"><img src="image/nav-3.png"><br />案例</a></li>
+        <li><a href="动态.html"><img src="image/nav-4.png"><br />动态</a></li>
+        <li><a href="关于.html"><img src="image/nav-5.png"><br />关于</a></li>
+        <li><a href="联系.html"><img src="image/nav-6.png"><br />联系</a></li>
+    </ul>
+</div>
+</div>
+<div class="banner">
+	<img style="display:block;" src="image/banner-1.png">
+    <img src="image/banner-2.png">
+    <img src="image/banner-3.png">
+    <img src="image/banner-4.png">
+    <img src="image/banner-5.png">
+    <a class="" href="" style="left:486px;"></a>
+    <a class="" href="" style="left:536px;"></a>
+    <a class="" href="" style="left:586px;"></a>
+    <a class="" href="" style="left:636px;"></a>
+    <a class="" href="" style="left:686px;"></a>
+</div>
+<div class="contactone">
+	<ul>
+    	<li>
+        	<span style="background-image:url(image/contact-1.png);"></span>
+            <p>中国·山东<br>
+青岛市李沧区巨峰路177号<br>
+万达中央公馆5号楼403</p>
+        </li>
+        <li>
+        	<span style="background-image:url(image/contact-2.png)"></span>
+            <p>0532-67706558</p>
+        </li>
+        <li>
+        	<span style="background-image:url(image/contact-3.png)"></span>
+            <p>zhonghuguoji@123.com</p>
+        </li>
+        <li>
+        	<span style="background-image:url(image/contact-4.png)"></span>
+            <p>中国·山东<br>
+青岛市李沧区巨峰路177号<br>
+万达中央公馆5号楼403</p>
+        </li>
+    </ul>
+</div>
+<div class="footer">
+	<div class="contactbox">
+		<div class="contact">
+    	<ul>
+    		<li>地址：<br /><span style="font-size:14px; color:#b5b5b5;">中国·山东<br />
+青岛市李沧区巨峰路177号<br />
+万达中央公馆5号楼403</span></li>
+<li>联系方式：<br /><span style="font-size:14px; color:#b5b5b5;">Tel:67706558<br />
+Email:zhonghuguoji@123.com</span>
+</li>
+			<li>服务项目<br /><a href="">品牌网站建设</a><br /><a href="">手机网站建设</a><br /><a href="">网站运营维护</a></li>
+			<li>新闻动态<br /><a href="">公司新闻</a><br /><a href="">行业资讯</a></li>
+    	</ul>
+    	</div>
+    	<div class="copyright">copyright@2014-2015</div>
+	</div>
+</div>
+</div>
+<script>
+	$(".banner a").mouseover(function(){
+	$(".banner a")
+	.removeClass("nowa")
+	$(this)
+	.addClass("nowa")
+	var x=$(".banner a").index($(this));
+	$(".banner img").hide();
+	$(".banner img").eq(x).show();
+})
+$(function(){
+	/*1秒钟换一张图显示*/
+	var n=0;
+	function changeImg(){
+		if(n<4){
+			n++;
+		}else{
+			n=0;
+		}
+		$(".banner img").hide();
+		$(".banner img").eq(n).show();
+	 }
+	 var timer = setInterval(changeImg,3000);
+	 /*鼠标经过box时，停止；鼠标离开box，开始*/
+	 $(".banner").mouseover(function(){
+		 	clearInterval(timer);
+		 }).mouseout(function(){
+			 timer = setInterval(changeImg,3000);
+			 })
+})
+</script>
+</body>
+</html>

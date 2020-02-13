@@ -1,0 +1,947 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Keywords" content="" />
+        <meta name="Description" content="" />
+
+        <title>订单确认</title>
+
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <link rel="icon" href="images/animated_favicon.gif" type="image/gif" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/shopping_flow.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var process_request = "正在处理您的请求...";
+        </script>
+        <link href="css/base.css" rel="stylesheet" type="text/css"/>
+        <link href="css/base.css" rel="stylesheet" type="text/css"/>
+        <link href="css/common.css" rel="stylesheet" type="text/css"/>
+        <link href="css/ajaxlogin.css" rel="stylesheet" type="text/css"/>
+        <link href="css/front.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .logobox {
+                height: 86px;
+            }
+            .logobox .appdownload {height: 55px;width: 140px;float: right;margin: 16px 0 0 0;z-index: 1999;}
+            .logobox .appdownload .wei2apppic {position: absolute;left: 0px;top: 56px;display: none;}
+            .logobox .appdownload:hover .wei2apppic {display: block;}
+        </style>
+        <script charset="utf-8" src="http://wpa.b.qq.com/cgi/wpa.php"></script>
+        <!--<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="js/publicelements.js"></script>-->
+        <script type="text/javascript" src="js/utils.js"></script>        	<!--<a href="http://www.chemayi.com/subject.php?type=aichejie">
+                        <div style="background-image: url('http://img.chemayi.com/version63/index/jiamian_tong.jpg');background-position:center;height:90px;width:100%;cursor:pointer;">
+                    </div>
+                    </a>
+        --><div class="com_top">
+            <div class="wrap_min">
+                <div class="com_top_l fl">
+                    <a href="index.html">首页</a>
+                    <font style="display:none;">宝马 2015款 X系 2.0T xDrive20i 时尚型</font><a class="choose_car_model_btn" style="display:none;">test</a>
+
+                    <a class="welcome">您好</a>
+                    <a class="login" href="member_index.html">1538</a>
+                    <a href="http://www.chemayi.com/login/logOut.html" id="LoginOut">退出</a>
+                </div>
+
+                <div class="com_top_r fr">
+
+
+                    <div class="fr">
+                        <em>|</em>
+                        <a href="http://www.chemayi.com/subject/index/type-app.html" class="icon_com icon_mob"><em></em>手机版</a>
+                        <a href="http://biz.chemayi.com/login.php" target="_blank">商家入驻</a>
+                        <em>|</em>
+                        <a href="http://bbs.chemayi.com" target="_blank">蚂蚁社区</a>
+                        <a target="_blank" href="http://www.chemayi.com/wiki">蚂蚁百科</a>
+                    </div>
+                    <div class="fr">
+                        <a href="/flow.php" class="icon_com icon_shop"><em>购物车</em><i>2</i></a>
+                    </div>
+                    <div class="myinfo fr">
+                        <h1 id="item1" onMouseOut="settimerhide()" onMouseOver="itemover()"><a href="http://member.chemayi.com/index.php">我的车蚂蚁</a><em class="icon_com icon_up"></em></h1>
+                        <ul class="myinfo_ul" id="sub1"  onmouseout="settimerhide()" onMouseOver="subsover()" >
+                            <li>
+                                <a href="member_car_plan.html">养车计划</a>
+                            </li>
+                            <li>
+                                <a href="member_order.html">订单管理</a>
+                            </li>
+                            <li>
+                                <a href="member_shouli.html">受理单查询</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap_min logobox">
+            <span class="fl">
+                <a href="index.html"><img src="images/logo.png"></a>
+            </span>
+            <span class="ri" style="float:right; margin:0;">
+                <div class="qr_code"><a href="http://www.chemayi.com/subject/index/type-app.html"><img src="images/code.png"></a> </div>
+                <div class="appdownload">
+                    <div class="pr" style="z-index:2000;">
+                        <a href="http://www.chemayi.com/subject/index/type-appdown.html" >
+                            <img src="images/mobile120.gif">
+                        </a>
+                        <div class="wei2apppic">
+                            <img src="images/newapp.png"> 
+                        </div>
+                    </div>
+                </div>
+            </span>
+            <!--<div class="appdownload pr">
+                    <img src="images/mobile120.gif">
+                <div class="wei2apppic">
+                    <img src="images/newapp.png"> 
+                </div>
+            </div>-->
+        </div>
+        <div class="wrap_min nav">
+            <div class="nav_l fl">
+                <a href="baoyang.html" class="hot">爱车保养</a>
+                <a href="meirong.html" class="hot">爱车美容</a>
+                <a href="weixiu.html" class="hot">爱车维修</a>
+                <em class="navline"></em>
+                <!-- <a href="/category.php?id=7#category_tree" class="">蚂蚁特价</a>-->
+                <a href="/category.php?id=7#category_tree" class="">蚂蚁商城</a>
+                <a href="service.html">服务网点</a>
+            </div>
+            <div class="nva_r fr">
+                <div class="nav_num fl">
+                    400-0571-137</div>
+                <div class="nav_pub fl">
+                    <a id='send' href="http://chemayi.com/repair/iframe.html">发布需求</a></div>
+            </div>
+        </div>
+        <div class="wrap_min">
+            <div class="navbotLine"></div>
+        </div>
+        <div class="block box">
+            <div id="ur_here">
+                当前位置: <a href=".">首页</a> <code>&gt;</code> 购物流程 </div>
+        </div>
+
+        <div class="blank"></div>
+        <div class="blank"></div>
+        <div class="block">
+            <style>
+                .pub-date{width:110px !important;}
+                .my-buy-goods-list em{color:#fa5f19;}
+            </style>
+
+
+
+
+
+
+
+
+            <form action="flow.php"  method="post" name="theForm" id="theForm" onsubmit="return checkOrderForm(this)">
+                <script type="text/javascript">
+                    var flow_no_payment = "您必须选定一个支付方式。";
+                    var flow_no_shipping = "您必须选定一个配送方式。";
+                </script>
+                <div class="flowBox">
+                    <h2><span>结算</span><a href="flow.php" class="f6">修改</a></h2>
+                    <table width="100%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#e5e5e5" class="my-buy-goods-list">
+                        <thead>
+                            <tr>
+                                <th bgcolor="#f2f2f2" width="300">商品名称</th>
+
+                                <th bgcolor="#f2f2f2" width="80">市场价</th>
+                                <th bgcolor="#f2f2f2" width="80">蚂蚁价</th>
+                                <th bgcolor="#f2f2f2" width="80">小计</th>
+                                <th bgcolor="#f2f2f2">服务网点</th>
+                                <th bgcolor="#f2f2f2" width="120">预约时间</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td bgcolor="#ffffff">
+
+                                <a href="goods.php?id=49" target="_blank" class="f6">车蚂蚁爱车漆面基础保护方案A（打蜡+爱车普通清洗）</a>
+                                <br />
+
+                            </td>
+
+                            <td align="center" bgcolor="#ffffff"><span>￥120.00</span></td>
+                            <td bgcolor="#ffffff" align="center"><span>￥88.00</span></td>
+                            <td bgcolor="#ffffff" align="center">
+
+                                <span class="f1">￥88.00</span>
+
+
+                            </td>
+                            <td bgcolor="#ffffff" align="center">
+                                <span>杭州似您邻<br/><a class="choose_map"  href="http://chemayi.com/supplier.php?act=choose&goodscarid=40001"  title="请选择服务网点<em style='margin-left:20px;font-size:12px; color:#fff;'>所有商家均通过车蚂蚁6大认证、商户认证、放心选择、施工保障</em>">点击修改</a>
+                                </span>
+                            </td>
+                            <td bgcolor="#ffffff">
+                                <div class="input-date input_small_date fl">
+                                    <input name="002" type="text" id="chTime0" cartid="40001"  onfocus="WdatePicker({readOnly: true,
+                                                    disabledDates: ['2014-09-22', '2014-09-23'], dateFmt: 'yyyy-MM-dd', minDate: '2015-04-29',
+                                                    onpicking: function(dp) {
+                                                        checkTime(dp.cal.getNewDateStr(), this, true)
+                                                    }})" class="pub-input date "  value="2015-04-29">
+                                        <span onclick="WdatePicker({
+                                        minDate: '2015-04-29', onpicking: function(dp) {
+                                            checkTime(dp.cal.getNewDateStr(), this, true)
+                                        }, disabledDates: ['2014-09-22', '2014-09-23'], el: 'chTime0'})" >日期</span>
+
+
+                                </div>
+                                <div class="selbox hide">
+                                    <div class="rule-single-select">
+                                        <select name="ddlCategoryIdddd" >
+                                            <option value="">选择时间段</option>
+                                            <option value="1" selected="selected">13点--17点</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#ffffff">
+
+                                <a href="goods.php?id=151" target="_blank" class="f6">车蚂蚁爱车内饰深度灭菌方案（蒸汽桑拿+含工时费）</a>
+                                <br />
+
+                            </td>
+
+                            <td align="center" bgcolor="#ffffff"><span>￥120.00</span></td>
+                            <td bgcolor="#ffffff" align="center"><span>￥80.00</span></td>
+                            <td bgcolor="#ffffff" align="center">
+
+                                <span class="f1">￥80.00</span>
+
+
+                            </td>
+                            <td bgcolor="#ffffff" align="center">
+                                <span>杭州似您邻<br/><a class="choose_map"  href="http://chemayi.com/supplier.php?act=choose&goodscarid=40003"  title="请选择服务网点<em style='margin-left:20px;font-size:12px; color:#fff;'>所有商家均通过车蚂蚁6大认证、商户认证、放心选择、施工保障</em>">点击修改</a>
+                                </span>
+                            </td>
+                            <td bgcolor="#ffffff">
+                                <div class="input-date input_small_date fl">
+                                    <input name="002" type="text" id="chTime1" cartid="40003"  onfocus="WdatePicker({readOnly: true,
+                                                    disabledDates: ['2014-09-22', '2014-09-23'], dateFmt: 'yyyy-MM-dd', minDate: '2015-04-29',
+                                                    onpicking: function(dp) {
+                                                        checkTime(dp.cal.getNewDateStr(), this, true)
+                                                    }})" class="pub-input date "  value="2015-04-29">
+                                        <span onclick="WdatePicker({
+                                        minDate: '2015-04-29', onpicking: function(dp) {
+                                            checkTime(dp.cal.getNewDateStr(), this, true)
+                                        }, disabledDates: ['2014-09-22', '2014-09-23'], el: 'chTime1'})" >日期</span>
+
+
+                                </div>
+                                <div class="selbox hide">
+                                    <div class="rule-single-select">
+                                        <select name="ddlCategoryIdddd" >
+                                            <option value="">选择时间段</option>
+                                            <option value="1" selected="selected">13点--17点</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#ffffff" colspan="6" align="right">
+                                购物金额小计 <strong>￥168.00</strong>，比市场价 ￥240.00 节省了 ￥72.00 (30%)              </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="blank"></div><div class="blank"></div>
+                <div class="flowBox">
+                    <h2><span>服务流程</span></h2>
+                    <div style="margin-top:20px;"><img src="images/flow-current.png"></div>
+                </div>
+                <div class="blank"></div><div class="blank"></div>
+
+                <div class="flowBox">
+                    <h2><span>其它信息</span></h2>
+                    <table width="100%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#e5e5e5" class="my-buy-goods-list">
+                        <tr>
+                            <td bgcolor="#ffffff" align="center" style="width:100px;"><strong>订单附言</strong></td>
+                            <td bgcolor="#ffffff"><textarea class="ly-textarea" name="postscript" cols="80" rows="3" id="postscript" style="border:1px solid #ccc;"></textarea></td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div class="blank"></div><div class="blank"></div>
+                <div class="flowBox">
+                    <h2><span>费用总计</span></h2>
+                    <script type="text/javascript" src="js/transport.js"></script><div id="ECS_ORDERTOTAL">
+                        <table width="100%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#e5e5e5" class="my-buy-goods-list">
+                            <tr>
+                                <td align="left"  bgcolor="#fff">
+                                    该订单完成后，您将获得 
+                                    <font class="f4_b">84</font> 积分            ，以及价值               <font class="f4_b">￥0.00</font>的红包。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#fff">
+                                    商品总价: <font class="f4_b"style="font-family:Arial, Helvetica, sans-serif">￥168.00</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" bgcolor="#fff"> 应付款金额: <font class="f4_b" style="color:#FB5E19;font-size:20px;">￥168.00</font>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>		  <div class="blank"></div><div class="blank"></div>
+                    <div class="flowBox">
+                        <h2><span>选择支付方式</span><em style="font-weight:normal;font-size:12px; color:#666; margin-left:20px;">配件终身质保，服务先行赔付</em></h2>
+                        <div class="select-pay">
+                            <div class="online-pay">
+                                <ul>
+                                    <li>
+                                        <label class="">
+                                            <input type="radio"  value="1"  checked="checked"   name="paytype">
+                                                <img src="images/alipay.png" />
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="radio" value="2" name="paytype">
+                                                <img src="images/china-unionpay.png" />
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div style="font-weight: normal; font-size: 12px; text-align: left; color: rgb(250, 95, 25); margin-top: 15px;">* 逾期付款可能导致需要重新选取服务预约时间，为了能够在您所选取的预约时间进行服务，请尽快完成支付。</div>
+                        </div>
+                    </div>
+                    <div style="text-align:center; margin-top:30px;">
+                        <input type="image" src="images/bnt_subOrder.gif" />
+                        <input type="hidden" name="step" value="done" />
+                    </div>
+                </div>
+            </form>
+
+
+
+
+
+
+        </div>
+        <div class="blank5"></div>
+
+        <div class="block">
+            <div class="box">
+                <div class="helpTitBg clearfix">
+                </div>
+            </div>
+        </div>
+        <div class="blank"></div>
+
+
+
+        <div class="blank"></div>
+        <div class="mian_footer">
+            <div class="wrap">
+                <div class="main_footer_top">
+                    <ul class="main_footerul fl" id="main_footerul">
+                        <li class="one">
+                            <dl class="default">
+                                <dt class="icon_1">关于我们</dt>
+                                <dd><a href="http://www.chemayi.com/about.php#about">平台简介</a></dd>
+                                <dd><a href="http://www.chemayi.com/about.php">联系方式</a></dd>
+                                <dd><a href="http://www.chemayi.com/about.php#licheng">发展历程</a></dd>
+                                <dd><a href="http://www.chemayi.com/about.php#culture">企业文化</a></dd>
+                            </dl>
+
+                        </li>
+
+
+                        <li class="two">
+                            <dl class="default">
+                                <dt class="icon_2">商户合作</dt>
+                                <dd><a href="http://www.chemayi.com/join.php#join1">入驻须知</a></dd>
+                                <dd><a href="http://www.chemayi.com/join.php#join2">店铺类型</a></dd>
+                                <dd><a href="http://www.chemayi.com/join.php#join3">所需材料</a></dd>
+                            </dl>
+
+                        </li>
+
+
+                        <li class="three">
+                            <dl class="default">
+                                <dt class="icon_3">服务保障</dt>
+                                <dd><a href="http://www.chemayi.com/safe.php">蚂蚁保</a></dd>
+                                <dd><a href="http://www.chemayi.com/safe.php#safe2">QC认证</a></dd>
+                                <dd><a href="http://www.chemayi.com/safe.php#safe3">5A服务</a></dd>  
+                            </dl>
+
+                        </li>
+
+                        <li class="four">
+                            <dl class="default">
+                                <dt class="">媒体报道</dt>
+                                <dd><a href="http://www.chemayi.com/media.php#media1">汽车后市场行业信息</a></dd>
+                                <dd><a href="http://www.chemayi.com/media.php#media2">车蚂蚁媒体相关报道</a></dd>
+
+                            </dl>
+
+                        </li>
+                    </ul>
+                    <div class="main_footer_btn fr">
+
+                        <p><em>400-0571-137</em>周一至周日：<i>9:00-18:00</i></p>
+                        <a class="pub-btn-big-orange" href="http://biz.chemayi.com/login.php">&nbsp;&nbsp;商家入驻&nbsp;&nbsp;</a>    </div>
+                </div>
+
+                <div class="main_footer_cen">
+                </div>
+                <div class="main_footer_bot">
+                    Copyright © 2012 chemayi.com 车蚂蚁版权所有<i>|</i>找本地汽车服务就上车蚂蚁<i>|</i>浙ICP证080194号<i>|</i> 公安备案号：11061013003-00001
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="rightnav" id="rightnav">
+            <ul>
+                <li class="rightnav_tip rightnav_app"></li>
+                <li class="rightnav_tip"></li>
+                <li class="rightnav_tip icon_top2"></li>
+                <li class="icon_top4" id="BizQQWPA"><a></a></li>
+                <li class="rightnav_top icon_top3"></li>
+            </ul>
+            <div class="big">
+
+            </div>
+        </div>
+
+        <div class="hide">
+            <div id="formLoginRegis">
+                <div class="formLoginRegis-tab-bg transtion"><em></em></div>
+                <div class="formLoginRegis-tab">
+                    <span class="cur transtion">登录到车蚂蚁</span>
+                    <!-- <span class="transtion">注册车蚂蚁帐号</span>-->
+                </div>
+
+                <div class="formLoginRegis-logo"></div>
+                <div class="formLoginRegis-box transtion">
+                    <div class="form-Login">
+
+                        <div class="formBox">
+                            <span class="inputbox" id="formLoginUse"r>
+                                <input type="text" name="formLoginUser" error="手机帐号不存在" tip="手机号码格式错误" normal="手机号码" value="手机号码" />
+                                <i></i>
+                            </span>
+                            <span class="inputbox" id="formLoginPsw">
+                                <input type="text" name="formLoginPsw" error="密码错误" tip="请输入密码" normal="密码" value="密码" />
+                                <input type="password" style="display:none;" name="formLoginPsw" error="密码长度不能小于6位" tip="请输入密码" normal="密码" />
+                                <i></i>
+                            </span>
+                            <button class="formLoginBtn transtion">立即登录</button>
+                            <div class="remember">
+                                <em class="fl"><input type="checkbox" name="loginauto" /></em>
+                                <span class="fl">两周内自动登录</span>
+                                <span class="fr"><a href="http://www.chemayi.com/login/forget.html">忘记密码</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-Regis">
+                        <div class="formBox">
+                            <span class="inputbox" id="formRegisUser">
+                                <input type="text" name="formRegisUser" error="手机号码已被注册" tip="手机号码格式错误" normal="手机号码" value="手机号码" />
+                                <i></i>
+                            </span>
+                            <span class="inputbox" id="formRegisPsw">
+                                <input type="text" name="formRegisPsw" error="密码长度不能小于6位" tip="请输入密码" normal="密码" value="密码" />
+                                <i></i>
+                            </span>
+                            <button class="formRegisBtn transtion">立即注册</button>
+                            <div class="remember">
+                                <em class="fl cur"><input type="checkbox" name="userdeal" checked="checked" /></em>
+                                <span class="fl">同意车蚂蚁<a class="userdeal" href="agreement.html" target="_blank">用户协议</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="formLoginRegis-close transtion" href="reg.html">没有账号？立即免费注册</a>
+            </div>	
+        </div>
+        <div class="hide">
+            <div id="selectcarbox">
+                <div class="sel_tab">
+                    <div class="tabli cur">直接选择车型</div>
+                    <div class="tabli ">输入Vin码直接确定车型信息(方便)</div>
+                    <div class="tabli ">没有我的车型</div>
+                </div>
+                <div class="sel_box ">
+                    <ul class="sel_stepbox clearfix">
+                        <li class="cur">
+                            <p><em>1</em>选择品牌</p><i></i>
+                        </li>
+                        <li>
+                            <p><em>2</em>选择车系</p><i></i>
+                        </li>
+                        <li>
+                            <p><em>3</em>选择年款</p><i></i>
+                        </li>
+                        <li>
+                            <p><em>4</em>选择车型</p>
+                        </li>
+                    </ul>
+
+                    <div class="sel_mainbox sel_mainbox_info">
+                        <div class="sel_mainbox sel_mainbox1 ">
+                            <dl class="sel_bynum clearfix" id="sel_bynum">
+                                <dt>品牌首字母选择：</span>
+                                    <dd class="cur" word="hot">
+                                        <a href="javascript:;">热门</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="A">
+                                        <a href="javascript:;">A</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="B">
+                                        <a href="javascript:;">B</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="C">
+                                        <a href="javascript:;">C</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="D">
+                                        <a href="javascript:;">D</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="F">
+                                        <a href="javascript:;">F</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="H">
+                                        <a href="javascript:;">H</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="J">
+                                        <a href="javascript:;">J</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="K">
+                                        <a href="javascript:;">K</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="L">
+                                        <a href="javascript:;">L</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="M">
+                                        <a href="javascript:;">M</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="Q">
+                                        <a href="javascript:;">Q</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="R">
+                                        <a href="javascript:;">R</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="S">
+                                        <a href="javascript:;">S</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="T">
+                                        <a href="javascript:;">T</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="W">
+                                        <a href="javascript:;">W</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="X">
+                                        <a href="javascript:;">X</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="Y">
+                                        <a href="javascript:;">Y</a>
+                                        <i></i>
+                                    </dd>
+                                    <dd word="Z">
+                                        <a href="javascript:;">Z</a>
+                                        <i></i>
+                                    </dd>
+                            </dl>
+                            <div class="step1 clearfix" >
+                                <ul id="car_info_brands_list"></ul>
+                            </div>  
+                        </div>
+                    </div>
+
+
+                    <div class="sel_mainbox hide sel_mainbox_info">
+                        <div class="sel_has" style="display: block;">
+                            <em>已选车型:</em>
+                        </div>
+                        <div class="car_info_series_list"></div>
+                    </div>
+
+
+                    <div class="sel_mainbox hide sel_mainbox_info">
+                        <div class="sel_has" style="display: block;">
+                            <em>已选车型:</em>
+                        </div>
+                        <div class="car_info_year_list"></div>
+                    </div>
+
+
+                    <div class="sel_mainbox hide sel_mainbox_info">
+                        <div class="sel_has" style="display: block;">
+                            <em>已选车型:</em>
+                        </div>
+                        <div class="car_info_size_list">
+
+                        </div>
+                    </div>
+
+                    <dl class="sel_history clearfix" id="selected_car_logs" style="display:none;"></dl>
+
+
+
+                </div>
+
+
+                <div class="sel_box hide">
+                    <div class="vin_tit clearfix">
+                        输入17位VIN码识别您的车型<!-- :<a href="#">VIN码在什么地方？</a>&nbsp;&nbsp;&nbsp;<a href="#">如何选择车型？ </a> -->
+                    </div>
+                    <ul class="vin_num clearfix">
+                        <li class="style1">
+                            <span class="vin_num_top">1-4</span>
+                            <span class="vin_num_bot"><input type="text" name="vin" maxlength=4 /></span>
+                        </li>
+                        <li class="style2">
+                            <span class="vin_num_top"></span>
+                            <span class="vin_num_bot"></span>
+                        </li>
+                        <li class="style1">
+                            <span class="vin_num_top">5-8</span>
+                            <span class="vin_num_bot"><input type="text" name="vin" maxlength=4 /></span>
+                        </li>
+                        <li class="style2">
+                            <span class="vin_num_top"></span>
+                            <span class="vin_num_bot"></span>
+                        </li>
+                        <li class="style1">
+                            <span class="vin_num_top">9-12</span>
+                            <span class="vin_num_bot"><input type="text" name="vin" maxlength=4 /></span>
+                        </li>
+                        <li class="style2">
+                            <span class="vin_num_top"></span>
+                            <span class="vin_num_bot"></span>
+                        </li>
+                        <li class="style1">
+                            <span class="vin_num_top">13-17</span>
+                            <span class="vin_num_bot"><input type="text" name="vin" maxlength=5 /></span>
+                        </li>
+                        <li class="style3">
+                            <span class="vin_num_top"></span>
+                            <span class="vin_num_bot vin_num_error_tip" style="display:none;">您输入的VIN码有误</span>
+                        </li>
+                    </ul>
+                    <div class="vin_btn clearfix">
+                        <a href="javascript:;" id="vin_btn_confirm">确定</a>
+                    </div>
+                </div>
+                <div class="sel_box hide">
+                    <input type="text" name="car_model_response" class="pub_text mt20" placeholder="请输入您的车型"/>
+                    <div class="clear"></div>
+                    <input type="button" class="pub_btn mt15" value="提交" onclick="submitCarModelResponse();" />
+                </div>
+
+            </div>
+        </div>
+        <div id="tbox">
+            <div class="pr ">
+                <ul id="gotop">
+                    <li>
+                        <a href="javascript:void(0);" onclick="$('#send').click();">发布需求</a>
+                    </li>
+                    <li class="top_icon2">
+                        <a href="#">手机APP</a>
+                    </li>
+                    <li class="top_icon3">
+                        <a href="#">蚂蚁百科</a>
+                    </li>
+
+                    <li class="top_icon4">
+                        <a href="#" id="BizQQWPA">在线咨询</a>
+                    </li>
+                </ul>
+                <div class="leftweixin">
+                    <img src="images/navWinxin.png">
+                </div>
+                <div class="leftapp">
+                    <img src="images/iconapp.png">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="leftcom_top">
+            <a href="javascript:">返回顶部</a>
+        </div>
+        <script type="text/javascript">
+            var DomainConfig = {
+                main_site_domain: 'http://www.chemayi.com'
+            }
+        </script>
+        <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="js/publicelements.js"></script>
+        <script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+
+        <script type="text/javascript" src="js/global.js"></script>
+        <script type="text/javascript" src="js/ajaxlogin.js"></script>
+        <script type="text/javascript" src="js/choose_car_model.js"></script>
+        <script>
+            $(function() {
+                $('#dialogpubBox').hide();
+                //var htmlcon4=$('#dialogpubBox').html();
+                $('#send').on('click', function() {
+                    var member_info = getCookie('member_info');
+                    if (!member_info) {
+                        //popLoginBox();
+                        $.colorbox({inline: true, href: "#formLoginRegis"});
+                        return false;
+                    }
+                    $("#send").colorbox({iframe: true, width: "680px", height: "490px"});
+
+                });
+
+            })
+        </script>
+
+        <script>
+        //快速服务搜索
+        //document.domain = "chemayi.com";
+            var quickSearchSp = function() {
+                var quickSearchContent = encodeURI($('input[name=quick_search_sp]').val());
+                window.top.location.href = 'http://www.chemayi.com' + '/service.php?act=quick&keyword=' + quickSearchContent;
+            }
+            $('input[name=quick_search_sp]').bind('keyup', function(e) {
+                if (e.which == 13) {
+                    quickSearchSp();
+                }
+            });
+            BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 4000571137, selector: 'BizQQWPA'});
+            BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 4000571137, selector: 'contact_qq'});
+        </script>
+
+
+        <script>
+            function setScrollTop() {
+                h = 100;
+                t = $(document).scrollTop();
+                if (t > h) {
+                    $('.leftcom_top').show();
+                } else {
+
+                    $('.leftcom_top').hide();
+                }
+                ;
+            }
+            ;
+            $(document).ready(function(e) {
+                $('.top_icon3').hover(function() {
+                    $('.leftweixin').show();
+                }, function() {
+                    $('.leftweixin').hide();
+                });
+                $('.top_icon2').hover(function() {
+                    $('.leftapp').show();
+                }, function() {
+                    $('.leftapp').hide();
+                });
+                setScrollTop();
+                $('.leftcom_top').click(function() {
+                    $(document).scrollTop(0);
+                });
+            });
+
+            $(window).scroll(function(e) {
+                setScrollTop();
+            });
+        </script>
+        <div style="display:none;">
+
+        </div></body>
+    <script type="text/javascript" src="js/WdatePicker.js"></script>
+    <script type="text/javascript">
+        var process_request = "正在处理您的请求...";
+        var username_empty = "- 用户名不能为空。";
+        var username_shorter = "- 用户名长度不能少于 3 个字符。";
+        var username_invalid = "- 用户名只能是由字母数字以及下划线组成。";
+        var password_empty = "- 登录密码不能为空。";
+        var password_shorter = "- 登录密码不能少于 6 个字符。";
+        var confirm_password_invalid = "- 两次输入密码不一致";
+        var email_empty = "- Email 为空";
+        var email_invalid = "- Email 不是合法的地址";
+        var agreement = "- 您没有接受协议";
+        var msn_invalid = "- msn地址不是一个有效的邮件地址";
+        var qq_invalid = "- QQ号码不是一个有效的号码";
+        var home_phone_invalid = "- 家庭电话不是一个有效号码";
+        var office_phone_invalid = "- 办公电话不是一个有效号码";
+        var mobile_phone_invalid = "- 手机号码不是一个有效号码";
+        var msg_un_blank = "* 用户名不能为空";
+        var msg_un_length = "* 用户名最长不得超过7个汉字";
+        var msg_un_format = "* 用户名含有非法字符";
+        var msg_un_registered = "* 用户名已经存在,请重新输入";
+        var msg_can_rg = "* 可以注册";
+        var msg_email_blank = "* 邮件地址不能为空";
+        var msg_email_registered = "* 邮箱已存在,请重新输入";
+        var msg_email_format = "* 邮件地址不合法";
+        var msg_blank = "不能为空";
+        var no_select_question = "- 您没有完成密码提示问题的操作";
+        var passwd_balnk = "- 密码中不能包含空格";
+        var username_exist = "用户名 %s 已经存在";
+        var compare_no_goods = "您没有选定任何需要比较的商品或者比较的商品数少于 2 个。";
+        var btn_buy = "购买";
+        var is_cancel = "取消";
+        var select_spe = "请选择商品属性";
+    //获取时间
+        function GetDateStr(AddDayCount) {
+            var dd = new Date();
+            dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期
+            var y = dd.getFullYear();
+            var m = dd.getMonth() + 1;//获取当前月份的日期
+            if (m <= 9) {
+                m = "0" + m;
+            }
+            ;
+            var d = dd.getDate();
+            if (d <= 9) {
+                d = "0" + d;
+            }
+            ;
+            return y + "-" + m + "-" + d;
+        }
+        ;
+        function checkTime(checkDay, curEle, flag) {
+            var _cur_parent = $(curEle).parent().parent();//当前父节点
+            if (checkDay == "2015-01-01" || checkDay == "2015-01-02" || checkDay == "2015-01-03") {
+                _cur_parent.find(".selbox").show(200);
+                return false;
+            }
+
+            if (checkDay == GetDateStr(1)) {
+                var dd = new Date();
+                //下午1点半之前
+                if (dd.getHours() > 13 || dd.getDay() == 0) {
+                    _cur_parent.find(".selbox").show(200);
+
+                }
+                ;
+                if (dd.getHours() == 13) {
+                    _cur_parent.find(".selbox").show(200);
+                }
+            } else {
+                var dd = new Date();
+                if (dd.getHours() > 13 && dd.getDay() == 6) {
+                    _cur_parent.find(".selbox").show(200);
+
+                } else if (dd.getHours() == 13 && dd.getDay() == 6) {
+                    _cur_parent.find(".selbox").show(200);
+                } else {
+                    _cur_parent.find(".selbox").hide();
+                }
+            }
+
+            if (flag == true) {
+                var cartid = $(curEle).attr('cartid')
+                $.ajax({
+                    url: "flow.php?step=changetime",
+                    async: true,
+                    data: {changetime: checkDay, cartid: cartid},
+                    type: "GET",
+                    timeout: 10000
+                });
+            }
+
+        }
+        ;
+
+    </script>
+
+    <script type="text/javascript" src="js/jquery.colorbox-min.js"></script>  <script type="text/javascript">
+        var changetime = "2015-04-29";
+        if (changetime == '') {
+            $('.pub-date').PubDateModule({
+                before_after: 1,
+                ableBeforeToday: false
+            });
+        } else {
+            $('.pub-date').PubDateModule({
+                before_after: 1,
+                ableBeforeToday: true
+            });
+        }
+        document.domain = 'chemayi.com';
+
+        $(function() {
+
+            $(".choose_map").colorbox({iframe: true, width: "890px", height: "620px"});
+            $(".online-pay input[type=radio]").click(function() {
+                $(".online-pay input[type=radio]").removeAttr("checked");
+                $(this).attr("checked", "checked");
+                $(".online-pay label").removeClass("current");
+                $(this).parents("label").addClass("current");
+            })
+
+        })
+
+        var _dateInput = $('#formCart .date,#theForm .date');
+        _dateInput.each(function() {
+            checkTime($(this).val(), $(this), false)
+        });
+        var confirmOrder = function() {
+            var memberInfo = getCookie('member_info');
+
+            if (memberInfo) {
+                var carModel = $('.choose_car_model_btn').prev('font').html();
+
+                /*				carModel = true;
+             
+                 if(carModel){*/
+                window.top.location.href = 'flow.php?step=checkout';
+                /*}else{
+                 $('.choose_car_model_btn').click();
+                 }*/
+
+            } else {
+
+                $('#Login').click();
+            }
+
+        };
+        var chooseModel = function() {
+            var memberInfo = getCookie('member_info');
+            if (memberInfo) {
+                $('.choose_car_model_btn').click();
+            } else {
+                $('#Login').click();
+            }
+
+        };
+
+
+
+    </script>
+
+</html>

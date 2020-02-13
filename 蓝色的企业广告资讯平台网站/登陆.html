@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>广告企业网</title>
+<link href="css/cssn_whir.css" rel="stylesheet" type="text/css" />
+<script src="script/time.js" type="text/javascript"></script>
+<script src="script/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="script/common.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+ $(document).ready(function() {
+/*
+* In-Field Label jQuery Plugin
+* http://fuelyourcoding.com/scripts/infield.html
+*
+* Copyright (c) 2009 Doug Neiner
+* Dual licensed under the MIT and GPL licenses.
+* Uses the same license as jQuery, see:
+* http://docs.jquery.com/License
+*
+* @version 0.1
+*/
+(function($) { $.InFieldLabels = function(label, field, options) { var base = this; base.$label = $(label); base.$field = $(field); base.$label.data("InFieldLabels", base); base.showing = true; base.init = function() { base.options = $.extend({}, $.InFieldLabels.defaultOptions, options); base.$label.css('position', 'absolute'); var fieldPosition = base.$field.position(); base.$label.css({ 'left': fieldPosition.left, 'top': fieldPosition.top }).addClass(base.options.labelClass); if (base.$field.val() != "") { base.$label.hide(); base.showing = false; }; base.$field.focus(function() { base.fadeOnFocus(); }).blur(function() { base.checkForEmpty(true); }).bind('keydown.infieldlabel', function(e) { base.hideOnChange(e); }).change(function(e) { base.checkForEmpty(); }).bind('onPropertyChange', function() { base.checkForEmpty(); }); }; base.fadeOnFocus = function() { if (base.showing) { base.setOpacity(base.options.fadeOpacity); }; }; base.setOpacity = function(opacity) { base.$label.stop().animate({ opacity: opacity }, base.options.fadeDuration); base.showing = (opacity > 0.0); }; base.checkForEmpty = function(blur) { if (base.$field.val() == "") { base.prepForShow(); base.setOpacity(blur ? 1.0 : base.options.fadeOpacity); } else { base.setOpacity(0.0); }; }; base.prepForShow = function(e) { if (!base.showing) { base.$label.css({ opacity: 0.0 }).show(); base.$field.bind('keydown.infieldlabel', function(e) { base.hideOnChange(e); }); }; }; base.hideOnChange = function(e) { if ((e.keyCode == 16) || (e.keyCode == 9)) return; if (base.showing) { base.$label.hide(); base.showing = false; }; base.$field.unbind('keydown.infieldlabel'); }; base.init(); }; $.InFieldLabels.defaultOptions = { fadeOpacity: 0.5, fadeDuration: 300, labelClass: 'infield' }; $.fn.inFieldLabels = function(options) { return this.each(function() { var for_attr = $(this).attr('for'); if (!for_attr) return; var $field = $("input#" + for_attr + "[type='text']," + "input#" + for_attr + "[type='password']," + "input#" + for_attr + "[type='tel']," + "input#" + for_attr + "[type='email']," + "textarea#" + for_attr); if ($field.length == 0) return; (new $.InFieldLabels(this, $field[0], options)); }); }; })(jQuery);
+
+
+    $("#RegisterUserForm label").inFieldLabels();
+});
+
+</script>
+</head>
+<body>
+<!--头部-->
+<div id="headern">
+  <div class="top">
+    <div class="topT">
+      <div class="loginh"><a href="登陆.html" target="_blank" class="on">请登录</a><a href="注册.html" target="_blank">免费注册</a></div>
+      <div class="time">今天是：<span id="divT"></span></div>
+      <div class="weather">
+        <iframe allowtransparency="true" frameborder="0" width="180" height="36" scrolling="no" src="http://tianqi.2345.com/plugin/widget/index.htm?s=3&z=2&t=0&v=0&d=1&bd=0&k=&f=000000&q=1&e=1&a=1&c=58321&w=180&h=36&align=center"></iframe>
+      </div>
+      <div class="set"><a href='http://www.17sucai.com' onClick="this.style.behavior='url(#default#homepage)'; this.setHomePage('http://www.17sucai.com');">设为首页</a><a href="javascript:window.external.AddFavorite('http://www.17sucai.com','广告企业网');">加入收藏</a></div>
+    </div>
+  </div>
+  <!--搜索-->
+  <div class="topM">
+    <div class="logo"><a href="#"><img src="images/logo.jpg" /></a></div>
+    <div class="searchbox">
+      <div class="search_box"> <span class="left l_bg"></span> <span class="right r_bg"></span>
+        <div class="search">
+          <form name=search_form onSubmit="return bottomForm(this);" target="_blank" method=post>
+            <div id="pt1" class="select"> <a id="s0">全站搜索</a>
+              <div style="display:none;" id="pt2" class="part">
+                <p> <a id="s1">广告资讯</a> <a id="s2">分类广告</a> <a id="s3">供求广告</a> <a id="s4">分类广告</a> <a id="s5">资讯</a> <a id="s6">分类广告</a> <a id="s7">资讯</a> <a id="s8">分类广告</a> <a id="s9">广告资讯</a> <a id="s10">广告资讯</a> <a id="s11">供求广告</a> <a id="s12">广告资讯</a> </p>
+              </div>
+            </div>
+            <input id="catid" name="catid" type="hidden" value="7">
+            <input id="q" class="enter" name="infos" onFocus="if(this.value==''){this.value='';}else{this.select();}this.style.color='black';"  value="">
+            <input class="sb" name="Input" type="submit" value="">
+          </form>
+        </div>
+      </div>
+      <div class="hotkeywords">热点：<a href="#" target="_blank">广告资讯</a><a href="#" target="_blank">分类广告</a><a href="#" target="_blank">供求广告</a></div>
+    </div>
+  </div>
+  <!--顶部导航-->
+</div>
+<div class="clear_0"></div>
+<!--登陆-->
+<div class="login">
+<div class="ad3"><a href="javascript:void(0)"><img src="images/logoinbg.jpg" /></a></div>
+<div class="main_box">
+    <dl>
+      <div class="bg_png">
+        <div class="dlyz">欢迎您登陆广告企业网！</div>
+        <div id="registration">
+          <form id="RegisterUserForm" action="" method="post">
+            <fieldset>
+            <p>
+              <label for="name">请输入您的用户名</label>
+              <input id="name" name="name" type="text" class="text" value="" />
+            </p>
+            <p style="margin-bottom:35px;">
+              <label for="password">请输入您的密码</label>
+              <input id="password" name="password" class="text" type="password" />
+            </p>
+            <input id="acceptTerms" name="acceptTerms" type="checkbox" />
+            <label for="acceptTerms"> 自动登录 &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">忘记密码？</a> </label>
+            </fieldset>
+            <button id="registerNew" type="submit">登录</button>
+          </form>
+        </div>
+      </div>
+    </dl>
+  </div>
+</div>
+
+<div class="clear_0"></div>
+<!--底部-->
+<div id="footer">
+  <div class="link"><a href="#">关于我们</a>　|　<a href="#">联系我们</a>　|　<a href="#">加盟代理</a>　|　<a href="#">法律声明</a>　|　<a href="#">广告投放</a>　|　<a href="#">电子期刊</a>　|　<a href="#">在线留言</a></div>
+  <div class="copyright">Copyright 2014 广告企业网 All Rights Reserved. 皖ICP备07040713号  Designed </div>
+</div>
+</body>
+</html>

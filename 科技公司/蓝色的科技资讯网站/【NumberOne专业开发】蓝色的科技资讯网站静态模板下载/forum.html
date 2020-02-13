@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/forum.css">
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="application/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/jquery.tools.min.js"></script>
+    <!--表单验证-->
+    <script type="text/javascript" src="js/forum.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/firm-register.css">
+
+</head>
+<body>
+<!--头部-->
+<header id="header">
+    <!--头部的顶部-->
+    <div class="headtp">
+        <div class="container">
+            <div class="fl">
+                <a href="#" onclick="AddFavorite(window.location,document.title)">收藏首页</a>
+                <a href="#">免费注册</a>
+                <a href="#" target="_blank">会员登录</a>
+            </div>
+            <!--搜索框-->
+            <div class="fr">
+                <div class="search">
+                    <form>
+                        <input class="iptxt" type="text" onblur="if(this.value=='')this.value='搜索关键词...';" onfocus="if(this.value=='搜索关键词...')this.value='';" value="搜索关键词..." title="搜索" id="mykey" style="color: rgb(198, 198, 198);">
+                        <a class="subtn" type="button" value="" id="mysub" href="javascript:void(0);"></a>
+                        <script type="text/javascript">
+                            $("#mysub").click(function () {
+                                if ($.trim($("#mykey").val()) == "搜索") {
+                                    alert("请输入关键字！");
+                                    return;
+                                }
+                                location.href = "/aspx/pageabout.aspx?type=search&keyword=" + escape($("#mykey").val()) + "";
+                            });
+                            function AddFavorite(sURL, sTitle) {
+                                sURL = encodeURI(sURL);
+                                try{
+                                    window.external.addFavorite(sURL, sTitle);
+                                }catch(e) {
+                                    try{
+                                        window.sidebar.addPanel(sTitle, sURL, "");
+                                    }catch (e) {
+                                        alert("加入收藏失败，请使用Ctrl+D进行添加,或手动在浏览器里进行设置.");
+                                    }
+                                }
+                            }
+                        </script>
+                    </form>
+                </div>
+
+
+            </div>
+            <!--搜索框end-->
+        </div>
+    </div>
+    <!--头部的下面部分-->
+    <div class="headcon">
+        <div class="container">
+            <a href="index.html" target="_blank"><img src="images/logo.png" alt=""> </a>
+        </div>
+    </div>
+
+</header>
+<!--导航-->
+<nav class="nav">
+    <div class="container">
+        <div class="navbar container">
+            <ul>
+                <li><a href="index.html">网站首页</a></li>
+                <li id="m_about"><a href="about.html">关于协会</a>
+                    <div class="navbox abtnav">
+                        <div class="navlist">
+                            <span class="navsj"></span>
+                            <div class="navl fl">
+                                <h2>关于协会</h2>
+                                <dl>
+                                    <dd class="bd1" onmousemove="showbyid('rig1')"><a href="about.html">协会简介</a></dd>
+                                    <dd class="bd1" onmousemove="showbyid('rig2')"><a href="#">协会章程</a></dd>
+                                    <dd class="bd1" onmousemove="showbyid('rig3')"><a href="#">组织结构</a></dd>
+                                    <dd class="bd1" ><a href="#">入会须知</a></dd>
+                                </dl>
+                            </div>
+                            <div class="navc fl" id="rig1" style="display:none">
+                                <h3>协会简介</h3>
+                                <p>
+
+
+
+
+                                    深圳市城市交通协会简介
+
+
+
+
+                                    深圳市城市交通协会，英文名称：shenzhen urban transportation association （缩写suta），成立于2003年2月25日；是由本市城市交通从业单位和从业人员、专家学者自愿结成的地方性、综合性、非营利性社会组织；接受登记管理机关深圳市民政局和业务主管单位深圳市交通运输委员会的业务指导和监督管理。
+
+
+                                    深圳市城市交通协会是由原“深圳市公路协会”、“深圳市公共道路协会”发展过来的。2003年2月25日，“深圳市公路协会”成立。我市大部制改革后，全市的公路和城市道路管理工作都整合到深圳市交通运输委员会统一进行管理，为了适应我市交通体制的改革，2009年6月30日，“深圳市公路协会”更名为“深圳市公共道路协会”。随着深圳市改革开放的不断深化以及交通行业发展的需要，协会业务范围进一步扩大，因此2014年4月2日，我会正式更名为“深圳市城市交通协会”。
+
+
+                                    协会最高权力机构为会员大会，设立常务理事会和理事会。秘书处为协会常设办事机构，下设16个专业委员会。深圳市城市交通协会的宗旨是：以经济建设为中心，团结和组织广大城市交通行业从业单位和人员，遵守国家法律和政策，遵守社会道德风尚，规范..</p>
+                                <a class="more" href="/about/0_1/">更多》</a>
+                            </div>
+
+                            <div class="navc fl" id="rig2" style="display:none">
+                                <h3>协会章程</h3>
+                                <p>
+                                    深圳市城市交通协会章程
+
+                                    第一章 总  则
+                                    第一条 深圳市城市交通协会（以下简称协会），英文名称为shenzhen　urban  transport  association，简称suta。
+                                    第二条 协会性质：本会是由本市城市交通从业单位和从业人员、专家学者自愿结成的地方性、综合性、非营利性社会组织。
+                                    第三条 本会宗旨：以经济建设为中心，团结和组织广大城市交通行业从业单位和人员，遵守国家法律和政策，遵守社会道德风尚，促进城市交通行业的繁荣和发展，维护全体会员的合法权益，充分发挥桥梁和纽带作用，努力为会员服务为宗旨。
+                                    第四条 本协会接受登记管理机关深圳市民政局和业务主管单位深圳市交通运输委员会的业务指导和监督管理。
+                                    第五条 本会的地址设在深圳市福田区滨河路2031号海安中心大厦1511室。
+
+                                    第二章 业务范围
+                                    第六条  本会的业务范围：
+                                    （一）以我市城市交通行业发展为中心，为会员提供服务，反映会员的诉求，充分发挥协会的桥梁和纽带作用；
+                                    （二）受业务主管部门的委托，承担行业管理的有关工作，组织制定行规、行约，规范行业行为，建立行业自律机制，协调行业内部关系，提高行业整体素质，促进行业和企业公平竞争和有序发展，维护行业和会员的利益；
+                                    ..</p>
+                                <a class="more" href="/about/0_2/">更多》</a>
+                            </div>
+
+                            <div class="navc fl" id="rig3" style="display:none">
+                                <h3>组织结构</h3>
+                                <p><img class="navczjg" src="images/zzjg.png" alt="组织结构图" />
+                                    <a class="more" href="#">更多》</a>
+                                </p>
+                            </div>
+
+                            <script>
+
+                                function showbyid(bid) {
+                                    document.getElementById("rig1").style.display = "none";
+                                    document.getElementById("rig2").style.display = "none";
+                                    document.getElementById("rig3").style.display = "none";
+                                    document.getElementById(bid).style.display = "block";
+                                }
+
+
+                            </script>
+
+
+                        </div>
+                    </div>
+                </li>
+                <li id="m_news"><a href="information.html">信息中心</a></li>
+                <li id="m_member"><a href="member.html">会员中心</a>
+                    <div class="navbox memnav">
+                        <div class="navlist">
+                            <span class="navsj"></span>
+                            <div class="navl fl">
+                                <h2>会员中心</h2>
+                                <dl>
+                                    <dd class="bd1"><a href="login.html" target="_blank">申请入会</a></dd>
+                                    <dd class="bd1"><a href="login.html" target="_blank">会员变更</a></dd>
+                                    <dd class="bd1"><a href="member.html">会员名录</a></dd>
+                                    <dd class="bd1"><a href="#">会员风采</a></dd>
+                                </dl>
+                            </div>
+                            <div class="navc fl">
+                                <h3>入会须知</h3>
+                                <p>
+
+                                    一、入会条件
+
+
+                                    单位会员：
+
+
+                                    凡在深圳市依法注册、登记，从事深圳市城市交通行业的勘测、设计、施工、养护、监理、生产、经营、管理、教学、科研、特种机械设备、咨询、志愿者服务的企、事业单位、大专院校及有关团体，拥护本协会章程，遵守本行业的行规行约，愿意为本行业的发展作出贡献的，自愿提出申请，经批准可成为深圳市城市交通协会（以下简称协会）单位会员。
+
+
+
+
+
+                                    个人会员：
+
+
+                                    具备较高专业技术水平，拥护本协会的章程，遵守本行业的行规行约，自愿提出申..</p>
+                                <a class="more" href="#">更多》</a>
+                            </div>
+                            <div class="navr right">
+                                <div class="navr3">
+                                    <h3>管理办法</h3>
+                                    <p>
+                                        为了充分发挥行业协会的作用，促进协会健康发展，依据《深圳市城市交通协会章程》、《民政部、财政部关于调整社会团体会费政策等有关问题的通知》精神；结合我市城市交通行业实际情况，特制定本办法。
+
+
+
+
+
+
+                                        第一条   会费的组成
+
+
+                                        会费，是协会会员向本协会缴纳的费用，用于协会开展各项活动的财务支出。
+
+
+
+
+
+
+                                        第二条   会费开支范围
+                                        ..</p>
+                                    <a class="more" href="#">更多》</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li id="m_committee"><a href="product.html">产品服务</a>
+                    <div class="navbox wynav" >
+                        <div class="navlist">
+                            <span class="navsj"></span>
+                            <div class="navl fl">
+                                <h2>产品服务</h2>
+                                <dl>
+                                    <dd class="bd1" onmousemove="showbyid2('weiyuan601')"><a href="product.html">网站建设</a></dd>
+                                    <dd class="bd1" onmousemove="showbyid2('weiyuan602')"><a href="#">OA办公系统</a></dd>
+                                    <dd class="bd1" onmousemove="showbyid2('weiyuan603')"><a href="#">大数据应用</a></dd>
+                                </dl>
+                            </div>
+
+                            <div class="navc2 fl" id="weiyuan601"  style="display:block"><div class="navc fl">
+                                <h3>深圳市城市交通协会调研会议纪要</h3>
+                                <p>
+
+
+
+
+                                    2015年7月30日下午，在公路管理中心大楼19楼会议室，深圳市城市交通协会施佑生执行秘书长主持召开调研会，会议对道路养护改革存在的问题及改革的方向进行了探讨。道路养护专业委员会常务委员成员参加了会议。现纪要如下：
+
+
+                                    一、会议听取了道路养护专业委员会古文献秘书长有关专委会2015年上半年主要工作汇报
+
+
+                                    会议指出，专委会自成立以来，在深圳市交通运输委员会与城市交通协会的正确指导下，有序的开展了道路养护专业委会的日常工作，并组织召开了会员大会、常务委员会议及相关专题会议。
+
+
+                                    会议肯定了专委会积极协调道路设施养护及隧道运营采购的相关工作。同时..</p>
+                            </div>
+                                <div class="navc fl">
+                                    <h3>专业委员会简介</h3>
+                                    <p>
+                                        道路养护专业委员会简介
+
+
+
+
+
+                                        深圳市城市交通协会道路养护专业委员会（以下简称“养专委”）是深圳市城市交通协会（以下简称“协会”）下属的二级分支机构，不具有法人资格，受协会领导，依照协会管理制度开展活动。养专委于2014年9月18日正式成立，目前共有32家会员单位。
+
+
+                                        养专委的业务宗旨是一切活动遵守国家法律、法规及深圳市有关政策和规定，执行《深圳市城市交通协会章程》和《深圳市城市交通协会分支机构管理制度》，恪守职业道德，严格行业自律，坚持民主办会。养专委根据协会的工作宗旨和定位，认真贯彻落实科学发展观，协助道路养护行业主管部门加强对道路日常养护行业的管..</p>
+                                </div>
+                            </div><div class="navc2 fl" id="weiyuan602"  style="display:none"><div class="navc fl">
+                            <h3>2015年度交通运输专业职称评审工作材料申报指导讲座成功举办</h3>
+                            <p>
+
+
+
+
+                                “2015年度深圳市交通运输专业职称评审工作材料申报指导讲座”于2015年8月30日下午在市政设计大厦七楼多功能厅顺利召开，本次讲座由深圳市城市交通协会与深圳市市政设计研究院有限公司联合举办，该讲座由深圳市城市交通协会副秘书长马禾主持，市政院陈宜言董事长担任主讲嘉宾，共31家单位160余名专业技术人员参加了讲座。本次讲座旨在帮助专业技术人员全面了解职称工作政策，提高申报材料质量。现将纪要如下：
+
+
+                                一、讲座首先由马禾副秘书长介绍了交通运输专业职称申报工作的重要性，宣贯评审政策并对申报单位和申报个人提出了意见和要求，表达了对在座专业技术人员积极申报职称的鼓励和支持..</p>
+                        </div>
+                            <div class="navc fl">
+                                <h3>关于举办2015年度深圳市交通运输专业职称评审工作材料申报指导讲座的通知</h3>
+                                <p></p>
+                            </div>
+                        </div><div class="navc2 fl" id="weiyuan603"  style="display:none"></div>
+
+                        </div>
+                    </div>
+                </li>
+                <script>
+
+                    function showbyid2(bid) {
+                        document.getElementById("weiyuan601").style.display = "none";
+                        document.getElementById("weiyuan602").style.display = "none";
+                        document.getElementById("weiyuan603").style.display = "none";
+                        document.getElementById(bid).style.display = "block";
+                    }
+
+
+                </script>
+                <li><a href="project.html">项目合作</a></li>
+                <li><a href="expert.html">专家智库</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<!--主体部分-->
+<div class="container clearfix">
+    <!--左侧导航栏-->
+    <div class="ltbox fl bd1">
+        <div class="ltmenu">
+            <div class="tit">
+                <h2>联系我们</h2>
+            </div>
+            <ul class="menulist clearfix">
+                <li><a href="contact.html"><i><img src="images/black_icon.png"></i>通讯地址</a></li>
+                <li class="current"><a href="forum.html"><i><img src="images/red_icon.png"></i>意见反馈</a></li>
+                <li><a href="download.html"><i><img src="images/black_icon.png"></i>资料下载</a></li>
+            </ul>
+        </div>
+        <!--QQ咨询-->
+
+        <div class="ltqq">
+            <div class="tit">
+                <h2>在线咨询</h2>
+            </div>
+            <div class="ltqbox clearfix">
+                <img class="ltqimg" src="images/catimg.jpg" alt="在线咨询">
+                <div class="ltqsend">
+                    <p>协会咨询:<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1958366264&amp;site=qq&amp;menu=yes" rel="nofollow"><img border="0" src="http://wpa.qq.com/pa?p=2:1958366264:51" alt="协会咨询" title="协会咨询"></a></p>
+                    <p>网站咨询:<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=971919614&amp;site=qq&amp;menu=yes" rel="nofollow"><img border="0" src="http://wpa.qq.com/pa?p=2:971919614:51" alt="网站咨询" title="网站咨询"></a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--右侧内容栏-->
+    <div class="rtbox fr">
+        <div class="rtit">
+            <div class="srtit">
+                <h2 class="fl"><i><img src="images/line_red.png"></i>意见反馈&nbsp;|&nbsp; Website Building</h2>
+                <p class="fr">当前位置：<a href="#">首页</a> &gt; <a href="#">联系我们</a> &gt;<a href="#">意见反馈</a> </p>
+            </div>
+        </div>
+        <!--内容框-->
+        <div class="rtcon abtbg">
+            <div class="rtcontain aboutbox">
+
+                <form  id="customerForm" name="customerForm" action="#" method="post">
+
+                    <div class="reg-item clearfix" id="contactPersonDiv">
+                        <span class="reg-label"><span class="red">*</span>联系人姓名：</span>
+                        <div class="reg-input">
+                            <input id="contactPerson" maxlength="20" name="contactName" onblur="handleBlur(this.id)" value="" tabindex="5" class="js-add-focus-blur js-check-verify" onfocus="handleFocus(this.id)" type="text"/>
+                        </div>
+                        <div class="reg-tips" id="contactPersonTips"></div>
+                    </div>
+
+
+
+                    <div class="reg-item clearfix" id="companyNameDiv">
+                        <span class="reg-label"><span class="red">*</span>公司名称：</span>
+                        <div class="reg-input">
+                            <input id="companyName" maxlength="40" name="name" onblur="handleBlur(this.id)" value="" tabindex="10" class="js-add-focus-blur js-check-verify" onfocus="handleFocus(this.id)" type="text"/>
+                        </div>
+                        <div class="reg-tips" id="companyNameTips"></div>
+                    </div>
+
+                    <div class="reg-item clearfix" id="contactTelDiv">
+                        <span class="reg-label">固定电话：</span>
+                        <div class="reg-input">
+                            <input id="contactTel" maxlength="12" name="contactTel" onblur="handleBlur(this.id)" value="" tabindex="8" class="js-add-focus-blur" onfocus="handleFocus(this.id)" type="text"/>
+                        </div>
+                        <div class="reg-tips" id="contactTelTips"></div>
+                    </div>
+
+                    <div class="reg-item clearfix" id="mobileDiv">
+                        <span class="reg-label"><span class="red">*</span>手机号码：</span>
+                        <div class="reg-input">
+                            <input id="mobile" maxlength="11" name="contactMobile" onblur="handleBlur(this.id)" value="" tabindex="7" class="js-add-focus-blur js-check-verify" onfocus="handleFocus(this.id)" type="text"/>
+                        </div>
+                        <div class="reg-tips" id="mobileTips"></div>
+                    </div>
+
+                    <div class="reg-item clearfix" id="emailDiv">
+                        <span class="reg-label"><span class="red">*</span>联系人邮箱：</span>
+                        <div class="reg-input">
+                            <input id="email" maxlength="100" name="contactMail" onblur="handleBlur(this.id)" value="" tabindex="9" class="js-add-focus-blur js-check-verify" onfocus="handleFocus(this.id)" type="text"/>
+                        </div>
+                        <div class="reg-tips" id="emailTips"></div>
+                    </div>
+
+                    <div class="reg-item clearfix" id="remarkDiv">
+                        <span class="reg-label">反馈内容：</span>
+                        <div class="reg-input">
+                            <textarea id="remark" tabindex="20" maxlength="100" onkeyup="handlerChange(this)" onblur="handleBlur(this.id)" class="reg-text js-add-blur" style="resize:none;" ></textarea>
+                            <p class="remark"><font id="remarkWordTotal" color="red">0</font>/100</p>
+
+                        </div>
+                        <div class="reg-tips" id="remarkTips"></div>
+                    </div>
+
+                    <div class="btn-block clearfix">
+                        <a href="javascript:;" class="form-btn positive-form-btn">提交</a>
+                    </div>
+
+                </form>
+
+
+            </div>
+         </div>
+    </div>
+ </div>
+</body>
+</html>

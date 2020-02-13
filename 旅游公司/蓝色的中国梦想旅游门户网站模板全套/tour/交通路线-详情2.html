@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>交通线路页</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/common.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript"> 
+    $(function(){
+        var wweya_li =$("div.tab_menu ul li");
+        wweya_li.click(function(){
+        $(this).addClass("selected")            
+         .siblings().removeClass("selected");  
+            var index =  wweya_li.index(this); 
+        $("div.tab_box > div")  
+        .eq(index).show(100)   
+            .siblings().hide(); 
+                }).hover(function(){
+            $(this).addClass("hover");
+        },function(){
+            $(this).removeClass("hover");           
+        });
+    });
+</script>
+</head>
+<body>
+<div class="top_hw clearfix">
+    <div class="top_h clearfix">
+        <div class="top_hl"><span>欢迎来到中国梦想游，让你的梦想全程免费自由行！</span> 预定热线：<b>0571-63322269</b></div>
+        <div class="top_hr"><a href="会员注册.html">会员注册</a>  |  <a href="会员登录.html">登录</a>  |  <a href="#">梦想收藏</a>  |  <a href="#">设为首页</a></div>
+    </div>
+</div>
+<div class="head_w">
+    <div class="head_t clearfix">
+        <div class="logo"><img src="images/logo.jpg"></div>
+        <div class="rx_line"><img src="images/rx.jpg"></div>
+    </div>
+</div>
+<div class="mainNav clearfix">
+    <ul class="Nav_ul">
+        <li><a href="中国梦想游首页.html">首页</a><img src="images/nav_line.jpg"></li>
+        <li ><a  href="旅游路线.html">旅游路线</a><img src="images/nav_line.jpg"></li>
+        <li  class="cur" ><a href="旅游景点.html">旅游景点</a><img src="images/nav_line.jpg"></li>
+        <li><a href="餐饮住宿.html">餐饮住宿</a><img src="images/nav_line.jpg"></li>
+        <li class="cur" ><a href="交通路线-详情1.html">交通线路</a><img src="images/nav_line.jpg"></li>
+        <li><a href="旅游团购.html">旅游团购</a><img src="images/nav_line.jpg"></li>
+        <li><a href="地方特产.html">地方特产</a><img src="images/nav_line.jpg"></li>
+        <li><a href="自动生成简介.html">自动生成简介</a><img src="images/nav_line.jpg"></li>
+        <li><a href="团队简介-关于中国梦想游.html">团队简介</a><img src="images/nav_line.jpg"></li>
+        <li><a href="行程导航-详情.html">行程导航</a></li>
+    </ul>
+</div>
+<div class="b_wrap">
+    <div class="current"><span>当前所在地：</span><a href="中国梦想游首页.html">首页</a> >> <a href="交通路线-详情1.html">交通线路</a> >> <a href="#">火车票查询</a></div>
+    <div class="clumn_w clearfix">
+        <div class="clumn_l">
+            <div class="clumn">
+                <div class="clumn_tit t01">交通线路</div>
+                <div class="clumn_con">
+                    <ul class="xl_ul">
+                        <li><a href="#">>> 火车票查询</a></li>
+                        <li><a href="#">>> 机票查询</a></li>
+                        <li><a href="#">>> 梦想租车</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clumn">
+                <div class="clumn_tit t03"><span>游览历史记录</span><a href="#">更多>></a></div>
+                <div class="clumn_con">
+                    <ul class="clu_ul s_ul">
+                        <li><a href="#">日本航空·大阪自由行5日    </a><span>¥3152</span></li>
+                        <li><a href="#">日本航空·名古屋自由行4日  </a><span>¥3129</span></li>
+                        <li><a href="#">购物·东京涉谷原宿自由行5日</a><span>¥5880</span></li>
+                        <li><a href="#">日本航空·大阪自由行5日    </a><span>¥3152</span></li>
+                        <li><a href="#">日本航空·名古屋自由行4日  </a><span>¥3129</span></li>
+                        <li><a href="#">购物·东京涉谷原宿自由行5日</a><span>¥5880</span></li>
+                        <li><a href="#">日本航空·大阪自由行5日    </a><span>¥3152</span></li>
+                        <li><a href="#">日本航空·名古屋自由行4日  </a><span>¥3129</span></li>
+                        <li><a href="#">购物·东京涉谷原宿自由行5日</a><span>¥5880</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clumn_r">
+            <div class="xl_tit">火车票</div>
+            <div class="cx_wrap clearfix">
+                <div class="tab_menu cx_tit clearfix">
+                    <ul class="cx_ul">
+                        <li class="selected">站站搜索</li>
+                        <li>车站搜索</li>
+                        <li>车次搜索</li>
+                    </ul>
+                    <a class="cx_p" href="#">出票状态查询</a>
+                </div>
+                <div class="tab_box cx_box"> 
+                     <div class="cx_tab">
+                        <table width="660" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td class="bt_t" width="75">出发站</td>
+                            <td class="bt_in" width="183"><label>
+                              <input type="text" name="textfield" id="textfield">
+                            </label></td>
+                            <td width="62" class="bt_t">到达站</td>
+                            <td class="bt_in" width="190"><label>
+                              <input type="text" name="textfield3" id="textfield3">
+                            </label></td>
+                            <td width="150" rowspan="2"><a href="#"><img src="images/search_bu.jpg" width="100" height="30"></a></td>
+                          </tr>
+                          <tr>
+                            <td class="bt_t">日 期</td>
+                            <td class="bt_in"><label>
+                              <input type="text" name="textfield2" id="textfield2">
+                            </label></td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            </tr>
+                        </table>
+                     </div>
+                     <div class="hide cx_tab">
+                         交换机换句话
+                     </div> 
+                     <div class="hide cx_tab">
+                         交换机换句话
+                     </div>
+                </div>
+            </div>
+            <p class="k_search">可搜索2959个车站，4003次列车的时刻信息</p>
+            <div class="jt_wrap clearfix">
+                <div class="tab_menu jt_tit clearfix">
+                    <span>热门火车票</span>
+                    <ul class="jt_ul">
+                        <li class="selected">北京</li>
+                        <li>广州</li>
+                        <li>上海</li>
+                        <li>成都</li>
+                        <li>西安</li>
+                        <li>郑州</li>
+                        <li>天津</li>
+                        <li>武昌</li>
+                        <li>长沙</li>
+                        <li>深圳</li>
+                    </ul>
+                </div>
+                <div class="tab_box jt_box"> 
+                     <div class="jt_bw">
+                        <div class="jt_con clearfix">
+                            <div class="jt_lt">
+                                <p>热门路线</p>
+                                <div class="jt_u01 clearfix">
+                                    <a href="#">北京-上海</a>
+                                    <a href="#">北京-天津</a>
+                                    <a href="#">北京-哈尔滨</a>
+                                    <a href="#">北京-石家庄 </a>
+                                    <a href="#">北京-沈阳</a>
+                                    <a href="#">北京-南京</a>
+                                    <a href="#">北京-济南</a>
+                                    <a href="#">北京-郑州</a>
+                                    <a href="#">北京-杭州</a>
+                                    <a href="#">北京-太原</a>
+                                    <a href="#">北京-西安</a>
+                                    <a href="#">北京-长春</a>
+                                    <a href="#">北京-广州</a>
+                                    <a href="#">北京-武汉</a>
+                                    <a href="#">北京-青岛</a>
+                                </div>
+                            </div>
+                            <div class="jt_rt bl_line">
+                                <p>热门车次</p>
+                                <div class="jt_u02 clearfix">
+                                    <a href="#">T109</a>          
+                                    <a href="#">K411</a>          
+                                    <a href="#">T47 </a>         
+                                    <a href="#">T31 </a>
+                                    <a href="#">D27 </a>          
+                                    <a href="#">K339</a>          
+                                    <a href="#">K265</a>         
+                                    <a href="#">K51</a>
+                                    <a href="#">K43B </a> 
+                                    <a href="#">K101/K104</a>       
+                                    <a href="#">K19  </a>          
+                                    <a href="#">1467 </a>        
+                                    <a href="#">K101/K104</a>
+                                    <a href="#">K215</a>     
+                                    <a href="#">D25 </a>    
+                                    <a href="#">1301 </a>
+                                    <a href="#">D5  </a>     
+                                    <a href="#">T17 </a>     
+                                    <a href="#">D21 </a>    
+                                    <a href="#">K263</a>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="hide jt_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide jt_bw">
+                         交换机换句话
+                     </div>
+                     <div class="hide jt_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide jt_bw">
+                         交换机换句话
+                     </div>
+                     <div class="hide jt_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide jt_bw">
+                         交换机换句话
+                     </div>
+                     <div class="hide jt_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide jt_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide jt_bw">
+                         交换机换句话
+                     </div>    
+                </div>
+            </div>
+            <div class="jt_wrap clearfix">
+                <div class="tab_menu jt_tit clearfix">
+                    <span>国内特价机票</span>
+                    <ul class="jt_ul">
+                        <li class="selected">北京</li>
+                        <li>广州</li>
+                        <li>上海</li>
+                        <li>成都</li>
+                        <li>西安</li>
+                        <li>郑州</li>
+                        <li>天津</li>
+                        <li>武昌</li>
+                        <li>长沙</li>
+                        <li>深圳</li>
+                    </ul>
+                </div>
+                <div class="tab_box jt_box"> 
+                     <div class="jt_bw">
+                        <div class="jt_con clearfix">
+                            <div class="tj_wrap">
+                                <ul class="tj_ul">
+                                    <li><span class="tj_sp01">¥92 </span><a href="#"> 09月20日 北京-太原</a><span class="tj_sp02">1.6折</span></li>     
+                                    <li><span class="tj_sp01">¥172</span><a href="#"> 09月19日 北京-长春</a><span class="tj_sp02">  1.8折</span></li>       
+                                    <li><span class="tj_sp01">¥247</span><a href="#">09月23日1.8折北京-兰州</a><span class="tj_sp02">1.6折</span></li>                               
+                                    <li><span class="tj_sp01">¥194</span><a href="#"> 09月10日 北京-乌海   </a><span class="tj_sp02">1.8折  </span></li>     
+                                    <li><span class="tj_sp01">¥184</span><a href="#"> 10月08日 北京-合肥</a><span class="tj_sp02">  1.9折</span></li>       
+                                    <li><span class="tj_sp01">¥178</span><a href="#">09月20日2.1折北京-洛阳</a><span class="tj_sp02">1.6折</span></li>                    
+                                    <li><span class="tj_sp01">¥225</span><a href="#"> 10月08日 北京-南京   </a><span class="tj_sp02">2.2折  </span></li>     
+                                    <li><span class="tj_sp01">¥255</span><a href="#"> 10月05日 北京-武汉</a><span class="tj_sp02">  2.4折</span></li>       
+                                    <li><span class="tj_sp01">¥112</span><a href="#">月21日2.4折北京-赤峰</a><span class="tj_sp02">1.6折</span></li>                              
+                                    <li><span class="tj_sp01">¥358</span><a href="#"> 10月08日 北京-温州</a><span class="tj_sp02">2.3折 </span></li>  
+                                 </ul>
+                            </div>
+                            <div class="tj_wrap b_brd">
+                                <ul class="tj_ul">
+                                    <li><span class="tj_sp01">¥92 </span><a href="#"> 09月20日 北京-太原</a><span class="tj_sp02">1.6折</span></li>     
+                                    <li><span class="tj_sp01">¥172</span><a href="#"> 09月19日 北京-长春</a><span class="tj_sp02">  1.8折</span></li>       
+                                    <li><span class="tj_sp01">¥247</span><a href="#">09月23日1.8折北京-兰州</a><span class="tj_sp02">1.6折</span></li>                               
+                                    <li><span class="tj_sp01">¥194</span><a href="#"> 09月10日 北京-乌海   </a><span class="tj_sp02">1.8折  </span></li>     
+                                    <li><span class="tj_sp01">¥184</span><a href="#"> 10月08日 北京-合肥</a><span class="tj_sp02">  1.9折</span></li>       
+                                    <li><span class="tj_sp01">¥178</span><a href="#">09月20日2.1折北京-洛阳</a><span class="tj_sp02">1.6折</span></li>                    
+                                    <li><span class="tj_sp01">¥225</span><a href="#"> 10月08日 北京-南京   </a><span class="tj_sp02">2.2折  </span></li>     
+                                    <li><span class="tj_sp01">¥255</span><a href="#"> 10月05日 北京-武汉</a><span class="tj_sp02">  2.4折</span></li>       
+                                    <li><span class="tj_sp01">¥112</span><a href="#">月21日2.4折北京-赤峰</a><span class="tj_sp02">1.6折</span></li>                              
+                                    <li><span class="tj_sp01">¥358</span><a href="#"> 10月08日 北京-温州</a><span class="tj_sp02">2.3折 </span></li>  
+                                 </ul>
+                            </div>
+                            <div class="tj_wrap">
+                                <ul class="tj_ul">
+                                    <li><span class="tj_sp01">¥92 </span><a href="#"> 09月20日 北京-太原</a><span class="tj_sp02">1.6折</span></li>     
+                                    <li><span class="tj_sp01">¥172</span><a href="#"> 09月19日 北京-长春</a><span class="tj_sp02">  1.8折</span></li>       
+                                    <li><span class="tj_sp01">¥247</span><a href="#">09月23日1.8折北京-兰州</a><span class="tj_sp02">1.6折</span></li>                               
+                                    <li><span class="tj_sp01">¥194</span><a href="#"> 09月10日 北京-乌海   </a><span class="tj_sp02">1.8折  </span></li>     
+                                    <li><span class="tj_sp01">¥184</span><a href="#"> 10月08日 北京-合肥</a><span class="tj_sp02">  1.9折</span></li>       
+                                    <li><span class="tj_sp01">¥178</span><a href="#">09月20日2.1折北京-洛阳</a><span class="tj_sp02">1.6折</span></li>                    
+                                    <li><span class="tj_sp01">¥225</span><a href="#"> 10月08日 北京-南京   </a><span class="tj_sp02">2.2折  </span></li>     
+                                    <li><span class="tj_sp01">¥255</span><a href="#"> 10月05日 北京-武汉</a><span class="tj_sp02">  2.4折</span></li>       
+                                    <li><span class="tj_sp01">¥112</span><a href="#">月21日2.4折北京-赤峰</a><span class="tj_sp02">1.6折</span></li>                              
+                                    <li><span class="tj_sp01">¥358</span><a href="#"> 10月08日 北京-温州</a><span class="tj_sp02">2.3折 </span></li>  
+                                 </ul>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div>
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div>
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div>
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div>    
+                </div>
+            </div>
+            <div class="jt_wrap clearfix">
+                <div class="tab_menu jt_tit clearfix">
+                    <span>梦想租车</span>
+                    <ul class="jt_ul">
+                        <li class="selected">北京</li>
+                        <li>广州</li>
+                        <li>上海</li>
+                        <li>成都</li>
+                        <li>西安</li>
+                        <li>郑州</li>
+                        <li>天津</li>
+                        <li>武昌</li>
+                        <li>长沙</li>
+                        <li>深圳</li>
+                    </ul>
+                </div>
+                <div class="tab_box jt_box"> 
+                     <div class="jt_bw">
+                        <div class="jt_con clearfix">
+                            <div class="mx_wrap">
+                                <ul class="mx_ul">
+                                    <li><a href="#">起亚K5 2.0GLS AT 百公里新车       </a><span>5888元/月起</span></li> 
+                                    <li><a href="#">标致508 2.3L 准新车（万公里内）   </a><span>6666元/月起</span></li> 
+                                    <li><a href="#">现代索纳塔八代2.0TOP AT 千公里新车</a><span>5866元/月起</span></li> 
+                                    <li><a href="#">别克英朗GT1.6 准新车（万公里内）  </a><span>4988元/月起</span></li>
+                                 </ul>
+                            </div>
+                            <div class="mx_wrap b_line">
+                                <ul class="mx_ul">
+                                    <li><a href="#">起亚K5 2.0GLS AT 百公里新车       </a><span>5888元/月起</span></li> 
+                                    <li><a href="#">标致508 2.3L 准新车（万公里内）   </a><span>6666元/月起</span></li> 
+                                    <li><a href="#">现代索纳塔八代2.0TOP AT 千公里新车</a><span>5866元/月起</span></li> 
+                                    <li><a href="#">别克英朗GT1.6 准新车（万公里内）  </a><span>4988元/月起</span></li>
+                                 </ul>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div>
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div>
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div>
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div> 
+                     <div class="hide t_bw">
+                         交换机换句话
+                     </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="friend_w clearfix">
+    <div class="friend clearfix">
+        <dl class="friend_dl bg01">
+            <dt><b>网站使用流程</b></dt>
+            <dd><a href="#">网站使用流程</a></dd>
+            <dd><a href="#">网站预定流程</a></dd>
+            <dd><a href="#">会员注册流程</a></dd> 
+            <dd><a href="#">网站支付流程</a></dd>
+        </dl>
+        <dl class="friend_dl bg02">
+            <dt><b>会员中心</b></dt>
+            <dd><a href="#">会员注册/登录</a></dd>
+            <dd><a href="#">帮助中心</a></dd>
+            <dd><a href="#">积分中心</a></dd>
+            <dd><a href="#">支付中心</a></dd>
+        </dl>
+        <dl class="friend_dl bg03">
+            <dt><b>公司简介</b></dt>
+            <dd><a href="#">关于梦想游</a></dd> 
+            <dd><a href="#">加入梦想游</a></dd> 
+            <dd><a href="#">公司动态</a></dd>
+            <dd><a href="#">网站地图</a></dd>
+        </dl>
+        <dl class="friend_dl bg04">
+            <dt><b>合作伙伴</b></dt>
+            <dd><a href="#">加盟合作</a></dd> 
+            <dd><a href="#">广告合作</a></dd> 
+            <dd><a href="#">运营合作</a></dd> 
+            <dd><a href="#">友情链接</a></dd>
+        </dl>
+        <dl class="friend_dl bg05">
+            <dt><b>旅游查询</b></dt>
+            <dd><a href="#">天气预报</a></dd>  
+            <dd><a href="#">火车查询</a></dd> 
+            <dd><a href="#">电子地图</a></dd>   
+            <dd><a href="#">航班时刻</a></dd>
+        </dl>
+    </div>
+</div>
+<div class="footer_w">
+    <div class="footer clearfix">
+        <div class="footer_c">
+            <p>地址：中国浙江省杭州市西湖区教工路316号 &nbsp;| &nbsp;服务热线：0571-62332269 &nbsp; | &nbsp;传真：0571-62337233  备案号：0453-2xxxxxx</p>
+            <p>Copyright © 2013 中国梦想旅游发展有限公司 All Rights Reserved. 技术支持：<a href="#">杭州风靡网络</a></p>
+        </div>
+        <div class="f_logo"><img src="images/b_logo.jpg"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=QHGs3lzkwAnvENATgNxcpuhR"></script>
+<input type="hidden" id="hfTitle" value="温州先临左岸" />
+<div id="QWTMAP" style="height:300px;"></div>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("QWTMAP");
+    var lng = "120.703474";//x
+    var lat = "28.010843";//y
+    var point = new BMap.Point(lng, lat);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);              // 将标注添加到地图中
+    map.centerAndZoom(point, 15);
+    var opts = {
+        width: 200,     // 信息窗口宽度
+        height: 100,     // 信息窗口高度
+        title: "温州先临左岸", // 信息窗口标题
+        enableMessage: true,//设置允许信息窗发送短息
+        //message: "地址：黎明东路308号 电话：13057909999~"
+    }
+    var infoWindow = new BMap.InfoWindow("温州市鹿城区学院中路7号 浙江创意园 D棟101", opts);  // 创建信息窗口对象
+    map.openInfoWindow(infoWindow, point); //开启信息窗口
+    marker.addEventListener("click", function () {
+        map.openInfoWindow(infoWindow, point); //开启信息窗口
+    });
+</script>

@@ -1,0 +1,3131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<title>商品详情</title>
+<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="icon" href="images/animated_favicon.gif" type="image/gif" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/MagicZoom.css" rel="stylesheet" type="text/css"/>
+<link href="css/server.css" rel="stylesheet" type="text/css"/>
+<link href="css/report.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/mzp-packed-me.js"></script>
+<script type="text/javascript" src="js/report.js"></script>
+<script type="text/javascript" src="js/common.js"></script><script type="text/javascript">
+function $id(element) {
+  return document.getElementById(element);
+}
+//切屏--是按钮，_v是内容平台，_h是内容库
+function reg(str){
+	if(!$id(str+"_b")){return;};
+  var bt=$id(str+"_b").getElementsByTagName("h2");
+  for(var i=0;i<bt.length;i++){
+    bt[i].subj=str;
+    bt[i].pai=i;
+    bt[i].style.cursor="pointer";
+    bt[i].onclick=function(){
+      $id(this.subj+"_v").innerHTML=$id(this.subj+"_h").getElementsByTagName("blockquote")[this.pai].innerHTML;
+      for(var j=0;j<$id(this.subj+"_b").getElementsByTagName("h2").length;j++){
+        var _bt=$id(this.subj+"_b").getElementsByTagName("h2")[j];
+        var ison=j==this.pai;
+        _bt.className=(ison?"":"h2bg");
+      }
+    }
+  }
+  $id(str+"_h").className="none";
+  $id(str+"_v").innerHTML=$id(str+"_h").getElementsByTagName("blockquote")[0].innerHTML;
+}
+</script>
+</head>
+<body>
+<script type="text/javascript">
+		var process_request = "正在处理您的请求...";
+</script>
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<link href="css/common.css" rel="stylesheet" type="text/css">
+<link href="css/ajaxlogin.css" rel="stylesheet" type="text/css">
+<link href="css/front.css" rel="stylesheet" type="text/css">
+<style>
+.logobox {
+height: 86px;
+}
+.logobox .appdownload {height: 55px;width: 140px;float: right;margin: 16px 0 0 0;z-index: 1999;}
+.logobox .appdownload .wei2apppic {position: absolute;left: 0px;top: 56px;display: none;}
+.logobox .appdownload:hover .wei2apppic {display: block;}
+/*body{
+	background:url(http://public.chemayi.com/__IMG__/version63/common/newyear_img_s.png) no-repeat center 134px #fff;
+}*/
+</style>
+<script charset="utf-8" src="http://wpa.b.qq.com/cgi/wpa.php"></script>
+<!--<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/publicelements.js"></script>-->
+<script type="text/javascript" src="js/utils.js"></script>        	<!--<a href="http://www.chemayi.com/subject.php?type=aichejie">
+        	<div style="background-image: url('http://img.chemayi.com/version63/index/jiamian_tong.jpg');background-position:center;height:90px;width:100%;cursor:pointer;">
+            </div>
+            </a>
+--><div class="com_top">
+		<div class="wrap_min">
+				<div class="com_top_l fl">
+						<a href="index.html">首页</a>
+						<font style="display:none;">宝马 2015款 X系 2.0T xDrive20i 时尚型</font><a class="choose_car_model_btn" style="display:none;">test</a>
+						
+						                        <a class="welcome">您好</a>
+						<a class="login" href="member_index.html">1538</a>
+                                                <a href="http://www.chemayi.com/login/logOut.html" id="LoginOut">退出</a>
+										</div>
+				<div class="com_top_r fr">
+						<div class="fr">
+								<em>|</em>
+								<a href="http://www.chemayi.com/subject/index/type-app.html" class="icon_com icon_mob"><em></em>手机版</a>
+								<a href="http://biz.chemayi.com/login.php" target="_blank">商家入驻</a>
+								<em>|</em>
+								<a href="http://bbs.chemayi.com" target="_blank">蚂蚁社区</a>
+								<a target="_blank" href="http://www.chemayi.com/wiki">蚂蚁百科</a>
+						</div>
+						<div class="fr">
+								<a href="/flow.php" class="icon_com icon_shop"><em>购物车</em><i>0</i></a>
+						</div>
+						<div class="myinfo fr">
+								<h1 id="item1" onMouseOut="settimerhide()" onMouseOver="itemover()"><a href="http://member.chemayi.com/index.php">我的车蚂蚁</a><em class="icon_com icon_up"></em></h1>
+								<ul class="myinfo_ul" id="sub1"  onmouseout="settimerhide()" onMouseOver="subsover()" >
+										<li>
+										<a href="member_car_plan.html">养车计划</a>
+										</li>
+										<li>
+										<a href="member_order.html">订单管理</a>
+										</li>
+										<li>
+										<a href="member_shouli.html">受理单查询</a>
+										</li>
+								</ul>
+						</div>
+				</div>
+		</div>
+</div>
+<div class="wrap_min logobox">
+        <span class="fl">
+                	<a href="index.html"><img src="images/logo.png"></a>
+                </span>
+                <span class="ri" style="float:right; margin:0;">
+                	<div class="qr_code"><a href="http://www.chemayi.com/subject/index/type-app.html"><img src="images/code.png"></a> </div>
+                    <div class="appdownload">
+                        <div class="pr" style="z-index:2000;">
+                            <a href="http://www.chemayi.com/subject/index/type-appdown.html" >
+                                <img src="images/mobile120.gif">
+                            </a>
+                            <div class="wei2apppic">
+                                <img src="images/newapp.png"> 
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                <!--<div class="appdownload pr">
+                	<img src="images/mobile120.gif">
+                    <div class="wei2apppic">
+                    	<img src="images/newapp.png"> 
+                    </div>
+                </div>-->
+</div>
+<div class="wrap_min nav">
+		<div class="nav_l fl">
+				<a href="http://www.chemayi.com/maintain/index.html" class="hot">爱车保养</a>
+				<a href="http://www.chemayi.com/mall/carBeauty.html" class="hot">爱车美容</a>
+				<a href="weixiu.html" class="hot">爱车维修</a>
+				<em class="navline"></em>
+				<!-- <a href="/category.php?id=7#category_tree" class="">蚂蚁特价</a>-->
+				<a href="/category.php?id=7#category_tree" class="cur">蚂蚁商城</a>
+				<a href="service.html">服务网点</a>
+		</div>
+		<div class="nva_r fr">
+				<div class="nav_num fl">
+						400-0571-137</div>
+				<div class="nav_pub fl">
+                <a id='send' href="http://chemayi.com/repair/iframe.html">发布需求</a></div>
+		</div>
+</div>
+<div class="wrap_min">
+	<div class="navbotLine"></div>
+</div><div class="block box">
+ <div class="detailnav">
+ <div id="ur_here">
+  当前位置: <a href=".">首页</a> <code>&gt;</code> <a href="category.php?id=7">蚂蚁商城</a> <code>&gt;</code> <a href="category.php?id=9">汽车美容</a> <code>&gt;</code> 车蚂蚁漆身基础清洁方案 （普通洗车+含工时费） </div>
+ </div>
+</div>
+<div class="block clearfix goods-detail-box">
+  
+  <div class="AreaR">
+   
+   <div id="goodsInfo" class="clearfix">
+   <div class="goodsInfoBox">
+   	<div class="textInfo">
+     <form action="javascript:addToCart(263)" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+	 <div class="goods-info-box">
+	 <div class="goodstitle">车蚂蚁漆身基础清洁方案 （普通洗车+含工时费） <font class="brief"></font></div>
+     <div class="info">
+      <ul>
+	  	  	  <li class="clearfix"> 
+		  <div class="price-box">
+        <font class="shopprice" id="ECS_SHOPPRICE">￥25.00 </font> 
+		</div>  
+      </li>
+      	  
+      <li class="clearfix">
+              市场价格：<font class="market" id="ECS_MARKETPRICE">￥35.00</font>
+        &nbsp;&nbsp;&nbsp;&nbsp;折扣：7.1 折  &nbsp;&nbsp;&nbsp;&nbsp;节省：10元  
+      </li>
+	   <li class="clearfix">
+       	          商品货号：ECS000263             </li>
+      
+	  	  <li class="clearfix">
+        库　　存：          有货
+        	  </li>
+      
+            
+       
+           
+	  
+	     
+	  <li>
+	  	服务承诺：<img src="images/promise.png" style="vertical-align:middle" />
+	  </li>
+	  <li>
+      	  	<!--<a href="http://www.chemayi.com/subject/index/type-aichejie.html" target="_blank" style="color:#FA5F19;">车蚂蚁假面养车节，不爽现场退款，买贵立刻补差。</a>
+	  -->
+	        </li>
+      
+	  
+      </ul>
+     </div>
+	 </div>
+	  <div class="product_bj">
+       
+      <div class="textInpadd">
+        <div class="f_l">我要买：</div><a href="javascript:void(0);" onclick="goods_cut();changePrice()" class="imgl"></a> <input name="number" type="text" id="number" class="inum" value="1" size="4" onblur="changePrice();get_shipping_list(forms['ECS_FORMBUY'],263);"/><a href="javascript:void(0);"  onclick="goods_add();changePrice()" class="imgr"></a> &nbsp;&nbsp; 商品总价：<font id="ECS_GOODS_AMOUNT" class="shop1"></font> 
+		  <script language="javascript" type="text/javascript">
+			function goods_cut(){
+				var num_val=document.getElementById('number');
+				var new_num=num_val.value;
+				 if(isNaN(new_num)){alert('请输入数字');return false}
+				var Num = parseInt(new_num);
+				if(Num>1)Num=Num-1;
+				num_val.value=Num;
+			}
+			function goods_add(){
+				var num_val=document.getElementById('number');
+				var new_num=num_val.value;
+				 if(isNaN(new_num)){alert('请输入数字');return false}
+				var Num = parseInt(new_num);
+				Num=Num+1;
+				num_val.value=Num;
+			}
+	    </script>
+      </div>
+      <div class="textInpaddbuy">
+		  <a href="javascript:addToBuy(263)" class="bnt_cat">立即购买</a>
+	  <a href="javascript:addToCart(263)" class="add_gotobuy" title="加入购物车" style="margin-left:5px;"><img src="images/add-gotobuy.png" alt="加入购物车" /></a>
+      </div>
+	  </div>
+	  <div class="blank"></div>
+     </form>  
+	  
+<div id="bdshare" class="f_l bdshare_b" style="line-height: 12px; padding-top:22px;">
+<img src="images/type-button-5.jpg?cdnversion=20120831" />
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=button&amp;uid=0" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+ </div>
+     
+     <div class="imgInfo">
+	      <a href="http://mall.chemayi.com/images/201407/goods_img/263_P_1404338652569.jpg" id="Zoomer" class="MagicZoomPlus" rel="selectors-effect:false;zoom-fade:true;background-opacity:70;zoom-width:378;zoom-height:378;caption-source:img:title;thumb-change:mouseover" title=""  onclick="window.open('gallery.php?id=263'); return false;">
+    <img id="img_url" src="http://mall.chemayi.com/images/201407/goods_img/263_P_1404338652569.jpg" alt="车蚂蚁漆身基础清洁方案 （普通洗车+含工时费）" class="thumb" />
+    </a>
+         
+     <div class="clearfix" id="gallbox">
+<span onmouseover="moveLeft()" onmousedown="clickLeft()" onmouseup="moveLeft()" onmouseout="scrollStop()"></span>
+<div class="gallery">
+<div id="demo">
+<div id="demo1" style="float:left">
+<ul>
+<li>
+<a href="http://mall.chemayi.com/images/201407/goods_img/263_P_1404338652569.jpg" rel="zoom-id:Zoomer" rev="http://mall.chemayi.com/images/201407/goods_img/263_P_1404338652569.jpg" title="">
+<img src="images/263_thumb_P_1404338652328.jpg" alt="车蚂蚁漆身基础清洁方案 （普通洗车+含工时费）" class="onbg"  onmouseover="chkimgcss(this)"/>
+</a>
+</li>
+ </ul>
+</div>
+<div id="demo2" style="display:inline;overflow:visible;">
+</div>
+</div>
+</div>
+<span onmouseover="moveRight()" onmousedown="clickRight()" onmouseup="moveRight()" onmouseout="scrollStop()" class="spanR"></span>
+<script type="text/javascript">
+function $gg(A){
+return(document.getElementById)?document.getElementById(A):document.all[A]
+}
+function chkimgcss(C){
+var D=document.getElementById("demo");
+var B=D.getElementsByTagName("img");
+for(var A=0;A<B.length;A++){B[A].className="autobg"}C.className="onbg"}
+var boxwidth=60;
+var box=$gg("demo");
+var obox=$gg("demo1");
+var dulbox=$gg("demo2");
+obox.style.width=obox.getElementsByTagName("li").length*boxwidth+"px";
+dulbox.style.width=obox.getElementsByTagName("li").length*boxwidth+"px";
+box.style.width=obox.getElementsByTagName("li").length*boxwidth*3+"px";
+var canroll=false;if(obox.getElementsByTagName("li").length>=5){
+canroll=true;dulbox.innerHTML=obox.innerHTML}var step=5;temp=1;speed=50;var awidth=obox.offsetWidth;var mData=0;var isStop=1;var dir=1;
+function s(){if(!canroll){return}if(dir){if((awidth+mData)>=0){mData=mData-step}else{mData=-step}}else{if(mData>=0){mData=-awidth}else{mData+=step}}obox.style.marginLeft=mData+"px";if(isStop){return}setTimeout(s,speed)}
+function moveLeft(){var A=isStop;dir=1;speed=50;isStop=0;if(A){setTimeout(s,speed)}}
+function moveRight(){var A=isStop;dir=0;speed=50;isStop=0;if(A){setTimeout(s,speed)}}
+function scrollStop(){isStop=1}
+function clickLeft(){var A=isStop;dir=1;speed=25;isStop=0;if(A){setTimeout(s,speed)}}
+function clickRight(){var A=isStop;dir=0;speed=25;isStop=0;if(A){setTimeout(s,speed)}};
+</script>
+</div>
+     
+     </div>
+     
+     </div>
+     
+   <div class="blank"></div>
+   
+      
+   
+   
+    <div class="blank"></div>
+    
+    
+  <style>
+.clearfix:after{
+content:"."; display:block; height:0; clear:both;
+visibility:hidden;
+}
+*html .clearfix{
+ height:1%;
+}
+*+html .clearfix{
+ height:1%;
+}
+.blank{height:8px; line-height:8px; clear:both; visibility:hidden;}
+.B_eee{border:1px solid #eee;width:100px;height:100px;}
+.none{display:none;}
+.package{background:#fff; padding-bottom:2px; overflow:hidden;}
+.pa_tit{width:100%;height:33px;background:url(themes/1hdshop/images/bg_package_ecshop119.gif) repeat-x 0 bottom;}
+.pa_tit h2{
+	float:left;width:132px;height:33px;line-height:33px;
+	background:url(themes/1hdshop/images/bg_package_ecshop119.gif) no-repeat 0 -33px;
+	font-size:14px;text-align:center;margin-right:5px;
+}
+.pa_tit h2.current{background:url(themes/1hdshop/images/bg_package_ecshop119.gif) no-repeat 0 0;}
+.pa_box{height:auto;border:1px solid #e5e5e5;border-top:none;}
+.pa_box ul{float:left;width:77%;padding:15px 10px;overflow:hidden;}
+.pa_box ul li{float:left;width:133px;padding-left:10px;background:url(themes/1hdshop/images/ico_add2_ecshop119.gif) no-repeat right 50px;}
+.pa_box ul li a{color:#000;text-decoration:none;width:100px;display:block; line-height:20px;}
+.pa_box ul li.last{background:none;}
+.pa_box .buypack{float:right;width:20%;padding-top:40px; line-height:2em; color:#666;}
+.pa_box .buypack strong{font-weight:normal;}
+.pa_box .buypack .f_yuan{font-size:12px;}
+.pa_box .buypack .f_save{font-size:12px;}
+.pa_box .buypack .f_pack{color:#FA5E19; font-size:12px; font-weight:bold;}
+.pa_box .buypack .f_pack1{font-size:12px;}
+.btn_pack{width:103px;height:32px;margin-top:10px;border:none;background:url(themes/1hdshop/images/ico_buypackage_ecshop119.gif) no-repeat 0 0;cursor:pointer;}
+</style>
+<script type="text/javascript">
+reg_package();
+</script>  
+    <div class="blank"></div>
+   
+   
+     <div class="box">
+        <div id="goodsContent">
+			<ul class="gc-title">
+				<li><a class="test-btn1 selected" href="#tab1">产品描述</a></li>
+				<li><a class="test-btn2" href="#tab2">评论(278)</a></li>
+			</ul>
+			<div id="tab1" class="gc-box">
+				<!--<div style="text-align:center;">
+					<a href="http://www.chemayi.com/subject.php?type=aichejie"><img src="images/jiamian_nei.jpg" /></a>
+				</div>
+           --><iframe src="http://www.chemayi.com/supplier.php?act=choose&goods_id=263&source=goodsDesc" width="100%" height="567px"  scrolling="no" frameborder="0"></iframe>
+            <p><style type="text/css">.spCmyBox{ width:960px; margin:0 auto; overflow:hidden; font-family:"微软雅黑"; font-size:14px; background:#fff; color:#2E3032; line-height:1.5; padding-top:20px;}
+.spCmyBox li,.spCmyBox ul,.spCmyBox ol{list-style:none; padding:0; margin:0; float:none; width:auto}
+.spCmyBox h3{ background:none; border:0; text-align:inherit; height:auto; line-height:none; padding-left:0;}
+.spCmyRow{ padding-bottom:50px; border-bottom:1px solid #ddd;}
+.spCmyRow .spCmyTitle{padding-top:50px; font-size:20px; padding-bottom:30px;}
+.spCmyRow-wt li{overflow:hidden; margin-bottom:20px; padding:0 20px;}
+.spCmyRow-wt li .img-box{ width:415px;}
+.spCmyRow-wt li .txt-box{ width:320px;}
+.spCmyRow-wt li .txt-box h4{width:320px; height:50px; background-color:#009D96; text-align:center; color:#fff; line-height:50px; font-size:28px; margin-top:40px;}
+.spCmyRow-wt li .txt-box p{line-height:30px; font-size:16px; color:#666; width:320px; margin-top:20px;}
+.spCmyRow-wt li.list-danshu .img-box{ float:left;}
+.spCmyRow-wt li.list-danshu .txt-box{ float:right; padding-right:50px;}
+.spCmyRow-wt li.list-shuangshu .img-box{ float:right;}
+.spCmyRow-wt li.list-shuangshu .txt-box{ float:left; padding-left:50px;}
+.spCmyRow-duibi{overflow:hidden; zoom:1;}
+.spCmyRow-duibi li{float:left; margin:0 10px; width:458px;}
+.spCmyRow-duibi li h4{font-size:20px; padding:20px 0 20px; text-align:center;}
+.spCmyRow-duibi li p{text-align:center; font-size:15px; margin-top:20px;}
+.spCmyXmxq{ padding-bottom:30px;}
+.spCmyXmxq p{line-height:24px;}
+.spCmyXmxq p strong{font-weight:bold;}
+.xmxq-table{margin-top:30px;}
+.xmxq-table th,.xmxq-table td{border:1px solid #ddd; padding:0 15px; height:30px;}
+.xmxq-table th{text-align:right; font-weight:bold;}
+.xmxq-table thead th{text-align:left;}
+.spCmyTitle span{ display:block; margin-top:10px; font-size:14px; float:none; padding-left:0;}
+.spCmyBox .num-list{ padding-left:20px;}
+.spCmyBox .num-list li{list-style:decimal; line-height:2.2;}
+.spCmyliyou{overflow:hidden; zoom:1;}
+.spCmyliyou li{width:320px; height:547px; float:left; text-align:center;}
+.spCmyliyou li h3{margin:170px 0 10px; font-size:16px;}
+.spCmyliyou li span{color:#F95E19;}
+.spCmyteyue {overflow:hidden; zoom:1;}
+.spCmyteyue li{width:320px; height:270px; float:left; text-align:center;}
+.spCmyteyue li h3{margin:140px 0 10px; font-size:16px;}
+.spCmyteyue li span{color:#F95E19;}
+.spCmyBottom{margin-top:50px; text-align:center;}
+.spCmyBottom p{margin-top:10px;}</style></p>
+<div class="spCmyBox">
+<div class="spCmyRow">&nbsp;</div>
+<div class="spCmyRow"><img alt="" width="960" height="350" style="line-height: 1.5" src="images/20140703134020m2cfh2.jpg" /></div>
+<div class="spCmyRow">
+<h3 class="spCmyTitle">你可能会遇到以下问题：</h3>
+<img alt="汽车不定期保养，你就会遇到以下问题" width="960" height="424" src="images/20140703134111f536od.jpg" /></div>
+<div class="spCmyRow">
+<h3 class="spCmyTitle">车蚂蚁漆身基础清洁方案</h3>
+<ul class="spCmyRow-wt">
+    <li class="list-danshu">
+    <div class="img-box"><img alt="NO.1  提高效率" width="415" height="242" src="images/201407031342173sjfow.jpg" /></div>
+    <div class="txt-box">
+    <h4>NO.1&nbsp; 亮洁漆身</h4>
+    <p>迅速提升漆面亮度，使驾驶者更舒心；</p>
+    </div>
+    </li>
+    <li class="list-shuangshu">
+    <div class="img-box"><img alt="NO.2  动力强劲" width="415" height="242" src="images/201407031343176ef64g.jpg" /></div>
+    <div class="txt-box">
+    <h4>NO.2 除垢去尘</h4>
+    <p>深层清除漆面污垢，灰尘等杂物对漆身的粘附；</p>
+    </div>
+    </li>
+    <li class="list-danshu">
+    <div class="img-box"><img alt="NO.3  形成油膜" width="415" height="242" src="images/20140703134328h6kevk.jpg" /></div>
+    <div class="txt-box">
+    <h4>NO.3 防氧化腐蚀</h4>
+    <p>有效防御雨季过后，酸雨对漆身的腐蚀、氧化；</p>
+    </div>
+    </li>
+    <li class="list-shuangshu">
+    <div class="img-box">&nbsp;</div>
+    <div class="txt-box">&nbsp;</div>
+    </li>
+</ul>
+</div>
+<div class="spCmyRow">
+<h3 class="spCmyTitle">对比效果图</h3>
+<ul class="spCmyRow-duibi">
+    <li>
+    <h4>清洗前</h4>
+    <div class="img-box"><img alt="保养前" width="458" height="242" src="images/201407031343508ye50p.jpg" /></div>
+    <p>洗车前：车身灰尘粘附厚厚一沉，显得暗淡无光。</p>
+    </li>
+    <li>
+    <h4>清洗后</h4>
+    <div class="img-box"><img alt="保养后" src="images/201407031344029lz68y.jpg" /></div>
+    <p>洗车后：漆面提升亮度明显，入目心旷神怡。</p>
+    </li>
+</ul>
+</div>
+<div class="spCmyRow">
+<h3 class="spCmyTitle">项目详情</h3>
+<div class="spCmyXmxq">
+<p><strong>服务名称：</strong>车蚂蚁漆身基础清洁方案&nbsp;</p>
+<p><strong>服务类型：</strong>汽车清洗---洗车</p>
+</div>
+<div class="img-box"><img alt="项目详情" width="960" height="242" src="images/201407031345252xir5q.jpg" /></div>
+<table class="xmxq-table" width="838" height="218">
+    <tbody>
+        <tr>
+            <th width="23%">洗车部位</th>
+            <td width="24%">汽车车身</td>
+            <th width="22%">&nbsp;</th>
+            <td width="31%">&nbsp;</td>
+        </tr>
+        <tr>
+            <th>洗车作用</th>
+            <td colspan="3">迅速提升漆面光亮程度，清除漆面粉尘污垢</td>
+        </tr>
+        <tr>
+            <th>洗车服务次数</th>
+            <td>1次</td>
+            <th>&nbsp;</th>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <th>可选服务门店</th>
+            <td>25家</td>
+            <th>&nbsp;</th>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align: center; color: rgb(251,94,25)">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="spCmyRow">
+<h3 class="spCmyTitle">施工流程<span>洗车服务标准六步流程</span></h3>
+<div class="img-box"><img alt="车蚂蚁服务施工流程" width="960" height="517" src="images/2014070313503162j128.jpg" /></div>
+<div class="img-box">&nbsp;</div>
+<h3 class="spCmyTitle">车蚂蚁汽车顾问养车建议</h3>
+<ol class="num-list">
+    <li><font face="微软雅黑" style="font-size: 10pt">经常洗车，能让你的车美观，增加车表漆的寿命，因为车长时间不洗涮，漆面上停留的污垢和雨水，还有紫外线折射，对漆的腐蚀很大；</font><b><font face="微软雅黑" style="font-size: 10pt"><br />
+    </font></b></li>
+    <li>很多车主喜欢在烈日下洗车，认为这样洗后很快就能将车身上的水晒干。其实不然，在烈日下洗车，水滴所形成的凸透镜效果会使车漆的最上层产生局部高温现象，时间久了，车漆便会失去光泽。</li>
+</ol>
+</div>
+<div class="spCmyRow">
+<h3 class="spCmyTitle">购买流程</h3>
+<div class="img-box"><img alt="车蚂蚁服务购买流程" width="960" height="140" src="images/201406131037221z20me.png" /></div>
+</div>
+<div class="spCmyRow">
+<h3 class="spCmyTitle">选择车蚂蚁的理由</h3>
+<ul class="spCmyliyou">
+    <li style="background: url(images/20140613103831kkncbu.png) no-repeat left top">
+    <h3>服务保障</h3>
+    <p>施工质量车蚂蚁为您保障<br />
+    服务不满意请拨打车蚂蚁热线：<span>400-0571-137</span><br />
+    我们为您维权！</p>
+    </li>
+    <li style="background: url(images/20140613103841y2x4ww.png) no-repeat left top">
+    <h3>正品保障</h3>
+    <p>施工所需配件均由品牌<span>厂家直供</span><br />
+    车蚂蚁统一物流配送<br />
+    确保每一个配件正品品质。</p>
+    </li>
+    <li style="background: url(images/20140613103849xg2xuc.png) no-repeat left top">
+    <h3>免费施工</h3>
+    <p>车蚂蚁所合作的<span>特约商户</span>均免工时费。</p>
+    </li>
+</ul>
+</div>
+<div class="spCmyRow">
+<h3 class="spCmyTitle">什么是车蚂蚁特约商户</h3>
+<ul class="spCmyteyue">
+    <li style="background: url(images/201406131044348b7evj.png) no-repeat left top">
+    <h3>严格筛选</h3>
+    <p>特约商户须由蚂蚁特攻队通过实地考察<br />
+    现场体验来综合评分<br />
+    <span>最终甄选并授权签约特约商户</span></p>
+    </li>
+    <li style="background: url(images/20140613104442g70zc8.png) no-repeat left top">
+    <h3>证件齐全</h3>
+    <p>车蚂蚁特约商户均<br />
+    具备机<span>动车服务</span><br />
+    <span>许可证以及相关资质证明</span></p>
+    </li>
+    <li style="background: url(images/2014061310445232lsfg.png) no-repeat left top">
+    <h3>专业能力</h3>
+    <p>特约商户均经过蚂蚁特工队对其<br />
+    设备、场地、技师专业技能三个纬度<br />
+    的考核，确保其具备相应施工<br />
+    能力及服务质量</p>
+    </li>
+</ul>
+</div>
+<div class="spCmyRow">
+<h3 class="spCmyTitle">温馨提示</h3>
+<ol class="num-list" style="margin-top: -20px">
+    <li>请妥善保存好您的订单短信，到店需凭短信验证码服务；</li>
+    <li>含配件的套餐，配件由车蚂蚁统一配送致施工门店，用户在施工前请检查配件的数量和包装的完整性；</li>
+    <li>以上服务不含任何隐性以及强制性消费。如出现上述情况，请拨打车蚂蚁客服热线：400-0571-137进行投诉。</li>
+</ol>
+</div>
+<div class="spCmyRow">
+<h3 class="spCmyTitle">车蚂蚁统一包装及配送</h3>
+<div class="img-box"><img alt="车蚂蚁统一包装及配送" width="960" height="153" src="images/201406131046143tyqm9.jpg" /></div>
+</div>
+<div class="spCmyRow" style="border-bottom: 0px">
+<div class="spCmyBottom">
+<div class="img-box"><img src="images/201504211731104bdh3d.jpg" width="960" height="294" alt="" /></div>
+<div class="img-box"><img alt="车蚂蚁logo" width="172" height="63" src="images/20140613104700m88kdo.png" /></div>
+<p>车蚂蚁&mdash;&mdash;全国领先的本地汽车生活平台<br />
+省心省钱省时间</p>
+</div>
+</div>
+</div>
+<p>&nbsp;</p></div>
+			<div id="tab2" class="gc-box">
+				<div class="evaluate-box" style="display: block;">
+			  
+	        <div class="shops_pj_box mt20 clearfix" id="evaluates_list">
+				<h3><div class="fl f14 fb">消费评价</div></h3>
+	            <div class="shops_pj_one fl">
+					<div class="fl"><i>3.9</i><em>分</em></div>
+	                <div class="per_pf4">
+						<div class="per_pfhover4" style="width:60%;">
+		                <a href="javascript:void(0);">50%</a>
+		                </div>
+					</div>
+					<div class="clear"></div>
+					<div class="shops_pj_num">已有<i>278</i>人评价</div>
+	            </div>
+	            <div class="shops_pj_two fl">
+					<div class="shops_pj_two_li">
+						<div class="fl">服务环境</div>
+	                    <div class="per_pf4">
+						<div class="per_pfhover4" style="width:80%;">
+	                <a href="javascript:void(0);">50%</a>
+	                </div>
+					</div>
+					<div class="fl">4分</div>
+	                </div>
+	                
+	                <div class="shops_pj_two_li">
+						<div class="fl">服务质量</div>
+	                    <div class="per_pf4">
+	                <div class="per_pfhover4" style="width:80%;">
+	                <a href="javascript:void(0);">50%</a>
+	                </div>
+					</div>
+					<div class="fl">4分</div>
+	                </div>
+	                
+	                <div class="shops_pj_two_li">
+						<div class="fl">服务态度</div>
+	                    <div class="per_pf4">
+	                <div class="per_pfhover4" style="width:80%;">
+	                <a href="javascript:void(0);">50%</a>
+	                </div>
+					</div>
+					<div class="fl">4分</div>
+	                </div>
+	            </div>
+	            
+	            <div class="shops_pj_three fl">
+					<div class="shops_pf_li f14">
+						<div class="fl">5分</div>
+						<div class="shops_pf_bg">
+							<div class="shops_pf_bghover" style="width:3.2374100719424;"></div>
+	                    </div>
+						<div class="fl col_2e3032">9人</div>
+	                </div>
+	                <div class="shops_pf_li f14">
+						<div class="fl">4分</div>
+						<div class="shops_pf_bg">
+							<div class="shops_pf_bghover" style="width:62.230215827338%;"></div>
+	                    </div>
+						<div class="fl col_2e3032">173人</div>
+	                </div>
+	                <div class="shops_pf_li f14">
+						<div class="fl">3分</div>
+						<div class="shops_pf_bg">
+							<div class="shops_pf_bghover" style="width:34.172661870504%;"></div>
+	                    </div>
+						<div class="fl col_2e3032">95人</div>
+	                </div>
+	                
+	                <div class="shops_pf_li f14">
+						<div class="fl">2分</div>
+						<div class="shops_pf_bg">
+							<div class="shops_pf_bghover" style="width:0%;"></div>
+	                    </div>
+						<div class="fl col_2e3032">0人</div>
+	                </div>
+	                <div class="shops_pf_li f14">
+						<div class="fl">1分</div>
+						<div class="shops_pf_bg">
+							<div class="shops_pf_bghover" style="width:0.35971223021583%;"></div>
+	                    </div>
+						<div class="fl col_2e3032">1人</div>
+	                </div>
+	            </div>
+	        </div>
+			<ul class="pingjia_list">
+                                                      <li>
+                	<div class="pingjia_li_top">
+						<span>保险杠 2015-04-19</span>
+						<em>店铺：卡尔卡雷汽车服务店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>ZDRMUV 2015-04-18</span>
+						<em>店铺：浙江外事旅游汽车有限公司修理厂</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>FallenScythe 2015-04-18</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13357166554 2015-04-06</span>
+						<em>店铺：小拇指（笕丁路连锁中心）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">还不错洗的算干净</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13867120955 2015-03-16</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>保险杠 2015-03-09</span>
+						<em>店铺：卡尔卡雷汽车服务店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">这么贵吃得消，店家洗车只要15哎。</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588121500 2015-02-21</span>
+						<em>店铺：浙江外事旅游汽车有限公司修理厂</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13819109287 2015-02-13</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>张小盒 2015-02-07</span>
+						<em>店铺：浙江外事旅游汽车有限公司修理厂</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">还可以吧 </div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span> 2015-01-31</span>
+						<em>店铺：杭州似您邻</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">服务很好，态度很好，洗车很干净，一个字，赞</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13706519289 2015-01-24</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>colt 2015-01-07</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15968879798 2015-01-04</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13336056201 2014-12-27</span>
+						<em>店铺：车蚂蚁保养站新城路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>俞 2014-12-25</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18042026232 2014-12-23</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13605702257 2014-12-20</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">还不错！免费测胎压</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588725366 2014-12-20</span>
+						<em>店铺：车蚂蚁保养站复兴路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15168351689 2014-12-18</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>喵都督 2014-12-16</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>AZIACW 2014-12-13</span>
+						<em>店铺：小拇指（笕丁路连锁中心）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15558180957 2014-12-08</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">还不错</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588057075 2014-12-05</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>BSVCFN 2014-11-30</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13575452251 2014-11-30</span>
+						<em>店铺：车蚂蚁保养站复兴路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15888821527 2014-11-30</span>
+						<em>店铺：车蚂蚁保养站复兴路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>车蚂蚁保养站三里亭店 2014-11-30</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13958092850 2014-11-26</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>null 2014-11-21</span>
+						<em>店铺：车金刚</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18757571890 2014-11-20</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15381180157 2014-11-19</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>千里镜 2014-11-19</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15168351689 2014-11-19</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13567103323 2014-11-18</span>
+						<em>店铺：车蚂蚁保养站新城路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>疯了的猪 2014-11-18</span>
+						<em>店铺：杭州艾弗仕汽车有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">很好的服务态度好到爆表啊</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15068115313 2014-11-17</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>高建 2014-11-14</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>赵 2014-11-13</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">不错</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13857192991 2014-11-13</span>
+						<em>店铺：车金刚</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15068877525 2014-11-13</span>
+						<em>店铺：小拇指五常店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>null 2014-11-12</span>
+						<em>店铺：车金刚</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588110281 2014-11-12</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>小小张 2014-11-12</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>Lucifer 2014-11-12</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15306567177 2014-11-11</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>布小心 2014-11-09</span>
+						<em>店铺：杭州极道汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span> 2014-11-08</span>
+						<em>店铺：浙江爱特堡汽车修理服务连锁有限公司杭州城东维修中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15888833384 2014-11-03</span>
+						<em>店铺：恒德高端汽车服务</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>PDDCVY 2014-11-02</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13958194571 2014-11-02</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>VMOCND 2014-11-02</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>Denny0913 2014-11-01</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13429674198 2014-11-01</span>
+						<em>店铺：弗朗德汽车美容会所</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>人见人爱  花见花开 2014-11-01</span>
+						<em>店铺：车蚂蚁保养站复兴路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">不错</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588297169 2014-10-31</span>
+						<em>店铺：北上汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>周先生（13757155248） 2014-10-31</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>周先生（158） 2014-10-31</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13396588858 2014-10-31</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>蚂蚁搬家 2014-10-30</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13575468873 2014-10-29</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18868130345 2014-10-29</span>
+						<em>店铺：车蚂蚁保养站天官东路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13567103323 2014-10-28</span>
+						<em>店铺：车蚂蚁保养站新城路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">作为1元洗车还好，跟专业洗车差距有点⋯⋯</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13757153572 2014-10-28</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588705630 2014-10-28</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13033609226 2014-10-28</span>
+						<em>店铺：杭州艾弗仕汽车有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15988123110 2014-10-28</span>
+						<em>店铺：车骑王子</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13516709934 2014-10-27</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">很好</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>JARUBB 2014-10-26</span>
+						<em>店铺：弗朗德汽车美容会所</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13575799292 2014-10-26</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18158199729 2014-10-26</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span> 2014-10-25</span>
+						<em>店铺：小拇指五常店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>千里镜 2014-10-24</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">服务技术一如既往的好</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>XOUVIO 2014-10-24</span>
+						<em>店铺：弗朗德汽车美容会所</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>null 2014-10-23</span>
+						<em>店铺：车金刚</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18106512830 2014-10-22</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>毛球也疯狂喔 2014-10-22</span>
+						<em>店铺：卡孚汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13757102212 2014-10-22</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>KECFAP 2014-10-21</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13606533429 2014-10-21</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">OK</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>周先生（13456） 2014-10-21</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>周（13588195164） 2014-10-21</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>MLGQCQ 2014-10-21</span>
+						<em>店铺：车蚂蚁爱车吧</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>MRIIVO 2014-10-20</span>
+						<em>店铺：杭州艾弗仕汽车有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13567137969 2014-10-20</span>
+						<em>店铺：小拇指（留和店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15958162367 2014-10-19</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>CVMAIX 2014-10-19</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>人见人爱  花见花开 2014-10-19</span>
+						<em>店铺：车蚂蚁保养站复兴路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">老板很热情，车洗的非常干净，他家是专业维修汽车的，爱车有什么小问题刚好可以看下，超方便！好评</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18606892550 2014-10-19</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>万 2014-10-19</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13957151099 2014-10-19</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>UWZDCP 2014-10-18</span>
+						<em>店铺：小拇指五常店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15168351689 2014-10-18</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13067918986 2014-10-18</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15958120159 2014-10-18</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18868418881 2014-10-18</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>mark 2014-10-18</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>snowspace 2014-10-17</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13738150531 2014-10-17</span>
+						<em>店铺：杭州艾弗仕汽车有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">非常不错的一次洗车体验 不仅把车外面洗的干干净净 连里面的灰尘也清洗干净 再用抹布仔细擦过 我对这次洗车十分满意</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>XZQRVN 2014-10-17</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15325812755 2014-10-17</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15858109989 2014-10-16</span>
+						<em>店铺：车蚂蚁保养站新城路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588065089 2014-10-16</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>zhuguang 2014-10-16</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588419000 2014-10-16</span>
+						<em>店铺：杭州汉高汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15868837865 2014-10-16</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">比银行洗车服务提供的网店规范更多，整洁程度和工作质量都高出一个档次。很不错，推荐。
+</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15967132684 2014-10-16</span>
+						<em>店铺：北上汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>null 2014-10-16</span>
+						<em>店铺：车金刚</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>Land Rover 2014-10-15</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15958120159 2014-10-15</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13600541732 2014-10-14</span>
+						<em>店铺：杭州极道汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>OQJOZM 2014-10-14</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13626687880 2014-10-14</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13634195758 2014-10-14</span>
+						<em>店铺：杭州艾弗仕汽车有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18069781991 2014-10-14</span>
+						<em>店铺：杭州艾弗仕汽车有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15058192431 2014-10-14</span>
+						<em>店铺：杭州艾弗仕汽车有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18989471335 2014-10-14</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13516775229 2014-10-14</span>
+						<em>店铺：浙江爱特堡汽车修理服务连锁有限公司杭州城东维修中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15372446243 2014-10-14</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13867477883 2014-10-13</span>
+						<em>店铺：车蚂蚁保养站复兴路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">服务热情，细心，让人舒心，以前都是建行卡在洗车，来这里洗车过，明年建行卡就准备取消了，在这里办卡洗车什么的让人很放心</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588849237 2014-10-12</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>WKQNVW 2014-10-12</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>zhuguang 2014-10-10</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>null 2014-10-10</span>
+						<em>店铺：小拇指五常店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13306535595 2014-10-10</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>OVACBR 2014-10-09</span>
+						<em>店铺：杭州极道汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>Land Rover 2014-10-09</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>洪丽莎 2014-10-09</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18868728188 2014-10-08</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13516775229 2014-10-08</span>
+						<em>店铺：浙江爱特堡汽车修理服务连锁有限公司杭州城东维修中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>林 2014-10-07</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13958044497 2014-10-07</span>
+						<em>店铺：浙江爱特堡汽车修理服务连锁有限公司杭州城东维修中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13857116605 2014-10-07</span>
+						<em>店铺：浙江爱特堡汽车修理服务连锁有限公司杭州城东维修中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>KBUQYL 2014-10-06</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>WEELMK 2014-10-06</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15372446243 2014-10-06</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15958120159 2014-10-06</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>zhuguang 2014-10-06</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13185030907 2014-10-06</span>
+						<em>店铺：浙江爱特堡汽车修理服务连锁有限公司杭州城东维修中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>蚂蚁搬家 2014-10-06</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13357133468 2014-10-06</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>Land Rover 2014-10-05</span>
+						<em>店铺：卡孚汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>姚先生 2014-10-05</span>
+						<em>店铺：小拇指（笕丁路连锁中心）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>Cobra 2014-10-04</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13805739580 2014-10-04</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13575468873 2014-10-04</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13655812217 2014-10-04</span>
+						<em>店铺：小拇指良渚店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15305638515 2014-10-03</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13868030175 2014-10-03</span>
+						<em>店铺：卡孚汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>CKHKOP 2014-10-03</span>
+						<em>店铺：杭州艾弗仕汽车有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>JJRBZQ 2014-10-02</span>
+						<em>店铺：卡孚汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15394220657 2014-10-02</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>KECFAP 2014-10-02</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588010774 2014-10-02</span>
+						<em>店铺：浙光汽车装潢商行</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>shallwe 2014-10-02</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>ZSNWKP 2014-10-01</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>15988893026 2014-10-01</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>潘 2014-10-01</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>zhuguang 2014-09-30</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>XWWLMY 2014-09-29</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>ZSNWKP 2014-09-29</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>TFPMNT 2014-09-29</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>KTBOUY 2014-09-28</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18368013900 2014-09-28</span>
+						<em>店铺：弗朗德汽车美容会所</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>张 2014-09-28</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13588479584 2014-09-28</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18324449644 2014-09-28</span>
+						<em>店铺：弗朗德汽车美容会所</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18067976076 2014-09-27</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>Denny0913 2014-09-27</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13958046167 2014-09-27</span>
+						<em>店铺：浙光汽车装潢商行</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>DRQXXP 2014-09-27</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13606509041 2014-09-23</span>
+						<em>店铺：车蚂蚁保养站复兴路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>ZSNWKP 2014-09-23</span>
+						<em>店铺：卡孚汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>YDIRJC 2014-09-23</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>JOOGCD 2014-09-23</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>OQYUDL 2014-09-23</span>
+						<em>店铺：车蚂蚁保养站三里亭店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span> 2014-09-22</span>
+						<em>店铺：小拇指（笕丁路连锁中心）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>SQUFQY 2014-09-22</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>DKWTBA 2014-09-22</span>
+						<em>店铺：我爱我车（一号店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>zhuguang 2014-09-22</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>18989471335 2014-09-22</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>MSTDUW 2014-09-21</span>
+						<em>店铺：杭州艾弗仕汽车有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>VKAZBP 2014-09-21</span>
+						<em>店铺：弗朗德汽车美容会所</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>UMPGNL 2014-09-20</span>
+						<em>店铺：和诚汽车维修服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>CKHKOP 2014-09-20</span>
+						<em>店铺：我爱我车（一号店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>龙的典当 2014-09-19</span>
+						<em>店铺：卡萨博汽车生活馆</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>koopar 2014-09-17</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>YFQMLH 2014-09-16</span>
+						<em>店铺：杭州艾弗仕汽车有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>jss 2014-09-16</span>
+						<em>店铺：小拇指（留和店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>NLKPFO 2014-09-15</span>
+						<em>店铺：小拇指（留和店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>YHDCUL 2014-09-15</span>
+						<em>店铺：我爱我车（一号店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>任恩铭 2014-09-15</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>koopar 2014-09-15</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>BDMAKK 2014-09-15</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>谢先生 2014-09-15</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>FDQZGM 2014-09-12</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>永无止进 2014-09-12</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>KECFAP 2014-09-11</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>龙的典当 2014-09-11</span>
+						<em>店铺：卡萨博汽车生活馆</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>GVZEAG 2014-09-10</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>QCYFKH 2014-09-09</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>吴飞燕 2014-09-09</span>
+						<em>店铺：我爱我车（一号店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>OZMLVL 2014-09-08</span>
+						<em>店铺：恒德高端汽车服务</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>BXFXLR 2014-09-05</span>
+						<em>店铺：久久久2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>KBAYGU 2014-09-04</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>UWWYRM 2014-09-02</span>
+						<em>店铺：友车行</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>PVIGWL 2014-09-01</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>OVRUOV 2014-09-01</span>
+						<em>店铺：杭州星期八汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>FITQIV 2014-09-01</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>任恩铭 2014-08-31</span>
+						<em>店铺：卡卡精车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>UYSNMV 2014-08-31</span>
+						<em>店铺：杭州市下城区永昌汽车装潢服务部</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>GHWGCP 2014-08-30</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>mark 2014-08-30</span>
+						<em>店铺：我爱我车（一号店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>MLGQCQ 2014-08-30</span>
+						<em>店铺：北上汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>KVMSCC 2014-08-30</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>FRFVYL 2014-08-30</span>
+						<em>店铺：卡萨博汽车生活馆</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>FWFBCN 2014-08-30</span>
+						<em>店铺：卡萨博汽车生活馆</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>STQYXB 2014-08-30</span>
+						<em>店铺：南站修理</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>zhuguang 2014-08-29</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span> 2014-08-29</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>LPJRSC 2014-08-29</span>
+						<em>店铺：北上汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>WEELMK 2014-08-29</span>
+						<em>店铺：小拇指（文一店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>colt 2014-08-29</span>
+						<em>店铺：杭州胜欢汽车修配</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>ZSENUR 2014-08-28</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>PSPMMN 2014-08-28</span>
+						<em>店铺：御驾汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>zhuguang 2014-08-28</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>班凯 2014-08-28</span>
+						<em>店铺：卡萨博汽车生活馆</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>jintianme722 2014-08-27</span>
+						<em>店铺：杭州康迪汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>SPXPDG 2014-08-26</span>
+						<em>店铺：久久久2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>WGTSUF 2014-08-24</span>
+						<em>店铺：杭州市下城区永昌汽车装潢服务部</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>JARUBB 2014-08-24</span>
+						<em>店铺：弗朗德汽车美容会所</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>陶伟 2014-08-24</span>
+						<em>店铺：小拇指（文一店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>npzhou 2014-08-23</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>ELQRIA 2014-08-23</span>
+						<em>店铺：浙光汽车装潢商行</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>KBAYGU 2014-08-22</span>
+						<em>店铺：久久久2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>CLZ 2014-08-21</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span> 2014-08-19</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>MUMGQZ 2014-08-17</span>
+						<em>店铺：小拇指（文一店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>JDTRDA 2014-08-15</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>高西 2014-08-13</span>
+						<em>店铺：小拇指（文一店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>牛魔王 2014-08-12</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>fw 2014-08-11</span>
+						<em>店铺：小拇指（留和店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>FTUYNZ 2014-08-11</span>
+						<em>店铺：小拇指（留和店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>13757182894 2014-08-11</span>
+						<em>店铺：杭州民佳将才精修</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>董 2014-08-10</span>
+						<em>店铺：小拇指（文一店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>TCBBHP 2014-08-09</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>SNDWES 2014-08-08</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>QETRKV 2014-08-06</span>
+						<em>店铺：小拇指（文一店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>叶翔 2014-08-05</span>
+						<em>店铺：杭州康迪汽车服务有限公司</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>DJZOJX 2014-08-04</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>PVIGWL 2014-08-03</span>
+						<em>店铺：我爱我车（一号店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>TZOZCL 2014-08-03</span>
+						<em>店铺：卡孚汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>snowspace 2014-08-02</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>123456 2014-08-02</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>koopar 2014-07-30</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>wenwen 2014-07-30</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>ZJHZDDL 2014-07-30</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>龙的典当 2014-07-29</span>
+						<em>店铺：卡萨博汽车生活馆</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>VJPVEL 2014-07-28</span>
+						<em>店铺：小拇指（文一店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>GISOKG 2014-07-28</span>
+						<em>店铺：小拇指（文一店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>FHKFVG 2014-07-28</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>QJLOEN 2014-07-28</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>npzhou 2014-07-26</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>张培旷 2014-07-26</span>
+						<em>店铺：久久久2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>梦 2014-07-26</span>
+						<em>店铺：久久久2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>MIKTPN 2014-07-26</span>
+						<em>店铺：车骑王子汽车漆面快修（三墩店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>徐 2014-07-21</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>YRHSSZ 2014-07-21</span>
+						<em>店铺：碳客汽车</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>QFOTDQ 2014-07-21</span>
+						<em>店铺：卡萨博汽车生活馆</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>ZDXJRH 2014-07-21</span>
+						<em>店铺：靓车会汽车服务</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>Sunny 2014-07-21</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>OAIZGC 2014-07-21</span>
+						<em>店铺：金手指整体汽车服务中心</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>轩辕玄远 2014-07-21</span>
+						<em>店铺：车蚂蚁保养站祥茂路店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>五爷 2014-07-21</span>
+						<em>店铺：卡萨博汽车生活馆</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>TMATVW 2014-07-21</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>jss 2014-07-21</span>
+						<em>店铺：车喜汽车服务（3M店）</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>UYYIIU 2014-07-21</span>
+						<em>店铺：久久久2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>Sunny 2014-07-21</span>
+						<em>店铺：我爱我车2号店</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                                                    <li>
+                	<div class="pingjia_li_top">
+						<span>千夜 2014-07-21</span>
+						<em>店铺：洁邦汽车美容</em>                    </div>
+                    <div class="clear"></div>
+					<div class="pingjia_li_bot">好评！</div>
+					</li>
+                    
+                            </ul>
+            </div>
+			</div>
+		</div>
+      
+    </div>
+    <script type="text/javascript">
+    <!--
+    reg("com");
+    //-->
+    </script>
+  <div class="blank"></div>
+  
+  
+ 
+</div>
+</div>
+</div>
+<div class="blank"></div>
+<div class="mian_footer">
+	<div class="wrap">
+    <div class="main_footer_top">
+    <ul class="main_footerul fl" id="main_footerul">
+    <li class="one">
+       <dl class="default">
+           <dt class="icon_1">关于我们</dt>
+           <dd><a href="http://www.chemayi.com/about.php#about">平台简介</a></dd>
+           <dd><a href="http://www.chemayi.com/about.php">联系方式</a></dd>
+           <dd><a href="http://www.chemayi.com/about.php#licheng">发展历程</a></dd>
+           <dd><a href="http://www.chemayi.com/about.php#culture">企业文化</a></dd>
+ </dl>
+           
+        </li>
+        
+        
+        <li class="two">
+       <dl class="default">
+           <dt class="icon_2">商户合作</dt>
+           <dd><a href="http://www.chemayi.com/join.php#join1">入驻须知</a></dd>
+           <dd><a href="http://www.chemayi.com/join.php#join2">店铺类型</a></dd>
+           <dd><a href="http://www.chemayi.com/join.php#join3">所需材料</a></dd>
+ </dl>
+           
+        </li>
+        
+        
+        <li class="three">
+       <dl class="default">
+           <dt class="icon_3">服务保障</dt>
+           <dd><a href="http://www.chemayi.com/safe.php">蚂蚁保</a></dd>
+           <dd><a href="http://www.chemayi.com/safe.php#safe2">QC认证</a></dd>
+           <dd><a href="http://www.chemayi.com/safe.php#safe3">5A服务</a></dd>  
+ </dl>
+           
+        </li>
+        
+        <li class="four">
+       <dl class="default">
+           <dt class="">媒体报道</dt>
+           <dd><a href="http://www.chemayi.com/media.php#media1">汽车后市场行业信息</a></dd>
+           <dd><a href="http://www.chemayi.com/media.php#media2">车蚂蚁媒体相关报道</a></dd>
+           
+ </dl>
+           
+        </li>
+    </ul>
+    <div class="main_footer_btn fr">
+    	
+        <p><em>400-0571-137</em>周一至周日：<i>9:00-18:00</i></p>
+        <a class="pub-btn-big-orange" href="http://biz.chemayi.com/login.php">&nbsp;&nbsp;商家入驻&nbsp;&nbsp;</a>    </div>
+    </div>
+    
+    <div class="main_footer_cen">
+    </div>
+    <div class="main_footer_bot">
+    Copyright © 2012 chemayi.com 车蚂蚁版权所有<i>|</i>找本地汽车服务就上车蚂蚁<i>|</i>浙ICP证080194号<i>|</i> 公安备案号：11061013003-00001
+    </div>
+    
+    
+    
+    
+    </div>
+</div>
+<div class="rightnav" id="rightnav">
+	<ul>
+		<li class="rightnav_tip rightnav_app"></li>
+    	<li class="rightnav_tip"></li>
+        <li class="rightnav_tip icon_top2"></li>
+        <li class="icon_top4" id="BizQQWPA"><a></a></li>
+        <li class="rightnav_top icon_top3"></li>
+    </ul>
+    <div class="big">
+    	
+    </div>
+</div>
+<div class="hide">
+<div id="formLoginRegis">
+	<div class="formLoginRegis-tab-bg transtion"><em></em></div>
+	<div class="formLoginRegis-tab">
+    	<span class="cur transtion">登录到车蚂蚁</span>
+       <!-- <span class="transtion">注册车蚂蚁帐号</span>-->
+    </div>
+    <div class="formLoginRegis-logo"></div>
+    <div class="formLoginRegis-box transtion">
+    	<div class="form-Login">
+        	
+            <div class="formBox">
+            	<span class="inputbox" id="formLoginUse"r>
+                	<input type="text" name="formLoginUser" error="手机帐号不存在" tip="手机号码格式错误" normal="手机号码" value="手机号码" />
+                    <i></i>
+                </span>
+                <span class="inputbox" id="formLoginPsw">
+                	<input type="text" name="formLoginPsw" error="密码错误" tip="请输入密码" normal="密码" value="密码" />
+                    <input type="password" style="display:none;" name="formLoginPsw" error="密码长度不能小于6位" tip="请输入密码" normal="密码" />
+                    <i></i>
+                </span>
+                <button class="formLoginBtn transtion">立即登录</button>
+                <div class="remember">
+                	<em class="fl"><input type="checkbox" name="loginauto" /></em>
+                	<span class="fl">两周内自动登录</span>
+                    <span class="fr"><a href="http://www.chemayi.com/login/forget.html">忘记密码</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-Regis">
+        	<div class="formBox">
+            	<span class="inputbox" id="formRegisUser">
+                	<input type="text" name="formRegisUser" error="手机号码已被注册" tip="手机号码格式错误" normal="手机号码" value="手机号码" />
+                    <i></i>
+                </span>
+                <span class="inputbox" id="formRegisPsw">
+                	<input type="text" name="formRegisPsw" error="密码长度不能小于6位" tip="请输入密码" normal="密码" value="密码" />
+                    <i></i>
+                </span>
+                <button class="formRegisBtn transtion">立即注册</button>
+                <div class="remember">
+                	<em class="fl cur"><input type="checkbox" name="userdeal" checked="checked" /></em>
+                	<span class="fl">同意车蚂蚁<a class="userdeal" href="agreement.html" target="_blank">用户协议</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <a class="formLoginRegis-close transtion" href="reg.html">没有账号？立即免费注册</a>
+</div>	
+</div>
+<div class="hide">
+	<div id="selectcarbox">
+		<div class="sel_tab">
+			<div class="tabli cur">直接选择车型</div>
+		    <div class="tabli ">输入Vin码直接确定车型信息(方便)</div>
+		    <div class="tabli ">没有我的车型</div>
+		</div>
+		<div class="sel_box ">
+			<ul class="sel_stepbox clearfix">
+		    	<li class="cur">
+		        	<p><em>1</em>选择品牌</p><i></i>
+		        </li>
+		        <li>
+		        	<p><em>2</em>选择车系</p><i></i>
+		        </li>
+		        <li>
+		        	<p><em>3</em>选择年款</p><i></i>
+		        </li>
+		        <li>
+		        	<p><em>4</em>选择车型</p>
+		        </li>
+		    </ul>
+		     
+		    <div class="sel_mainbox sel_mainbox_info">
+		        <div class="sel_mainbox sel_mainbox1 ">
+		            <dl class="sel_bynum clearfix" id="sel_bynum">
+		                <dt>品牌首字母选择：</span>
+		                <dd class="cur" word="hot">
+		                    <a href="javascript:;">热门</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="A">
+		                    <a href="javascript:;">A</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="B">
+		                    <a href="javascript:;">B</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="C">
+		                    <a href="javascript:;">C</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="D">
+		                    <a href="javascript:;">D</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="F">
+		                    <a href="javascript:;">F</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="H">
+		                    <a href="javascript:;">H</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="J">
+		                    <a href="javascript:;">J</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="K">
+		                    <a href="javascript:;">K</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="L">
+		                    <a href="javascript:;">L</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="M">
+		                    <a href="javascript:;">M</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="Q">
+		                    <a href="javascript:;">Q</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="R">
+		                    <a href="javascript:;">R</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="S">
+		                    <a href="javascript:;">S</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="T">
+		                    <a href="javascript:;">T</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="W">
+		                    <a href="javascript:;">W</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="X">
+		                    <a href="javascript:;">X</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="Y">
+		                    <a href="javascript:;">Y</a>
+		                    <i></i>
+		                </dd>
+		                <dd word="Z">
+		                    <a href="javascript:;">Z</a>
+		                    <i></i>
+		                </dd>
+		            </dl>
+		            <div class="step1 clearfix" >
+		            	<ul id="car_info_brands_list"></ul>
+		            </div>  
+		        </div>
+		    </div>
+		     
+		     
+		    <div class="sel_mainbox hide sel_mainbox_info">
+		    	<div class="sel_has" style="display: block;">
+		            <em>已选车型:</em>
+		        </div>
+		        <div class="car_info_series_list"></div>
+		    </div>
+		    
+		     
+		    <div class="sel_mainbox hide sel_mainbox_info">
+		        <div class="sel_has" style="display: block;">
+		            <em>已选车型:</em>
+		        </div>
+		        <div class="car_info_year_list"></div>
+		    </div>
+		    
+		     
+		    <div class="sel_mainbox hide sel_mainbox_info">
+		        <div class="sel_has" style="display: block;">
+		            <em>已选车型:</em>
+		        </div>
+		        <div class="car_info_size_list">
+                
+                </div>
+		    </div>
+		    
+			<dl class="sel_history clearfix" id="selected_car_logs" style="display:none;"></dl>
+		 
+		
+		
+		</div>
+	
+		
+		<div class="sel_box hide">
+			<div class="vin_tit clearfix">
+		    输入17位VIN码识别您的车型<!-- :<a href="#">VIN码在什么地方？</a>&nbsp;&nbsp;&nbsp;<a href="#">如何选择车型？ </a> -->
+		    </div>
+		    <ul class="vin_num clearfix">
+		    	<li class="style1">
+		        	<span class="vin_num_top">1-4</span>
+		            <span class="vin_num_bot"><input type="text" name="vin" maxlength=4 /></span>
+		        </li>
+		        <li class="style2">
+		        <span class="vin_num_top"></span>
+		            <span class="vin_num_bot"></span>
+		        </li>
+		        <li class="style1">
+		        	<span class="vin_num_top">5-8</span>
+		            <span class="vin_num_bot"><input type="text" name="vin" maxlength=4 /></span>
+		        </li>
+		        <li class="style2">
+		        <span class="vin_num_top"></span>
+		            <span class="vin_num_bot"></span>
+		        </li>
+		        <li class="style1">
+		        	<span class="vin_num_top">9-12</span>
+		            <span class="vin_num_bot"><input type="text" name="vin" maxlength=4 /></span>
+		        </li>
+		        <li class="style2">
+		        <span class="vin_num_top"></span>
+		            <span class="vin_num_bot"></span>
+		        </li>
+		        <li class="style1">
+		        	<span class="vin_num_top">13-17</span>
+		            <span class="vin_num_bot"><input type="text" name="vin" maxlength=5 /></span>
+		        </li>
+		        <li class="style3">
+		        	<span class="vin_num_top"></span>
+		            <span class="vin_num_bot vin_num_error_tip" style="display:none;">您输入的VIN码有误</span>
+		        </li>
+		    </ul>
+		    <div class="vin_btn clearfix">
+		    	<a href="javascript:;" id="vin_btn_confirm">确定</a>
+		    </div>
+		</div>
+		<div class="sel_box hide">
+			<input type="text" name="car_model_response" class="pub_text mt20" placeholder="请输入您的车型"/>
+		    <div class="clear"></div>
+		    <input type="button" class="pub_btn mt15" value="提交" onclick="submitCarModelResponse();" />
+		</div>
+	
+	</div>
+</div>
+<div id="tbox">
+<div class="pr ">
+	<ul id="gotop">
+    	<li>
+        	<a href="javascript:void(0);" onclick="$('#send').click();">发布需求</a>
+        </li>
+        <li class="top_icon2">
+        	<a href="#">手机APP</a>
+        </li>
+        <li class="top_icon3">
+        	<a href="#">蚂蚁百科</a>
+        </li>
+        
+        <li class="top_icon4">
+        	<a href="#" id="BizQQWPA">在线咨询</a>
+        </li>
+    </ul>
+    <div class="leftweixin">
+    	<img src="images/navWinxin.png">
+    </div>
+    <div class="leftapp">
+    	<img src="images/iconapp.png">
+    </div>
+    
+ </div>
+</div>
+<div class="leftcom_top">
+ <a href="javascript:">返回顶部</a>
+</div>
+<script type="text/javascript">
+var DomainConfig = {
+	main_site_domain : 'http://www.chemayi.com'	
+}
+</script>
+
+<script type="text/javascript" src="js/publicelements.js"></script>
+<script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/ajaxlogin.js"></script>
+<script type="text/javascript" src="js/choose_car_model.js"></script>
+<script>
+$(function(){
+	$('#dialogpubBox').hide();
+	//var htmlcon4=$('#dialogpubBox').html();
+	$('#send').on('click',function(){
+		var member_info = getCookie('member_info');
+		if(!member_info){
+			//popLoginBox();
+			$.colorbox({inline:true,href:"#formLoginRegis"});
+			return false;
+		}
+		$("#send").colorbox({iframe:true, width:"680px", height:"490px"});
+		
+	});
+	
+})
+</script>
+<script>
+//快速服务搜索
+//document.domain = "chemayi.com";
+var quickSearchSp = function(){
+	var quickSearchContent = encodeURI($('input[name=quick_search_sp]').val());
+	window.top.location.href = 'http://www.chemayi.com' + '/service.php?act=quick&keyword=' + quickSearchContent;
+}
+$('input[name=quick_search_sp]').bind('keyup', function(e){
+	if(e.which == 13){
+		quickSearchSp();
+	}
+});
+BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 4000571137, selector: 'BizQQWPA'});
+BizQQWPA.addCustom({aty: '0', a: '0', nameAccount: 4000571137, selector: 'contact_qq'});
+</script>
+
+<script>
+function setScrollTop(){
+	h = 100;
+	t = $(document).scrollTop();
+	if(t > h){
+		$('.leftcom_top').show();
+	}else{
+		
+		$('.leftcom_top').hide();
+	};
+};
+$(document).ready(function(e) {
+	$('.top_icon3').hover(function(){
+		$('.leftweixin').show();	
+	},function(){
+		$('.leftweixin').hide();	
+	});
+	$('.top_icon2').hover(function(){
+		$('.leftapp').show();	
+	},function(){
+		$('.leftapp').hide();	
+	});
+	setScrollTop();
+	$('.leftcom_top').click(function(){
+		$(document).scrollTop(0);	
+	});
+});
+$(window).scroll(function(e){
+	setScrollTop();		
+});
+</script>
+<div style="display:none;">
+
+</div><div class="spCmyFloor-box">
+	<h2>服务内容</h2>
+    <ul>
+    </ul>
+    <div class="price"></div>
+    <div class="buy"><a href="javascript:addToBuy(263)">立即购买</a></div>
+</div>
+</body>
+<script type="text/javascript">
+var goods_id = 263;
+var goodsattr_style = 1;
+var gmt_end_time = 0;
+var day = "天";
+var hour = "小时";
+var minute = "分钟";
+var second = "秒";
+var end = "结束";
+var goodsId = 263;
+var now_time = 1430199957;
+onload = function(){
+  changePrice();
+  //fixpng();
+  try {onload_leftTime();}
+  catch (e) {}
+}
+/**
+ * 点选可选属性或改变数量时修改商品价格的函数
+ */
+function changePrice()
+{
+  var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+  var qty = document.forms['ECS_FORMBUY'].elements['number'].value;
+ // Ajax.call('goods.php', 'act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, changePriceResponse, 'GET', 'JSON');
+  toAJAX('goods.php', 'act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, changePriceResponse);
+}
+/**
+ * 接收返回的信息
+ */
+function changePriceResponse(res)
+{
+  if (res.err_msg.length > 0)
+  {
+    alert(res.err_msg);
+  }
+  else
+  {
+    document.forms['ECS_FORMBUY'].elements['number'].value = res.qty;
+    if (document.getElementById('ECS_SHOPPRICE'))
+      document.getElementById('ECS_SHOPPRICE').innerHTML = res.result;
+    if (document.getElementById('ECS_MARKETPRICE'))
+      document.getElementById('ECS_MARKETPRICE').innerHTML = res.market_price;
+  }
+}
+/*
+*选择信息处理
+*/
+function changeP(b, c) {
+	var frm=document.forms['ECS_FORMBUY'];
+	var cur_id="";
+    document.getElementById('spec_value_' + c).checked=true;
+	document.getElementById('url_' + c).className="selected";
+	for (var i = 0; i < frm.elements[b].length; i++) {
+		cur_id=frm.elements[b][i].id.substr(11);
+        document.getElementById('url_' + cur_id).className="";
+		if (frm.elements[b][i].checked)
+		{
+		   document.getElementById('url_' + c).className="selected";
+		}
+    }
+	$(".market").html($("#url_"+c).attr("market_price"));
+	changePrice();
+}
+//
+var btn_buy = "购买";
+var is_cancel = "取消";
+var select_spe = "请选择商品属性";
+</script>
+<script type="text/javascript" src="js/sp_float.js"></script>
+<script type="text/javascript" src="js/jquery.float.js"></script>
+<script type="text/javascript" src="js/jquery.tab.js"></script>
+<script type="text/javascript" src="js/report.js"></script>
+<script type="text/javascript">
+	$("#goodsContent ul").idTabs();
+	
+</script>
+</html>

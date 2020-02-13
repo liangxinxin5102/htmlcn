@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="css/base.css" rel="stylesheet" type="text/css">
+<title>抗感染课堂首页</title>
+</head>
+<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+//滚动插件
+(function($){
+$.fn.extend({
+        Scroll:function(opt,callback){
+                //参数初始化
+                if(!opt) var opt={};
+                var _this=this.eq(0).find("ul:first");
+                var        lineH=_this.find("li:first").height(), //获取行高
+                        line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10), //每次滚动的行数，默认为一屏，即父容器高度
+                        speed=opt.speed?parseInt(opt.speed,10):500, //卷动速度，数值越大，速度越慢（毫秒）
+                        timer=opt.timer?parseInt(opt.timer,10):3000; //滚动的时间间隔（毫秒）
+                if(line==0) line=1;
+                var upHeight=0-line*lineH;
+                //滚动函数
+                scrollUp=function(){
+                        _this.animate({
+                                marginTop:upHeight
+                        },speed,function(){
+                                for(i=1;i<=line;i++){
+                                        _this.find("li:first").appendTo(_this);
+                                }
+                                _this.css({marginTop:0});
+                        });
+                }
+                //鼠标事件绑定
+                _this.hover(function(){
+                        clearInterval(timerID);
+                },function(){
+                        timerID=setInterval("scrollUp()",timer);
+                }).mouseout();
+        }        
+})
+})(jQuery);
+
+$(document).ready(function(){
+        $("#scrollDiv").Scroll({line:4,speed:3000,timer:1000});
+});
+</script>
+<body style='overflow:scroll;overflow-x:hidden'> 
+<div class="topbg">
+	<div class="topM">
+    	<div class="logo"></div>
+        <div class="Menubg">
+        	<ul class="Menu">
+            	<li class="cur"><a href="index.html">中心主页</a></li>
+                <li><a href="course.html">本期课程</a></li>
+                <li><a href="pastcourses.html">往期课程</a></li>
+                <li><a href="membercenter.html">会员中心</a></li>
+                <li><a href="information.html">相关资讯</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="banbg">
+	<div class="banM">
+    	<div class="banleft"></div>
+        <div class="banright">
+            <div class="ban">
+            	<div class="bantitle">往期会议</div>
+                <div class="ban_tu">
+                	<img src="images/class.jpg" />
+                </div>
+            </div>
+            <div class="ban2">
+            	<div class="bantitle2">阿片药物剂量调剂量调整剂</div>
+                <div class="ban_text1">2015年8月20日<span>16:30-17:20</span></div>
+                <div class="ban_text2">讲者：张莉</div>
+                <button class="btn_red">参加课程</button>
+            </div>
+            <div class="ban2">
+            	<div class="bantitle2">温馨提示</div>
+                <div class="ban_text3">首次更新Email和地址信息</div>
+                <div class="ban_text3">可获得5学分</div>
+                <button class="btn_red">学分获取</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loginbg">
+	<div class="loginM">
+    	用户名：<input type="text" value="" class="username" />
+        密码：<input type="text" value="" class="password" />
+        <button class="btn">登录</button>
+        <button class="btn">注册</button>
+        <a href="#" target="_blank">忘记密码</a>
+        <span>医生中心热线：<strong>400-113-0078</strong></span>
+    </div>
+</div>
+<div class="center">
+	<div class="center_M">
+    	<div class="cen_lt">
+        	<div class="cen_title_lt">往期课程内容</div>
+            <div id="scrollDiv">
+                <ul>
+                <li>
+                	<p>
+                    	<strong>WHO癌症阶梯治疗策略新进展WHOWHO癌症阶梯治疗策略新进展WHOWHO癌症阶梯治疗策略新进展WHOWHO癌症阶梯治疗策略新进展WHO</strong>
+                        <span>
+                        	<em>讲着：张海波</em>
+                            <button class="btn_red_small">查看</button>
+                        </span>
+                    </p>
+                    <p>
+                    	<b>文字自动隐藏文字自动隐藏文字自动隐藏文字自动隐藏文字自动隐藏文字自动隐藏文字自动隐藏文字自动隐藏文字自动隐藏文字自动隐藏...</b>
+                        <span><a href="#">上海是东方医院上海海1111</a></span>
+                    </p>
+                </li>
+                <li>
+                	<p>
+                    	<strong>WHO癌症阶梯治疗策略新进展WHO</strong>
+                        <span>
+                        	<em>讲着：张海波</em>
+                            <button class="btn_red_small">查看</button>
+                        </span>
+                    </p>
+                    <p>
+                    	<b>文字自动隐藏...</b>
+                        <span><a href="#">上海是东方医院上海海</a></span>
+                    </p>
+                </li>
+                <li>
+                	<p>
+                    	<strong>WHO癌症阶梯治疗策略新进展WHO</strong>
+                        <span>
+                        	<em>讲着：张海波</em>
+                            <button class="btn_red_small">查看</button>
+                        </span>
+                    </p>
+                    <p>
+                    	<b>文字自动隐藏...</b>
+                        <span><a href="#">上海是东方医院上海海</a></span>
+                    </p>
+                </li>
+                <li>
+                	<p>
+                    	<strong>WHO癌症阶梯治疗策略新进展WHO</strong>
+                        <span>
+                        	<em>讲着：张海波</em>
+                            <button class="btn_red_small">查看</button>
+                        </span>
+                    </p>
+                    <p>
+                    	<b>文字自动隐藏...</b>
+                        <span><a href="#">上海是东方医院上海海</a></span>
+                    </p>
+                </li>
+                <li>
+                	<p>
+                    	<strong>WHO癌症阶梯治疗策略新进展WHO</strong>
+                        <span>
+                        	<em>讲着：张海波</em>
+                            <button class="btn_red_small">查看</button>
+                        </span>
+                    </p>
+                    <p>
+                    	<b>文字自动隐藏...</b>
+                        <span><a href="#">上海是东方医院上海海</a></span>
+                    </p>
+                </li>
+                <li>
+                	<p>
+                    	<strong>WHO癌症阶梯治疗策略新进展WHO</strong>
+                        <span>
+                        	<em>讲着：张海波</em>
+                            <button class="btn_red_small">查看</button>
+                        </span>
+                    </p>
+                    <p>
+                    	<b>文字自动隐藏...</b>
+                        <span><a href="#">上海是东方医院上海海</a></span>
+                    </p>
+                </li>
+                <li>
+                	<p>
+                    	<strong>WHO癌症阶梯治疗策略新进展WHO</strong>
+                        <span>
+                        	<em>讲着：张海波</em>
+                            <button class="btn_red_small">查看</button>
+                        </span>
+                    </p>
+                    <p>
+                    	<b>文字自动隐藏...</b>
+                        <span><a href="#">上海是东方医院上海海</a></span>
+                    </p>
+                </li>
+                </ul>
+			</div>
+        </div>
+        <div class="cen_rt">
+        	<div class="cen_title_rt">课程典型问题&nbsp;<span><a href="#" target="_blank">更多 >></a></div>
+            <div class="prog_text"><strong>WHO癌痛三阶梯止痛原则 (F)</strong></div>
+            <div class="prog_reply">
+            	<li><input type="radio" value="1" name="t1"/>&nbsp;A.口服给药</li>
+                <li><input type="radio" value="2" name="t1"/>&nbsp;B.阶梯用药</li>
+                <li><input type="radio" value="3" name="t1"/>&nbsp;C.时间用药</li>
+                <li><input type="radio" value="4" name="t1"/>&nbsp;D.个体用药</li>
+                <li><input type="radio" value="5" name="t1"/>&nbsp;E.注意细节</li>
+                <li><input type="radio" value="6" name="t1"/>&nbsp;F.以上都是</li>
+            </div>
+            <div class="cen_title_rt2">医疗相关快讯&nbsp;<span><a href="#" target="_blank">更多 >></a></div>
+            <div class="prog_news">
+            	<li><a href="#" target="_blank">中国抗癌协会老年肿瘤专业委</a></li>
+                <li><a href="#" target="_blank">第20届全国肿瘤防治宣传周启</a></li>
+                <li><a href="#" target="_blank">首都国际癌症论坛2013在京举</a></li>
+                <li><a href="#" target="_blank">首都国际癌症论坛2013在京举</a></li>
+                <li><a href="#" target="_blank">首都国际癌症论坛2013在京举</a></li>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="endbg">
+	<div class="endM">
+    	<div class="end">
+        	<div class="end_text">
+            	<li><a href="#" target="_blank">全部课程</a><em>|</em></li>
+                <li><a href="#" target="_blank">站外导航</a><em>|</em></li>
+                <li><a href="#" target="_blank">版权所有</a><em>|</em></li>
+                <li><a href="#" target="_blank">常见问题</a><em>|</em></li>
+                <li><a href="#" target="_blank">联系方式</a></li>
+                <li>&nbsp;&nbsp;&nbsp;Copyright&nbsp;&copy;2015&nbsp;&nbsp;京ICP备05045648&nbsp;网站制作：出奇信息科技</li>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

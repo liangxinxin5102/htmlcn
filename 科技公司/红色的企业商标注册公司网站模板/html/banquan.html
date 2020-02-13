@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>版权</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+</head>
+
+<body>
+<div class="header">
+	<div class="top red">
+		<div class="container">
+			<h3 class="fl">北京博雅--中国十佳知识产权代理有限公司</h3>
+			<p class="fr">中国商标网咨询电话：010-51267387/68596787</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div class="margintop20">
+		<div class="container">
+			<div class="logo fl"><a href="index.html"><img src="images/logo_03.png" alt="润茵博雅" /></a></div>
+			<div class="nav fl">
+				<ul>
+					<li><a href="index.html">商标注册</a></li>
+					<li><a href="zhuanli.html">专利申请</a></li>
+					<li><a href="banquan.html">版权登记</a></li>
+					<li><a href="#">商标转让</a></li>
+					<li><a href="zhuizong.html">进度追踪</a></li>
+					<li><a href="news.html">商标资讯</a></li>
+					<li><a href="anli.html">经典案例</a></li>
+				</ul>
+				<div class="clear"></div>
+			</div>
+			<div class="tel fr">
+				<h3>24小时服务热线电话</h3>
+				<p class="red"><strong>010-51267387</strong></p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<div class="banner1" style="background:url(images/banquan-bg.jpg) no-repeat top center;"> 
+	<!-----banner-box-------->
+	<div></div>
+	<div class="zj zj2">
+	<div class="inter_regist">
+            
+        </div><div class="registNavbox">
+                <ul class="registInfo">
+                    
+                    
+                    <li class="qualifications" style="display: none;">
+                        <h1><!--<span>C</span>-->软件版权登记</h1>
+                        <h6>让您的软件程序得到官方确认，</h6>
+						<p>彰显程序的价值</p>
+                        
+                        <!--<a href="javascript:void(0);" onclick="openwin()"><p>了解详细</p></a>-->
+                    </li>
+                    
+                    <li class="public" style="display: list-item;">
+                        <h1>作品版权登记</h1>
+                        <h6>您的智慧成果，都可以登记版权。</h6>
+                        <p>美术作品；文字作品；影视作品；乃至产品设计图纸</p>
+                        <!--<a href="javascript:void(0);" onclick="openwin()"><p>了解详细</p></a>-->
+                    </li>
+                </ul>
+                <ul class="registbox registbox2">
+                    <li class="">
+                        <p onClick="openwin()">软件版权登记</p>
+                    </li>
+
+                    <li class="">
+                        <p onClick="openwin()">作品版权登记</p>
+                    </li>
+
+                   
+
+                    <div style="clear:both;"></div>
+                </ul>
+            </div></div>
+	<!-----通用底部----->
+	<div class="footer-top">
+		<div class="container">
+			<h1 class="fl">您可能想问</h1>
+			<ul>
+				<li><a href="#"><img src="images/footer-1.png" />
+					<p>如何收费</p>
+					</a></li>
+				<li><a href="#"><img src="images/footer-2.png" />
+					<p>注册流程</p>
+					</a></li>
+				<li><a href="#"><img src="images/footer-3.png" />
+					<p>注册周期</p>
+					</a></li>
+				<li><a href="#"><img src="images/footer-4.png" />
+					<p>申请条件</p>
+					</a></li>
+				<li><a href="#"><img src="images/footer-5.png" />
+					<p>行业分类</p>
+					</a></li>
+			</ul>
+		</div>
+	</div> 
+	
+</div>
+<!--------footer-------->
+<div class="footer">
+	<p class="text-center"><a href="about.html">关于博雅</a> | <a href="about-2.html">招聘英才</a> | <a href="about-3.html">加盟博雅</a> | <a href="about-4.html">联系我们</a></p>
+	<p class="text-center">2004-2016 北京润茵博雅国际知识产权代理有限公司 版权所有 京ICP备06051668号</p>
+</div>
+
+
+<script type="text/javascript" src="js/jquery.js"></script> 
+<script>
+$(function(){
+    /* 首页banner自动切换 */
+    var timer = 10000000;//秒为单位,作为时间间隔
+    var index = 0;//不做修改
+    var interval;
+    $(".registbox>li").mouseover(function(){
+        index = $(".registbox>li").index(this);
+        bannerAnmail();
+        clearInterval(interval);
+        interval = setInterval(bannerAnmail,timer*1000);
+    });
+
+    function bannerAnmail() {
+        $(".registbox>li").removeClass("registlihover");
+        $(".registbox>li").eq(index).addClass("registlihover");
+        $(".registInfo>li").hide();
+        $(".registInfo>li").eq(index).fadeIn(100);
+        index +=1;
+        if(($(".registbox>li").length)==index){index=0;}
+    }
+    bannerAnmail();
+    interval = setInterval(bannerAnmail,timer*1000);
+});
+    /* 首页banner自动切换 结束 */
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,2531 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>神舟国旅官方旅游服务网站-神舟门市查询</title>
+    <link type="text/css" rel="stylesheet" href="themes/agentc/css/index.css" tppabs="http://www.btgtravel.com/themes/agentc/css/index.css"/>
+    <script type="text/javascript" src="themes/agentc/js/index_v20.js" tppabs="http://www.btgtravel.com/themes/agentc/js/index_v20.js"></script>
+    <script type="text/javascript" src="themes/agentc/js/jquery.superslide.2.1.1.js" tppabs="http://www.btgtravel.com/themes/agentc/js/jquery.superslide.2.1.1.js"></script>
+
+    <script src="themes/agentc/iealert/iealert.js" tppabs="http://www.btgtravel.com/themes/agentc/iealert/iealert.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="themes/agentc/iealert/iealert/style.css" tppabs="http://www.btgtravel.com/themes/agentc/iealert/iealert/style.css" />
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("body").iealert();
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).on('click', '.favorite,#shoucang', function () {
+            var title, desc;
+            title = desc = document.title;
+            var url = location.href;
+            if (document.all) {
+                if (navigator.appName == "Microsoft Internet Explorer") {
+                    try {
+                        window.external.addFavorite(url, title);
+                    } catch (e1) {
+                        try {
+                            window.external.addToFavoritesBar(url, title);
+                        } catch (e2) {
+                            alert('加入收藏失败，请您手工加入。');
+                        }
+                    }
+                }
+            } else if (window.external) {
+                try {
+                    window.sidebar.addPanel(title, url, desc);
+                } catch (e3) {
+                    alert("此浏览器不支持这项功能，请按Ctrl+D直接收藏我们！");
+                }
+            } else {
+                alert('加入收藏失败，请您手工加入。')
+            }
+        });
+
+        $(document).ready(function () {
+            $('#btn_search').click(function () {
+                var _keywords = $('#keywords').val();
+                if ($.trim(_keywords).length < 1) {
+                    alert('请输入目的地、线路或线路编号');
+                    return false;
+                } else {
+                    window.location.href = "index.php-r=agentc-post-search&keywords=.htm"/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/ + _keywords;
+                }
+            });
+
+            $('#search_form').keydown(function (e) {
+                var curKey = e.which;
+                if (curKey == 13) {
+                    $('#btn_search').trigger('click');
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        /**
+         * 事件处理通用函数
+         */
+        var EventUtil = {
+            getEvent: function (event) {
+                return event ? event : window.event;
+            },
+            getTarget: function (event) {
+                return event.target || event.srcElement;
+            },
+            addHandler: function (element, type, handler) {
+                if (element.addEventListener) {
+                    element.addEventListener(type, handler, false);
+                } else if (element.attachEvent) {
+                    element.attachEvent("on" + type, handler);
+                } else {
+                    element["on" + type] = handler;
+                }
+
+            }
+        };
+
+        /**
+         * 选项卡通用函数
+         */
+// 传入参数inClassName设定为绑定的选项卡类名，参数triggerType设定为触发切换的类型
+        function tabSwitch(inClassName, triggerType) {
+            //取得全部选项卡区域
+            if (document.querySelectorAll) {
+                var tabs = document.querySelectorAll("." + inClassName);
+            } else {
+                var divs = document.getElementsByTagName("div");
+                var tabs = new Array();
+                for (var k = 0, lenDiv = divs.length; k < lenDiv; k++) {
+                    if (divs[k].className.indexOf(inClassName) > -1) {
+                        tabs.push(divs[k]);
+                    }
+                }
+            }
+            //为每个选项卡建立切换功能
+            for (var j = 0, len = tabs.length; j < len; j++) {
+                //获取标题和内容列表
+                var tab = tabs[j];
+                //使用私有作用域为每个选项卡建立切换
+                (function () {
+                    var nameUl = tab.getElementsByTagName("ul")[0];
+                    var content = tab.getElementsByTagName("ul")[1];
+                    //初始化选项卡
+                    nameUl.getElementsByTagName("li")[0].className = "selected";
+                    content.getElementsByTagName("li")[0].style.display = "block";
+                    //添加事件委托
+                    EventUtil.addHandler(nameUl, triggerType, function (event) {
+                        //获取事件对象
+                        event = EventUtil.getEvent(event);
+                        var target = EventUtil.getTarget(event);
+                        //选项卡切换
+                        if (target.nodeName.toLowerCase() == "li") {
+                            //分别取得标题列表项和内容列表项
+                            var nameList = nameUl.getElementsByTagName("li");
+                            var contentList = content.getElementsByTagName("li");
+                            //标题添加selected类，并显示内容
+                            for (var i = 0, len = nameList.length; i < len; i++) {
+                                nameList[i].className = "";
+                                contentList[i].style.display = "none";
+                                if (nameList[i] == target) {
+                                    nameList[i].className = "selected";
+                                    contentList[i].style.display = "block";
+                                }
+                            }
+                        }
+                    });
+                })();
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="site-top">
+    <div class="area">
+        <div class="site-top-l">北京神舟国旅欢迎您！</div>
+        <img src="../www.btgerp.com/site/autoLogout/index.htm" tppabs="http://www.btgerp.com/site/autoLogout/" class='btg-c' style='display: none;' /><div class="site-top-r"><span>欢迎，客人</span>|<a href="index.php-r=agentc-site-clogin.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/site/clogin">会员登录</a>|<a href="index.php-r=agentc-site-register.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/site/register">免费注册</a>|<a href="javascript:if(confirm('http://www.btgtravel.com/index.php?r=agentc/site/login  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.btgtravel.com/index.php?r=agentc/site/login'" tppabs="http://www.btgtravel.com/index.php?r=admin/default/index">后台管理</a>|<a href="javascript:;" class="favorite">加入收藏</a></div>    </div>
+</div>
+
+<div class="site-head">
+    <div class="logo" style="top: 16px;"><a href="index.htm" tppabs="http://www.btgtravel.com/"><img src="themes/agentc/images/shenzhouguolv.png" tppabs="http://www.btgtravel.com/themes/agentc/images/shenzhouguolv.png" width="249" height="60"></a></div>
+<!--    <div class="slogen">--><!--</div>-->
+    <div class="searchbox">
+        <form id="search_form" action="http://www.btgtravel.com/index.php?r=agentc/post/search">
+            <div class="searchbox-l"><input type="search" placeholder="目的地、线路或线路编号" id="keywords"></div>
+            <div class="searchbox-r"><input type="button" value="搜 索" id="btn_search"></div>
+        </form>
+    </div>
+    <div class="tel">
+        <span>4000100808</span>
+    </div>
+</div>
+
+<div id="nav">
+<div class="area clearfix">
+<div class="topnav">
+    <ul>
+        <li><a href="index.htm" tppabs="http://www.btgtravel.com/">首页</a></li>
+        <li><a href="index.php-r=agentc-post-index&cid=452.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=452">国内游</a></li><li><a href="index.php-r=agentc-post-index&cid=453.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=453">出境游</a></li><li><a href="index.php-r=agentc-post-index&cid=456.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=456">海岛游</a></li><li><a href="index.php-r=agentc-post-index&cid=457.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=457">邮轮游</a></li><li><a href="index.php-r=agentc-post-index&cid=458.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=458">周边游</a></li>        <li><a href="javascript:if(confirm('http://www.biaoqianlvxing.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.biaoqianlvxing.com/'" tppabs="http://www.biaoqianlvxing.com/" target="_blank">定制旅行</a></li>
+    </ul>
+</div>
+<div class="category-content" id="guide_2">
+<div><span class="all-goods">全部旅游产品分类<img src="themes/agentc/images/menu.png" tppabs="http://www.btgtravel.com/themes/agentc/images/menu.png" /></span></div>
+<div class="category">
+    <ul class="category-list" id="js_climit_li">
+
+    <li class="appliance js_toggle relative first">
+        <div class="category-info list-gn">
+            <h3 class="category-name b-category-name"><i></i><a  class="ml-22"  href="javascript:;"
+                                                                 title="国内游">国内游</a></h3>
+
+            <p class="c-category-list limit-24">
+                <a href="#" data-sid="243">台湾</a>
+                <a href="#" data-sid="241">香港</a>
+                <a href="#" data-sid="234">云南</a>
+                <a href="#" data-sid="273">桂林</a>
+                <a href="#" data-sid="228">福建</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>国内游热点</span></dt>
+                                    <dd><a href="#" data-sid="243">台湾</a></dd>
+                                    <dd><a href="#" data-sid="241">香港</a></dd>
+                                    <dd><a href="#" data-sid="242">澳门</a></dd>
+                                    <dd><a href="#" data-sid="267">武夷山</a></dd>
+                                    <dd><a href="#" data-sid="283">三亚</a></dd>
+                                    <dd><a href="#">三峡</a></dd>
+                                    <dd><a href="#" data-sid="281">拉萨</a></dd>
+                                    <dd><a href="#" data-sid="277">丽江</a></dd>
+                                    <dd><a href="#" data-sid="250">青岛</a></dd>
+                                    <dd><a href="#" data-sid="249">大连</a></dd>
+                                    <dd><a href="#" data-sid="255">苏州</a></dd>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>国内地区分类</span></dt>
+                                    <dd><a href="#" data-sid="2518">乌镇</a></dd>
+                                    <dd><a href="#" data-sid="254">无锡</a></dd>
+                                    <dd><a href="#" data-sid="383">长白山</a></dd>
+                                    <dd><a href="#" data-sid="307">九寨沟</a></dd>
+                                    <dd><a href="#" data-sid="211">上海</a></dd>
+                                    <dd><a href="#" data-sid="225">浙江</a></dd>
+                                    <dd><a href="#" data-sid="224">江苏</a></dd>
+                                    <dd><a href="#" data-sid="226">安徽</a></dd>
+                                    <dd><a href="#" data-sid="226">山东</a></dd>
+                                    <dd><a href="#" data-sid="249">大连</a></dd>
+                                    <dd><a href="#" data-sid="215">吉林</a></dd>
+                                    <dd><a href="#" data-sid="214">黑龙江</a></dd>
+                                    <dd><a href="#" data-sid="216">辽宁</a></dd>
+                                    <dd><a href="#" data-sid="232">广东</a></dd>
+                                    <dd><a href="#" data-sid="240">海南</a></dd>
+                                    <dd><a href="#" data-sid="228">福建</a></dd>
+                                    <dd><a href="#" data-sid="227">江西</a></dd>
+                                    <dd><a href="#" data-sid="233">广西</a></dd>
+                                    <dd><a href="#" data-sid="230">湖南</a></dd>
+                                    <dd><a href="#" data-sid="229">湖北</a></dd>
+                                    <dd><a href="#" data-sid="236">河南</a></dd>
+                                    <dd><a href="#" data-sid="250">青岛</a></dd>
+                                    <dd><a href="#" data-sid="231">四川</a></dd>
+                                    <dd><a href="#" data-sid="234">云南</a></dd>
+                                    <dd><a href="#" data-sid="239">西藏</a></dd>
+                                    <dd><a href="#" data-sid="235">贵州</a></dd>
+                                    <dd><a href="#" data-sid="231">重庆</a></dd>
+                                    <dd><a href="#" data-sid="221">陕西</a></dd>
+                                    <dd><a href="#" data-sid="238">新疆</a></dd>
+                                    <dd><a href="#" data-sid="222">甘肃</a></dd>
+                                    <dd><a href="#" data-sid="236">青海</a></dd>
+                                    <dd><a href="#" data-sid="223">宁夏</a></dd>
+                                    <dd><a href="#" data-sid="210">北京</a></dd>
+                                    <dd><a href="#" data-sid="212">天津</a></dd>
+                                    <dd><a href="#" data-sid="217">河北</a></dd>
+                                    <dd><a href="#" data-sid="220">山西</a></dd>
+                                    <dd><a href="#" data-sid="237">内蒙古</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $('.menu-srot a').each(function(){
+                                var obj=$(this);
+                                var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                var data_sid=$(this).attr('data-sid');
+                                var url=baseUrl;
+                                if(data_sid){
+                                    url=baseUrl+data_sid
+                                }else{
+                                    url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                    url+=obj.text();
+                                }
+                                obj.attr('href', url);
+                                obj.attr('title', obj.text());
+                                obj.attr('target', '_blank');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative">
+        <div class="category-info list-hd">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-293" class="ml-22"  href="javascript:;"
+                                                                title="">海岛</a></h3>
+
+            <p class="c-category-list limit-24">
+                <a data-sid="7500" href="#" target="_blank" title="">巴厘岛</a>
+                <a data-sid="6873" href="#" target="_blank" title="">普吉岛</a>
+                <a data-sid="5842" href="#" target="_blank" title="">毛里求斯</a>
+                <a data-sid="5671" href="#" target="_blank" title="">马尔代夫</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>海岛旅游</span></dt>
+                                    <dd><a href="#" data-sid="5671">马尔代夫</a></dd>
+                                    <dd><a href="#" data-sid="283">三亚</a></dd>
+                                    <dd><a href="#" data-sid="5030">济州岛</a></dd>
+                                    <dd><a href="#" data-sid="6570">冲绳</a></dd>
+                                    <dd><a href="#" data-sid="5842">毛里求斯</a></dd>
+                                    <dd><a href="#" data-sid="6678">塞舌尔</a></dd>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>热门海岛旅游汇总</span></dt>
+                                    <dd><a href="#" data-sid="6873">普吉岛</a></dd>
+                                    <dd><a href="#" data-sid="7684">苏梅岛</a></dd>
+                                    <dd><a href="#" data-sid="6871">甲米</a></dd>
+                                    <dd><a href="#">芭提雅</a></dd>
+                                    <dd><a href="#" data-sid="7683">沙美岛</a></dd>
+                                    <dd><a href="#" data-sid="7685">长滩岛</a></dd>
+                                    <dd><a href="#" data-sid="7688">兰卡威</a></dd>
+                                    <dd><a href="#" data-sid="5782">沙巴</a></dd>
+                                    <dd><a href="#">珍拉丁湾</a></dd>
+                                    <dd><a href="#" data-sid="7500">巴厘岛</a></dd>
+                                    <dd><a href="#">民丹岛</a></dd>
+                                    <dd><a href="#" data-sid="6129">夏威夷</a></dd>
+                                    <dd><a href="#" data-sid="4968">关岛</a></dd>
+                                    <dd><a href="#" data-sid="7668">塞班岛</a></dd>
+                                    <dd><a href="#" data-sid="7710">大溪地</a></dd>
+                                    <dd><a href="#" data-sid="4858">斐济</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $('.menu-srot a').each(function(){
+                                var obj=$(this);
+                                var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                var data_sid=$(this).attr('data-sid');
+                                var url=baseUrl;
+                                if(data_sid){
+                                    url=baseUrl+data_sid
+                                }else{
+                                    url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                    url+=obj.text();
+                                }
+                                obj.attr('href', url);
+                                obj.attr('title', obj.text());
+                                obj.attr('target', '_blank');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative">
+        <div class="category-info list-yz">
+            <h3 class="category-name b-category-name"><i></i>
+                <a id="s-category-344"  href="javascript:;"  class="ml-22">亚洲</a></h3>
+
+            <p class="c-category-list limit-24">
+                <a data-sid="5019" href="#">韩国</a>
+                <a data-sid="6524" href="#">日本</a>
+                <a data-sid="6422" href="#">尼泊尔</a>
+                <a data-sid="6809" href="#">泰国</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>亚洲产品</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=4616.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4616" target='_blank' title="朝鲜" data-sid="4616"><span>朝鲜</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5698.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5698" target='_blank' title="马来西亚" data-sid="5698"><span>马来西亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6524.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6524" target='_blank' title="日本" data-sid="6524"><span>日本</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6809.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6809" target='_blank' title="泰国" data-sid="6809"><span>泰国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7276.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7276" target='_blank' title="新加坡" data-sid="7276"><span>新加坡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7392.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7392" target='_blank' title="以色列" data-sid="7392"><span>以色列</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7597.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7597" target='_blank' title="约旦" data-sid="7597"><span>约旦</span></a></dd>                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>亚洲国家列表</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=1.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=1" target='_blank' title="中国" data-sid="1"><span>中国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4037.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4037" target='_blank' title="台港澳地区" data-sid="4037"><span>台港澳地区</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4140.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4140" target='_blank' title="阿拉伯联合酋长国" data-sid="4140"><span>阿拉伯联合酋长国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4146.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4146" target='_blank' title="阿曼" data-sid="4146"><span>阿曼</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4155.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4155" target='_blank' title="阿塞拜疆" data-sid="4155"><span>阿塞拜疆</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4336.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4336" target='_blank' title="巴基斯坦" data-sid="4336"><span>巴基斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4365.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4365" target='_blank' title="巴勒斯坦" data-sid="4365"><span>巴勒斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4550.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4550" target='_blank' title="不丹" data-sid="4550"><span>不丹</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4616.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4616" target='_blank' title="朝鲜" data-sid="4616"><span>朝鲜</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4687.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4687" target='_blank' title="东帝汶" data-sid="4687"><span>东帝汶</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4853.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4853" target='_blank' title="菲律宾" data-sid="4853"><span>菲律宾</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4980.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4980" target='_blank' title="哈萨克斯坦" data-sid="4980"><span>哈萨克斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5019.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5019" target='_blank' title="韩国" data-sid="5019"><span>韩国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5339.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5339" target='_blank' title="柬埔寨" data-sid="5339"><span>柬埔寨</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5433.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5433" target='_blank' title="科威特" data-sid="5433"><span>科威特</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5543.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5543" target='_blank' title="老挝" data-sid="5543"><span>老挝</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5561.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5561" target='_blank' title="黎巴嫩" data-sid="5561"><span>黎巴嫩</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5671.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5671" target='_blank' title="马尔代夫" data-sid="5671"><span>马尔代夫</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5698.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5698" target='_blank' title="马来西亚" data-sid="5698"><span>马来西亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6207.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6207" target='_blank' title="蒙古" data-sid="6207"><span>蒙古</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6230.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6230" target='_blank' title="孟加拉" data-sid="6230"><span>孟加拉</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6265.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6265" target='_blank' title="缅甸" data-sid="6265"><span>缅甸</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6422.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6422" target='_blank' title="尼泊尔" data-sid="6422"><span>尼泊尔</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6524.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6524" target='_blank' title="日本" data-sid="6524"><span>日本</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6672.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6672" target='_blank' title="塞浦路斯" data-sid="6672"><span>塞浦路斯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6679.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6679" target='_blank' title="沙特阿拉伯" data-sid="6679"><span>沙特阿拉伯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6710.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6710" target='_blank' title="斯里兰卡" data-sid="6710"><span>斯里兰卡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6793.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6793" target='_blank' title="塔吉克斯坦" data-sid="6793"><span>塔吉克斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6809.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6809" target='_blank' title="泰国" data-sid="6809"><span>泰国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6947.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6947" target='_blank' title="土耳其" data-sid="6947"><span>土耳其</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7026.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7026" target='_blank' title="土库曼斯坦" data-sid="7026"><span>土库曼斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7095.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7095" target='_blank' title="文莱" data-sid="7095"><span>文莱</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7199.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7199" target='_blank' title="乌兹别克斯坦" data-sid="7199"><span>乌兹别克斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7276.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7276" target='_blank' title="新加坡" data-sid="7276"><span>新加坡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7324.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7324" target='_blank' title="叙利亚" data-sid="7324"><span>叙利亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7368.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7368" target='_blank' title="也门" data-sid="7368"><span>也门</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7391.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7391" target='_blank' title="伊朗" data-sid="7391"><span>伊朗</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7392.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7392" target='_blank' title="以色列" data-sid="7392"><span>以色列</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7468.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7468" target='_blank' title="印度" data-sid="7468"><span>印度</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7499.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7499" target='_blank' title="印度尼西亚" data-sid="7499"><span>印度尼西亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7597.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7597" target='_blank' title="约旦" data-sid="7597"><span>约旦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7611.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7611" target='_blank' title="越南" data-sid="7611"><span>越南</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7713.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7713" target='_blank' title="巴林" data-sid="7713"><span>巴林</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7714.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7714" target='_blank' title="卡塔尔" data-sid="7714"><span>卡塔尔</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7715.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7715" target='_blank' title="格鲁吉亚" data-sid="7715"><span>格鲁吉亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7716.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7716" target='_blank' title="亚美尼亚" data-sid="7716"><span>亚美尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7717.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7717" target='_blank' title="吉尔吉斯斯坦" data-sid="7717"><span>吉尔吉斯斯坦</span></a></dd>                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative h73">
+        <div class="category-info list-oz">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-343"   href="javascript:;" class="ml-22"
+                                                                title="欧洲">欧洲</a></h3>
+
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="7528" href="#">英国</a>
+                <a data-sid="4824" href="#">法国</a>
+                <a data-sid="6593" href="#">瑞士</a>
+                <a data-sid="7401" href="#">意大利</a>
+                <a data-sid="4709" href="#">俄罗斯</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>欧洲旅游</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=7401.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7401" target='_blank' title="意大利" data-sid="7401"><span>意大利</span></a></dd>                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>欧洲国家列表</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=4189.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4189" target='_blank' title="爱尔兰" data-sid="4189"><span>爱尔兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4216.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4216" target='_blank' title="爱沙尼亚" data-sid="4216"><span>爱沙尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4232.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4232" target='_blank' title="安道尔" data-sid="4232"><span>安道尔</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4261.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4261" target='_blank' title="奥地利" data-sid="4261"><span>奥地利</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4406.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4406" target='_blank' title="白俄罗斯" data-sid="4406"><span>白俄罗斯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4414.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4414" target='_blank' title="保加利亚" data-sid="4414"><span>保加利亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4439.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4439" target='_blank' title="比利时" data-sid="4439"><span>比利时</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4451.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4451" target='_blank' title="冰岛" data-sid="4451"><span>冰岛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4453.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4453" target='_blank' title="波兰" data-sid="4453"><span>波兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4517.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4517" target='_blank' title="波斯尼亚和黑塞哥维那" data-sid="4517"><span>波斯尼亚和黑塞哥维那</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4629.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4629" target='_blank' title="丹麦" data-sid="4629"><span>丹麦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4644.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4644" target='_blank' title="德国" data-sid="4644"><span>德国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4709.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4709" target='_blank' title="俄罗斯" data-sid="4709"><span>俄罗斯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4824.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4824" target='_blank' title="法国" data-sid="4824"><span>法国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4852.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4852" target='_blank' title="梵蒂冈" data-sid="4852"><span>梵蒂冈</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4859.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4859" target='_blank' title="芬兰" data-sid="4859"><span>芬兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5195.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5195" target='_blank' title="荷兰" data-sid="5195"><span>荷兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5364.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5364" target='_blank' title="捷克共和国" data-sid="5364"><span>捷克共和国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5434.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5434" target='_blank' title="克罗地亚" data-sid="5434"><span>克罗地亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5505.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5505" target='_blank' title="拉脱维亚" data-sid="5505"><span>拉脱维亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5568.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5568" target='_blank' title="立陶宛" data-sid="5568"><span>立陶宛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5599.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5599" target='_blank' title="列支敦士登" data-sid="5599"><span>列支敦士登</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5601.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5601" target='_blank' title="卢森堡" data-sid="5601"><span>卢森堡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5622.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5622" target='_blank' title="罗马尼亚" data-sid="5622"><span>罗马尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5693.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5693" target='_blank' title="马耳他" data-sid="5693"><span>马耳他</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5837.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5837" target='_blank' title="马其顿" data-sid="5837"><span>马其顿</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6291.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6291" target='_blank' title="摩纳哥" data-sid="6291"><span>摩纳哥</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6471.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6471" target='_blank' title="挪威" data-sid="6471"><span>挪威</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6493.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6493" target='_blank' title="葡萄牙" data-sid="6493"><span>葡萄牙</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6571.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6571" target='_blank' title="瑞典" data-sid="6571"><span>瑞典</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6593.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6593" target='_blank' title="瑞士" data-sid="6593"><span>瑞士</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6646.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6646" target='_blank' title="塞尔维亚,黑山" data-sid="6646"><span>塞尔维亚,黑山</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6707.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6707" target='_blank' title="圣马力诺" data-sid="6707"><span>圣马力诺</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6736.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6736" target='_blank' title="斯洛伐克" data-sid="6736"><span>斯洛伐克</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6745.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6745" target='_blank' title="斯洛文尼亚" data-sid="6745"><span>斯洛文尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7153.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7153" target='_blank' title="乌克兰" data-sid="7153"><span>乌克兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7214.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7214" target='_blank' title="西班牙" data-sid="7214"><span>西班牙</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7265.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7265" target='_blank' title="希腊" data-sid="7265"><span>希腊</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7303.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7303" target='_blank' title="匈牙利" data-sid="7303"><span>匈牙利</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7401.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7401" target='_blank' title="意大利" data-sid="7401"><span>意大利</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7528.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7528" target='_blank' title="英国" data-sid="7528"><span>英国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7705.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7705" target='_blank' title="巴尔干" data-sid="7705"><span>巴尔干</span></a></dd>                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative h73">
+        <div class="category-info list-az">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-343" href="javascript:;"  class="ml-22"
+                                                                title="">澳洲</a></h3>
+
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="4272" href="#">澳大利亚</a>
+                <a data-sid="7278" href="#">新西兰</a>
+                <a data-sid="4858" href="#">斐济</a>
+                <a data-sid="7710" href="#">大溪地</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>澳洲旅游</span></dt>
+                                                                    </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>澳洲国家列表</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=4272.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4272" target='_blank' title="澳大利亚" data-sid="4272"><span>澳大利亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4858.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4858" target='_blank' title="斐济" data-sid="4858"><span>斐济</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4968.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4968" target='_blank' title="关岛" data-sid="4968"><span>关岛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5504.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5504" target='_blank' title="库克群岛" data-sid="5504"><span>库克群岛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6491.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6491" target='_blank' title="帕劳" data-sid="6491"><span>帕劳</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7278.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7278" target='_blank' title="新西兰" data-sid="7278"><span>新西兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7711.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7711" target='_blank' title="汤加" data-sid="7711"><span>汤加</span></a></dd>                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative last h73">
+        <div class="category-info list-mz">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-342" href="javascript:;"  class="ml-22"
+                                                                title="">美洲</a></h3>
+
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="5857" href="#">美国</a>
+                <a data-sid="5282" href="#">加拿大</a>
+                <a data-sid="6129" href="#">夏威夷</a>
+                <a data-sid="4968" href="#">关岛</a>
+                <a data-sid="4378" href="#">巴西</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>美洲旅游</span></dt>
+                                    <dd><a data-sid="6129" href="#"><span>夏威夷</span></a></dd>
+                                    <dd><a data-sid="4968" href="#"><span>关岛</span></a></dd>
+                                    <dd><a data-sid="5857" href="#"><span>美国</span></a></dd>
+                                    <dd><a data-sid="5282" href="#"><span>加拿大</span></a></dd>
+                                    <dd><a data-sid="4378" href="#"><span>巴西</span></a></dd>
+                                </dl>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>美洲国家列表</span></dt>
+                                   <!-- -->                                    <dd><a target="_blank" title="巴拿马"
+                                           href="index.php-r=agentc-post-search&sid=4377.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4377"
+                                           data-sid="4377"><span>巴拿马</span></a></dd>
+                                    <dd><a target="_blank" title="北马里亚纳群岛"
+                                           href="index.php-r=agentc-post-search&sid=4424.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4424" data-sid="4424"><span>北马里亚纳群岛</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="多米尼加共和国"
+                                           href="index.php-r=agentc-post-search&sid=4708.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4708" data-sid="4708"><span>多米尼加共和国</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="古巴"
+                                           href="index.php-r=agentc-post-search&sid=4950.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4950"
+                                           data-sid="4950"><span>古巴</span></a></dd>
+                                    <dd><a target="_blank" title="加拿大"
+                                           href="index.php-r=agentc-post-search&sid=5282.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5282"
+                                           data-sid="5282"><span>加拿大</span></a></dd>
+                                    <dd><a target="_blank" title="美国"
+                                           href="index.php-r=agentc-post-search&sid=5857.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5857"
+                                           data-sid="5857"><span>美国</span></a></dd>
+                                    <dd><a target="_blank" title="墨西哥"
+                                           href="index.php-r=agentc-post-search&sid=6293.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6293"
+                                           data-sid="6293"><span>墨西哥</span></a></dd>
+                                    <dd><a target="_blank" title="牙买加"
+                                           href="index.php-r=agentc-post-search&sid=7341.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7341"
+                                           data-sid="7341"><span>牙买加</span></a></dd>
+                                    <dd><a target="_blank" title="格陵兰岛"
+                                           href="index.php-r=agentc-post-search&sid=7708.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7708" data-sid="7708"><span>格陵兰岛</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="阿根廷"
+                                           href="index.php-r=agentc-post-search&sid=4105.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4105"
+                                           data-sid="4105"><span>阿根廷</span></a></dd>
+                                    <dd><a target="_blank" title="巴西"
+                                           href="index.php-r=agentc-post-search&sid=4378.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4378"
+                                           data-sid="4378"><span>巴西</span></a></dd>
+                                    <dd><a target="_blank" title="玻利维亚"
+                                           href="index.php-r=agentc-post-search&sid=4529.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4529" data-sid="4529"><span>玻利维亚</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="厄瓜多尔"
+                                           href="index.php-r=agentc-post-search&sid=4795.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4795" data-sid="4795"><span>厄瓜多尔</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="哥伦比亚"
+                                           href="index.php-r=agentc-post-search&sid=4905.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4905" data-sid="4905"><span>哥伦比亚</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="秘鲁"
+                                           href="index.php-r=agentc-post-search&sid=6234.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6234"
+                                           data-sid="6234"><span>秘鲁</span></a></dd>
+                                    <dd><a target="_blank" title="委内瑞拉"
+                                           href="index.php-r=agentc-post-search&sid=7070.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7070" data-sid="7070"><span>委内瑞拉</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="乌拉圭"
+                                           href="index.php-r=agentc-post-search&sid=7179.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7179"
+                                           data-sid="7179"><span>乌拉圭</span></a></dd>
+                                    <dd><a target="_blank" title="智利"
+                                           href="index.php-r=agentc-post-search&sid=7628.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7628"
+                                           data-sid="7628"><span>智利</span></a></dd>
+                                    <dd><a target="_blank" title="巴拉圭"
+                                           href="index.php-r=agentc-post-search&sid=7707.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7707"
+                                           data-sid="7707"><span>巴拉圭</span></a></dd>
+                                    <dd><a target="_blank" title="哥斯达黎加"
+                                           href="index.php-r=agentc-post-search&sid=7703.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7703" data-sid="7703"><span>哥斯达黎加</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="巴哈马"
+                                           href="index.php-r=agentc-post-search&sid=7709.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7709"
+                                           data-sid="7709"><span>巴哈马</span></a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $('.menu-srot a').each(function(){
+                                var obj=$(this);
+                                var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                var data_sid=$(this).attr('data-sid');
+                                var url=baseUrl;
+                                if(data_sid){
+                                    url=baseUrl+data_sid
+                                }else{
+                                    url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                    url+=obj.text();
+                                }
+                                obj.attr('href', url);
+                                obj.attr('title', obj.text());
+                                obj.attr('target', '_blank');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative last h73">
+        <div class="category-info list-mz">
+            <h3 class="category-name b-category-name"><i style="background-position: -167px top;"></i><a id="s-category-342"  href="javascript:;" class="ml-22"
+                                                                title="">中东非</a></h3>
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="4143" href="#">迪拜</a>
+                <a data-sid="7392" href="#">以色列</a>
+                <a data-sid="5455" href="#">肯尼亚</a>
+                <a data-sid="4171" href="#">埃及</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>中东非旅游</span></dt>
+                                    <dd><a data-sid="4171" href="#"><span>埃及</span></a></dd>
+                                    <dd><a data-sid="6947" href="#"><span>土耳其</span></a></dd>
+                                    <dd><a data-sid="4143" href="#"><span>迪拜</span></a></dd>
+                                    <dd><a data-sid="5842" href="#"><span>毛里求斯</span></a></dd>
+                                    <dd><a data-sid="6678" href="#"><span>塞舌尔</span></a></dd>
+                                    <dd><a data-sid="7392" href="#"><span>以色列</span></a></dd>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>中东非国家列表</span></dt>
+                                    <dd><a data-sid="6368" href="index.php-r=agentc-post-search&sid=6368.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6368"><span>南非</span></a></dd>
+                                    <dd><a data-sid="5455" href="#"><span>肯尼亚</span></a></dd>
+                                    <dd><a data-sid="6947" href="#"><span>土耳其</span></a></dd>
+                                    <dd><a data-sid="6678" href="#"><span>塞舌尔</span></a></dd>
+                                    <dd><a data-sid="4143" href="#"><span>迪拜</span></a></dd>
+                                    <dd><a data-sid="5842" href="#"><span>毛里求斯</span></a></dd>
+                                    <dd><a data-sid="4171" href="#"><span>埃及</span></a></dd>
+                                    <dd><a data-sid="7392" href="#"><span>以色列</span></a></dd>
+                                    <dd><a data-sid="7391" href="#"><span>伊朗</span></a></dd>
+                                    <dd><a data-sid="6281" href="#"><span>摩洛哥</span></a></dd>
+                                    <dd><a data-sid="6921" href="#"><span>突尼斯</span></a></dd>
+                                    <dd><a data-sid="6884" href="#"><span>坦桑尼亚</span></a></dd>
+                                    <dd><a data-sid="5378" href="#"><span>津巴布韦</span></a></dd>
+                                </dl>
+                            </div>
+                            <script type="text/javascript">
+                                $('.menu-srot a').each(function(){
+                                    var obj=$(this);
+                                    var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                    var data_sid=$(this).attr('data-sid');
+                                    var url=baseUrl;
+                                    if(data_sid){
+                                        url=baseUrl+data_sid
+                                    }else{
+                                        url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                        url+=obj.text();
+                                    }
+                                    obj.attr('href', url);
+                                    obj.attr('title', obj.text());
+                                    obj.attr('target', '_blank');
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+
+    </ul>
+</div>
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.category').hide();
+    });
+</script>
+<!--help css -->
+<link rel="stylesheet" type="text/css" href="themes/agentc/css/help.css" tppabs="http://www.btgtravel.com/themes/agentc/css/help.css"/>
+<!--help css end-->
+<div class="clearfix"></div>
+<div class="area mt10">
+    <div class="area-left-ej">
+
+        <div style="border-bottom:0px;" class="home-right-box">
+            <h2 class="acc_trigger active"><a href="javascript:;">报名签约</a></h2>
+
+            <div class="acc_container">
+                <ul>
+                    <li><a href="index.php-r=agentc-post-help&cid=468&id=218.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=218" title="神舟门市查询">神舟门市查询</a></li><li><a href="index.php-r=agentc-post-help&cid=468&id=219.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=219" title="邮件及传真签约">邮件及传真签约</a></li><li><a href="index.php-r=agentc-post-help&cid=468&id=220.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=220" title="发票制度">发票制度</a></li><li><a href="index.php-r=agentc-post-help&cid=468&id=221.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=221" title="合同范本">合同范本</a></li>                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="area-right-ej">
+        <div class="ej-hot-product">
+            <div class="person_item">
+                <h2 class="info_title">神舟门市查询</h2>
+                <div class="line"></div>
+                <div class="content_info">
+                    <p class="MsoNormal">
+	<b><span style="font-family:'Microsoft YaHei';">神舟门市查询<br /><br /></span><span></span></b> 
+</p>
+<p class="MsoNormal" align="center" style="text-align:center;">
+	<span style="font-family:'Microsoft YaHei';">您可以到就近的神舟国旅门市进行签约。具体门市信息如下：</span> 
+</p>
+<p class="MsoNormal">
+	<span style="font-family:'Microsoft YaHei';"> </span> 
+</p>
+<div align="center">
+	<div align="center">
+		<table class="MsoNormalTable ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="656" style="width:492.35pt;"><tbody><tr><td width="68" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">区县名称<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">门市名称<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">地　　　　　址<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">电　　　话<span></span></span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" rowspan="24" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">朝阳区<span><br />
+(24</span>家<span>)</span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">望 京<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区望京西园</span><span style="font-size:9pt;">3</span><span style="font-size:9pt;">区</span><span style="font-size:9pt;">316</span><span style="font-size:9pt;">楼一层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">64707711/0939
+  84716758</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">朝阳广渠路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区广渠路<span>36</span>号院<span>5</span>号楼<span>5</span>层<span>503</span>号（首城国际<span>B</span>座）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;font-family:'微软雅黑', sans-serif;">87767751</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">管</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">庄<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区管庄西里</span><span style="font-size:9pt;">74</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">4</span><span style="font-size:9pt;">单元</span><span style="font-size:9pt;">102</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">65768802/9806 </span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">红</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">庙<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区延静西里</span><span style="font-size:9pt;">2</span><span style="font-size:9pt;">号华商大厦首层</span><span style="font-size:9pt;">06</span><span style="font-size:9pt;">室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51263789   65084457</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">亮马桥路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区亮马桥路光明饭店</span><span style="font-size:9pt;">0306</span><span style="font-size:9pt;">室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;"> 64620081   
+  64620082</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">大北窑路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区建外南郎家园</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">115</span><span style="font-size:9pt;">室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">65668029</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">金台路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区朝阳北路<span>199</span>号摩码大厦<span>217</span>室（地址变更中）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51660725   85967299 </span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">东</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">坝<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区东坝中路京奥家园</span><span style="font-size:9pt;">22</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">22</span><span style="font-size:9pt;">－</span><span style="font-size:9pt;">20</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51463338</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">马</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">甸<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区裕民路</span><span style="font-size:9pt;">12</span><span style="font-size:9pt;">号</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">层</span><span style="font-size:9pt;">A109</span><span style="font-size:9pt;"></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">82250389/87</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">北</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">苑<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区北苑路</span><span style="font-size:9pt;">32</span><span style="font-size:9pt;">号院甲</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">号楼安全大厦一层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51668757</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">芍药居<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区芍药居<span>2</span>号院<span>1</span>号楼<span>3</span>单元<span>101</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;"> 51659007  
+  84351617/1613</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">和平西街<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区胜古北里</span><span style="font-size:9pt;">6</span><span style="font-size:9pt;">、</span><span style="font-size:9pt;">7</span><span style="font-size:9pt;">号楼院</span><span style="font-size:9pt;">5</span><span style="font-size:9pt;">号平房</span><span style="font-size:9pt;">5</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">64410618</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">光明桥<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区劲松三区甲</span><span style="font-size:9pt;">302</span><span style="font-size:9pt;">楼地下一层<span>B112</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">87527717</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">安贞桥<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区小黄庄北街</span><span style="font-size:9pt;">2</span><span style="font-size:9pt;">号<span>10</span>号楼<span>3</span>层<span>302</span>室<span>(</span>外贸安贞大楼<span>C</span>座）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">84285194   84287307/5143</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">潘家园桥<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区松榆北路<span>5</span>号楼<span>5-3</span>内<span>4</span>层<span>418</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">67325145</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">双井<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区广渠门外大街<span>8</span>号东座<span>506</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">58612314/3576/4252/2670</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">朝阳东大桥<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区朝阳北路<span>235</span>号楼<span>1</span>层<span>101</span>室（复地国际公寓）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;font-family:'微软雅黑', sans-serif;">85715966   85715616</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">朝阳常营<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区朝阳北路<span>17</span>号楼<span>-1</span>至<span>3</span>层<span>109</span>内<span>B1-04</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">56857336</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">百子湾<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区百子湾西里<span>403</span>号楼<span>7</span>层<span>705</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">57097619</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">清河营东路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区清河营东路<span>2</span>号院<span>2</span>号楼<span>3</span>层<span>312</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">84923625</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">朝阳青年路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区雅成二里<span>22</span>号楼<span>2</span>层<span>221</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">59478648  58489659</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">首都机场<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区首都机场宿舍区机场南路</span><span style="font-size:9pt;">8</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">64573282   64597628</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">安慧东里<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区安慧东里<span>36</span>号院<span>4</span>号楼<span>0</span>号门面房<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">66552688   66552988</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">北土城西路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">朝阳区祁家豁子<span>2</span>号（南院）<span>1</span>幢一层底商<span></span></span> 
+						</p>
+					</td>
+					<td width="174" valign="bottom" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;"> 62359535   62351161</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" rowspan="12" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">西城区<span><br /></span>（</span><span style="font-size:9pt;">12</span><span style="font-size:9pt;">家）<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">月 坛<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">西城区月坛北街<span>2</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">68083145/46/49 </span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">西直门<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">西城区车公庄大街</span><span style="font-size:9pt;">2</span><span style="font-size:9pt;">号一层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">88385556/5968/5016</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">阜成门<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">西城区阜成门外大街<span>2</span>号<span>A</span>座<span>20</span>层<span>2011</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">68366066</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">西单北大街<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">西城区复兴门内大街</span><span style="font-size:9pt;">45</span><span style="font-size:9pt;">号</span><span style="font-size:9pt;">2</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">103</span><span style="font-size:9pt;">室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">66083828  66095526/5298</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">平安里<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">西城区富国里</span><span style="font-size:9pt;">1-3</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51299911   65089608</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">新街口<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">西城区新街口外大街<span>6</span>号<span>14</span>号楼<span>1</span>层<span>6-3</span>号（德胜园区）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51657734   66151467/68</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">天桥大街<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">西城区东经路<span>3</span>号一层<span>102</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">52999702</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">积水潭<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">西城区新街口东街</span><span style="font-size:9pt;">69</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">83225711</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">展览馆路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">西城区展览馆路<span>14</span>号中俊酒店一层<span>420</span>室（德胜园区）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">88389028   88389026</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">右安门<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">宣武区白纸坊东街</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">3</span><span style="font-size:9pt;">单元</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">83545127  83559993</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">马连道<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">宣武区广安门外大街</span><span style="font-size:9pt;">248</span><span style="font-size:9pt;">号机械大厦一层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">66532533/2531</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">广安门外大街<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">宣武区广外大街南滨河路</span><span style="font-size:9pt;">27</span><span style="font-size:9pt;">号贵都国际中心</span><span style="font-size:9pt;">A</span><span style="font-size:9pt;">座</span><span style="font-size:9pt;">504</span><span style="font-size:9pt;"></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51667728   63364928</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" rowspan="12" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">东城区<span><br />
+(12</span>家<span>)</span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">崇文门<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区崇文门外大街<span>3</span>号<span>3</span>号楼<span>13</span>层<span>1310</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">67082168   67082006</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">蒋宅口<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区安定门外大街</span><span style="font-size:9pt;">80</span><span style="font-size:9pt;">号一层</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;"></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">64265857/9986
+  64295879</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">建国门北大街<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区建国门北大街</span><span style="font-size:9pt;">8</span><span style="font-size:9pt;">号（华润大厦首层</span><span style="font-size:9pt;">G8</span><span style="font-size:9pt;">单元）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">65181809</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">雍和宫桥<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区安定门东大街<span>28</span>号<span>1</span>号楼<span>A</span>单元<span>5</span>层<span>606</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">58103269</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">灯市口<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区东四南大街<span>189</span>号远洋酒店一层<span>101</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">65280400   65233545</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">东直门<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区东直门外大街<span>42</span>号<span>9</span>层<span>919</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">64094435   64094438</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">正义路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区西打磨厂街<span>3</span>号<span>1</span>号楼<span>1-6</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">67059699   67059799</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">新中街<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区新中西街<span>2</span>号楼新中大厦<span>10</span>层<span>G</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">65537577</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">幸福大街<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区幸福家园<span>1</span>号楼<span>1</span>层<span>2</span>单元<span>102</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">52470968   52470966</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">东直门内<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区东直门内大街<span>1</span>号楼<span>1-14</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">84060996   84060997</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">东四北大街<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">东城区东四北大街<span>303</span>号—<span>3</span>一层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">64009600</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">左安门<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">崇文区左安浦园小区</span><span style="font-size:9pt;">6</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">6</span><span style="font-size:9pt;">单元</span><span style="font-size:9pt;">106</span><span style="font-size:9pt;">室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">67139091/98/97/96</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" rowspan="23" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">海淀区<span><br /></span>（</span><span style="font-size:9pt;">23</span><span style="font-size:9pt;">家）<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">上 地<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区农大南路厢黄旗博雅西园<span>2</span>号楼底商<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">82702688/2788</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">知春路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区知春路</span><span style="font-size:9pt;">56</span><span style="font-size:9pt;">号西区中国天利大厦一层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">82138861/2   82139366/86</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">马连洼<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区圆明园西路梅园小区甲</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">号</span><span style="font-size:9pt;">6</span><span style="font-size:9pt;">单元</span><span style="font-size:9pt;">101</span><span style="font-size:9pt;">室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">62826208   62826108</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">牡丹园<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区牡丹园花园北路</span><span style="font-size:9pt;">36</span><span style="font-size:9pt;">号</span><span style="font-size:9pt;">8</span><span style="font-size:9pt;">、</span><span style="font-size:9pt;">9</span><span style="font-size:9pt;">号平房<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51268133   51268193</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">苏州桥<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区北三环西路<span>99</span>号院<span>1</span>号楼<span>1</span>层<span>101</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51660422</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">海淀四季青<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区紫竹院路</span><span style="font-size:9pt;">116</span><span style="font-size:9pt;">号嘉豪国际中心四层</span><span style="font-size:9pt;">A</span><span style="font-size:9pt;">座</span><span style="font-size:9pt;">520</span><span style="font-size:9pt;"></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">58930338</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">北三环西路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;font-family:'微软雅黑', sans-serif;">海淀区北三环西路<span>32</span>号楼<span>15</span>层<span>1707</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">68433363   68436603</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">复兴路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区万寿路街道复兴路<span>61</span>号<span>2</span>号楼一层<span>A-01</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51287959   51284659</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">花园路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区花园东路甲<span>32</span>号仰源大厦一层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">82037889   82037757</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">清 河<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区清河中街</span><span style="font-size:9pt;">69</span><span style="font-size:9pt;">号院</span><span style="font-size:9pt;">69-8</span><span style="font-size:9pt;"></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">82425050   82425656</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">公主坟<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区西三环北路<span>72</span>号院世纪经贸大厦<span>A</span>座<span>15</span>层<span>1803</span>室（地址变更中）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">63957179   63957362</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">甘家口<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区增光路</span><span style="font-size:9pt;">37</span><span style="font-size:9pt;">号中海馥园</span><span style="font-size:9pt;">3</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">层</span><span style="font-size:9pt;">105</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">88586551</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">西二旗<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区上地十街</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">号院</span><span style="font-size:9pt;">6</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">2</span><span style="font-size:9pt;">层</span><span style="font-size:9pt;">217</span><span style="font-size:9pt;">（辉煌国际）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">82176886   82176889</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">西土城路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区罗庄南里宏嘉丽园</span><span style="font-size:9pt;">3</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">层商业</span><span style="font-size:9pt;">08</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">82095585/86/89</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">玉渊潭<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区玉渊潭南路<span>85</span>号一层<span>101</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">68253880</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">学院南路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区中关村南大街<span>9</span>号北京理工科技大厦一层底商（地址变更中）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">57799580</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">中关村东路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区中关村东路<span>118</span>号南楼二层<span>003</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">51651898</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">白石桥<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区中关村南大街<span>52</span>号<span>3</span>号楼<span>9</span>层<span>903</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">53801700</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">明光桥<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区学院南路<span>34</span>号<span>2</span>号楼一层<span>113</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">66115510</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">万柳中路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区万柳星标家园<span>6</span>号楼一层便利店<span>3</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">82566626   82568850</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">海淀太舟坞路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区温泉镇太舟坞商业区东区一层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">58478350</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">中关村南大街<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区中关村南大街<span>2</span>号<span>1</span>号楼<span>6</span>层<span>A</span>座<span>717</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">87527710</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">清河桥<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">海淀区清河嘉园东区<span>4</span>号楼一层<span>104</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">53357851  53357852</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" rowspan="7" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">丰台区<span><br />
+(7</span>家<span>)</span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">丰台北路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">丰台区丰北路甲</span><span style="font-size:9pt;">79</span><span style="font-size:9pt;">号冠京饭店一层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">83821979   83821981</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">方</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">庄<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">丰台区蒲芳路</span><span style="font-size:9pt;">24</span><span style="font-size:9pt;">号</span><span style="font-size:9pt;">006</span><span style="font-size:9pt;">室</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;"></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;"> 67676067  
+  67677552</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">光彩路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">丰台区贾家花园<span>3</span>号院<span>1</span>号楼<span>1</span>层<span>101</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">67909372   67698559</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">菜户营<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">丰台区丽泽路</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">号院</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">101</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">63384309   63342184</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">方庄南路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">丰台区方庄南路<span>2</span>号<span>1</span>单元<span>6</span>层<span>617</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">57738081</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">角门<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">丰台区马家堡东路<span>106</span>号<span>2</span>号楼<span>102-C0220120</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">58030191   58030667</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">东高地<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">丰台区南大红门路梅源里小区西侧</span><span style="font-size:9pt;">10</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">2</span><span style="font-size:9pt;">号底商<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">68757986   68198100/8200</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" rowspan="3" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">石景山区<span><br /></span>（<span>3</span>家）<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">石景山政达路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">石景山区政达路<span>2</span>号<span>6</span>层<span>1</span>单元<span>6-02</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">59354502   59354510</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">石景山<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">石景山区八角西街妇女儿童活动中心<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">68820526   68820576</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">石景山鲁谷<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">石景山区依翠园<span>13</span>号楼首层<span>7</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">68683557</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" rowspan="6" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">昌平区（<span>6</span>家）<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">天通苑<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">昌平区东小口镇天通苑二区四号楼三门<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">84813904</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">天通西苑<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">昌平区天通西苑三区<span>18</span>号楼<span>1-3</span>层<span>01</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">64115095   64123815</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">昌</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">平<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">昌平区城北街道永安路<span>5-12</span>号<span>2</span>层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">80103908   80117584</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">立汤路<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">昌平区东小口镇立汤路</span><span style="font-size:9pt;">188</span><span style="font-size:9pt;">号院北方明珠大厦<span>3</span>号楼<span>2001</span>室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">58607769</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">回龙观<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">昌平区回龙观镇回龙园公园北门<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">81718198   81718575</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">昌平东关<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">昌平区城北街道府学路<span>16</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">66552966  66552886</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" rowspan="4" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">大兴区<span><br /></span>（<span>4</span>家）<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">亦</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">庄<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">大兴区亦庄镇贵园南街<span>4</span>号楼三层<span>A</span>区<span>01</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">67873361   67873362</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">大兴兴政街<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">大兴区黄村镇兴政西街<span>32</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">69241168</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">旧</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">宫<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">大兴区旧宫镇旧宫西路</span><span style="font-size:9pt;">5</span><span style="font-size:9pt;">号</span><span style="font-size:9pt;">103</span><span style="font-size:9pt;">室<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">87962031   87915596</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">西红门<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">大兴区西红门镇欣荣北大街<span>18</span>号院<span>4</span>号楼<span>1</span>层<span>18-10</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">60290659    60290658</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" rowspan="4" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">房山区<span><br /></span>（<span>4</span>家）<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">燕</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">山<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">房山区燕山迎风街</span><span style="font-size:9pt;">28</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">81339778   81339779</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">房</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">山<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">房山区良乡西潞北大街</span><span style="font-size:9pt;">28</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">89351036   89351038</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">房山长阳<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">房山区长阳镇昊天北大街<span>48</span>号<span>218-2</span>号楼<span>1</span>层<span>W11</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">80327700    80327701</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">良乡<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">房山区良乡拱辰大街<span>2</span>号<span>3</span>幢一层<span>101</span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">60309567</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" rowspan="4" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">通州区<span><br /></span>（<span>4</span>家）<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">通</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">州<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">通州区通胡大街</span><span style="font-size:9pt;">21</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">69537688   69516200</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">潞</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">河<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">通州区车站路</span><span style="font-size:9pt;">27</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;"> 69553967   69545880/1804 </span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">通州北苑<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">通州区通朝大街<span>267</span>号<span>1</span>层世纪星城底商（地址变更中）<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">80575631   80575085</span> 
+						</p>
+					</td>
+				</tr><tr><td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">通州梨园<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">通州区北杨家洼<span>255</span>号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">81527981</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">顺义区<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">顺</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">义<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">顺义区光明南街旅游局三楼<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">69421682   69464700</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">怀柔区<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">怀</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">柔<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">怀柔区府前东街</span><span style="font-size:9pt;">19</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">11</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">69620358</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">平谷区<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">平</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">谷<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">平谷区建设西街</span><span style="font-size:9pt;">10</span><span style="font-size:9pt;">号楼</span><span style="font-size:9pt;">6</span><span style="font-size:9pt;">单元</span><span style="font-size:9pt;">1</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;"> 89985375  
+  69986586</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">密云县<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">密</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">云<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">密云县新西路</span><span style="font-size:9pt;">69</span><span style="font-size:9pt;">号</span><span style="font-size:9pt;">-10</span><span style="font-size:9pt;">一层<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;"> 89039020  
+  89039021</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">延庆县<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">延</span><span style="font-size:9pt;"> </span><span style="font-size:9pt;">庆<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">延庆县延庆镇妫水北街</span><span style="font-size:9pt;">24</span><span style="font-size:9pt;">号</span><span style="font-size:9pt;">502</span><span style="font-size:9pt;">号<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;"> 81192440  
+  81193223</span> 
+						</p>
+					</td>
+				</tr><tr><td width="68" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">门头沟区<span></span></span> 
+						</p>
+					</td>
+					<td width="65" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">门头沟<span></span></span> 
+						</p>
+					</td>
+					<td width="350" style="border:solid 1pt;">
+						<p class="MsoNormal" align="left">
+							<span style="font-size:9pt;">门头沟区滨河西区皓月园</span><span style="font-size:9pt;">6</span><span style="font-size:9pt;">号楼底商<span></span></span> 
+						</p>
+					</td>
+					<td width="174" style="border:solid 1pt;">
+						<p class="MsoNormal" align="center" style="text-align:center;">
+							<span style="font-size:9pt;">69821448</span> 
+						</p>
+					</td>
+				</tr></tbody></table></div>
+<br /></div>
+<p class="MsoNormal">
+	<span style="font-family:'Microsoft YaHei';"> </span> 
+</p>                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="footer-t">
+    <div class="footer-t-c">
+        <ul>
+<h2>帮助·提示</h2>
+<li><a target="_blank" title="如何注册" href="index.php-r=agentc-post-help&cid=467&id=225.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=225">如何注册</a></li>
+<li><a target="_blank" title="如何在线预订" href="index.php-r=agentc-post-help&cid=467&id=226.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=226">如何在线预订</a></li>
+<li><a target="_blank" title="旅游名词解释" href="index.php-r=agentc-post-help&cid=467&id=227.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=227">旅游名词解释</a></li>
+<li><a target="_blank" title="中国护照免签国家" href="index.php-r=agentc-post-help&cid=467&id=228.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=228">中国护照免签国家</a></li>
+</ul>
+<ul>
+<h2>报名签约</h2>
+<li><a target="_blank" title="神舟门市查询" href="index.php-r=agentc-post-help&cid=468&id=218.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=218">神舟门市查询</a></li>
+<li><a target="_blank" title="邮件及传真签约" href="index.php-r=agentc-post-help&cid=468&id=219.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=219">邮件及传真签约</a></li>
+<li><a target="_blank" title="发票制度" href="index.php-r=agentc-post-help&cid=468&id=220.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=220">发票制度</a></li>
+<li><a target="_blank" title="合同范本" href="index.php-r=agentc-post-help&cid=468&id=221.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=221">合同范本</a></li>
+</ul>
+<ul>
+<h2>支付方式</h2>
+<li><a target="_blank" title="门市支付" href="index.php-r=agentc-post-help&cid=469&id=229.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=229">门市支付</a></li>
+<li><a target="_blank" title="银行汇款" href="index.php-r=agentc-post-help&cid=469&id=230.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=230">银行汇款</a></li>
+<li><a target="_blank" title="网上汇款" href="index.php-r=agentc-post-help&cid=469&id=231.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=231">网上汇款</a></li>
+<li><a target="_blank" title="在线支付" href="index.php-r=agentc-post-help&cid=469&id=232.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=232">在线支付</a></li>
+</ul>
+<ul class="last">
+<h2>旅游其他事项</h2>
+<li><a target="_blank" title="签证" href="index.php-r=agentc-post-help&cid=470&id=233.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=233">签证</a></li>
+<li><a target="_blank" title="保险细则" href="index.php-r=agentc-post-help&cid=470&id=234.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=234">保险细则</a></li>
+<li><a target="_blank" title="订单变更及取消" href="index.php-r=agentc-post-help&cid=470&id=235.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=235">订单变更及取消</a></li>
+<li><a target="_blank" title="退团、退款方式" href="index.php-r=agentc-post-help&cid=470&id=236.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=236">退团、退款方式</a></li>
+</ul>
+        <ul class="r">
+            <div class="tel">4000100808</div>
+            <!--来电将统一显示为 010-58103269，北京神舟国旅呼叫中心位于东城--><br>
+            工作时间：周一至周五09：00－18：00
+        </ul>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="footer-c">
+    <div class="tlink">
+        <ul>
+            <a href="index.php-r=agentc-post-help&cid=471&id=237.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=237" target='_blank'>关于我们</a>|<a href="index.php-r=agentc-post-help&cid=471&id=238.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=238" target='_blank'>联系我们</a>|<a href="index.php-r=agentc-post-help&cid=471&id=239.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=239" target='_blank'>旅行社行业资质</a>|<a href="index.php-r=agentc-post-help&cid=471&id=240.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=240" target='_blank'>人才招聘</a>|<a href="index.php-r=agentc-post-help&cid=471&id=241.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=241" target='_blank'>预订须知</a>|<a href="index.php-r=agentc-post-help&cid=471&id=242.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=242" target='_blank'>免责证明</a>|<a href="index.php-r=agentc-post-help&cid=471&id=243.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=243" target='_blank'>隐私声明</a>|<a href="index.php-r=agentc-post-help&cid=471&id=244.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=244" target='_blank'>法律条款</a>|<a href="index.php-r=agentc-post-help&cid=471&id=245.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=245" target='_blank'>文明旅游</a>        </ul>
+    </div>
+       <!--版权说明-->
+    <strong>© 北京神舟国际旅行社集团有限公司版权所有   许可证号：L-BJ-CJ00080   京ICP备11017909号-2   京公网安备110105007889号 </strong>    <!--版权说明end -->
+   <!-- <ul>
+        <li><a href="javascript:;"><img src="/images/f01.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f02.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f03.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f04.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f05.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f06.gif"></a></li>
+    </ul>-->
+    <!--<div class="ewm"><img src="/images/ewm.png"></div>-->
+</div>
+
+<div class="clearfix"></div>
+
+<div class="footer-link">
+    <div class="footer-link-c">
+        <ul>
+            <a href="index.htm" tppabs="http://www.btgtravel.com/" target='_blank'>神舟国旅官方旅游服务网站</a>|<a href="javascript:if(confirm('http://www.btgtravel.com.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.btgtravel.com.cn/'" tppabs="http://www.btgtravel.com.cn/" target='_blank'>神舟国旅官网</a>|<a href="javascript:if(confirm('http://www.botc.com.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.botc.com.cn/'" tppabs="http://www.botc.com.cn/" target='_blank'>神舟国旅海外旅游</a>|<a href="javascript:if(confirm('http://www.wetours.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.wetours.cn/'" tppabs="http://www.wetours.cn/" target='_blank'>伟途旅游</a>|<a href="javascript:if(confirm('http://www.btgmice.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.btgmice.com/'" tppabs="http://www.btgmice.com/" target='_blank'>神舟方舟国际会展</a>        </ul>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    var _ugpi = $('.uz-g-price-item');
+    if(_ugpi.size() > 0) {
+        var _gids = new Array();
+        _ugpi.each(function () {
+           var _gid = $(this).attr('data-gid');
+            if(_gid && _gid.length > 0) {
+                _gids.push(_gid);
+            }
+        });
+        _gids = array_unique(_gids);
+        if(_gids.length > 0) {
+        }
+        $.ajax({
+            url: 'http://www.btgerp.com/btgtravel/group/groupPrice/chanid/10014/type/jsonp',
+            dataType: "jsonp",
+            type:'get',
+            async:false,
+            data: {gid: _gids},
+            jsonp:'callback',
+            success: function (_data) {
+                if(_data['data'] && _data['data'].length > 0) {
+                    var _gps = _data['data'];
+                    $.each(_gps, function (i, v) {
+                        $('.uz-g-'+v['gid']+'-price').html(v['price']);
+                    });
+                }
+            },
+            error: function(){
+            }
+        });
+    }
+
+
+    function array_unique(arr) {
+        var result = [], hash = {};
+        for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+            if (!hash[elem]) {
+                result.push(elem);
+                hash[elem] = true;
+            }
+        }
+        return result;
+    }
+
+    $(document).ready(function () {
+        var _urlSearch = 'index.php-r=agentc-post-search.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search*/;
+        $('.c-category-list a,.ly a').each(function () {
+            var obj = $(this);
+            var sid=obj.attr('data-sid');
+            var url='';
+            if(sid){
+                url = _urlSearch + '&sid=' + obj.attr('data-sid');
+            }else{
+                url = _urlSearch + '&keywords=' + obj.attr('data-words');
+            }
+
+            obj.attr('href', url);
+            obj.attr('title', obj.text());
+            obj.attr('target', '_blank');
+        });
+
+        $('.btg-c').remove();
+    });
+</script>
+</html>

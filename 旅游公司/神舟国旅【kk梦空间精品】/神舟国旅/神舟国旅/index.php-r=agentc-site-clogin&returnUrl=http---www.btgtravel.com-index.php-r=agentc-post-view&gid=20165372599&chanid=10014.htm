@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>神舟国旅官方旅游服务网站 - 用户登录</title>
+    <script type="text/javascript" src="themes/agentc/js/jquery-1.7.2.min.js" tppabs="http://www.btgtravel.com/themes/agentc/js/jquery-1.7.2.min.js" ></script>
+    <link type="text/css" rel="stylesheet" href="themes/agentc/css/index.css" tppabs="http://www.btgtravel.com/themes/agentc/css/index.css" />
+    <link type="text/css" rel="stylesheet" href="themes/agentc/css/login.css" tppabs="http://www.btgtravel.com/themes/agentc/css/login.css" />
+</head>
+<body>
+
+<div class="site-top">
+    <div class="area">
+        <div class="site-top-l">北京神舟国旅欢迎您！</div>
+        <div class="site-top-r"><span>欢迎，客人</span>|<a href="index.htm" tppabs="http://www.btgtravel.com/">网站首页</a>|<a href="index.php-r=agentc-site-clogin.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/site/clogin">会员登录</a>|<a href="index.php-r=agentc-site-register.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/site/register">免费注册</a></div>    </div>
+</div>
+
+<div class="site-head">
+    <div class="logo" style="top: 16px;"><a href="index.htm" tppabs="http://www.btgtravel.com/"><img src="themes/agentc/images/shenzhouguolv.png" tppabs="http://www.btgtravel.com/themes/agentc/images/shenzhouguolv.png" width="249" height="60"></a></div>
+    <!--    <div class="slogen">--><!--</div>-->
+    <div class="tel">
+        <span>4000100808</span>
+    </div>
+</div>
+
+
+<div class="clearfix"></div>
+
+  <div class="login-box">
+    <div class="login-box-c">
+        <div class="login">
+            <h2>用户登录</h2>
+            <div class="login-in">
+                <form id="loginFrm" action="http://www.btgtravel.com/index.php?r=agentc/site/clogin&returnUrl=http%3A%2F%2Fwww.btgtravel.com%2Findex.php%3Fr%3Dagentc%2Fpost%2Fview%26gid%3D20165372599%26chanid%3D10014" method="post">                <p><input class="user" maxlength="50" placeholder="请输入用户名" name="CLoginForm[username]" id="CLoginForm_username" type="text" /></p>
+                <p><input class="pass" maxlength="50" placeholder="请输入密码" name="CLoginForm[password]" id="CLoginForm_password" type="password" /></p>
+                <p><input class="yzm" maxlength="4" placeholder="请输入验证码" name="CLoginForm[verifyCode]" id="CLoginForm_verifyCode" type="text" />                    <span class="yzm">
+                    <img id="yw0" title="点击刷新验证码" style="cursor:pointer;" src="index.php-r=agentc-site-captcha.png" tppabs="http://www.btgtravel.com/index.php?r=agentc/site/captcha" alt="点击刷新验证码" />                </span></p>
+                <p><input id="ytCLoginForm_rememberMe" type="hidden" value="0" name="CLoginForm[rememberMe]" /><input class="che" name="CLoginForm[rememberMe]" id="CLoginForm_rememberMe" value="1" type="checkbox" />&nbsp;&nbsp;两周内自动登录<span class="yzm"><a href="#">忘记密码？</a></span></p>
+                <p><input type="button" value="登 录" class="btn" id="btn_login"></p>
+                <p>您还没有神舟国旅集团账号？ <a href="index.php-r=agentc-site-register.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/site/register">立刻注册</a></p>
+              <!--  <ul>
+                    <h3><b>使用其他方式登录</b></h3>
+                    <li><a href="#"><img src="/images/qq.png"></a>QQ登录</li>
+                    <li><a href="#"><img src="/images/weixin.png"></a>微信登录</li>
+                    <li><a href="#"><img src="/images/sina.png"></a>新浪微博</li>
+                </ul>-->
+                </form>            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    jQuery(function($) {
+        jQuery(document).on('click', '#yw0', function(){
+            jQuery.ajax({
+                url: "index.php-r=agentc-site-captcha&refresh=1.htm"/*tpa=http://www.btgtravel.com/index.php?r=agentc/site/captcha&refresh=1*/,
+                dataType: 'json',
+                cache: false,
+                success: function(data) {
+                    jQuery('#yw0').attr('src', data['url']);
+                    jQuery('body').data('captcha.hash.htm'/*tpa=http://www.btgtravel.com/captcha.hash*/, [data['hash1'], data['hash2']]);
+                }
+            });
+            return false;
+        });
+
+        $('#btn_login').on('click',function(){
+
+            if($.trim($('#CLoginForm_username').val())==''){
+                alert('请输入用户名');
+                return false;
+            }
+
+            if($.trim($('#CLoginForm_password').val())==''){
+                alert('请输入密码');
+                return false;
+            }
+
+            if($.trim($('#CLoginForm_verifyCode').val())==''){
+                alert('请输入验证码');
+                $('#yw0').trigger('click');
+                return false;
+            }
+
+            var _form=$('#loginFrm'),_data=_form.serializeArray(),
+                _url=_form.attr('action');
+
+            jQuery.ajax({
+                type:'POST',
+                url: _url,
+                data:_data,
+                dataType: 'json',
+                cache: false,
+                success: function(_d) {
+                    if(_d.status>0){
+                        window.location.href=_d.url;
+                    }else{
+                        var _error=_d.mes;
+                        if(_error['username']||_error['password']){
+                            alert('用户名或密码错误')
+                        }else if(_error['verifyCode']){
+                            alert('验证码不正确')
+                        }
+                        $('#yw0').trigger('click');
+                    }
+                }
+            });
+        });
+
+       $('#loginFrm').keydown(function(e){
+           var curKey = e.which;
+           if(curKey==13){
+                $('#btn_login').trigger('click');
+               return false;
+           }
+       });
+    });
+    /*]]>*/
+</script>
+<div class="clearfix"></div>
+
+
+<div class="footer-c">
+    <div class="tlink">
+        <ul>
+            <a href="index.php-r=agentc-post-help&cid=471&id=237.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=237" target='_blank'>关于我们</a>|<a href="index.php-r=agentc-post-help&cid=471&id=238.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=238" target='_blank'>联系我们</a>|<a href="index.php-r=agentc-post-help&cid=471&id=239.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=239" target='_blank'>旅行社行业资质</a>|<a href="index.php-r=agentc-post-help&cid=471&id=240.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=240" target='_blank'>人才招聘</a>|<a href="index.php-r=agentc-post-help&cid=471&id=241.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=241" target='_blank'>预订须知</a>|<a href="index.php-r=agentc-post-help&cid=471&id=242.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=242" target='_blank'>免责证明</a>|<a href="index.php-r=agentc-post-help&cid=471&id=243.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=243" target='_blank'>隐私声明</a>|<a href="index.php-r=agentc-post-help&cid=471&id=244.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=244" target='_blank'>法律条款</a>|<a href="index.php-r=agentc-post-help&cid=471&id=245.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=245" target='_blank'>文明旅游</a>        </ul>
+    </div>
+    <!--版权说明-->
+    <strong>© 北京神舟国际旅行社集团有限公司版权所有   许可证号：L-BJ-CJ00080   京ICP备11017909号-2   京公网安备110105007889号 </strong>    <!--版权说明end -->
+   <!-- <ul>
+        <li><a href="#"><img src="/images/f01.gif"></a></li>
+        <li><a href="#"><img src="/images/f02.gif"></a></li>
+        <li><a href="#"><img src="/images/f03.gif"></a></li>
+        <li><a href="#"><img src="/images/f04.gif"></a></li>
+        <li><a href="#"><img src="/images/f05.gif"></a></li>
+        <li><a href="#"><img src="/images/f06.gif"></a></li>
+    </ul>
+    <div class="ewm"><img src="/images/ewm.png"></div>-->
+</div>
+
+</body>
+</html>

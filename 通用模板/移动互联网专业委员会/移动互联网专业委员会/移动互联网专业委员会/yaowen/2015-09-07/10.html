@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>互联网动态口令网络身份认证系统的设计与实现</title>
+<meta name="keywords" content="" />
+<meta name="description" content="互联网动态口令网络身份认证系统的设计与实现" />
+<link href="../../qn/css/001.css" tppabs="http://www.cnmisc.org/qn/css/001.css" rel="stylesheet" type="text/css" />
+<link href="../../qn/css/gb_styles.css" tppabs="http://www.cnmisc.org/qn/css/gb_styles.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div class="ding wi">
+  <div class="sj fl">移动互联网专业委员会欢迎您！&nbsp;&nbsp;&nbsp;现在时间： 
+    <script type="text/javascript">
+function initArray(){
+  for(i=0;i<initArray.arguments.length;i++)
+  this[i]=initArray.arguments[i];
+}
+
+var isnMonths=new initArray("1","2","3","4","5","6","7","8","9","10","11","12");
+var isnDays=new initArray("周日","周一","周二","周三","周四","周五","周六","周日");
+today=new Date();
+hrs=today.getHours();
+min=today.getMinutes();
+sec=today.getSeconds();
+clckh=""+((hrs>12)?hrs-12:hrs);
+clckm=((min<10)?"0":"")+min;clcks=((sec<10)?"0":"")+sec;
+clck=(hrs>=12)?"下午":"上午";
+var stnr="";
+var ns="0123456789";
+var a="";
+
+function getFullYear(d){
+  yr=d.getYear();
+  if(yr<1000)
+  yr+=1900;
+  return yr;
+}
+</script> 
+    <script type="text/javascript">
+//下面各行分别是一种风格，把不需要的删掉即可
+document.write(""+ getFullYear(today)+"年" + ","+ isnMonths[today.getMonth()] +"月"+ today.getDate() +"日,"+ isnDays[today.getDay()] +"");
+
+</script></div>
+  <div class="sc fr"><a class="one" onClick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.mccg.gov.cn/');" href="javascript:if(confirm('http://www.wzly.gov.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.wzly.gov.cn/'" tppabs="http://www.wzly.gov.cn/">设为首页</a>&nbsp;|&nbsp; <a class="one" target="_top" href="javascript:window.external.addFavorite('http://www.mccg.gov.cn/','移动互联网安全研究院')">加入收藏</a></div>
+</div>
+<div class="logo wi"></div>
+<div class="nav wi yh">
+  <ul>
+    <ul>
+<li><a href="../../index.htm" tppabs="http://www.cnmisc.org/">首页</a></li>
+<li><a href="../index.htm" tppabs="http://www.cnmisc.org/yaowen/">行业要闻</a></li><li><a href="../../guandian/index.htm" tppabs="http://www.cnmisc.org/guandian/">业内观点</a></li><li><a href="../../touzi/index.htm" tppabs="http://www.cnmisc.org/touzi/">投资动态</a></li><li><a href="../../jishu/index.htm" tppabs="http://www.cnmisc.org/jishu/">技术成果</a></li><li><a href="../../hezuo/index.htm" tppabs="http://www.cnmisc.org/hezuo/">合作交流</a></li><li><a href="../../baodao/index.htm" tppabs="http://www.cnmisc.org/baodao/">媒体报道</a></li><li><a href="../../dianshang/index.htm" tppabs="http://www.cnmisc.org/dianshang/">电商专栏</a></li><li><a href="../../mobile/index.htm" tppabs="http://www.cnmisc.org/mobile/">移动互联网</a></li><li><a href="../../wenhua/index.htm" tppabs="http://www.cnmisc.org/wenhua/">文化建设</a></li><li><a href="../../peixun/index.htm" tppabs="http://www.cnmisc.org/peixun/">教育培训</a></li>      <li><a href="../../contact/index.htm" tppabs="http://www.cnmisc.org/contact">联系我们</a></li>
+    </ul>
+  </ul>
+</div>
+<div class="g6 bgf wi"></div>
+
+<div class="g6 bgf wi"></div>
+
+<div class="nm w2">
+  <div class="nml fl">
+  <div class="lmti"><strong>栏目导航</strong></div>
+  <div class="lmtx b1">
+    <ul>
+<li><a href="../index.htm" tppabs="http://www.cnmisc.org/yaowen/">行业要闻</a></li><li><a href="../../guandian/index.htm" tppabs="http://www.cnmisc.org/guandian/">业内观点</a></li><li><a href="../../touzi/index.htm" tppabs="http://www.cnmisc.org/touzi/">投资动态</a></li><li><a href="../../jishu/index.htm" tppabs="http://www.cnmisc.org/jishu/">技术成果</a></li><li><a href="../../hezuo/index.htm" tppabs="http://www.cnmisc.org/hezuo/">合作交流</a></li><li><a href="../../baodao/index.htm" tppabs="http://www.cnmisc.org/baodao/">媒体报道</a></li><li><a href="../../dianshang/index.htm" tppabs="http://www.cnmisc.org/dianshang/">电商专栏</a></li><li><a href="../../mobile/index.htm" tppabs="http://www.cnmisc.org/mobile/">移动互联网</a></li><li><a href="../../wenhua/index.htm" tppabs="http://www.cnmisc.org/wenhua/">文化建设</a></li><li><a href="../../peixun/index.htm" tppabs="http://www.cnmisc.org/peixun/">教育培训</a></li>      <li><a href="javascript:if(confirm('http://www.cnmisc.org/contact.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.cnmisc.org/contact.html'" tppabs="http://www.cnmisc.org/contact.html">联系我们</a></li>
+    </ul>
+  </div>
+  <div class="g10"></div>
+  <div class="ti str"><strong>热点推荐</strong></div>
+  <div class="xwx b1 re">
+    <ul>
+<li>·<a href="7.html" tppabs="http://www.cnmisc.org/e/action/ShowInfo/?classid=1&id=7" title="移动支付在中国">移动支付在中国</a></li><li>·<a href="2.html" tppabs="http://www.cnmisc.org/yaowen/2015-09-07/2.html" title="“互联网+”：互联网与传统行业的结合">“互联网+”：互联网与传统行业</a></li><li>·<a href="4.html" tppabs="http://www.cnmisc.org/e/action/ShowInfo/?classid=1&id=4" title="美国如何领跑全球移动支付市场？">美国如何领跑全球移动支付市场</a></li><li>·<a href="6.html" tppabs="http://www.cnmisc.org/e/action/ShowInfo/?classid=1&id=6" title="机遇与挑战：移动互联网推进ICT融合重构">机遇与挑战：移动互联网推进ICT</a></li><li>·<a href="10.html" tppabs="http://www.cnmisc.org/e/action/ShowInfo/?classid=1&id=10" title="互联网动态口令网络身份认证系统的设计与实现">互联网动态口令网络身份认证系</a></li><li>·<a href="3.html" tppabs="http://www.cnmisc.org/yaowen/2015-09-07/3.html" title="2016移动互联网五大创业领域 初创企业如何选择？">2016移动互联网五大创业领域 </a></li><li>·<a href="8.html" tppabs="http://www.cnmisc.org/yaowen/2015-09-07/8.html" title="“无线智能终端安全检测服务能力建设”项目顺利通过验收">“无线智能终端安全检测服务能</a></li><li>·<a href="1.html" tppabs="http://www.cnmisc.org/yaowen/2015-09-07/1.html" title="加大网络安全和信息化发展力度">加大网络安全和信息化发展力度</a></li><li>·<a href="5.html" tppabs="http://www.cnmisc.org/e/action/ShowInfo/?classid=1&id=5" title="从社交网络看国内移动互联网">从社交网络看国内移动互联网</a></li><li>·<a href="9.html" tppabs="http://www.cnmisc.org/yaowen/2015-09-07/9.html" title="移动互联网的信息安全防护">移动互联网的信息安全防护</a></li> 
+    </ul>
+  </div>
+</div>
+
+  <div class="nmr fr">
+    <div class="wz"><span>您现在的位置：<a href="../../index.htm" tppabs="http://www.cnmisc.org/">首页</a>&nbsp;>&nbsp;<a href="../../e/action/ListInfo/-classid=1.htm" tppabs="http://www.cnmisc.org/e/action/ListInfo/?classid=1">行业要闻</a></div>
+    
+    <div class="nei n1">
+      <div class="con">
+        <h1>互联网动态口令网络身份认证系统的设计与实现</h1>
+        <div class="info">发布时间：2016-03-01 16:25:43&nbsp;&nbsp;来源：互联网&nbsp;&nbsp;查看：<script src="../../e/public/ViewClick/-classid=1&id=10&addclick=1" tppabs="http://www.cnmisc.org/e/public/ViewClick/?classid=1&id=10&addclick=1"></script>次</div>
+        <div class="cont">
+<h1 class="content_tit" style="width: 990px; font-size: 18px; color: rgb(51, 51, 51); text-align: center; margin: 0px; padding: 0px; line-height: 36px; font-family: -webkit-standard;">互联网动态口令网络身份认证系统的设计与实现</h1>
+<p><span style="font-family: -webkit-standard;">　　1.引言</span></p>
+<div>
+<p style="font-family: -webkit-standard;">　　互联网建立至今，仅仅几十年的发展光景，但它的发展速度却是任何时代产业技术无法相提并论的。计算机网络的应用已渗透到社会的各领域，随之产生的网络安全问题备受关注。作为网络安全的防火墙技术、入侵检测系统、会话加密、虚拟专用网(VPN)和数字证书等技术都是基于内部网络设计的，然而网络内部的用户却不一定都是合法、安全的，所以网络安全身份认证系统应运而生。网络身份认证是通过一定的技术手段，强制要求用户登录网络时提供有效且惟一的身份信息，身份信息在认证服务器中需进行校验，合法的通过验证，可访问网络资源，不合法的身份信息，将被阻断网络，限制非法用户访问网络资源，并有效地防止数据被修改。</p>
+<p style="font-family: -webkit-standard;">　　2.网络身份认证系统工作过程</p>
+<p style="font-family: -webkit-standard;">　　网络身份认证系统其目的是为了有效鉴别身份，防止非法用户访问应用系统资源，是网络安全体系中的第一道屏障。在身份认证系统(如图1)中有四个关键对象，分别为：待认证主机、认证服务器、应用系统服务器、交换网络。</p>
+<p style="font-family: -webkit-standard;">　　</p>
+<p align="center" style="font-family: -webkit-standard;"><img src="../../../www.cnmicp.com.img.800cdn.com/uploads/allimg/141116/1TA32K5-0.jpg" tppabs="http://www.cnmicp.com/uploads/allimg/141116/1TA32K5-0.jpg" title="20140304-1.jpg" alt="" /></p>
+<p style="font-family: -webkit-standard;">&nbsp;</p>
+<p style="font-family: -webkit-standard;">&nbsp; &nbsp;图1 身份认证系统</p>
+<p style="font-family: -webkit-standard;">　　备注：1是网络中待认证的主机;2是认证服务器;3是应用系统服务器;4是交换网络主机通过网络向认证服务器发出请求，认证服务器查询身份认证信息的真伪，对主机作出应答。当身份认证为真时，开放相应的应用系统;认证失败时，断开网络连接。</p>
+<p style="font-family: -webkit-standard;">　　3.简单的&ldquo;用户名/口令&rdquo;网络身份认证存在的问题</p>
+<p style="font-family: -webkit-standard;">　　在当前网络环境下，用户名/口令进行身份认证被认为是一种最容易实现的认证方案，该认证手段简单，易行，被广泛的应用于B/S架构下应用账号、邮件系统以及操作系统的登录中。其认证过程简单、速度快、成本低，对网络带宽的要求也不高，优势是显而易见的。</p>
+<p style="font-family: -webkit-standard;">　　但这种认证方式的安全性比较差，口令明文，不能提供数据的加密传输，很容易被窃听，更不可能实现用户业务行为的不可否认性等。另外普通用户往往愿意使用特殊、有意义的数字及字母来设置口令密码，这样的口令极易破解，一旦口令被恶意破解，用户的身份将在网络中被冒用，既带来了安全隐患，又可能造成经济损失，甚至破解口令者冒用合法用户的身份去做违法的行为。</p>
+<p style="font-family: -webkit-standard;">　　4.动态口令网络身份认证系统的设计与实现</p>
+<p style="font-family: -webkit-standard;">　　动态口令的网络身份认证系统是为了解决上述简单用户名、静态口令的缺陷而设计的，其工作原理是用动态口令代替静态口令，在客户端登录过程中加入转换密文，从而得到认证所采用的动态口令。再将动态口令及用户名向认证服务器发出请求，认证服务器接收到用户的认证数据后，以预存的算法去解密，判定认证数据的真假，进而实现对用户身份的认证。</p>
+<p style="font-family: -webkit-standard;">　　4.1 动态口令网络身份认证的优势</p>
+<p style="font-family: -webkit-standard;">　　(1)安全性：口令具有一次性，随时间、处理事件等因素的变化口令在不断的变化，具有无法重复使用、口令经过加密算法随机产生，具有无法破解等优点。</p>
+<p style="font-family: -webkit-standard;">&nbsp; &nbsp;(2)方便性：动态口令采用口令卡形式存放，不需要强制记忆口令，所有信息都显示于口令卡之上。</p>
+<p style="font-family: -webkit-standard;">&nbsp; &nbsp;(3)无法否认性：口令是经过登录时间、所需完成业务事件、动态密钥三个元素共同决定的，并通过MD5、HASHAlgorithm生成不可逆的动态口令，有效地解决了电子商务中引发的网络不诚信问题，用户的业务行为具有不可否认性。</p>
+<p style="font-family: -webkit-standard;">　　4.2 动态口令网络身份认证系统的设计实现</p>
+<p style="font-family: -webkit-standard;">　　动态口令的网络身份认证系统根据软、硬件划分可由三个部分组成：口令卡;身份认证服务器;认证代理函数接口。(1)动态口令卡。动态口令卡是产生口令的装置，为了携带方便，往往设计的小巧灵便。口令卡内预装了认证服务器端的私钥和客户端的公钥以及MD5或HASH算法，根据认证服务器返回的应答和加密算法以时间为参数来产生一次性动态口令。(2)身份认证服务器。身份认证服务器是网络身份认证系统的核心，它一般存放在网络机房中，用户的所有信息数据经MD5或HASH算法存储于认证服务器中，提供全面的认证、授权、审计服务等。再通过网络二层的DOT1X协议与应用服务器联动，经过身份认证服务器验证，合法的用户再与应用服务器相连，完成相应的业务事件响应。(3)认证代理函数接口。认证代理是软件来实现的，其实就是一些接口函数。认证服务接口函数(API)提供了客户服务器与认证服务器的软件接口，客户服务器通过对它的调用而得到认证服务器提供的认证服务。</p>
+<p style="font-family: -webkit-standard;">　　5.结束语</p>
+<p style="font-family: -webkit-standard;">　　动态口令网络身份认证系统实现了动态身份的认证，彻底解决了网络环境下用户身份认证安全与方便的矛盾。动态口令身份认证系统的应用前景乐观，将会在银行、网上购物、电子商务、内部网络身份识别、机要审计等场合得到广泛应用。</p>
+</div>
+<div>&nbsp;</div>        </div>
+        <div class="sx">上一条：<a href="9.html" tppabs="http://www.cnmisc.org/yaowen/2015-09-07/9.html">移动互联网的信息安全防护</a> 下一条：<a href="11.html" tppabs="http://www.cnmisc.org/e/action/ShowInfo/?classid=1&id=11">政策力挺4G 信息消费行情望升级</a></div>
+      </div>
+      <div class="tag"></div>
+      <div class="xgx"> <strong>相关推荐：</strong>
+        <ul class="clearfix">
+         </ul>
+      </div>
+    </div>
+  </div>
+  <div class="c"></div>
+</div>
+<div class="g10 wi"></div>
+<table width="1000" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td height="100" align="center" background="../../qn/images/jcdzz_36.jpg" tppabs="http://www.cnmisc.org/qn/images/jcdzz_36.jpg" bgcolor="#FFFFFF" style="font-family:arial; line-height:26px;"> Copyright &copy; 2007-2016  移动互联网专业委员会
+版权所有<br />
+      未经许可网站内容禁止复制、转载，任何人不得擅自使用
+<br /></td>
+  </tr>
+</table>
+</body>
+</html>

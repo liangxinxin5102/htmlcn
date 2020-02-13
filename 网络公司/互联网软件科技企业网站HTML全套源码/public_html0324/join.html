@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>口袋城 一个口袋 一个手机 一座城市 移动互联网解决方案服务商</title>
+<meta name="keywords"
+	content="口袋城，免费app制作,生成app，app开发,app在线制作平台,app代理加盟、app加盟,H5应用,H5页面,HTML5,移动建站，青岛APP开发，青岛微信开发" />
+<meta name="description"
+	content="口袋城致力于为代理商提供微信营销，微电商，APP开发，APP外包，APP推广，在口袋城您的任何需求都可以找到最合适的解决方案，口袋城app制作平台是app代理加盟的优先选择" />
+
+<!--
+<link href="css/scrollBar.css" rel="stylesheet" type="text/css" />
+<link href="css/jScrollPane.css" rel="stylesheet" type="text/css" />
+-->
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<link media="all" type="text/css" rel="stylesheet" href="css/about.css">
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	/*表单AJAX提交封装(包含验证)*/
+	function AjaxInitForm(formId, btnId) {
+		$("#error_2").html("");
+		var formObj = $('#' + formId);
+		var btnObj = $("#" + btnId);
+		var contactname = $("#contactname");
+		var email = $("#email");
+		var phone = $("#phone");
+		var companyname = $("#companyname");
+		if (contactname.val() == "") {
+			contactname.focus();
+			return false;
+		}
+		if (phone.val() == "") {
+			phone.focus();
+			return false;
+		}
+		if (email.val() == "") {
+			email.focus();
+			return false;
+		}
+		if (companyname.val() == "") {
+			companyname.focus();
+			return false;
+		}
+		$(formObj).ajaxSubmit({
+			success : function(data, textStatus) {
+				if (data.status == 1) {
+					alert("注册成功！");
+					document.forms["form1"].reset();
+				} else {
+					$("#error_2").html(data.msg);
+				}
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("状态：" + textStatus + "；出错提示：" + errorThrown);
+			},
+			url : formObj.attr("url"),
+			type : "post",
+			dataType : "json",
+			timeout : 60000
+		});
+		return false;
+	}
+	$(document).ready(function() {
+		$("#btnReg").click(function() {
+			AjaxInitForm("form1", "btnReg");
+		});
+		$("#btnQuery").click(function() {
+			$("#error_div").html("");
+			var id = $("#txtId").val();
+			var user_name = $("#txtName").val();
+			if (id == "" && user_name == "") {
+				$("#error_div").html("伙伴公司名称和伙伴编码至少要选择输入一项！");
+				return;
+			}
+			$.ajax({
+				url : "",
+				data : {
+					id : id,
+					user_name : user_name,
+					action : "validate_isexist_username"
+				},
+				success : function(obj) {
+					alert(obj);
+				}
+			});
+		});
+	});
+</script>
+<style type="text/css">
+.j_lf {
+	width: 95px;
+	height: 255px;
+	top: 150px;
+	position: fixed;
+	_position: absolute;
+	_bottom: auto; /*兼容IE6的代码*/
+	_top: expression(eval(document.documentElement.scrollTop +
+		document.documentElement.clientHeight-this.offsetHeight- ( parseInt(this.currentStyle.marginTop
+		, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0)));
+	/*兼容IE6的代码*/
+	left: 50%;
+	margin-left: -630px;
+}
+
+.j_lf li {
+	width: 100%;
+	line-height: 40px;
+	float: left;
+}
+
+.j_lf li a {
+	background: url("templates/vleader/images/c_t.png"
+		/*tpa=http://www.vleader.cc/templates/vleader/images/c_t.png*/)
+		no-repeat right center;
+	padding-right: 25px;
+	color: #666;
+	font-size: 14px;
+}
+</style>
+</head>
+<body>
+	<!--Header-->
+	<div class="index" id="index">
+		<div>
+			<div class="topBar">
+				<div class="comPos">
+					<div class="topList">
+						<a>&nbsp;&nbsp;欢迎访问口袋城!</a><a>一个口袋</a><a>一部手机</a><a>一座城市</a>
+					</div>
+					<div class="fR">
+						<div class="hotline fL">
+							<img src="images/phoneNum.png" alt="口袋城 移动营销"><span class="fL"></span>
+						</div>
+						<a class="mail fL"><img src="images/ZC.gif" alt="口袋城 app加盟"></a>
+						<div class="lan fL"><a target="_blank" href="http://app.koudaicheng.com">登录</div>
+					</div>
+				</div>
+			</div>
+			<div class="menu">
+				<div class="comPos">
+					<a href="index.html" class="logoTop"><img src="images/logo.png" alt="口袋城  免费app制作"></a>
+					<div class="menuLink fR">
+						<a href="index.html">网站首页</a> <a href="app.html">APP配置</a> <a
+							href="weixinyingxiao.html">微信营销</a> <a href="weidian.html">微店创建</a>
+						<a href="case.html">客户案例</a> <a href="join.html">代理加盟</a> <a href="news.html">新闻资讯</a><a
+							href="about.html">关于我们</a>
+					</div>
+				</div>
+			</div>
+			<!--header-->
+			<!--/Header-->
+			<div style="margin:0 auto; padding-top: 90px;text-align:center;">
+				<div class="joinhead"></div>
+			</div>
+
+			<div class="jn_v2" id="jmzc">
+			<div class="PathBg" style="padding-top:10px;">
+		<div class="PathBox">&nbsp;&nbsp;您现在的位置：<a href="index.html">首页</a>&gt;<a href="weixinyingxiao.html">代理加盟</a>
+		
+		</div>
+	</div>
+				<div class="jn_v2c">
+
+					<div class="sup">
+						<div class="t">加盟支持</div>
+						<div class="m">
+							<b>1）产品销售培训</b>  针对产品体系，提供产品宣传单页及销售话术<br /> <b>2）行业解决方案</b>
+							针对不同行业的客户，口袋城为代理用提供各个方案解决方案参考<br /> <b>3）品牌包装支持</b> 口袋城总部通过网络推广、邮件广告直投、媒体广告宣传等品牌宣传<br />
+							<b>4）甩单支持</b> 根据不同时期，总部会直接给代理商甩单<br /> <b>5）培训支持</b>
+							总部提供售前产品知识培训、产品培训、销售话术培训、平台培训，提供客户常见问题解答<br /> <b>6）技术支持</b> 提供专业的研发团队，优先保障代理商反馈的需求，提供客户所需的机房、云服务器宽带等<br />
+							<b>7）远程服务支持</b> 为客户提供7*24小时不间断的技术与服务支持
+						</div>
+					</div>
+					<div class="lc">
+						<div class="t">加盟流程</div>
+						<div class="m">
+							咨询029-68573888电话（或在线客服）<br /> ——对接渠道专属经理<br /> ——产品了解及洽谈<br />
+							——签署合作协议<br /> ——接受产品培训 业务培训<br /> ——缴纳相应预付款<br />
+							<p>——我们收到合同款项后开通代理平台</p>
+							<p>——回到本地开展业务</p>
+							——总部不定期上门支持
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="jn_v3" id="zxjm">
+				<div class="jn_v3z">
+					<div class="jmt">
+						在线加盟<br /> Joining online
+					</div>
+					<ul class="jmb">
+						<li><a href="#"> <img src="images/on_v1.jpg" alt="app加盟" /><span>产品销售培训</span><font>针对产品体系，提供产品宣传单页及销售话术</font></a></li>
+						<li><a href="#"> <img src="images/on_v2.jpg" alt="app加盟" /><span>售后运营培训</span><font>对于客户通用问题，提供相关问题知识库及专业客户支持</font></a></li>
+						<li><a href="#"> <img src="images/on_v3.jpg" alt="app加盟" /><span>远程服务</span><font>对于市场而已竞争，总部</font></a></li>
+						<li><a href="#"> <img src="images/on_v4.jpg" alt="app加盟" /><span>市场保护</span><font>针对产品卖点，提供上门培训和一对一网络课堂业务培训支持</font></a></li>
+					</ul>
+					<div class="jmf">
+						感谢您选择加盟口袋城！除在线申请外您还可以通过如下方式联系我们或了解相关信息：<br /> <br /> <a href="#">联系当地机构</a><br />
+						<a href="#">在线了解口袋城伙伴体系</a><br /> <a href="#">在线了解口袋城产品体系</a>
+					</div>
+				</div>
+				<form id="form1">
+					<div class="jn_v3y">
+						<div class="in_v3ym">
+							<span class="jn1">您的个人信息</span>
+							<div class="jn2">
+								<span class="sp1">联 系 人：&nbsp;</span> <input class="int"
+									name="contactname" id="contactname" type="text" /> <span
+									class="sp2">请输入您的真实姓名</span>
+							</div>
+							<div class="jn2">
+								<span class="sp1">联系手机：</span> <input class="int"
+									name="mobilephone" id="mobilephone" type="text" />
+							</div>
+							<div class="jn2">
+								<span class="sp1">联系邮箱：</span> <input class="int" name="email"
+									id="email" type="text" /> <span class="sp2">请输入您的邮箱地址</span>
+							</div>
+							<div class="jn2">
+								<span class="sp1">联系电话：</span> <input class="int" name="phone"
+									id="phone" type="text" /> <span class="sp2">请输入您的联系方式</span>
+							</div>
+						</div>
+						<div class="in_v3ym">
+							<span class="jn1">您的公司信息</span>
+							<div class="jn2">
+								<span class="sp1">公司名称：</span> <input class="int"
+									name="companyname" id="companyname" type="text" /> <span
+									class="sp2">请输入您所在企业名称</span>
+							</div>
+							<div class="jn2">
+								<span class="sp1">公司规模：</span> <input class="int"
+									name="companysize" id="companysize" type="text" />
+							</div>
+							<div class="jn2">
+								<span class="sp1">所在地区：</span> <input class="int"
+									name="companyarea" id="companyarea" type="text" />
+							</div>
+							<div class="jn2">
+								<span class="sp1">成立时间：</span> <input class="int"
+									name="createtime" id="createtime" type="text" />
+							</div>
+							<div class="jn2">
+								<span class="sp1">注册资金：</span> <input class="int"
+									name="regmoney" id="regmoney" type="text" />
+							</div>
+						</div>
+						<div class="in_v3ym">
+							<span class="jn1">您的加盟信息</span>
+							<div class="jn2">
+								<span class="sp3" style="font-size: 14px;">您是否已初步了解口袋城渠道合作伙伴体系？</span>&nbsp;&nbsp;
+								<input name="isknow" type="radio" value="1" />
+								是&nbsp;&nbsp;&nbsp;&nbsp; <input name="isknow" type="radio"
+									value="0" /> 否
+							</div>
+							<div class="jn2">
+								<span class="sp3" style="font-size: 14px;">您初步决定加盟的渠道合作伙伴类型是</span>
+								<input class="int" name="type_content" id="type_content"
+									type="text" />
+							</div>
+							<div class="jn2">
+								<span class="sp3" style="font-size: 14px;">您希望进一步了解的信息是</span> <input
+									class="int" name="type_msg" id="type_msg" type="text" />
+							</div>
+							<div class="jn2" id="error_2" style="color: Red;"></div>
+							<div class="Store_Button">
+								<div class="Store_QQButton">
+									<a id="marketing_qq_sa3" href="javascript:void(0)">提交</a>
+								</div>
+								<div class="Store_SignButton">
+									<a id="button_regist_sa3" href="javascript:regist.show();">重置</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="cl"></div>
+			</div>
+			<div class="jn_v4" id="dlscx">
+				<img class="fl" src="images/dls.jpg" alt="代理商查询" />
+				<div class="t">
+					<span class="z">代理商查询</span><span class="y">The agent query</span>
+				</div>
+				<div class="m">
+					<div class="m1">
+						<span>伙伴公司全称：</span> <input name="txtName" id="txtName"
+							onBlur="$('#error_div').html('');" type="text" />
+					</div>
+					<div class="m1">
+						<span>伙伴编码：</span> <input name="txtId" type="text"
+							onBlur="$('#error_div').html('');" id="txtId" />
+					</div>
+					<input class="cx" name="btnQuery" id="btnQuery" type="button"
+						value="查询" /> <span class="m1"
+						style="text-align: center; display: block; font-size: 12px; color: Red; margin: 3px;"
+						id="error_div"></span>
+				</div>
+			</div>
+			</div>
+			</div>
+			<div class="foot">
+				<div class="A">
+					<div class="class">
+						<div class="title">企业简介</div>
+						<div class="box" style="text-indent: 2em;">西安高软软件科技有限公司所创作的一系列连锁营销平台口袋城，致力于微信营销，微电商，APP开发，APP外包，APP推广，在口袋城您的任何需求都可以找到最合适的解决方案。</div>
+					</div>
+					<div class="class">
+						<div class="title">快捷导航</div>
+						<div class="box">
+							<a href="http://www.vtongmeng.com/" class="cat">微同盟微信登陆</a><a
+								href="http://weidian.vtongmeng.com" class="cat">微店管理登陆</a><a
+								href="http://app.koudaicheng.com" class="cat">APP管理</a><a
+									href="http://www.vtongmeng.com/liveapp" class="cat">HTML5场景应用</a><a
+								href="http://www.vtongmeng.com/houtai" class="cat">合作伙伴登陆</a>
+						</div>
+					</div>
+					<div class="class" style="width: 340px; padding-right: 0">
+						<div class="title">版权信息</div>
+						<div class="box">
+							<!--版权信息-->
+							<p>Copyright &copy; 2014 口袋城 | 西安高软软件科技有限公司&nbsp;</p>
+							<p>地址：陕西省西安市高新区科技二路67号清华科技园5栋422</p>
+							<p>电话：029-68573888</p>
+							<p>QQ：343684713</p>
+							<p>Email:firewall709@126.com</p>
+							<!--版权信息-->
+							<p class="tel">
+								<!--底部400-->
+								029-68573888
+								<!--底部400-->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="floatTools" class="rides-cs" style="height: 246px;">
+				<div class="floatL">
+					<a id="aFloatTools_Show" class="btnOpen" title="查看在线客服"
+						style="top: 20px; display: block" href="javascript:void(0);">展开</a>
+					<a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服"
+						style="top: 20px; display: none" href="javascript:void(0);">收缩</a>
+				</div>
+				<div id="divFloatToolsView" class="floatR"
+					style="display: none; height: 237px; width: 140px;">
+					<div class="cn">
+						<h3 class="titZx">口袋城在线客服</h3>
+						<ul>
+							<li><span>客服1</span> <a target="_blank"
+								href="http://wpa.qq.com/msgrd?v=3&uin=343684713&site=qq&menu=yes"><img
+									border="0" src="images/online.png" alt="APP加盟"
+									title="联系APP加盟" /></a></li>
+							<li><span>客服2</span> <a target="_blank"
+								href="http://wpa.qq.com/msgrd?v=3&uin=894174059&site=qq&menu=yes"><img
+									border="0" src="images/online.png" alt="APP加盟"
+									title="联系APP加盟" /></a></li>
+							<li><span>客服3</span> <a target="_blank"
+								href="http://wpa.qq.com/msgrd?v=3&uin=545660896&site=qq&menu=yes"><img
+									border="0" src="images/online.png" alt="APP加盟"
+									title="联系APP加盟" /></a></li>
+							<li style="border: none;"><span>电话：029-68573888</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+</body>
+<script>
+	$(function() {
+		$("#aFloatTools_Show").click(function() {
+			$('#divFloatToolsView').animate({
+				width : 'show',
+				opacity : 'show'
+			}, 100, function() {
+				$('#divFloatToolsView').show();
+			});
+			$('#aFloatTools_Show').hide();
+			$('#aFloatTools_Hide').show();
+		});
+		$("#aFloatTools_Hide").click(function() {
+			$('#divFloatToolsView').animate({
+				width : 'hide',
+				opacity : 'hide'
+			}, 100, function() {
+				$('#divFloatToolsView').hide();
+			});
+			$('#aFloatTools_Show').show();
+			$('#aFloatTools_Hide').hide();
+		});
+	});
+</script>
+</html>

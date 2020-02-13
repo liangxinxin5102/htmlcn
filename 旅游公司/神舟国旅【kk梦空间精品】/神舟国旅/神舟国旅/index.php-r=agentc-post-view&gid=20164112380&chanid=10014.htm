@@ -1,0 +1,1566 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>神舟国旅官方旅游服务网站-品质：四川SX7【麻辣熊猫】双飞4晚5日冬季游  成都 九寨沟 牟尼沟 熊猫乐园 叠溪海子</title>
+    <link type="text/css" rel="stylesheet" href="themes/agentc/css/index.css" tppabs="http://www.btgtravel.com/themes/agentc/css/index.css"/>
+    <script type="text/javascript" src="themes/agentc/js/index_v20.js" tppabs="http://www.btgtravel.com/themes/agentc/js/index_v20.js"></script>
+    <script type="text/javascript" src="themes/agentc/js/jquery.superslide.2.1.1.js" tppabs="http://www.btgtravel.com/themes/agentc/js/jquery.superslide.2.1.1.js"></script>
+
+    <script src="themes/agentc/iealert/iealert.js" tppabs="http://www.btgtravel.com/themes/agentc/iealert/iealert.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="themes/agentc/iealert/iealert/style.css" tppabs="http://www.btgtravel.com/themes/agentc/iealert/iealert/style.css" />
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("body").iealert();
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).on('click', '.favorite,#shoucang', function () {
+            var title, desc;
+            title = desc = document.title;
+            var url = location.href;
+            if (document.all) {
+                if (navigator.appName == "Microsoft Internet Explorer") {
+                    try {
+                        window.external.addFavorite(url, title);
+                    } catch (e1) {
+                        try {
+                            window.external.addToFavoritesBar(url, title);
+                        } catch (e2) {
+                            alert('加入收藏失败，请您手工加入。');
+                        }
+                    }
+                }
+            } else if (window.external) {
+                try {
+                    window.sidebar.addPanel(title, url, desc);
+                } catch (e3) {
+                    alert("此浏览器不支持这项功能，请按Ctrl+D直接收藏我们！");
+                }
+            } else {
+                alert('加入收藏失败，请您手工加入。')
+            }
+        });
+
+        $(document).ready(function () {
+            $('#btn_search').click(function () {
+                var _keywords = $('#keywords').val();
+                if ($.trim(_keywords).length < 1) {
+                    alert('请输入目的地、线路或线路编号');
+                    return false;
+                } else {
+                    window.location.href = "index.php-r=agentc-post-search&keywords=.htm"/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/ + _keywords;
+                }
+            });
+
+            $('#search_form').keydown(function (e) {
+                var curKey = e.which;
+                if (curKey == 13) {
+                    $('#btn_search').trigger('click');
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        /**
+         * 事件处理通用函数
+         */
+        var EventUtil = {
+            getEvent: function (event) {
+                return event ? event : window.event;
+            },
+            getTarget: function (event) {
+                return event.target || event.srcElement;
+            },
+            addHandler: function (element, type, handler) {
+                if (element.addEventListener) {
+                    element.addEventListener(type, handler, false);
+                } else if (element.attachEvent) {
+                    element.attachEvent("on" + type, handler);
+                } else {
+                    element["on" + type] = handler;
+                }
+
+            }
+        };
+
+        /**
+         * 选项卡通用函数
+         */
+// 传入参数inClassName设定为绑定的选项卡类名，参数triggerType设定为触发切换的类型
+        function tabSwitch(inClassName, triggerType) {
+            //取得全部选项卡区域
+            if (document.querySelectorAll) {
+                var tabs = document.querySelectorAll("." + inClassName);
+            } else {
+                var divs = document.getElementsByTagName("div");
+                var tabs = new Array();
+                for (var k = 0, lenDiv = divs.length; k < lenDiv; k++) {
+                    if (divs[k].className.indexOf(inClassName) > -1) {
+                        tabs.push(divs[k]);
+                    }
+                }
+            }
+            //为每个选项卡建立切换功能
+            for (var j = 0, len = tabs.length; j < len; j++) {
+                //获取标题和内容列表
+                var tab = tabs[j];
+                //使用私有作用域为每个选项卡建立切换
+                (function () {
+                    var nameUl = tab.getElementsByTagName("ul")[0];
+                    var content = tab.getElementsByTagName("ul")[1];
+                    //初始化选项卡
+                    nameUl.getElementsByTagName("li")[0].className = "selected";
+                    content.getElementsByTagName("li")[0].style.display = "block";
+                    //添加事件委托
+                    EventUtil.addHandler(nameUl, triggerType, function (event) {
+                        //获取事件对象
+                        event = EventUtil.getEvent(event);
+                        var target = EventUtil.getTarget(event);
+                        //选项卡切换
+                        if (target.nodeName.toLowerCase() == "li") {
+                            //分别取得标题列表项和内容列表项
+                            var nameList = nameUl.getElementsByTagName("li");
+                            var contentList = content.getElementsByTagName("li");
+                            //标题添加selected类，并显示内容
+                            for (var i = 0, len = nameList.length; i < len; i++) {
+                                nameList[i].className = "";
+                                contentList[i].style.display = "none";
+                                if (nameList[i] == target) {
+                                    nameList[i].className = "selected";
+                                    contentList[i].style.display = "block";
+                                }
+                            }
+                        }
+                    });
+                })();
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="site-top">
+    <div class="area">
+        <div class="site-top-l">北京神舟国旅欢迎您！</div>
+        <img src="../www.btgerp.com/site/autoLogout/index.htm" tppabs="http://www.btgerp.com/site/autoLogout/" class='btg-c' style='display: none;' /><div class="site-top-r"><span>欢迎，客人</span>|<a href="index.php-r=agentc-site-clogin.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/site/clogin">会员登录</a>|<a href="index.php-r=agentc-site-register.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/site/register">免费注册</a>|<a href="index.php-r=agentc-site-login.htm" tppabs="http://www.btgtravel.com/index.php?r=admin/default/index">后台管理</a>|<a href="javascript:;" class="favorite">加入收藏</a></div>    </div>
+</div>
+
+<div class="site-head">
+    <div class="logo" style="top: 16px;"><a href="index.htm" tppabs="http://www.btgtravel.com/"><img src="themes/agentc/images/shenzhouguolv.png" tppabs="http://www.btgtravel.com/themes/agentc/images/shenzhouguolv.png" width="249" height="60"></a></div>
+<!--    <div class="slogen">--><!--</div>-->
+    <div class="searchbox">
+        <form id="search_form" action="http://www.btgtravel.com/index.php?r=agentc/post/search">
+            <div class="searchbox-l"><input type="search" placeholder="目的地、线路或线路编号" id="keywords"></div>
+            <div class="searchbox-r"><input type="button" value="搜 索" id="btn_search"></div>
+        </form>
+    </div>
+    <div class="tel">
+        <span>4000100808</span>
+    </div>
+</div>
+
+<div id="nav">
+<div class="area clearfix">
+<div class="topnav">
+    <ul>
+        <li><a href="index.htm" tppabs="http://www.btgtravel.com/">首页</a></li>
+        <li><a href="index.php-r=agentc-post-index&cid=452.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=452">国内游</a></li><li><a href="index.php-r=agentc-post-index&cid=453.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=453">出境游</a></li><li><a href="index.php-r=agentc-post-index&cid=456.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=456">海岛游</a></li><li><a href="index.php-r=agentc-post-index&cid=457.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=457">邮轮游</a></li><li><a href="index.php-r=agentc-post-index&cid=458.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=458">周边游</a></li>        <li><a href="javascript:if(confirm('http://www.biaoqianlvxing.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.biaoqianlvxing.com/'" tppabs="http://www.biaoqianlvxing.com/" target="_blank">定制旅行</a></li>
+    </ul>
+</div>
+<div class="category-content" id="guide_2">
+<div><span class="all-goods">全部旅游产品分类<img src="themes/agentc/images/menu.png" tppabs="http://www.btgtravel.com/themes/agentc/images/menu.png" /></span></div>
+<div class="category">
+    <ul class="category-list" id="js_climit_li">
+
+    <li class="appliance js_toggle relative first">
+        <div class="category-info list-gn">
+            <h3 class="category-name b-category-name"><i></i><a  class="ml-22"  href="javascript:;"
+                                                                 title="国内游">国内游</a></h3>
+
+            <p class="c-category-list limit-24">
+                <a href="#" data-sid="243">台湾</a>
+                <a href="#" data-sid="241">香港</a>
+                <a href="#" data-sid="234">云南</a>
+                <a href="#" data-sid="273">桂林</a>
+                <a href="#" data-sid="228">福建</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>国内游热点</span></dt>
+                                    <dd><a href="#" data-sid="243">台湾</a></dd>
+                                    <dd><a href="#" data-sid="241">香港</a></dd>
+                                    <dd><a href="#" data-sid="242">澳门</a></dd>
+                                    <dd><a href="#" data-sid="267">武夷山</a></dd>
+                                    <dd><a href="#" data-sid="283">三亚</a></dd>
+                                    <dd><a href="#">三峡</a></dd>
+                                    <dd><a href="#" data-sid="281">拉萨</a></dd>
+                                    <dd><a href="#" data-sid="277">丽江</a></dd>
+                                    <dd><a href="#" data-sid="250">青岛</a></dd>
+                                    <dd><a href="#" data-sid="249">大连</a></dd>
+                                    <dd><a href="#" data-sid="255">苏州</a></dd>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>国内地区分类</span></dt>
+                                    <dd><a href="#" data-sid="2518">乌镇</a></dd>
+                                    <dd><a href="#" data-sid="254">无锡</a></dd>
+                                    <dd><a href="#" data-sid="383">长白山</a></dd>
+                                    <dd><a href="#" data-sid="307">九寨沟</a></dd>
+                                    <dd><a href="#" data-sid="211">上海</a></dd>
+                                    <dd><a href="#" data-sid="225">浙江</a></dd>
+                                    <dd><a href="#" data-sid="224">江苏</a></dd>
+                                    <dd><a href="#" data-sid="226">安徽</a></dd>
+                                    <dd><a href="#" data-sid="226">山东</a></dd>
+                                    <dd><a href="#" data-sid="249">大连</a></dd>
+                                    <dd><a href="#" data-sid="215">吉林</a></dd>
+                                    <dd><a href="#" data-sid="214">黑龙江</a></dd>
+                                    <dd><a href="#" data-sid="216">辽宁</a></dd>
+                                    <dd><a href="#" data-sid="232">广东</a></dd>
+                                    <dd><a href="#" data-sid="240">海南</a></dd>
+                                    <dd><a href="#" data-sid="228">福建</a></dd>
+                                    <dd><a href="#" data-sid="227">江西</a></dd>
+                                    <dd><a href="#" data-sid="233">广西</a></dd>
+                                    <dd><a href="#" data-sid="230">湖南</a></dd>
+                                    <dd><a href="#" data-sid="229">湖北</a></dd>
+                                    <dd><a href="#" data-sid="236">河南</a></dd>
+                                    <dd><a href="#" data-sid="250">青岛</a></dd>
+                                    <dd><a href="#" data-sid="231">四川</a></dd>
+                                    <dd><a href="#" data-sid="234">云南</a></dd>
+                                    <dd><a href="#" data-sid="239">西藏</a></dd>
+                                    <dd><a href="#" data-sid="235">贵州</a></dd>
+                                    <dd><a href="#" data-sid="231">重庆</a></dd>
+                                    <dd><a href="#" data-sid="221">陕西</a></dd>
+                                    <dd><a href="#" data-sid="238">新疆</a></dd>
+                                    <dd><a href="#" data-sid="222">甘肃</a></dd>
+                                    <dd><a href="#" data-sid="236">青海</a></dd>
+                                    <dd><a href="#" data-sid="223">宁夏</a></dd>
+                                    <dd><a href="#" data-sid="210">北京</a></dd>
+                                    <dd><a href="#" data-sid="212">天津</a></dd>
+                                    <dd><a href="#" data-sid="217">河北</a></dd>
+                                    <dd><a href="#" data-sid="220">山西</a></dd>
+                                    <dd><a href="#" data-sid="237">内蒙古</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $('.menu-srot a').each(function(){
+                                var obj=$(this);
+                                var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                var data_sid=$(this).attr('data-sid');
+                                var url=baseUrl;
+                                if(data_sid){
+                                    url=baseUrl+data_sid
+                                }else{
+                                    url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                    url+=obj.text();
+                                }
+                                obj.attr('href', url);
+                                obj.attr('title', obj.text());
+                                obj.attr('target', '_blank');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative">
+        <div class="category-info list-hd">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-293" class="ml-22"  href="javascript:;"
+                                                                title="">海岛</a></h3>
+
+            <p class="c-category-list limit-24">
+                <a data-sid="7500" href="#" target="_blank" title="">巴厘岛</a>
+                <a data-sid="6873" href="#" target="_blank" title="">普吉岛</a>
+                <a data-sid="5842" href="#" target="_blank" title="">毛里求斯</a>
+                <a data-sid="5671" href="#" target="_blank" title="">马尔代夫</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>海岛旅游</span></dt>
+                                    <dd><a href="#" data-sid="5671">马尔代夫</a></dd>
+                                    <dd><a href="#" data-sid="283">三亚</a></dd>
+                                    <dd><a href="#" data-sid="5030">济州岛</a></dd>
+                                    <dd><a href="#" data-sid="6570">冲绳</a></dd>
+                                    <dd><a href="#" data-sid="5842">毛里求斯</a></dd>
+                                    <dd><a href="#" data-sid="6678">塞舌尔</a></dd>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>热门海岛旅游汇总</span></dt>
+                                    <dd><a href="#" data-sid="6873">普吉岛</a></dd>
+                                    <dd><a href="#" data-sid="7684">苏梅岛</a></dd>
+                                    <dd><a href="#" data-sid="6871">甲米</a></dd>
+                                    <dd><a href="#">芭提雅</a></dd>
+                                    <dd><a href="#" data-sid="7683">沙美岛</a></dd>
+                                    <dd><a href="#" data-sid="7685">长滩岛</a></dd>
+                                    <dd><a href="#" data-sid="7688">兰卡威</a></dd>
+                                    <dd><a href="#" data-sid="5782">沙巴</a></dd>
+                                    <dd><a href="#">珍拉丁湾</a></dd>
+                                    <dd><a href="#" data-sid="7500">巴厘岛</a></dd>
+                                    <dd><a href="#">民丹岛</a></dd>
+                                    <dd><a href="#" data-sid="6129">夏威夷</a></dd>
+                                    <dd><a href="#" data-sid="4968">关岛</a></dd>
+                                    <dd><a href="#" data-sid="7668">塞班岛</a></dd>
+                                    <dd><a href="#" data-sid="7710">大溪地</a></dd>
+                                    <dd><a href="#" data-sid="4858">斐济</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $('.menu-srot a').each(function(){
+                                var obj=$(this);
+                                var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                var data_sid=$(this).attr('data-sid');
+                                var url=baseUrl;
+                                if(data_sid){
+                                    url=baseUrl+data_sid
+                                }else{
+                                    url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                    url+=obj.text();
+                                }
+                                obj.attr('href', url);
+                                obj.attr('title', obj.text());
+                                obj.attr('target', '_blank');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative">
+        <div class="category-info list-yz">
+            <h3 class="category-name b-category-name"><i></i>
+                <a id="s-category-344"  href="javascript:;"  class="ml-22">亚洲</a></h3>
+
+            <p class="c-category-list limit-24">
+                <a data-sid="5019" href="#">韩国</a>
+                <a data-sid="6524" href="#">日本</a>
+                <a data-sid="6422" href="#">尼泊尔</a>
+                <a data-sid="6809" href="#">泰国</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>亚洲产品</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=4616.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4616" target='_blank' title="朝鲜" data-sid="4616"><span>朝鲜</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5698.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5698" target='_blank' title="马来西亚" data-sid="5698"><span>马来西亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6524.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6524" target='_blank' title="日本" data-sid="6524"><span>日本</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6809.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6809" target='_blank' title="泰国" data-sid="6809"><span>泰国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7276.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7276" target='_blank' title="新加坡" data-sid="7276"><span>新加坡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7392.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7392" target='_blank' title="以色列" data-sid="7392"><span>以色列</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7597.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7597" target='_blank' title="约旦" data-sid="7597"><span>约旦</span></a></dd>                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>亚洲国家列表</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=1.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=1" target='_blank' title="中国" data-sid="1"><span>中国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4037.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4037" target='_blank' title="台港澳地区" data-sid="4037"><span>台港澳地区</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4140.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4140" target='_blank' title="阿拉伯联合酋长国" data-sid="4140"><span>阿拉伯联合酋长国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4146.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4146" target='_blank' title="阿曼" data-sid="4146"><span>阿曼</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4155.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4155" target='_blank' title="阿塞拜疆" data-sid="4155"><span>阿塞拜疆</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4336.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4336" target='_blank' title="巴基斯坦" data-sid="4336"><span>巴基斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4365.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4365" target='_blank' title="巴勒斯坦" data-sid="4365"><span>巴勒斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4550.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4550" target='_blank' title="不丹" data-sid="4550"><span>不丹</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4616.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4616" target='_blank' title="朝鲜" data-sid="4616"><span>朝鲜</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4687.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4687" target='_blank' title="东帝汶" data-sid="4687"><span>东帝汶</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4853.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4853" target='_blank' title="菲律宾" data-sid="4853"><span>菲律宾</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4980.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4980" target='_blank' title="哈萨克斯坦" data-sid="4980"><span>哈萨克斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5019.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5019" target='_blank' title="韩国" data-sid="5019"><span>韩国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5339.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5339" target='_blank' title="柬埔寨" data-sid="5339"><span>柬埔寨</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5433.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5433" target='_blank' title="科威特" data-sid="5433"><span>科威特</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5543.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5543" target='_blank' title="老挝" data-sid="5543"><span>老挝</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5561.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5561" target='_blank' title="黎巴嫩" data-sid="5561"><span>黎巴嫩</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5671.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5671" target='_blank' title="马尔代夫" data-sid="5671"><span>马尔代夫</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5698.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5698" target='_blank' title="马来西亚" data-sid="5698"><span>马来西亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6207.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6207" target='_blank' title="蒙古" data-sid="6207"><span>蒙古</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6230.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6230" target='_blank' title="孟加拉" data-sid="6230"><span>孟加拉</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6265.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6265" target='_blank' title="缅甸" data-sid="6265"><span>缅甸</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6422.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6422" target='_blank' title="尼泊尔" data-sid="6422"><span>尼泊尔</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6524.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6524" target='_blank' title="日本" data-sid="6524"><span>日本</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6672.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6672" target='_blank' title="塞浦路斯" data-sid="6672"><span>塞浦路斯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6679.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6679" target='_blank' title="沙特阿拉伯" data-sid="6679"><span>沙特阿拉伯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6710.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6710" target='_blank' title="斯里兰卡" data-sid="6710"><span>斯里兰卡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6793.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6793" target='_blank' title="塔吉克斯坦" data-sid="6793"><span>塔吉克斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6809.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6809" target='_blank' title="泰国" data-sid="6809"><span>泰国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6947.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6947" target='_blank' title="土耳其" data-sid="6947"><span>土耳其</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7026.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7026" target='_blank' title="土库曼斯坦" data-sid="7026"><span>土库曼斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7095.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7095" target='_blank' title="文莱" data-sid="7095"><span>文莱</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7199.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7199" target='_blank' title="乌兹别克斯坦" data-sid="7199"><span>乌兹别克斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7276.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7276" target='_blank' title="新加坡" data-sid="7276"><span>新加坡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7324.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7324" target='_blank' title="叙利亚" data-sid="7324"><span>叙利亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7368.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7368" target='_blank' title="也门" data-sid="7368"><span>也门</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7391.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7391" target='_blank' title="伊朗" data-sid="7391"><span>伊朗</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7392.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7392" target='_blank' title="以色列" data-sid="7392"><span>以色列</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7468.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7468" target='_blank' title="印度" data-sid="7468"><span>印度</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7499.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7499" target='_blank' title="印度尼西亚" data-sid="7499"><span>印度尼西亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7597.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7597" target='_blank' title="约旦" data-sid="7597"><span>约旦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7611.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7611" target='_blank' title="越南" data-sid="7611"><span>越南</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7713.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7713" target='_blank' title="巴林" data-sid="7713"><span>巴林</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7714.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7714" target='_blank' title="卡塔尔" data-sid="7714"><span>卡塔尔</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7715.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7715" target='_blank' title="格鲁吉亚" data-sid="7715"><span>格鲁吉亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7716.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7716" target='_blank' title="亚美尼亚" data-sid="7716"><span>亚美尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7717.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7717" target='_blank' title="吉尔吉斯斯坦" data-sid="7717"><span>吉尔吉斯斯坦</span></a></dd>                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative h73">
+        <div class="category-info list-oz">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-343"   href="javascript:;" class="ml-22"
+                                                                title="欧洲">欧洲</a></h3>
+
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="7528" href="#">英国</a>
+                <a data-sid="4824" href="#">法国</a>
+                <a data-sid="6593" href="#">瑞士</a>
+                <a data-sid="7401" href="#">意大利</a>
+                <a data-sid="4709" href="#">俄罗斯</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>欧洲旅游</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=7401.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7401" target='_blank' title="意大利" data-sid="7401"><span>意大利</span></a></dd>                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>欧洲国家列表</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=4189.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4189" target='_blank' title="爱尔兰" data-sid="4189"><span>爱尔兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4216.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4216" target='_blank' title="爱沙尼亚" data-sid="4216"><span>爱沙尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4232.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4232" target='_blank' title="安道尔" data-sid="4232"><span>安道尔</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4261.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4261" target='_blank' title="奥地利" data-sid="4261"><span>奥地利</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4406.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4406" target='_blank' title="白俄罗斯" data-sid="4406"><span>白俄罗斯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4414.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4414" target='_blank' title="保加利亚" data-sid="4414"><span>保加利亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4439.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4439" target='_blank' title="比利时" data-sid="4439"><span>比利时</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4451.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4451" target='_blank' title="冰岛" data-sid="4451"><span>冰岛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4453.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4453" target='_blank' title="波兰" data-sid="4453"><span>波兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4517.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4517" target='_blank' title="波斯尼亚和黑塞哥维那" data-sid="4517"><span>波斯尼亚和黑塞哥维那</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4629.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4629" target='_blank' title="丹麦" data-sid="4629"><span>丹麦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4644.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4644" target='_blank' title="德国" data-sid="4644"><span>德国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4709.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4709" target='_blank' title="俄罗斯" data-sid="4709"><span>俄罗斯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4824.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4824" target='_blank' title="法国" data-sid="4824"><span>法国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4852.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4852" target='_blank' title="梵蒂冈" data-sid="4852"><span>梵蒂冈</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4859.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4859" target='_blank' title="芬兰" data-sid="4859"><span>芬兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5195.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5195" target='_blank' title="荷兰" data-sid="5195"><span>荷兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5364.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5364" target='_blank' title="捷克共和国" data-sid="5364"><span>捷克共和国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5434.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5434" target='_blank' title="克罗地亚" data-sid="5434"><span>克罗地亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5505.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5505" target='_blank' title="拉脱维亚" data-sid="5505"><span>拉脱维亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5568.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5568" target='_blank' title="立陶宛" data-sid="5568"><span>立陶宛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5599.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5599" target='_blank' title="列支敦士登" data-sid="5599"><span>列支敦士登</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5601.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5601" target='_blank' title="卢森堡" data-sid="5601"><span>卢森堡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5622.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5622" target='_blank' title="罗马尼亚" data-sid="5622"><span>罗马尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5693.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5693" target='_blank' title="马耳他" data-sid="5693"><span>马耳他</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5837.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5837" target='_blank' title="马其顿" data-sid="5837"><span>马其顿</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6291.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6291" target='_blank' title="摩纳哥" data-sid="6291"><span>摩纳哥</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6471.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6471" target='_blank' title="挪威" data-sid="6471"><span>挪威</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6493.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6493" target='_blank' title="葡萄牙" data-sid="6493"><span>葡萄牙</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6571.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6571" target='_blank' title="瑞典" data-sid="6571"><span>瑞典</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6593.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6593" target='_blank' title="瑞士" data-sid="6593"><span>瑞士</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6646.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6646" target='_blank' title="塞尔维亚,黑山" data-sid="6646"><span>塞尔维亚,黑山</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6707.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6707" target='_blank' title="圣马力诺" data-sid="6707"><span>圣马力诺</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6736.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6736" target='_blank' title="斯洛伐克" data-sid="6736"><span>斯洛伐克</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6745.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6745" target='_blank' title="斯洛文尼亚" data-sid="6745"><span>斯洛文尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7153.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7153" target='_blank' title="乌克兰" data-sid="7153"><span>乌克兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7214.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7214" target='_blank' title="西班牙" data-sid="7214"><span>西班牙</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7265.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7265" target='_blank' title="希腊" data-sid="7265"><span>希腊</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7303.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7303" target='_blank' title="匈牙利" data-sid="7303"><span>匈牙利</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7401.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7401" target='_blank' title="意大利" data-sid="7401"><span>意大利</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7528.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7528" target='_blank' title="英国" data-sid="7528"><span>英国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7705.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7705" target='_blank' title="巴尔干" data-sid="7705"><span>巴尔干</span></a></dd>                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative h73">
+        <div class="category-info list-az">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-343" href="javascript:;"  class="ml-22"
+                                                                title="">澳洲</a></h3>
+
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="4272" href="#">澳大利亚</a>
+                <a data-sid="7278" href="#">新西兰</a>
+                <a data-sid="4858" href="#">斐济</a>
+                <a data-sid="7710" href="#">大溪地</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>澳洲旅游</span></dt>
+                                                                    </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>澳洲国家列表</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=4272.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4272" target='_blank' title="澳大利亚" data-sid="4272"><span>澳大利亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4858.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4858" target='_blank' title="斐济" data-sid="4858"><span>斐济</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4968.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4968" target='_blank' title="关岛" data-sid="4968"><span>关岛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5504.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5504" target='_blank' title="库克群岛" data-sid="5504"><span>库克群岛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6491.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6491" target='_blank' title="帕劳" data-sid="6491"><span>帕劳</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7278.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7278" target='_blank' title="新西兰" data-sid="7278"><span>新西兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7711.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7711" target='_blank' title="汤加" data-sid="7711"><span>汤加</span></a></dd>                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative last h73">
+        <div class="category-info list-mz">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-342" href="javascript:;"  class="ml-22"
+                                                                title="">美洲</a></h3>
+
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="5857" href="#">美国</a>
+                <a data-sid="5282" href="#">加拿大</a>
+                <a data-sid="6129" href="#">夏威夷</a>
+                <a data-sid="4968" href="#">关岛</a>
+                <a data-sid="4378" href="#">巴西</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>美洲旅游</span></dt>
+                                    <dd><a data-sid="6129" href="#"><span>夏威夷</span></a></dd>
+                                    <dd><a data-sid="4968" href="#"><span>关岛</span></a></dd>
+                                    <dd><a data-sid="5857" href="#"><span>美国</span></a></dd>
+                                    <dd><a data-sid="5282" href="#"><span>加拿大</span></a></dd>
+                                    <dd><a data-sid="4378" href="#"><span>巴西</span></a></dd>
+                                </dl>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>美洲国家列表</span></dt>
+                                   <!-- -->                                    <dd><a target="_blank" title="巴拿马"
+                                           href="index.php-r=agentc-post-search&sid=4377.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4377"
+                                           data-sid="4377"><span>巴拿马</span></a></dd>
+                                    <dd><a target="_blank" title="北马里亚纳群岛"
+                                           href="index.php-r=agentc-post-search&sid=4424.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4424" data-sid="4424"><span>北马里亚纳群岛</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="多米尼加共和国"
+                                           href="index.php-r=agentc-post-search&sid=4708.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4708" data-sid="4708"><span>多米尼加共和国</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="古巴"
+                                           href="index.php-r=agentc-post-search&sid=4950.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4950"
+                                           data-sid="4950"><span>古巴</span></a></dd>
+                                    <dd><a target="_blank" title="加拿大"
+                                           href="index.php-r=agentc-post-search&sid=5282.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5282"
+                                           data-sid="5282"><span>加拿大</span></a></dd>
+                                    <dd><a target="_blank" title="美国"
+                                           href="index.php-r=agentc-post-search&sid=5857.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5857"
+                                           data-sid="5857"><span>美国</span></a></dd>
+                                    <dd><a target="_blank" title="墨西哥"
+                                           href="index.php-r=agentc-post-search&sid=6293.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6293"
+                                           data-sid="6293"><span>墨西哥</span></a></dd>
+                                    <dd><a target="_blank" title="牙买加"
+                                           href="index.php-r=agentc-post-search&sid=7341.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7341"
+                                           data-sid="7341"><span>牙买加</span></a></dd>
+                                    <dd><a target="_blank" title="格陵兰岛"
+                                           href="index.php-r=agentc-post-search&sid=7708.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7708" data-sid="7708"><span>格陵兰岛</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="阿根廷"
+                                           href="index.php-r=agentc-post-search&sid=4105.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4105"
+                                           data-sid="4105"><span>阿根廷</span></a></dd>
+                                    <dd><a target="_blank" title="巴西"
+                                           href="index.php-r=agentc-post-search&sid=4378.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4378"
+                                           data-sid="4378"><span>巴西</span></a></dd>
+                                    <dd><a target="_blank" title="玻利维亚"
+                                           href="index.php-r=agentc-post-search&sid=4529.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4529" data-sid="4529"><span>玻利维亚</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="厄瓜多尔"
+                                           href="index.php-r=agentc-post-search&sid=4795.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4795" data-sid="4795"><span>厄瓜多尔</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="哥伦比亚"
+                                           href="index.php-r=agentc-post-search&sid=4905.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4905" data-sid="4905"><span>哥伦比亚</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="秘鲁"
+                                           href="index.php-r=agentc-post-search&sid=6234.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6234"
+                                           data-sid="6234"><span>秘鲁</span></a></dd>
+                                    <dd><a target="_blank" title="委内瑞拉"
+                                           href="index.php-r=agentc-post-search&sid=7070.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7070" data-sid="7070"><span>委内瑞拉</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="乌拉圭"
+                                           href="index.php-r=agentc-post-search&sid=7179.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7179"
+                                           data-sid="7179"><span>乌拉圭</span></a></dd>
+                                    <dd><a target="_blank" title="智利"
+                                           href="index.php-r=agentc-post-search&sid=7628.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7628"
+                                           data-sid="7628"><span>智利</span></a></dd>
+                                    <dd><a target="_blank" title="巴拉圭"
+                                           href="index.php-r=agentc-post-search&sid=7707.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7707"
+                                           data-sid="7707"><span>巴拉圭</span></a></dd>
+                                    <dd><a target="_blank" title="哥斯达黎加"
+                                           href="index.php-r=agentc-post-search&sid=7703.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7703" data-sid="7703"><span>哥斯达黎加</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="巴哈马"
+                                           href="index.php-r=agentc-post-search&sid=7709.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7709"
+                                           data-sid="7709"><span>巴哈马</span></a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $('.menu-srot a').each(function(){
+                                var obj=$(this);
+                                var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                var data_sid=$(this).attr('data-sid');
+                                var url=baseUrl;
+                                if(data_sid){
+                                    url=baseUrl+data_sid
+                                }else{
+                                    url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                    url+=obj.text();
+                                }
+                                obj.attr('href', url);
+                                obj.attr('title', obj.text());
+                                obj.attr('target', '_blank');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative last h73">
+        <div class="category-info list-mz">
+            <h3 class="category-name b-category-name"><i style="background-position: -167px top;"></i><a id="s-category-342"  href="javascript:;" class="ml-22"
+                                                                title="">中东非</a></h3>
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="4143" href="#">迪拜</a>
+                <a data-sid="7392" href="#">以色列</a>
+                <a data-sid="5455" href="#">肯尼亚</a>
+                <a data-sid="4171" href="#">埃及</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>中东非旅游</span></dt>
+                                    <dd><a data-sid="4171" href="#"><span>埃及</span></a></dd>
+                                    <dd><a data-sid="6947" href="#"><span>土耳其</span></a></dd>
+                                    <dd><a data-sid="4143" href="#"><span>迪拜</span></a></dd>
+                                    <dd><a data-sid="5842" href="#"><span>毛里求斯</span></a></dd>
+                                    <dd><a data-sid="6678" href="#"><span>塞舌尔</span></a></dd>
+                                    <dd><a data-sid="7392" href="#"><span>以色列</span></a></dd>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>中东非国家列表</span></dt>
+                                    <dd><a data-sid="6368" href="index.php-r=agentc-post-search&sid=6368.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6368"><span>南非</span></a></dd>
+                                    <dd><a data-sid="5455" href="#"><span>肯尼亚</span></a></dd>
+                                    <dd><a data-sid="6947" href="#"><span>土耳其</span></a></dd>
+                                    <dd><a data-sid="6678" href="#"><span>塞舌尔</span></a></dd>
+                                    <dd><a data-sid="4143" href="#"><span>迪拜</span></a></dd>
+                                    <dd><a data-sid="5842" href="#"><span>毛里求斯</span></a></dd>
+                                    <dd><a data-sid="4171" href="#"><span>埃及</span></a></dd>
+                                    <dd><a data-sid="7392" href="#"><span>以色列</span></a></dd>
+                                    <dd><a data-sid="7391" href="#"><span>伊朗</span></a></dd>
+                                    <dd><a data-sid="6281" href="#"><span>摩洛哥</span></a></dd>
+                                    <dd><a data-sid="6921" href="#"><span>突尼斯</span></a></dd>
+                                    <dd><a data-sid="6884" href="#"><span>坦桑尼亚</span></a></dd>
+                                    <dd><a data-sid="5378" href="#"><span>津巴布韦</span></a></dd>
+                                </dl>
+                            </div>
+                            <script type="text/javascript">
+                                $('.menu-srot a').each(function(){
+                                    var obj=$(this);
+                                    var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                    var data_sid=$(this).attr('data-sid');
+                                    var url=baseUrl;
+                                    if(data_sid){
+                                        url=baseUrl+data_sid
+                                    }else{
+                                        url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                        url+=obj.text();
+                                    }
+                                    obj.attr('href', url);
+                                    obj.attr('title', obj.text());
+                                    obj.attr('target', '_blank');
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+
+    </ul>
+</div>
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+    $('.category').remove();
+</script>
+<link type="text/css" rel="stylesheet" href="themes/agentc/css/form_zz.css" tppabs="http://www.btgtravel.com/themes/agentc/css/form_zz.css"/>
+<script type="text/javascript" src="themes/agentc/js/min_contentslider.js" tppabs="http://www.btgtravel.com/themes/agentc/js/min_contentslider.js"></script>
+
+<!--calendar-->
+<link rel="stylesheet" type="text/css" href="static/calendar/fullcalendar.css" tppabs="http://www.btgtravel.com/static/calendar/fullcalendar.css">
+<script src=" static/calendar/lib/moment.min.js" tppabs="http://www.btgtravel.com/static/calendar/lib/moment.min.js"></script>
+<script src=" static/calendar/fullcalendar.min.js" tppabs="http://www.btgtravel.com/static/calendar/fullcalendar.min.js"></script>
+<script src=" static/calendar/lang-all.js" tppabs="http://www.btgtravel.com/static/calendar/lang-all.js"></script>
+
+<link rel="stylesheet" type="text/css" href="static/date-picker/daterangepicker.css" tppabs="http://www.btgtravel.com/static/date-picker/daterangepicker.css">
+<script src=" static/date-picker/jquery.daterangepicker.js" tppabs="http://www.btgtravel.com/static/date-picker/jquery.daterangepicker.js"></script>
+
+
+<script type="text/javascript">
+
+    Date.prototype.format = function(format) {
+        var date = {
+            "M+": this.getMonth() + 1,
+            "d+": this.getDate(),
+            "h+": this.getHours(),
+            "m+": this.getMinutes(),
+            "s+": this.getSeconds(),
+            "q+": Math.floor((this.getMonth() + 3) / 3),
+            "S+": this.getMilliseconds()
+        };
+        if (/(y+)/i.test(format)) {
+            format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+        }
+        for (var k in date) {
+            if (new RegExp("(" + k + ")").test(format)) {
+                format = format.replace(RegExp.$1, RegExp.$1.length == 1
+                    ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+            }
+        }
+        return format;
+    };
+
+    var setMembers=function(num,remove){
+        if(!num){
+            num=1;
+        }
+
+        var gid=$('#group').val();
+        var chanid=$('#chanid').val();
+
+        var baseUrl= 'http://www.btgerp.com/';
+        var _url=baseUrl+'/btgtravel/group/getService/gid/' + gid + '/chanid/'+chanid+'/type/jsonp/';
+        jsonP(_url,function(_data){
+            if (_data.err.length == 0) {
+                _data=_data.data;
+                if(remove){
+                    $('#memberlist tr.mtr').remove();
+                }
+
+                for(var i=0;i<num;i++){
+                    var r=Math.random();
+                    var html='<tr class="mtr">';
+                    html+='<td class="td-service">';
+                    html+=' <label class="radio"><input type="radio"  name="Order-type-'+r+'"  value="1" checked data-type="adult" data-saleprice="'+ _data.required.saleprice+'" data-iid="'+ _data.required.iid+'" >成人</label>';
+                    if(_data.child){
+                        html+=' <label class="radio"><input type="radio" data-iid="'+ _data.child+'" name="Order-type-'+r+'"  value="2" data-type="child" data-saleprice="'+ _data.childprice+'">儿童</label>';
+                    }
+                    html+='</td>';
+
+                    html+='<td class="td-optional">';
+                    if(_data.options){
+                        $.each(_data.options,function(k,v){
+                            if(v.ctype!= 'child'){
+                                html+='<label class="checkbox"><input type="checkbox" data-iid="'+ v.iid+'" data-type="'+ v.ctype+'" data-saleprice="'+ v.saleprice+'">&nbsp;'+ v.name+'</label>';
+                            }
+                        });
+                    }
+                    html+='</td>';
+
+                    html+='<td>';
+                    html+='<b class="font-base-saleprice uz-sr-price">'+_data.required.saleprice+'</b>';
+                    html+='</td>';
+
+                    html+='<td><img width="16" style="display:inline;cursor:pointer;" onclick="removeMember(this);" src="themes/agentc/images/iconfont-quxiao.png"/*tpa=http://www.btgtravel.com/themes/agentc/images/iconfont-quxiao.png*/ /></td>';
+
+                    html+='</tr>';
+                    $('#memberlist').append(html);
+                }
+                setTotalPrice();
+            }
+        });
+    };
+
+   var removeMember=function(obj){
+       var l=$('#memberlist tr.mtr').length;
+       if(l>1){
+           $(obj).closest('tr').remove();
+           setTotalPrice();
+       }
+   };
+
+    $(function () {
+        $('.content_data').fullCalendar({
+            header: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            },
+            titleFormat: {
+                month: 'MMMM YYYY'
+            },
+            lang: 'zh-cn',
+            firstDay: 1,
+            weekMode: 'fixed',
+            events: function (start, end, timezone, callback) {
+                $.ajax({
+                    url: 'index.php-r=post-SellGroups&gid=20164112380.htm'/*tpa=http://www.btgtravel.com/index.php?r=post/SellGroups&gid=20164112380*/,
+                    data: function () {
+                        return {
+                            dynamic_value: Math.random()
+                        };
+                    },
+                    success: function (doc) {
+                        doc = $.parseJSON(doc);
+                        if (doc) {
+                            var events = [];
+                            $(doc.data).each(function (i, g) {
+                                if (g.salePrice > 0) {
+                                    events.push({
+                                        gid: g.group.gid,
+                                        chanid: g.chanid,
+                                        quantity: g.stock.quantity,
+                                        salePrice: g.salePrice,
+                                        start: g.group.group_date,
+                                        allDay: true
+                                    });
+                                }
+                            });
+                            callback(events);
+                            $('.fc-view-container').width(669); //lvkui 修改日历header-width
+                        }
+                    }
+                });
+            },
+            eventRender: function (event, element) {
+                var title = '';
+                if (event.quantity > 9)
+                    title += '>9';
+                else
+                    title += event.quantity;
+
+                var price = event.salePrice;
+                var html = "<div style='font-size: 1.2em; font-weight: bold;'><div style='letter-spacing:3px; text-align: center; cursor:pointer; color: #008800;'>" + title + "位</div><div style='letter-spacing:3px; text-align: center; color: #ff6000;cursor: pointer;'><b>￥<i>" + price + '</i>' + "</b></div></div>";
+                element.html(html);
+            },
+            eventClick: function (calEvent, e, view) {
+
+                //active
+                var _acitve='uz-fullCalendar-active';
+                $('.content_data .uz-fullCalendar-active').removeClass(_acitve);
+                var _fc_event = $(e.target).closest(".fc-event");
+                _fc_event.toggleClass(_acitve);
+
+                //date order
+                $('#js-departure-date').val(calEvent.start.format());
+                setTotalPrice(calEvent.salePrice);
+                $('#group').val(calEvent.gid);
+                $('#chanid').val(calEvent.chanid);
+                //members
+                if(calEvent.quantity>0){
+                    setMembers(1,true);
+                }
+                $('.order_num').val(1);
+
+                $('.js_order').show();
+            }
+        });
+    });
+
+    var jsonP=function(_url,func){
+        $.ajax({
+            url: _url,
+            type: 'get',
+            async: false,
+            dataType: 'jsonp',
+            jsonp: "callback",
+            success: func
+        });
+    };
+
+
+    $(function () {
+
+       //初始化日历及时间拾取控件的团期处理
+       var _url= 'http://www.btgerp.com/btgtravel/group/GetNewlyDateByPgid/gid/20164112380/type/jsonp/'
+        jsonP(_url,function(_data){
+            if (_data.err.length == 0) {
+                setfullCalendarDate(_data);
+                initDatePicker(_data);
+            }
+        });
+
+        $(document).on('change','#memberlist :radio,#memberlist :checkbox',function(){
+            setMemberPrice();
+            setTotalPrice();
+        });
+    });
+
+    var setTotalPrice=function(p){
+        if(!p){
+            var coin=0;
+            $('#memberlist :checked').each(function(){
+                var input=$(this);
+                coin=coin+parseFloat(input.attr('data-saleprice'));
+            });
+            p=coin;
+        }
+        $('#totalPrice').val(p);
+        var price ='<dfn>¥</dfn>'+p;
+        $('.total_price span.price').html(price);
+    };
+
+    var setMemberPrice=function(){
+        $('#memberlist tr.mtr').each(function(){
+            var inputs=$(this).find(':checked');
+            var coin=0;
+            inputs.each(function(){
+                coin=coin+parseFloat($(this).attr('data-saleprice'));
+            });
+            $(this).find('.uz-sr-price').text(coin);
+        });
+    };
+
+    var setfullCalendarDate=function(_data){
+        if(_data.data.dates.length>0){
+            $('.content_data').fullCalendar('gotoDate',new Date(_data.data.defaultDate));
+        }else{
+            $('.sell_out').show();
+        }
+    };
+
+    var initDatePicker=function(_data){
+        $('#js-departure-date').dateRangePicker({
+            autoClose: false,
+            format: 'YYYY-MM-DD',
+            separator: ' to ',
+            language: 'auto',
+            startOfWeek: 'monday',// or sunday
+            getValue: function()
+            {
+                return $(this).val();
+            },
+            setValue: function(s)
+            {
+                $(this).val(s);
+            },
+            startDate: new Date(_data.data.defaultDate),
+            endDate: new Date(_data.data.endDate),
+            time: {
+                enabled: false
+            },
+            minDays: 0,
+            maxDays: 0,
+            container:'body',
+            singleDate:true,
+            duration: 200,
+            stickyMonths: false,
+            singleMonth: 'auto',
+            hoveringTooltip: function(days, startTime, hoveringTime)
+            {
+                return days > 1 ? days + ' ' + lang('days') : '';
+            },
+            showTopbar: false,
+            getWeekNumber: function(date) //date will be the first day of a week
+            {
+                return moment(date).format('w');
+            },
+            beforeShowDay: function(t)
+            {
+                var d=t.format('yyyy-MM-dd');
+                var dates=_data.data.dates;
+                if(dates.indexOf(d)==-1){
+                    return [false,'','不可预定'];
+                }else{
+                    return [true,'',''];
+                }
+            }
+
+        });
+    };
+</script>
+<div class="area mt10">
+
+    <div class="content_top mt10">
+        <h2>品质：四川SX7【麻辣熊猫】双飞4晚5日冬季游  成都 九寨沟 牟尼沟 熊猫乐园 叠溪海子</h2>
+
+        <div class="clear"></div>
+        <div class="content_left">
+            <div class="syFocusThumb">
+                <div class="sliderwrapper" id="syFocusThumb">
+                     <div class=contentdiv><div class=dPic><a href="javascript:;" ><img alt="" src="../www.btgerp.com/files/2016-12/326375554132191394.jpg" tppabs="http://www.btgerp.com/files/2016-12/326375554132191394.jpg" width=560 height=420></a></div></div>                </div>
+
+                <div class="pagination" id="paginate-syFocusThumb">
+                    <i title="上一幅" class="prev" id="prev"></i>
+
+                    <div class="thumbWrap">
+                        <div class="holder" style="margin-left: -1px;">
+                            <I class=toc><a href="javascript:;" ><img alt="" src="../www.btgerp.com/files/2016-12/326375554132191394.jpg" tppabs="http://www.btgerp.com/files/2016-12/326375554132191394.jpg" width=92 height=69></a></I>                        </div>
+                    </div>
+                    <i title="下一幅" class="next" id="next"></i></div>
+
+                <script type="text/javascript">
+                    //焦点图初始化
+                    featuredcontentslider.init({
+                        id: "syFocusThumb", //指定ID
+                        contentsource: ["inline", ""], //有效值: ["inline", ""] 嵌入html or ["ajax", "path_to_file"] 嵌入utf-8文件
+                        toc: "scroll", //有效值: "#increment" 标记序号, "markup", ["markup1", "markup2", etc]标记具体内容
+                        nextprev: ["", ""], //next_pre标记 ，如："上一条" "下一条"，设置为 "" 为不出现
+                        revealtype: "click", //鼠标事件有效值: "click" or "mouseover"
+                        enablefade: [false, 0.15], // 切换褪色度 "true"or "false"
+                        autorotate: [true, 3500], // 切换停留时间 "true"or "false"
+                        delay: 0, //事件延迟时间(默认值：0，单位：ms)
+                        //playtab: 4, 默认的播放舌签
+                        onChange: function (previndex, curindex) { //触发处理；previndex 触发处理上一个记录； curindex 触发处理上一个记录 可以自定义函数控制；参考亲子网首页"亲子部落-相册"
+                        }
+                    });
+                </script>
+
+            </div>
+            <div class="clear"></div>
+            <div class="sell_out"><b></b></div>
+            <div class="content_data">
+
+            </div>
+        </div>
+        <div class="content_right">
+            <div class="price">优惠价：￥<span class="p uz-g-price-item uz-g-20164112380-price" data-gid="20164112380">2600</span> 起<span class="qj"
+                                                                                           title="本起价是可选出发日期中，按双人出行共住一间房核算的最低单人价格。产品价格会根据您所选择的出发日期、出行人数、入住酒店房型航班或交通以及所选附加服务的不同而有所差别。"><a
+                        href="javascript:;">起价说明</a></span></div>
+            <p><span class="t">线路编号：</span>20164112380</p>
+
+            <div class="clear"></div>
+            <p><span class="t">产品类型：</span><b>国内跟团游</b></p>
+
+            <div class="clear"></div>
+            <p><span class="t">产品主题：</span>最美季节,特惠产品,推荐产品,当地散拼</p>
+
+            <div class="clear"></div>
+            <p><span class="t">出发地点：</span>北京</p>
+
+            <div class="clear"></div>
+            <p><span class="t">目的地点：</span>成都 九寨沟</p>
+
+            <div class="clear"></div>
+            <p><span class="t">行程天数：</span>5天</p>
+
+            <div class="clear"></div>
+            <p><span class="t">导游服务：</span>地陪</p>
+
+            <div class="clear"></div>
+
+            <!--<div class="e">
+                客户满意度<p class="n">97%</p>
+
+                <p class="y">已有100条评价</p>
+            </div>-->
+
+           <!-- <div class="c" style="margin-bottom: 15px;">
+                <ul class="b">
+                    <button style="margin-left:60px;" id="yuding" class="gm_btn">立即预订</button>
+                    <button style="margin-left:10px;" id="shoucang" class="sc_btn">加入收藏</button>
+                </ul>
+            </div>
+            <div class="clear"></div>-->
+            <div class="d">
+                <h3>行程特色</h3>
+
+                <div style="max-height: 266px; height:266px;overflow-y: scroll; overflow-x:visible; font-size: 14px; line-height: 1.8em;">
+                    产品特色：
+1、景点全面：九寨沟、牟尼沟、熊猫乐园、叠溪海子<br />
+2、免费升级：成都商务酒店，九寨准四星，保证干净卫生<br />
+3、特色膳食：茶马古道随饭菜、风味农家菜等<br />
+4、司机10年以上九寨专线驾驶经验，车辆2年内新车<br />
+5、一车一导，0购物，0自费<br />
+6、两大赠送，不升级<br />
+赠送1：走进藏家活动（体验原生态藏羌歌舞互动，大块吃肉，大碗喝酒）<br />
+赠送2：藏羌风情晚会（大型藏族原生态歌舞乐演出节目）<br />
+&nbsp;                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="d">
+                <hr style="margin-top: 15px; margin-bottom: 15px;"/>
+                <h3>可选定制 <span>VIP</span> 小包团 <span class="tel">4000100808</span></h3>
+
+                <p>
+                    1、我们专业的团队为您提供周全的服务,让您安心出游;<br>
+                    2、专属导游全程呵护,让私家团尽享尊贵;<br>
+                    3、4人以上即可独立成行;<br>
+                    4、神舟国旅为您安排了专属的客服,预订后享受一对一的服务;<br>
+                    5、根据您所需的行程安排和旅游目的地,让您拥有更好的旅游;<br>
+                    <img src="themes/agentc/images/lc.jpg" tppabs="http://www.btgtravel.com/themes/agentc/images/lc.jpg">
+                </p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div id="js_order" class="js_order" style="display: none;">
+            <input type="hidden" id="group">
+            <input type="hidden" id="chanid">
+            <input type="hidden" id="totalPrice">
+            <ul class="resource_price_wrap basefix">
+                <li class="start_date abc_start_date"><label for="">出发时间</label>
+                    <div class="input_wrap">
+                        <input type="text" placeholder=" 请选择出发日期" id="js-departure-date" readonly="readonly">
+                        <b></b>
+                    </div>
+                </li>
+                <li class="tourist_num"><label for="">人数</label>
+                    <div class="input_wrap"><input type="number" class="order_num" readonly="readonly" value="1" min="1" max="10"> <b></b>
+                        <p style="display:none">
+                            <a href="javascript:void(0);">1</a>
+                            <a href="javascript:void(0);">2</a>
+                            <a href="javascript:void(0);">3</a>
+                            <a href="javascript:void(0);">4</a>
+                            <a href="javascript:void(0);">5</a>
+                            <a href="javascript:void(0);">6</a>
+                            <a href="javascript:void(0);">7</a>
+                            <a href="javascript:void(0);">8</a>
+                            <a href="javascript:void(0);">9</a>
+                            <a href="javascript:void(0);">10</a>
+                        </p>
+                    </div>
+                </li>
+                    <li class="total_price">
+                        <span class="price_name">总价</span>
+                        <span class="price">--</span>
+                        <i style="display:none" id="J_acpricetip" class="price_icon"></i>
+                        <a href="javascript:void(0);" class="btn_red_big" id="js-submit"> 开始预订 </a>
+                        <div style="display:none" id="J_pricealert" class="price_alert"></div>
+                    </li>
+            </ul>
+            <div class="resource_wrap">
+
+                <table class="table table-hover uz-buy-table" id="memberlist">
+                    <tbody>
+                    <tr id="head">
+                        <th style="text-align: center;">服务标准(单选)</th>
+                        <th style="text-align: center;">可选资源（多选）</th>
+                        <th style="text-align: center;">金额（元）</th>
+                        <th style="text-align: center; width: 50px;">操作</th>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <div class="content_tab">
+        <ul selfpack="false" id="scroll_nav" class="scroll_nav_ul">
+            <li class="row_1"><a href="javascript:void(0)" onClick="cmCreateTabElements('行程精编')">行程精编</a></li>
+            <li class="row_2"><a href="javascript:void(0)" onClick="cmCreateTabElements('费用说明')">费用说明</a></li>
+            <li class="row_3"><a href="javascript:void(0)" onClick="cmCreateTabElements('参团须知')">参团须知</a></li>
+            <li class="row_4"><a href="javascript:void(0)" onClick="cmCreateTabElements('自费协议')">自费协议</a></li>
+            <li class="row_5" style='display:none;' ><a
+                    href="javascript:void(0)" onClick="cmCreateTabElements('签证信息')">签证信息</a></li>
+        </ul>
+
+        <i id="row_1" class="pkg-maodian">&nbsp;</i>
+
+        <h3 class="nr_tit">行程精编</h3>
+
+        <div class="content_nr"><strong>行程安排：</strong>品质：四川SX7【麻辣熊猫】双飞4晚5日冬季游  成都 九寨沟 牟尼沟 熊猫乐园 叠溪海子成都&emsp;九寨沟&emsp;<br><strong>第1天：</strong><strong>从 北京 到 成都</strong>&emsp;&emsp;&emsp;&emsp;<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">第一天：北京&mdash;成都（全程1600</span>㎞，飞行时间3</span>小时左右）&nbsp; 全程不含餐&nbsp;&nbsp;&nbsp; 宿成都</strong></p>
+
+<p style="line-height:22.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">行程安排：</span></span></span></strong></p>
+
+<p style="line-height:20.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">北京首都机场出发赴被誉为西部明珠、天府之国的成都，抵达后专业司机接机，并送到酒店，入住酒店休息。</span></span></span></p>
+
+<p style="line-height:20.0pt;">&nbsp;&nbsp; <span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">成都素有&mdash;&mdash;&ldquo;一座来了就不想离开的城市&rdquo;，成都是一座既有悠久历史文化的古都，又具有现代大都市的豪韵，休闲之都世人称颂，繁华纷呈春来熙往。如果有兴趣可前往春熙路商业步行街，或是到最有成都休闲特色的宽窄巷子逛逛，夜晚九眼桥酒吧一条街或者锦里也是不错的选择。</span></span></span></p>
+
+<p style="line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">温馨提示：</span></span></span></strong></p>
+
+<p style="line-height:20.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">入住酒店时，请您自行付酒店房卡押金200-300</span>元,</span>办理入住手续，退房时请记得退还房卡押金哦</span></p>
+
+<p style="line-height:20.0pt;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">参考航班：北京--</span>成都3U8548 </span>（06：25-09：35）或其他航班(航班仅供参考）</strong></p>
+
+<p style="line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">成都参考酒店：佳季精品酒店 凯宾酒店 嘉立酒店 嘉好品家或同级等</span></span></span></strong></p>
+<strong>269</strong>&emsp;&emsp;&emsp;&emsp;<br><p></p><strong>第2天：</strong><strong>从 成都 到都江堰熊猫乐园到 九寨沟</strong>&emsp;&emsp;&emsp;&emsp;<p style="line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">第二天：成都&mdash;都江堰熊猫乐园&mdash;九寨沟&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 含：早 中 晚餐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 宿：九寨沟口</span></span></span></strong></p>
+
+<p style="line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">赠送：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">茶马古道随饭菜、叠溪海子、松州古城、熊猫乐园、走进藏家民俗体验活动，</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">以上项目为我社赠送项目,</span>游客自动放弃，费用不退，也不做等价交换。</span></span></p>
+
+<p style="line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">行程安排：</span></span></span></strong></p>
+
+<p style="line-height:20.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">酒店早餐后乘车经都江堰到达汶川，前往中国大熊猫保护研究中心都江堰基地-</span></span></span><strong><span style="color:blue;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">【熊猫乐园】（</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">赠送景点,</span>不去不退费，游览时间约40</span>分钟，可根据团上实际情况置换成其他景点）</span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">参观大熊猫救援馆。午餐在茂县享用<strong>羌家地道精品菜系&mdash;&mdash;茶马古道随饭菜</strong>。后前往1933</span>年地震遗址&mdash;</span></span><span style="color:blue;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">【<strong>叠溪海子】</strong></span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">。在叠溪海子稍作休息，拍照留念。途经<strong>松州古城</strong>（如需上城楼参观，自理费用，导游不会推荐此项目），然后到达九寨沟酒店。</span></span></span></p>
+
+<p style="line-height:20.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">晚上体验藏羌风情，特别安排赠送项目&mdash;&mdash;<strong>走进藏家体验活动</strong>，</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">大块吃肉，大碗喝酒，体验</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">原生态藏羌歌舞互动，</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">接受藏家隆重的献哈达仪式、欢迎仪式，享受千年一醉九寨沟的豪情，充分感受藏九寨的魅力和藏羌文化的独特内涵，让您身未动，心已远。<strong>（赠送项目，不参加不退费）</strong></span></span></span></p>
+
+<p style="line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">九寨沟参考酒店：怡莱酒店 新福鑫山庄 从牙印象 银丰宾馆 枫叶美食 神鹰酒店 或同级</span></span></span></strong></p>
+
+<p><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">温馨提示：</span></span></span></strong></p>
+
+<p><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">沿线住宿硬件和软件条件有限，通常比城市低一档次，请不要以城市的标准来衡量；</span></span></span></strong></p>
+
+<p><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">九寨沿线所有酒店为保护环境取消一次性用品，请游客自备。请尊重少数民族风俗习惯.</span></span></span></strong></p>
+
+<p><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">九寨沟的出发时间都比较早，如果您是入住酒店，请自行提前通知酒店为您提供路早餐，早上到前台自行领取。当地条件较为艰苦，蔬菜较少，且口味不是很好，建议客人自带些干粮或零食（400</span>多公里：水泥和沥青盘山公路）。</span></span></p>
+
+<p><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">九寨沟属藏区条件较差，限时供应热水，一般为晚9-11</span>点间供应，沿线提倡绿色环保，酒店不提供一次性洗漱用品，请游客自备。</span></span></p>
+
+<p><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">美好之旅建议您：当地属于高原地区。如果您要预防高原反应的发生，请在出发前自行准备抗高原药品。</span></span></span></p>
+<strong>307</strong>&emsp;&emsp;&emsp;&emsp;<br><p></p><strong>第3天：</strong><strong>全天游览九寨沟</strong>&emsp;&emsp;&emsp;&emsp;<p><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">第三天：九寨沟一日游&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 含：早 晚餐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 宿：九寨沟口</span></span></span></strong></p>
+
+<p style="line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">行程安排：童话世界&mdash;&mdash;九寨沟&nbsp; 藏羌风情晚会&nbsp; </span></span></span></strong></p>
+
+<p align="left" style="text-align:left;line-height:20.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">早餐后前往人间仙境、童话世界―</span></span></span><strong><span style="color:blue;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">【九寨沟世界级自然风景区】</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">进入景区后换乘景区观光车，进入&ldquo;人间天堂&rdquo;九寨沟国家公园。游览诺日朗瀑布、树正群海、长海、五彩池、珍珠滩、五花海、箭竹海、熊猫海等景点。九寨沟是由翠海、叠瀑、彩林、烟云、雪峰以及奇异多彩的藏族风情组成格调自然且风韵独具的仙境。九寨沟的景观主要分布在树正沟、日则沟、则查洼沟三条主沟内，这三条沟略似&rdquo;丫&rdquo;字形。景区内有九寨沟最宽、最高、最雄伟壮观的三大瀑布；珍珠滩瀑布、诺日朗瀑布、熊猫海瀑布，景区内共有一百多个高山湖泊及数十处高低不一的流泉飞瀑等景观。最美最奇特的是九寨沟的水，清冽透底，变幻无穷。（景点游览时间约6-8</span>小时）约下午17</span>：30</span>出沟入住酒店。导游带领返回酒店用晚餐。</p>
+
+<p align="left" style="text-align:left;line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">晚餐后观赏九寨沟第五道风景线-</span>九寨沟藏羌风情晚会。（此项目为赠送，旅行社已提前安排，不消费不退费）</span></span></strong></p>
+
+<p style="line-height:17.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">【九寨千古情】</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">夜间可自行前往，导游不作推荐，需要导游代为订票，请提前告知，并<strong>自理费用280</strong></span><strong>&mdash;&mdash;350</strong></span><strong>元/</strong></span><strong>人</strong>，由中国演艺第一股--&quot;宋城演艺&quot;倾力打造，是一座活着的藏羌古城，是一场大型原生态藏羌歌舞，优美而神秘的藏羌歌舞带你进入穿越时空之旅，辉煌的大唐皇宫展现了文成公主汉藏和亲的壮举。全球首创的5D实景和高科技手段再现了阿坝州512汶川大地震的惨烈场面，山崩地裂、房倒屋塌，整个剧院和数千个座位强烈震动，3000立方大洪水&ldquo;排山倒海&rdquo;般顷刻而下&hellip;&hellip;一个个真实的故事、一幅幅感人的画面展现了中华民族万众一心抗震救灾的大爱无疆。</p>
+
+<p style="line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">九寨沟参考酒店：怡莱酒店 新福鑫山庄 从牙印象 银丰宾馆 枫叶美食 神鹰酒店 或同级</span></span></span></strong></p>
+
+<p><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">温馨提示：</span></span></span></strong></p>
+
+<p><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">1</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、九寨沟分为三条沟，单程35</span>公里，沟内每个景点都有一个观光车上下的车站，凭观光车票（报价已含）当日可在任一站点自由换乘，每辆观光车都有讲解导游。游览景区内三条沟的先后顺序，完全根据观光车调度人员临时安排分沟游览，这样也能更好的分散游客，让您在拍照的时候舒心一些。观光车一般是到每条沟最高景点下车，然后往下走游览，所以走路也不会觉得累。</span></span></p>
+
+<p><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">2</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、九寨沟最佳的游览方式还是自由活动，乘坐观光车运行方式和城里的公交车是一样的，因此导游也无法全程陪同。</span></span></span></p>
+
+<p><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">3</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、九寨沟内诺日朗餐厅用餐，自助餐60</span>元/</span>人起，用餐比较简单，而且会影响您的游览时间，建议您自带干粮进沟。</span></p>
+
+<p><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">4</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、九寨景区禁止吸烟，有吸烟习惯的客人请忍耐，或到专门的吸烟区，否则会受到高额罚款。</span></span></span></p>
+<strong>307</strong>&emsp;&emsp;&emsp;&emsp;<br><p></p><strong>第4天：</strong><strong>从 九寨沟 到牟尼沟 到成都</strong>&emsp;&emsp;&emsp;&emsp;<p style="line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">第四天：九寨沟&mdash;牟尼沟&mdash;成都&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 含：早 中餐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 宿：成都</span></span></span></strong></p>
+
+<p style="line-height:20.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">今日赠送：牟尼沟景区&nbsp;&nbsp;&nbsp; 农家土碗菜&nbsp; </span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">赠送项目,</span>游客自动放弃，费用不退，也不做等价交换。</span></span></strong></p>
+
+<p style="line-height:20.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">早上乘车出发，途中<strong>赠送观看德勒达格马术表演，如果遇景区关闭，则取消，赠送项目，取消不退费用</strong>。后前往</span></span></span><span style="color:blue;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">【<strong>牟尼沟扎嘎瀑布景区】</strong></span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">(</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">游览时间约1</span>小时)</span>。<span style="background:white;">扎嘎瀑布地处海拔3270</span>米，瀑高93.2</span>米，宽35米。上游是湖泊，下游为一串阶梯式河床。上百个层层叠叠的钙化环型瀑布玉串珠连，经三级钙化台阶跌宕而下，冲击成巨大钙化面而形成朵朵巨大白花，瀑声如雷，声形兼备。在大瀑布第二阶的钙化壁上，有一&ldquo;水帘洞&rdquo;，洞口水流飞挂，洞内气象万端。游览完后返回成都，入住酒店</p>
+
+<p style="line-height:17.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">温馨提示：</span></span></span></strong></p>
+
+<p style="line-height:17.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">入住酒店时，请您自行付酒店房卡押金200-300</span>元,</span>办理入住手续，退房时请记得退还房卡押金哦</span></strong></p>
+
+<p style="line-height:17.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">请保持手机畅通，专职司机将于21:00</span>左右与您联系，告知明天的出发时间，以便上门来接</span></span></strong></p>
+
+<p style="line-height:17.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">成都参考酒店：佳季精品酒店 凯宾酒店 嘉立酒店 嘉好品家或同级等 </span></span></span></strong></p>
+
+<p style="line-height:17.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">行程小提示：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">如若你对此次行程有任何异议，请告诉我们，我们会在第一时间根据你反馈的情况落实调查并及时处理；这次旅程是一次心灵的洗礼，是人生观的再次升华，回家后分享给大家吧</span></span></span></p>
+<strong>269</strong>&emsp;&emsp;&emsp;&emsp;<br><p></p><strong>第5天：</strong><strong>从 成都到 北京</strong>&emsp;&emsp;&emsp;&emsp;<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">第五天：成都&mdash;北京（全程1600</span>㎞，飞行时间3</span>小时左右） 含 早餐&nbsp; 宿 温馨的家</strong></p>
+
+<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">行程安排：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></strong></p>
+
+<p align="left" style="text-align:left;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">今日没有行程安排（属自由活动时间段），需在12</span>点之前退房，根据航班时间前往双流机场乘机返回北京结束四川愉快之旅。</span></p>
+
+<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">小贴士：</span></span></strong></p>
+
+<p align="left" style="text-align:left;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">1</span></span><span style="font-family:宋体;"><span style="font-size:12.0pt;">、当日请自行办理退房手续，根据酒店行业惯例应在中午12</span>点前退房，未退房者产生费用由游客自行承担。</span></p>
+
+<p align="left" style="text-align:left;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">2</span></span><span style="font-family:宋体;"><span style="font-size:12.0pt;">、自由活动期间，请注意自己人身安全和保管好自己的财产安全，且不含正餐</span></span></p>
+
+<p align="left" style="text-align:left;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">3</span></span><span style="font-family:宋体;"><span style="font-size:12.0pt;">、集合时间，均以司机事先通知时间为准，请大家多多配合，按时到达指订地点。</span></span></p>
+
+<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">温馨提示：</span></span></strong></p>
+
+<p align="left" style="text-align:left;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">1</span></span><span style="font-family:宋体;"><span style="font-size:12.0pt;">、当日请自行办理退房手续，根据酒店行业惯例应在中午12</span>点前退房，未退房者产生费用由游客自行承担。</span></p>
+
+<p align="left" style="text-align:left;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">2</span></span><span style="font-family:宋体;"><span style="font-size:12.0pt;">、集合时间，均以导游事先通知时间为准，请大家多多配合，按时到达指订地点。 </span></span></p>
+
+<p style="line-height:18.0pt;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">参考航班：成都--</span>北京3U8893 </span>（21：30-00：05+1）或其他航班(航班仅供参考)</strong></p>
+<strong>269</strong>&emsp;&emsp;&emsp;&emsp;<strong>244</strong>&emsp;&emsp;&emsp;&emsp;<br><p></p></div>
+
+        <i id="row_2" class="pkg-maodian">&nbsp;</i>
+
+        <h3 class="nr_tit">费用说明</h3>
+
+        <div class="content_nr"><p style="margin-left:18.05pt;text-indent:-18.05pt;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">儿童价格说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;"> 12</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">岁以下（1.1</span>米以下）儿童不占床位、不含门票，含赠送项目，含往返机票，当地旅游车车位、用餐、导服。</span></span></p>
+
+<p style="margin-left:18.05pt;text-indent:-18.05pt;line-height:18.0pt;">&nbsp;</p>
+
+<p style="margin-left:18.05pt;text-indent:-18.05pt;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">【费用包含】</span></span></span></strong></p>
+
+<p style="margin-left:15.65pt;text-indent:-15.65pt;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">1</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、交通：北京--</span>成都往返经济舱含机燃（团队机票一经出票，不得更改、不得签转、不得退票）。</span></span></strong></p>
+
+<p style="margin-left:15.65pt;text-indent:-15.65pt;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">2</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、用车：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">游程中空调旅游车，确保车况良好，干净卫生。</span></span></span></p>
+
+<p style="line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">3</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">门票：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">含所列景点首道门票，观光车；<strong>不含索道/</strong></span><strong>缆车/</strong></span><strong>电瓶车等。可根据自己身体状况选择是否乘坐，费用自理。</strong></span></p>
+
+<p style="line-height:18.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">优惠票退费明细：九寨沟 20</span>元/</span>人，其余景点为赠送，不退费用</span></p>
+
+<p style="line-height:18.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">免票退费明细：九寨沟40</span>元/</span>人，其余景点为赠送，不退费用</span></p>
+
+<p style="line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">4</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、用餐：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">4</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">早4</span>正，团队标准餐，早餐和晚餐在所住酒店用餐，中餐在沿路指定餐厅用。</span></span></p>
+
+<p style="line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">5</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、住宿：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">全程入住指定酒店标准间、如产生单人或单男单女请自补单房差或加床、景区酒店不提供一次性洗漱用品，请客人提前自备，高原地区，酒店可能会出现定时供应热水及空调敬请理解！</span></span></span></p>
+
+<p style="line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">6</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、导游：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">每车提供一名随车持证中文导游员，提供沿途讲解服务及酒店食宿安排。景区有讲解员讲解服务时，随车导游可以不跟随游客游览景区。散客机场（火车站）接送时不提供导游服务。</span></span></span></p>
+
+<p style="margin-left:47.2pt;text-indent:-47.2pt;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">7</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、保险：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">旅游意外伤害险。</span></span></span></p>
+
+<p style="margin-left:47.05pt;text-indent:-47.05pt;line-height:18.0pt;">&nbsp;</p>
+
+<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">【费用不包含】</span></span></strong></p>
+
+<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">1</span></span></strong><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">、单房差</span></span></strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">：单人入住须补房差260</span>元/</span>人</p>
+
+<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">2</span></span></strong><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">、小交通：</span></span></strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">景区内用车；游客往返集合出发点的交通费用。</span></span></p>
+
+<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">3</span></span></strong><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">、保&nbsp; 险</span></span></strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">：不含旅游人身意外保险, </span>建议您自行购买。</span></p>
+
+<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">4</span></span></strong><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">、差&nbsp; 价：</span></span></strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">升级舱位、升级酒店、升级房型等产生的差价。</span></span></p>
+
+<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">5</span></span></strong><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">、儿&nbsp; 童：</span></span></strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">儿童不占床，如需占床请补交费用；不含门票，届时请根据身高情况，在景区门口自行购买，敬请谅解。</span></span></p>
+
+<p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">6</span></span></strong><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">、特殊情况：</span></span></strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">因交通延阻、罢工、天气、飞机机器故障、航班取消或更改时间其它不可抗力原因导致的费用。</span></span></p>
+
+<p><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">7</span></span><span style="font-family:宋体;"><span style="font-size:12.0pt;">、个人消费：</span></span></strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">行程外的自费项目、酒店内洗衣、理发、电话、传真、收费电视、饮品、烟酒等个人消费产生的费用。</span></span></p>
+</div>
+
+        <i id="row_3" class="pkg-maodian">&nbsp;</i>
+
+        <h3 class="nr_tit">参团须知</h3>
+
+        <div class="content_nr"><p align="left" style="text-align:left;"><strong><span style="font-family:宋体;"><span style="font-size:12.0pt;">参团须知：</span></span></strong></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">1</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、报价说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">不含各地至成都往返大交通、景区便民设施，酒水、个人消费、景区内索道、行程中备注未含的餐及住宿等，请不要订行程结束当天离开成都的交通票如：船票、汽车票、火车票、飞机票。（如人力不可抗拒因素，以免延误）</span></span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">2</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">产品说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">为保障本线路产品的顺利成团，在您预订成交后，如无特殊原因，不可更改、取消，否则将按退团说明执行，请客人谅解。请注意行程中的每一条温馨提示，请注意各景区张贴的游览须知。行程中停车加水、上厕所、用餐后、上车前均为自由活动时间，自由活动时间请自行负责自身人生安全及财产安全。此产品不适合休闲度假、享受酒店的客人；藏区旅游，请保持乐观情绪，如有心理负担会加重高原反应，延缓人体适应高原气候。行程内的时间仅供参考，具体以实际行车速度及相关路况及游客游览快慢为准；行程先后顺序在实际游览中可能会调整，但景点不减少，公交交通及景区的配套设施设备的容貌及卫生状况不属于旅行社的服务质量范畴，如有意见或建议可向相关主管部门反映。</span></span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">3</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">证件说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">请您在签订合同的时候提供有效的身份证件以及随行人员的身份证件及姓名，行程中也请您随身携带有效期内的身份证件（国内游客：身份证、军官证，国际游客：护照），住宿及景区同样出示证件！敬请配合旅行社工作！如因个人原因没有带有效身份证件造成无法办理入住手续而造成的损失，游客自行承担责任。建议在成都的时候就备好抗高原反应的药&mdash;&mdash;红景天或肌甘口服液。</span></span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">4</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">不可抗力免责说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">由于不可抗力等不可归责于旅行社的的客观原因或旅游者个人原因，造成旅游者经济损失的，旅行社不承担赔偿责任。如恶劣天气、自然灾害、火车延误、汽车塞车等不可抗力原因如造成团队行程更改，延误、滞留或提前结束时，旅行社不承担责任。因此发生的费用增减，按未发生费用退还游客，超支费用由游客承担。</span></span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">5</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">门票说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">本产品已将相关景点进行优惠打包，因此不再重复享受优惠（包含自动放弃）；1.1</span>米以下儿童免门票，但需大人带领进入景区。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">6</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、住宿说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">九寨沟沿线住宿硬件和软件条件都有限，请不要以城市的标准来衡量，敬请谅解！（为提倡绿色环保，酒店基本不提供一次性洗漱用品，游客需自备）；行程中提到的酒店名称，为经济舒适型住宿，是非国家旅游局授牌的星级酒店，仅指旅行社行业内部评称，特别告知！；地区特殊，酒店服务人员未经过专业培训上岗，敬请谅解。同等级酒店的设施因地区不同而有较大差距，遇特殊原因（如天气，交通，地面，酒店接待能力），可能变更住宿地点，客人不可指定住任何酒店，须随团安排，标准不变。2</span>人及以下出行（1</span>大，1</span>大1小，2大要求分房的）必须补房差。3人以上可补房差亦可安排加床（加床为钢丝床或床垫），旅行社不在行程中提供自然单间和拼房服务，亦不接受楼层及特殊房型指定；因计划用房，房差需于出行前团款中付清；行程内酒店住宿押金均为客人自付自退。</p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">7</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、餐饮说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">景区段所含早、晚餐均在所住酒店就餐，中餐在沿路指定餐厅就餐，但当地饮食与游客饮食习惯有一定的差异，且九寨沟菜品均由成都运进，餐饮条件相当有限，请做好心理准备，旅行社已尽心安排特色菜品，希望能合你的味口，建议您自备榨菜，香辣酱等合适自己品味的佐料；为了保证顺利用餐，行程中所有用餐均为提前预定，如若你在行程中取消用餐，费用一律不退；因路途遥远，有可能不能按时用餐，请带好巧克力、饼干等干粮。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">8</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、用车说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">行程内用车为旅游公交交通巴士；因延线有行车公里数限制或部分路段维修，易发生堵车，发车时间均较早，行程内标注出发及行车时间均为预计，具体情况略有不同；为保证车辆制动性能，行车延途均需停车加水；行程内所有自由活动期间及行程外均不含用车。请予以理解。四川旅游车均按每人一正座提前一天定车，根据同团人数安排车型，空调限时开放（主要争对坡路上行中为保证动力，无法开放）；保证一人一座，不提供座次要求；若因大交通（如：航班、火车等）延误、取消、造成无法按时参加我社旅游出团计划者，需向我社缴纳已经产生的旅游车位损失费及合同约定的其它已产生费用。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">9</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、购物和自费游览活动说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">①如游客需要购买当地土特产品，请与导游协商，部份景区内和沿途停留的站点附近均可能会有纪念品售卖点，法物流通处，红景天及御寒衣服等售卖点，沿途休息站（加水点，厕所）小卖部不属于购物店范围。当地居民贩卖纪念品、土特产，非我社提供服务，请谨慎购买，以免上当。②本行程景区内的自费项目或自费娱乐项目，由游客自愿选择参加，景区有价格向游客明示。如有强迫消费的现象发生，请游客拨打质量监督电话。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">10</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、保险说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">旅行社已经购买旅行社责任险，旅游人身伤害意外险，为游客提供全方位的保障。旅行社责任险是旅行社投保，保险公司承保旅行社在组织旅游活动过程中因疏忽、过失造成事故所应承担的法律赔偿责任的险种。旅游人身意外伤害险(</span>请关注各保险公司对于投保游客年龄的限制，对于70</span>岁以上游客，保险公司一般是不接受投保)</span>，由保险公司对游客受到的意外伤害进行承保，意外伤害的定义是【指遭受外来的、突发的、非本意的、非疾病的客观事件直接致使身体受到的伤害】。由旅行社代游客到保险公司购买，理赔额度解释权归保险公司所有)，保险公司的赔付额为最终赔付，旅行社不再进行赔偿。游客应保证自身身体条件能够顺利完成旅游活动，游客自身疾病不在保险赔付范围之列，由自身疾病所产生一切费用均自理，一切后果均自担，旅行社及保险公司均不承担责任。因道路交通事故造成游客人身及财产损失，将依据《道路交通事故处理办法》进行赔偿，我社给予协助。游客在旅游活动中，发生意外伤害时，旅行社协助游客联络医疗机构进行救治并向保险公司报案，游客或其家属自行缴付医疗费用，因游客或家属拒付医疗费用造成的各种伤害和风险旅行社不承担责任;治疗结束后，旅行社出具证明协助游客办理保险赔付手续 。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">11</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、导游服务说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">常规散客拼团，旅行社安排随车导游一名，提供行程解说及沿途食宿安排及沿途风土人情介绍服务，不陪同客人进入有讲解员或属于自然风景观光的旅游景区（例：九寨沟及牟托寨景区有专业讲解员，黄龙景区为自然风景观光）；为提高旅游接待水平，烦请您与我们共同督促导游人员严格遵守行业规定，有任何关于导游服务不达标的问题，敬请在第一时间反馈给旅行社，便于我们及时监督管理，改善服务。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">12</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、健康说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">本次长途旅行，时间长、温差大、部分地区海拔高，报名前请仔细阅读相关注意事项。游客在充分了解旅途的辛苦和行程中医疗条件有限的前提下，确定自己的身体健康状况适合参加本次旅游活动后方可报名参团。因个人既有病史和身体残障在旅游行程中引起的疾病进一步发作和伤亡，旅行社不承担任何责任，现有的保险公司责任险和意外险条款中，此种情况也列入保险公司的免赔范围。旅行社为非健康医疗专业咨询机构，无法判定游客的身体健康状况是否适合参加本次旅游活动，游客在旅行社签订旅游合同，即视为游客已经了解本次旅行的辛苦程度和行程中医疗条件有限的前提，并征得专业医生的同意。①报名时旅游者应确保身体健康，保证自身条件能够完成旅游活动，身体健康状况不佳者，请咨询医生是否可以参加本次旅游活动，根据自身情况备好常用药和急救药品，因自身疾病而引起的后果，游客自行承担责任;</span>出团前游客须签字确认《旅游者健康状况确认书》;</span>②游客出现急症请主动通知工作人员，旅行社将协助游客就进送往当地医疗机构检查治疗;</span>③有听力、视力障碍的游客须有健康旅伴陪同方可参团;个人有精神疾病和无行为控制能力的不能报名参团；④有心、肺、脑和血液系统疾病患者以及其它不适合长途疲劳的人群以及75岁以上老人，不宜报名参加旅行社团。为了你的安全请勿隐瞒病情，你可另择其它线路(如隐瞒病情,后果自负)。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">13</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、安全说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">1</span></span></span><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、旅行社的导游人员和其他工作人员无法为游客提供一对一的服务，旅行社工作人员在接待游客报名时已经充分告知本行程中的注意事项和对游客身体健康的要求，旅游活动中游客必须注意自身安全和随行未成年人的安全，保管好个人财务，贵重物品随身携带。2</span>、景区所在地区为藏羌等少数民族聚居区，在旅游中请尊重当地少数民族的宗教信仰和民俗风情；为了您的安全，请入夜后避免单独出行，个别思想开放者请不要在景区有所作为以免造成不必要的重大损失！自由活动期间，请注意保护自身人生安全及财物安全，过马路请小心；3</span>、沿途停车加水或上厕所等任何一个停留地点，请你上下车注意脚下、头顶及周边安全，不要在汽车道公路边崖边活动停留，沿途上厕所大部份都有当地人收费，请主动付费，不要与当地人发生无谓的争吵。4</span>、高原上的骑马项目都是当地牧民自发组织的，骑马是高危险运动项目，旅行社建议游客不要参加此项目，否则由此产生的后果由游客自负。5、进入高原后，当地居民大多养狗，请游客注意自身安全，不要随意走进居民家附近，也不要逗狗，看见有狗，请尽量远离。&nbsp;&nbsp;</p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">14</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、未成年人保护说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">旅行社不接受未满十八周岁、不具备完全民事行为能力的未成年人单独参团。未成年人必须有成年人陪伴方可参团，一起报名参团的成人即为其参团过程中的监护人，有责任和义务做好未成年人的安全防范工作。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">15</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、甲方代表与合同变更说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">甲方（即旅游者）签订合同的代表必须征得合同内所有游客的同意，方可代表甲方与旅行社签订合同，合同变更的相关事宜也必须由合同签订人携带合同到旅行社进行变更。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">16</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、气候说明：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">九寨沟为高山气候，要有足够的御寒衣物，需准备长袖衣裤、羊毛衫、夹克衫。即使是夏季也早晚凉、中午热，因此要注意保暖，特别预防感冒和上呼吸道感染。景区日照强，紫外线强。牟尼沟(</span>黄龙)</span>景区海拔4070-2800</span>米,部分游客可能有轻微高原反应，请自备抗高原反应的药物或氧气。九寨沟口海拔约1900米，沟内海拔最高点长海3100米，大多数游客没有高原反应，请放心游玩。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">17</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、特别约定说明</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">：①行程中发生纠纷，旅游者不得以拒绝登（下）车（机、船）、入住酒店等行为拖延行程或者脱团，否则，除承担给旅行社造成的实际损失外，还要承担旅游费用20-30%</span>的违约金。②游客投诉以在旅行途中填写的《行程满意度调查表或旅行社服务质量跟踪表》为准，请团友认真填写；在行程中，如对服务及接待标准有异议，请及时与带团导游沟通或直接反馈回旅行社。③请您仔细阅读行程及游客须知，如有异议，请在签订本次行程计划合约前提出，协议一旦签订，旅行社即按行程内容安排接待，如若您没有按相关注意事项执行，造成的一切责任后果及相关损失将由您自行承担。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></p>
+
+<p style="line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">18</span></span></span></strong><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">、其它提醒：</span></span></span></strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">藏民的卫生生活习惯都与汉族有所不同，湿纸巾、个人卫生用品，提前要带足这些东西。适量饮</span></span></span></p>
+
+<p style="line-height:18.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">用酥油茶、奶制品、藏茶、红景天等饮料可增强对高原气候的适应能力，饮食宜有节制，不可暴饮暴食，以免</span></span></span></p>
+
+<p style="line-height:18.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">增加肠胃负担，身份证、护照（外籍人士）、银行卡(</span>农行/</span>建行/</span>邮政储蓄)、信用卡、现金等（现金不要带太多）；</p>
+
+<p style="line-height:18.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">背包、腰包(</span>放随身重要物品),</span>防水雨具；防寒服，旅游鞋（最好是防水旅游鞋），排汗保暖内衣1</span>－2套，换洗</p>
+
+<p style="line-height:18.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">内衣裤若干，厚棉袜若干，防晒霜（50SPFPA+</span>以上）、太阳镜、太阳帽、润肤霜、唇膏；感冒药、肠胃药、阿斯</span></span></p>
+
+<p style="line-height:18.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">匹林、安定、头痛粉等物品；全球通手机、相机、充电器、备用电池(</span>充电设备多的,</span>最好准备一个轻便的多用</span></p>
+
+<p style="line-height:18.0pt;"><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">插线板,</span>免得大家抢插座)</span>。</span></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">请仔细阅读以上行程及服务标准说明，同意并保证遵守旅行社安排。如产生合同纠纷或人身意外事故，按《中华人民共和国合同法》、《中华人民共和国旅游法》、《道路交通法》、《保险赔偿条例》、《消费者权益保护法》裁定。此行程作为旅游合同附页与旅游合同同等法律效力。</span></span></span></strong></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">甲方代表（旅游者）：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 乙方（旅行社）：</span></span></span></strong></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">签约代表：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 签约代表：</span></span></span></strong></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">有效身份证：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 联系电话：</span></span></span></strong></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;"><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">有效联系电话：</span></span></span></strong></p>
+
+<p align="left" style="text-align:left;line-height:18.0pt;">&nbsp;</p>
+
+<p><strong><span style="color:black;"><span style="font-family:宋体;"><span style="font-size:12.0pt;">签约日期：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</span>签约日期：</span></span></strong></p>
+</div>
+
+        <i id="row_4" class="pkg-maodian">&nbsp;</i>
+
+        <h3 class="nr_tit">自费协议</h3>
+
+        <div class="content_nr"></div>
+
+        <i id="row_5" class="pkg-maodian" style='display:none;'>&nbsp;</i>
+
+        <h3 class="nr_tit" style='display:none;'>签证信息</h3>
+
+        <div
+            class="content_nr" style='display:none;' ></div>
+
+    </div>
+
+</div>
+<script src="themes/agentc/js/ob_free.js" tppabs="http://www.btgtravel.com/themes/agentc/js/ob_free.js"></script>
+
+<script type="text/javascript">
+    $('#yuding').click(function () {
+        window.location.href = 'index.php-r=agentc-site-clogin&returnUrl=http---www.btgtravel.com-index.php-r=agentc-post-view&gid=20164112380&chanid=10014.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/order&gid=20164112380*/;
+    });
+
+    $(function(){
+
+        $('.input_wrap input[type=number]').focus(function(){
+            $(this).nextAll('p').show();
+        });
+
+        $('.input_wrap input[type=number]').blur(function(){
+            $(this).nextAll('p').hide();
+        });
+
+        $('.input_wrap p > a').hover(
+            function(){
+                $(this).css({'background':'#ddd'});
+            },
+            function(){
+                $(this).css({'background':'none'});
+            }
+        );
+
+        $('.input_wrap p > a').mousedown(function(e){
+            var v=$(this).text();
+            var p=$(this).closest('p');
+            var input = p.prevAll('input[type=number]');
+            input.val(v);
+            setMembers(v,true);
+        });
+
+        $('#js-submit').click(function(){
+            var order={};
+            var members=new Array();
+            var trs=$('#memberlist tr.mtr');
+            order['gid']=$('#group').val();
+            order['date']=$('#js-departure-date').val();
+            order['num']=trs.length;
+            order['price']=$('#totalPrice').val();
+            trs.each(function(){
+                var member=new Array();
+                var inputs=$(this).find(':checked');
+                inputs.each(function(){
+                    member.push({'iid':$(this).attr('data-iid'),'type':$(this).attr('data-type')});
+                });
+                members.push(member);
+            });
+            order['members']=members;
+            var data={'order':JSON.stringify(order)};
+
+            $.ajax({
+                url: 'index.php-r=agentc-post-order2&gid=20164112380.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/order2&gid=20164112380*/,
+                type: 'post',
+                data:data,
+                dataType: 'json',
+                success: function(_data){
+                    if(_data.status>0){
+                        if(_data.status==2){
+                            alert(_data.mes);
+                        }
+                        window.location.href=_data.url;
+                    }else{
+                        alert(_data.mes);
+                    }
+                }
+            });
+        });
+    })
+</script>
+
+<div class="clearfix"></div>
+
+<div class="footer-t">
+    <div class="footer-t-c">
+        <ul>
+<h2>帮助·提示</h2>
+<li><a target="_blank" title="如何注册" href="index.php-r=agentc-post-help&cid=467&id=225.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=225">如何注册</a></li>
+<li><a target="_blank" title="如何在线预订" href="index.php-r=agentc-post-help&cid=467&id=226.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=226">如何在线预订</a></li>
+<li><a target="_blank" title="旅游名词解释" href="index.php-r=agentc-post-help&cid=467&id=227.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=227">旅游名词解释</a></li>
+<li><a target="_blank" title="中国护照免签国家" href="index.php-r=agentc-post-help&cid=467&id=228.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=228">中国护照免签国家</a></li>
+</ul>
+<ul>
+<h2>报名签约</h2>
+<li><a target="_blank" title="神舟门市查询" href="index.php-r=agentc-post-help&cid=468&id=218.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=218">神舟门市查询</a></li>
+<li><a target="_blank" title="邮件及传真签约" href="index.php-r=agentc-post-help&cid=468&id=219.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=219">邮件及传真签约</a></li>
+<li><a target="_blank" title="发票制度" href="index.php-r=agentc-post-help&cid=468&id=220.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=220">发票制度</a></li>
+<li><a target="_blank" title="合同范本" href="index.php-r=agentc-post-help&cid=468&id=221.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=221">合同范本</a></li>
+</ul>
+<ul>
+<h2>支付方式</h2>
+<li><a target="_blank" title="门市支付" href="index.php-r=agentc-post-help&cid=469&id=229.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=229">门市支付</a></li>
+<li><a target="_blank" title="银行汇款" href="index.php-r=agentc-post-help&cid=469&id=230.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=230">银行汇款</a></li>
+<li><a target="_blank" title="网上汇款" href="index.php-r=agentc-post-help&cid=469&id=231.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=231">网上汇款</a></li>
+<li><a target="_blank" title="在线支付" href="index.php-r=agentc-post-help&cid=469&id=232.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=232">在线支付</a></li>
+</ul>
+<ul class="last">
+<h2>旅游其他事项</h2>
+<li><a target="_blank" title="签证" href="index.php-r=agentc-post-help&cid=470&id=233.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=233">签证</a></li>
+<li><a target="_blank" title="保险细则" href="index.php-r=agentc-post-help&cid=470&id=234.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=234">保险细则</a></li>
+<li><a target="_blank" title="订单变更及取消" href="index.php-r=agentc-post-help&cid=470&id=235.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=235">订单变更及取消</a></li>
+<li><a target="_blank" title="退团、退款方式" href="index.php-r=agentc-post-help&cid=470&id=236.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=236">退团、退款方式</a></li>
+</ul>
+        <ul class="r">
+            <div class="tel">4000100808</div>
+            <!--来电将统一显示为 010-58103269，北京神舟国旅呼叫中心位于东城--><br>
+            工作时间：周一至周五09：00－18：00
+        </ul>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="footer-c">
+    <div class="tlink">
+        <ul>
+            <a href="index.php-r=agentc-post-help&cid=471&id=237.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=237" target='_blank'>关于我们</a>|<a href="index.php-r=agentc-post-help&cid=471&id=238.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=238" target='_blank'>联系我们</a>|<a href="index.php-r=agentc-post-help&cid=471&id=239.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=239" target='_blank'>旅行社行业资质</a>|<a href="index.php-r=agentc-post-help&cid=471&id=240.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=240" target='_blank'>人才招聘</a>|<a href="index.php-r=agentc-post-help&cid=471&id=241.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=241" target='_blank'>预订须知</a>|<a href="index.php-r=agentc-post-help&cid=471&id=242.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=242" target='_blank'>免责证明</a>|<a href="index.php-r=agentc-post-help&cid=471&id=243.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=243" target='_blank'>隐私声明</a>|<a href="index.php-r=agentc-post-help&cid=471&id=244.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=244" target='_blank'>法律条款</a>|<a href="index.php-r=agentc-post-help&cid=471&id=245.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=245" target='_blank'>文明旅游</a>        </ul>
+    </div>
+       <!--版权说明-->
+    <strong>© 北京神舟国际旅行社集团有限公司版权所有   许可证号：L-BJ-CJ00080   京ICP备11017909号-2   京公网安备110105007889号 </strong>    <!--版权说明end -->
+   <!-- <ul>
+        <li><a href="javascript:;"><img src="/images/f01.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f02.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f03.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f04.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f05.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f06.gif"></a></li>
+    </ul>-->
+    <!--<div class="ewm"><img src="/images/ewm.png"></div>-->
+</div>
+
+<div class="clearfix"></div>
+
+<div class="footer-link">
+    <div class="footer-link-c">
+        <ul>
+            <a href="index.htm" tppabs="http://www.btgtravel.com/" target='_blank'>神舟国旅官方旅游服务网站</a>|<a href="javascript:if(confirm('http://www.btgtravel.com.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.btgtravel.com.cn/'" tppabs="http://www.btgtravel.com.cn/" target='_blank'>神舟国旅官网</a>|<a href="javascript:if(confirm('http://www.botc.com.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.botc.com.cn/'" tppabs="http://www.botc.com.cn/" target='_blank'>神舟国旅海外旅游</a>|<a href="javascript:if(confirm('http://www.wetours.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.wetours.cn/'" tppabs="http://www.wetours.cn/" target='_blank'>伟途旅游</a>|<a href="javascript:if(confirm('http://www.btgmice.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.btgmice.com/'" tppabs="http://www.btgmice.com/" target='_blank'>神舟方舟国际会展</a>        </ul>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    var _ugpi = $('.uz-g-price-item');
+    if(_ugpi.size() > 0) {
+        var _gids = new Array();
+        _ugpi.each(function () {
+           var _gid = $(this).attr('data-gid');
+            if(_gid && _gid.length > 0) {
+                _gids.push(_gid);
+            }
+        });
+        _gids = array_unique(_gids);
+        if(_gids.length > 0) {
+        }
+        $.ajax({
+            url: 'http://www.btgerp.com/btgtravel/group/groupPrice/chanid/10014/type/jsonp',
+            dataType: "jsonp",
+            type:'get',
+            async:false,
+            data: {gid: _gids},
+            jsonp:'callback',
+            success: function (_data) {
+                if(_data['data'] && _data['data'].length > 0) {
+                    var _gps = _data['data'];
+                    $.each(_gps, function (i, v) {
+                        $('.uz-g-'+v['gid']+'-price').html(v['price']);
+                    });
+                }
+            },
+            error: function(){
+            }
+        });
+    }
+
+
+    function array_unique(arr) {
+        var result = [], hash = {};
+        for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+            if (!hash[elem]) {
+                result.push(elem);
+                hash[elem] = true;
+            }
+        }
+        return result;
+    }
+
+    $(document).ready(function () {
+        var _urlSearch = 'index.php-r=agentc-post-search.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search*/;
+        $('.c-category-list a,.ly a').each(function () {
+            var obj = $(this);
+            var sid=obj.attr('data-sid');
+            var url='';
+            if(sid){
+                url = _urlSearch + '&sid=' + obj.attr('data-sid');
+            }else{
+                url = _urlSearch + '&keywords=' + obj.attr('data-words');
+            }
+
+            obj.attr('href', url);
+            obj.attr('title', obj.text());
+            obj.attr('target', '_blank');
+        });
+
+        $('.btg-c').remove();
+    });
+</script>
+</html>

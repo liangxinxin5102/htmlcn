@@ -1,0 +1,1827 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>神舟国旅官方旅游服务网站-新疆XJ2【西域风情—多彩喀纳斯 绝色小瑞士】单飞九日 乌鲁木齐、布尔津、贾登峪、喀纳斯湖、天池、火洲吐鲁番、坎儿井、交河故城、沙漠植物园</title>
+    <link type="text/css" rel="stylesheet" href="themes/agentc/css/index.css" tppabs="http://www.btgtravel.com/themes/agentc/css/index.css"/>
+    <script type="text/javascript" src="themes/agentc/js/index_v20.js" tppabs="http://www.btgtravel.com/themes/agentc/js/index_v20.js"></script>
+    <script type="text/javascript" src="themes/agentc/js/jquery.superslide.2.1.1.js" tppabs="http://www.btgtravel.com/themes/agentc/js/jquery.superslide.2.1.1.js"></script>
+
+    <script src="themes/agentc/iealert/iealert.js" tppabs="http://www.btgtravel.com/themes/agentc/iealert/iealert.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="themes/agentc/iealert/iealert/style.css" tppabs="http://www.btgtravel.com/themes/agentc/iealert/iealert/style.css" />
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("body").iealert();
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).on('click', '.favorite,#shoucang', function () {
+            var title, desc;
+            title = desc = document.title;
+            var url = location.href;
+            if (document.all) {
+                if (navigator.appName == "Microsoft Internet Explorer") {
+                    try {
+                        window.external.addFavorite(url, title);
+                    } catch (e1) {
+                        try {
+                            window.external.addToFavoritesBar(url, title);
+                        } catch (e2) {
+                            alert('加入收藏失败，请您手工加入。');
+                        }
+                    }
+                }
+            } else if (window.external) {
+                try {
+                    window.sidebar.addPanel(title, url, desc);
+                } catch (e3) {
+                    alert("此浏览器不支持这项功能，请按Ctrl+D直接收藏我们！");
+                }
+            } else {
+                alert('加入收藏失败，请您手工加入。')
+            }
+        });
+
+        $(document).ready(function () {
+            $('#btn_search').click(function () {
+                var _keywords = $('#keywords').val();
+                if ($.trim(_keywords).length < 1) {
+                    alert('请输入目的地、线路或线路编号');
+                    return false;
+                } else {
+                    window.location.href = "index.php-r=agentc-post-search&keywords=.htm"/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/ + _keywords;
+                }
+            });
+
+            $('#search_form').keydown(function (e) {
+                var curKey = e.which;
+                if (curKey == 13) {
+                    $('#btn_search').trigger('click');
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        /**
+         * 事件处理通用函数
+         */
+        var EventUtil = {
+            getEvent: function (event) {
+                return event ? event : window.event;
+            },
+            getTarget: function (event) {
+                return event.target || event.srcElement;
+            },
+            addHandler: function (element, type, handler) {
+                if (element.addEventListener) {
+                    element.addEventListener(type, handler, false);
+                } else if (element.attachEvent) {
+                    element.attachEvent("on" + type, handler);
+                } else {
+                    element["on" + type] = handler;
+                }
+
+            }
+        };
+
+        /**
+         * 选项卡通用函数
+         */
+// 传入参数inClassName设定为绑定的选项卡类名，参数triggerType设定为触发切换的类型
+        function tabSwitch(inClassName, triggerType) {
+            //取得全部选项卡区域
+            if (document.querySelectorAll) {
+                var tabs = document.querySelectorAll("." + inClassName);
+            } else {
+                var divs = document.getElementsByTagName("div");
+                var tabs = new Array();
+                for (var k = 0, lenDiv = divs.length; k < lenDiv; k++) {
+                    if (divs[k].className.indexOf(inClassName) > -1) {
+                        tabs.push(divs[k]);
+                    }
+                }
+            }
+            //为每个选项卡建立切换功能
+            for (var j = 0, len = tabs.length; j < len; j++) {
+                //获取标题和内容列表
+                var tab = tabs[j];
+                //使用私有作用域为每个选项卡建立切换
+                (function () {
+                    var nameUl = tab.getElementsByTagName("ul")[0];
+                    var content = tab.getElementsByTagName("ul")[1];
+                    //初始化选项卡
+                    nameUl.getElementsByTagName("li")[0].className = "selected";
+                    content.getElementsByTagName("li")[0].style.display = "block";
+                    //添加事件委托
+                    EventUtil.addHandler(nameUl, triggerType, function (event) {
+                        //获取事件对象
+                        event = EventUtil.getEvent(event);
+                        var target = EventUtil.getTarget(event);
+                        //选项卡切换
+                        if (target.nodeName.toLowerCase() == "li") {
+                            //分别取得标题列表项和内容列表项
+                            var nameList = nameUl.getElementsByTagName("li");
+                            var contentList = content.getElementsByTagName("li");
+                            //标题添加selected类，并显示内容
+                            for (var i = 0, len = nameList.length; i < len; i++) {
+                                nameList[i].className = "";
+                                contentList[i].style.display = "none";
+                                if (nameList[i] == target) {
+                                    nameList[i].className = "selected";
+                                    contentList[i].style.display = "block";
+                                }
+                            }
+                        }
+                    });
+                })();
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="site-top">
+    <div class="area">
+        <div class="site-top-l">北京神舟国旅欢迎您！</div>
+        <img src="../www.btgerp.com/site/autoLogout/index.htm" tppabs="http://www.btgerp.com/site/autoLogout/" class='btg-c' style='display: none;' /><div class="site-top-r"><span>欢迎，客人</span>|<a href="index.php-r=agentc-site-clogin.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/site/clogin">会员登录</a>|<a href="index.php-r=agentc-site-register.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/site/register">免费注册</a>|<a href="index.php-r=agentc-site-login.htm" tppabs="http://www.btgtravel.com/index.php?r=admin/default/index">后台管理</a>|<a href="javascript:;" class="favorite">加入收藏</a></div>    </div>
+</div>
+
+<div class="site-head">
+    <div class="logo" style="top: 16px;"><a href="index.htm" tppabs="http://www.btgtravel.com/"><img src="themes/agentc/images/shenzhouguolv.png" tppabs="http://www.btgtravel.com/themes/agentc/images/shenzhouguolv.png" width="249" height="60"></a></div>
+<!--    <div class="slogen">--><!--</div>-->
+    <div class="searchbox">
+        <form id="search_form" action="http://www.btgtravel.com/index.php?r=agentc/post/search">
+            <div class="searchbox-l"><input type="search" placeholder="目的地、线路或线路编号" id="keywords"></div>
+            <div class="searchbox-r"><input type="button" value="搜 索" id="btn_search"></div>
+        </form>
+    </div>
+    <div class="tel">
+        <span>4000100808</span>
+    </div>
+</div>
+
+<div id="nav">
+<div class="area clearfix">
+<div class="topnav">
+    <ul>
+        <li><a href="index.htm" tppabs="http://www.btgtravel.com/">首页</a></li>
+        <li><a href="index.php-r=agentc-post-index&cid=452.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=452">国内游</a></li><li><a href="index.php-r=agentc-post-index&cid=453.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=453">出境游</a></li><li><a href="index.php-r=agentc-post-index&cid=456.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=456">海岛游</a></li><li><a href="index.php-r=agentc-post-index&cid=457.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=457">邮轮游</a></li><li><a href="index.php-r=agentc-post-index&cid=458.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/index&cid=458">周边游</a></li>        <li><a href="javascript:if(confirm('http://www.biaoqianlvxing.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.biaoqianlvxing.com/'" tppabs="http://www.biaoqianlvxing.com/" target="_blank">定制旅行</a></li>
+    </ul>
+</div>
+<div class="category-content" id="guide_2">
+<div><span class="all-goods">全部旅游产品分类<img src="themes/agentc/images/menu.png" tppabs="http://www.btgtravel.com/themes/agentc/images/menu.png" /></span></div>
+<div class="category">
+    <ul class="category-list" id="js_climit_li">
+
+    <li class="appliance js_toggle relative first">
+        <div class="category-info list-gn">
+            <h3 class="category-name b-category-name"><i></i><a  class="ml-22"  href="javascript:;"
+                                                                 title="国内游">国内游</a></h3>
+
+            <p class="c-category-list limit-24">
+                <a href="#" data-sid="243">台湾</a>
+                <a href="#" data-sid="241">香港</a>
+                <a href="#" data-sid="234">云南</a>
+                <a href="#" data-sid="273">桂林</a>
+                <a href="#" data-sid="228">福建</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>国内游热点</span></dt>
+                                    <dd><a href="#" data-sid="243">台湾</a></dd>
+                                    <dd><a href="#" data-sid="241">香港</a></dd>
+                                    <dd><a href="#" data-sid="242">澳门</a></dd>
+                                    <dd><a href="#" data-sid="267">武夷山</a></dd>
+                                    <dd><a href="#" data-sid="283">三亚</a></dd>
+                                    <dd><a href="#">三峡</a></dd>
+                                    <dd><a href="#" data-sid="281">拉萨</a></dd>
+                                    <dd><a href="#" data-sid="277">丽江</a></dd>
+                                    <dd><a href="#" data-sid="250">青岛</a></dd>
+                                    <dd><a href="#" data-sid="249">大连</a></dd>
+                                    <dd><a href="#" data-sid="255">苏州</a></dd>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>国内地区分类</span></dt>
+                                    <dd><a href="#" data-sid="2518">乌镇</a></dd>
+                                    <dd><a href="#" data-sid="254">无锡</a></dd>
+                                    <dd><a href="#" data-sid="383">长白山</a></dd>
+                                    <dd><a href="#" data-sid="307">九寨沟</a></dd>
+                                    <dd><a href="#" data-sid="211">上海</a></dd>
+                                    <dd><a href="#" data-sid="225">浙江</a></dd>
+                                    <dd><a href="#" data-sid="224">江苏</a></dd>
+                                    <dd><a href="#" data-sid="226">安徽</a></dd>
+                                    <dd><a href="#" data-sid="226">山东</a></dd>
+                                    <dd><a href="#" data-sid="249">大连</a></dd>
+                                    <dd><a href="#" data-sid="215">吉林</a></dd>
+                                    <dd><a href="#" data-sid="214">黑龙江</a></dd>
+                                    <dd><a href="#" data-sid="216">辽宁</a></dd>
+                                    <dd><a href="#" data-sid="232">广东</a></dd>
+                                    <dd><a href="#" data-sid="240">海南</a></dd>
+                                    <dd><a href="#" data-sid="228">福建</a></dd>
+                                    <dd><a href="#" data-sid="227">江西</a></dd>
+                                    <dd><a href="#" data-sid="233">广西</a></dd>
+                                    <dd><a href="#" data-sid="230">湖南</a></dd>
+                                    <dd><a href="#" data-sid="229">湖北</a></dd>
+                                    <dd><a href="#" data-sid="236">河南</a></dd>
+                                    <dd><a href="#" data-sid="250">青岛</a></dd>
+                                    <dd><a href="#" data-sid="231">四川</a></dd>
+                                    <dd><a href="#" data-sid="234">云南</a></dd>
+                                    <dd><a href="#" data-sid="239">西藏</a></dd>
+                                    <dd><a href="#" data-sid="235">贵州</a></dd>
+                                    <dd><a href="#" data-sid="231">重庆</a></dd>
+                                    <dd><a href="#" data-sid="221">陕西</a></dd>
+                                    <dd><a href="#" data-sid="238">新疆</a></dd>
+                                    <dd><a href="#" data-sid="222">甘肃</a></dd>
+                                    <dd><a href="#" data-sid="236">青海</a></dd>
+                                    <dd><a href="#" data-sid="223">宁夏</a></dd>
+                                    <dd><a href="#" data-sid="210">北京</a></dd>
+                                    <dd><a href="#" data-sid="212">天津</a></dd>
+                                    <dd><a href="#" data-sid="217">河北</a></dd>
+                                    <dd><a href="#" data-sid="220">山西</a></dd>
+                                    <dd><a href="#" data-sid="237">内蒙古</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $('.menu-srot a').each(function(){
+                                var obj=$(this);
+                                var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                var data_sid=$(this).attr('data-sid');
+                                var url=baseUrl;
+                                if(data_sid){
+                                    url=baseUrl+data_sid
+                                }else{
+                                    url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                    url+=obj.text();
+                                }
+                                obj.attr('href', url);
+                                obj.attr('title', obj.text());
+                                obj.attr('target', '_blank');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative">
+        <div class="category-info list-hd">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-293" class="ml-22"  href="javascript:;"
+                                                                title="">海岛</a></h3>
+
+            <p class="c-category-list limit-24">
+                <a data-sid="7500" href="#" target="_blank" title="">巴厘岛</a>
+                <a data-sid="6873" href="#" target="_blank" title="">普吉岛</a>
+                <a data-sid="5842" href="#" target="_blank" title="">毛里求斯</a>
+                <a data-sid="5671" href="#" target="_blank" title="">马尔代夫</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>海岛旅游</span></dt>
+                                    <dd><a href="#" data-sid="5671">马尔代夫</a></dd>
+                                    <dd><a href="#" data-sid="283">三亚</a></dd>
+                                    <dd><a href="#" data-sid="5030">济州岛</a></dd>
+                                    <dd><a href="#" data-sid="6570">冲绳</a></dd>
+                                    <dd><a href="#" data-sid="5842">毛里求斯</a></dd>
+                                    <dd><a href="#" data-sid="6678">塞舌尔</a></dd>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>热门海岛旅游汇总</span></dt>
+                                    <dd><a href="#" data-sid="6873">普吉岛</a></dd>
+                                    <dd><a href="#" data-sid="7684">苏梅岛</a></dd>
+                                    <dd><a href="#" data-sid="6871">甲米</a></dd>
+                                    <dd><a href="#">芭提雅</a></dd>
+                                    <dd><a href="#" data-sid="7683">沙美岛</a></dd>
+                                    <dd><a href="#" data-sid="7685">长滩岛</a></dd>
+                                    <dd><a href="#" data-sid="7688">兰卡威</a></dd>
+                                    <dd><a href="#" data-sid="5782">沙巴</a></dd>
+                                    <dd><a href="#">珍拉丁湾</a></dd>
+                                    <dd><a href="#" data-sid="7500">巴厘岛</a></dd>
+                                    <dd><a href="#">民丹岛</a></dd>
+                                    <dd><a href="#" data-sid="6129">夏威夷</a></dd>
+                                    <dd><a href="#" data-sid="4968">关岛</a></dd>
+                                    <dd><a href="#" data-sid="7668">塞班岛</a></dd>
+                                    <dd><a href="#" data-sid="7710">大溪地</a></dd>
+                                    <dd><a href="#" data-sid="4858">斐济</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $('.menu-srot a').each(function(){
+                                var obj=$(this);
+                                var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                var data_sid=$(this).attr('data-sid');
+                                var url=baseUrl;
+                                if(data_sid){
+                                    url=baseUrl+data_sid
+                                }else{
+                                    url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                    url+=obj.text();
+                                }
+                                obj.attr('href', url);
+                                obj.attr('title', obj.text());
+                                obj.attr('target', '_blank');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative">
+        <div class="category-info list-yz">
+            <h3 class="category-name b-category-name"><i></i>
+                <a id="s-category-344"  href="javascript:;"  class="ml-22">亚洲</a></h3>
+
+            <p class="c-category-list limit-24">
+                <a data-sid="5019" href="#">韩国</a>
+                <a data-sid="6524" href="#">日本</a>
+                <a data-sid="6422" href="#">尼泊尔</a>
+                <a data-sid="6809" href="#">泰国</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>亚洲产品</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=4616.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4616" target='_blank' title="朝鲜" data-sid="4616"><span>朝鲜</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5698.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5698" target='_blank' title="马来西亚" data-sid="5698"><span>马来西亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6524.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6524" target='_blank' title="日本" data-sid="6524"><span>日本</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6809.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6809" target='_blank' title="泰国" data-sid="6809"><span>泰国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7276.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7276" target='_blank' title="新加坡" data-sid="7276"><span>新加坡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7392.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7392" target='_blank' title="以色列" data-sid="7392"><span>以色列</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7597.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7597" target='_blank' title="约旦" data-sid="7597"><span>约旦</span></a></dd>                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>亚洲国家列表</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=1.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=1" target='_blank' title="中国" data-sid="1"><span>中国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4037.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4037" target='_blank' title="台港澳地区" data-sid="4037"><span>台港澳地区</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4140.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4140" target='_blank' title="阿拉伯联合酋长国" data-sid="4140"><span>阿拉伯联合酋长国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4146.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4146" target='_blank' title="阿曼" data-sid="4146"><span>阿曼</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4155.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4155" target='_blank' title="阿塞拜疆" data-sid="4155"><span>阿塞拜疆</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4336.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4336" target='_blank' title="巴基斯坦" data-sid="4336"><span>巴基斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4365.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4365" target='_blank' title="巴勒斯坦" data-sid="4365"><span>巴勒斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4550.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4550" target='_blank' title="不丹" data-sid="4550"><span>不丹</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4616.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4616" target='_blank' title="朝鲜" data-sid="4616"><span>朝鲜</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4687.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4687" target='_blank' title="东帝汶" data-sid="4687"><span>东帝汶</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4853.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4853" target='_blank' title="菲律宾" data-sid="4853"><span>菲律宾</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4980.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4980" target='_blank' title="哈萨克斯坦" data-sid="4980"><span>哈萨克斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5019.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5019" target='_blank' title="韩国" data-sid="5019"><span>韩国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5339.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5339" target='_blank' title="柬埔寨" data-sid="5339"><span>柬埔寨</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5433.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5433" target='_blank' title="科威特" data-sid="5433"><span>科威特</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5543.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5543" target='_blank' title="老挝" data-sid="5543"><span>老挝</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5561.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5561" target='_blank' title="黎巴嫩" data-sid="5561"><span>黎巴嫩</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5671.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5671" target='_blank' title="马尔代夫" data-sid="5671"><span>马尔代夫</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5698.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5698" target='_blank' title="马来西亚" data-sid="5698"><span>马来西亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6207.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6207" target='_blank' title="蒙古" data-sid="6207"><span>蒙古</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6230.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6230" target='_blank' title="孟加拉" data-sid="6230"><span>孟加拉</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6265.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6265" target='_blank' title="缅甸" data-sid="6265"><span>缅甸</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6422.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6422" target='_blank' title="尼泊尔" data-sid="6422"><span>尼泊尔</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6524.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6524" target='_blank' title="日本" data-sid="6524"><span>日本</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6672.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6672" target='_blank' title="塞浦路斯" data-sid="6672"><span>塞浦路斯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6679.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6679" target='_blank' title="沙特阿拉伯" data-sid="6679"><span>沙特阿拉伯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6710.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6710" target='_blank' title="斯里兰卡" data-sid="6710"><span>斯里兰卡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6793.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6793" target='_blank' title="塔吉克斯坦" data-sid="6793"><span>塔吉克斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6809.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6809" target='_blank' title="泰国" data-sid="6809"><span>泰国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6947.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6947" target='_blank' title="土耳其" data-sid="6947"><span>土耳其</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7026.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7026" target='_blank' title="土库曼斯坦" data-sid="7026"><span>土库曼斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7095.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7095" target='_blank' title="文莱" data-sid="7095"><span>文莱</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7199.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7199" target='_blank' title="乌兹别克斯坦" data-sid="7199"><span>乌兹别克斯坦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7276.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7276" target='_blank' title="新加坡" data-sid="7276"><span>新加坡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7324.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7324" target='_blank' title="叙利亚" data-sid="7324"><span>叙利亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7368.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7368" target='_blank' title="也门" data-sid="7368"><span>也门</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7391.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7391" target='_blank' title="伊朗" data-sid="7391"><span>伊朗</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7392.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7392" target='_blank' title="以色列" data-sid="7392"><span>以色列</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7468.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7468" target='_blank' title="印度" data-sid="7468"><span>印度</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7499.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7499" target='_blank' title="印度尼西亚" data-sid="7499"><span>印度尼西亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7597.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7597" target='_blank' title="约旦" data-sid="7597"><span>约旦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7611.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7611" target='_blank' title="越南" data-sid="7611"><span>越南</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7713.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7713" target='_blank' title="巴林" data-sid="7713"><span>巴林</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7714.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7714" target='_blank' title="卡塔尔" data-sid="7714"><span>卡塔尔</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7715.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7715" target='_blank' title="格鲁吉亚" data-sid="7715"><span>格鲁吉亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7716.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7716" target='_blank' title="亚美尼亚" data-sid="7716"><span>亚美尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7717.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7717" target='_blank' title="吉尔吉斯斯坦" data-sid="7717"><span>吉尔吉斯斯坦</span></a></dd>                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative h73">
+        <div class="category-info list-oz">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-343"   href="javascript:;" class="ml-22"
+                                                                title="欧洲">欧洲</a></h3>
+
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="7528" href="#">英国</a>
+                <a data-sid="4824" href="#">法国</a>
+                <a data-sid="6593" href="#">瑞士</a>
+                <a data-sid="7401" href="#">意大利</a>
+                <a data-sid="4709" href="#">俄罗斯</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>欧洲旅游</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=7401.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7401" target='_blank' title="意大利" data-sid="7401"><span>意大利</span></a></dd>                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>欧洲国家列表</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=4189.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4189" target='_blank' title="爱尔兰" data-sid="4189"><span>爱尔兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4216.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4216" target='_blank' title="爱沙尼亚" data-sid="4216"><span>爱沙尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4232.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4232" target='_blank' title="安道尔" data-sid="4232"><span>安道尔</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4261.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4261" target='_blank' title="奥地利" data-sid="4261"><span>奥地利</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4406.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4406" target='_blank' title="白俄罗斯" data-sid="4406"><span>白俄罗斯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4414.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4414" target='_blank' title="保加利亚" data-sid="4414"><span>保加利亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4439.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4439" target='_blank' title="比利时" data-sid="4439"><span>比利时</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4451.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4451" target='_blank' title="冰岛" data-sid="4451"><span>冰岛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4453.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4453" target='_blank' title="波兰" data-sid="4453"><span>波兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4517.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4517" target='_blank' title="波斯尼亚和黑塞哥维那" data-sid="4517"><span>波斯尼亚和黑塞哥维那</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4629.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4629" target='_blank' title="丹麦" data-sid="4629"><span>丹麦</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4644.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4644" target='_blank' title="德国" data-sid="4644"><span>德国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4709.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4709" target='_blank' title="俄罗斯" data-sid="4709"><span>俄罗斯</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4824.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4824" target='_blank' title="法国" data-sid="4824"><span>法国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4852.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4852" target='_blank' title="梵蒂冈" data-sid="4852"><span>梵蒂冈</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4859.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4859" target='_blank' title="芬兰" data-sid="4859"><span>芬兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5195.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5195" target='_blank' title="荷兰" data-sid="5195"><span>荷兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5364.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5364" target='_blank' title="捷克共和国" data-sid="5364"><span>捷克共和国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5434.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5434" target='_blank' title="克罗地亚" data-sid="5434"><span>克罗地亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5505.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5505" target='_blank' title="拉脱维亚" data-sid="5505"><span>拉脱维亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5568.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5568" target='_blank' title="立陶宛" data-sid="5568"><span>立陶宛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5599.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5599" target='_blank' title="列支敦士登" data-sid="5599"><span>列支敦士登</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5601.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5601" target='_blank' title="卢森堡" data-sid="5601"><span>卢森堡</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5622.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5622" target='_blank' title="罗马尼亚" data-sid="5622"><span>罗马尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5693.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5693" target='_blank' title="马耳他" data-sid="5693"><span>马耳他</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5837.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5837" target='_blank' title="马其顿" data-sid="5837"><span>马其顿</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6291.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6291" target='_blank' title="摩纳哥" data-sid="6291"><span>摩纳哥</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6471.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6471" target='_blank' title="挪威" data-sid="6471"><span>挪威</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6493.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6493" target='_blank' title="葡萄牙" data-sid="6493"><span>葡萄牙</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6571.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6571" target='_blank' title="瑞典" data-sid="6571"><span>瑞典</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6593.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6593" target='_blank' title="瑞士" data-sid="6593"><span>瑞士</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6646.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6646" target='_blank' title="塞尔维亚,黑山" data-sid="6646"><span>塞尔维亚,黑山</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6707.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6707" target='_blank' title="圣马力诺" data-sid="6707"><span>圣马力诺</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6736.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6736" target='_blank' title="斯洛伐克" data-sid="6736"><span>斯洛伐克</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6745.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6745" target='_blank' title="斯洛文尼亚" data-sid="6745"><span>斯洛文尼亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7153.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7153" target='_blank' title="乌克兰" data-sid="7153"><span>乌克兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7214.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7214" target='_blank' title="西班牙" data-sid="7214"><span>西班牙</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7265.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7265" target='_blank' title="希腊" data-sid="7265"><span>希腊</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7303.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7303" target='_blank' title="匈牙利" data-sid="7303"><span>匈牙利</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7401.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7401" target='_blank' title="意大利" data-sid="7401"><span>意大利</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7528.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7528" target='_blank' title="英国" data-sid="7528"><span>英国</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7705.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7705" target='_blank' title="巴尔干" data-sid="7705"><span>巴尔干</span></a></dd>                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative h73">
+        <div class="category-info list-az">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-343" href="javascript:;"  class="ml-22"
+                                                                title="">澳洲</a></h3>
+
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="4272" href="#">澳大利亚</a>
+                <a data-sid="7278" href="#">新西兰</a>
+                <a data-sid="4858" href="#">斐济</a>
+                <a data-sid="7710" href="#">大溪地</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>澳洲旅游</span></dt>
+                                                                    </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>澳洲国家列表</span></dt>
+                                    <dd><a  href="index.php-r=agentc-post-search&sid=4272.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4272" target='_blank' title="澳大利亚" data-sid="4272"><span>澳大利亚</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4858.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4858" target='_blank' title="斐济" data-sid="4858"><span>斐济</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=4968.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4968" target='_blank' title="关岛" data-sid="4968"><span>关岛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=5504.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5504" target='_blank' title="库克群岛" data-sid="5504"><span>库克群岛</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=6491.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6491" target='_blank' title="帕劳" data-sid="6491"><span>帕劳</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7278.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7278" target='_blank' title="新西兰" data-sid="7278"><span>新西兰</span></a></dd><dd><a  href="index.php-r=agentc-post-search&sid=7711.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7711" target='_blank' title="汤加" data-sid="7711"><span>汤加</span></a></dd>                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative last h73">
+        <div class="category-info list-mz">
+            <h3 class="category-name b-category-name"><i></i><a id="s-category-342" href="javascript:;"  class="ml-22"
+                                                                title="">美洲</a></h3>
+
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="5857" href="#">美国</a>
+                <a data-sid="5282" href="#">加拿大</a>
+                <a data-sid="6129" href="#">夏威夷</a>
+                <a data-sid="4968" href="#">关岛</a>
+                <a data-sid="4378" href="#">巴西</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>美洲旅游</span></dt>
+                                    <dd><a data-sid="6129" href="#"><span>夏威夷</span></a></dd>
+                                    <dd><a data-sid="4968" href="#"><span>关岛</span></a></dd>
+                                    <dd><a data-sid="5857" href="#"><span>美国</span></a></dd>
+                                    <dd><a data-sid="5282" href="#"><span>加拿大</span></a></dd>
+                                    <dd><a data-sid="4378" href="#"><span>巴西</span></a></dd>
+                                </dl>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>美洲国家列表</span></dt>
+                                   <!-- -->                                    <dd><a target="_blank" title="巴拿马"
+                                           href="index.php-r=agentc-post-search&sid=4377.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4377"
+                                           data-sid="4377"><span>巴拿马</span></a></dd>
+                                    <dd><a target="_blank" title="北马里亚纳群岛"
+                                           href="index.php-r=agentc-post-search&sid=4424.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4424" data-sid="4424"><span>北马里亚纳群岛</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="多米尼加共和国"
+                                           href="index.php-r=agentc-post-search&sid=4708.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4708" data-sid="4708"><span>多米尼加共和国</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="古巴"
+                                           href="index.php-r=agentc-post-search&sid=4950.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4950"
+                                           data-sid="4950"><span>古巴</span></a></dd>
+                                    <dd><a target="_blank" title="加拿大"
+                                           href="index.php-r=agentc-post-search&sid=5282.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5282"
+                                           data-sid="5282"><span>加拿大</span></a></dd>
+                                    <dd><a target="_blank" title="美国"
+                                           href="index.php-r=agentc-post-search&sid=5857.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=5857"
+                                           data-sid="5857"><span>美国</span></a></dd>
+                                    <dd><a target="_blank" title="墨西哥"
+                                           href="index.php-r=agentc-post-search&sid=6293.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6293"
+                                           data-sid="6293"><span>墨西哥</span></a></dd>
+                                    <dd><a target="_blank" title="牙买加"
+                                           href="index.php-r=agentc-post-search&sid=7341.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7341"
+                                           data-sid="7341"><span>牙买加</span></a></dd>
+                                    <dd><a target="_blank" title="格陵兰岛"
+                                           href="index.php-r=agentc-post-search&sid=7708.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7708" data-sid="7708"><span>格陵兰岛</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="阿根廷"
+                                           href="index.php-r=agentc-post-search&sid=4105.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4105"
+                                           data-sid="4105"><span>阿根廷</span></a></dd>
+                                    <dd><a target="_blank" title="巴西"
+                                           href="index.php-r=agentc-post-search&sid=4378.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4378"
+                                           data-sid="4378"><span>巴西</span></a></dd>
+                                    <dd><a target="_blank" title="玻利维亚"
+                                           href="index.php-r=agentc-post-search&sid=4529.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4529" data-sid="4529"><span>玻利维亚</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="厄瓜多尔"
+                                           href="index.php-r=agentc-post-search&sid=4795.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4795" data-sid="4795"><span>厄瓜多尔</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="哥伦比亚"
+                                           href="index.php-r=agentc-post-search&sid=4905.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=4905" data-sid="4905"><span>哥伦比亚</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="秘鲁"
+                                           href="index.php-r=agentc-post-search&sid=6234.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6234"
+                                           data-sid="6234"><span>秘鲁</span></a></dd>
+                                    <dd><a target="_blank" title="委内瑞拉"
+                                           href="index.php-r=agentc-post-search&sid=7070.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7070" data-sid="7070"><span>委内瑞拉</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="乌拉圭"
+                                           href="index.php-r=agentc-post-search&sid=7179.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7179"
+                                           data-sid="7179"><span>乌拉圭</span></a></dd>
+                                    <dd><a target="_blank" title="智利"
+                                           href="index.php-r=agentc-post-search&sid=7628.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7628"
+                                           data-sid="7628"><span>智利</span></a></dd>
+                                    <dd><a target="_blank" title="巴拉圭"
+                                           href="index.php-r=agentc-post-search&sid=7707.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7707"
+                                           data-sid="7707"><span>巴拉圭</span></a></dd>
+                                    <dd><a target="_blank" title="哥斯达黎加"
+                                           href="index.php-r=agentc-post-search&sid=7703.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7703" data-sid="7703"><span>哥斯达黎加</span></a>
+                                    </dd>
+                                    <dd><a target="_blank" title="巴哈马"
+                                           href="index.php-r=agentc-post-search&sid=7709.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=7709"
+                                           data-sid="7709"><span>巴哈马</span></a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $('.menu-srot a').each(function(){
+                                var obj=$(this);
+                                var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                var data_sid=$(this).attr('data-sid');
+                                var url=baseUrl;
+                                if(data_sid){
+                                    url=baseUrl+data_sid
+                                }else{
+                                    url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                    url+=obj.text();
+                                }
+                                obj.attr('href', url);
+                                obj.attr('title', obj.text());
+                                obj.attr('target', '_blank');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+    <li class="appliance js_toggle relative last h73">
+        <div class="category-info list-mz">
+            <h3 class="category-name b-category-name"><i style="background-position: -167px top;"></i><a id="s-category-342"  href="javascript:;" class="ml-22"
+                                                                title="">中东非</a></h3>
+            <p class="c-category-list limit-24 pdb11">
+                <a data-sid="4143" href="#">迪拜</a>
+                <a data-sid="7392" href="#">以色列</a>
+                <a data-sid="5455" href="#">肯尼亚</a>
+                <a data-sid="4171" href="#">埃及</a>
+            </p>
+            <em>&gt;</em>
+        </div>
+        <textarea class="menu-item-wrap none">
+            <div class="menu-item menu-in top">
+                <div class="area-in">
+                    <div class="area-bg">
+                        <div class="menu-srot">
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>中东非旅游</span></dt>
+                                    <dd><a data-sid="4171" href="#"><span>埃及</span></a></dd>
+                                    <dd><a data-sid="6947" href="#"><span>土耳其</span></a></dd>
+                                    <dd><a data-sid="4143" href="#"><span>迪拜</span></a></dd>
+                                    <dd><a data-sid="5842" href="#"><span>毛里求斯</span></a></dd>
+                                    <dd><a data-sid="6678" href="#"><span>塞舌尔</span></a></dd>
+                                    <dd><a data-sid="7392" href="#"><span>以色列</span></a></dd>
+                                </dl>
+                            </div>
+                            <div class="brand-side">
+                                <dl class="dl-sort">
+                                    <dt><span>中东非国家列表</span></dt>
+                                    <dd><a data-sid="6368" href="index.php-r=agentc-post-search&sid=6368.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/search&sid=6368"><span>南非</span></a></dd>
+                                    <dd><a data-sid="5455" href="#"><span>肯尼亚</span></a></dd>
+                                    <dd><a data-sid="6947" href="#"><span>土耳其</span></a></dd>
+                                    <dd><a data-sid="6678" href="#"><span>塞舌尔</span></a></dd>
+                                    <dd><a data-sid="4143" href="#"><span>迪拜</span></a></dd>
+                                    <dd><a data-sid="5842" href="#"><span>毛里求斯</span></a></dd>
+                                    <dd><a data-sid="4171" href="#"><span>埃及</span></a></dd>
+                                    <dd><a data-sid="7392" href="#"><span>以色列</span></a></dd>
+                                    <dd><a data-sid="7391" href="#"><span>伊朗</span></a></dd>
+                                    <dd><a data-sid="6281" href="#"><span>摩洛哥</span></a></dd>
+                                    <dd><a data-sid="6921" href="#"><span>突尼斯</span></a></dd>
+                                    <dd><a data-sid="6884" href="#"><span>坦桑尼亚</span></a></dd>
+                                    <dd><a data-sid="5378" href="#"><span>津巴布韦</span></a></dd>
+                                </dl>
+                            </div>
+                            <script type="text/javascript">
+                                $('.menu-srot a').each(function(){
+                                    var obj=$(this);
+                                    var baseUrl='http://www.btgtravel.com/index.php?r=agentc/post/search&sid=';
+                                    var data_sid=$(this).attr('data-sid');
+                                    var url=baseUrl;
+                                    if(data_sid){
+                                        url=baseUrl+data_sid
+                                    }else{
+                                        url='index.php-r=agentc-post-search&keywords=.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search&keywords=*/;
+                                        url+=obj.text();
+                                    }
+                                    obj.attr('href', url);
+                                    obj.attr('title', obj.text());
+                                    obj.attr('target', '_blank');
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </textarea>
+    </li>
+
+
+    </ul>
+</div>
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+    $('.category').remove();
+</script>
+<link type="text/css" rel="stylesheet" href="themes/agentc/css/form_zz.css" tppabs="http://www.btgtravel.com/themes/agentc/css/form_zz.css"/>
+<script type="text/javascript" src="themes/agentc/js/min_contentslider.js" tppabs="http://www.btgtravel.com/themes/agentc/js/min_contentslider.js"></script>
+
+<!--calendar-->
+<link rel="stylesheet" type="text/css" href="static/calendar/fullcalendar.css" tppabs="http://www.btgtravel.com/static/calendar/fullcalendar.css">
+<script src=" static/calendar/lib/moment.min.js" tppabs="http://www.btgtravel.com/static/calendar/lib/moment.min.js"></script>
+<script src=" static/calendar/fullcalendar.min.js" tppabs="http://www.btgtravel.com/static/calendar/fullcalendar.min.js"></script>
+<script src=" static/calendar/lang-all.js" tppabs="http://www.btgtravel.com/static/calendar/lang-all.js"></script>
+
+<link rel="stylesheet" type="text/css" href="static/date-picker/daterangepicker.css" tppabs="http://www.btgtravel.com/static/date-picker/daterangepicker.css">
+<script src=" static/date-picker/jquery.daterangepicker.js" tppabs="http://www.btgtravel.com/static/date-picker/jquery.daterangepicker.js"></script>
+
+
+<script type="text/javascript">
+
+    Date.prototype.format = function(format) {
+        var date = {
+            "M+": this.getMonth() + 1,
+            "d+": this.getDate(),
+            "h+": this.getHours(),
+            "m+": this.getMinutes(),
+            "s+": this.getSeconds(),
+            "q+": Math.floor((this.getMonth() + 3) / 3),
+            "S+": this.getMilliseconds()
+        };
+        if (/(y+)/i.test(format)) {
+            format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
+        }
+        for (var k in date) {
+            if (new RegExp("(" + k + ")").test(format)) {
+                format = format.replace(RegExp.$1, RegExp.$1.length == 1
+                    ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+            }
+        }
+        return format;
+    };
+
+    var setMembers=function(num,remove){
+        if(!num){
+            num=1;
+        }
+
+        var gid=$('#group').val();
+        var chanid=$('#chanid').val();
+
+        var baseUrl= 'http://www.btgerp.com/';
+        var _url=baseUrl+'/btgtravel/group/getService/gid/' + gid + '/chanid/'+chanid+'/type/jsonp/';
+        jsonP(_url,function(_data){
+            if (_data.err.length == 0) {
+                _data=_data.data;
+                if(remove){
+                    $('#memberlist tr.mtr').remove();
+                }
+
+                for(var i=0;i<num;i++){
+                    var r=Math.random();
+                    var html='<tr class="mtr">';
+                    html+='<td class="td-service">';
+                    html+=' <label class="radio"><input type="radio"  name="Order-type-'+r+'"  value="1" checked data-type="adult" data-saleprice="'+ _data.required.saleprice+'" data-iid="'+ _data.required.iid+'" >成人</label>';
+                    if(_data.child){
+                        html+=' <label class="radio"><input type="radio" data-iid="'+ _data.child+'" name="Order-type-'+r+'"  value="2" data-type="child" data-saleprice="'+ _data.childprice+'">儿童</label>';
+                    }
+                    html+='</td>';
+
+                    html+='<td class="td-optional">';
+                    if(_data.options){
+                        $.each(_data.options,function(k,v){
+                            if(v.ctype!= 'child'){
+                                html+='<label class="checkbox"><input type="checkbox" data-iid="'+ v.iid+'" data-type="'+ v.ctype+'" data-saleprice="'+ v.saleprice+'">&nbsp;'+ v.name+'</label>';
+                            }
+                        });
+                    }
+                    html+='</td>';
+
+                    html+='<td>';
+                    html+='<b class="font-base-saleprice uz-sr-price">'+_data.required.saleprice+'</b>';
+                    html+='</td>';
+
+                    html+='<td><img width="16" style="display:inline;cursor:pointer;" onclick="removeMember(this);" src="themes/agentc/images/iconfont-quxiao.png"/*tpa=http://www.btgtravel.com/themes/agentc/images/iconfont-quxiao.png*/ /></td>';
+
+                    html+='</tr>';
+                    $('#memberlist').append(html);
+                }
+                setTotalPrice();
+            }
+        });
+    };
+
+   var removeMember=function(obj){
+       var l=$('#memberlist tr.mtr').length;
+       if(l>1){
+           $(obj).closest('tr').remove();
+           setTotalPrice();
+       }
+   };
+
+    $(function () {
+        $('.content_data').fullCalendar({
+            header: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            },
+            titleFormat: {
+                month: 'MMMM YYYY'
+            },
+            lang: 'zh-cn',
+            firstDay: 1,
+            weekMode: 'fixed',
+            events: function (start, end, timezone, callback) {
+                $.ajax({
+                    url: 'index.php-r=post-SellGroups&gid=20166960891.htm'/*tpa=http://www.btgtravel.com/index.php?r=post/SellGroups&gid=20166960891*/,
+                    data: function () {
+                        return {
+                            dynamic_value: Math.random()
+                        };
+                    },
+                    success: function (doc) {
+                        doc = $.parseJSON(doc);
+                        if (doc) {
+                            var events = [];
+                            $(doc.data).each(function (i, g) {
+                                if (g.salePrice > 0) {
+                                    events.push({
+                                        gid: g.group.gid,
+                                        chanid: g.chanid,
+                                        quantity: g.stock.quantity,
+                                        salePrice: g.salePrice,
+                                        start: g.group.group_date,
+                                        allDay: true
+                                    });
+                                }
+                            });
+                            callback(events);
+                            $('.fc-view-container').width(669); //lvkui 修改日历header-width
+                        }
+                    }
+                });
+            },
+            eventRender: function (event, element) {
+                var title = '';
+                if (event.quantity > 9)
+                    title += '>9';
+                else
+                    title += event.quantity;
+
+                var price = event.salePrice;
+                var html = "<div style='font-size: 1.2em; font-weight: bold;'><div style='letter-spacing:3px; text-align: center; cursor:pointer; color: #008800;'>" + title + "位</div><div style='letter-spacing:3px; text-align: center; color: #ff6000;cursor: pointer;'><b>￥<i>" + price + '</i>' + "</b></div></div>";
+                element.html(html);
+            },
+            eventClick: function (calEvent, e, view) {
+
+                //active
+                var _acitve='uz-fullCalendar-active';
+                $('.content_data .uz-fullCalendar-active').removeClass(_acitve);
+                var _fc_event = $(e.target).closest(".fc-event");
+                _fc_event.toggleClass(_acitve);
+
+                //date order
+                $('#js-departure-date').val(calEvent.start.format());
+                setTotalPrice(calEvent.salePrice);
+                $('#group').val(calEvent.gid);
+                $('#chanid').val(calEvent.chanid);
+                //members
+                if(calEvent.quantity>0){
+                    setMembers(1,true);
+                }
+                $('.order_num').val(1);
+
+                $('.js_order').show();
+            }
+        });
+    });
+
+    var jsonP=function(_url,func){
+        $.ajax({
+            url: _url,
+            type: 'get',
+            async: false,
+            dataType: 'jsonp',
+            jsonp: "callback",
+            success: func
+        });
+    };
+
+
+    $(function () {
+
+       //初始化日历及时间拾取控件的团期处理
+       var _url= 'http://www.btgerp.com/btgtravel/group/GetNewlyDateByPgid/gid/20166960891/type/jsonp/'
+        jsonP(_url,function(_data){
+            if (_data.err.length == 0) {
+                setfullCalendarDate(_data);
+                initDatePicker(_data);
+            }
+        });
+
+        $(document).on('change','#memberlist :radio,#memberlist :checkbox',function(){
+            setMemberPrice();
+            setTotalPrice();
+        });
+    });
+
+    var setTotalPrice=function(p){
+        if(!p){
+            var coin=0;
+            $('#memberlist :checked').each(function(){
+                var input=$(this);
+                coin=coin+parseFloat(input.attr('data-saleprice'));
+            });
+            p=coin;
+        }
+        $('#totalPrice').val(p);
+        var price ='<dfn>¥</dfn>'+p;
+        $('.total_price span.price').html(price);
+    };
+
+    var setMemberPrice=function(){
+        $('#memberlist tr.mtr').each(function(){
+            var inputs=$(this).find(':checked');
+            var coin=0;
+            inputs.each(function(){
+                coin=coin+parseFloat($(this).attr('data-saleprice'));
+            });
+            $(this).find('.uz-sr-price').text(coin);
+        });
+    };
+
+    var setfullCalendarDate=function(_data){
+        if(_data.data.dates.length>0){
+            $('.content_data').fullCalendar('gotoDate',new Date(_data.data.defaultDate));
+        }else{
+            $('.sell_out').show();
+        }
+    };
+
+    var initDatePicker=function(_data){
+        $('#js-departure-date').dateRangePicker({
+            autoClose: false,
+            format: 'YYYY-MM-DD',
+            separator: ' to ',
+            language: 'auto',
+            startOfWeek: 'monday',// or sunday
+            getValue: function()
+            {
+                return $(this).val();
+            },
+            setValue: function(s)
+            {
+                $(this).val(s);
+            },
+            startDate: new Date(_data.data.defaultDate),
+            endDate: new Date(_data.data.endDate),
+            time: {
+                enabled: false
+            },
+            minDays: 0,
+            maxDays: 0,
+            container:'body',
+            singleDate:true,
+            duration: 200,
+            stickyMonths: false,
+            singleMonth: 'auto',
+            hoveringTooltip: function(days, startTime, hoveringTime)
+            {
+                return days > 1 ? days + ' ' + lang('days') : '';
+            },
+            showTopbar: false,
+            getWeekNumber: function(date) //date will be the first day of a week
+            {
+                return moment(date).format('w');
+            },
+            beforeShowDay: function(t)
+            {
+                var d=t.format('yyyy-MM-dd');
+                var dates=_data.data.dates;
+                if(dates.indexOf(d)==-1){
+                    return [false,'','不可预定'];
+                }else{
+                    return [true,'',''];
+                }
+            }
+
+        });
+    };
+</script>
+<div class="area mt10">
+
+    <div class="content_top mt10">
+        <h2>新疆XJ2【西域风情—多彩喀纳斯 绝色小瑞士】单飞九日 乌鲁木齐、布尔津、贾登峪、喀纳斯湖、天池、火洲吐鲁番、坎儿井、交河故城、沙漠植物园</h2>
+
+        <div class="clear"></div>
+        <div class="content_left">
+            <div class="syFocusThumb">
+                <div class="sliderwrapper" id="syFocusThumb">
+                     <div class=contentdiv><div class=dPic><a href="javascript:;" ><img alt="" src="../www.btgerp.com/files/2016-04/jpg (34).jpeg" tppabs="http://www.btgerp.com/files/2016-04/jpg%20%2834%29.jpeg" width=560 height=420></a></div></div>                </div>
+
+                <div class="pagination" id="paginate-syFocusThumb">
+                    <i title="上一幅" class="prev" id="prev"></i>
+
+                    <div class="thumbWrap">
+                        <div class="holder" style="margin-left: -1px;">
+                            <I class=toc><a href="javascript:;" ><img alt="" src="../www.btgerp.com/files/2016-04/jpg (34).jpeg" tppabs="http://www.btgerp.com/files/2016-04/jpg%20%2834%29.jpeg" width=92 height=69></a></I>                        </div>
+                    </div>
+                    <i title="下一幅" class="next" id="next"></i></div>
+
+                <script type="text/javascript">
+                    //焦点图初始化
+                    featuredcontentslider.init({
+                        id: "syFocusThumb", //指定ID
+                        contentsource: ["inline", ""], //有效值: ["inline", ""] 嵌入html or ["ajax", "path_to_file"] 嵌入utf-8文件
+                        toc: "scroll", //有效值: "#increment" 标记序号, "markup", ["markup1", "markup2", etc]标记具体内容
+                        nextprev: ["", ""], //next_pre标记 ，如："上一条" "下一条"，设置为 "" 为不出现
+                        revealtype: "click", //鼠标事件有效值: "click" or "mouseover"
+                        enablefade: [false, 0.15], // 切换褪色度 "true"or "false"
+                        autorotate: [true, 3500], // 切换停留时间 "true"or "false"
+                        delay: 0, //事件延迟时间(默认值：0，单位：ms)
+                        //playtab: 4, 默认的播放舌签
+                        onChange: function (previndex, curindex) { //触发处理；previndex 触发处理上一个记录； curindex 触发处理上一个记录 可以自定义函数控制；参考亲子网首页"亲子部落-相册"
+                        }
+                    });
+                </script>
+
+            </div>
+            <div class="clear"></div>
+            <div class="sell_out"><b></b></div>
+            <div class="content_data">
+
+            </div>
+        </div>
+        <div class="content_right">
+            <div class="price">优惠价：￥<span class="p uz-g-price-item uz-g-20166960891-price" data-gid="20166960891">4050</span> 起<span class="qj"
+                                                                                           title="本起价是可选出发日期中，按双人出行共住一间房核算的最低单人价格。产品价格会根据您所选择的出发日期、出行人数、入住酒店房型航班或交通以及所选附加服务的不同而有所差别。"><a
+                        href="javascript:;">起价说明</a></span></div>
+            <p><span class="t">线路编号：</span>20166960891</p>
+
+            <div class="clear"></div>
+            <p><span class="t">产品类型：</span><b>国内跟团游</b></p>
+
+            <div class="clear"></div>
+            <p><span class="t">产品主题：</span>当地散拼</p>
+
+            <div class="clear"></div>
+            <p><span class="t">出发地点：</span>北京</p>
+
+            <div class="clear"></div>
+            <p><span class="t">目的地点：</span>乌鲁木齐</p>
+
+            <div class="clear"></div>
+            <p><span class="t">行程天数：</span>9天</p>
+
+            <div class="clear"></div>
+            <p><span class="t">导游服务：</span>地陪</p>
+
+            <div class="clear"></div>
+
+            <!--<div class="e">
+                客户满意度<p class="n">97%</p>
+
+                <p class="y">已有100条评价</p>
+            </div>-->
+
+           <!-- <div class="c" style="margin-bottom: 15px;">
+                <ul class="b">
+                    <button style="margin-left:60px;" id="yuding" class="gm_btn">立即预订</button>
+                    <button style="margin-left:10px;" id="shoucang" class="sc_btn">加入收藏</button>
+                </ul>
+            </div>
+            <div class="clear"></div>-->
+            <div class="d">
+                <h3>行程特色</h3>
+
+                <div style="max-height: 266px; height:266px;overflow-y: scroll; overflow-x:visible; font-size: 14px; line-height: 1.8em;">
+                    1、精彩串联：北疆最富胜誉的景点，欣赏迷人的高山湖泊，感受别具异彩的西域风情，探寻神秘的摄影天堂；<br />
+2、环绕准噶尔盆地，天山明珠&mdash;天山天池、瑞士风光&mdash;喀纳斯，风蚀地貌&mdash;魔鬼城； <br />
+3、沿途景观不容错过，火烧山，百里油田，达阪城风力发电站；<br />
+4、品尝地道新疆风味美食：大盘鸡、烤羊肉串、手抓饭、拉条子、馕等；<br />
+5、超值加赠：赠送给您的最具特色、还原民族纯真文化价值268元的大型民族歌舞表演-吐鲁番欢乐盛典、麦西莱普葡萄生态园、吐鲁番有名的斗鸡表演及观赏世界第一馕坑；赠送每天每人一瓶矿泉水；<br />
+6、赠送维吾尔民族家访；<br />
+7、赠送人身意外险；                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="d">
+                <hr style="margin-top: 15px; margin-bottom: 15px;"/>
+                <h3>可选定制 <span>VIP</span> 小包团 <span class="tel">4000100808</span></h3>
+
+                <p>
+                    1、我们专业的团队为您提供周全的服务,让您安心出游;<br>
+                    2、专属导游全程呵护,让私家团尽享尊贵;<br>
+                    3、4人以上即可独立成行;<br>
+                    4、神舟国旅为您安排了专属的客服,预订后享受一对一的服务;<br>
+                    5、根据您所需的行程安排和旅游目的地,让您拥有更好的旅游;<br>
+                    <img src="themes/agentc/images/lc.jpg" tppabs="http://www.btgtravel.com/themes/agentc/images/lc.jpg">
+                </p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div id="js_order" class="js_order" style="display: none;">
+            <input type="hidden" id="group">
+            <input type="hidden" id="chanid">
+            <input type="hidden" id="totalPrice">
+            <ul class="resource_price_wrap basefix">
+                <li class="start_date abc_start_date"><label for="">出发时间</label>
+                    <div class="input_wrap">
+                        <input type="text" placeholder=" 请选择出发日期" id="js-departure-date" readonly="readonly">
+                        <b></b>
+                    </div>
+                </li>
+                <li class="tourist_num"><label for="">人数</label>
+                    <div class="input_wrap"><input type="number" class="order_num" readonly="readonly" value="1" min="1" max="10"> <b></b>
+                        <p style="display:none">
+                            <a href="javascript:void(0);">1</a>
+                            <a href="javascript:void(0);">2</a>
+                            <a href="javascript:void(0);">3</a>
+                            <a href="javascript:void(0);">4</a>
+                            <a href="javascript:void(0);">5</a>
+                            <a href="javascript:void(0);">6</a>
+                            <a href="javascript:void(0);">7</a>
+                            <a href="javascript:void(0);">8</a>
+                            <a href="javascript:void(0);">9</a>
+                            <a href="javascript:void(0);">10</a>
+                        </p>
+                    </div>
+                </li>
+                    <li class="total_price">
+                        <span class="price_name">总价</span>
+                        <span class="price">--</span>
+                        <i style="display:none" id="J_acpricetip" class="price_icon"></i>
+                        <a href="javascript:void(0);" class="btn_red_big" id="js-submit"> 开始预订 </a>
+                        <div style="display:none" id="J_pricealert" class="price_alert"></div>
+                    </li>
+            </ul>
+            <div class="resource_wrap">
+
+                <table class="table table-hover uz-buy-table" id="memberlist">
+                    <tbody>
+                    <tr id="head">
+                        <th style="text-align: center;">服务标准(单选)</th>
+                        <th style="text-align: center;">可选资源（多选）</th>
+                        <th style="text-align: center;">金额（元）</th>
+                        <th style="text-align: center; width: 50px;">操作</th>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <div class="content_tab">
+        <ul selfpack="false" id="scroll_nav" class="scroll_nav_ul">
+            <li class="row_1"><a href="javascript:void(0)" onClick="cmCreateTabElements('行程精编')">行程精编</a></li>
+            <li class="row_2"><a href="javascript:void(0)" onClick="cmCreateTabElements('费用说明')">费用说明</a></li>
+            <li class="row_3"><a href="javascript:void(0)" onClick="cmCreateTabElements('参团须知')">参团须知</a></li>
+            <li class="row_4"><a href="javascript:void(0)" onClick="cmCreateTabElements('自费协议')">自费协议</a></li>
+            <li class="row_5" style='display:none;' ><a
+                    href="javascript:void(0)" onClick="cmCreateTabElements('签证信息')">签证信息</a></li>
+        </ul>
+
+        <i id="row_1" class="pkg-maodian">&nbsp;</i>
+
+        <h3 class="nr_tit">行程精编</h3>
+
+        <div class="content_nr"><strong>行程安排：</strong>新疆XJ2【西域风情—多彩喀纳斯 绝色小瑞士】单飞九日 乌鲁木齐、布尔津、贾登峪、喀纳斯湖、天池、火洲吐鲁番、坎儿井、交河故城、沙漠植物园乌鲁木齐&emsp;<br><strong>第1天：</strong><strong>第一天 北京—乌鲁木齐  全天不含餐  宿火车上</strong>&emsp;&emsp;&emsp;&emsp;<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">北京西站乘火车硬卧前往具有&ldquo;戈壁明珠&rdquo;之称举世闻名的&ldquo;歌舞之乡&rdquo;&mdash;【乌鲁木齐】。</span></span></p>
+
+<p><span style="font-size:14px;"><strong><span style="font-family:宋体;">参考车次：</span></strong><span style="font-family:宋体;">Z69次10:00-19:19或其它车次</span></span></p>
+<strong>244</strong>&emsp;&emsp;&emsp;&emsp;<br><p></p><strong>第2天：</strong><strong>第二天 乌鲁木齐  全天不含餐  宿乌鲁木齐</strong>&emsp;&emsp;&emsp;&emsp;<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">晚抵达乌鲁木齐，这里地大物博，热情的民风会感染你，这里的一切会让您感受到不一样的风情，抵达后入住酒店，休息放松心情准备开始愉快的旅程。</span></span></p>
+<strong>279</strong>&emsp;&emsp;&emsp;&emsp;<p><b>参考酒店：</b>
+							<span style="margin-left: 2px;" data-title="温德堡酒店、金众假日、裕源酒店、国泰酒店、前海酒店或其它同级酒店；"
+							data-cost="0">温德堡酒店、金众假日、裕源酒店、国泰酒店、前海酒店或其它同级酒店；
+							</span>
+							</p><br><p></p><strong>第3天：</strong><strong>第三天 乌鲁木齐—布尔津 含早中晚餐 宿布尔津</strong>&emsp;&emsp;&emsp;&emsp;<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">早餐后出发乘车沿217国道返回乌鲁木齐，远观世界魔鬼城&mdash;</span></span><strong><span style="font-weight:bold;"><span style="font-size:10.5000pt;"><span style="color:#0000ff;"><span style="font-family:宋体;">【乌尔禾魔鬼城】</span></span></span></span></strong><span style="font-size:14px;"><span style="font-family:宋体;">；大自然鬼斧神工的杰作&mdash;雅丹地貌，远眺风城，就像中世纪欧洲的一座大城堡。大大小小的城堡林立，高高低低参差错落。在起伏的山坡顶上，布满血红、湛蓝、洁白、橙黄的各色石子，宛如魔女遗珠，更增添了几许神秘色彩，观克拉玛依百里油田壮景。百里油田千万个&ldquo;磕头机&rdquo;七上八下地忙碌着，犹如生命的脉搏在跳跃。</span><span style="font-family:宋体;">赠送：</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【布尔津金三角野生丛林】</span></span></strong><span style="font-family:宋体;">景区内大片蓊蓊郁郁的丛林，一条银色河流从林间蜿蜒而过，在苍苍翠微的掩映下，依稀看见了红色尖顶小屋的一角，远观时的布尔津宛如一位犹抱琵琶半遮面舞女，抵达布尔津入住酒店，后乘车前往布尔津抵达后可游览</span><strong><span style="font-family:宋体;">【五彩滩&mdash;自理150元人】</span></strong><span style="font-family:宋体;">。五彩滩又名五彩河岸，有天下第一滩之美誉，是新疆著名雅丹地貌之一。五彩滩的傍晚景色尤为壮观，天上是洁白的云，地上是五彩的岸，中间是迷人的额尔齐斯河，遥相呼应，绝美画卷&hellip;可以去河梯夜市自费品尝特色野生烤鱼、喝着俄罗斯大妈自酿的啤酒-格瓦斯。</span></span></p>
+<strong>279</strong>&emsp;&emsp;&emsp;&emsp;<p><b>参考酒店：</b>
+							<span style="margin-left: 2px;" data-title="金林大酒店、阳光酒店、腾龙酒店、华鑫大酒店或其它同级酒店；"
+							data-cost="0">金林大酒店、阳光酒店、腾龙酒店、华鑫大酒店或其它同级酒店；
+							</span>
+							</p><br><p></p><strong>第4天：</strong><strong>第四天 布尔津—喀纳斯—贾登峪 含早中晚餐 宿贾登峪 </strong>&emsp;&emsp;&emsp;&emsp;<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">早餐后，乘车赴贾登峪，后换成区间车（90元/人自理）进入富有&ldquo;东方小瑞士&rdquo;之称的</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【喀纳斯自然保护区】</span></span></strong><span style="font-family:宋体;">（游览时间约3小时），喀纳斯湖风景区集冰川、湖泊、森林、河流、民族风情与一体的综合景区，这里是我国唯一的西伯利亚冷松分布带。在这里，壮观的冰川映衬着宁静的湖水，茫茫的草原包容着幽深的原始森林，美丽而神秘的喀纳斯湖，会让您在新疆感受到&ldquo;大海&rdquo;的辽阔，并且传说在喀纳斯湖会有&ldquo;水怪&rdquo;出没，这给喀纳斯湖披上了一层神秘的面纱。还可游览</span><strong><span style="font-family:宋体;">卧龙湾</span></strong><span style="font-family:宋体;">、</span><strong><span style="font-family:宋体;">神仙湾</span></strong><span style="font-family:宋体;">、</span><strong><span style="font-family:宋体;">月亮湾</span></strong><span style="font-family:宋体;">、</span><strong><span style="font-family:宋体;">鸭泽湖。</span></strong><span style="font-family:宋体;">之后景区自由活动或自费进入</span><strong><span style="font-family:宋体;">【图瓦族家访&mdash;120元/人自理】</span></strong><span style="font-family:宋体;">，感受民族风俗，聆听天籁之音苏尔乐器，这天的晚餐带团友们走进哈萨克毡房大快朵颐地品尝特有的&lsquo;一羊三吃&rsquo;美食，清炖美味手抓肉、原始手抓饭、原汁原味烤羊肉串、喝两杯当地山泉纯粮酿造喀纳斯白酒、顿时让您感觉有些回到成吉思汗大碗喝酒的豪爽年代！</span></span></p>
+<strong>279</strong>&emsp;&emsp;&emsp;&emsp;<p><b>参考酒店：</b>
+							<span style="margin-left: 2px;" data-title="兄弟山庄、格林酒店、碧水琼阁酒店、峪源酒店、大森林国际或其它同级酒店；"
+							data-cost="0">兄弟山庄、格林酒店、碧水琼阁酒店、峪源酒店、大森林国际或其它同级酒店；
+							</span>
+							</p><p><b>景点：</b>
+							<span style="margin-left: 2px;" data-title="喀纳斯自然保护区"
+							data-cost="0">喀纳斯自然保护区
+							</span>
+							</p><br><p></p><strong>第5天：</strong><strong>第五天 贾登峪—布尔津 含早中晚餐 宿布尔津</strong>&emsp;&emsp;&emsp;&emsp;<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">早餐后乘车前往</span><strong><span style="font-family:宋体;">【哈巴河景区+兵团185团+白沙湖景区&mdash;400元/人费用自理】</span></strong><span style="font-family:宋体;">（门票+导服+车费）-景色几近完美。穿过一片高大的桦树林，就能看到一个小巧精致，组合完美的白沙湖。远处的蓝天由白云眏衬与绵延不断的沙丘相连，沙丘与沙湖相连；岸上的桦树林从远处慢慢地走来，一直走进的湖里，泛黄泛红色彩斑斓的枝叶与沙湖交融；湖面上漂着一片片过了花季但枝叶犹绿的野荷花，好象还想再展一下自己的风采；芦苇们身穿金黄色的服装，头顶白樱，在沙湖边展现着它们的成熟身材；去白沙湖的途中可观赏</span></span><strong><span style="font-weight:bold;"><span style="font-size:10.5000pt;"><span style="color:#0000ff;"><span style="font-family:宋体;">【额尔齐斯河月亮湾】</span></span></span></span></strong><span style="font-size:14px;"><span style="font-family:宋体;">（不去费用不退）唯一一条流入北冰洋的额尔齐思河的两天支流途经镶嵌在荒漠戈壁上河谷所形成的奇观，形状呈月牙状，故此得名！ 去白沙湖的途中还可游览到</span></span><strong><span style="font-weight:bold;"><span style="font-size:10.5000pt;"><span style="color:#0000ff;"><span style="font-family:宋体;">【西北第一白桦林】</span></span></span></span></strong><span style="font-size:14px;"><span style="font-family:宋体;">（不去费用不退） 蜿蜒的哈巴河穿林而过，为桦林增添了无限的灵秀。白桦林乃俄罗斯的国树，象征纯洁的爱情，白桦林的树痕好似情人的眼睛，白桦林的汁液象征着情人的眼泪，入住酒店。</span></span></p>
+<strong>279</strong>&emsp;&emsp;&emsp;&emsp;<p><b>参考酒店：</b>
+							<span style="margin-left: 2px;" data-title="金林大酒店、阳光酒店、腾龙酒店、华鑫大酒店或其它同级酒店；"
+							data-cost="0">金林大酒店、阳光酒店、腾龙酒店、华鑫大酒店或其它同级酒店；
+							</span>
+							</p><br><p></p><strong>第6天：</strong><strong>第六天 布尔津—乌鲁木齐 含早中餐 宿乌鲁木齐</strong>&emsp;&emsp;&emsp;&emsp;<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">早餐后乘车沿 216国道途径古尔班通古特沙漠，是中国第二大沙漠，沿途可以欣赏到五彩斑斓的火烧山（停车合影留念），每逢晨昏，在朝阳或晚霞映照下，仿佛仍在熊熊燃烧，壮丽罕见，因而得名。途径卡拉麦里有蹄类自然保护区；卡拉麦里山是一条东西走向的低矮山脉。这里地貌复杂，植被丰富，水源充足，人迹罕到，形成了最适宜野生动物繁衍生息的&quot;天堂&quot;。如今，这里保护的主要对象--蒙古野驴已发展到1000余只，鹅喉羚(黄羊）已有1万余只。此外，普氏野马、盘羊、黄羊等各种&quot;有蹄&quot;的珍稀野生动物，如果有幸可以看到普氏野马及黄羊！晚上抵达乌市后参观</span><strong><span style="font-family:宋体;">【盛世玉都-约60分钟】或【钰龙翔和田玉会展中心 约60分钟】</span></strong><span style="font-family:宋体;">。（晚餐自理）后入住酒店休息。</span></span></p>
+<strong>279</strong>&emsp;&emsp;&emsp;&emsp;<p><b>参考酒店：</b>
+							<span style="margin-left: 2px;" data-title="温德堡酒店、金众假日、裕源酒店、国泰酒店、前海酒店或其它同级酒店；"
+							data-cost="0">温德堡酒店、金众假日、裕源酒店、国泰酒店、前海酒店或其它同级酒店；
+							</span>
+							</p><br><p></p><strong>第7天：</strong><strong>第七天  乌鲁木齐—吐鲁番—乌鲁木齐 含早中餐 宿乌鲁木齐</strong>&emsp;&emsp;&emsp;&emsp;<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">早乘车赴素有&ldquo;火洲&rdquo;之称的</span></span><strong><span style="font-weight:bold;"><span style="font-size:10.5000pt;"><span style="color:#0000ff;"><span style="font-family:宋体;">吐鲁番</span></span></span></span></strong><span style="font-size:14px;"><span style="font-family:宋体;">，途中观亚洲最大的风力发电站（停车照像10分钟），抵达吐鲁番后参观</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【沙漠植物园】</span></span></strong><span style="font-family:宋体;">（参观时间约40分钟）游览与万里长城、京杭大运河并称的中国古代三大文明工程的</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【坎儿井】</span></span></strong><span style="font-family:宋体;">（参观时间约40分钟）、即井穴的意思，它是利用地面坡度引下水进行自由灌溉的工程，可感受这凝聚着勤劳与智慧的人间奇迹，游览参观被誉为东方庞贝的</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【交河故城】</span></span></strong><span style="color:#000000;"><span style="font-family:宋体;">（</span></span><span style="font-family:宋体;">参观时间约40分钟），是目前已知的规模最大、历史最为久远、保存最为完好的生土掏挖建筑群、赠送</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【维吾尔民族家访】</span></span></strong><span style="font-family:宋体;">。后可自费游览素有&ldquo;八百里火焰&rdquo;的</span><strong><span style="font-family:宋体;">【火焰山大峡谷-180元/人自理】</span></strong><span style="font-family:宋体;">，火焰山有其独特的自然面貌，加上明代晚期吴承恩将唐三藏取经受阻火焰山，孙悟空三借芭蕉扇的故事写进著名古代小说《西游记》，把火焰山与唐僧、孙悟空、铁扇公主、牛魔王联系在一起，使火焰山神奇色彩浓郁，成天下奇山。游人到火焰山，还能看到唐僧路过时的栓马桩&mdash;一柱凌空的山石还屹立在胜金口内；远处一片平顶的山坡，则是唐僧上马的踏脚石；拴马桩东，隔峡谷有一高峰顶着一块活像长嘴的巨石，人称八戒石；一边看着奇景，一边说起孙猴子借铁扇公主芭蕉扇扇灭火焰山烈火的故事，此行便变得兴趣盎然，之后您可在葡萄架下参加</span><strong><span style="font-family:宋体;">【吐鲁番水果盛宴268元/人自理】</span></strong><span style="font-family:宋体;">欣赏维吾尔姑娘的婀娜多姿、品尝当地的特色餐、以及丰盛的水果大餐，</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【木卡姆葡萄庄园】</span></span></strong><span style="font-family:宋体;">来到这里，走在葡萄长廊下，呼吸着新鲜的空气，感受着火洲里&lsquo;桃花源&rsquo;的风景幽寂，这里栽种着20多万株葡萄树的葡萄长廊如今已成为一道独具特色的风景，吸引着中外游客前来观光，可来到</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【天下第一馕坑】</span></span><span style="font-family:宋体;">，</span></strong><span style="font-family:宋体;">&ldquo;世界大馕坑&rdquo;出炉了一匹重约200公斤的烤全驼。这个号称&ldquo;世界最大的馕坑&rdquo;于2004年4月在葡萄沟景区建成，直径10米、高8米，可同时烤1匹骆驼、2头牛和10只羊，随之观赏吐鲁番有名的</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【斗鸡】</span></span></strong><span style="font-family:宋体;">表演，斗鸡是维吾尔族古老的民间游戏，看一场斗鸡往往和看一场精彩的体育比赛一样叫人惬意，后乘车返回乌鲁木齐，途中赠送</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【达坂城古镇景点】</span></span></strong><span style="font-family:宋体;">穿越达坂城古镇，饱览民俗、历史、自然景观，在落霞时极目眺望雪峰、绿地，抛却城市的喧器，去慢慢感悟大自然的美好与历史的沧桑，途观柴窝铺湖，中国第一死海</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【盐湖】</span></span></strong><span style="font-family:宋体;">；晚抵乌鲁木齐入住酒店休息；</span></span></p>
+<strong>279</strong>&emsp;&emsp;&emsp;&emsp;<p><b>参考酒店：</b>
+							<span style="margin-left: 2px;" data-title="温德堡酒店、金众假日、裕源酒店、国泰酒店、前海酒店或其它同级酒店；"
+							data-cost="0">温德堡酒店、金众假日、裕源酒店、国泰酒店、前海酒店或其它同级酒店；
+							</span>
+							</p><p><b>景点：</b>
+							<span style="margin-left: 2px;" data-title="坎儿井"
+							data-cost="0">坎儿井
+							</span>
+							
+							<span style="margin-left: 2px;" data-title="交河故城"
+							data-cost="0">交河故城
+							</span>
+							</p><br><p></p><strong>第8天：</strong><strong>第八天 乌鲁木齐—天池—乌鲁木齐 含早中餐 宿乌鲁木齐</strong>&emsp;&emsp;&emsp;&emsp;<p><span style="font-size:14px;"><span style="font-family:宋体;">早餐后乘车赴亚欧大陆腹地干旱区自然景观的代表景区</span><strong><span style="color:#0000ff;"><span style="font-family:宋体;">【天池】</span></span></strong><span style="font-family:宋体;">（区间车90元/人自理，游览约2.5小时）；游览气势磅礡的天然门户石门一线、参观被誉为天山神目-西王母的洗脚盆的</span><strong><span style="font-family:宋体;">西小天池、东小天池</span></strong><span style="font-family:宋体;">（也叫黑龙潭）、南山望雪-远眺博格达峰（天山东段最高峰、也是古游牧民族遥拜的圣山，海报5445米），西山观松-景区西岸为郁郁葱葱的天山雪松，远远望去，非常壮观，参观在海波2000米生长的奇特而古老的榆树&mdash;定海神针，感受千米瀑布&mdash;悬泉飞瀑的壮景，（因为季节的限制，景区内的有些景致无法看到），后前往参观</span><strong><span style="font-family:宋体;">【白石缘玉器加工厂 约60分钟】或【华凌国际和田玉交易中心 约60分钟】。</span></strong><span style="font-family:宋体;">后乘车返回乌鲁木齐，（晚餐自理）入住酒店休息。</span><strong><span style="font-family:宋体;">（如此天结束行程之后乘坐飞机返回北京，必须要晚上21:00之后的航班，请酌情选择。</span></strong><strong><span style="font-family:宋体;">）</span></strong></span></p>
+<strong>279</strong>&emsp;&emsp;&emsp;&emsp;<p><b>参考酒店：</b>
+							<span style="margin-left: 2px;" data-title="温德堡酒店、金众假日、裕源酒店、国泰酒店、前海酒店或其它同级酒店；"
+							data-cost="0">温德堡酒店、金众假日、裕源酒店、国泰酒店、前海酒店或其它同级酒店；
+							</span>
+							</p><p><b>景点：</b>
+							<span style="margin-left: 2px;" data-title="天池"
+							data-cost="0">天池
+							</span>
+							</p><br><p></p><strong>第9天：</strong><strong>第九天 乌鲁木齐—北京 含早餐</strong>&emsp;&emsp;&emsp;&emsp;<p><span style="font-size:14px;"><span style="font-family:宋体;">早餐后，根据航班时间按导游指定时间统一集合，赴乌鲁木齐机场，乘飞机返回北京，结束愉快旅途。</span></span></p>
+<strong>279</strong>&emsp;&emsp;&emsp;&emsp;<br><p></p></div>
+
+        <i id="row_2" class="pkg-maodian">&nbsp;</i>
+
+        <h3 class="nr_tit">费用说明</h3>
+
+        <div class="content_nr"><p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">儿童价格说明：</span></strong><span style="font-family:宋体;">儿童占床价格同成人；儿童不占床价格为：不占床位、不含景点门票以及赠送项目、不含去程火车票硬卧，含当地区间旅游车车位、半餐、回程半价机票；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><strong style="font-size: 14px; line-height: 17pt;"><span style="font-family:宋体;">费用包含：</span></strong></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">1、大交通：</span></strong><span style="font-family:宋体;">北京-乌鲁木齐空调火车硬卧或其他中转车次（火车上不含餐）；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乌鲁木齐-北京飞机团队经济舱机票含税费（经停或中转航班）；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">2、小交通：</span></strong><span style="font-family:宋体;">当地正规非空调旅游车，车型根据游客人数而定，每人一正座；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">3、住 &nbsp;宿：</span></strong><span style="font-family:宋体;">全程酒店双标间（乌鲁木齐、布尔津为挂三星酒店标准间、贾登峪升级为旅游局待评定四星未挂牌，独立卫生间，有电视），参团时如出现单男单女，尽量安排拼住或三人间，如拼住上请现补单房差。（酒店设施与内地有较大差距，酒店多数为太阳能热水器，热水时间短，无空调和网线等，所以请勿以城市人心态衡量）；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">4、餐 &nbsp;饮：</span></strong><span style="font-family:宋体;">此团全程含7早餐9正餐，早餐酒店含，（正餐十人一桌，八菜一汤，不足10人将根据实际人数安排用餐，菜品数量将做适当调整，用餐若有忌口者，请游客提前告知导游）。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">5、景 &nbsp;点：</span></strong><span style="font-family:宋体;">行程中所列景点首道大门票（不含喀纳斯、天池区间车）；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">6、购 &nbsp;物：</span></strong><span style="font-family:宋体;">全程2个购物店，（景区内小摊以及购物不算购物店），如需购物或参加另行付费的旅游项目，导游会和旅游者协商一致，在当地补签以上自愿去购物店和自愿参加另行付费旅游项目的相关合同；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">7、导 &nbsp;服：</span></strong><span style="font-family:宋体;">当地中文优秀导游服务。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><strong style="font-size: 14px; line-height: 17pt;"><span style="font-family:宋体;">费用不包含：</span></strong></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">1、景区小景点门票、景区内用车（电瓶车、环保车、游船、摆渡、索道等）；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">2、自由活动、自行安排活动期间的用车、用餐及导游服务；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">3、全程单房差580元/人/7晚；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">4、酒店内洗衣、理发、电话、传真、收费电视、饮品、烟酒等有偿个人消费；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">5、因交通延阻、罢工、天气、飞机故障、航班取消或更改时间等不可抗力原因导致的额外费用；致的额外费用。行程将做调整，届时请您配合；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">6、因滞留造成的食宿费用，由游客承担；</span></span></p>
+</div>
+
+        <i id="row_3" class="pkg-maodian">&nbsp;</i>
+
+        <h3 class="nr_tit">参团须知</h3>
+
+        <div class="content_nr"><p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">参团须知：</span></strong></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">1、此团最低成团人数2人。如低于此人数不能成团时，我社将在出发前7日（不含）及时通知您，我们将按照您填写的《包价旅游合同》执行；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">2、拼团约定：此团为当地散客拼团（全程一车一导）；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">3、请您准确填写个人信息及《安全保障卡》和《旅游报名表》；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">4、请您在报名参团时，仔细阅读《旅游行程单》、《安全风险提示告知书》；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">5、最终行程将以新疆当地安排为准；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">6、建议在您出团前购买旅游人身意外保险；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">7、在您即将结束旅游时，请您秉着客观、公正、实事求是的原则填写《团队质量反馈单》，如出现质量问题，您填写的《团队质量反馈单》将作为您投诉的证据之一；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">8、 旅行社违约责任有约定按约定执行，无约定按&ldquo;旅行社服务质量赔偿标准&rdquo;执行；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">9、 如遇政府或航空公司政策性调整燃油税费，在未出票的情况下将多退少补，团队机票一经出票，不得更改、不得签转及不得退票；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">10、部份景区内设的购物商店，属于景区自行商业行为，不属于旅行社安排的购物商店，旅行社不承担相关责任，游客可自主选择；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">11、本线路委托地接旅行社:神舟合作社</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">退费说明：</span></strong></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">1、如游客中途脱团/退团，费用不退还，并需补交脱团费200元/人/天。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">2、若遇儿童按成人报名参团，当地没有发生的门票费用不退还!</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">3、如游客因航班时间、天气等人力不可抗拒因素导致景点等项目无法正常游览，费用均不退还！</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">4、游客在旅游行程中和自由活动期间，因为自身原因擅自离团或退团，视为违约在先，我公司有权终止后续的一切旅游接待服务，不退任何剩余的费用、及赠送项目费用，并需要补齐实际产生的成本费用，游客退团后所产生的一切人身及财产意外与我公司无任何责任关系；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">5、新疆旅游景点费用说明：老年证、学生证、导游证、记者证、军官证、军人残疾证等其他证件已享受过优惠，当地有任何证件优惠一律不退敬请谅解&lsquo;特别是吐鲁番地区实行一票制的套票政策，如客人不去参观某个景点，则费用一律不退；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">注意事项：</span></strong></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">1、新疆地域广大，具有浓郁地方特色及不可复制的景点、活动较多，行程万里，为不留遗憾，我社将特色景点及活动作为推荐自费项目罗列。客人可根据兴趣及自身条件自愿自选参加。同车游客有50%以上同意参加行程内推荐的自费项目，并经客人签字同意，导游方可陪同大部分游客前往。个别如因（已参加过、条件限制、不感兴趣等原因）不参加的，经客人同意签字由导游妥善安排休息或自由活动。在休息点或景点门口按约定时间等候其它客人。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">2、在旅游行程中，因不可抗力危及旅游者人身、财产安全，或者非旅行社责任造成的意外情形，旅行社不得不调整或者变更旅游合同约定的行程安排时，旅行社会事前向旅游者作出说明；确因客观情况无法在事前说明的，在事后作出说明。造成无法参加的景点或游览项目，旅行社负责更换同等价格景点或退还游客门票差额。赠送的、推荐的项目因天气或其它不可预计的原因不能前往或是个人自身原因无法参加的不做等价更换，不退任何费用。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">3、请65岁以上老年人报团须有亲属陪同、保证是身体健康、如果是单独参团或夫妻同行必须提供三级甲等医院近7天的健康证明！同时亲属子女在免责书上签字方可参团！按成本价格操作；否则不予接待；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">4、请客人务必遵守导游的安全提示、注意事项及时间提示；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">5、游客的投诉以在当地意见书及签字证明为准，请游客务必认真填写意见单。恕不受理团友因虚填或不填意见书而产生的后续争议。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">6、赠送项目如因个人原因或人力不可抗拒因素无法游览，费用无法退还。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">7、全程请不要陌生人看管或携带任何行李物品，以免麻烦上身！自己的贵重物品请托放至饭店保险箱，如需随身携带切勿离手，小心扒手。游览中，也不要将贵重物品放于旅游车或景区区间车车上，司机没有保管的义务！如有丢失，旅行社只有协助报警的义务，不承担任何损失赔付！</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">8、旅行车上不可吃冰激凌，带果皮食物，抽烟等。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">9、乘坐旅行大巴车请勿任意更换座位，头、手请勿伸出窗外，上下车时请注意来车方向以免发生危险。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">10、切勿在公共场合露财，购物时也勿当众清数钞票。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">11、行程结束后夜间或自由活动时间若需自行外出，请结伴而行，应特别注意安全，并告知领队或团友；保证24小时开启手机。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">12、遵守导游或工作人员所宣布的观光区、餐厅、饭店、游乐设施等各种场所的注意事项。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">13、外出旅游请注意安全，请按交通信号灯过马路、不要闯红灯情况发生，请根据交通规则行驶 ， </span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">14、不要随地吐痰，不要在禁烟区吸烟、扔烟头，丢垃圾，保持举止文明。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">其他说明：</span></strong></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">1、选择本线路签订合同前，务必认真阅览相关须知和附属协议，见自愿参加购物、另行付费项目补充协议；地接质量以当团大多数客人意见单为凭证，客人务必认真填写，如果在旅行过程中，出现任何质量方面的问题，请及时与地接导游协调。如地接导游的协调和处理无法让您满意请及时拨打操作人员电话，旅行社会第一时间处理。旅途结束前，请如实填写《游客意见单》，（意见单是维护游客权益的重要凭证）我们将以此作为客人对旅行社旅游接待质量的依据之一，恕不受理因虚假填写或不填写意见单而产生的后续争议和投诉。如行程中对旅行社的接待服务或标准有异议，请在当地及时提出并在当地及时解决。如在整个行程中都未有对接待质量方面的反映，返程后再提出对接待质量的投诉，旅行社则视为无效投诉，不予受理。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">2、同批报名客人不超过8人、如果超过8人每人加收200元人、或者分车操作不加收费用；</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">3、部分景区内设的购物商店，属于景区自行商业行为，不属于旅行社安排的购物商店，旅行社不承担相关责任，游客可自主选择；</span></span></p>
+
+<p><span style="font-size:14px;"><span style="font-family:宋体;">4、火车票说明：因全国火车实行实名购票制度、由电脑随机分配出票，凡报名火车线路，需报名时请提前与客人说明往返火车票不保证任何铺位和车次，报价中所包含火车席位为火车硬卧，为保证客人正常结束行程，如往返车次出到软卧、中转车次或临时客车，差额部分见票补齐，多退少补；出票后申请退团的游客，请自行办理火车票退票手续，损失由退团客人自行承担；敬请谅解，谢谢合作。</span></span></p>
+</div>
+
+        <i id="row_4" class="pkg-maodian">&nbsp;</i>
+
+        <h3 class="nr_tit">自费协议</h3>
+
+        <div class="content_nr"><p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">自愿参加购物、另行付费项目补充协议：</span></strong></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">A、购物补充协议： </span></strong></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">1、 为提升我社服务水平，满足您要求的购物需求，双方自愿签署本补充协议。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">2、 双方签约的购物活动，将在行程中安排的自由活动期间进行，您可自由选择。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">3、 因不可抗力或无法预见的情况导致行程变更或人数太少等原因无法安排时，请您谅解，双方均不承担违约责任。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">4、 您应严格遵守导游告知的购物时间，以免延误行程或影响其他客人按时活动。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">5、 我方承诺免费提供前往预定购物场所的交通和陪同服务（但因您超时或其他原因产生的费用或遗漏行程，由您自身承担）。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">6、 特别提醒您谨慎购物、理性消费，是否购物消费由您自己选择决定。您在约定购物场所购买的商品若非质量问题，我社不承担责任。</span></span></p>
+
+<table style="border-collapse:collapse;width:555px;margin-left:6.7500pt;margin-right:6.7500pt;">
+	<tbody>
+		<tr style="height:23px;">
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid rgb(0,0,0);border-right:1.0000pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">地点</span></span></p>
+			</td>
+			<td style="width:175px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">购物店名称</span></span></p>
+			</td>
+			<td style="width:83px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">商品特色</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">约定时间</span></span></p>
+			</td>
+			<td style="width:83px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">要求参观</span></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid rgb(0,0,0);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">乌鲁木齐</span></span></p>
+			</td>
+			<td style="width:175px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">华凌玉器交流中心</span></span></p>
+			</td>
+			<td style="width:83px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">玉器</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">90分钟左右</span></span></p>
+			</td>
+			<td style="width:83px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid rgb(0,0,0);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">乌鲁木齐</span></span></p>
+			</td>
+			<td style="width:175px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">百石缘和田玉器加工厂</span></span></p>
+			</td>
+			<td style="width:83px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">玉器</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">90分钟左右</span></span></p>
+			</td>
+			<td style="width:83px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid rgb(0,0,0);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">乌鲁木齐</span></span></p>
+			</td>
+			<td style="width:175px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">富士特和田玉交易中心</span></span></p>
+			</td>
+			<td style="width:83px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">玉器</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">90分钟左右</span></span></p>
+			</td>
+			<td style="width:83px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid rgb(0,0,0);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">乌鲁木齐</span></span></p>
+			</td>
+			<td style="width:175px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:新宋体;">盛世玉都和田玉器城</span></span></p>
+			</td>
+			<td style="width:83px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">玉器</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">90分钟左右</span></span></p>
+			</td>
+			<td style="width:83px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:top;">
+			<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<ul style="list-style-type:square;">
+	<li style="text-autospace:ideograph-numeric;"><span style="font-size:14px;"><span style="font-family:宋体;">所购商品确有质量问题，您有权在旅游行程结束后30天内与我方联系退货（食品、药物及已拆装使用后的商品除外）（以下购物店参考4选2）。 </span></span></li>
+</ul>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">B、另行付费项目补充协议：</span></strong></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">1、为提升我社服务水平，满足您的个性化要求，双方自愿签署本补充协议。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">2、以下所列自费项目，您应自愿谨慎选择，尤其不要参加您不宜参加的项目。其活动将在行程安排的自由活动期间进行。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">3、若因不可抗力或无法预见的情况，导致行程变更或团队人数太少导致其约定项目无法安排时，请您理解，且我社负责退还费用，双方不承担违约责任。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">4、以下所列自费项目为10 人以上的综合优惠价格，若要求参加人数不足10 人时，费用会有所调整。备注：全团总体按照参加客人的2/3的比例才能安排。</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">5、凡是参加旅游团队的团员一律不享受景区提供的减、免门票政策（包括老年证、学生证、导游证及军官证等）；自费景点不强制，不愿参加的团友，请自由活动或按照导游安排等候团队！</span></span></p>
+
+<table style="border-collapse:collapse;width:569px;margin-left:6.7500pt;">
+	<tbody>
+		<tr>
+			<td style="width:140px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;border-right:1.0000pt solid rgb(0,0,0);border-top:1.0000pt solid windowtext;border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:center;">
+			<p align="center" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:center;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">参考自费项目</span></strong></span></p>
+			</td>
+			<td style="width:112px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:center;">
+			<p align="center" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:center;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">地点</span></strong></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:center;">
+			<p align="center" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:center;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">参观时间</span></strong></span></p>
+			</td>
+			<td style="width:133px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:center;">
+			<p align="center" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:center;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">价格（单位：元/人）</span></strong></span></p>
+			</td>
+			<td style="width:77px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid rgb(0,0,0);vertical-align:center;">
+			<p align="center" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:5.2500pt;text-align:center;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">自愿选择</span></strong></span></p>
+			</td>
+		</tr>
+		<tr style="height:16px;">
+			<td style="width:140px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">火焰山大峡谷</span></span></p>
+			</td>
+			<td style="width:112px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">吐鲁番</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">约1小时</span></span></p>
+			</td>
+			<td style="width:133px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">150元/人</span></span></p>
+			</td>
+			<td rowspan="6" style="width:77px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;vertical-align:center;">
+			<p align="center" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:center;"><span style="font-size:14px;"><span style="font-family:宋体;">参加套餐即可享受8折优惠并有7大礼包赠送</span></span></p>
+			</td>
+		</tr>
+		<tr style="height:16px;">
+			<td style="width:140px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">吐鲁番水果盛宴</span></span></p>
+			</td>
+			<td style="width:112px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">吐鲁番</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">40分钟</span></span></p>
+			</td>
+			<td style="width:133px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">198元人</span></span></p>
+			</td>
+		</tr>
+		<tr style="height:12px;">
+			<td style="width:140px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">五彩滩</span></span></p>
+			</td>
+			<td style="width:112px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">布尔津旁</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">约90分钟</span></span></p>
+			</td>
+			<td style="width:133px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">150元</span></span></p>
+			</td>
+		</tr>
+		<tr style="height:16px;">
+			<td style="width:140px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">图瓦人家访</span></span></p>
+			</td>
+			<td style="width:112px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">喀纳斯景区内</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">约40分钟</span></span></p>
+			</td>
+			<td style="width:133px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">100元</span></span></p>
+			</td>
+		</tr>
+		<tr style="height:16px;">
+			<td style="width:140px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">宝石滩/胡杨林</span></span></p>
+			</td>
+			<td style="width:112px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">布尔津</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">约40分钟</span></span></p>
+			</td>
+			<td style="width:133px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">160元/人</span></span></p>
+			</td>
+		</tr>
+		<tr style="height:16px;">
+			<td style="width:140px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">白沙湖</span></span></p>
+			</td>
+			<td style="width:112px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">185团</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">约6小时</span></span></p>
+			</td>
+			<td style="width:133px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">300元</span></span></p>
+			</td>
+		</tr>
+		<tr style="height:16px;">
+			<td style="width:140px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">喀纳斯一进区间车</span></span></p>
+			</td>
+			<td style="width:112px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">喀纳斯</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">//</span></span></p>
+			</td>
+			<td style="width:133px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">90元/人（必选）</span></span></p>
+			</td>
+			<td style="width:77px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="center" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:center;">&nbsp;</p>
+			</td>
+		</tr>
+		<tr style="height:16px;">
+			<td style="width:140px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:1.0000pt solid windowtext;border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">天池区间车</span></span></p>
+			</td>
+			<td style="width:112px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">天池</span></span></p>
+			</td>
+			<td style="width:107px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:-5.2500pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">//</span></span></p>
+			</td>
+			<td style="width:133px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-top:none;border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="justify" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:justify;text-justify:inter-ideograph;"><span style="font-size:14px;"><span style="font-family:宋体;">90元/人（必选）</span></span></p>
+			</td>
+			<td style="width:77px;padding:0.0000pt 5.4000pt 0.0000pt 5.4000pt ;border-left:31.8750pt none rgb(255,255,255);border-right:1.0000pt solid rgb(0,0,0);border-bottom:1.0000pt solid windowtext;vertical-align:center;">
+			<p align="center" style="margin-top:0.0000pt;margin-right:0.0000pt;margin-bottom:0.0000pt;margin-left:0.0000pt;text-align:center;">&nbsp;</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<ol>
+	<li style="text-autospace:ideograph-numeric;" value="NaN"><span style="font-size:14px;"><span style="font-family:宋体;">以上打包产品不得拆分参加。</span></span></li>
+</ol>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+
+<p align="justify" style="margin-right:0.0000pt;margin-left:0.0000pt;text-autospace:ideograph-numeric;text-align:justify;text-justify:inter-ideograph;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">C、旅游产品关于车辆和保险告知：</span></strong></span></p>
+
+<p align="justify" style="margin-right:0.0000pt;margin-left:0.0000pt;text-autospace:ideograph-numeric;text-align:justify;text-justify:inter-ideograph;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">1．该产品为散拼团，凡涉及到接送服务的一般为小型车；</span></span></p>
+
+<p align="justify" style="margin-right:0.0000pt;margin-left:0.0000pt;text-autospace:ideograph-numeric;text-align:justify;text-justify:inter-ideograph;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">2．旅游行程中车辆为空调旅游车，保证每人一个正座；</span></span></p>
+
+<p align="justify" style="margin-right:0.0000pt;margin-left:0.0000pt;text-autospace:ideograph-numeric;text-align:justify;text-justify:inter-ideograph;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">3．我社已投保旅行社责任险，强烈建议游客购买旅游意外伤害险；</span></span></p>
+
+<p align="justify" style="margin-right:0.0000pt;margin-left:0.0000pt;text-autospace:ideograph-numeric;text-align:justify;text-justify:inter-ideograph;line-height:17.0000pt;"><span style="font-size:14px;"><span style="font-family:宋体;">4．在行程中标为自由活动期间，旅行社不提供车辆服务；</span></span></p>
+
+<p align="justify" style="margin-right:0.0000pt;margin-left:0.9500pt;text-indent:-0.9000pt;text-autospace:ideograph-numeric;text-align:justify;text-justify:inter-ideograph;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">D：声明：</span></strong><span style="font-family:宋体;">本人为年满18周岁公民，具有正常的民事行为能力（已详细阅读以上内容，对以上内容组团社已详细说明），本人自愿在自由活动期间，跟随导游前往上述自费旅游景点以及购物店，对于所有上述自费旅游项目的详细情况以及有可能发生的潜在风险均已了解，其余详尽事宜，已在上述说明中阐述，本人完全明白，对此毫无异议。（请出行的每位游客均签字）</span></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">旅游者承诺：本人已认真阅读了上述行程安排，理解并同意遵守本补充协议，本补充协议作为旅游合同的附件，与旅游合同具有同等效力。</span></strong></span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;">&nbsp;</p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">旅游者代表签字：</span></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+
+<p style="text-autospace:ideograph-numeric;line-height:17.0000pt;"><span style="font-size:14px;"><strong><span style="font-family:宋体;">日期：</span></strong></span></p>
+</div>
+
+        <i id="row_5" class="pkg-maodian" style='display:none;'>&nbsp;</i>
+
+        <h3 class="nr_tit" style='display:none;'>签证信息</h3>
+
+        <div
+            class="content_nr" style='display:none;' ></div>
+
+    </div>
+
+</div>
+<script src="themes/agentc/js/ob_free.js" tppabs="http://www.btgtravel.com/themes/agentc/js/ob_free.js"></script>
+
+<script type="text/javascript">
+    $('#yuding').click(function () {
+        window.location.href = 'index.php-r=agentc-site-clogin&returnUrl=http---www.btgtravel.com-index.php-r=agentc-post-view&gid=20166960891&chanid=10014.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/order&gid=20166960891*/;
+    });
+
+    $(function(){
+
+        $('.input_wrap input[type=number]').focus(function(){
+            $(this).nextAll('p').show();
+        });
+
+        $('.input_wrap input[type=number]').blur(function(){
+            $(this).nextAll('p').hide();
+        });
+
+        $('.input_wrap p > a').hover(
+            function(){
+                $(this).css({'background':'#ddd'});
+            },
+            function(){
+                $(this).css({'background':'none'});
+            }
+        );
+
+        $('.input_wrap p > a').mousedown(function(e){
+            var v=$(this).text();
+            var p=$(this).closest('p');
+            var input = p.prevAll('input[type=number]');
+            input.val(v);
+            setMembers(v,true);
+        });
+
+        $('#js-submit').click(function(){
+            var order={};
+            var members=new Array();
+            var trs=$('#memberlist tr.mtr');
+            order['gid']=$('#group').val();
+            order['date']=$('#js-departure-date').val();
+            order['num']=trs.length;
+            order['price']=$('#totalPrice').val();
+            trs.each(function(){
+                var member=new Array();
+                var inputs=$(this).find(':checked');
+                inputs.each(function(){
+                    member.push({'iid':$(this).attr('data-iid'),'type':$(this).attr('data-type')});
+                });
+                members.push(member);
+            });
+            order['members']=members;
+            var data={'order':JSON.stringify(order)};
+
+            $.ajax({
+                url: 'index.php-r=agentc-post-order2&gid=20166960891.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/order2&gid=20166960891*/,
+                type: 'post',
+                data:data,
+                dataType: 'json',
+                success: function(_data){
+                    if(_data.status>0){
+                        if(_data.status==2){
+                            alert(_data.mes);
+                        }
+                        window.location.href=_data.url;
+                    }else{
+                        alert(_data.mes);
+                    }
+                }
+            });
+        });
+    })
+</script>
+
+<div class="clearfix"></div>
+
+<div class="footer-t">
+    <div class="footer-t-c">
+        <ul>
+<h2>帮助·提示</h2>
+<li><a target="_blank" title="如何注册" href="index.php-r=agentc-post-help&cid=467&id=225.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=225">如何注册</a></li>
+<li><a target="_blank" title="如何在线预订" href="index.php-r=agentc-post-help&cid=467&id=226.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=226">如何在线预订</a></li>
+<li><a target="_blank" title="旅游名词解释" href="index.php-r=agentc-post-help&cid=467&id=227.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=227">旅游名词解释</a></li>
+<li><a target="_blank" title="中国护照免签国家" href="index.php-r=agentc-post-help&cid=467&id=228.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=467&id=228">中国护照免签国家</a></li>
+</ul>
+<ul>
+<h2>报名签约</h2>
+<li><a target="_blank" title="神舟门市查询" href="index.php-r=agentc-post-help&cid=468&id=218.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=218">神舟门市查询</a></li>
+<li><a target="_blank" title="邮件及传真签约" href="index.php-r=agentc-post-help&cid=468&id=219.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=219">邮件及传真签约</a></li>
+<li><a target="_blank" title="发票制度" href="index.php-r=agentc-post-help&cid=468&id=220.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=220">发票制度</a></li>
+<li><a target="_blank" title="合同范本" href="index.php-r=agentc-post-help&cid=468&id=221.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=468&id=221">合同范本</a></li>
+</ul>
+<ul>
+<h2>支付方式</h2>
+<li><a target="_blank" title="门市支付" href="index.php-r=agentc-post-help&cid=469&id=229.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=229">门市支付</a></li>
+<li><a target="_blank" title="银行汇款" href="index.php-r=agentc-post-help&cid=469&id=230.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=230">银行汇款</a></li>
+<li><a target="_blank" title="网上汇款" href="index.php-r=agentc-post-help&cid=469&id=231.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=231">网上汇款</a></li>
+<li><a target="_blank" title="在线支付" href="index.php-r=agentc-post-help&cid=469&id=232.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=469&id=232">在线支付</a></li>
+</ul>
+<ul class="last">
+<h2>旅游其他事项</h2>
+<li><a target="_blank" title="签证" href="index.php-r=agentc-post-help&cid=470&id=233.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=233">签证</a></li>
+<li><a target="_blank" title="保险细则" href="index.php-r=agentc-post-help&cid=470&id=234.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=234">保险细则</a></li>
+<li><a target="_blank" title="订单变更及取消" href="index.php-r=agentc-post-help&cid=470&id=235.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=235">订单变更及取消</a></li>
+<li><a target="_blank" title="退团、退款方式" href="index.php-r=agentc-post-help&cid=470&id=236.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=470&id=236">退团、退款方式</a></li>
+</ul>
+        <ul class="r">
+            <div class="tel">4000100808</div>
+            <!--来电将统一显示为 010-58103269，北京神舟国旅呼叫中心位于东城--><br>
+            工作时间：周一至周五09：00－18：00
+        </ul>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="footer-c">
+    <div class="tlink">
+        <ul>
+            <a href="index.php-r=agentc-post-help&cid=471&id=237.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=237" target='_blank'>关于我们</a>|<a href="index.php-r=agentc-post-help&cid=471&id=238.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=238" target='_blank'>联系我们</a>|<a href="index.php-r=agentc-post-help&cid=471&id=239.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=239" target='_blank'>旅行社行业资质</a>|<a href="index.php-r=agentc-post-help&cid=471&id=240.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=240" target='_blank'>人才招聘</a>|<a href="index.php-r=agentc-post-help&cid=471&id=241.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=241" target='_blank'>预订须知</a>|<a href="index.php-r=agentc-post-help&cid=471&id=242.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=242" target='_blank'>免责证明</a>|<a href="index.php-r=agentc-post-help&cid=471&id=243.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=243" target='_blank'>隐私声明</a>|<a href="index.php-r=agentc-post-help&cid=471&id=244.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=244" target='_blank'>法律条款</a>|<a href="index.php-r=agentc-post-help&cid=471&id=245.htm" tppabs="http://www.btgtravel.com/index.php?r=agentc/post/help&cid=471&id=245" target='_blank'>文明旅游</a>        </ul>
+    </div>
+       <!--版权说明-->
+    <strong>© 北京神舟国际旅行社集团有限公司版权所有   许可证号：L-BJ-CJ00080   京ICP备11017909号-2   京公网安备110105007889号 </strong>    <!--版权说明end -->
+   <!-- <ul>
+        <li><a href="javascript:;"><img src="/images/f01.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f02.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f03.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f04.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f05.gif"></a></li>
+        <li><a href="javascript:;"><img src="/images/f06.gif"></a></li>
+    </ul>-->
+    <!--<div class="ewm"><img src="/images/ewm.png"></div>-->
+</div>
+
+<div class="clearfix"></div>
+
+<div class="footer-link">
+    <div class="footer-link-c">
+        <ul>
+            <a href="index.htm" tppabs="http://www.btgtravel.com/" target='_blank'>神舟国旅官方旅游服务网站</a>|<a href="javascript:if(confirm('http://www.btgtravel.com.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.btgtravel.com.cn/'" tppabs="http://www.btgtravel.com.cn/" target='_blank'>神舟国旅官网</a>|<a href="javascript:if(confirm('http://www.botc.com.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.botc.com.cn/'" tppabs="http://www.botc.com.cn/" target='_blank'>神舟国旅海外旅游</a>|<a href="javascript:if(confirm('http://www.wetours.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.wetours.cn/'" tppabs="http://www.wetours.cn/" target='_blank'>伟途旅游</a>|<a href="javascript:if(confirm('http://www.btgmice.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.btgmice.com/'" tppabs="http://www.btgmice.com/" target='_blank'>神舟方舟国际会展</a>        </ul>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    var _ugpi = $('.uz-g-price-item');
+    if(_ugpi.size() > 0) {
+        var _gids = new Array();
+        _ugpi.each(function () {
+           var _gid = $(this).attr('data-gid');
+            if(_gid && _gid.length > 0) {
+                _gids.push(_gid);
+            }
+        });
+        _gids = array_unique(_gids);
+        if(_gids.length > 0) {
+        }
+        $.ajax({
+            url: 'http://www.btgerp.com/btgtravel/group/groupPrice/chanid/10014/type/jsonp',
+            dataType: "jsonp",
+            type:'get',
+            async:false,
+            data: {gid: _gids},
+            jsonp:'callback',
+            success: function (_data) {
+                if(_data['data'] && _data['data'].length > 0) {
+                    var _gps = _data['data'];
+                    $.each(_gps, function (i, v) {
+                        $('.uz-g-'+v['gid']+'-price').html(v['price']);
+                    });
+                }
+            },
+            error: function(){
+            }
+        });
+    }
+
+
+    function array_unique(arr) {
+        var result = [], hash = {};
+        for (var i = 0, elem; (elem = arr[i]) != null; i++) {
+            if (!hash[elem]) {
+                result.push(elem);
+                hash[elem] = true;
+            }
+        }
+        return result;
+    }
+
+    $(document).ready(function () {
+        var _urlSearch = 'index.php-r=agentc-post-search.htm'/*tpa=http://www.btgtravel.com/index.php?r=agentc/post/search*/;
+        $('.c-category-list a,.ly a').each(function () {
+            var obj = $(this);
+            var sid=obj.attr('data-sid');
+            var url='';
+            if(sid){
+                url = _urlSearch + '&sid=' + obj.attr('data-sid');
+            }else{
+                url = _urlSearch + '&keywords=' + obj.attr('data-words');
+            }
+
+            obj.attr('href', url);
+            obj.attr('title', obj.text());
+            obj.attr('target', '_blank');
+        });
+
+        $('.btg-c').remove();
+    });
+</script>
+</html>
