@@ -1,0 +1,484 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/xinwen">国际资讯</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">“董东联合” 为“互联网+”供给侧“驱霾”</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2015-12-15　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/1506.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/1506.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p>说起刚刚过去的“双十一”，听说有些人“双十一”下的单，现在还没有收到货，现在又来新词“双十二”再次掀起网购的热潮。<br/>
+	&nbsp; &nbsp; &nbsp;<br/>
+	&nbsp; &nbsp; &nbsp; 然而在今年的数据中了解到，就是“双十一”一天就卖出九百亿，再次打破了中国电商的一个新的数字。<br/>
+	&nbsp; &nbsp; &nbsp; 
+那么在15年的电商热潮中，我们看到了格力电器董事长董明珠与京东创始人刘强东携手推出“董东联合”的“双十二”大促活动，我们可以看到在京东商城的格力
+旗舰店与格力官方商城同一起推出了三大品牌有“格力空调、晶弘冰箱、大松生活电器”，也让15年末的冬天变得热闹了很多。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　 &nbsp; 更值得我们关注的是，这一次的联合，也让应实体收入与电商区域出现了第一次跨界合作营销行动。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　人需求的“狂热”，道出了现在“<a href="javascript:if(confirm('http://www.imsc.org.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imsc.org.cn/'" tppabs="http://www.imsc.org.cn/" target="_blank"><span style="text-decoration:underline;">互联网+</span></a>”的发展趋势。15年6月，国务院总理李克强主持召开国务院常务会议，通过《“<a href="javascript:if(confirm('http://www.imsc.org.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imsc.org.cn/'" tppabs="http://www.imsc.org.cn/" target="_blank"><span style="text-decoration:underline;">互联网+</span></a>”行动指导意见》，推动“互联网+”经济。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　此后，线上创业创新成为全民热议的话题：“全渠道+O2O融合”等新商业生态加快孕育形成，“电商+扶贫”激发农村发展新活力，“消费+娱乐”开创快乐消费新模式……</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　现如今，“互联网+”正全面应用到第三产业，形成了诸如互联网金融、互联网交通、互联网医疗、互联网教育等新生态，为各行各业带来了新的机遇，提供了广阔的发展空间。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　但是，江河潮起，泥沙俱下。在互联网交易繁荣的另一面，假冒伪劣产品泛滥、恶性同质竞争、监管失控、腐败滋生等问题也充分暴露出来。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　“双十一”之后，美国福布斯杂志刊发封面报道，报道中国互联网商务中存在大量违法违规以及居高不下的投诉现象。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　国际奢侈品集团——开云集团曾提出投诉，2014年，某电商平台上2731家不同商店在一个月内就卖出了3.7万个假冒的某奢侈品牌手袋。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　不论这种投诉是否准确，消费者自己也能感受到，在一些网店里低价买来的某品牌运动鞋，穿不久就坏了；不论福布斯的报道是否有失偏颇，但还是从一个侧面反映出我国“互联网+”的天空中存在着严重的“雾霾”。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　那么，如何驱除“互联网+中国造”的“雾霾”，还消费者一片“洁净”的蓝天呢？</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　诚然，政府引导和监管不可或缺，但关键的还是要靠“互联网+”经济的供给侧，也就是企业和渠道能够自觉承担起一份责任。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　“互联网+”的供给侧亟须“驱霾”</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　购购购！</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　每年如期而至的“双十一”，逐渐成势的“双十二”，让各路电商大显神通，“剁手党”们则你争我抢，不断刷新网上销售纪录。但是在热闹非凡的线上市场
+中，充斥着大量的假冒伪劣产品，引发的投诉和案件也迅速增长。据国家工商总局抽查，2014年，全国工商部门共受理网络购物投诉7.78万件，同比增长
+356.6%，网购正品率仅有58.7%。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　在上世纪八九十所代，我国就曾出现过一波“假货”浪潮，严重损害了消费者利益，以至于人们都以购买的是“进口货”而自豪。后来，国家工商总局及质监部
+门出手，大力整顿市场，提高市场准入门槛，并联合中央电视台等主流媒体，连续不断推出“质量万里行”及“3·15消费者维权晚会”等活动，终于遏制住了假
+冒伪劣产品愈演愈烈的趋势，净化了市场。但是伴随互联网经济的兴起，各种不法商贩又开始在利益的驱动下，利用网络监管的缺失，在网上大肆兜售假冒伪劣商
+品，牟取暴利，给社会带来极大的危害。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　消费者利益受损，投诉无门；市场秩序被破坏，不公平竞争现象加剧；恶性价格战导致企业创新动力受挫，优秀制造业遭受打击，更严重的是“中国制造”的品
+牌形象受到重创，低价、劣质的阴影挥之不去，“中国制造”的产品在国际市场甚至于等同“地摊货”。种种现象显示，互联网供给侧的“驱霾”已经到了不容忽视
+的地步了。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　可喜的是，在今年“双十二”，我们看到两家领军企业的合作，一家是制造业代表格力电器，一家电商巨头京东商城。他们借助“双十二”契机，强强联手，聚合资源，擎起“诚信、责任、品质”的大旗，力推“国货精品”，向互联网市场中的伪劣产品公开宣战。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　格力电器董事长董明珠有句话说得好：“如果实体经济不行，那一定是因为你自己无能。互联网应该帮助我们提高效率，而不是伤害。比如说马云，制造业不会因为没有马云而不行,但没有了制造业 ,马云肯定不行。”</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　制造业是国民经济的主体，是立国之本、兴国之器、强国之基。工信部部长苗圩指出，要开展质量品牌提升行动，支持企业瞄准国际同行业标杆推进技术改造，
+全面提高产品技术、工艺装备、能效环保等水平。鼓励企业追求卓越品质，形成具有自主知识产权的名牌产品，塑造中国质量、中国品牌的整体形象。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　治愈制造业的“心血管病”</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　日前，全国人大常委会副委员长严隽琪在十二届全国人大常委会第十七次会议上，报告消费者权益保护法执法检查情况时指出，互联网领域侵犯消费者合法权益、制售假冒伪劣商品等违法犯罪行为突出，已经成为侵权假冒的重点环节。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　对此，在“互联网+”的供给侧，格力与京东转变思考方式和运营模式，联手发起“诚信、品质、责任” 的“中国造+互联网”的推广行动，起到了正面的引导作用，发挥了企业家应有的担当精神。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　我们知道，中国制造业长期以来存在“心血管病”，所谓“心病”是指核心技术、核心部件问题，“血管病”是指销售渠道问题，汽车如此，空调也如此。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　先说格力。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　格力电器历经多年坚持“自主创新”的发展道路，在技术研发上投入不设上限，质量管控臻于极致。其独创的双级变频压缩机、1赫兹变频技术改写了空调百年
+历史，解决了空调“心脏”不强的问题，让格力空调在各种极端工况下都可强力工作；其独创的瞬冷冻技术，解决了冷冻食物的保鲜问题，展现了晶弘冰箱的独门绝
+活；其原创的静电除尘技术,解决了大松空气净化器无须更换耗材的问题，为消费者大大节省了使用成本。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　格力空调的质量更是有口皆碑。市场调研结果发现，格力空调的实际使用年限大多超过15年甚至20年以上；高达70%的二次空调消费者会选择格力品牌。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　可以说，格力已经治愈了家电“心脏病”。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　不仅如此，格力还在今年国务院推出“中国制造2025规划”后，更是率先和新华社《财经国家周刊》联合华为、徐工集团、华中数控等20多家国内知名企
+业发布了“中国品牌在行动”的“六赞六反”倡议书：“赞自主创新，反剽窃抄袭；赞节能环保，反奢侈浪费；赞品质卓越，反偷工减料；赞诚信经营，反坑蒙拐
+骗；赞责任立企，反自私自利；赞实干兴邦，反空谈误国”，以实际行动，汇聚“中国制造”的“正力量”，塑造“中国品牌”的“正形象”，自觉担当起一份国家
+责任。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　京东商城作为互联网企业，做的虽是虚拟平台，但却从不玩虚的，比如不搞竞价排名。其创始人兼CEO刘强东表示，京东商城“永远不会有竞价排名”，产品更重要的还是看服务和售后体验。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　支撑这份“承诺”的是京东对产品质量的严格监管：严格审查卖家资质文件、进货渠道等信息，强化平台所售商品的抽检工作，每周不少于3次，覆盖全部品
+类；实时监控用户投诉率、投诉内容、退货率、返修率等数据，一旦发现涉假苗头，立即启动调查机制；严惩出售假冒商品的卖家等。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　去年12月，国家质检总局充分肯定了京东10年来在商品质量管理方面取得的成就，希望其在提升电子商务产品质量方面走在前、作表率，切实视质量诚信为生命，对假冒伪劣产品不纵容、不包庇，充分发挥行业领头羊的典型示范作用。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　可以说，京东解决了“血管病”。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　两家企业携手推出的“董东联合”活动，正是基于“诚信、品质、责任”共同价值观基础上展开的一次有益尝试。在这次合作中，格力电器精选了旗下格力、晶
+弘、大松三大品牌的优质产品，在京东旗舰店以及格力官方商城全面上线，并以格力史上最 
+大的幅度让利消费者，而京东对此次活动也投入了巨量的资源与精力。双方都以强烈的精神，大力推广优质的中国制造，给消费者创造物超所值的消费体验。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　这次的联合，并不只是一个简单的制造业与渠道电商跨界合作营销案例，其倡导的“诚信、品质、责任”的精神，对当下乱象纷呈的电商“供给侧”，更具有激
+浊扬清的“驱霾”作用和振聋发聩的警醒意义。它不仅体现了两个企业家的责任担当和家国情怀，也反映了两个企业家对现实的忧思与未来的远见。</p><p style="font-size: 16px; line-height: 28px; color: rgb(67, 67, 67); font-family: 宋体;">
+	　　然而他们这一次的跨界，将在假货泛滥的互联网市场中吹起一股清新之风，同时也相信他们的“带动”行动，会吸引和汇聚更多讲诚信、品质、责任的企业家加入进来，最终形成一股巨大的“中国造”正能量！让全球也慢慢爱上“中国造”那样的愿景是我们所盼望的。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

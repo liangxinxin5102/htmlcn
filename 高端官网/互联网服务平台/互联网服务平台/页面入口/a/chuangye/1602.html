@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/chuangye">创业</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">马东：文化产品是解决人内心焦虑最好的工具</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-06-24　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/1602.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/1602.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="text-indent: 2em;">“没有不焦虑的时候，所以也没有最焦虑的时候……每个人都焦虑”，“文化产品是解决人内心焦虑和困扰最好的工具，所以文化产品应该有它自身的市场价值值”，“要么传播优质内容，要么只是‘工业废水’”，直播的竖屏逻辑背后正是人对关注度和归属感的需求……</p><p style="text-indent: 2em;">——米未传媒创始人兼CEO马东</p><p style="text-indent: 2em;">所以你可以理解为本文即将展现的是一名资深媒体人+成功创业者兼著名段子手，当他严肃起来，用结构主义与市场经济谈文化创业时是什么样子。</p><p style="text-indent: 2em;">前段时间非著名相声演员郭德纲在接受媒体采访时谈到马东，“他是我们中的资本家，也算是我们中活得明白的”。这句话或许可以理解为对马东平衡游刃于文化与商业之间的一种褒奖。<br/></p><p style="text-indent: 2em;">在另一层面上对文化的认识，马东的理解或许与商业原力更接近。</p><p><br/></p><p style="text-indent: 2em;"><strong>以下为网易科技根据专访内容整理，以马东第一人称叙述方式呈现：</strong></p><p style="text-indent: 2em;">不少人问过我为什么要从<a href="javascript:if(confirm('http://s.iresearch.cn/search/aiqiyi/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://s.iresearch.cn/search/aiqiyi/'" tppabs="http://s.iresearch.cn/search/aiqiyi/" target="_blank">爱奇艺</a>出来选择创业。我觉得如果把人的职业生涯看作是一条波动线的话，其实中间还有一条主线在贯穿——就是这个人在干什么。所以现在在做的事情，其实是我一直在做的事情，并没有什么变化。</p><p style="text-indent: 2em;">严格来说，创业不过是换一种方式去做原来一直在做的事情而已。</p><p style="text-indent: 2em;">当然可能是因为平台不一样，角色不一样，外界给你的标签不一样，或者观察者的观察角度不一样，所以看起来好像变化特别多。但究其本质其实是同一件事——就是内容生产。</p><p style="text-indent: 2em;">在这个过程中，确实有时候我们是从管理角度去观察内容生产，以理解内容生产的真正内在规律是什么。</p><p style="text-indent: 2em;">我们要做娱乐的内容，这点毫无疑问。因为娱乐直指人心，是最简洁的路径，最容易接近你的受众，所以我们坚持做娱乐。</p><p style="text-indent: 2em;"><strong>走出体制，焦虑是人生常态</strong></p><p style="text-indent: 2em;">最主要的原因，是整个社会在变化。30年前一个人要想从体制内出来，一般来讲不太可能，那会儿其实并没有体制外一说，大家都体制内，你就没的可想。</p><p style="text-indent: 2em;">而今天已经有了更多的机会，当然很多时候是体制外看起来诱惑更多。</p><p style="text-indent: 2em;">随着整个社会的市场化程度提高，公平性、契约精神等相关的东西都逐步在完善。只有社会发展到一定程度，比如某一具体行业里，专业律师的介入、协议规范性的提高、违法成本的提高等方面都已经相对完善的时候，就有了更好的所谓创业的土壤。</p><p style="text-indent: 2em;">但其实究其根本，创业也不过是在不同的市场、不同的平台上去做相同的事情。</p><p style="text-indent: 2em;">不过很多体制内的人为什么还是没有出来？主要是早期整个市场还不够规范，所以那个时候其实一个人从体制脱离，他的风险远远大于自己的承受能力，所以很多人选择仍然留在体制内。</p><p style="text-indent: 2em;">可是你知道，创业也好，生活也好，其实人没有不焦虑的时候。每个人都焦虑。</p><p style="text-indent: 2em;">对于我来说，没有不焦虑的时候，所以也没有最焦虑的时候。我们今天总羡慕古人的田园生活，但你说他们不焦虑吗？我觉得古籍里只要记载下来的，满纸都是焦虑。唐诗宋词里，别管是金戈铁马的豪放派还是各种温情的婉约派，全是焦虑。</p><p style="text-indent: 2em;">所以焦虑其实是伴随人生命的一个常态。</p><p style="text-indent: 2em;">它有点像科学家发现的宇宙背景辐射一样，我们以前不知道它存在，但其实它一直在那儿。</p><p style="text-indent: 2em;"><strong>文化产品是解决人内心焦虑和困扰最好的工具</strong></p><p style="text-indent: 2em;">最近市场上也陆续推出不少付费内容产品。什么样的内容值得买？有价值的啊。但这个价值怎么理解？</p><p style="text-indent: 2em;">我
+们经常把文化价值和文化产品的价值混淆在一起，有时候甚至对立起来。但其实从古至今，那些特别棒的文化产品——比如唐诗宋词——在当时也具有一定的文化产
+品价值。虽然穿越岁月到今天它们已经失去了文化产品价值——没人再去找古人收版权费什么的，但它依然有重要的文化价值。</p><p style="text-indent: 2em;">所以文化价值往往都是在某个时代主要体现为它的文化产品价值。二者并不矛盾，也不应该被混淆。</p><p style="text-indent: 2em;">无论怎样，文化产品都是帮人们解决一定问题的。消费者买手机可以和外部联系，买电脑可以提高自己的工作效率。购买文化产品是为了什么？在我看来，是为了解决内心的一些问题。文化产品是解决人内心焦虑和困扰最好的工具，所以文化产品应该有它自身的市场价值。</p><p style="text-indent: 2em;">有
+人觉得文化这个事和商业天然存在着矛盾，包括一些文化创业者自己好像也有内心挣扎。其实这不是今天的个例，自古有之。包括我们成长过程中都被灌输这个观
+点。中国人重文轻商，这是历史传统。包括留传下来的什么“商人重利轻别离”这些，甭管怎么样，随便想总能找到几句骂生意人的话。</p><p style="text-indent: 2em;">所以文化商业在我们这里有一个很奇怪的角色背景。</p><p style="text-indent: 2em;">但在过去几十年市场化过程中，其实我觉得文化商业这个事情已经发生了特别大的变化。我不觉得今天的90后或95后中流人群对这个事件仍有特别大的困扰。最多不过是一些未经思考的概念上的冲突而已。</p><p style="text-indent: 2em;"><strong>要么传播优质内容，要么只是“工业废水”</strong></p><p style="text-indent: 2em;">今年直播很热，我们自己也在介入，包括前些天在直播平台尝试了一下活动，效果很好。直播是一个新事物，大家都在看它往哪个方向走，最终会发展成什么样。但是对我来说，有两件事情是笃定的。</p><p style="text-indent: 2em;">一是甭管什么样的传播，内容都是主体。否则平台再好，传播什么呢？所以，要么就传播优质内容，要么就是“生产工业废水”——被冗余内容充斥。人们对优质内容的渴求是永远存在的。</p><p style="text-indent: 2em;">二
+是我觉得所有做内容的人，所有做传播行业的人，首先应该对传播方式的变化保持极敏感的神经，就是保持一根一挑动就跳起来的神经。直播这个事看起来是技术进
+步推动的。以前我们无法想象在已经这么高效的环境下，技术进步还会不断继续。如果按照国家规划的几年之后5G商业化，当然还会出现更多传播方式上的革命及
+变化。</p><p style="text-indent: 2em;">做传播的人不必对传播方式的变化大惊小怪，但需要保持一种敏感观察，看新传播方式能为内容传播带来哪些提升。</p><p style="text-indent: 2em;">现在大家觉得直播平台上的内容大多还比较琐碎，有可能持续不下去。那什么样的内容会真的在直播平台上有意义，我觉得现在说什么都没有用，因为整个行业都在追求这个问题的答案。现在任何给出来的简单答案，都应该离正确答案不会太近，所以大家都在观察，都在学习。</p><p style="text-indent: 2em;">如果一件新事物出来，马上有人说今后它一定就是这样的。对于这种言论我从内心就会打问号。</p><p style="text-indent: 2em;"><strong>文化这个行业，只有经典，没有权威。</strong></p><p style="text-indent: 2em;">经典就是在某个特定时间、特定情况下出现的特定产品，这就足够了。并不意味着生产这个产品的人在今后所有时间段内说的话都准确或正确。</p><p style="text-indent: 2em;">整个传播效率的提高，是在内容的优质化和技术进步促使传播成本降低这两者间互动进行，是两条绳子绞编在一起的一种状态。</p><p style="text-indent: 2em;">所以我特别喜欢一句话，中国人形容君子，叫“虚而有节”。竹子既保证中间是空的，能够随时容纳新鲜的东西，同时也有节，人们大多把它形容为“气节”，但我觉得其实更重要的是“知止”，就是知道自己的边界在哪里，知道自己能做什么不能做什么，智慧与思维都是有边界的。</p><p style="text-indent: 2em;">所以对于做内容的人来讲，虚而有节地去面对技术的进步和变化，拼命吸收，拼命学习，同时又知道自己做的事情是什么，其实这还挺难追求的。</p><p style="text-indent: 2em;">我们观察世界，总是特别爱用标签去界定它。因为觉得把它界定完了，更容易“格物致知”，更容易去分析和理解它。但这种分析和理解往往又带来真正的误会和混淆。所以对于概念这种事，我特别警惕。</p><p style="text-indent: 2em;">比如今天我们所说的“直播”，就一定是直播了吗？以后发生变化的时候，我们用什么词去代替它？其实中间这些事情都是有连贯性的，并没有明显的边界。我没有想过我们们自己在做直播时的边界是什么，只知道我们能做什么，然后试图寻找我们在其中能起作用的地方。</p><p style="text-indent: 2em;">我觉得直播这个事情可以分几个层面看。</p><p style="text-indent: 2em;">一是其实这轮直播热潮特别像<a href="javascript:if(confirm('http://s.iresearch.cn/search/shipinwangzhan/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://s.iresearch.cn/search/shipinwangzhan/'" tppabs="http://s.iresearch.cn/search/shipinwangzhan/" target="_blank">视频网站</a>刚出现的时候，都是出现一百多家甚至更多，都需要慢慢通过市场本身的机制去优化整合。</p><p style="text-indent: 2em;">二是这一轮直播出现，最主要有两个变化：</p><p style="text-indent: 2em;">1，技术的革新，包括手机前手摄像头分辨率的普遍提高，对通讯软件的优化、带宽的优化，这些使我们现在能够流畅、不受地域限制来进行直播。</p><p style="text-indent: 2em;">2，
+直接收费方式是推动这次大规模直播网站建立的一个基础。直播收费方式跟以往的生意模式发生了一些变化。比如视频网站在带宽成本和内容成本的压力下，其实在
+很长时间里都没有达到盈亏平衡的经营状态，因为它是to B模式。但直播的to 
+C模式让每个人都可以通过献花、飞机、游艇去表达自己的关注和支持，使平台收益有了很大的变化。</p><p style="text-indent: 2em;">过去有些直播平台的收入情况其实已经很可观了，比如<a href="javascript:if(confirm('http://s.iresearch.cn/search/YY/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://s.iresearch.cn/search/YY/'" tppabs="http://s.iresearch.cn/search/YY/" target="_blank">YY</a>和9158这些，在纳斯达克上市公司的财报里都能看到。</p><p style="text-indent: 2em;">所以今天的直播平台骤热其实并不是一个突然爆发的事情，有技术和收费模式这两个突破点，足以支撑这个行业目前的发展。</p><p style="text-indent: 2em;">但今后它会在多大程度上影响人们的行为方式，人们会不会用更多的直播来代替人与人之间的社交和沟通渠道，在多大程度上能帮助人建立社交感，我觉得这才是这个行业需要问的重要问题。</p><p style="text-indent: 2em;"><img src="../../ueditor/php/upload/image/20160624/1466752631912618.png" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160624/1466752631912618.png" alt="undefined" style="vertical-align: top; border: 0px;"/></p><p style="text-indent: 2em;"><strong>直播的横屏逻辑和竖屏逻辑</strong></p><p style="text-indent: 2em;">个人来讲，我“狭隘地”把直播分成了横屏逻辑和竖屏逻辑。</p><p style="text-indent: 2em;">有些从电竞渠道出来的直播平台，我把它称作横屏逻辑，这一类大家主要看内容所传递出来的信息量。</p><p style="text-indent: 2em;">而竖屏逻辑，因为竖屏的构图关系，很多时候很难容纳两个或多个人，往往只能容纳一个人，所以它更容易给人带来一对一的交流感。</p><p style="text-indent: 2em;">所以我们看到现在的移动视频直播，主播特别关注你送了什么礼物，第一时间就有反馈，其实背后就是这种关注和归属感。</p><p style="text-indent: 2em;">上面说的这些微妙的感觉，和横竖屏到底具体有什么不同，其实现在大家都还不是很清晰，但其实都在探索过程中。所以直播的未来会怎样，不好说。</p><p style="text-indent: 2em;">但如果说短时间内直播平台就会死掉，我会在心里画一个巨大的问号。因为我觉得它有市场，符合人们的一些行为需求和心理需求，所以有存在的价值。</p><p style="text-indent: 2em;">对于我们来说，如果出现一个新的传播渠道，就应该勇敢去尝试。我们现在有专门团队，已经介入了这种尝试，因为我们想摸索里面的内在逻辑到底是什么，但短期内恐怕不会有结果。</p><p style="text-indent: 2em;">在
+一个公平和成熟的市场里，不用过于担心内容问题。比如最初上百家视频网站后来整合成十几家，最后合成四五家，这个过程就是市场作用的过程。那时候盗版满街
+都是，后来高度依赖盗版的这些网站，就逐渐萎缩了，因为你没有前景。而依托高清、优质内容的全视频网站，就这样异军突起，而且一直保持着非常好的增长速
+度，这就说明整个市场的健康度，其实是足以支撑正向的生长的。</p><p style="text-indent: 2em;">直播其实可能也会这样，今天看起来它是无门槛的，但“风物长宜放眼量”，如果我们只看当下直播的形态，就判断今后一两年还是今天这样，那就不叫前瞻性判断了。</p><p style="text-indent: 2em;">我们不知道它会发生什么样的变化，但是变化是一定的。</p><p style="text-indent: 2em;">现
+在也有人谈视频创作的UGC还是PGC问题。我自己在视频行业里学习这几年，一个深刻感受就是这些词儿都是外界拿来试图描述和规范这个行业的。什么是
+UGC，什么是PGC？还有人说自己是OGC或PPC。但它们的边界在哪儿？UGC在什么时候就变成PGC了？是不是用一个1080P的设备，我就变成
+PGC了嘛？还是说有一个专门的人写稿子，我就变成PGC了？</p><p style="text-indent: 2em;">到底边界在什么地方？我觉得从这个角度上分析，好像有点不太对，说不清楚。所以如果用这些前提来讨论问题，我完全说不清楚，因为我自己都不知道这些概念的边界在哪里。但我觉得，那些都不重要。</p><p style="text-indent: 2em;">重要的还是内容创作本身怎么能好地符合这个渠道的传播规律。技术进步导致我们现在用手机，有横屏、有竖屏逻辑，今后会不会出现方屏？谁知道，如果有需要，那就一定会出现。</p><p style="text-indent: 2em;">直
+播这个形态现在主要在年轻人群中爆发，我觉得主要是它所带来的那种封闭、排他的交流感受。就像日本的“一兰拉面”，店铺里把顾客划分在小阁子里，只有一个
+竹帘，竹帘打开里面有工作人员在走动，但并没有人理你，仅仅是根据你自己划的单子为你提供餐食。所以，虽然面吃起来并没有什么特别，但它正是打造一种孤独
+的、沉静的文化在里面，代表着某种意境，所以大受热捧。</p><p style="text-indent: 2em;">我觉得今天的直播也有这种感觉。这才是交流渠道所带来的真正心理基础，但具体会发生什么或演变成什么，不知道。</p><p style="text-indent: 2em;"><strong>我要削尖脑袋地去理解一些新鲜事</strong></p><p style="text-indent: 2em;">很多时候和我这个年纪的人沟通类似直播这些事物的时候，大家经常说“真看不懂这帮小兔崽子，弄什么呢这是”，我觉得这主要出于两种心态，一是你不理解没关系，尝试去理解。第二种是，不理解，但觉得和自己也没有毛关系。</p><p style="text-indent: 2em;">第二种心态就说明你老了。</p><p style="text-indent: 2em;">我一直在学习，我要削尖脑袋地去理解这些事。</p><p style="text-indent: 2em;">文
+化是什么？这点特别重要，我觉得这个涉及到文化观的问题，往前追溯还有一个文化历史观的问题。商业文明不是文化吗？商业文明在某种程度上——比如追求效
+率，在推动社会进步上，和我们所谓理解的那个狭义文化，至少发挥着同样的作用。所以为什么当社会提倡商业公平、提倡让大家都有价值思维的时候，人们却说这
+个社会文化沦落、沦陷、沦丧了？</p><p style="text-indent: 2em;">现在大家都在谈的直播和网红，其实背后也能找到它们的“原力”。</p><p style="text-indent: 2em;">第一是人们对新的传播渠道的追求是永无止境的。尤其是年轻人的逆反心理，你们用这种方式，我就偏要去用那种方式，所以虽然有Facebook有<a href="javascript:if(confirm('http://s.iresearch.cn/search/Twitter/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://s.iresearch.cn/search/Twitter/'" tppabs="http://s.iresearch.cn/search/Twitter/" target="_blank">Twitter</a>，但Snapchat也非常流行——年轻人不愿意和你用同样的方式去交流。</p><p style="text-indent: 2em;">不仅仅是这代年轻人，代代年轻人都是这样，追求新鲜感，追求标新立异、特立独行。</p><p style="text-indent: 2em;">所以，代代年轻人都在创造，从整个大文化来看，这就是动力和活动，是注入了新的东西。</p><p style="text-indent: 2em;">慢
+慢地，当一种事物成熟以后，它又被证明是有益无害的，慢慢地自然就沉淀到了文化里，所以若干年后就变成了文化传统。从昆曲发展而来的京剧，到梅兰芳、程砚
+秋一代人的时候已经变成了万人空巷的流行音乐，但在今天我们来看这就是高度程式化的戏曲。后来有人喜欢高晓松，有人喜欢罗大佑，有人喜欢周杰伦。</p><p style="text-indent: 2em;">如果只是因为一件事物是今天年轻人喜欢的，就缺少价值，我不同意，我觉得恰恰相反。</p><p style="text-indent: 2em;">虽然未必每个社会现象背后都有所谓的文化归因，但一定有心理归因，尤其是在年轻人心里。一个新事物的出现，能激发年轻人这么大的热情，一定是有原因的。反正从我的角度说，更多的是去学习和拥抱这些。</p><p style="text-indent: 2em;">我就是一个生于60年代的90后。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

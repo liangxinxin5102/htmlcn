@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/guojiyaowen">营销</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">“互联网+”时代：银行电话营销转型与发展</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-11-29　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2085.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2085.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">近年来，随着<a href="javascript:if(confirm('http://money.163.com/keywords/4/9/4e9280547f51/1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://money.163.com/keywords/4/9/4e9280547f51/1.html'" tppabs="http://money.163.com/keywords/4/9/4e9280547f51/1.html" title="互联网" target="_blank" style="color: rgb(15, 107, 153);">互联网</a>社交媒体和移动金融的发展，人们的金融需求日益呈现出多元化、综合化和个性化的特点。这既为商业银行<a href="javascript:if(confirm('http://money.163.com/keywords/7/3/75358bdd84259500/1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://money.163.com/keywords/7/3/75358bdd84259500/1.html'" tppabs="http://money.163.com/keywords/7/3/75358bdd84259500/1.html" title="电话营销" target="_blank" style="color: rgb(15, 107, 153);">电话营销</a>业务带来新的机遇，同时也对其提出了更高的要求。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">近日，由华拓金服数码科技集团有限公司（以下简称“华拓金服”）主办的第二届智慧金融<a href="javascript:if(confirm('http://money.163.com/baike/shalong/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://money.163.com/baike/shalong/'" tppabs="http://money.163.com/baike/shalong/" title="财经人物_阿里埃勒·沙龙" target="_blank" style="color: rgb(15, 107, 153);">沙龙</a>论坛在上海成功举办。本届沙龙论坛主题为“<a href="javascript:if(confirm('http://money.163.com/keywords/4/9/4e9280547f51002b/1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://money.163.com/keywords/4/9/4e9280547f51002b/1.html'" tppabs="http://money.163.com/keywords/4/9/4e9280547f51002b/1.html" title="互联网+" target="_blank" style="color: rgb(15, 107, 153);">互联网+</a>”时代：银行电话<a href="javascript:if(confirm('http://money.163.com/keywords/8/2/842595008f6c578b/1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://money.163.com/keywords/8/2/842595008f6c578b/1.html'" tppabs="http://money.163.com/keywords/8/2/842595008f6c578b/1.html" title="营销转型" target="_blank" style="color: rgb(15, 107, 153);">营销转型</a>与发展，并邀请到了多位来自大型商业银行、股份制银行、城商行的电话营销专家共同进行了深入探讨。现将嘉宾的精彩发言集萃发布如下，以飨读者。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>曾晓千</strong><strong>：运用数据分析和挖掘技术提升电话营销的成功率</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>（广发银行信用卡中心网电营销部 渠道总监 本届沙龙主持人）</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">从现状来看，电销份额在各行呈增长趋势。在我看来主要有三个原因：一是市场资金饥渴和P2P的不规范发展，信用卡仍然是满足消费信贷需求的主力产品之一；二是电销在重资产渠道中，仍然维持数据精准化、生产规模标准化，形成投入产出比最高的态势，获得财务导向的倾斜；三是当前风险形势下的授信政策收紧以及互联网行业正处于整并检视周期，导致轻资产的网销转化及流量成本提高、替代威胁速率减缓。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">亦因如此，电销主题回到了“管理增长”的议题上，而聚焦其中，则是运营成本、客户体验和组织扩张三大问题。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">过去，信用卡行业经历了黄金十年，产品围绕宏观市场需求和企业成本结构而设计，渠道负责将产品推销给客户，主要解决渠道成本、效率、效果三者间的平衡问题。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">而在今天，移动互联、大数据的正式商业化和普及改变了市场竞争格局，金融产品创新的步伐逐渐落后于技术创新的速度，信息技术的高速发展让以往的市场信息不对称红利逐渐消失，客户体验成为“买单”的主要决策因素。这使我们过去建立的方法论，如产品响应率、营销员响应率等模型，不能有效地支持业务动能效能的预测和背后所对应的成本管理。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">既然是方法论未与时俱进，求解之路还需从方法论的角度切入。剖析其内在，以往是卖方市场，所以我们从定向目标客户需求的产品功能切入；而当下，向互联网借鉴，从“产品”到“场景”，其需求与产品功能的撮合，形成有效互动的营销。因而在概率管理的调整上，需要先体现产品到场景的管理升维，从时间、空间、地点、人物甚或是实体经济下的钱物交易去动态推导产品之于客户的匹配模型，来作为运营资源投入、流程配置的真实依据。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">在客户体验上，基于核心基础的改变，所需求的是高度的场景式定制销售。在以往，少数销售精英通过长期的销售经验积累和个人阅历成长，在销售过程中动态适应客户所需，摸出客户内心场景，在双方各有供求的情况下而促成交易。在今天，我们也可通过语音文本化的实际应用将销售精英的营销话术批量提取、归纳复制，一方面是大数据架构下所催生的场景性营销探测，提前制定销售场景话术，提高培训的精确度和可实施性，从技能复制及技巧辅导两方面填补初级员工经验阅历的不足；另一方面则是“云计算外呼系统应用升级”结合“外部多重数据交换”，从以往静态的、以名单或产品为管理导向的销售资源管理模式，进化为动态的、以场景为单位的销售可视化管理平台，给予座席实时、动态及多媒体的销售决策支持。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">最后一点，是关于组织扩张的问题。在经历自建、BPO两大建设潮后，大家实践总结出，在“业务质量、绩效管控、信息安全等需求”下，共建模式是短期扩张抢市场的较好方案。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">由此看来，未来电销管理的价值将是研发、设计、实施原来在自建呼叫中心中使用的专业输出。数据模型迭代、绩效管控监测、销售流程设计、定量及定向培训、质检及信息安全策略等，都将成为一种服务或产品。而其中，通过互联网专线的加密对接，流程、系统的延伸和衍生，将生产规格从显性变为隐性，从而达到“云分布及轻资产”的目标。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">对于电话营销，或许我们还可以思考更多，如利用网络工具，将过程重新分工，将大量的细节性内容交给网络去回答，座席只需要教会客户如何使用工具。而对于销售过程，我们也可以探索改变营销策略，从追求质的最大化过渡到追求量的最大化。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">通过这样的改变，我们应该更能适应行业主题，插上网络的翅膀，取其场景思维，通过人机结合实现真正意义上的“电销+互联网”</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>曲圣超</strong>：<strong>用互联网思维和工具武装自己</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>（中国银行信用卡中心电销部 高级经理）</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">近年来，由于电信诈骗案件的增多以及互联网渠道的冲击，电话营销受到了一些挑战。但电话营销也有其自身的优势，与网点渠道相比，其成本更低；与互联网渠道相比，电话营销更加人性化。所以，短期来看电话营销还是具有不可替代性的。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">在“互联网+”时代，客户的购买渠道更加多样化，加之电话营销的方法和时间关系，客户一般会比较抵触，所以在一定程度上降低了成功率。我觉得我们应该用互联网思维和工具来武装自己。首先，可以用大数据分析的思路、方法和模型来为电话营销服务。我们可以根据信用卡客户的消费水平、年龄、性别等特征对客户进行细分，然后为客户提供个性化的产品。其次，可以利用互联网工具提高与客户互动的有效性。比如，在电话营销时，如果客户确实没有时间接电话，可以先给客户推送一些产品链接，让客户事先了解产品信息。再次，可以建立拒绝客户和白金卡客户名单共享机制，以减少电话营销人员的时间成本。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>张婷戌：优化产品提供方案，进行多渠道有效联动</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>（建设银行信用卡中心客户服务处 高级经理）</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">在“互联网+”时代的冲击下，电话销售仍然方兴未艾，是建设银行许多客户青睐的业务办理渠道，主要原因可以总结为以下几个方面：一是颠覆了以往“被动响应”的传统服务模式，以主动出击获取客户。电话营销通过主动与客户联动，打破了银行原有的被动等待客户来电的获客模式，有效激发了客户的购买意愿，满足了客户日常的信贷需求。二是随着客户行为的变迁，传统物理网点的营销接触点与营销机会大幅减少，而电话渠道由于具备方便、快捷、及时的比较优势，将成为产品、服务交付的最主要平台。三是更能适应复杂的客户需求。客户对服务的诉求已不仅仅局限于简单的业务处理，而是向互动型、复杂类业务转变，因此在提供多元化复杂服务的同时，嵌入交叉销售，可以“润物细无声”地刺激客户的购买需求。四是安全性和客户接受程度更高。第三方机构调查显示，即便存在电话诈骗现象，但相比于短信、手机银行、网上银行等渠道，客户认为电话外呼的安全性和可信度更高，提供信息更详实，因此也更容易接受。我们的调查显示，有34.6%的新客户偏爱通过电话渠道（呼入及呼出）办理业务。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">因此，下一步，我们一方面要持续优化产品提供方案，除现有传统的保险、信用卡分期类产品外，还将探索更多的新型营销产品，并通过精细、准确的客户细分，按照各个商品的响应率与收益率情况，为线上座席进行产品排序，提供线上决策依据；另一方面，要优化渠道策略，渠道间应该有部署的重点，比如说电话渠道可以加强新客户的培育，手机银行主要针对已有习惯的老客户，同时，不同渠道间应该有联动的策略，要统一各渠道的客户信息，建立统一视图，实现客户在各渠道的无缝衔接。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>诸羿敏</strong>：<strong>线上线下相结合的营销模式是大势所趋</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>（交通银行信用卡中心客服部 高级经理）</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">在“互联网+”时代，自主渠道和人机交互越来越多，电话营销到底要扮演怎样的角色，这是我们需要思考的一个问题。在这里我想到一个案例：vipabc，真人在线英语外教。如果客户在互联网上登录之后没有购买的，电话营销人员会在3分钟之内给客户打电话了解情况。这就是线上线下相结合进行营销的一个经典案例。“互联网+”时代，线上线下相结合的营销模式是大势所趋。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">早期的电话营销一般都是广撒网，成功率较低，而在目前的大数据时代，我们可以通过大数据技术对客户进行细分，提高电话营销的精准性，从而提升成功率。交通银行通过建模选择合适的客户进行外呼。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>刘强</strong>：<strong>根据客户细分，为其提供个性化服务</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>（光大银行信用卡中心多元行销部 高级经理）</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">基于信用卡运营过程中长期积累的经验和客户特征，可以进行客户模型和消费场景的匹配。首先，我们可以根据信用卡客户的人口属性和交易行为等特征，对其进行分类，然后根据客户的需要，有针对性地搭建一些消费场景，而在消费场景的搭建方面，可以与第三方支付公司或互联网消费公司进行合作。其次，我们还可以对电话营销人员进行细分，让具有不同营销能力和服务能力的电话营销人员与不同的客户联系。根据以上细分，给电话营销人员一定的权限，让合适的电话销售人员为不同的客户提供个性化的增值服务。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">电话营销对大数据的应用，归纳起来就是聚类和分类，把所有经营过的客户信息做聚类，聚类完成之后再定位一些特征进行进一步分类，分类之后的数据实际上就是大数据。通过聚类的结果，基于整个综合销售平台，有针对性地开展消费场景的搭建，通过对客户类型、座席技能以及营销方法等不同层级的细分，针对客户提供适合的产品和增值服务，并辅以差异化的费率和其他营销手段。同时还能够通过平台进行获客。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">展望未来，从客户的接受程度来看，未来的电销渠道将是一个衰减的过程。电销渠道是要求客户被动接受的一种服务手段，需要占用客户的时间，然而客户通过自助渠道则是利用碎片时间主动接受服务，所以电销渠道和互联网渠道是互补的，并且从这个趋势来看，未来电销渠道占比会下降，但绝对值不会降。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>王华：完善的行业应用系统至关重要</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>（华夏银行信用卡中心电销部 高级经理）</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">目前，不论是自营还是外包，电话营销都面临一个问题，那就是客户流失率不断上升。此外，各行电话营销的主力军均是90后员工，一方面在管理上有一定难度，一方面员工的流失率在不断提高。所以，如何对90后员工进行管理，让他们发挥更大的积极性，是我们需要解决的一个问题。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">对于电话营销，我觉得有一个完善的行业应用系统至关重要。如果在前端发卡时获得的客户数据比较细致，便可以利用行业应用系统进行数据分析，得出客户画像，再根据客户画像为其配套合适的产品，最终提升客户的满意度，提高电话营销的成功率。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>钱露漪：电话营销是信用卡服务的延伸</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>（招商银行信用卡中心电话营销中心 主任）</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">信用卡的电话销售与其他行业有所区别，更像是一种银行服务的延伸。营销的名单数据都经过了严密的分析和管理，基于客户的需求出发，来进行需求的主动挖掘。同时，正因为有了前期的大量数据分析以及人性化的拨打策略，电话沟通的精准度和成功率也是其他渠道无法比拟的。在“互联网+”时代，不能将电话营销简单看成一个重渠道，它与互联网之间的关系也并不是对立的，而是可以延伸与互补的。利用互联网的大量引流和强大的数据分析以及智能管理技术，使电话营销的名单和拨打策略从原有的静态模式转变为动态模式，不仅可以提升客户体验，还可以实现销售达成，更是对互联网渠道流量漏损的巧妙承接。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">关于电销与其他渠道在客户营销方面存在重叠的问题，我们的做法是鼓励员工将客户向轻渠道引流，尤其是在线上无法及时拿下订单时。这需要我们提前将业绩的计算方式与比例进行约定，不管最后客户成交的时间和办理渠道如何，高度关联的渠道都将按约定有一定比例的业绩共享，这样可以有效激发各团队、各渠道协作的积极性，最重要的是：永远确保客户体验为先。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>范小龙：打造一站式服务营销中心</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>（浦发银行信用卡客服中心 总经理）</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">“互联网+”时代，客服中心和电销中心开始进入深度合作时期，作为收益贡献的两个亲密伙伴团队，两个中心的快速转型都是我们努力推进的方向。针对电话营销业务，浦发银行信用卡中心主要依托大数据、客户画像等行业领先的技术，最终实现两个中心系统的统一、权限的统一、服务标准的统一，从而实现多元化智能营销中心的定位。此外，在业务结构上，我们更加注重智能和自助渠道的推广，减少运营成本，为客户提供快捷、智能的服务体验，进行场景式服务营销，推动从重资产向轻资产转型，这是2017年我们电话营销管理的着力点。我们更看重好客户的经营和倾听客户的心声，举个例子，客服通过大量样本调研，发现客户对于境外刷卡最关心的仍然是刷卡安全问题，所以针对客户的这一需求，我们可以推出类似安全锁的权益类产品，在多元智能营销平台进行推广，让客户真切地感受到浦发信用卡是一张最安全的信用卡。综上所述，未来营销的发展，追求更大的收益价值，客户体验才是王道，电销中心和客服中心，都必须精心做好客户经营工作，培育更多的价值客户，提供真正的一站式服务营销。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>王浩：大数据精准营销及呼入式营销具有较大的发展空间</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>（上海银行信客户服务中心 副总经理）</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">目前，各行都在利用大数据技术来开展电话营销业务。通过大数据技术将客户划分成不同的群体，针对高价值客户更多地采取外呼式营销；同时，在“互联网+”时代，对于不同客户群体，可通过微信银行、手机银行、VTM、短信、互动平台等不同营销渠道和营销促动方式进行营销。银行可以搭建一个客服中心综合金融服务经营平台，通过大数据挖掘技术，对客户进行精准画像，然后通过呼入、呼出等多种渠道，有针对性地向其推荐所需要的综合金融产品和服务。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">呼入式营销更具优势。对于电话营销来讲，目前更多的还是采用外呼方式，但是在电信诈骗比较猖獗的背景下，外呼营销的信任度显然会受到影响，且成功率提升困难。所以，电话或在线呼入式营销具有较大的发展空间。当客户带着一些问题来向银行客服咨询时，客服人员优质的服务将提升客户的信任度和依赖性，这时客服人员可以根据客户精准画像，按需推荐一些适合客户的产品，这样不仅可以提高客户体验，也可以提高电话营销的成功率。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>杨立强：用精准的解决方案和服务做好银行电话营销的有力帮手&nbsp;&nbsp;</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>（华拓金服解决方案中心 总经理）</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">华拓金服作为国内领先的金融科技服务运营商，依托众多银行客户的信赖，华拓金融电销业务快速发展，团队规模和运营收入逐年稳步增长。如何在互联网时代利用新技术进一步挖掘电销业务的价值，提升运营效率，成为包括银行客户与华拓在内的新挑战。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">从当前各家银行的实际运营情况来看，以网络营销为代表的新型信用卡营销方式已经开始逐步取代传统的线下营销和电话营销方式。面对互联网时代新的市场竞争态势，当前信用卡电话营销业务在多方面显露出不足。其中产品缺乏创新、市场营销手段单一、运营技术落后、运营成本高成为主要问题。面对挑战，我们认为作为电销业务管理部门，应当主动变革，充分挖掘电销业务的潜在价值。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">第一，积极与产品部门配合创新信用服务新产品，拓展业务合作，加强与行业，以及互联网公司合作，将分期类产品植入客户的消费场景成为未来产品创新的方向。通过开放合作的态度，积极的跟一些产业链和消费金融，或者是场景来进行合作，包括互联网公司在消费场景上面做一些产品创新。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">第二，营销方式创新，从单一电话营销向多渠道，全媒体的营销方式转型，从单一营销向服务与营销相结合转型，从产品营销向细分消费场景营销转型。用户注意力已从传统通信服务转向互联网应用、移动终端，交互式的媒介逐渐变成与客户沟通主要模式。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">第三，加强<a href="javascript:if(confirm('http://money.163.com/keywords/7/b/7cbe51c684259500/1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://money.163.com/keywords/7/b/7cbe51c684259500/1.html'" tppabs="http://money.163.com/keywords/7/b/7cbe51c684259500/1.html" title="精准营销" target="_blank" style="color: rgb(15, 107, 153);">精准营销</a>能力建设，充分挖掘数据价值。一方面改革传统数据分析方法，从经验建模到让数据主动说话，充分利用行内现有业务数据。另一方面积极引入大数据，并学习在大数据环境下的数据分析方法。分析客户属性，挖掘其对产品和服务喜好，实现个性化服务及产品推荐。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">第四，探索利用人工智能技术，使用语音识别、语义理解等相关技术降低运营人员投入，尝试使用语音机器人进行简单产品营销。通过大数据技术进行创新，自动从多维度数据当中找出数据的分类信息，比如说自动分类客户标签、客户属性等，并使用智能语音机器人配合开展营销业务作业，脱离人为设定和人工操作，提高业务运营的效率和准确率。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">第五，创新外包业务模式，发挥外包商的价值，扩大外包业务范围，提升外包业务精细化管理水平。未来银行势必在业务外包方面有更多的创新，特别是从业务模式上开展消费金融、场景创新所涉及的渠道和资源的开发与拓展，这样外包商不仅仅是完成劳动密集型工作，还能帮助银行拓展资源。同时，还要加强精细化管理水平，提升对外包商的准入、考核、风控，以及日常的运营管理。</p><p><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">第六，顺应变革，提升团队能力，做好员工培训，将培训体系的知识点碎片化，以丰富形式加工整理、有针对性灵活的推送给员工，让其利用碎片时间主动学习，并结合整体培训逐个掌握知识点乃至整个知识体系。由于规模化集中培训在人员组织、培训方式、效率及效果上不能满足精细化管理的需要。需要增加交互式、移动化、按需学习的灵活方式。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">在本次沙龙论坛上，各家银行专家的发言引起了广泛而热烈的反响，大家相互进言献策，纷纷分享各自在电话行销业务中的成功经验。大家也同时表示，此次论坛搭建了一个同业交流的平台，让各家银行通过面对面交流和沟通，对促进银行电话营销业务的发展，推动我国金融改革进程大有裨益。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

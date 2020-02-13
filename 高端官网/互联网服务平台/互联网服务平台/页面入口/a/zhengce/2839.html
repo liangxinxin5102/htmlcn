@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/zhengce">政策</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">从蚂蚁金服看我国互联网保险的发展</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-09　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2839.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2839.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><strong>一、我国<a href="javascript:if(confirm('http://jingzhi.funds.hexun.com/160636.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://jingzhi.funds.hexun.com/160636.shtml'" tppabs="http://jingzhi.funds.hexun.com/160636.shtml" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">互联网</a>保险发展的基础</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　1.1<a href="javascript:if(confirm('http://insurance.hexun.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://insurance.hexun.com/'" tppabs="http://insurance.hexun.com/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">保险</a>业的不断发展和<a href="javascript:if(confirm('http://www.fangxinbao.com/baoxianceshi/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/baoxianceshi/'" tppabs="http://www.fangxinbao.com/baoxianceshi/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">保险需求</a>的快速增长</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　近年来我国保险业处在快速发展阶段，<a href="javascript:if(confirm('http://www.fangxinbao.com/feiLv/zhongjixian/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/feiLv/zhongjixian/'" tppabs="http://www.fangxinbao.com/feiLv/zhongjixian/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">保费</a>收入不断增加，保险深度和深度不断提升，人们的保险<a href="javascript:if(confirm('http://www.fangxinbao.com/baoxianceshi/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/baoxianceshi/'" tppabs="http://www.fangxinbao.com/baoxianceshi/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">需求</a>不断增加，尤其是在新国十条以后，将行业发展提升到了国家战略层面。保险业的发展和保险需求的不断增长也为互联网保险的发展奠定了需求基础。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　1.2互联网的发展和普及</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　自1994年中国首次连入互联网以来，互联网在中国已经发展20余年。互联网在潜移默化中改变着人们的消费行为、购买方式等。根据<a href="javascript:if(confirm('http://jingzhi.funds.hexun.com/164906.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://jingzhi.funds.hexun.com/164906.shtml'" tppabs="http://jingzhi.funds.hexun.com/164906.shtml" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">中国互联</a>网络信息中心数据，截止到2016年6月份，我国互联网普及率已达到51.7%，网民总规模为7.10亿，其中手机网民占比已经超过92.5%，为互联网保险的发展提供了基础。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　1.3电子商务日臻成熟</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　近年来，我国电子商务呈现快速增长的态势，虽然规模增速有所放缓，但仍然保持较高水平，截止2016年上半年，我国电子商务市场规模达到19.7万亿元，同比增加20.1%。随着我国电商市场日臻成熟，网购占比不断提高、支付方式更加安全、整体市场呈良性竞争态势。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　1.4传统营销渠道增长乏力</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　从历史数据看，中介渠道一直是保险销售的最主要渠道，中介渠道主要包括专业代理（保险专业代理机构、保险经纪机构、保险公估机构等）、兼业代理（以银邮机构为主，还包括汽车类企业和其他类机构）和<a href="javascript:if(confirm('http://www.fangxinbao.com/yingxiaoyuan/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/yingxiaoyuan/'" tppabs="http://www.fangxinbao.com/yingxiaoyuan/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">营销员</a>渠道。但由于传统中介渠道竞争愈发激烈、成本较高、<a href="javascript:if(confirm('http://www.fangxinbao.com/yingxiaoyuan/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/yingxiaoyuan/'" tppabs="http://www.fangxinbao.com/yingxiaoyuan/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">代理人</a>队伍逐渐饱和、银邮渠道受政策影响且服务较差的因素，传统中介营销渠道增长乏力，占总保费收入比例从2011年起逐年下滑，为互联网渠道等提供了发展机会。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>二、我国互联网保险的发展现状</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>2.1我国互联网保险发展分为四个阶段</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　我国互联网保险的发展始于1997年，在过去近20年时间里，我国互联网保险发展主要分为四个阶段：萌芽期、探索期、全面发展期和爆发期。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　2.2互联网保险发展情况</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　2015年全年我国互联网保费收入2234亿元，同比增长160.1%；占总保费收入比例不断提升，2015年占比已超过9.2%；已有超过110家保险公司开始经营互联网保险，占所有保险公司数量的七成以上。在<a href="javascript:if(confirm('http://www.fangxinbao.com/baoxian/shouxian/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/baoxian/shouxian/'" tppabs="http://www.fangxinbao.com/baoxian/shouxian/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">寿险</a>公司中，一些万能险占比较高、银保渠道占比较高的险企互联网保费规模排名居前；在产险公司中，几家大型险企的互联网保费规模排名居前。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　2016年上半年，互联网保费收入同比增长75.4%，增速有所放缓，占总保费比重也有所下滑，主要是由于<a href="javascript:if(confirm('http://insurance.hexun.com/2007/bjhdt/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://insurance.hexun.com/2007/bjhdt/'" tppabs="http://insurance.hexun.com/2007/bjhdt/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">保监会</a>对互联网保险的监管趋严，多家保险公司的互联网保险业务被叫停。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><br/></p><table align="center"><tbody><tr class="firstRow"><td style="padding: 0px; margin: 0px;"><p><img alt="2.3互联网保险监管政策" src="../../../i5.hexun.com/2017-01-09/187664560.jpg" tppabs="http://i5.hexun.com/2017-01-09/187664560.jpg" style="padding: 0px; margin: 0px; border: 0px; vertical-align: middle; max-width: 550px; height: auto; display: block;"/></p></td></tr></tbody></table><table align="center"><tbody><tr class="firstRow"><td style="padding: 0px; margin: 0px;"><p><img alt="【缴文超/陈雯/张译从】从蚂蚁金服看我国互联网保险的发展" src="../../../i0.hexun.com/2017-01-09/187664561.jpg" tppabs="http://i0.hexun.com/2017-01-09/187664561.jpg" style="padding: 0px; margin: 0px; border: 0px; vertical-align: middle; max-width: 550px; height: auto; display: block;"/></p></td></tr></tbody></table><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">&nbsp;</p><p><span style="font-size: 12px;"><span style="font-size:12px"></span></span></p><p>　　2.3互联网保险监管政策</p><p></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><br/></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　相较于互联网保险的发展，监管方面相对而言稍显滞后，甚至在2011年以前，市场上还没有出现单独的规范性文件正式对互联网保险提出监管上的要求。2015年7月，《互联网保险监管暂行办法》出台后，互联网保险开始进入规范监管时代，文件对经营主体、经营方式、自营网络平台条件、三方网络平台条件、经营险种、信息披露、经营规则等主要方面均做出了较为明确的要求，为互联网保险的规范提供了依据。2015年9月出台的《关于深化保险中介市场改革的意见》，推行了独立代理人制度，为第三方平台开辟了广阔空间。进入2016年，监管政策更加规范和严格，利于行业长久健康发展。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><br/></p><table align="center"><tbody><tr class="firstRow"><td style="padding: 0px; margin: 0px;"><p><img alt="三、蚂蚁金服的互联网保险营销策略" src="../../../i5.hexun.com/2017-01-09/187664562.jpg" tppabs="http://i5.hexun.com/2017-01-09/187664562.jpg" style="padding: 0px; margin: 0px; border: 0px; vertical-align: middle; max-width: 550px; height: auto; display: block;"/></p></td></tr></tbody></table><p><span style="font-size: 12px;"></span>&nbsp;</p><p><span style="font-size: 12px;"><span style="font-size:12px">　　</span><strong><strong style="font-size: 20px;"><strong style="font-size: 16px;"><strong>三、蚂蚁金服的互联网保险营销策略</strong></strong></strong></strong></span></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><br/></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　蚂蚁金服全称为浙江蚂蚁小微金融服务集团有限公司，成立于2014年10月，专注于为小微企业和个人消费者提供普惠金融服务。公司旗下品牌包括支付宝、蚂蚁聚宝、网商银行、芝麻信用和蚂蚁云金融等。以支付宝为例，截止2016年3月底，支付宝实名用户数已经超过4.5亿，拥有超过200家合作金融机构和近千万小微商户。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　3.1蚂蚁金服互联网保险平台发展情况</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　蚂蚁金服于2015年底正式成立保险事业部，现升级为保险事业群，在整合原淘宝、支付宝等多个电商平台的保险业务基础上，系统地建立综合、开放的互联网保险平台。该平台的定位是做“保险行业的助推器”，通过搭建平台、提供场景，提供保险需求挖掘、数据风控技术输出、<a href="javascript:if(confirm('http://www.fangxinbao.com/news/list-5.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/news/list-5.html'" tppabs="http://www.fangxinbao.com/news/list-5.html" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">理赔</a>体验改善方案、消费者保险意识培育等服务，与保险机构一同推动行业“供给侧改革”，将保险打造为真正的国民服务。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　截止到2015年年末，蚂蚁保险平台共有76家保险合作伙伴，包括30<a href="javascript:if(confirm('http://insurance.hexun.com/jcx/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://insurance.hexun.com/jcx/'" tppabs="http://insurance.hexun.com/jcx/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">家财险</a>公司、37家寿险公司和2家<a href="javascript:if(confirm('http://www.fangxinbao.com/baoxian/zhongjixian/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/baoxian/zhongjixian/'" tppabs="http://www.fangxinbao.com/baoxian/zhongjixian/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">健康险</a>公司以及7家保险中介及代理公司。目前，该平台共提供超过2000款<a href="javascript:if(confirm('http://www.fangxinbao.com/baoxian/zhongjixian/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/baoxian/zhongjixian/'" tppabs="http://www.fangxinbao.com/baoxian/zhongjixian/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">保险产品</a>，累计服务约3.3亿用户。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　3.2蚂蚁金服保险业务情况</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　与通常意义上保险公司销售互联网保险不同，一般互联网保险即保险公司将所出售的保险产品通过互联网的渠道进行销售，其保险产品通常为自己公司设计，并通过各类互联网渠道进行销售。而蚂蚁金服保险平台并不自己设计保险产品，而是发现保险产品需求后与保险公司合作设计，并且更多的是为保险销售提供一个在线平台，同时提供数据与技术的支持。其主要业务即为以下三大类：</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>*开放式保险平台</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　蚂蚁金服的保险业务致力于打造一个开放式的保险平台，通过数据、技术与渠道的支持，将经由平台发现的保险需求反馈给保险公司，与保险公司合作开发新的保险产品。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>*场景保险＋平台保险</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　场景保险和平台保险是目前主要的两类互联网保险形式。场景保险即将保险产品融入到消费者的生活场景之中，如嵌入在电商交易、支付账户、在线<a href="javascript:if(confirm('http://travel.hexun.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://travel.hexun.com/'" tppabs="http://travel.hexun.com/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">旅游</a>等具体场景之中的保险，其中许多保险都是近几年新设计出来的保险，最为代表性的有退货运费险、支付宝账户安全险。平台保险是在各类互联网平台上销售的保险，包括许多传统意义上的<a href="javascript:if(confirm('http://insurance.hexun.com/cx/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://insurance.hexun.com/cx/'" tppabs="http://insurance.hexun.com/cx/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">车险</a>、意外伤害险、健康险等，逐步实现线上化，为各保险公司提供第三方网上销售渠道。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　蚂蚁金服将关注重点集中在“消费保险”方面，公司将消费保险定义为：场景保险中的分支，主要围绕消费场景而定制的各类保险产品。目前蚂蚁金服保险平台与保险公司合作的险种主要都为消费保险，并与9家保险公司合作5大类30余种消费保险产品。2016年的双十一，9家保险公司在蚂蚁金服保险平台上累计销售出6亿笔消费保险<a href="javascript:if(confirm('http://www.fangxinbao.com/wx.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/wx.html'" tppabs="http://www.fangxinbao.com/wx.html" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">保单</a>，平均每分钟为41万单，刷新了全球保险纪录。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><br/></p><table align="center"><tbody><tr class="firstRow"><td style="padding: 0px; margin: 0px;"><p><img alt="*数据与技术支持" src="../../../i3.hexun.com/2017-01-09/187664563.jpg" tppabs="http://i3.hexun.com/2017-01-09/187664563.jpg" style="padding: 0px; margin: 0px; border: 0px; vertical-align: middle; max-width: 550px; height: auto; display: block;"/></p></td></tr></tbody></table><p><span style="font-size: 12px;"><span style="font-size:12px"></span></span></p><p>　　<strong>*数据与技术支持</strong></p><p></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><br/></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　一方面为险种设计提供大量的数据作为精算基础，丰富保险云平台，通过蚂蚁金服大数据分析的能力和经验，与保险公司一起提升定价、核保、理赔、反欺诈能力；另一方面，在理赔等环节提供技术支持，节约产品的人力成本，提高理赔效率和客户体验，一个典型的例子就是通过与芝麻信用合作以及运用图片智能识别技术进行急速赔付。除此以外还有超过4万笔/秒出单峰值的技术能力以及千人千面定价与理赔等方面的支持。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　3.3蚂蚁金服保险业务发展空间</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　目前蚂蚁金服的消费保险已经几乎涵盖了整个购物链的全部环节，包括从商品质量保障、<a href="javascript:if(confirm('http://www.fangxinbao.com/feiLv/zhongjixian/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.fangxinbao.com/feiLv/zhongjixian/'" tppabs="http://www.fangxinbao.com/feiLv/zhongjixian/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">价格</a>保障、订单达成、物流保障、售后保障到商家的持续经营能力。而利用保险机制促进了消费达成，从价格、质量、物流等各环节提升消费体验，化解售后纠纷，提供意外损失后的经济补偿，从全球保险行业范围来看，蚂蚁金服是该领域的开拓者。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　而对于此类消费保险未来的发展，整体还是较为乐观。从目前发展情况来看，2016年前三季度消费保险保单量增长超过80%，保费收入增长超过50%。且通过线上线下业务相结合可以起到相互促进的作用，发展线上保险产品的保障使得线下商品业务获得更快的增长，而线下业务的增长也对线上保险产品产生了更多需求。此外，全球化、定制化也将会为其未来发展提供新的方向。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>四、多路资本纷纷涉足互联网保险</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　蚂蚁金服对于互联网保险的投资只是一个具有代表性的案例，近年来无论是大型电商平台、保险公司还是创业企业、风投资本，均对互联网保险表示出了极大兴趣。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　4.1互联网保险类企业分类</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　除了像蚂蚁金服这一类通过淘宝网作为兼业代理平台进行互联网保险销售的企业外，从营销层面对互联网企业进行分类，主要可以分为渠道创新、代理人升级和险企自建的直销平台三个主要方向。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　4.2大型企业涉足互联网保险</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　蚂蚁金服保险平台除了与各保险公司开展业务合作以外，还控股国泰产险，持股比例达到51%，同时发起成立信美相互人寿保险社。此外，各电商巨头和互联网企业也纷纷涉足保险业务，此类企业在庞大的客户群体、海量的场景模式以及数据和技术支持等方面拥有得天独厚的条件。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><br/></p><table align="center"><tbody><tr class="firstRow"><td style="padding: 0px; margin: 0px;"><p><img alt="而目前市场上已经有四家经保监会批准的互联网保险公司，其主要股东背景也大多实力强劲，多为互联网企业或大型保险公司，凭借保险公司在保险产品经营管理方面的优势、庞大的保户群体以及互联网企业在技术、用户群体、大数据支持和互联网宣传渠道等方面优势相结合，使得这一类互联网保险公司能在成立初期发展势头迅猛，抢占优势地位。" src="../../../i0.hexun.com/2017-01-09/187664564.jpg" tppabs="http://i0.hexun.com/2017-01-09/187664564.jpg" style="padding: 0px; margin: 0px; border: 0px; vertical-align: middle; max-width: 550px; height: auto; display: block;"/></p></td></tr></tbody></table><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><br/></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　而目前市场上已经有四家经保监会批准的互联网保险公司，其主要股东背景也大多实力强劲，多为互联网企业或大型保险公司，凭借保险公司在保险产品经营管理方面的优势、庞大的保户群体以及互联网企业在技术、用户群体、大数据支持和互联网宣传渠道等方面优势相结合，使得这一类互联网保险公司能在成立初期发展势头迅猛，抢占优势地位。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><br/></p><table align="center"><tbody><tr class="firstRow"><td style="padding: 0px; margin: 0px;"><p><img alt="4.3风投资本追逐互联网保险初创企业" src="../../../i1.hexun.com/2017-01-09/187664565.jpg" tppabs="http://i1.hexun.com/2017-01-09/187664565.jpg" style="padding: 0px; margin: 0px; border: 0px; vertical-align: middle; max-width: 550px; height: auto; display: block;"/></p></td></tr></tbody></table><p><span style="font-size: 12px;"></span>&nbsp;</p><p><span style="font-size: 12px;"><span style="font-size:12px">　　</span><span style="font-size: 14px;"><span style="font-size: 16px;">4.3风投资本追逐互联网保险初创企业</span></span></span></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;"><br/></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　相较于大型互联网公司可以直接与保险公司合作或获取保险牌照的优势，更多小型初创期的企业从保险产业链的某一环节入手，在细分领域内提升效率、降低成本。目前互联网保险创业公司已经超过100家，尤其是在2015年出现了井喷式发展，业务除了主要集中在车险比价和代理人平台以外，在保单管理、订单售后服务以及保单赔付等方面均有企业参与，包括近期受到监管层风险提示的互助类平台也发展迅猛。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　互联网保险初创企业也受到了资本的青睐。据不完全统计，2015年互联网保险公司共发生超过27起融资事件，融资总额超过70亿元人民币，其中千万级为15起，亿级及以上4起，有超过8家公司获得第二轮及以上投资。依据整体融资分布情况我们可以看出今年以来初创企业获得融资的金额在不断增加，但数量有所减少。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>五、我国互联网保险的发展趋势及存在障碍</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　5.1互联网保险的发展趋势</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　依据我们对蚂蚁金服保险平台以及近年来互联网保险发展的分析，我们对互联网保险未来发展趋势有以下观点：</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>*传统保险公司开展互联网营销渠道将成为必然选择</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　互联网保险在销售简易类寿险和财产保险时，在整体提高效率、节约成本方面还是具有明显优势的，随着互联网保险业务的开展，长远看险企在费差异方面会给公司带来正利润，目前市场上的险企在近三年纷纷开展了互联网业务，已开展的占比超过七成。未来保险公司开展互联网业务会成为必然选择。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>*场景保险将成为互联网保险未来重要发展方向</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　蚂蚁金服通过场景保险成功将保险产品由低频率的项目逐渐向高频率，同时现阶段众多保险公司也将保险产品嵌入消费者生活场景之中，在用户还未养成保险消费的习惯时通过场景让消费者主动接触保险，这一类产品思路也将会成为未来互联网保险的重要发展方向。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>*小型互联网保险初创企业将会继续深耕细作，深挖保险产业链环节</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　目前保险初创企业已经分布在保险产业链的各端，涵盖全产业链对资本及资源要求较高，大多数企业难以覆盖。而仅仅进行单一环节的简单互联网化，例如简易的比价或者罗列并不能对用户产生任何吸引力，且无法获得资本的支持。因此初创企业会继续深挖保险产业链，找准自身立足点和优势。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>*伴随着技术的发展，传统保险理赔难的痛点将在互联网保险上得到有效改善</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　传统保险的痛点之一在于理赔难，而蚂蚁金服利用图片识别等技术，在部分险种上已经实现了智能理赔，仅需消费者发送图片，大多数情况下仅需系统自动识别即可作出赔付，赔付速度快、准确度高、用户体验明显提高，伴随着技术的不断成熟，便捷理赔将成为部分互联网保险又一大卖点，很大程度上解决了传统保险的痛点。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　5.2互联网保险的发展障碍</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　同时，互联网保险发展存在如下障碍：</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>*相关监管逐渐趋严，一定程度上限制互联网保险的规模扩张</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　今年下半年，随着国务院办公厅颁布《<a href="javascript:if(confirm('http://iof.hexun.com/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://iof.hexun.com/'" tppabs="http://iof.hexun.com/" target="_blank" style="text-decoration: none; color: rgb(72, 90, 144);">互联网金融</a>风险专项整治工作实施方案》，开启了互联网金融风险整治的大幕，互联网保险行业也成为整治的重点对象。10月，中国保监会联合十四个部门印发《互联网保险风险专项整治工作实施方案》，整治重点包括互联网高现金价值业务、保险机构依托互联网跨界开展业务、非法经营互联网保险业务。在今年下半年，保监会先后叫停了前海人寿、恒大人寿、华夏人寿、东吴人寿等8家保险公司的互联网渠道保险业务。2017年，行业监管将更加严格，可能会在一定程度上限制互联网保险规模的扩张。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>*互联网保险企业盈利模式尚不明朗，流量平台赚钱效应有待发掘</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　传统保险模式下一直有“渠道为王”的说法，保险公司拥有更多的代理人、更广的银保渠道优势等，意味着更大的保费收入和利润。而在互联网保险模式之下，渠道方面各公司差异并不明显，“渠道为王”逐渐转变为“流量为王”。但是在做大流量之下，能否有效将流量变现是互联网保险企业未来应关注的重点，尤其是兼业代理及第三方比价平台；同时主动购买的保险产品作为一类非高频消费项目，如何有效增加客户数量及粘性也应该得到重视。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>*过度依赖于大股东背景使得企业发展受限，经营模式难以复制</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　互联网保险牌照目前依然具有高度的稀缺性，现有的四家保险公司大多股东背景较为雄厚、兼顾了保险行业和互联网行业，可以充分利用现有资源，但是由于公司对于股东资源有较强的依赖性，其经营模式难以复制，未来新获取互联网保险牌照的险企在缺乏资源优势背景下难有足够竞争力。</p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　<strong>*互联网保险初创公司很大程度上依赖于资本支持，未来发展存在一定困难</strong></p><p style="padding: 0px; margin-top: 10px; margin-bottom: 30px; font-family: 微软雅黑, 宋体; white-space: normal;">　　互联网保险初创公司不断涌现的同时也获得了资本的青睐，这一点已经得到了广泛的关注。但是目前而言这类企业大多还未能实现较好盈利，需要依赖于不断的资本输入，同时现阶段部分创业公司已经获得二轮或者三轮投资，投资金额已经达到千万甚至上亿元，先入优势明显，而小额投资数量逐渐减少，新设企业较难获得资本支持，未来发展存在一定困难。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

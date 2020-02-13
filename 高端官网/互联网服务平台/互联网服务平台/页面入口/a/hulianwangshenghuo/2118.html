@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin">互联网+网络服务平台</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/hulianwangshenghuo">互联网+生活</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">食得鲜智能生活体验馆开业 智联宝“智能互联网+生鲜”新里程碑！</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-11-29　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2118.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2118.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp; 在大多生鲜电商寒冬蛰伏的当下，广州一家生鲜电商却运用“智能互联网+生鲜”给整个行业又添了一把“新火”。2016年11月28日，保千里集团旗下智联宝公司客户食得鲜位于广州市珠江新城花城汇的全国首家智能生活体验中心正式开业。庆典现场，保千里视像科技集团、保千里集团旗下智联宝生态科技、891WORLD跨境电商等企业领导系数到场，活动吸引了近百家媒体现场报道。</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun"><img src="../../../p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914480060693.jpg" tppabs="http://p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914480060693.jpg" alt="活动现场" width="500" isflag="1" data-bd-imgshare-binded="1" style=";padding: 0px;border: 0px none;display: block"/></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun">活动现场</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun">&nbsp;</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun"><img src="../../../p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914473781614.jpg" tppabs="http://p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914473781614.jpg" alt="剪彩仪式" width="500" isflag="1" data-bd-imgshare-binded="1" style=";padding: 0px;border: 0px none"/></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun">&nbsp;</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun">剪彩仪式</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun"><strong>全国首家智能生活新零售平台 打造以生鲜为入口的综合性智趣生活平台</strong></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;&nbsp;&nbsp;据记者现场了解， 食得鲜打造以生活集市为主题的智能生活体验中心，是食得鲜应用智联宝“智能互联网+生鲜”社区化生鲜电商解决方案，打造的以生鲜为入口的综合性智趣生活平台，其超3000平米的规模也是目前广州首家、全国最大的新零售平台，涵盖生鲜食品、酒类、跨境电商、日常家化、母婴、花艺、会员活动等集展示、体验、零售、仓储、配送中心于一体的新零售平台！最大的特色在于运用“智能互联网+生鲜”模式在体验中心的生动展示及科技元素在每一个环节的人性应用，在此基础上注入更多的商业形态，利用平台型智能硬件、大数据、云计算等当下最新技术提高效率、提高效能、提升体验。其中基于大数据的电子价格牌乃是国内首创。这是业内率先启用RFID系统。RFID系统由电子标签、读写器和网络三部分组成，依托RFID电子标签，在食得鲜智能生活体验馆，所有的产品都采用标准化分拣流程及包装规格。让用户在体验馆内发现想要购买的商品时，扫描商品电子码，即实现加入电子购物车。需送货上门的订单，食得鲜也会将标准化的货品第一时间分拣装袋，当日送到用户家里。</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun"><img src="../../../p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914511397052.jpg" tppabs="http://p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914511397052.jpg" alt="智能机器人——小宝" width="500" isflag="1" data-bd-imgshare-binded="1" style=";padding: 0px;border: 0px none;display: block"/></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun">智能机器人——小宝</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><br/></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun;font-size: 16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;而在负二楼专门开辟的食得鲜智能硬件体验区，有爱美女性偏爱的魔镜机器人，不仅能实现投影阅读和购物，还能检测体脂、测试面部水份、做净离子美容等；有休闲人士钟爱的神灯机器人，除了实现以上功能，更能提供家庭影院支持，家庭厨艺指导等等；最讨喜的莫过于儿童乐园的明星——小宝机器人——这一在深圳高交会上出尽风头的智能机器人，因其呆萌的外表和逗趣的应答惹来众人的关注。学习管家、健康管家、娱乐管家、居家管家等，小宝的众多功能，在食得鲜智能生活体验中心，市民朋友们都能一一见识。</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun"><img src="../../../p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914521699131.jpg" tppabs="http://p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914521699131.jpg" alt=" " width="500" isflag="1" data-bd-imgshare-binded="1" style=";padding: 0px;border: 0px none;display: block"/></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun"><strong>食得鲜联手大型跨境电商&nbsp;&nbsp;境外完税商品区满足多样购物需求。</strong></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;&nbsp;&nbsp; 智能生活体验中心也吸引了891WORLD跨境电商平台参与战略合作，这家拥有超过10000的进口商品品类，提供最受市民关注的跨境电商品牌。为增加体验中心产品种类与数量，食得鲜与大型跨境电商891跨境电商平台强强联手，引进后者全平台SKU，标品爆款全球尖货，保证用户的多样购物需求得到满足。同时，食得鲜与891WORLD跨境电商将整合共享双方供应链、技术、物流、推广渠道，双方品牌升级改造，以期为消费者们带来更多利好。</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun"><strong>智能互联网+生鲜线下多种商业形态布局 生鲜电商新风向</strong></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;&nbsp;&nbsp; 据了解，本次智能生活体验中心的开业仅是智能互联网+生鲜线下布局的首航，半个月后，食得鲜的其他两个大型体验中心——珠江新城花城汇体验中心和白云区5号停机坪体验中心，也将同时举行开业庆典。这或许透露着生鲜电商2017年的新风向。同时也彰显智能互联网+生鲜线下多种商业形态布局并非小打小闹，本次智联宝广州客户食得鲜打造以生鲜食品电商为入口的综合的、智趣的生活平台——新零售平台，涵盖生鲜食品、酒类、跨境电商、日常家化、母婴、花艺、会员活动等集展示、体验、零售、仓储、配送于一体的新零售平台，也验证了一句老话：所有商业的竞争，归根结底，是商业模式的竞争。</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun"><img src="../../../p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914524432875.jpg" tppabs="http://p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914524432875.jpg" alt=" " width="500" isflag="1" data-bd-imgshare-binded="1" style=";padding: 0px;border: 0px none;display: block"/></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;&nbsp;&nbsp;&nbsp; 但商业模式的竞争同样不止于此，本次开业庆典中，作为食得鲜“智能互联网+生鲜”商业模式的提供商保千里集团旗下智联宝公司CEO在庆典致辞演讲中透露了更多信息。他提出：结合此前第三届互联网大会及第十八届高交会两场盛会来看，已经表明互联网上半场已经结束，下半场则是由“智能互联网”开场。从世界互联网发展规律来看，互联网用户数达到人口的51%后增长停滞；目前中国网民数超7亿，已达临界点，用户数量无法再翻番。互联网上半场（PC互联网、移动互联网）以用户连接形成流量，红利已透支，互联网上半场结束。互联网下半场“智能互联网”开场：用户数量无法增量，但单个用户价值存在巨大挖掘空间，互联网下半场“智能互联网”将回归对用户本身的关注，高密度、深层次挖掘用户价值，创造新红利。</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun"><strong>智能互联网六维理论 引领互联网下半场四大机会空间</strong></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;&nbsp;&nbsp; 记者进一步了解到，保千里集团预判到智能互联网时代到来，早在2012年便投入团队和资金进行智能互联网相关技术研发和布局。2015年率先在业界提出智能互联网，并定义智能互联网的六维核心理论。并在六维理论基础上制定了“智能互联网+”集团战略。保千里认为智能互联网是：以物联网技术为基础，以视像技术为支撑的平台型智能硬件为载体，结合云计算与大数据应用，精准定位目标用户群体，以“智惠、有趣、选秀、造星、巨奖”为特征的新媒体文化为灵魂，整合传统产业资源，向百行百业客户输出跨界、互动、场景化的全营销运营系统，开展创新型电子商务和新媒体经营。智能互联网理论归纳为六个维度，简称“六维理论”。即：1、回归商业本质。2、以视像技术为支撑的平台型智能硬件为载体连接用户。3、以新媒体文化为灵魂。4、融合百行百业智慧的IP化经营。5、向客户输出跨界、互动、智能的全营销运营系统。6、打造流量共生、粘性交互、资源共享的超级流量入口。</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun"><img src="../../../p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914531839520.jpg" tppabs="http://p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914531839520.jpg" alt="保千里视像科技集团董事、副总裁 陈杨辉先生" width="500" isflag="1" data-bd-imgshare-binded="1" style=";padding: 0px;border: 0px none;display: block"/></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun">保千里视像科技集团董事、副总裁 陈杨辉先生</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun"><img src="../../../p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914533343082.jpg" tppabs="http://p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914533343082.jpg" alt="保千里集团旗下智联宝生态科技CEO 汪洋先生" width="500" isflag="1" data-bd-imgshare-binded="1" style=";padding: 0px;border: 0px none"/></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun">保千里集团旗下智联宝生态科技CEO 汪洋先生</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun"><img src="../../../p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914535335936.jpg" tppabs="http://p1.img.cctvpic.com/photoworkspace/contentimg/2016/11/29/2016112914535335936.jpg" alt="食得鲜董事长潘文伟先生接受采访" width="500" isflag="1" data-bd-imgshare-binded="1" style=";padding: 0px;border: 0px none"/></span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal;text-align: center"><span style="font-family: SimSun">食得鲜董事长潘文伟先生接受采访</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;&nbsp;&nbsp; 智联宝CEO汪总提出，互联网下半场智能互联网面临的四个机会空间，即：1）有价值创新的平台型智能硬件。2）智能互联网改造传统行业的经营。3）用户需求深层挖掘，实现价值倍增。4）新媒体经营和互联网经营的跨界融合。智联宝以智能互联网六维理论紧抓互联网下半场四大机会空间，应用保千里集团的智能机器人、VR手机、智能网联汽车等有价值创新的平台型智能硬件；以智能互联网思维（六维理论）打造“智能互联网+生鲜”社区化电商经营方案，改造传统行业的经营；基于平台型智能硬件，应用人工智能和大数据技术，通过楼小二运营系统服务，深层挖掘用户需求，实现价值倍增；打造新媒体文化平台——乐摇秀，实现新媒体经营和互联网经营的跨界融合。最终形成流量共生、粘性交互、资源共享的超级流量入口乐摇网。</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal">&nbsp;</p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun">&nbsp;&nbsp;&nbsp; 保千里视像科技集团董事、副总裁陈杨辉先生表示，整个体验中心，它是全国唯一一家将餐厨、物流还有体验综合为一体的体验中心，我们借助智能互联网+，以及食得鲜的整套体系，他们迅速的一个扩张，并且在整个生鲜电商不景气的情况下我们能够取得基本上是每个月百分之百以上的速度在增长，这个是比较重要的，所以这次完成体验中心之后在全国也是一个创举。</span></p><p style="margin-top: 0px;margin-bottom: 0px;padding: 0px;line-height: 20px;font-size: medium;font-family: 宋体;white-space: normal"><span style="font-family: SimSun"><span style="font-family: 宋体">&nbsp;</span></span></p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/xinwen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/xinwen/'" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/guoneiyaowen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/guoneiyaowen/'" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

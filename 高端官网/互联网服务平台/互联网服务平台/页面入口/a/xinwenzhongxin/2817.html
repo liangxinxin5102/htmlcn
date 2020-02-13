@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin">国内动态</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">如何辨别安全靠谱的互联网金融平台？看这篇就够了！</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-09　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2817.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2817.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">市面上形形色色、眼花缭乱的互联网金融平台多如牛毛，可真正让人放心的又有几个?资金不安全、账户有风险、平台无保障……各式各样的问题变着法儿来轰炸投资者。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">对于投资者来说，安全当为第一要义!</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">那么，如何识别安全、靠谱的互联网金融平台?账户要安全，信息要透明……众说不一。有没有一个统一的辨识维度?</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">接下来，向大家分享一些我使用理财APP以来的经验，大家也可以根据这些维度来衡量衡量目前你关注的一些平台，希望能有一些帮助。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;"><strong style="box-sizing: border-box; -webkit-font-smoothing: antialiased;">看平台背景</strong></p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">背景是很多投资人选择一个平台的重要依据，“干爹”是谁，“大腿”怎么样，往往影响着投资人作出投资决定。另外，光知道平台有背景不够，还得了解平台背景的真实性。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">互联网金融平台的安全性与资本实力成正相关，资本实力越强，平台安全性也越高。资本的品牌、背景和规模直接影响资本的综合实力。金融机构、大型企业、国有背景、风投基金等参与的深度与广度是影响安全性的重要因素。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">所谓背靠大树好乘凉，有了够硬的平台背景，投资人再去做投资理财就明显比其他平台更放心。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;"><strong style="box-sizing: border-box; -webkit-font-smoothing: antialiased;">看管理团队</strong></p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">互联网金融平台的团队非常重要，将直接影响到平台最终能够走多远。一个成熟优秀的团队能确保平台安全稳健运营，而一个初生不专业的团队则能加速平台的衰亡。目前许多互联网金融平台多是民间借贷机构的互联网化，团队人员往往缺乏金融从业经验，特别是风控经验，这无形之中放大了平台运营风险。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">正常情况下，运营及风控团队最好有在银行、基金、信托行业有中高层工作经验的人，这些人在风控、财务、法务、审计、管理等方面都是一把好手，项目遴选能力和风险控制能力数一数二。虽说不一定完全避免风险，但这大大降低了风险的可能性。如果能再有个业界大拿坐镇就如同给投资人吃了颗定心丸，毕竟几十年的资历、业务水平放在那里，不服不行。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;"><strong style="box-sizing: border-box; -webkit-font-smoothing: antialiased;">看底层资产</strong></p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">投资标的的优劣，将直接影响产品的兑付。那么，从哪些方面来评判底层资产是否优秀?</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">看信用评级。根据由中国五大全牌照信用评级机构(东方金城、中诚信、联合、大公、新世纪)评估的信用评级，可以为判断底层资产是否优劣提供一定参考。如大公信用评级最高为AAA级，代表偿还债务的能力极强，基本不受不利经济环境的影响，违约风险极低。如果一家企业连AA级评级都没有，那么就要谨慎考虑是否要投资了。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">查排行榜。岁末年终，各种公司排名、最佳都出来了，这里推荐几个比较权威的排行榜。一个是由《财富》每年推出的世界500强企业排行榜，能在这个榜单上出现的不说绝对优秀，但肯定不会差。如果没有世界500强，那么就参考国内的。《财富》(中文版)每年也会发布一个中国500强企业排行榜。这些都是实实在在靠数字说话的榜单，如果没有雄厚的资产、优秀的盈利能力，根本无法位列其中。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">这是两个比较直观的维度。另外，从企业的财务报告、管理团队、上市情况、并购情况、银行授信情况等都可以看出一家企业的实力。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">标的分别是一家世界500强跨国企业集团和国内一家刚成立的小公司，你会选择哪个?</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;"><strong style="box-sizing: border-box; -webkit-font-smoothing: antialiased;">看信息披露</strong></p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">如果你认购了产品的平台上什么相关披露都没有，一问三不知，你会不会紧张?</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">信息披露有二层含义，一是平台业务的披露，例如底层资产信息，资金去向等等;二是平台运营信息，逾期和坏账水平，平台高管等披露。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">平台的信息披露是投资人判断平台安全的重要条件。从这方面说，平台信息越透明，越值得信赖。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">在一个互联网金融平台上，相关的资金用途、市场风险、法律与政策风险、经营及财务风险、发行人到期偿付及信用风险、流动性风险、资金挪用风险、不可抗力及其他风险等信息都有充分披露，平台的可信性就明显高于其他平台。同样地，一个历史到期百分百兑付本息的平台自然比三天两头不能如期兑付、违约的平台更加值得信赖。如果平台还有各种担保公告、差额补足承诺函的话，那简直“完美”。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;"><strong style="box-sizing: border-box; -webkit-font-smoothing: antialiased;">看资金流向</strong></p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">大多数人对理财产品望而却步的其中一个重要原因是，他们不知道他们的钱到底去哪儿了。心里没有底，自然就没有安全感。而一个靠谱的互联网金融平台，会清清楚楚告诉你，你的钱都去了哪儿，又是怎么回来的，什么时候回来。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">资金一般是在客户银行卡、第三方支付备付金账户和企业账户三方之间的运作流转，并不存在平台的公司账户，简单粗暴，却是最让人放心的模式。最大的好处是避免了自建资金池，挪作他用。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">那些新闻里的某借贷公司卷款逃跑的事件是不可能发生在那些靠谱的互联网金融平台身上的，因为从始至终，平台都没有动过客户的认购资金。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">再总结一下，选择一个放心靠谱的互联网金融平台，需要满足以下条件：平台背景要够扎实;管理团队要够强大;底层资产要够优秀;信息披露要够完整;资金流向要够透明。不妨登录一些平台看看，有没有符合这5点的。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">就我目前体验的情况来看，凤凰金融、太合汇·汇财富、陆金所是比较靠谱的。没有什么猫腻，信息披露比较充分，平台背景够扎实，收益也十分可观(并不是信口开河的天价回报率，碰到这种的也请自动屏蔽)。安全加稳健的收益，这样的平台相信也是你需要的。</p><p style="box-sizing: border-box; padding: 0px; margin: 0px 3px 15px; -webkit-font-smoothing: antialiased; color: rgb(51, 51, 51); font-family: &#39;Microsoft YaHei&#39;, &#39;Hiragino Sans GB&#39;, simsun, sans-serif; font-size: 14px; white-space: normal; text-align: justify; text-indent: 30px;">2017年，选对投资平台，让你的钱包更鼓更安全。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

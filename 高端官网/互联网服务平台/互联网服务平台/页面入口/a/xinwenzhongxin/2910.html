@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin">国内动态</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">互联网餐饮泡沫破灭 行业投资遇三大门槛</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-13　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2910.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2910.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">中国餐饮市场规模早在2015年就突破3万亿大关。数据显示，2016年1~11月，全国餐饮收入32447亿元，同比增长11%。在庞大的市场、较高的行业增速以及互联网的影响下，中国本土餐饮品牌发展经历了几次调整。在本土品牌经历并购整合的同时，曾经的“洋快餐”也在逐渐本土化。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　为何曾经的“洋快餐”会选择出售部分资产？国内本土的餐饮行业发展今年会有哪些新变化？在资本争议不断的餐饮行业，投资人现在对餐饮行业又持什么样的态度？</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　<strong>国外快餐品牌的变迁</strong></p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　近日，中信股份、中信资本控股、凯雷投资集团和麦当劳联合宣布达成战略合作并成立新公司，新公司将以最高20.8亿美元(约161.4亿港元)的总对价收购麦当劳在中国内地和香港的业务。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　2016年9月，拥有肯德基、必胜客的百胜餐饮集团剥离中国业务。百胜中国引入的投资者之一是阿里巴巴旗下的蚂蚁金服。更早一些，弘毅投资斥资近百亿元在2014年7月收购了英国餐饮品牌PizzaExpress，当时是欧洲餐饮行业过去五年中金额最大的并购案。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　当北京第一家麦当劳餐厅于1993年在天安门广场附近开业时，约有4万人排队等候下订单，这反映了中国对快餐的巨大需求。按餐厅数量计算，这种需求后来推动中国成为该公司第三大市场，仅位列美国和日本之后。24年过去，麦当劳、肯德基等国外快餐品牌在国内的吸引力今非昔比。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　天星资本研究所高级研究员吕文浩表示，对国外快餐品牌而言，在中国经历数十年快速扩张后，自2012年开始从巅峰跌落，发展进入瓶颈。曾经备受追捧的“洋快餐”，在居民收入水平不断提高、注重健康饮食以及本土快餐的多重冲击之下，过去的“美式生活潮流”已经一去不复返，外来快餐品牌在国内的市场份额走上了下坡路。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　欧睿咨询的数据显示，麦当劳和肯德基两大洋快餐在中国快餐行业的市场份额已由57%的高点下降至2015年的37.7%。在市场份额收缩的同时，中国本土的税收、租金、人工费用也在大幅上升，使得国外快餐品牌在中国的盈利空间持续减少。根据麦当劳2016年三季度财报，其全球门店销售额同比增长3.5%，净利润增长2.6%，但包括中国市场在内的“高增长市场”门店销售额同比仅为1.5%。如此看来，对于中国市场这一稍显鸡肋的业务，国外品牌更希望依托中资企业来寻求进一步的本土化，通过国内投资者的桥梁作用，能够更为适应中国市场、分摊风险，处理好税收、品牌与政府关系等。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　此外，吕文浩表示，对于国内投资机构而言，收购海外成熟的餐饮品牌，一方面可以满足多元化经营业务的战略需求，另一方面也可以引入全球知名品牌在消费、零售领域成熟的运营和管理经验。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　弘毅投资董事总经理王小龙则认为，西式餐饮企业已经建立了一套完善的管理体系，这套体系运营效率高且成熟，目前鲜有中国企业能建立类似的体系，这也是机构投资国外品牌的出发点之一。此外，经过在中国市场多年的发展，西式餐饮品牌在国内市场体量较大，麦当劳在中国内地门店数量超过2400家，百胜中国旗下门店数量更是超过7000家，收购海外成熟品牌可以快速取得大体量资产。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　<strong>本土餐饮品牌的调整</strong></p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　国外餐饮品牌在国内的发展逐渐由“外”而“内”变化，搭上互联网思维的本土餐饮品牌的发展也并非一帆风顺。总的来看，2016年并购整合是餐饮行业的关键词。本土餐饮品牌也正在发生一些新变化。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　有数据显示，2016年上半年餐饮行业获得融资的公司达28家，总融资金额超过900亿元。虽然2016年全年餐饮行业融资尚未有确切数据，但业内投资人总的感觉是：餐饮业没有前几年那么容易获得融资了。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　从2013年开始，“互联网餐饮”席卷投资圈。其中，以卖煎饼为主业的黄太吉和以卖牛腩为主的雕爷牛腩为代表。成立于2012年的黄太吉多次获得融资，估值一度高达12亿元。不过，2016年9月，被誉为“互联网餐饮鼻祖”的黄太吉被曝大量工厂店关闭，商家集体出走。与此同时，另一家以“互联网餐饮”著称的公司雕爷牛腩业绩也较巅峰期下降了近4/5。定位“轻奢餐”的雕爷牛腩同样成立于2012年。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　第一波搭着“互联网餐饮”旗号的本土餐饮品牌部分泡沫已经开始破灭。吕文浩表示，中国庞大的餐饮消费市场对于资本无疑具有充分的吸引力，但作为发展相对成熟且充分竞争的市场，其集中度相比其他行业非常低且细分领域众多。王小龙则表示，连锁餐饮行业还远未达到市场饱和进行整合的阶段。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　如果说三年前消费者还认为互联网餐饮是新鲜事物，有业内人士认为，2016年之后，将无传统餐饮和互联网餐饮的区别。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　具体来看，2016年获得融资的行业典型公司包括好色派沙拉、遇见小面、宋小菜、小恒水饺。这四家企业均获得最少2000万元的投资，宋小菜更是获得8515万元的A+轮融资。从获得融资的企业来看，单品品牌在标准化、模式化方面拥有较大的竞争力，且投资者对于创业项目的团队能力、运营能力极其看中。如今，投资者更加愿意投资已经实现盈利，并拥有独立资源的创业项目。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　对此，王小龙认为，国内餐饮行业正在经历四个方面变化：</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　一是品类方面，中式快餐快速崛起。中国饮食文化博大精深，菜品丰富多彩，口味千变万化，更加适合中国消费者的饮食习惯。越来越多的地方传统菜品通过连锁化方式经营得到消费者的认可，如主打西安特色小吃肉夹馍的“西少爷”和主打重庆特色面条的“遇见小面”的高速成长就是很好的例子。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　二是企业家方面。弘毅投资发现越来越多高素质人才不断涌入餐饮行业，他们为这个行业注入新的想法，积极推动餐饮行业的发展。西少爷的孟兵是西安交大的高材生，毕业后曾在百度、腾讯担任工程师，遇见小面的孟奇是香港科技大学的硕士研究生。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　三是产品标准化方面，中式餐饮借鉴了西式餐饮标准化高、操作流程简便的优点，充分发挥中央厨房的作用，尽量减少门店处理的环节，在保留口味的前提下大幅提高了产品可复制性。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　四是利用移动互联创新方面，近年来餐饮企业充分利用移动互联网，餐饮消费需求的即时性、碎片性、社交性被进一步放大，品牌知名度及影响力可以在较低资金投入和较快时间内建立。同时，运用互联网思维的品牌营销和门店运营管理变得更加直接和高效，原有的管理半径和经验积累可以得到有效弥补。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　<strong>餐饮行业的三大门槛</strong></p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　尽管餐饮行业市场庞大，增长速度较高，但相比于其他行业，投资者对餐饮的投资依然偏谨慎态度。典型的案例包括真功夫、大娘水饺、一茶一坐、俏江南等餐饮连锁，均获得资本青睐，但后续多遭遇管理、运营等成长的天花板。弘毅投资在2016年买下港股纺织行业上市公司理文手袋(后更名为百福控股)，通过该平台控股型投资中式快餐连锁品牌和合谷、西少爷，然后又参股投资餐饮品牌遇见小面。王小龙认为，市场上专门投资餐饮的机构并不多，主要是有三个难点。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　一是虽然餐饮行业进入的资金门槛不高，但连锁餐饮仍具有较高的管理门槛，在门店运营、供应链整合、人才培训等方面都需要精细化管理，难以像打造一些新兴互联网企业那样一蹴而就，需要一步步扎实地前进。这对投资人提出了较高的要求，需要投资人在餐饮行业具备深入的行业认知和耐心，精准把握行业趋势，熟悉企业在不同发展阶段面临的情况，在业内建立深厚的人脉关系，聚拢行业中最专业的管理人才，从而提高投资效率和成功率。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　二是餐饮企业往往规模较小，规范程度差，资产证券化率低导致流通变现渠道较少。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　三是由于餐饮行业的低门槛，餐饮创业者水平参差不齐。即使部分企业产品过硬并且具备了一定品牌影响力，在做到一定规模后也会面临各种各样的发展瓶颈。弘毅投资认为主要有两大瓶颈。一是资金的瓶颈，连锁餐饮的快速发展在开拓门店、升级门店系统、招募优秀人才等方面存在大量资金需求，不借助外部资金，依靠自有资金会严重制约企业发展速度。二是管理的瓶颈，连锁餐饮对精细化运营要求较高，门店数量达到一定体量后需要一套完善的管理体系，绝大部分餐饮创业者缺乏管理大型企业的经验，在企业发展到一定体量后往往不知所措。</p><p style="padding: 0px; margin-top: 0px; margin-bottom: 0px; line-height: 26px; color: rgb(68, 68, 68); font-family: 宋体, sans-serif; font-size: 14px; white-space: normal;">　　吕文浩则认为，对于餐饮行业投资，关键是要筛选出能够掌握C端，也即能把握消费演化趋势、深度挖掘并匹配消费者需求的标的公司，同时对于不同发展阶段的标的也要有所区分，初创期项目更需要关注其市场定位、品牌营销和渠道推广模式，能否精准切入消费者需求从而树立品牌认可度，形成相对稳定的盈利模式；而相对成熟期的项目则更需要关注品牌维护与规模效应，在资本的催化下能否维持消费者对品牌的依赖，并实现成规模的整合与复制。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

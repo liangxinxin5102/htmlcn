@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/xinwen">国际资讯</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">互联网+会展业，2017年将进一步推动产业创新发展</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-15　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2975.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2975.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　<span style="border: 0px; margin: 0px; padding: 0px;">随着以移动互联、云计算、大数据、物联网等为标志的新一代信息技术的不断发展，“互联网 +”成为新常态下驱动中国经济转型升级的内在引擎。互联网与传统产业的渗透融合以其强大的技术创新、商业模式创新优势，从市场、资本、资源等层面破除行业垄断，促进要素重新分配和产业结构升级。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">2015 年，《国务院关于进一步促进展览业改革发展的若干意见》提出，加快信息化进程，引导企业运用现代信息技术，开展服务创新、管理创新、市场创新和商业模式创新，发展新兴展览业态。举办网络虚拟展览会，形成线上线下有机融合的新模式。推动云计算、大数据、物联网、移动互联等在展览业的应用，实现互联网与会展产业的深度融合，成为会展业创新发展的必然举措。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">在会展业应用互联网的早期阶段，行业运行主体通过创建官方网站等方式，开发展览会线上平台，展示企业形象、宣传展会项目、发布相关资讯，互联网的应用主要作为营销推广的工具而不是盈利手段。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">2015年和2016年，近两年，会展业信息化水平显著提高。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">随着移动互联网的兴起，“自媒体”蓬勃发展，微博、微信等即时通信工具成为人们获取信息的重要来源，会展业也顺应形势开始建立官方微博、官方微信、公众号，及时发布展览资讯并与客户开展互动交流。展会官网、官方微博、官方微信使用率大幅增长，公众号、专业化信息平台等方式得到普遍应用。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">然而，互联网对会展业发展的冲击远不仅于此，“互联网 +”作为推动会展业新一轮转型的外在动力，将对传统会展业形成具有变革意义的冲击和倒逼，刺激会展商业模式主动调整，</span><span style="border: 0px; margin: 0px; padding: 0px;">变革服务边界，提高服务效率和服务质量，<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;"><span style="border: 0px; margin: 0px; padding: 0px;">可以预见，在2017年里，互联网+会展业必将进一步深度融合，进一步深化改革，再造产业链条，重构产业格局。</span></span></span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">【“互联网 + 会展”：传统会展再造】</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">1、“互联网 +”实现信息共享</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">受展会举办期间资源太多、时间太短、参与者结构复杂等因素限制，传统方式很难对展会资源进行深入开发，传统会展模式对会展资源的利用度、开发度并不高。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">互联网的价值恰恰体现为网络技术对用户在线数据的挖掘与分析。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">云计算、大数据的兴起，使得对信息的低成本深度挖掘得以实现，从而使“信息”所具备的巨大价值得到充分释放。依托互联网将原本孤立的信息相连，通过大数据完成信息交换与共享，互联网打破行业固有的信息传输通道，改变行业游戏规则，使行业运行变得透明、高效。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">2、“互联网 +”促进供需匹配</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">对传统产业而言，线上与线下是严重分离的，信息不对称成为难以跨越的顽疾。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">传统会展业封闭的信息传递渠道导致行业信息不透明，参展商与主办方之间的信息交流难以顺畅进行，供需双方不能进行有效地筛选和匹配。互联网思维下，线上线下的融合与协同，将形成以市场为导向，为用户提供精准服务的商业模式，这无疑将成为会展业发展的一大热点。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">对会展业而言，线上线下结合（O2O 模式）的核心是通过互联网把实体展览信息传递给目标人群，使参展商和观众能够全面掌握展会信息，进而实现有效地对比与筛选；同时，通过互联网能够“找到”潜在目标客户，把线上客户引入实体会展活动，并在此过程中搜集和分析客户需求数据，有针对性地提供增值服务。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">3、“互联网 +”重塑多方体验</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">“互联网+会展”将信息流和资金流放在线上，将商流、物流放在线下，最大限度地集成线上和线下优势，在降低搜寻成本和交易费用的同时，提升多方体验。依托互联网技术对目标受众的深度分析，会展产品供给方可以了解活动需求方对产品和服务的需求，预测展会效果，以此为依据完善会展活动的策划组织。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">参展商一方面可以通过线上信息查询历史成交数据、参展效果、服务质量等数据，实现对组展方的对比与筛选，选择实力强、服务好的展览参与，助推展览市场的优胜劣汰，提高市场整体供给水平；另一方面可以通过对用户网络数据，如在线时长、搜索内容、跳转记录、评论转发等情况的收集、分析和整合，总结用户习惯和个人偏好，事先了解目标市场特征，有效刺激潜在市场需求，提高目标受众的比例。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">借助互联网资源，观众可以更清楚全面地了解展会和参展企业及其产品，有针对性地搜寻信息，定向了解所需产品，自主设计参观动线，提升参展体验。最后，大数据分析有利于展后服务体系构建，便于跟踪客户，实现客户关系管理的智能化。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">“互联网 + 会展”提供的不仅是传统展会所具备的服务与线上资源的相加，还提供“智能化”增值服务。利用网络系统，推进展览活动流程的程式化、智能化、规范化和自动化管理；集成经济有效、自由方便、快速准确、具有极强互动性的网络平台；对会展活动进行展前、展中、展后的全过程管理；全方位重塑主办方、参展商、服务商和观众的体验，实现多方共赢。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">【 “互联网 + 会展”：商业模式创新】</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">传统会展是在特定时间、特定地点举办的活动，而互联网具有不受场地限制、不限人数、不限时间的特点。互联网与会展业融合发展的表现形式从初级的传统展会向线上延伸、电子商务跨界合作发展到专门为会展业“定制”的移动客户端和专业性会展服务平台，且仍然在不断创新演变中。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">1、传统展会线上延伸</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">传统会展业务向线上的延伸，采用网络在线的形式把展会搬上网络虚拟空间，实现线上线下实时互动，突破展会场地和时间限制，使供求双方建立一对一、一对多和多对多的垂直接触，以便双方更快捷、更深刻、更细致地增进了解，提高贸易效率，增加贸易机会。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">在保障了传统实物会展所提供的“眼见为实”交流体验的同时，提供更加人性化的增值服务内容。例如，展前，时刻与客户保持联系，在展览项目宣传，参展商与组展商之间业务往来，物流服务提供方与需求方联系和约定，参展商与相关部门的联络中，更快捷便利地传播和处理数据信息；展中，运用互联网搜集观众资料，进行统计和分析。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">2、电子商务跨界合作</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">电子商务可以提供网上交易和管理等全过程服务，具有广告宣传、咨询洽谈、网上订购、网上支付、交易管理等功能。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">电子商务作为一个日趋成熟的行业，通过向会展业的延伸来扩展业务渠道。目前一些电子商务网站已经开始尝试线下的会议服务，利用自身的买家和卖家资源，借助会展企业合作伙伴的现场平台，开展特定主题的见面会，创造了新的产业运行模式。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">3、移动应用平台</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">随着移动互联的发展，手机 APP 移动会展平台的应用愈发广泛。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">移动应用平台为主办方、参展商、观众提供便捷高效的信息服务。在“智慧”会展场馆内，利用手机 APP 可以“导航”到想要去的展位和停车位，随时随地预订餐饮、酒店、旅游服务和物流服务。通过手机 APP 可以查询展厅介绍、近期展会、展商信息、展出展品、历史会展、热点内容等信息。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">此外，移动客户端可以识别客户运动轨迹，记录客户在展馆内的停留偏好并绘制出逛展地图，利用这些信息，可以分析人员参观路线，进行客流统计分析。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">4、会展服务平台</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">在“互联网 + 会展”风潮中，全国性展览信息平台、地方性展览信息平台和企业自主研发的展览信息交易平台迅速发展。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">尤其是企业自主研发的展览信息交易平台，以市场需求为导向，致力于从源头上解决参展信息不对称、服务碎片化、缺乏交易担保的行业顽疾。会展服务平台广泛搜集历史数据，基于历史数据进行展会对比，便于参展商进行筛选；围绕企业参展业务需求整合上下游服务资源，接入第三方合作企业，将参展物料印刷、展品运输、礼仪模特、酒店机票等服务纳入平台，帮助展装公司承接业务。对于展会主办方而言，还可以通过专业化会展服务平台进行数据管理、门票管理、展位的销售管理，以及基于互联网的营销推广管理。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<img src="../../ueditor/php/upload/image/20170116/1484549921137585.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20170116/1484549921137585.jpg" alt="" style="border: 0px; margin: 0px auto; padding: 0px; display: block; height: auto; max-width: 100% !important;"/></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">【 “互联网 + 会展”：智慧化发展趋势】</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">互联网与会展业融合发展的进程将呈现出“智慧化”趋势：</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">1、会展设施智慧化</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">“互联网 + 会展”的推进以移动互联技术，3D 虚拟技术、现代影像技术和即时通信技术的有效利用为前提，因此，“互联网 +”与会展的有效结合需以智慧化设施为保障。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">推进会展场馆信息化建设，加大智能化会展设施研发和应用力度，合理开发、利用手机移动客户端和智慧化平台，将为智慧管理、智慧营销、智慧布展和智慧服务奠定良好基础。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">随着软硬件设施智慧化程度的提高，线上功能将得到更为充分的开发，信息传输的安全性将得到更为充分的保障。集成买家检索分析系统、对口观众信息发布、客户关系管理、在线配对买卖服务、现场跟踪、后期数据挖掘、智能化设备管理等功能将不断完善。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">2、管理与服务智慧化</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">无论是传统会展的网络化延伸、电子商务的跨界融合还是通过移动客户端和专业化会展服务平台的方式实现线上线下的融合，未来的会展管理与服务都会呈现出更加智能化、人性化的特征，体现为有针对性地提供服务，方便参展商和观众实时掌握动态化展会信息。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">实现参展商对布展、展会进行中的展位动向的全过程监控；实时提供的参观者数量数据，科学监测展区参观人数、交通、安保状况；利用智慧化信息技术打造现场演示、触摸体验、信息交流、网上预约等多个链接交换平台和特色化参展、观展方案制定。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">3、信息利用智慧化</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">互联网的特性决定了信息越多、流量越大，潜在的商机越多。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px;">在保护信息安全的前提下，对信息资源进行开发是产业升级的前提。“互联网 + 会展”的关键不在于强化信息的流动与传输，而在于信息深层处理能力的跨越式提升。从单纯相互联结的“互联网时代”步入对信息进行深度挖掘的“大数据时代”决定着未来发展将着力于针对海量数据形成全面、智能、精炼、友好的深度分析，推进大数据落地、形成数据决策力，将各类相关数据合理地运用到决策体系中，基于数据进行科学决策，对企业运营及战略形成强有力的支撑。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">随着互联网、移动互联网在中国的进一步普及和深化，以及中国传统会展业在互联网、移动互联网领域的应用，更加有着政策力量的背后推动，“互联网+”已然成为中国展览业创新发展的驱动力。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">展览会是物流、人流、资金流、信息流的高度聚合，“互联网+会展业”重构了商业价值、变革了服务边界，提高了服务效率和质量，成为变革展览形式的重要手段。</span></p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">在接下来的2017年里，中国展览业必将加快运营机制的互联网流程再造，运用平台化管理与运营，从而开创展览业智慧化发展新局面。</span></p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

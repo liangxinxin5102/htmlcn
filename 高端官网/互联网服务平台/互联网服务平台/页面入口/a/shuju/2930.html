@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/shuju">数据</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">互联网新浪潮 航运业+大数据该怎么玩？</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-12　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2930.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2930.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">近日，交通运输部党组书记杨传堂和交通运输部部长、党组副书记李小鹏在《求是》杂志发表署名文章提出，“要着力运用信息技术手段，促进交通产业智能化变革，推动智能化运输服务升级，优化交通运行和管理控制，健全智能决策支持与监管，提升交通发展智能化水平。”大数据的挖掘和共享技术的快速发展，带来了信息服务平台的升级与转型，从而引发航运业服务模式和盈利方式的革命，实现了航运业运作体系的跨越式发展。利用大数据服务平台提升航运服务质量与效率，是航运业快速发展的新一轮推动力。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　1、“互联网+”大有可为</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　2015年下半年，国务院相继出台了《关于运用大数据加强对市场主体服务和监管的若干意见》和《促进大数据发展行动纲要》，其目的在于大力促进我国大数据技术的发展，数据被作为战略性资源在共享的同时受到足够的重视。大数据战略已上升到了国家战略，一时间各行业大数据风起云涌，就连传统的航运业也加入了这支浩荡的创新队伍之中。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　今年8月，国家发改委和交通运输部联合发布了《推进“互联网+”便捷交通 促进智能交通发展的实施方案》，这是国家第一次就智能交通发布总体框架和实施方案，其目的在于促进交通与互联网深度融合，推动交通智能化发展，为中国交通发展现代化提供有力支撑。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　上海国际航运研究中心信息化研究室主任、港航大数据实验室主任徐凯曾在《大数据时代的航运信息平台》一书中，给出过这样的定义：航运大数据(Shipping Big Data)是指航运业务、管理、监管等领域产生的海量数据，以及围绕这个数据规模有效的融合、存储、加工、查询、分析相关技术和解决方案的统称。主要可以解决三大问题：实时数据计算、历史数据分析、未来数据预测。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　那么航运<span class="external-link-pop" style="border: 0px; margin: 0px; padding: 0px; display: inline-block; cursor: pointer; position: relative;"><a href="javascript:if(confirm('http://www.iyiou.com/i/bigdata  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.iyiou.com/i/bigdata'" tppabs="http://www.iyiou.com/i/bigdata" target="_blank" style="text-decoration: none; border: 0px; margin: 0px; padding: 0px; color: rgb(5, 107, 193);"><span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">大数据</span></a><em class="icon safety-icon" style="border: 0px; margin: 6px 0px 0px 2px; padding: 0px; display: inline-block; vertical-align: top; cursor: pointer; width: 16px; height: 17px; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAA8CAYAAABvnTosAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAP9SURBVHjaYvz//z8DJQAggBiRDZg1axYfkAoGYn8glgFiLajUNSB+CcTbgHhFWlraW5gegAACGwDUyApk1wJxBRCzEmFxDxDXAQ36DhBALFCBfUBsQ4LLS4DYAohtAQIIZoA5ugozMzMGHR0dhn///jGcOXOG4cqVK+hKwHoAAghmwEuon8FATk4OjJcvX87AwsLCEBAQwPDixQuGN2/eIBsA0sMAEEBMUM4DZBlWVlawrd+/f2f4/Pkzw7NnzxhERUXRXXAbRAAEEBNSKMPB3bt3GR48eMDAxMTEoKioyCAlJQU2BA1cAhEAAQQzYBe2kLK1tQWHxZEjRxg+fvyILn0YRAAEEMyA3UD8G10FyAXnzp1juH//PrrUd6geBoAAgickYFqYB6QSkVVxc3Mz/Pz5k+HPnz/oBkwFpoEcEAMggJiQBOvQXeHs7Mzg5eWFzfYOGAcggOAGAE18AqRykFWC0gDIG2igAKoWDAACiBE9MwG9MhNkHo4UOB+oOQlZACCAmLAoArliLRZxUEZKRxcECCBGbNkZmrmWQ3MmCGwE4lCg7RgxBRBAjPjKA6BBE6DhU4BLDUAAMVJaoAAEEMUGAAQQxQYABBDFBgAEEMUGAAQQxQYABBDFBgAEEMUGAAQQxQYABBDFBgAEEMUGAAQQxQYABBDFBgAEEIoBbDmHxIFUBBCDyjFhaOXKAi3CP0EL0uW/ptjB6xGAAAIbANRoAGRn4imJ0MEKIJ4ONOgQQAAxsmYfBJVAk5GqqxXQ0ucttMIBFcl6QAyq+l2BOBKIFaDqywECCGTAVahTW4Am1hJjPdDF9UCqAVQlAgQQyH+KUPE2NEX5oBIYyp0ANHwiknQ/1AAhgABigtWyQCCOpBlUFrZDGxIg3A4U80cyQAhKvwMIIJABF6EcfSQFoMbDNqCtU0EYyD6B1oaAqb0IEEAgL5yFtomMoaUvrJZiBdoKajPEQlsvPeiNCyA4CRBATEia4E4E2vodiEHxDqpkikH1AZC/DckAmNqNAAHEBJS4BE0oekAbfdACHFQt9wLVzEcKn1BorJ0Fil8DCCBYzTQdSmeiGdAMxPPQxDKR9QAEEBPUyTOA1GJQEgbagBxd85ANgMo5gupIoJ65IDGAAEKuG2GuyAMqbIayI6EYpjkPTS0DQAChZ6Y4ILUQyu0E2lIBFe8FUkVQcQ+g+E6YHoAAwsjOaIZMgrkKSvsCNW9BVg8QQFjLA2hIr0ITjgZqXoauFiCAcBYoQEO0oSHOCs26F7CpAwggikskgACi2ACAAKLYAIAAotgAgACi2ACAAKLYAIAAotgAgACi2ACAAKLYAIAAotgAgACi2ACAAKLYAIAAotgAgAADAJXybVwTQ2OpAAAAAElFTkSuQmCC); background-repeat: no-repeat no-repeat;"></em></span>能做什么？亿海蓝航运数据部航运分析师给记者做了解释：基于大量的船舶类型、航线、船期等数据，分析全球大宗商品的实时走向，可以了解全球各大港口的货物类型、囤积情况等。比如通过对全球运输大豆船舶的实时监控，如果发现南美即将进口的大豆出现压港，无法按期抵达中国，就能在第一时间推断国内大豆价格可能会出现上涨。“利用航运大数据，可以推算出船舶的活动情况、货物的流动情况以及港口的作业情况，能够对期货投资决策产生重要影响。”亿海蓝产品数据部总经理说。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　事实上，在航运业数据服务大有可为。在国内，从数以百万计的班轮船期信息，到由此衍生的动态船舶地理位置，还有全球总数高达一千七百多万TEU的集装箱实时地理位置信息，以及背后可挖掘的国际贸易相关客户信息、商品资料信息以及资金流信息等。这些不容小觑的庞大数据是联通了整个世界的贸易流的信息，是世界贸易的大血管，它的背后是每年4万亿美元的中国国际贸易总金额。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　近年来，各个港口城市也正在努力兴建地域性的航运中心，瞄准的都是在蓝海经济中抢占核心数据，获得话语权。可以说，谁掌控和利用好“大数据”，谁就首先从航运的迷雾中突围，引领行业未来。大数据在航运业中的运用将远远超乎我们的想象，并将随着航运电商的登堂入室掀起指日可待的变革。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　2、试水“航运<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">大数据</span>”</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　在目前航运业发展遇到重重阻碍的情况下，面对航运业内联盟化的竞争，一些航运企业已经开始了大胆的探索，积极寻求改变，不断创新，适应新常态，抓住信息时代与大数据时代过渡时期这一机遇，不断完善自我机制，努力迎接挑战。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　早前，由于建设国际航运中心概念的提出，广州港南沙港区航运物流量剧增。为了应对日益增长的交易量，顺应大数据时代的发展，首个集装箱货运电商平台在广州港南沙港区三期正式上线。正是由于这一创新的决策，使得广州港在原有货运量的基础上取得了巨大的成功。在具体实施过程中，通过对整个集装箱运输过程中的数据进行分析、挖掘，找到哪些是制约效率提升的关键因素并进行针对性的改进，从而达到高效运输的目的。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　据该平台的运营单位——广州市速运网络股份有限公司董事总经理谢警予介绍，“货柜快车”上线短短3个月，已为上百家企业提供高效、优质、丰富的货运方式和体验内容，现已有上千位拖车司机加盟合作。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　目前平台已经和中国重汽集团进行战略合作，双方希望能通过更好更新的人工智能算法，提升运输过程的智能化。该平台后续将在结合云计算等大数据技术的基础上进一步提升整个港口集疏运的效率。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　今年6月14日，俄罗斯最大的集装箱运营商——俄罗斯运输集装箱公共股份公司正式与中国阿里巴巴集团签订名为集团客户物流服务的合同。该合同的签署将使得全中国境内数以百万的阿里巴巴物流平台客户得到更专业、更全面的服务，这无疑是对双方都有益的决定。一方面俄罗斯运输集装箱公共股份公司通过该合同的签署可以整合进入现代电商网络，利用中国这一巨大优势扩大消费群体；另一方面，阿里巴巴同样可以利用俄罗斯运输集装箱公共股份公司在运输服务方面的优势，进一步提高自身的运输效率，加快运作节奏。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　11月22日起，我国国内航行海船进出港不再办理“签证”，船舶进出港口更便捷、周转效率进一步提升。国内航行海船进出港签证取消之后，上海海事部门依托“大数据”选船平台，根据日常管理情况对船舶进行风险评级，依据不同的评级结果采取差异化管理，将海事监管重点部署至高风险船舶，低风险的船舶将获得更多的便利。同时，将船舶进出港报告情况纳入诚信管理机制，对不按相关规定进行船舶进出港报告的，将其列为重点跟踪船舶，实施每港必查。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　12月15日，深圳前海管理局官方首次发布“2015-2016年度前海优秀金融创新案例”，前海航交所凭借全国首创的航运业大数据综合服务平台——“航付保”，获金融创新案例奖。“通过‘航付保’进行的船舶交易结算，可以汇聚大量的资金流、信息流数据，形成的航运大数据体系能够为中小航运企业定制第三方征信数据报告，以此为基础满足企业多样化的融资需求。同时，通过对航运数据的处理输出，未来我们还将为中小航运企业经营优化提供专业指导。”前海航交所相关负责人表示。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　3、以创新求发展</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　处于瞬息万变的数字时代，航运业该如何创新发展？中国交通通信信息中心主任曹德胜表示，未来，以“互联网＋”所代表的信息化工具和其所倡导的思维方式运用于传统的航运业，将重构航运业供应链与价值链，推动互联网和航运业融合发展的新形态、新业态，实现创新发展。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　全球航运业近年来走势低迷，使得航运产业链上下游都存在降本增效的内在需求。传统航运领域积累下来的问题，成为阻碍行业提升效率、控制成本、降低风险的绊脚石。而大数据和“互联网+”的兴起使得“打破行业壁垒，压缩中间环节，提高效率”成为可能。这既是航运业的痛点，也是航运业的机会。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　沙特阿拉伯Bahri航运公司认为大数据是航运业未来发展方向，能促进业务的可持续增长，因此值得投资。Bahri公司创建了一个专用的大数据业务单元，名为Bahri Data，旨在利用大数据的创新能力提高生产力，打开航运业业务增长和转变现有业务模型的机会。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　徐凯认为，用传统的方法已经搞不定航运大数据。需要把隐含在数据中间的信息抽取出来，数据本身有信息量的问题，现在的信息每天以爆炸式的增长，像微信、微博这样的平台，可能有效的信息很少。为了获取信息我们需要小心翼翼的对待数据，数据具有“熵”、结构、多维的特征，在对其加工的过程中很容易造成信息的丢失。还有纬度的问题，即便可以分析某种信息，可否根据用户的需要，用一种适合的纬度展现给用户，这都是目前需要解决的问题。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　宁波航运交易所副总经理许晓蓉介绍，未来，宁波航运交易所将以市场和客户为导向，发展航运专业市场、提升服务功能、创新交易模式，用“互联网+航运+国际贸易”的创新思维和做法去构建具有特色的现代航运服务体系。充分利用国内外港航服务资源，扩大数据集聚范围，多方合作建设海上丝路航运大数据中心；加快推进航运物流企业诚信体系建设，优化行业发展环境。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　“大数据时代，‘互联网＋航运’尚处于起步阶段，将开启无限可能。”徐凯认为，它在模式和业务范围上将有更多可能性，希望企业通过资源共享和利益分享，营造行业良性“生态圈”。</p><p style="border: 0px; margin-top: 0px; margin-bottom: 0px; padding: 10px 0px 20px; color: rgb(25, 25, 25); font-family: &#39;PingFang SC&#39;, Arial, 微软雅黑, 宋体, simsun, sans-serif; white-space: normal;">　　以上是互联网新浪潮 航运业+<span style="border: 0px; margin: 0px; padding: 0px; font-weight: 700;">大数据</span>该怎么玩？的具体内容，大数据已经成为不可逆的趋势，可以预言，大数据将是未来5至10年商家必争的前沿领域。在全球航运业低迷的市况下，航运企业如果能尽快意识到大数据带来的潜在商机，重构信息服务平台，创建航运大数据的独特解决方案，挖掘和发现新的商机，创造新的产业价值，将是提升整个行业竞争力和利润率的有效途径。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

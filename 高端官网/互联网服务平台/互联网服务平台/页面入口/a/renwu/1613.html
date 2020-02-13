@@ -1,0 +1,444 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/renwu">人物</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">乔布斯遗失16年访谈:A级人才自尊心不需要呵护</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-06-27　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/1613.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/1613.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p><span style="color: rgb(51, 51, 51);"><strong><span style="font-size: 16px; font-family: 楷体;">眼神笃定，神情坦然，乔布斯在命运低潮的时候，并没有像一个怨妇。即使在和病魔抗争之时，他也顽强自信。本篇文章是在他逝世后意外发现的生前纪录片的文字简单整理。其中对于生命的价值、商业的本位、产品的灵魂、顶级人才的激励等多角度的讲述更是娓娓道来。很多思考，放在当下，依旧不会过时。</span></strong></span></p><p style="text-align:center;"><img src="../../ueditor/php/upload/image/20160627/1466990942989429.png" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466990942989429.png"/></p><p><span style="color: rgb(51, 51, 51);"><strong><span style="font-size: 16px; font-family: 楷体;"></span></strong></span><br/></p><p><br/></p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>&nbsp; &nbsp; “ 遗失16年的访谈 ”</strong></p><p class="newtext">1995年接受采访时，乔布斯正在经营自己创办的NeXT公司，这也是他的低潮期。18个月后，苹果收购了NeXT，半年后，乔布斯重新掌管苹果。</p><p class="newtext">当年的节目只用了一小段采访，之后母带在从伦敦运往美国的途中遗失。多年来人们一直以为再也看不到完整的内容。直到乔布斯逝世后，导演终于在车库发现了一份拷贝。</p><p><strong>“ 光滑的石头是磨出来的 ”</strong></p><p>&nbsp;&nbsp;</p><p>&nbsp; 会制造噪音的团队，才会磨出美丽的石头</p><p style="text-align:center"><img data-type="jpeg" data-ratio="0.5881294964028777" data-w="" src="../../../img.proxy.xmtbang.com/-url=http---mmbiz.qpic.cn-mmbiz-fEvXTRhNnzh6xMhJdg0PkYqaks1ySvoOYWHTlCxD6aS03WPnGWO5YiaWACNaPibCRw3aJviaCLKDPPicUqvvJw55nQ-640-wx_fmt=jpeg.png" tppabs="http://img.proxy.xmtbang.com/?url=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz%2FfEvXTRhNnzh6xMhJdg0PkYqaks1ySvoOYWHTlCxD6aS03WPnGWO5YiaWACNaPibCRw3aJviaCLKDPPicUqvvJw55nQ%2F640%3Fwx_fmt%3Djpeg" width="auto"/></p><p><span style="line-height: 28px; text-indent: 2em;">&nbsp; 每次（新产品计划）刚开始的时候，我们都有很多很棒的想法，团队对他们的想法深信不疑。这一刻，我总会想起我小时候的一幕。</span></p><p class="newtext">街
+上有个独居的男人，他已经八十岁了，我接近他，想让他雇我帮他除草。有一天他说，到我的车库来，我有东西给你看。他拉出老旧的磨石机，架子上只有一个马
+达、咖啡罐和连接两者的皮带。接着我们到后院捡了一些石头，一些很普通、很不起眼的石头。我们把石头丢进罐里，倒点溶剂，加点粗砂粉。之后他盖上盖子，开
+动电机对我说，“明天再来看看”。第二天回到车库，我们打开罐子，看到了打磨得异常圆润魅力的石头!</p><p class="newtext">本来只是寻常不过的石头，却经由互相摩擦，互相砥砺，发出些许噪音，变成美丽光滑的石头。</p><p class="newtext">在我心里，这个比喻最能代表一个竭尽全力工作的团队。集合一群才华洋溢的伙伴，通过辩论、对抗、争吵、合作、互相打磨，磨砺彼此的想法，最终才能创造出美丽的“石头”。</p><p>&nbsp;<strong>“ 公司的真正价值在于员工 ”</strong></p><p class="newtext">我十二岁时致电惠普的
+比尔·休利特（BillHewlett，惠普创办人）。当时电话簿上没有隐藏号码，所以我打开电话簿可以直接查他的名字。他接电话时我说：“嗨，我叫史帝
+夫·乔布斯，你不认识我，我今年12岁，我在制作频率计数器，需要一些零件。”他就这样跟我谈了20分钟。我永远都记得他不但给了我零件，还邀请我夏天去
+惠普打工。</p><p class="newtext">当时我才12岁，这件事对我产生了不可思议的影响。惠普是我见过的第一家公司，他让我懂得了什么是公司，如何善待员工。</p><p class="newtext">当时人们还不晓得胆固醇。他们每天早上十点会推出满满一车的甜甜圈和咖啡，于是大家停下工作，喝杯咖啡品尝甜甜圈。虽然是些小事，但显然惠普明白公司真正价值在于其员工。</p><p style="text-align:center;"><img src="../../ueditor/php/upload/image/20160627/1466990958431996.png" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466990958431996.png"/></p><p><strong> “A级人才，特别对待 ”</strong></p><p class="newtext">A级人才的自尊心，不需要你呵护</p><p style="text-align:center"><img data-s="300,640" data-type="jpeg" data-ratio="0.7418111753371869" data-w="519" src="../../../img.proxy.xmtbang.com/-url=http---mmbiz.qpic.cn-mmbiz-fEvXTRhNnzh6xMhJdg0PkYqaks1ySvoOZnVmAF438MDk8hlic6BDxEex9KlM9Vnh2jC4O96ozxkSNNSC4ROVang-640-wx_fmt=jpeg.png" tppabs="http://img.proxy.xmtbang.com/?url=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz%2FfEvXTRhNnzh6xMhJdg0PkYqaks1ySvoOZnVmAF438MDk8hlic6BDxEex9KlM9Vnh2jC4O96ozxkSNNSC4ROVang%2F640%3Fwx_fmt%3Djpeg" width="auto"/></p><p class="newtext">我很早便在生活中观察到一件事：人生中大多数事情，平庸与顶尖的差距通常只有二比一，好比纽约的出租车司机，顶尖司机与普通司机之间开车速度的差距大概是30%。</p><p class="newtext">普通汽车和顶尖汽车的差异有多少？也许20%吧。顶级CD播放机和一般CD播放机的差别？我不知道，可能也是20%吧。这种差距很少超过两倍。但是在软件行业还有硬件行业，这种差距可能超过15倍甚至100倍。这种现象很罕见，能进入这个行业我感到很幸运。</p><p class="newtext">我
+的成功得益于发现了许多才华横溢、不甘平庸的人才。不是B级、C级人才，而是真正的A级人才。而且我发现只要召集到五个这样的人，他们就会喜欢上彼此合作
+的感觉、前所未有的感觉。他们会不愿再与平庸者合作，只召集一样优秀的人。所以你只要找到几个精英，他们就会自动扩大团队。</p><p class="newtext">假如你找到真正顶尖的人才，他们会知道自己真的很棒。你不需要悉心呵护他们自尊心。大家的心思全都放在工作上，因为他们都知道工作表现才是最重要的。</p><p class="newtext">我想，你能替他们做的最重要的事，就是告诉他们哪里还不够好，而且要说得非常清楚，解释为什么，并清晰明了地提醒他们恢复工作状态，同时不能让对方怀疑你的权威性，要用无可置疑的方式告诉他们，你的工作不合格。</p><p class="newtext">这很不容易，所以我总是采取最直截了当的方式。如果你给和我共事过的人做访谈，那些真正杰出的人，会觉得这个方法对他们有益，不过有些人却很痛恨这种方法。但不管这样的模式让人快乐还是痛苦，所有人都一定会说，这是他们人生中最激烈也最珍贵的经历。</p><p><strong> “ 用5000个点子磨出一个产品 ”</strong></p><p class="newtext">真正的魔法，是用5000个点子磨出一个产品</p><p style="text-align:center"><img data-type="jpeg" data-ratio="0.6654545454545454" data-w="550" src="../../../img.proxy.xmtbang.com/-url=http---mmbiz.qpic.cn-mmbiz-fEvXTRhNnzh6xMhJdg0PkYqaks1ySvoOeiboRruyQ9SEdial6JSibYuXFibHtIubEAIgznbOpERgOvVQJy6CMnYQ0g-640-wx_fmt=jpeg.png" tppabs="http://img.proxy.xmtbang.com/?url=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz%2FfEvXTRhNnzh6xMhJdg0PkYqaks1ySvoOeiboRruyQ9SEdial6JSibYuXFibHtIubEAIgznbOpERgOvVQJy6CMnYQ0g%2F640%3Fwx_fmt%3Djpeg" width="auto"/></p><p class="newtext">我离开后，对苹果最具伤害力的一件事是史考利（苹果前CEO）犯了一个很严重的毛病：认为只要有很棒的想法，事情就有了九成。他以为只要告诉其他人，这里有个好点子，他们就会回到办公室，让想法成真。</p><p class="newtext">问题是，好想法要变成好产品，需要大量的加工。</p><p class="newtext">当你不断改善原来那个“很棒的想法”，概念还会不断成长。改变，结果通常跟你开始想的不一样：因为你越深入细节，你学得越多。</p><p class="newtext">你也会发现。你必须做出难以两全的取舍，才能达到目标：有些功能就是不适合电子产品做，有些功能就是不适合用塑胶、玻璃材料做，或是工厂就是做不到。</p><p class="newtext">设计一个产品，你脑海中可能要记住超过5000个问题，去把这些组合在一起，使劲让这些想法在一个全新的模式下共同运作，达到你要的效果。每天你都会发现新东西。这同时代表新的问题和新的机会。让最终的组合融会贯通，这才是真正的“流程”，也是真正的魔法所在。</p><p style="text-align:center;"><img src="../../ueditor/php/upload/image/20160627/1466990980727624.png" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466990980727624.png"/></p><p><strong> “ 做出好产品的关键因素 ”</strong></p><p class="newtext">做出好产品的关键因素，不在于很会管理流程</p><p class="newtext">1984年我们从惠普聘请了一堆人（设计图形界面电脑），我记得和其中一些人大吵一架。他们认为所谓的用户界面，只是在荧幕底部加上软体键盘，他们没有字体大小比例的概念，也没有滑鼠的概念。</p><p class="newtext">他们对我大吼大叫，说鼠标要花五年来设计的，成本高达三百美元。最后我受够了，就去外面找到大卫·凯利（DavidKelly）设计，结果九十天内就有了成本十五美元的滑鼠，而且功能可靠。</p><p class="newtext">当
+时我发现，苹果在某方面缺少这种人才，能多方面掌握一个想法的人才。这需要有一个核心团队，但由惠普的人马组成的团队显然不行。这和专业的黑暗面无关，这
+是因为人们失去了方向（惠普团队无法进行多方面思考）。随着公司规模越来越大，他们便想复制最初的成功。并且许多人认为当初成功的过程，一定有其奇妙之
+处，于是他们开始尝试把当年的成功经验变成制度。</p><p class="newtext">不久人们便感到困惑，为什么制度本身变成了答案？这大概是为什么IBM会失败的原因。IBM拥有最好的制度管理人员，但他们忘了设计流程的目的是为了寻找最棒的答案。</p><p class="newtext">苹果也有了这种状况，我们之中很多人很会管理流程，却不知如何寻找答案。顶尖的人会主动寻找最棒的答案，虽然他们是最难管理的人，但我依然乐于同他们一起工作。</p><p class="newtext"><strong>“我们不羞于窃取伟大的想法 ”</strong></p><p style="text-align:center;"><img src="../../ueditor/php/upload/image/20160627/1466990999140812.png" tppabs="http://www.imscw.com/ueditor/php/upload/image/20160627/1466990999140812.png"/><img data-type="jpeg" data-ratio="0.5341726618705036" data-w="" src="../../../img.proxy.xmtbang.com/-url=http---mmbiz.qpic.cn-mmbiz-fEvXTRhNnzh6xMhJdg0PkYqaks1ySvoOjVAVpn4GsgLvgzKmR7PAd8Vh1UHoickHgTWACyZn3MqzzFibp3vjKhibw-640-wx_fmt=jpeg.png" tppabs="http://img.proxy.xmtbang.com/?url=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz%2FfEvXTRhNnzh6xMhJdg0PkYqaks1ySvoOjVAVpn4GsgLvgzKmR7PAd8Vh1UHoickHgTWACyZn3MqzzFibp3vjKhibw%2F640%3Fwx_fmt%3Djpeg" style="line-height: 28px; text-indent: 2em;" width="auto"/></p><p class="newtext">你问我对产品的直觉从哪里来？这最终得由你的品味来决定。你要熟悉人类在各领域的优秀成果，尝试将之融入你在做的事情里。毕加索曾说过，“拙工抄，巧匠盗”，我从来不觉得借鉴别的好创意可耻。</p><p class="newtext">我
+觉得麦金塔成功的原因，在于其创造者是音乐家、诗人和艺术家、动物学家甚至历史学家，他们正好也是全球最棒的电脑科学家，所以我们才如此出色。如果没投身
+电脑科学，他们也能在其他领域创造奇迹。大家各自贡献自己的专业知识，麦金塔因此吸收了各个领域的优秀成果，否则的话他很有可能是一款非常狭隘的产品。</p><p>“ 我创业从来不是为了钱 ”</p><p class="newtext">公
+司拥有独占性的市场地位，能让公司更成功的人，是业务和行销人员，所以最后变成他们经营公司，而产品人员被边缘化，导致公司忘记做出好产品的重要性。当初
+是对产品的敏锐和创意，让他们独霸市场，后来却因经营人员而消失殆尽。他们对产品好坏没有概念，不懂将好构想变成好产品的工艺，他们也没有真的想帮客户的
+心。</p><p class="newtext">在业界打滚这么多年，我常问别人你为什么做某些事，得到的答案都是：事情就是这样。没有人知道他们为什么这样做。</p><p class="newtext">做生意没有人会真的深思熟虑，这就是我的体会和认知。因此如果你愿意问问题，仔细思考，认真努力，你很快就能学会做生意，这不是多难的事情。</p><p class="newtext">我身价超过100万美元时才23岁；24岁身价超过千万美元；25岁就超过亿万美元。但钱没那么重要，因为我创业从来就不是为了钱。</p><p class="newtext">当然，有钱是很棒的事情，因为它让你有能力做很多事。你可以投资短期无法回收的创意和想法，但最重要的是公司、是人、是我们制作的产品以及产品对人们带来的好处，所以我不常把钱放在心上。</p><p class="newtext">我没卖掉过一张苹果的股票，因为我真的相信公司会有长期发展。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/xinwen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/xinwen/'" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/guoneiyaowen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/guoneiyaowen/'" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

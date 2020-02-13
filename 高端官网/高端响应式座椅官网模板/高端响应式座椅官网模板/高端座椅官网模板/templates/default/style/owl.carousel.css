@@ -1,0 +1,228 @@
+/* 
+ *  Core Owl Carousel CSS File
+ */
+
+.owl-carousel {
+    display: none;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+    /* position relative and z-index fix webkit rendering fonts issue */
+    
+    position: relative;
+    z-index: 1;
+}
+
+.owl-carousel .owl-stage {
+    position: relative;
+    -ms-touch-action: pan-Y;
+}
+
+.owl-carousel .owl-stage:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.owl-carousel .owl-stage-outer {
+    position: relative;
+    overflow: hidden;
+    /* fix for flashing background */
+    
+    -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.owl-carousel .owl-item {
+    position: relative;
+    min-height: 1px;
+    float: left;
+    -webkit-backface-visibility: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+.owl-carousel .owl-item img {
+    display: block;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+}
+
+.owl-carousel .owl-nav.disabled,
+.owl-carousel .owl-dots.disabled {
+    display: none;
+}
+
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-dot {
+    cursor: pointer;
+    cursor: hand;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.owl-carousel.owl-loaded {
+    display: block;
+}
+
+.owl-carousel.owl-loading {
+    opacity: 0;
+    display: block;
+}
+
+.owl-carousel.owl-hidden {
+    opacity: 0;
+}
+
+.owl-carousel.owl-refresh .owl-item {
+    display: none;
+}
+
+.owl-carousel.owl-drag .owl-item {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.owl-carousel.owl-grab {
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: -o-grab;
+    cursor: -ms-grab;
+    cursor: grab;
+}
+
+.owl-carousel.owl-rtl {
+    direction: rtl;
+}
+
+.owl-carousel.owl-rtl .owl-item {
+    float: right;
+}
+/* No Js */
+
+.no-js .owl-carousel {
+    display: block;
+}
+.banner.owl-carousel .owl-dots{
+    position: absolute;
+	right:50%;
+	margin-right:-584px;
+    bottom: 26px;
+    z-index: 2;
+	height:12px;
+	width:auto;
+}
+.banner.owl-carousel .owl-dots .owl-dot{
+	margin:0 4px; 
+	overflow:hidden; 
+	display:inline-block; 
+	*display:inline; 
+	zoom:1; 
+	width:12px; 
+	height:12px; 
+	line-height:9999px;  
+	cursor:pointer; 
+	background:url("../images/circle.png"/*tpa=http://www.chinaleadcom.cn/templates/default/images/circle.png*/) no-repeat -20px 0; 
+}
+.banner.owl-carousel .owl-dots .owl-dot.active{ background-position:0 0; }
+.roomSlide.owl-carousel .owl-dots{
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    right: 0;
+    bottom: 10px;
+    z-index: 2;
+}
+.roomSlide.owl-carousel .owl-dots .owl-dot{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    *display: inline;
+    margin: 0 8px 0 0;
+    cursor: pointer;
+    border: 2px solid #a4a4a4;
+}
+.roomSlide.owl-carousel .owl-dots .owl-dot.active{
+    background-color: #af6f4b;
+    border-color: #af6f4b;
+}
+
+
+
+/*scroll-outer*/
+.scroll-outer .owl-carousel .owl-nav .owl-prev, .scroll-outer .owl-carousel .owl-nav .owl-next{
+    position: absolute;
+    z-index: 2;
+	top:55px;
+	width:34px;
+	height:40px;
+	line-height:9999;
+}
+/*.scroll-outer .owl-carousel .owl-stage-outer{ width:1000px; margin:0 auto;}*/
+.scroll-outer .owl-carousel .owl-nav{
+    display: block;
+}
+.scroll-outer .owl-carousel .owl-nav .owl-prev{left:0; background:url("../images/prev.png"/*tpa=http://www.chinaleadcom.cn/templates/default/images/prev.png*/) no-repeat 0 0;}
+.scroll-outer .owl-carousel .owl-nav .owl-next{right:0; background:url("../images/next.png"/*tpa=http://www.chinaleadcom.cn/templates/default/images/next.png*/) no-repeat 0 0;}
+
+/*hotlike*/
+.hotlike .owl-carousel .owl-nav .owl-prev, .hotlike .owl-carousel .owl-nav .owl-next{
+    position: absolute;
+    z-index: 2;
+	top:64px;
+	width:12px;
+	height:22px;
+	line-height:9999;
+}
+.hotlike .owl-carousel{ height:auto; overflow:hidden; }
+.hotlike .owl-carousel .owl-nav{
+    display: block;
+}
+.hotlike .owl-carousel .owl-nav .owl-prev{left:0; background:url("../images/likeleft.png"/*tpa=http://www.chinaleadcom.cn/templates/default/images/likeleft.png*/) no-repeat 0 0;}
+.hotlike .owl-carousel .owl-nav .owl-next{right:0; background:url("../images/likeright.png"/*tpa=http://www.chinaleadcom.cn/templates/default/images/likeright.png*/) no-repeat 0 0;
+}
+
+
+.fadeOut {
+  z-index: 10;
+  -webkit-animation: fadeOut 1s both ease;
+  -moz-animation: fadeOut 1s both ease;
+  animation: fadeOut 1s both ease;
+}
+.fadeIn {
+  -webkit-animation: fadeIn 1s both ease;
+  -moz-animation: fadeIn 1s both ease;
+  animation: fadeIn 1s both ease;
+}
+@-webkit-keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+@keyframes fadeIn {
+  0% { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes fadeOut {
+  0% { opacity:1; }
+  100% { opacity:0; }
+}
+@-moz-keyframes fadeOut {
+  0% { opacity:1; }
+  100% { opacity:0; }
+}
+@keyframes fadeOut {
+  0% { opacity:1; }
+  100% { opacity:0; }
+}

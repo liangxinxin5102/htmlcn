@@ -1,0 +1,93 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>爱开发科技网站后台管理系统（http://www.aikaifa.com）</title>
+<link href="images/login.css" tppabs="http://www.gtccmall.com/admin/images/login.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" language="javascript">
+<!--
+	window.onload = function (){
+		var txtUserName = document.getElementById("username");
+		var txtPassword = document.getElementById("password");
+		changeimg();
+		var username = readCookie("username");
+		if(username!="")
+		{
+		txtUserName.value = username;
+		txtPassword.focus();
+		}
+		else	txtUserName.focus();
+		document.getElementById("code").value = "";
+	}
+function changeimg(){document.getElementById('SeedImg').src='../inc/checkcode.asp?'+Math.random();}
+function writeCookie(name, value, hours){
+  var expire = "";
+  if(hours != null)  {
+    expire = new Date((new Date()).getTime() + hours * 3600000);
+    expire = "; expires=" + expire.toGMTString();
+  }
+  document.cookie = name + "=" + escape(value) + expire;
+
+}
+function readCookie(name){
+  var cookieValue = "";
+  var search = name + "=";
+  if(document.cookie.length > 0) { 
+    offset = document.cookie.indexOf(search);
+    if (offset != -1)  { 
+      offset += search.length;
+      end = document.cookie.indexOf(";", offset);
+      if (end == -1) end = document.cookie.length;
+      cookieValue = unescape(document.cookie.substring(offset, end))
+    }
+  }
+  return cookieValue;
+}
+
+
+-->
+</script>
+</head>
+
+<body>
+
+     <div class="top"></div>
+<div class="main">
+	<div class="box">
+		<form method="post" action="http://www.gtccmall.com/admin/login.asp?action=login" onsubmit="writeCookie('username',this.username.value, 1)">
+		<table cellspacing="0" align="center" border="0" cellpadding="0" width="260">
+		<tbody><tr>
+			<td height="30">管理员帐号：</td>
+		</tr>
+		<tr>
+			<td height="40"><input name="username" class="user user_bg1" id="user" tabindex="1" type="text"></td>
+		</tr>
+  <tr>
+    <td colspan="3" height="30" width="209">管理员密码：</td>
+    </tr>
+  <tr>
+    <td height="40"><input name="password" id="password" class="user user_bg2" type="password"></td>
+    </tr>
+  <tr>
+    <td><div id="notice" class="noticediv"></div></td>
+    </tr>
+  <tr>
+    <td colspan="3" height="60" valign="bottom">
+    <input name="act" id="act" value="adminlogin" type="hidden">
+    <input name="submit" class="but" value=" " type="submit"></td>
+    </tr>
+  </tbody></table>
+</form></div>
+
+<div class="bottom"></div>
+</div>
+</body>
+</html>
+<!--
+爱开发科技网站内容管理系统 版权所有
+网址：http://www.aikaifa.com
+建站QQ：582048246 白菜大侠孙瑞
+电话：18656772520 15551519922
+-->

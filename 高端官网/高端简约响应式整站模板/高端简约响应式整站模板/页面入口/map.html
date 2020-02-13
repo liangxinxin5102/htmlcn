@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>´´¿ÍÔÆµØÍ¼</title>
+    <link rel="icon" href="favicon.ico" />
+    <style type="text/css">
+        *{
+            margin:0px;
+            padding:0px;
+        }
+    </style>
+    <script charset="utf-8" src="../map.qq.com/api/js-v=2.exp" tppabs="http://map.qq.com/api/js?v=2.exp"></script>
+    <script>
+        var searchService,map,markers = [];
+        var init = function() {
+            var center = new qq.maps.LatLng(31.883425,117.344241);
+            map = new qq.maps.Map(document.getElementById('container'),{
+                center: center,
+                zoom: 13,
+				scrollwheel: false,
+            });
+            new qq.maps.Circle({
+                center:new qq.maps.LatLng(31.883425,117.344241),
+                radius:1000,
+                map: map
+            });
+            var latlngBounds = new qq.maps.LatLngBounds();
+            searchService = new qq.maps.SearchService({
+                complete : function(results){
+                    var pois = results.detail.pois;
+                    for(var i = 0,l = pois.length;i < l; i++){
+                        var poi = pois[i];
+                        latlngBounds.extend(poi.latLng);
+                        var marker = new qq.maps.Marker({
+                            map:map,
+                            position: poi.latLng
+                        });
+
+                        marker.setTitle(i+1);
+
+                        markers.push(marker);
+                    }
+                    map.fitBounds(latlngBounds);
+                }
+            });
+        }
+    </script>
+</head>
+<body onLoad="init()">
+<div style="width:100%;height:455px" id="container"></div>
+</body>
+</html>

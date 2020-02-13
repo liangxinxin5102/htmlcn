@@ -1,0 +1,1603 @@
+@charset "utf-8";
+/* 
+ * Project Name:福誉科技
+ * Author:浅浅
+ * Date：2016-5-16
+ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0px; border: 0; font-size: 100%; outline: none; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; overflow-x: hidden; -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+/* always display scrollbars */
+body { font: 12px/1.8 "Microsoft Yahei","微软雅黑","Hiragino Sans GB","冬青黑体","Arial","Helvetica","SimHei","黑体","STXihei","华文细黑",sans-serif; margin: 0 auto; color: #666; background-color: #fff; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+strong { font-weight: bold; }
+input { outline: none; }
+img { border: 0; }
+input[type="text"], input[type="button"], input[type="submit"], input[type="reset"] { -webkit-appearance: none; border-radius: 0; }
+textarea { -webkit-appearance: none; border-radius: 0; }
+::-moz-selection { background: #b0b0b0; color: #fff; text-shadow: none; }
+::selection { background: #b0b0b0; color: #fff; text-shadow: none; }
+a { text-decoration: none; blr: expression(this.onFocus=this.blur()); cursor: pointer; -webkit-transition: 0.3s; -moz-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; }
+a:link, a:visited { text-decoration: none; }
+a:active, a:hover { text-decoration: none; }
+.clearfix:before, .clearfix:after { display: table; content: ""; line-height: 0px; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+.fc { text-align: center; }
+.fr { text-align: right; }
+.l { float: left; display: inline-block; }
+.r { float: right; display: inline-block; }
+.vt { vertical-align: top; }
+.vm { vertical-align: middle; }
+.inner { width: 1000px; margin: 0px auto; }
+.top { position: fixed; left: 0px; top: 0px; width: 100%; padding-top: 32px; z-index: 999; transition: 0.4s; -webkit-transition: 0.4s; -moz-transition: 0.4s; }
+.top a:link, .top a:visited { color: #333333; }
+.top a:active, .top a:hover { color: #1E90FF; }
+.logo { position: absolute; left: 50px; top: 32px; width: 130px; transition: 0.4s; -webkit-transition: 0.4s; -moz-transition: 0.4s; }
+.logo img {  display: block; width:100%;}
+.languageBox { position: absolute; right: 50px; display: block; top: 32px; line-height: 73px; font-size: 14px; transition: 0.4s; -webkit-transition: 0.4s; -moz-transition: 0.4s; }
+.languageBox a { color: #666; }
+.languageBox span { padding: 0px 8px; }
+.languageBox a.act { color: #1E90FF; }
+.nav { float: right; display: block; margin-right: 120px; }
+.nav li { float: left; display: block; margin: 0px 14px 0px 0px; font-size: 16px; line-height: 73px; }
+.nav li a { padding: 0px 8px; }
+.nav li.act a { color: #1E90FF; }
+.nav .arrow { position: absolute; left: 0px; top: 0px; height: 4px; display: block; background-color: #1E90FF; }
+.ptopbox { padding-top: 22px; background-color: #fff; box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5); }
+.ptopbox .logo { top: 10px; width: 400px; }
+.ptopbox .languageBox { top: 22px; }
+.topfix { padding-top: 0px; background-color: #fff; background-color: rgba(255,255,255,0.9); }
+.topfix.ptopbox { background-color: rgba(255,255,255,1); }
+.topfix .logo { top: 0px; }
+.topfix .languageBox { top: 0px; }
+.menu-handler { display: none; background-color: #fff; width:50px; height: 60px; cursor: pointer; position: absolute; right: 0px; top: 0px; transition: all 0.3s cubic-bezier(0.445, 0.145, 0.355, 1); -webkit-transition: all 0.3s cubic-bezier(0.445, 0.145, 0.355, 1); -moz-transition: all 0.3s cubic-bezier(0.445, 0.145, 0.355, 1); }
+.menu-handler .burger { width: 28px; height: 4px; background: #1E90FF; display: block; position: absolute; z-index: 5; top: 20px; left: 50%; margin: 0px 0px 0px -14px; transform-origin: center; -webkit-transform-origin: center; -moz-transform-origin: center; -o-transform-origin: center; -ms-transform-origin: center; }
+.menu-handler .burger-2 { top: 29px; }
+.menu-handler .burger-3 { top: 38px; }
+.menu-handler.active .burger-1 { top: 29px; -moz-transform: rotate(225deg); -webkit-transform: rotate(225deg); -o-transform: rotate(225deg); -ms-transform: rotate(225deg); transform: rotate(225deg); }
+.menu-handler.active .burger-2 { -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); filter: alpha(opacity=0); opacity: 0; -moz-opacity: 0; -khtml-opacity: 0; -webkit-opacity: 0; }
+.menu-handler.active .burger-3 { top: 29px; -moz-transform: rotate(-225deg); -webkit-transform: rotate(-225deg); -o-transform: rotate(-225deg); -ms-transform: rotate(-225deg); transform: rotate(-225deg); }
+.trans, .trans:hover { -webkit-transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0s; -moz-transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0s; -o-transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0s; transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0s; -ms-transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1) 0s; }
+.trans-fast, .trans-fast:hover { -webkit-transition: all 200ms ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; }
+.pusher { transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0s; -webkit-transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0s; }
+.pusher-black { position: fixed; width: 100%; height: 100%; left: 0px; top: 0px; background-color: rgba(0,0,0,0.5); display: none; z-index: 900; }
+.menuBox { background-color: #1E90FF; color: #fff; position: fixed; right: 0px; top: 0px; width: 390px; height: 100%; z-index: 999; overflow-x: hidden; overflow-y: auto; -webkit-overflow-scrolling: touch; transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0s; -webkit-transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0s; transform: translate(100%,0px); -moz-transform: translate(100%,0px); /* Firefox 4 */ -webkit-transform: translate(100%,0px); /* Safari and Chrome */ -o-transform: translate(100%,0px); /* Opera */ }
+.no-csstransforms3d .menuBox { display: none; }
+.languageBox2 a:link, .languageBox2 a:visited { color: #fff; }
+.languageBox2 a:active, .languageBox2 a:hover, .languageBox2 a.act { color: #fff; text-decoration: underline; }
+.languageBox2 { text-align: right; font-size: 14px; padding: 18px 20px 30px; }
+.languageBox2 a { margin-left: 15px; }
+.navMobile li { padding-bottom: 10px; }
+.nav-link { color: #fff; display: block; font-size: 20px; padding: 5px 30px; }
+.navMobile .subnav { background-color: #E7E7E8; display: none; padding: 10px 30px; }
+.navMobile .subnav dd { padding: 5px 0px; margin-bottom: 5px; }
+.navMobile .subnav a { color: #666666; position: relative; font-size: 16px; }
+.navMobile .subnav a:hover { color: #1E90FF; }
+.menuOpen .pusher { transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0.2s; -webkit-transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0.2s; }
+.menuOpen .top { transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0s; -webkit-transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1) 0s; }
+.menuOpen .pusher-black { display: block; }
+.menuOpen .menuBox { z-index: 1; }
+.foot a:link, .foot a:visited { color: #cccccc; }
+.foot a:active, .foot a:hover { color: #E81A23; }
+.foot { background-color: #363636; font-size: 14px; padding: 16px 0px; color: #cccccc; line-height: 2.5; }
+.sharpBox { float: right; display: block; }
+.sharpBox a.a2 { display: block; width: 32px; height: 32px; margin-left: 8px; background: url("../images/sharp.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/sharp.png*/) no-repeat scroll 0px -37px; float: left; position: relative; }
+.sharpBox a em { background: url("../images/sharp.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/sharp.png*/) no-repeat scroll -48px -38px; display: block; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 10; }
+.sharpBox a .ibg { -webkit-transform: scale(0); transform: scale(0); opacity: 0; filter: alpha(opacity=0); transition: 300ms; }
+.sharpBox a:hover .ibg { -webkit-transform: scale(1); transform: scale(1); opacity: 1; filter: alpha(opacity=100); }
+.sharpBox a.a1 em.i { background-position: 0px 0px; }
+.sharpBox a.a2 em.i { background-position: -47px 0px; }
+.mtop { height: 95px; }
+.pbanner { background: url("../images/nybanner.jpg"/*tpa=http://host14.lisiqi.com.cn/template/home/images/nybanner.jpg*/) repeat-x scroll center bottom; width: 100%; padding: 160px 0px 142px; position: relative; }
+.pageT { text-align: center; color: #000000; padding: 46px 0px; font-size: 24px; line-height: 1.2;}
+.pagenavBox { height: 50px; position: relative; }
+.pageNav { text-align: center; font-size: 14px; }
+.pageNav a:link, .pageNav a:visited { color: #000000; }
+.pageNav a:active, .pageNav a:hover { color: #1E90FF; }
+.pageNav a { margin: 0px 10px; padding: 0px 15px 10px; color: #1E90FF; position: relative; }
+.pageNav a .bot { height: 1px; background-color: #1E90FF; width: 0%; left: 50%; bottom: 0px; position: absolute; transition: 300ms; -webkit-transition: 300ms; }
+.pageNav a:hover .bot, .pageNav a.act .bot { width: 100%; left: 0px; }
+.pagebot { background: url("../images/bot.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/bot.png*/) no-repeat; width: 52px; height: 21px; position: absolute; left: 50%; bottom: 66px; margin-left: -26px; -webkit-animation: start 1.5s infinite ease-in-out; -moz-animation: start 1.5s infinite ease-in-out; animation: start 1.5s infinite ease-in-out; }
+
+@-webkit-keyframes start {
+    0%,30% { opacity: 0; -webkit-transform: translate(0,-8px); }
+    60% { opacity: 1; -webkit-transform: translate(0,0); }
+    100% { opacity: 0; -webkit-transform: translate(0,10px); }
+}
+
+@-moz-keyframes start {
+    0%,30% { opacity: 0; -moz-transform: translate(0,-8px); }
+    60% { opacity: 1; -moz-transform: translate(0,0); }
+    100% { opacity: 0; -moz-transform: translate(0,10px); }
+}
+
+@keyframes start {
+    0%,30% { opacity: 0; transform: translate(0,-8px); }
+    60% { opacity: 1; transform: translate(0,0); }
+    100% { opacity: 0; transform: translate(0,10px); }
+}
+
+.cpnav { display: none; width: 100%; color: #FFF; line-height: 50px; height: 50px; overflow: hidden; text-align: center; font-size: 14px; cursor: pointer; }
+.caret { display: inline-block; width: 0px; height: 0px; margin-left: 10px; vertical-align: middle; border-top: 4px solid; border-right: 4px solid transparent; border-left: 4px solid transparent; }
+.fixed { position: fixed; left: 0px; top: 0px; z-index: 970; }
+.pageNav.fixed { top: 60px; width: 100%; }
+.pageNav.fixed .cpnav { background: rgba(204,0,0,0.8); }
+
+.dock { position: fixed; top: 50%; width: 52px; height: 243px; margin-top: -149px; right: 0px; z-index: 1100; }
+.dockCon { right: 0px; top: 0px; position: absolute; }
+.dockCon li.first, .dockCon li.first i { border-radius: 10px 0px 0px; }
+.dockCon li.backTop, .dockCon li.backTop i { border-bottom: 0px none; border-radius: 0px 0 0 10px; }
+.dockCon li:hover i, .dockCon li.active { cursor: pointer; background-color: #1E90FF; }
+.dockCon i { width: 52px; height: 52px; display: block; background-image: url("../images/slider.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/slider.png*/); background-repeat: no-repeat; background-color: #666; z-index: 4; position: relative; border-bottom: 1px solid #999; }
+.dockCon .i1 { background-position: center 0px; }
+.dockCon .i2 { background-position: center -52px; }
+.dockCon .i3 { background-position: center -106px; }
+.dockCon .i4 { background-position: center -158px; }
+.dockCon .i5 { background-position: center -206px; transition: 300ms; -webkit-transition: 300ms; }
+.dockCon li.backTop .i5 { background-position: center -210px; }
+.dockCon .con { background-color: #323232; border-radius: 10px 0px 0px 10px; color: #fff; position: absolute; right: 0px; display: none; }
+.qqcon a:link, .qqcon a:visited { color: #323232; }
+.qqcon a:active, .qqcon a:hover { color: #fff; }
+.qqcon { top: 18px; width: 160px; padding: 14px 0px; font-size: 14px; text-align: center; }
+.qqcon .t { color: #999; }
+.qqBtn { border-radius: 5px; background-color: #fff; display: block; width: 112px; height: 30px; line-height: 30px; margin: 13px auto 0px; }
+.qqBtn span { background: url("../images/qq1.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/qq1.png*/) no-repeat scroll left center; padding-left: 24px; }
+.qqBtn:hover { background-color: #1E90FF; }
+.qqBtn:hover span { background-image: url("../images/qq2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/qq2.png*/); }
+.weixinCon { top: 18px; padding: 14px 24px; text-align: center; }
+.weixinCon .img { width: 120px; overflow: hidden; margin-bottom: 7px; }
+.weixinCon .img img { width: 100%; display: block; }
+.telcon { top: 105px; padding: 5px 18px; width: 120px; }
+.telcon .tel { font: bold 16px/1.4 arial, helvetica, sans-serif; }
+.dianshangCon { padding: 15px 18px 0px 28px; height: 234px; top: 8px; width: 552px; }
+.dianshangCon .t { color: #999; font-size: 14px; }
+.dianshangCon a:link, .dianshangCon a:visited { color: #bcbcbc; }
+.dianshangCon a:active, .dianshangCon a:hover { color: #fff; }
+.pintaiList2 dd { float: left; display: block; margin: 16px 10px 0px 0px; width: 128px; float: left; text-align: center; }
+.pintaiList2 dd img { width: 100%; display: block; margin-bottom: 8px; }
+.switchdock { background: url("../images/slider.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/slider.png*/) no-repeat scroll center -268px; width: 28px; height: 29px; margin: 0px auto 0px; display: block; position: absolute; right: 10px; bottom: 0px; -webkit-transition: 0s; -moz-transition: 0s; -o-transition: 0s; transition: 0s; }
+.switchdock.active { background: url("../images/switchdock.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/switchdock.png*/) no-repeat; }
+/* BxSlider */
+.bx-wrapper { position: relative; margin: 0 auto; padding: 0; *zoom: 1; }
+.bx-wrapper .bx-viewport { background: #fff; -webkit-transform: translatez(0); -moz-transform: translatez(0); -ms-transform: translatez(0); -o-transform: translatez(0); transform: translatez(0); }
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto { position: absolute; bottom: 0; width: 100%; }
+/* LOADER */
+.bx-wrapper .bx-loading { min-height: 50px; background: url("../images/bx_loader.gif"/*tpa=http://host14.lisiqi.com.cn/template/home/images/bx_loader.gif*/) center center no-repeat #fff; height: 100%; width: 100%; position: absolute; top: 0; left: 0; z-index: 2000; }
+/* PAGER */
+.bx-wrapper .bx-pager { text-align: center; font-size: 0; font-family: Arial; font-weight: bold; color: #666; }
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item { display: inline-block; *zoom: 1; *display: inline; vertical-align: middle; }
+.bx-wrapper .bx-pager.bx-default-pager a { background: #666; text-indent: -9999px; display: block; width: 10px; height: 10px; margin: 0 5px; outline: 0; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active { background: #000; }
+/* DIRECTION CONTROLS (NEXT / PREV) */
+.bx-wrapper .bx-prev { left: 10px; }
+.bx-wrapper .bx-next { right: 10px; }
+.bx-wrapper .bx-controls-direction a { position: absolute; top: 50%; margin-top: -16px; outline: 0; width: 32px; height: 32px; text-indent: -9999px; z-index: 9999; }
+.bx-wrapper .bx-controls-direction a.disabled { display: none; }
+/* AUTO CONTROLS (START / STOP) */
+.bx-wrapper .bx-controls-auto { text-align: center; }
+.bx-wrapper .bx-controls-auto .bx-start { display: block; text-indent: -9999px; width: 10px; height: 11px; outline: 0; background: url("../images/controls.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/controls.png*/) -86px -11px no-repeat; margin: 0 3px; }
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active { background-position: -86px 0; }
+.bx-wrapper .bx-controls-auto .bx-stop { display: block; text-indent: -9999px; width: 9px; height: 11px; outline: 0; background: url("../images/controls.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/controls.png*/) -86px -44px no-repeat; margin: 0 3px; }
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active { background-position: -86px -33px; }
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager { text-align: left; width: 80%; }
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto { right: 0; width: 35px; }
+/* IMAGE CAPTIONS */
+.bx-wrapper .bx-caption { position: absolute; bottom: 0; left: 0; background: #666\9; background: rgba(80, 80, 80, 0.75); width: 100%; }
+.bx-wrapper .bx-caption span { color: #fff; font-family: Arial; display: block; font-size: .85em; padding: 10px; }
+/*BxSlider end*/
+.slick-slider { position: relative; display: block; box-sizing: border-box; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; -khtml-user-select: none; -ms-touch-action: pan-y; touch-action: pan-y; -webkit-tap-highlight-color: transparent; }
+.slick-list { position: relative; overflow: hidden; display: block; margin: 0; padding: 0; }
+.slick-list:focus { outline: none; }
+.slick-loading .slick-list { background: #00865e url("../images/loader.gif"/*tpa=http://host14.lisiqi.com.cn/template/home/images/loader.gif*/) center center no-repeat; }
+.slick-list.dragging { cursor: pointer; cursor: hand; }
+.slick-slider .slick-list, .slick-track, .slick-slide, .slick-slide img { -webkit-transform: translate3d(0, 0, 0); -moz-transform: translate3d(0, 0, 0); -ms-transform: translate3d(0, 0, 0); -o-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+.slick-track { position: relative; left: 0; top: 0; display: block; zoom: 1; }
+.slick-track:before, .slick-track:after { content: ""; display: table; }
+.slick-track:after { clear: both; }
+.slick-loading .slick-track { visibility: hidden; }
+.slick-slide { float: left; height: 100%; min-height: 1px; display: none; }
+.slick-slide img { display: block; }
+.slick-slide.slick-loading img { display: none; }
+.slick-slide.dragging img { pointer-events: none; }
+.slick-initialized .slick-slide { display: block; }
+.slick-loading .slick-slide { visibility: hidden; }
+.slick-vertical .slick-slide { display: block; height: auto; border: 1px solid transparent; }
+/* Arrows */
+.slick-prev, .slick-next { position: absolute; display: block; height: 20px; width: 20px; line-height: 0; font-size: 0; cursor: pointer; background: transparent; color: transparent; padding: 0; border: none; outline: none; }
+/* Dots */
+.slick-dots { position: absolute; bottom: -45px; list-style: none; display: block; text-align: center; padding: 0px; width: 100%; }
+.slick-dots li { position: relative; display: inline-block; height: 20px; width: 20px; margin: 0px 5px; padding: 0px; cursor: pointer; }
+/*base style end*/
+/*index style*/
+/*.ishow,.ishow body{ overflow: hidden;}*/
+.page { width: 100%; overflow: hidden; background-color: #333333; }
+.rollImg, .roll { position: relative; float: left; z-index: 200; cursor: pointer; }
+.roll { width: 49px; position: absolute; margin: 0 50%; left: -25px; bottom: 3%; height: 49px; overflow: hidden; border-radius: 50%; background: url("../images/roll.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/roll.png*/) no-repeat; background: none rgba(255,255,255,1); }
+.rollImg { top: 0px; left: 0px; position: absolute; cursor: pointer; transform: scale(1); -webkit-transform: scale(1); -o-transform: scale(1); background: url("../images/roll_ico.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/roll_ico.png*/) no-repeat scroll center center; width: 49px; height: 49px; }
+.active .roll { -webkit-animation: appearRoll 1600ms ease 1800ms both; -moz-animation: appearRoll 1600ms ease 1800ms both; -ms-animation: appearRoll 1600ms ease 1800ms both; -o-animation: appearRoll 1600ms ease 1800ms both; animation: appearRoll 1600ms ease 1800ms both; }
+.active #rollImg1 { -webkit-animation: bounce 3s ease-in-out 1.5s; -moz-animation: bounce 3s ease-in-out 1.5s; -ms-animation: bounce 3s ease-in-out 1.5s; -o-animation: bounce 3s ease-in-out 1.5s; animation: bounce 3s ease-in-out 1.5s; }
+
+@-webkit-keyframes bounce {
+    0% { -webkit-transform: scale(0); }
+    70% { -webkit-transform: scale(0.5); }
+    35%,100% { -webkit-transform: scale(1); }
+}
+
+@-ms-keyframes bounce {
+    0% { -ms-transform: scale(0); }
+    70% { -ms-transform: scale(0.5); }
+    35%,100% { -ms-transform: scale(1); }
+}
+
+@-o-keyframes bounce { 0%;
+{ -o-transform: scale(0); }
+70% { -o-transform: scale(0.5); }
+35%, 100% { -o-transform: scale(1); }
+}
+
+@-moz-keyframes bounce {
+    0% { -moz-transform: scale(0); }
+    70% { -moz-transform: scale(0.5); }
+    35%,100% { -moz-transform: scale(1); }
+}
+
+@keyframes bounce {
+    0% { transform: scale(0.0); }
+    70% { transform: scale(0.5); }
+    35%,100% { transform: scale(1); }
+}
+
+@-webkit-keyframes appearRoll {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-moz-keyframes appearRoll {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-ms-keyframes appearRoll {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-o-keyframes appearRoll { 0%;
+{ opacity: 0; }
+100% { opacity: 1; }
+}
+
+@keyframes appearRoll {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.bannerSlide { position: relative; z-index: 2; }
+.banner a:link, .banner a:visited { color: #666666; }
+.banner a:active, .banner a:hover { color: #666666; }
+.banner { position: relative; overflow: hidden; width: 100%; height: 100%; }
+.banner .item { width: 100%; height: 100%; overflow: hidden; position: relative; background-repeat: no-repeat; background-size: cover; background-position: center center; }
+.banner .pimg { display: block; width: 100%; position: absolute; }
+.binbox { position: absolute; right: 5%; width: 40%; top:40%; z-index: 100; color: #333; }
+.item3 .binbox ,.item3 .binbox .c,.item3 .binbox .i{ color:#fff;}
+.binbox p { overflow: hidden; }
+.binbox p span { display: block; }
+.binbox .en { background: url("../images/banner_ico.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/banner_ico.png*/) no-repeat scroll left center; padding-left: 118px; color: #666666; font: 50px/1.2 arial, helvetica, sans-serif; text-transform: uppercase; color: #d6d6d6; margin-bottom: 20px; }
+.binbox .t { font: 20px/1.2 "microsoft yahei"; }
+.binbox .by { font: bold 34px/1.2 "microsoft yahei"; padding: 5px 0px 10px; }
+.binbox .c { font-size: 16px; line-height: 1.2; margin-bottom: 5px; color: #666666; }
+.binbox .i { font: 14px/1.5 arial, helvetica, sans-serif; color: #a1a1a1; width: 100%; }
+
+.binbox p span { opacity: 0; transform: translate(0px,100%); -webkit-transform: translate(0px,100%); -webkit-transition: 0.6s ease 0.4s; transition: 0.6s ease 0.4s; }
+.binbox p.en { opacity: 0; visibility: hidden; transform: translate(20%,0%); -webkit-transform: translate(20%,0); -webkit-transition: -webkit-transform 0.8s ease, opacity 0.6s ease, visibility 0.6s ease; transition: transform 0.8s ease, opacity .6s ease, visibility .6s ease; }
+.binbox p.en span { visibility: visible; opacity: 1; transform: translate(0px,0px); -webkit-transform: translate(0px,0px); }
+.slick-current .binbox p.en { visibility: visible; opacity: 1; transform: translate(0px,0px); -webkit-transform: translate(0px,0px); }
+.slick-current .binbox p span { visibility: visible; opacity: 1; transform: translate(0px,0px); -webkit-transform: translate(0px,0px); }
+.banner .bx-wrapper .bx-pager { bottom: 16%; z-index: 900; }
+.banner .bx-wrapper .bx-pager.bx-default-pager a { margin: 0px; width: 60px; background-color: #6a6a6a; border-radius: 0; height: 7px; border-left: 1px solid #b0b0b0; }
+.banner .bx-wrapper .bx-pager.bx-default-pager a:hover { background-color: #1E90FF; }
+.banner .bx-wrapper .bx-pager.bx-default-pager a.active { background-color: #1E90FF; }
+.banner .slick-dots { bottom: 16%; }
+.banner .slick-dots li { position: relative; display: inline-block; margin: 0px; width: auto; height: 9px; padding: 0; cursor: pointer; }
+.banner .slick-dots li a { margin: 0px; width: 59px; background-color: #6a6a6a; border-radius: 0; height: 7px; border-left: 1px solid #b0b0b0; display: inline-block; }
+.banner .slick-dots li a:focus { background-color: #1E90FF; width: 62px; height: 9px; }
+.banner .slick-dots li.slick-active a { background-color: #1E90FF; width: 62px; height: 9px; }
+.bannerBot { background: url("../images/banner_bot.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/banner_bot.png*/) no-repeat scroll center bottom; background-size: cover; width: 100%; height: 158px; position: absolute; left: 0px; bottom: 0px; display: block; z-index: 100; }
+.bbot1, .bbot2 { background-color: #424242; display: block; width: 100%; height: 168px; position: absolute; left: 0%; bottom: -168px; z-index: 100; display: none; -webkit-transition: 0.6s; transition: 0.6s; }
+.bbg { background: url("../images/ipage2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/ipage2.png*/) no-repeat scroll center top; height: 68px; position: absolute; left: 0px; width: 100%; bottom: 0px; z-index: 101; opacity: 0; visibility: hidden; -webkit-transition: 0.5s; transition: 0.5s; }
+.no-csstransitions .bannerBot { display: block; }
+.csstransitions .bannerBot { display: none; }
+.csstransitions .bbot1, .csstransforms .bbot2 { display: block; }
+.hoves .bbot1 { transform: skewY(9.5deg); }
+.hoves .bbot2 { transform: skewY(-9.5deg); }
+.hoves .bbg { opacity: 1; visibility: visible; transition-delay: 0.6s; -webkit-transition-delay: 0.6s; }
+.ibox { position: relative; }
+.iboxT { font: 28px/1.5 "microsoft yahei"; color: #fff; }
+.iboxBot { width: 38px; height: 4px; background-color: #fff; border-radius: 2px; display: block; margin: 20px auto 0px; }
+.page .iboxT { transform: translateY(-50px); -webkit-transform: translateY(-50px); opacity: 0; visibility: visible; transition: transform 600ms,opacity .5s cubic-bezier(0.445, 0.145, 0.355, 1); -webkit-transition: transform 600ms,opacity .5s cubic-bezier(0.445, 0.145, 0.355, 1); transition-timing-function: ease-out; -webkit-transition-timing-function: ease-out; }
+.page .iboxBot { width: 0px; transition: all 0.5s ease 0s; -webkit-transform: all 0.5s ease 0s; }
+.active .iboxT, .m-active .iboxT { opacity: 1; visibility: visible; transform: translateY(0px); -webkit-transform: translateY(0px); transition-delay: 0.4s; -webkit- transition-delay: 0.4s; }
+.active .iboxBot, .m-active .iboxBot { width: 38px; transition-delay: 0.4s; -webkit- transition-delay: 0.4s; }
+.transYT { transform: translateY(70px); -webkit-transform: translateY(70px); opacity: 0; visibility: visible; transition: transform 600ms,opacity .5s cubic-bezier(0.445, 0.145, 0.355, 1); -webkit-transition: transform 600ms,opacity .5s cubic-bezier(0.445, 0.145, 0.355, 1); transition-timing-function: ease-out; -webkit-transition-timing-function: ease-out; }
+.active .transYT, .m-active .transYT { opacity: 1; visibility: visible; transform: translateY(0px); -webkit-transform: translateY(0px); transition-delay: 0.4s; -webkit- transition-delay: 0.4s; }
+#ipage2 { background: #3a3a3a; position: relative; }
+#ipage2 .bg { background: url("../images/ipage2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/ipage2.png*/) no-repeat scroll center -68px #424242; height: 233px; position: absolute; left: 0px; top: 0px; width: 100%; }
+.ipage2-box a:link, .ipage2-box a:visited { color: #fff; }
+.ipage2-box a:active, .ipage2-box a:hover { color: #fff; }
+.ipage2-box { width: 890px; margin: 0px auto; text-align: center; z-index: 2; }
+.ipage2-box .iboxC {  color: #cccccc; font-size: 14px; margin: 25px auto 35px; }
+.iAboutList li { float: left; display: block; width: 25%; }
+.iAboutList .item { width: 137px; margin: 0px auto; display: block; }
+.iAboutList .con { width: 137px; height: 137px; position: relative; }
+.iAboutList .y1 { background: url("../images/y1.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/y1.png*/) no-repeat; }
+.iAboutList .y2 { background: url("../images/y2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/y2.png*/) no-repeat; }
+.iAboutList .y1, .iAboutList .y2 { position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; transition: all 0.5s ease 0s; -webkit-transform: all 0.5s ease 0s; z-index: 1; }
+.iAboutList .y2 { opacity: 0; transform: scale(0.7); -webkit-transform: scale(0.7); visibility: hidden; }
+.iAboutList .ico { width: 50px; height: 50px; position: absolute; left: 50%; top: 50%; margin: -25px 0px 0px -25px; background: url("../images/ico.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/ico.png*/) no-repeat; z-index: 3; -webkit-transition: 0.4s ease 0.2s; transition: 0.4s ease 0.2s; }
+.iAboutList .name { font-size: 16px; margin-top: 12px; }
+.iAboutList .lin1 .ico { background-position: 0px 0px; }
+.iAboutList .lin2 .ico { background-position: -50px 0px; }
+.iAboutList .lin3 .ico { background-position: -100px 0px; }
+.iAboutList .lin4 .ico { background-position: -150px 0px; }
+.iAboutList .lin1 .item:hover .ico { background-position: 0px -50px; }
+.iAboutList .lin2 .item:hover .ico { background-position: -50px -50px; }
+.iAboutList .lin3 .item:hover .ico { background-position: -100px -50px; }
+.iAboutList .lin4 .item:hover .ico { background-position: -150px -50px; }
+.iAboutList .item:hover .y1 { opacity: 0; transform: scale(1.3); -webkit-transform: scale(1.3); }
+.iAboutList .item:hover .y2 { opacity: 1; transform: scale(1); -webkit-transform: scale(1); visibility: visible; }
+.p-active .iAboutList li { opacity: 0; }
+.p-active .iAboutList .lin1 { transform: translate(-70px,50px); -webkit-transform: translate(-70px,50px); }
+.p-active .iAboutList .lin2 { transform: translate(-70px,-50px); -webkit-transform: translate(-70px,-50px); }
+.p-active .iAboutList .lin3 { transform: translate(-70px,50px); -webkit-transform: translate(-70px,50px); }
+.p-active .iAboutList .lin4 { transform: translate(-70px,-50px); -webkit-transform: translate(-70px,-50px); }
+/*.iAboutList .lin3{ transform: translateY(50px) rotate(90deg); -webkit-transform:translateY(50px) rotate(90deg);}
+.iAboutList .lin4{ transform: translateY(-50px) rotate(90deg); -webkit-transform: translateY(-50px) rotate(90deg);}*/
+.active .iAboutList li { opacity: 1; transition: transform 500ms,opacity .5s cubic-bezier(0.445, 0.145, 0.355, 1); -webkit-transition: transform 500ms,opacity .5s cubic-bezier(0.445, 0.145, 0.355, 1); transition-timing-function: ease-out; -webkit-transition-timing-function: ease-out; }
+.active .iAboutList .lin1, .active .iAboutList .lin2, .active .iAboutList .lin3, .active .iAboutList .lin4 { transform: translateY(0px) rotate(0deg); -webkit-transform: translateY(0px) rotate(0deg); }
+.active .iAboutList .lin1 { transition-delay: 0.6s; -webkit- transition-delay: 0.6s; }
+.active .iAboutList .lin2 { transition-delay: 0.8s; -webkit- transition-delay: 0.8s; }
+.active .iAboutList .lin3 { transition-delay: 1s; -webkit- transition-delay: 1s; }
+.active .iAboutList .lin4 { transition-delay: 1.2s; -webkit- transition-delay: 1.2s; }
+.ipage2-pic { background: url("../images/ipage3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/ipage3.png*/) repeat-x scroll left top; width: 100%; position: absolute; left: 0px; bottom: 0px; height: 100px; }
+.more { border: 1px solid #fff; width: 78px; height: 28px; line-height: 28px; text-align: center; display: block; position: relative; overflow: hidden; }
+.more .i2 { width: 0; height: 0; -webkit-transform: rotate(360deg); border-style: solid; border-width: 0 0 0 0; border-color: transparent transparent transparent #fff; position: absolute; bottom: 0; left: 0; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; transition: all 0.5s; }
+.more .i3 { width: 0; height: 0; -webkit-transform: rotate(360deg); border-style: solid; border-width: 0 0 0 0; border-color: transparent #fff transparent transparent; position: absolute; top: 0; right: 0; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; transition: all 0.5s; }
+.more .i1 { position: relative; z-index: 2; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; color: #fff; }
+.more:hover { border-color: #fff; }
+.more:hover .i1 { color: #333333; }
+.more:hover .i2 { border-width: 105px 0 0 105px; }
+.more:hover .i3 { border-width: 0 105px 105px 0; }
+#ipage3 { position: relative; background-color: #efefef; }
+.ipage3-pic { background: url("../images/ipage3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/ipage3.png*/) repeat-x scroll left -100px; width: 100%; position: absolute; left: 0px; top: 0px; height: 477px; }
+.ipage3-box { padding-top: 120px; position: relative; z-index: 2; }
+.ipage3-box .iboxT { text-align: center; color:#1E90FF;}
+.ipage3-box .iboxBot { background-color: #1E90FF; }
+.picdemo .slick-arrow {
+    width: 21px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    margin-top: -47px;
+    z-index: 10;
+}
+.picdemo .slick-arrow i {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: 600ms;
+    -webkit-transition: 600ms;
+}
+.picdemo .slick-prev {
+    background: url("../images/btn_i1.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_i1.png*/) no-repeat scroll right center;
+    left: 2%;
+}
+.picdemo .slick-next {
+    background: url("../images/btn_i2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_i2.png*/) no-repeat scroll left center;
+    right: 2%;
+}
+.picdemo .slick-prev i {
+    background: url("../images/btn_1.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_1.png*/) no-repeat scroll left center;
+}
+.picdemo .slick-next i {
+    background: url("../images/btn_2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_2.png*/) no-repeat scroll right center;
+}
+.productIbox { margin-top: 56px; background: url("../images/line.jpg"/*tpa=http://host14.lisiqi.com.cn/template/home/images/line.jpg*/) no-repeat; }
+.productIbox .ixpro li {
+    width: 33.3%;
+    float: left;
+}
+
+.ixproList a {
+    display: block;
+    margin: 0 10px;
+}
+
+    .ixproList a:link,
+    .ixproList a:visited {
+        color: #fff;
+    }
+
+.ixproList .con {
+    position: relative;
+}
+.ixproList .pic img{
+    width:100%;
+}
+.ixproList .cover {
+    background: url("../images/black.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/black.png*/);
+    background: rgba(0,0,0,.4);
+    opacity: 0;
+    display: none\9;
+}
+
+.ixproList .txts {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    padding: 60px 35px 0 35px;
+}
+
+    .ixproList .txts .line {
+        width: 0;
+        height: 2px;
+        background: #fff;
+        margin-bottom: 20px;
+        transition: 400ms;
+        -webkit-transition: 400ms;
+    }
+
+    .ixproList .txts .txx {
+        opacity: 0;
+        display: none\9;
+        transition: 400ms;
+        -webkit-transition: 400ms;
+    }
+
+    .ixproList .txts .ti {
+        transform: translateX(-60px);
+        -webkit-transform: translateX(-60px);
+    }
+
+    .ixproList .txts .tx1 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        transition-delay: 100ms;
+        -webkit-transition-delay: 100ms;
+    }
+
+    .ixproList .txts .tx2 {
+        margin-top:10%;
+        font-size: 26px;
+        transition-delay: 200ms;
+        -webkit-transition-delay: 200ms;
+    }
+
+    .ixproList .txts .aen {
+        position: absolute;
+        left: 35px;
+        bottom: 45px;
+        font-size: 20px;
+        font-family: 'MyriadPro-SemiCn';
+        letter-spacing: -1px;
+        transform: translateY(-60px);
+        -webkit-transform: translateY(-60px);
+        transition-delay: 300ms;
+        -webkit-transition-delay: 300ms;
+    }
+
+.ixproList a:hover .cover {
+    opacity: 1;
+    display: block\9;
+}
+
+.ixproList a:hover .txts .line {
+    width: 100%;
+}
+
+.ixproList a:hover .txts .txx {
+    transform: translate(0);
+    -webkit-transform: translate(0);
+    opacity: 1;
+    display: block\9;
+}
+
+.ixprob {
+    position: relative;
+    margin-top: 50px;
+}
+
+.ix-pro-arrow {
+    font-size: 0;
+    width: 58px;
+    height: 58px;
+    position: absolute;
+    top: 50%;
+    margin-top: -29px;
+    background-color: #ff0000;
+    z-index: 99;
+    cursor: pointer;
+    transition: 400ms;
+    -webkit-transition: 400ms;
+    opacity: 0;
+    display: none\9;
+}
+
+.ix-pro-prev {
+    left: 0;
+    transform: translateX(30px);
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+}
+
+.ix-pro-next {
+    right: 0;
+    transform: translateX(-30px);
+    -webkit-transform: translateX(-30px);
+    -ms-transform: translateX(-30px);
+}
+
+.ix-pro-prev .ico {
+    background-image: url("../images/rr-ixproprev.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/rr-ixproprev.png*/);
+}
+
+.ix-pro-next .ico {
+    background-image: url("../images/rr-ixpronext.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/rr-ixpronext.png*/);
+}
+
+.ix-pro-arrow.show {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    opacity: 1;
+    display: block\9;
+}
+
+.ixTitle2 .ixt .ch {
+    letter-spacing: 15px;
+}
+
+.ixTitle2 .ixt .en1 {
+    letter-spacing: 0;
+}
+
+.ixTitle2 .ixt {
+    width: 230px;
+}
+#ipage4 { background-color: #f8f8f8; }
+.ipage4-box { text-align: center; padding: 100px 0px 0px; }
+.ipage4-box .iboxT { color: #1E90FF; }
+.ipage4-box .iboxBot { background-color: #1E90FF; }
+.ipage4-box .iboxBy { color: #333333; font-size: 16px; margin: 20px 0px 30px; }
+
+.iCaseList a:link, .iCaseList a:visited { color: #fff; }
+.iCaseList a:active, .iCaseList a:hover { color: #fff; }
+.iCaseList { margin-bottom: 34px; }
+.iCaseList .ixpro li {
+    width: 25%;
+    float: left;
+}
+.more2 { margin: 0px auto; width: 160px; height: 44px; border-color: #999999; line-height: 44px; background-color: #999999; }
+.more2 .i2 { border-color: transparent transparent transparent #1E90FF; }
+.more2 .i3 { border-color: transparent #1E90FF transparent; }
+.more2:hover .i1 { color: #fff; }
+.active .more2 { transition-delay: 0.6s; -webkit- transition-delay: 0.6s; }
+#ipage5 { background: url("../images/bg5.jpg"/*tpa=http://host14.lisiqi.com.cn/template/home/images/bg5.jpg*/) no-repeat scroll center center; background-size: cover; }
+.ipage5-box .iboxT { text-align: center; color: #333; }
+.ipage5-box .iboxBot { background-color: #999; margin-bottom: 88px; }
+.idownDemo { width: 936px; padding: 0px 82px; margin: 0px auto; position: relative; overflow: hidden; }
+.idownDemo .line { height: 1px; background-color: #bababa; width: 100%; position: absolute; left: 0px; top: 50%; }
+.idownList a:link, .idownList a:visited { color: #333; }
+.idownList a:active, .idownList a:hover { color: #fff; }
+.idownList { height: 233px; width: 100%; }
+.idownList .itemCon { position: relative; display: block; width: 205px; height: 233px; margin: 0px auto; }
+.idownList .f1 { background: url("../images/f1.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/f1.png*/) no-repeat; }
+.idownList .f2 { background: url("../images/f2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/f2.png*/) no-repeat; }
+.idownList .f1, .idownList .f2 { position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; transition: all 0.5s ease 0s; -webkit-transform: all 0.5s ease 0s; z-index: 1; }
+.idownList .f2 { opacity: 0; transform: scale(0.7); -webkit-transform: scale(0.7); visibility: hidden; }
+.idownList .con { position: absolute; left: 0px; top: 0px; padding: 55px 10px 0px; height: 178px; z-index: 3; width: 185px; text-align: center; }
+.idownList .ico { width: 50px; height: 50px; display: block; margin: 0px auto; background: url("../images/ico2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/ico2.png*/) no-repeat; z-index: 3; -webkit-transition: 0.4s ease 0.2s; transition: 0.4s ease 0.2s; }
+.idownList .name { font-size: 15px; margin: 10px auto 18px; }
+.idownList .bot { width: 14px; height: 2px; background-color: #333; display: block; margin: 0px auto; transition: 200ms; -webkit-transition: 200ms; }
+.idownList .btn { display: block; background: url("../images/more.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/more.png*/) no-repeat; width: 28px; height: 28px; margin: 10px auto 0px; opacity: 0; visibility: hidden; transform: scale(0); -webkit-transform: scale(0); transform: translateY(-10px); -webkit-transform: translateY(-10px); transition: 400ms; -webkit-transition: 400ms; }
+.idownList .itemCon:hover .ico { background-position: 0px -50px; }
+.idownList .itemCon:hover .f1 { opacity: 0; transform: scale(1.1); -webkit-transform: scale(1.1); }
+.idownList .itemCon:hover .f2 { opacity: 1; transform: scale(1); -webkit-transform: scale(1); visibility: visible; }
+.idownList .itemCon:hover .bot { width: 0px; }
+.idownList .itemCon:hover .btn { opacity: 1; transform: scale(1); -webkit-transform: scale(1); visibility: visible; transform: translateY(0px); -webkit-transform: translateY(0px); }
+.idownList .slick-arrow { width: 33px; height: 33px; display: block; border-radius: 5px; background-color: #e81a23; top: 50%; margin-top: -16px; }
+.idownList .slick-arrow i { background: url("../images/btn_3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_3.png*/) no-repeat scroll center center; width: 100%; height: 100%; margin: 0px auto; display: block; transition: 300ms; -webkit-transition: 300ms; }
+.idownList .slick-prev { left: -82px; }
+.idownList .slick-next { right: -82px; }
+.idownList .slick-prev i { background-image: url("../images/btn_3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_3.png*/); }
+.idownList .slick-next i { background-image: url("../images/btn_4.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_4.png*/); }
+.idownList .slick-arrow:hover { background-color: #333333; }
+.idownList .slick-prev:hover i { background-position: 30% center; }
+.idownList .slick-next:hover i { background-position: 70% center; }
+#ipage6 { position: relative; }
+#ipage6 .bg { position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background: url("../images/bg6.jpg"/*tpa=http://host14.lisiqi.com.cn/template/home/images/bg6.jpg*/) no-repeat scroll center center #383838; background-size: cover; }
+.ipage6-box { z-index: 2; }
+.ipage6-box .iboxT { text-align: center; }
+.iNewsList a:link, .iNewsList a:visited { color: #565656; }
+.iNewsList a:active, .iNewsList a:hover { color: #fff; }
+.iNewsList { height: 291px; width: 80%; margin: 42px auto 0px; overflow: hidden; }
+.iNewsList dd { float: right; display: block; width: 52%; background-color: #F6F6F6; }
+.iNewsList dd.one { float: left; width: 48%; }
+.iNewsList .list li { height: 97px; overflow: hidden; }
+.iNewsList .list li a { display: block; padding: 15px 5% 0px; border-bottom: 1px solid #e5e5e5; height: 81px; position: relative; }
+.iNewsList .list li a .bot { height: 4px; width: 0px; position: absolute; left: 0px; bottom: -1px; background-color: #1E90FF; transition: 400ms; -webkit-transition: 400ms; }
+.iNewsList .list li a:hover { background-color: #999999; }
+.iNewsList .list li a:hover .bot { width: 100%; }
+.iNewsList .list li .time { color: #bcbcbc; margin-bottom: 5px; }
+.iNewsList .list li .con { line-height: 1.2; height: 34px; font-size: 14px; overflow: hidden; }
+.iNewsList .one { position: relative; overflow: hidden; height: 100%; }
+.iNewsList .one a { display: block; width: 100%; height: 100%; position: absolute; left: 0px; top: 0px; z-index: 2; }
+.iNewsList .one .img { float: left; display: block; width: 60%; height: 100%; background-repeat: no-repeat; background-position: center center; background-size: cover; position: relative; }
+.iNewsList .one .img img { width: 100%; display: none; }
+.iNewsList .one .con { text-align: center; width: 32%; margin-left: 4%; float: left; display: block; line-height: 1.5; padding-top: 8%; position: relative; }
+.iNewsList .one .con .time { color: #bcbcbc; }
+.iNewsList .one .con .t { margin: 8px 0px 22px; font-size: 16px; }
+.iNewsList .one .con .c { font-size: 14px; color: #999; height: 63px; overflow: hidden; }
+#ipage7 { background-color: #eaeaea; }
+#ipage7 .bg { position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background: url("../images/bg7.jpg"/*tpa=http://host14.lisiqi.com.cn/template/home/images/bg7.jpg*/) no-repeat scroll center center #eaeaea; background-size: cover; }
+.ipage7-box { z-index: 2; }
+.ipage7-box .iboxT { text-align: center; color: #333333; }
+.ipage7-box .iboxBot { background-color: #999; }
+.ipage7-box .iboxC { width: 774px; text-align: center; color: #666666; margin: 30px auto 50px; font-size: 14px; }
+.ipage7-box a:link, .ipage7-box a:visited { color: #333; }
+.ipage7-box a:active, .ipage7-box a:hover { color: #0360ba; }
+.iContactList { margin-bottom: 5%; }
+.iContactList li { float: left; cursor: pointer; text-align: center; width: 29.33%; margin: 0px 2%; font-size: 14px; color: #333333; }
+.iContactList li .ico { display: block; margin: 0px auto 30px; }
+.iContactList li:hover .ico { -webkit-animation: icoI 1s linear infinite; animation: icoI 1s linear infinite; }
+
+@-webkit-keyframes icoI {
+    0% { -webkit-transform: translate(0px, 0px); }
+    25% { -webkit-transform: translate(0px, -10px); }
+    50% { -webkit-transform: translate(0px, 0px); }
+    75% { -webkit-transform: translate(0px, 10px); }
+    100% { -webkit-transform: translate(0px, 0px); }
+}
+
+@-moz-keyframes icoI {
+    0% { -moz-transform: translate(0px, 0px); }
+    25% { -moz-transform: translate(0px, -10px); }
+    50% { -moz-transform: translate(0px, 0px); }
+    75% { -moz-transform: translate(0px, 10px); }
+    100% { -moz-transform: translate(0px, 0px); }
+}
+
+@keyframes icoI {
+    0% { transform: translate(0px, 0px); }
+    25% { transform: translate(0px, -10px); }
+    50% { transform: translate(0px, 0px); }
+    75% { transform: translate(0px, 10px); }
+    100% { transform: translate(0px, 0px); }
+}
+
+@-webkit-keyframes mk_3d_top {
+    0% { -webkit-transform: perspective(600px) rotateX(60deg); -webkit-transform-origin: center top 0; }
+    100% { -webkit-transform: perspective(600px) rotateX(0deg); -webkit-transform-origin: center top 0; }
+}
+
+@keyframes mk_3d_top {
+    0% { -webkit-transform: perspective(600px) rotateX(60deg); transform: perspective(600px) rotateX(60deg); -webkit-transform-origin: center top 0; transform-origin: center top 0; }
+    100% { -webkit-transform: perspective(600px) rotateX(0deg); transform: perspective(600px) rotateX(0deg); -webkit-transform-origin: center top 0; transform-origin: center top 0; }
+}
+
+/*----- mk_3d_bottom -----*/
+
+@-webkit-keyframes mk_3d_bottom {
+    0% { -webkit-transform: perspective(600px) rotateX(-30deg); -webkit-transform-origin: center bottom 0; opacity: 0; }
+    100% { -webkit-transform: perspective(600px) rotateX(0deg); -webkit-transform-origin: center bottom 0; opacity: 1; }
+}
+
+@keyframes mk_3d_bottom {
+    0% { -webkit-transform: perspective(600px) rotateX(-30deg); transform: perspective(600px) rotateX(-30deg); -webkit-transform-origin: center bottom 0; transform-origin: center bottom 0; opacity: 0; }
+    100% { -webkit-transform: perspective(600px) rotateX(0deg); transform: perspective(600px) rotateX(0deg); -webkit-transform-origin: center bottom 0; transform-origin: center bottom 0; opacity: 1; }
+}
+
+.iContactList li .name { width: 228px; margin: 0px auto; line-height: 1.5; }
+.messageBtn { border: 2px solid #1E90FF; display: block; width: 175px; padding: 0px 20px; height: 20px; margin: 0px auto; font-size: 20px; line-height: 60px; height: 60px; color: #1E90FF; position: relative; overflow: hidden; }
+.messageBtn .ico { background: url("../images/more2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/more2.png*/) no-repeat; width: 24px; height: 16px; position: absolute; right: 20px; top: 22px; display: block; transition: 300ms; -webkit-transition: 300ms; }
+.messageBtn:hover .ico { right: 10px; }
+.ipage7-box .messageBtn { color: #e31922; }
+#ipage7 { position: relative; }
+#ipage7 .foot { position: absolute; left: 0px; bottom: 0px; width: 100%; z-index: 10; }
+.active#ipage6 .bg { -webkit-animation: mk_3d_bottom 1.5s 1 cubic-bezier(0.77, 0, 0.175, 1); animation: mk_3d_bottom 1.5s 1 cubic-bezier(0.77, 0, 0.175, 1); }
+.active#ipage7 .bg { -webkit-animation: mk_3d_top 1.5s 1 cubic-bezier(0.77, 0, 0.175, 1); animation: mk_3d_top 1.5s 1 cubic-bezier(0.77, 0, 0.175, 1); }
+/*index style end*/
+/*about style*/
+/*about style end*/
+/*down style*/
+.downList a:link, .downList a:visited { color: #333; }
+.downList a:active, .downList a:hover { color: #fff; }
+.downList { padding-bottom: 6%; width: 960px; margin: 0px auto; }
+.downList .item { margin-top: 18px; }
+.downList .t, .downList .c { background-color: #ececec; position: relative; }
+.downList .t { float: left; display: block; width: 624px; margin-right: 2px; }
+.downList .c { float: left; display: block; width: 334px; text-align: center; }
+.downList .t a { padding: 22px 82px 22px 66px; font: 18px/50px "microsoft yahei"; display: block; position: relative; z-index: 2; overflow: hidden; }
+.downList .t .i1 { width: 50px; height: 50px; float: left; display: block; background: url("../images/ico2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/ico2.png*/) no-repeat; position: absolute; left: 9px; top: 22px; transition: 300ms; -webkit-transition: 300ms; }
+.downList .t .name { height: 50px; overflow: hidden; display: block; }
+.downList .t .gs { position: absolute; right: 10px; width: 60px; font-size: 14px; }
+.downList .c a { padding: 22px 0px; height: 50px; display: block; line-height: 50px; position: relative; z-index: 2; }
+.downList .c .i2 { background: url("../images/down.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/down.png*/) no-repeat; padding: 0px 0px 0px 50px; overflow: hidden; line-height: 50px; display: inline-block; *display: inline; *zoom: 1; font-style: initial; font-size: 14px; transition: 300ms; -webkit-transition: 300ms; }
+.downList .bot { background-color: #1E90FF; height: 0px; width: 100%; position: absolute; left: 0px; top: 0px; transition: 400ms; -webkit-transition: 400ms; }
+.downList .t .bot { background-color: #333333; }
+.downList .item:hover .bot { height: 100%; }
+.downList .item:hover .i1 { background-position: 0px bottom; }
+.downList .item:hover .i2 { background-position: 0px bottom; }
+.downList .item:hover a { color: #fff; }
+/*down style end*/
+/*news style*/
+.newsPnav { display: block; padding: 42px 0px 20px; border-bottom: 1px solid #fff; color: #fff; width: 1084px; margin: 0px auto 136px; }
+.newsPnav .name { font-size: 24px; line-height: 1.5; }
+.newsPnav .selbox1 { float: right; display: block; }
+select.selbox1 { width: 200px; height: 38px; line-height: 38px; padding: 0px 0px 0px 15px; vertical-align: middle; border: 1px solid #fff; background-color: transparent; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-family: "microsoft yahei"; color: #fff; cursor: pointer; display: block; font-size: 14px; background: url("../images/sico.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/sico.png*/) no-repeat scroll 90% center; float: left; display: block; }
+.no-csstransitions select.selbox1 { padding-left: 0; background-image: none; background-color: #fff; }
+select.selbox1 option { padding: 2px 15px; color: #333333; }
+select.selbox1:hover { color: #fff; border: 1px solid #fff; }
+.newsPage { position: relative; width: 1084px; margin: 10px auto 0px; }
+.newTime { font-size: 36px; line-height: 1.5; color: #fff; margin-bottom: 15px; }
+.newTime span { font-size: 16px; padding-left: 5px; }
+.filler { position: absolute; display: block; -webkit-transition: 0.6s ease 0s; -moz-transition: 0.6s 0s; -o-transition: 0.6s 0s; transition: 0.6s 0s; }
+.filler { background-color: #1E90FF; z-index: 5; }
+.filler-left { width: 3px; height: 0%; left: 0%; bottom: 0%; }
+.filler-right { width: 3px; height: 0%; right: 0%; top: 0%; }
+.filler-top { width: 0%; height: 3px; left: 0%; top: 0%; }
+.filler-bottom { width: 0%; height: 3px; right: 0%; bottom: 0%; }
+.newsList { margin-left: -4%; }
+.newsList a:link, .newsList a:visited { color: #333; }
+.newsList a:active, .newsList a:hover { color: #333; }
+.newItem a:hover .filler-left { height: 100%; }
+.newItem a:hover .filler-right { height: 100%; }
+.newItem a:hover .filler-top { width: 100%; }
+.newItem a:hover .filler-bottom { width: 100%; }
+.newItem { position: relative; overflow: hidden; background-color: #fff; float: left; display: block; width: 29.33%; margin: 0px 0px 34px 4%; transition: 400ms; -webkit-transition: 400ms; }
+.newItem a { display: block; padding: 18px 18px 0px; }
+.newItem .img { width: 100%; overflow: hidden; }
+.newItem .img img { width: 100%; display: block; -webkit-transition: 0.6s ease 0s; -moz-transition: 0.6s 0s; -o-transition: 0.6s 0s; transition: 0.6s 0s; }
+.newItem .con { padding: 18px 0px 10px; }
+.newItem .c { font-size: 14px; line-height: 1.5; height: 42px; overflow: hidden; margin-bottom: 40px; }
+.newItem .time { color: #999999; line-height: 26px; }
+.newItem .more { background: url("../images/more3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/more3.png*/) no-repeat; width: 26px; height: 26px; display: block; float: right; display: block; transition: 300ms; -webkit-transition: 300ms; }
+.newItem:hover { box-shadow: 3px 6px 3px -1px rgba(201, 201, 201, 0.6); }
+.newItem:hover .more { background-image: url("../images/more4.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/more4.png*/); }
+.newItem:hover .img img { transform: scale(1.1); -webkit-transform: scale(1.1); }
+.bgf8 { background-color: #f8f8f8; }
+.paging { text-align: center; padding: 12px 0px 60px; }
+.paging a:link, .paging a:visited { color: #ffffff; }
+.paging a:active, .paging a:hover { color: #fff; background-color: #1E90FF; }
+.paging a, .paging span { display: inline-block; margin: 0px 2px; background-color: #8a8a8a; font-size: 15px; padding: 4px 14px; color: #fff; }
+.paging span { background-color: #1E90FF; color: #fff!important; }
+.w960 { width: 960px; margin: 0px auto; }
+.ninfoT { margin-top: 10px; padding: 2% 0px 30px; border-bottom: 2px solid #cecece; text-align: center; margin-bottom: 50px; }
+.ninfoT .infoT { font-size: 24px; color: #333; margin-bottom: 18px; line-height: 1.5; }
+.ninfoT .infoTime { color: #999; }
+.pageC a:link, .pageC a:visited { color: #333; }
+.pageC a:active, .pageC a:hover { color: #1E90FF; }
+.pageC { font-size: 14px; color: #666666; overflow: hidden; padding-bottom:5%;}
+.pageC img { max-width: 100%; }
+.infoPaging a:link, .infoPaging a:visited { color: #666; }
+.infoPaging a:active, .infoPaging a:hover { color: #1E90FF; }
+.infoPaging { border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; height: 59px; margin-top: 8%; text-align: center; }
+.infoBox { width: 370px; margin: 0px auto; line-height: 59px; font-size: 16px; }
+.infoBox .list { background: url("../images/list1.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/list1.png*/) no-repeat scroll center center #999999; padding-left: 68px; height: 59px; display: inline-block; }
+.infoBox .list:hover { background-color: #1E90FF; }
+.infoBox .pprev { background: url("../images/prev11.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/prev11.png*/) no-repeat scroll 8% center; padding-left: 37px; float: left; display: block; height: 100%; }
+.infoBox .pnext { background: url("../images/next11.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/next11.png*/) no-repeat scroll 92% center; padding-right: 37px; float: right; display: block; height: 100%; }
+.infoBox .pprev:hover { background-position: 0px center; }
+.infoBox .pnext:hover { background-position: 100% center; }
+/*news style end*/
+/*contact sytle*/
+.mapBox .BMap_Marker div { transition: 500ms; transform-origin: bottom; -webkit-transform-origin: bottom; }
+.mapBox:hover .BMap_Marker div { animation: moveMap 600ms ease-in-out; -webkit-animation: moveMap 600ms ease-in-out; }
+
+@keyframes moveMap {
+    0% { transform: scale(1); }
+    30% { transform: scale(0.6); }
+    60% { transform: scale(1.15); }
+    80% { transform: scale(0.9); }
+    90% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@-webkit-keyframes moveMap {
+    0% { -webkit-transform: scale(1); }
+    30% { -webkit-transform: scale(0.6); }
+    60% { -webkit-transform: scale(1.15); }
+    80% { -webkit-transform: scale(0.9); }
+    90% { -webkit-transform: scale(1.05); }
+    100% { -webkit-transform: scale(1); }
+}
+
+.mapBox { width: 100%; overflow: hidden; height: 550px; }
+.contactList { padding: 48px 0px; border-bottom: 2px solid #e6e6e6; }
+.contactList .iContactList { margin-bottom: 0px; }
+.contactPage { padding: 54px 0px; }
+.contactPage dt { font-size: 18px; color: #333333; margin-bottom: 20px; }
+.contactPage .onedd { margin-bottom: 38px; }
+.pintaiList a:link, .pintaiList a:visited { color: #666; }
+.pintaiList a:active, .pintaiList a:hover { color: #1E90FF; }
+.pintaiList { margin-left: -32px; }
+.pintaiList li { float: left; display: block; text-align: center; font-size: 14px; margin-left: 32px; }
+.pintaiList li img { display: block; width: 163px; border: 1px solid #cccccc; margin-bottom: 10px; }
+.pintaiList li:hover img { border-color: #1E90FF; }
+.messagePage { background-attachment: fixed; background-size: cover; background-repeat: no-repeat; background-position: center bottom; padding: 5% 0px; position: relative; }
+.messagePage .iboxT { text-align: center; }
+.messagePage .ts { text-align: center; color: #fff; padding: 40px 0px 50px; font-size: 14px; }
+.messagePage .black { background: url("../images/black2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/black2.png*/) repeat; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; }
+.messagePage .w960 { position: relative; }
+.formbox { width: 582px; margin: 0px auto; }
+.formbox dd { padding-bottom: 16px; }
+.formbox dd.btnBox { padding-top: 24px; }
+.ctxt { border: 0px none; color: #0f0f0f; padding: 12px 2%; height: 20px; line-height: 20px; width: 45%; font-size: 14px; font-family: "microsoft yahei"; }
+.ctxt2 { float: right; display: block; }
+.ctxt3 { width: 96%; height: 90px; resize: none; }
+.formbox .more2 { border: 0px none; background-color: #1E90FF; }
+.formbox .more2 .i2 { border-color: transparent transparent transparent #999; }
+.formbox .more2 .i3 { border-color: transparent #999 transparent transparent; }
+.formbox input[type="text"]:focus, .formBox textarea:focus { background-color: #eeeeee; }
+/*contact sytle end*/
+/*case style*/
+.caseT { padding: 5% 0px 4%; text-align: center; }
+.caseT2 { padding: 1% 0px 2%; }
+.caseT .iboxT { color: #333333; }
+.caseT .iboxBot { background-color: #999; margin: 18px auto 15px; }
+.caseT .iboxC { font-size: 18px; }
+.casePage { padding: 5% 0px; }
+.caseTitle { font-size: 24px; text-align: center; color: #333333; margin-bottom: 40px; line-height: 1.5; }
+.propanel {
+    padding: 65px 4% 90px 4%;
+}
+
+.proList {
+    margin-left: -4.5%;
+}
+
+    .proList a {
+        display: block;
+        float: left;
+        width: 28.83%;
+        margin-left: 4.5%;
+        background: #fff;
+        margin-bottom: 30px;
+    }
+
+        .proList a:link, .proList a:visited {
+            color: #686868;
+        }
+
+    .proList .txts {
+        padding: 17px 0;
+        transition: 300ms;
+        -webkit-transition: 300ms;
+        
+    }
+
+        .proList .txts .ti {
+            font-size: 12px;
+            color: #3f3f3f;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .proList .txts .nowti {
+            font-size: 16px;
+            margin-top: 3px;
+         
+        }
+
+    .proList a:hover {
+        box-shadow: 0 0 8px rgba(0,0,0,.4);
+        transform: translateY(-20px);
+        -webkit-transform: translateY(-20px);
+    }
+
+        .proList a:hover .txts {
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+
+.promore {
+    margin-top: 40px;
+}
+
+    .promore span {
+        width: 13px;
+        height: 13px;
+        background: #ff0000;
+        margin: 0 2px;
+    }
+
+    .promore .sp1 {
+        animation: sp1 800ms linear alternate infinite;
+        -webkit-animation: sp1 800ms linear alternate infinite;
+        opacity: 1;
+    }
+
+    .promore .sp2 {
+        animation: sp2 800ms linear alternate infinite;
+        -webkit-animation: sp2 800ms linear alternate infinite;
+        opacity: 0.5;
+    }
+
+    .promore .sp3 {
+        animation: sp3 800ms linear alternate infinite;
+        -webkit-animation: sp3 800ms linear alternate infinite;
+        opacity: 0.3;
+    }
+
+    .promore .sp4 {
+        animation: sp4 800ms linear alternate infinite;
+        -webkit-animation: sp4 800ms linear alternate infinite;
+        opacity: 0.1;
+    }
+
+@keyframes sp1 {
+    0% {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 0.5;
+    }
+
+    66% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.1;
+    }
+}
+
+@keyframes sp2 {
+    0% {
+        opacity: 0.5;
+    }
+
+    33% {
+        opacity: 0.3;
+    }
+
+    66% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes sp3 {
+    0% {
+        opacity: 0.3;
+    }
+
+    33% {
+        opacity: 0.1;
+    }
+
+    66% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes sp4 {
+    0% {
+        opacity: 0.1;
+    }
+
+    33% {
+        opacity: 0.3;
+    }
+
+    66% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes sp1 {
+    0% {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 0.5;
+    }
+
+    66% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.1;
+    }
+}
+
+@-webkit-keyframes sp2 {
+    0% {
+        opacity: 0.5;
+    }
+
+    33% {
+        opacity: 0.3;
+    }
+
+    66% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 0.3;
+    }
+}
+
+@-webkit-keyframes sp3 {
+    0% {
+        opacity: 0.3;
+    }
+
+    33% {
+        opacity: 0.1;
+    }
+
+    66% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@-webkit-keyframes sp4 {
+    0% {
+        opacity: 0.1;
+    }
+
+    33% {
+        opacity: 0.3;
+    }
+
+    66% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+.pic{
+	display:block;
+	width:100%;
+	overflow:hidden;
+	position:relative;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position: center center;
+	}
+.pic img{
+	display:block;
+	width:100%;
+	transition:600ms;
+	-webkit-transition:600ms;
+	}
+/*pd*/
+.pdpanel {
+    position:relative;
+    top: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    right: -100%;
+    background: #fff;
+    z-index: 9;
+    transition: 800ms;
+    -webkit-transition: 800ms;
+}
+
+    .pdpanel.show {
+        right: 0;
+    }
+
+.pd-header {
+    position:relative;
+    top: 0;
+    width: 100%;
+    right: -100%;
+    z-index: 9;
+    transition: 800ms;
+    -webkit-transition: 800ms;
+}
+
+    .pd-header .bodr {
+        border-bottom: 1px solid #dedede;
+        position: relative;
+        padding: 30px 0 22px 0;
+        margin: 0 45px;
+        background: #fff;
+    }
+
+.pdpanel.show .pd-header {
+    right: 0;
+}
+
+.pd-header .ti {
+    font-size: 24px;
+    line-height: 25px;
+}
+
+.backList {
+    color: #ff0000;
+    line-height: 25px;
+    height: 25px;
+}
+
+    .backList .ico {
+        width: 25px;
+        height: 25px;
+        background-image: url("../images/rr-backList.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/rr-backList.png*/);
+        margin-right: 10px;
+    }
+
+    .backList:hover .ico {
+        transform: translateX(-8px);
+        -webkit-transform: translateX(-8px);
+    }
+
+.pd-header .backList {
+    position: absolute;
+    right: 15px;
+    top: 25px;
+}
+
+.pdtop {
+    height: 78px;
+}
+
+.pdpics {
+    width: 100%;
+}
+
+    .pdpics .item {
+        height: 680px;
+        overflow: hidden;
+        text-align:center;
+    }
+
+        .pdpics .item > img {
+            height: 100%;
+            margin: 0 auto;
+        }
+
+    .pdpics .slick-dots li {
+        width: 7px;
+        height: 7px;
+        border-radius: 0;
+        margin: 0 7px;
+    }
+
+        .pdpics .slick-dots li.slick-active,
+        .pdpics .slick-dots li:hover {
+            background: #ff0000 !important;
+        }
+
+    .pdpics .slick-dots {
+        margin-top: 40px;
+    }
+
+    .pdpics .slick-arrow {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        z-index: 99;
+        top: 50%;
+        margin-top: -43px;
+    }
+
+    .pdpics .slick-next {
+        right: 0;
+        background: #b2b2b2 url("../images/rr-pdnext.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/rr-pdnext.png*/) no-repeat center center;
+    }
+
+    .pdpics .slick-prev {
+        left: 0;
+        background: #b2b2b2 url("../images/rr-pdprev.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/rr-pdprev.png*/) no-repeat center center;
+    }
+
+    .pdpics .slick-arrow:hover {
+        background-color: #ff0000;
+    }
+
+.pd-con {
+    padding-top: 40px;
+}
+
+.pdpicsb {
+    padding: 0 45px;
+    margin-bottom: 40px;
+}
+
+.pdtxts {
+    background: #f3f3f3;
+    padding: 30px 45px 65px 45px;
+}
+
+.pdt {
+    width: 930px;
+}
+
+.pdtxts .txb {
+    color: #373737;
+    margin-top: 65px;
+}
+
+    .pdtxts .txb:first-child {
+        margin-top: 0;
+    }
+
+    .pdtxts .txb .ti {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+
+    .pdtxts .txb .txx {
+        text-align: justify;
+        font-size: 16px;
+    }
+        /*.pdtxts .txb a:link, .pdtxts .txb a:visited { color:#787878; }
+*/
+        .pdtxts .txb .txx > a {
+            display: block;
+            color: #787878;
+            cursor: auto;
+        }
+
+    .pdtxts .txb a:active,
+    .pdtxts .txb a:hover {
+        color: #ff0000;
+    }
+
+.pd-share {
+    border-top: 1px solid #dedede;
+    padding-top: 20px;
+    margin-top: 45px;
+}
+
+.pdShare {
+    width: 20px;
+    height: 26px;
+    display: block;
+    background: url("../images/rr-pdShare.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/rr-pdShare.png*/) no-repeat center center;
+}
+
+    .pdShare:hover {
+        animation: awup2 1.2s linear infinite;
+        -webkit-animation: awup2 1.2s linear infinite;
+    }
+
+@keyframes awup2 {
+    0% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-10px);
+        -webkit-transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(10px);
+        -webkit-transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes awup2 {
+    0% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-10px);
+        -webkit-transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+
+    75% {
+        transform: translateY(10px);
+        -webkit-transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+    }
+}
+/*pd end*/
+/*case style end*/
+/*product style*/
+.productDL a:link, .productDL a:visited { color: #333333; }
+.productDL a:active, .productDL a:hover { color: #1E90FF; }
+.productDL { border-top: 1px solid #cccccc; margin: 35px 0px 50px; }
+.productDL dd { padding: 10px 0px; border-bottom: 1px solid #cccccc; -webkit-transition: 0.3s; -moz-transition: 0.3s; -o-transition: 0.3s; transition: 0.3s; }
+.productDL .img { float: left; display: block; width: 37%; }
+.productDL .img img { width: 100%; display: block; }
+.productDL .con { margin-left: 13%; width: 50%; float: left; display: block; padding: 40px 0px; color: #333; font-size: 14px; }
+.productDL .con .t { border-bottom: 1px solid #ccc; width: 205px; padding-bottom: 15px; line-height: 1.5; font-size: 24px; color: #333333; margin-bottom: 30px; }
+.productDL .con .c { font-size: 14px; }
+.productDL .con .bot { padding: 28px 0px; }
+.productDL .con .bot a:link, .productDL .con .bot a:visited { color: #1E90FF; }
+.productDL .con .bot a:active, .productDL .con .bot a:hover { color: #333333; }
+.productDL .con .bot a { background: url("../images/sj.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/sj.png*/) no-repeat scroll left 8px; padding-left: 18px; margin-right: 10%; display: inline-block; }
+.productDL .more { border-color: #666666; width: 98px; height: 34px; line-height: 34px; }
+.productDL .more .i1 { color: #666666; }
+.productDL .more .i2 { border-color: transparent transparent transparent #1E90FF; }
+.productDL .more .i3 { border-color: transparent #1E90FF transparent transparent; }
+.productDL .more:hover { border-color: #1E90FF; }
+.productDL .more:hover .i1 { color: #fff; }
+.productDL dd:hover { background-color: #F8F8F8; }
+.proT { text-align: center; color: #333333; font-size: 24px; padding: 30px 0px 0px; }
+.productNav a:link, .productNav a:visited { color: #666; }
+.productNav a:active, .productNav a:hover { color: #fff; }
+.productNav { text-align: center; padding: 20px 0px 0px; }
+.productNav a { border: 1px solid #666666; padding: 8px 30px; margin: 0px 7px; }
+.productNav a span { background: url("../images/sj3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/sj3.png*/) no-repeat scroll left center; padding-left: 16px; font-size: 14px; }
+.productNav a:hover, .productNav a.act { background-color: #1E90FF; border-color: #1E90FF; color: #fff; }
+.productNav a:hover span, .productNav a.act span { background-image: url("../images/sj2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/sj2.png*/); }
+.filler2 { position: absolute; display: block; background-color: #1E90FF; z-index: 5; -webkit-transition: 0.4s ease 0s; -moz-transition: 0.4s 0s; -o-transition: 0.4s 0s; transition: 0.4s 0s; }
+.filler-left2 { width: 3px; height: 0%; left: 0%; top: 0%; }
+.filler-right2 { width: 3px; height: 0%; right: 0%; top: 0%; }
+.filler-top2 { width: 0%; height: 3px; left: 50%; top: 0%; -webkit-transition: 0.4s ease 0s; -moz-transition: 0.4s 0s; -o-transition: 0.4s 0s; transition: 0.4s 0s; }
+.productList a:link, .productList a:visited { color: #fff; }
+.productList a:active, .productList a:hover { color: #fff; }
+.productList a:hover .filler-left2 { height: 100%; -webkit-transition: 0.6s ease 0.4s; -moz-transition: 0.6s 0.4s; -o-transition: 0.6s 0.4s; transition: 0.6s 0.4s; }
+.productList a:hover .filler-right2 { height: 100%; -webkit-transition: 0.6s ease 0.4s; -moz-transition: 0.6s 0.4s; -o-transition: 0.6s 0.4s; transition: 0.6s 0.4s; }
+.productList a:hover .filler-top2 { width: 100%; left: 0%; }
+.productList { padding-top: 50px; }
+.productList ul { margin-left: -4%; }
+.productList .bg2 { background-color: #1E90FF; position: absolute; width: 100%; height: 0px; left: 0px; bottom: 0px; -webkit-transition: 0.4s; -moz-transition: 0.4s; -o-transition: 0.4s; transition: 0.4s; }
+.productList li { float: left; display: block; width: 29.33%; margin: 0px 0px 4% 4%; background-color: #666666; }
+.productList a { display: block; position: relative; }
+.productList a .img { border: 1px solid #cccccc; background-color: #fff; }
+.productList a .img img { width: 100%; display: block; }
+.productList a .name { height: 52px; line-height: 52px; font-size: 16px; overflow: hidden; padding: 0px 5%; text-align: center; position: relative; z-index: 2; }
+.productList a:hover .bg2 { height: 52px; -webkit-transition: 0.4s ease 0.6s; -moz-transition: 0.4s 0.6s; -o-transition: 0.4s 0.6s; transition: 0.4s 0.6s; }
+.productList .ico { background: url("../images/addico.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/addico.png*/) no-repeat; width: 42px; height: 42px; display: block; position: absolute; left: 50%; top: 50%; margin: -21px 0px 0px -21px; transform: scale(0,0); -webkit-transform: scale(0,0); opacity: 0; visibility: hidden; }
+.productList a:hover .ico { transform: scale(1); -webkit-transform: scale(1); -webkit-transition: 0.4s ease 0s; -moz-transition: 0.4s 0s; -o-transition: 0.4s 0s; transition: 0.4s 0s; opacity: 1; visibility: visible; }
+.productAct { background-color: #f8f8f8; padding: 15px 0px; font-size: 14px; }
+.productAct a:link, .productAct a:visited { color: #666; }
+.productAct a:active, .productAct a:hover { color: #1E90FF; }
+.productAct span { font-family: "宋体"; padding: 0px 10px; }
+.productDemo { margin: 60px 0px; }
+.pboxT { font-size: 20px; color: #333; line-height: 1.5; margin-bottom: 32px; }
+.paddingB { padding: 58px 0px; }
+.pboxDL { border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; padding: 25px 0px; }
+.pboxDL dd { float: left; display: block; width: 32.33%; margin-right: 1%; font-size: 14px; }
+.proLine { background-color: #1E90FF; font-size: 18px; color: #fff; padding: 8px 2%; margin-bottom: 30px; }
+.productPingtai { padding: 60px 0px; }
+.productPingtai dt { font-size: 18px; padding-bottom: 30px; }
+.productPingtai .pintaiList { margin-left: -1.2%; }
+.productPingtai .pintaiList li { width: 13%; margin-left: 1.2%; font-size: 16px; }
+.productPingtai .pintaiList li img { width: 100%; }
+.proName { font-size: 20px; color: #333333; text-align: center; }
+.control { text-align: center; padding: 26px 0px 32px; font-size: 14px; }
+.control .line { padding: 0px 4px; }
+.control .num { font-size: 20px; }
+.productImg .item img { filter: alpha(opacity=40); opacity: 0.4; border: 1px solid #cccccc; width: 100%; }
+.productImg .item { margin: 0px 80px; background-color: #fff; }
+.productImg .slick-center img { filter: alpha(opacity=100); opacity: 1; }
+.productImg .slick-arrow { width: 33px; height: 33px; display: block; border-radius: 5px; background-color: #999999; top: 50%; margin-top: -16px; z-index: 100; }
+.productImg .slick-arrow i { background: url("../images/btn_3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_3.png*/) no-repeat scroll center center; width: 100%; height: 100%; margin: 0px auto; display: block; transition: 300ms; -webkit-transition: 300ms; }
+.productImg .slick-prev { left: 31%; }
+.productImg .slick-next { right: 31%; }
+.productImg .slick-prev i { background-image: url("../images/btn_3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_3.png*/); }
+.productImg .slick-next i { background-image: url("../images/btn_4.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_4.png*/); }
+.productImg .slick-arrow:hover { background-color: #1E90FF; }
+.productImg .slick-prev:hover i { background-position: 30% center; }
+.productImg .slick-next:hover i { background-position: 70% center; }
+/*product style end*/
+/*aboutNav style*/
+.aboutNav a:link, .aboutNav a:visited { color: #666; }
+.aboutNav a:active, .aboutNav a:hover { color: #1E90FF; }
+.aboutNav { border-bottom: 1px solid #cccccc; }
+.aboutNav li { float: left; display: block; width: 31%; margin: 0px 1%; text-align: center; font-size: 16px; color: #666666; position: relative; }
+.aboutNav li a { padding-bottom: 35px; display: block; }
+.aboutNav i { width: 50px; height: 50px; margin: 0px auto 25px; display: block; background: url("../images/ico.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/ico.png*/) no-repeat; }
+.aboutNav .i1 { background-position: 0px 0px; }
+.aboutNav .i2 { background-position: -50px 0px; }
+.aboutNav .i3 { background-position: -100px 0px; }
+.aboutNav .i4 { background-position: -150px 0px; }
+.aboutNav .bot { position: absolute; left: 50%; width: 0px; background-color: #1E90FF; height: 2px; bottom: 0px; -webkit-transition: 0.4s ease 0s; -moz-transition: 0.4s 0s; -o-transition: 0.4s 0s; transition: 0.4s 0s; }
+.aboutNav li:hover .bot { width: 100%; left: 0px; }
+.pagebT { text-align: center; margin-bottom: 38px; }
+.pagebT .zh { color: #666666; font-size: 24px; }
+.pagebT .en { color: #999999; }
+.aboutPic { padding: 15%; background-attachment: fixed; background-size: cover; background-position: top center;}
+.qualificationPage { background-color: #F8F8F8; padding: 70px 0px; }
+.honorPage { position: relative; margin-bottom: 5%; }
+.honorPage .bor { height: 3px; position: absolute; left: 0px; top: 28%; background-color: #1E90FF; width: 100%; margin-top: -1px; }
+.qualificationTab { position: relative; z-index: 2; padding: 0px 50px; }
+.qualificationTab .item { border-radius: 5px; background-color: #d7d7d7; font-size: 14px; color: #333; padding: 10px 10px; margin: 0px 7px; display: block; text-align: center; }
+.qualificationTab .item:hover, .qualificationTab .item.act { background-color: #1E90FF; color: #fff; }
+.qualificationTab .slick-arrow { width: 33px; height: 33px; display: block; border-radius: 5px; background-color: #e81a23; top: 50%; margin-top: -16px; }
+.qualificationTab .slick-arrow i { background: url("../images/btn_3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_3.png*/) no-repeat scroll center center; width: 100%; height: 100%; margin: 0px auto; display: block; transition: 300ms; -webkit-transition: 300ms; }
+.qualificationTab .slick-prev { left: 0px; }
+.qualificationTab .slick-next { right: 0px; }
+.qualificationTab .slick-prev i { background-image: url("../images/btn_3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_3.png*/); }
+.qualificationTab .slick-next i { background-image: url("../images/btn_4.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_4.png*/); }
+.qualificationTab .slick-arrow:hover { background-color: #333333; }
+.qualificationTab .slick-prev:hover i { background-position: 30% center; }
+.qualificationTab .slick-next:hover i { background-position: 70% center; }
+.qualificationDemo a:link, .qualificationDemo a:visited { color: #333333; }
+.qualificationDemo a:active, .qualificationDemo a:hover { color: #1E90FF; }
+.qualificationDemo { width: 90%; margin: 0px auto; position: relative; padding-bottom: 60px; transform: translateX(80px); -webkit-transform: translateX(80px); opacity: 0; transition: 700ms; -webkit-transition: 700ms; }
+.qualificationDemo.show { transform: translateX(0); -webkit-transform: translateX(0); opacity: 1; }
+.qualificationDemo .item { margin: 0px 20px; }
+.qualificationDemo .itemA { display: block; text-align: center; cursor: pointer; }
+.qualificationDemo .itemA .img { margin-bottom: 8px; }
+.qualificationDemo .itemA img { width: 100%; display: block; font-size: 14px; }
+.qualificationDemo .slick-dots { bottom: 0px; }
+.qualificationDemo .slick-dots li { position: relative; display: inline-block; margin: 0px 5px; width: 13px; height: 10px; padding: 2px 0px; cursor: pointer; }
+.qualificationDemo .slick-dots li a { transition: 400ms; -webkit-transition: 400ms; -ms-transition: 400ms; height: 12px; width: 12px; line-height: 12px; text-indent: -10em; display: block; overflow: hidden; padding: 0px; cursor: pointer; border: 1px solid #b8b8b8; background-color: #b8b8b8; border-radius: 50%; }
+.qualificationDemo .slick-dots li a:focus { outline: none; }
+.qualificationDemo .slick-dots li.slick-active a { background-color: #1E90FF; border-color: #1E90FF; }
+.imgShowBox { background: url("../images/black2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/black2.png*/) repeat; background: none rgba(0,0,0,0.8); bottom: 0; left: 0; position: fixed; right: 0; top: 0; transform: translateY(100%); transition: all 800ms ease 0s; z-index: 1110; width: 100%; overflow: hidden; -webkit-overflow-scrolling: touch; }
+.no-csstransitions .imgShowBox { display: none; }
+.imgShowDemo { width: 100%; height: 100%; position: relative; overflow: hidden; }
+.imgShowDemo .item { width: 100%; height: 100%; background-repeat: no-repeat; background-position: center; position: relative; background-size: contain; }
+.imgShowDemo .img { vertical-align: middle; height: auto; width: auto; max-height: 100%; max-width: 100%; margin: auto; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; }
+.imgShowDemo .txt { background: url("../images/black.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/black.png*/) repeat; background: none rgba(0,0,0,0.5); font-size: 14px; color: #fff; position: absolute; left: 0; right: 0; bottom: 0; width: 100%; padding: 10px 0px; }
+.imgShowDemo .txt .i { padding: 0px 3%; }
+.hi-num { width: 85px; height: 65px; background: #272727; color: #fff; border-left: 1px solid #3a3a3a; position: absolute; bottom: 0; right: 0; text-align: center; line-height: 65px; font-size: 16px; }
+.img-show { transform: translateY(0) !important; -webkit-transform: translateY(0) !important; }
+.no-csstransitions .img-show { display: block; }
+.imgShowDemo .slick-prev, .imgShowDemo .slick-next { width: 44px; height: 44px; position: absolute; top: 50%; margin-top: -22px; z-index: 100; transition: all 0s ease 0s; -webkit-transform: all 0s ease 0s; }
+.imgShowDemo .slick-prev { background: url("../images/img_btn2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/img_btn2.png*/) no-repeat scroll left top; left: 2%; }
+.imgShowDemo .slick-next { background: url("../images/img_btn2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/img_btn2.png*/) no-repeat scroll right top; right: 2%; }
+.imgShowDemo .slick-prev:hover { background-position: left bottom; }
+.imgShowDemo .slick-next:hover { background-position: right bottom; }
+.overlayClose { width: 56px; height: 56px; display: block; position: fixed; right: 2%; top: 2%; transition: 300ms; -webkit-transition: 300ms; z-index: 100; }
+.overlayClose i { background: url("../images/close2.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/close2.png*/) no-repeat scroll center center; width: 100%; height: 100%; display: block; transition: 400ms; -webkit-transition: 400ms; }
+.overlayClose:hover { background-color: #1E90FF; }
+.overlayClose:hover i { transform: rotate(90deg); -webkit-transform: rotate(90deg); -o-transform: rotate(90deg); -moz-transform: rotate(90deg); }
+.honorPage { padding: 6% 0px; }
+.honorPage .w960 { position: relative; padding-bottom: 60px; }
+.honorDemo { padding: 0px 50px 0px; }
+.honorDemo .item { border-radius: 5px; background-color: #d7d7d7; font-size: 14px; color: #333; padding: 10px 10px; margin: 0px 7px; display: block; text-align: center; }
+.honorDemo .item:hover, .honorDemo .item.act { background-color: #1E90FF; color: #fff; }
+.honorDemo .slick-arrow { width: 33px; height: 33px; display: block; border-radius: 5px; background-color: #999999; top: 50%; margin-top: -16px; }
+.honorDemo .slick-arrow i { background: url("../images/btn_3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_3.png*/) no-repeat scroll center center; width: 100%; height: 100%; margin: 0px auto; display: block; transition: 300ms; -webkit-transition: 300ms; }
+.honorDemo .slick-prev { left: 0px; }
+.honorDemo .slick-next { right: 0px; }
+.honorDemo .slick-prev i { background-image: url("../images/btn_3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_3.png*/); }
+.honorDemo .slick-next i { background-image: url("../images/btn_4.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_4.png*/); }
+.honorDemo .slick-arrow:hover { background-color: #e81a23; }
+.honorDemo .slick-prev:hover i { background-position: 30% center; }
+.honorDemo .slick-next:hover i { background-position: 70% center; }
+.honorDemo .itemA { display: block; margin: 0px 20px; }
+.honorDemo .img { border: 1px solid #cfcfcf; padding: 5px; margin-bottom: 8px; overflow: hidden; }
+.honorDemo .img img { width: 100%; display: block; }
+.honorDemo .name { text-align: center; font-size: 14px; color: #666666; line-height: 1.5; }
+.honorDemo .slick-dots { bottom: -60px; left: 0px; }
+.honorDemo .slick-dots li { position: relative; display: inline-block; margin: 0px 5px; width: 13px; height: 10px; padding: 2px 0px; cursor: pointer; }
+.honorDemo .slick-dots li a { transition: 400ms; -webkit-transition: 400ms; -ms-transition: 400ms; height: 12px; width: 12px; line-height: 12px; text-indent: -10em; display: block; overflow: hidden; padding: 0px; cursor: pointer; border: 1px solid #b8b8b8; background-color: #b8b8b8; border-radius: 50%; }
+.honorDemo .slick-dots li a:focus { outline: none; }
+.honorDemo .slick-dots li.slick-active a { background-color: #1E90FF; border-color: #1E90FF; }
+.itemA .img { position: relative; overflow: hidden; }
+.itemA .black { position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0; visibility: hidden; background: url("../images/black.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/black.png*/) repeat; }
+.itemA .il, .itemA .ir { background-color: #fff; position: absolute; left: 50%; top: 50%; display: block; transition: 400ms; -webkit-transition: 400ms; border-radius: 3px; }
+.itemA .il { height: 3px; width: 0px; margin: -1px 0px 0px -15px; }
+.itemA .ir { height: 0px; width: 3px; margin: -15px 0px 0px -1px; }
+.itemA:hover .black { opacity: 1; visibility: visible; }
+.itemA:hover .il { width: 30px; }
+.itemA:hover .ir { height: 30px; transition: 400ms ease 200ms; -webkit-transition: 400ms ease 200ms; }
+.teamPage { padding: 6% 0px; }
+.teamPage .w960 { position: relative; padding-bottom: 60px; }
+.teamDemo { padding: 0px 50px 0px; }
+.teamDemo .item { border-radius: 5px; background-color: #d7d7d7; font-size: 14px; color: #333; padding: 10px 10px; margin: 0px 7px; display: block; text-align: center; }
+.teamDemo .item:hover, .teamDemo .item.act { background-color: #1E90FF; color: #fff; }
+.teamDemo .slick-arrow { width: 33px; height: 33px; display: block; border-radius: 5px; background-color: #999999; top: 50%; margin-top: -16px; }
+.teamDemo .slick-arrow i { background: url("../images/btn_3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_3.png*/) no-repeat scroll center center; width: 100%; height: 100%; margin: 0px auto; display: block; transition: 300ms; -webkit-transition: 300ms; }
+.teamDemo .slick-prev { left: 0px; }
+.teamDemo .slick-next { right: 0px; }
+.teamDemo .slick-prev i { background-image: url("../images/btn_3.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_3.png*/); }
+.teamDemo .slick-next i { background-image: url("../images/btn_4.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/btn_4.png*/); }
+.teamDemo .slick-arrow:hover { background-color: #1E90FF; }
+.teamDemo .slick-prev:hover i { background-position: 30% center; }
+.teamDemo .slick-next:hover i { background-position: 70% center; }
+.teamDemo .itemA { display: block; margin: 0px 20px; }
+.teamDemo .img { border: 1px solid #cfcfcf; padding: 5px; margin-bottom: 8px; overflow: hidden; }
+.teamDemo .img img { width: 100%; display: block; }
+.teamDemo .name { text-align: center; font-size: 14px; color: #666666; line-height: 1.5; }
+.teamDemo .slick-dots { bottom: -60px; left: 0px; }
+.teamDemo .slick-dots li { position: relative; display: inline-block; margin: 0px 5px; width: 13px; height: 10px; padding: 2px 0px; cursor: pointer; }
+.teamDemo .slick-dots li a { transition: 400ms; -webkit-transition: 400ms; -ms-transition: 400ms; height: 12px; width: 12px; line-height: 12px; text-indent: -10em; display: block; overflow: hidden; padding: 0px; cursor: pointer; border: 1px solid #b8b8b8; background-color: #b8b8b8; border-radius: 50%; }
+.teamDemo .slick-dots li a:focus { outline: none; }
+.teamDemo .slick-dots li.slick-active a { background-color: #1E90FF; border-color: #1E90FF; }
+.nicescroll-rails { display: none !important;}
+/*aboutNav style end*/
+
+/*微信弹出*/
+.popUpblack { background: url("../images/black_bg4.png"/*tpa=http://host14.lisiqi.com.cn/template/home/images/black_bg4.png*/) repeat; width: 100%; height: 100%; position: fixed; left: 0px; top: 0px; z-index: 1010; display: none; }
+.popUp { width: 220px; height: 242px; border: 5px solid #999; background: #fff; position: fixed; left: 50%; top: 50%; margin: -87px 0 0 -115px; z-index: 1004; }
+.popUp .t { padding: 0 0 0 10px; height: 26px; line-height: 26px; color: #666; font-weight: bold; border-bottom: 1px solid #e8e8e8; background: #f2f2f2; }
+.popUp .t .close { padding: 0 10px 0 0; float: right; cursor: pointer; color: #666; font-weight: normal; }
+.popUp .img { padding: 20px; }
+.popUp .img img { width: 100%; height: 100%; display: block; }
+/*微信弹出 end*/
+::-webkit-scrollbar{width:10px;height:10px;background-color:#F5F5F5}::-webkit-scrollbar-track{border-radius:10px;background-color:#E2E2E2}::-webkit-scrollbar-thumb{border-radius:10px;-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);background-color:#555}
+.cover{
+	display:block;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	transition:600ms;
+	-webkit-transition:600ms;
+}
+.productIbox a:link, .productIbox a:visited { color: #fff; }
+.productIbox a:active, .productIbox a:hover { color: #fff; }
+.productIbox { margin-top: 56px; background: url("../images/line.jpg"/*tpa=http://host14.lisiqi.com.cn/template/home/images/line.jpg*/) no-repeat; }
+.productIbox .img { overflow: hidden; }
+.productIbox .img img { width: 100%; display: block; transition: all 0.6s ease 0s; -webkit-transform: all 0.6s ease 0s; }
+.productIbox .item { margin: 0px 0px 0px 2px; position: relative; }
+.productIbox .itemCon { background: url("../images/line.jpg"/*tpa=http://host14.lisiqi.com.cn/template/home/images/line.jpg*/) repeat-x; display: block; }
+.productIbox .name { background-color: #f8f8f8; position: relative; text-align: center; height: 54px; line-height: 54px; overflow: hidden; }
+.productIbox .name i { height: 1px; position: absolute; left: 5%; width: 90%; background-color: #bbbbbb; top: 50%; }
+.productIbox .name span { font-size: 16px; padding: 0px 8px; background-color: #f8f8f8; position: relative; z-index: 2; color: #333333; }
+.productIbox .con { position: absolute; left: 0px; bottom: 0%; width: 80%;    background: rgba(0,0,0,.4); padding: 8% 10% 10%; z-index: 4; opacity: 0; visibility: hidden; transform: translateY(10%); -webkit-transform: translateY(10%); transition: all 0.6s ease 0s; -webkit-transform: all 0.6s ease 0s; }
+.productIbox .con i {  height: 31px; position: absolute; left: 0px; top: -30px; width: 100%; }
+.productIbox .con .t { font: 18px/1.4 "microsoft yahei"; }
+.productIbox .con .bot { display: block; width: 42px; height: 2px; background-color: #fff; margin: 5% 0px; }
+.productIbox .con .c { height: 65px; overflow: hidden; margin-bottom: 10%; font-size: 13px; text-align: justify; }
+.p-active .ipage3-pic { background-position: left -100px; transition: all 0.8s ease 0s; -webkit-transform: all 0.8s ease 0s; }
+.active .ipage3-pic { /*background-position: left top;*/ transition-delay: 0.6s; -webkit-transition-delay: 0.6s; }
+.productIbox .itemCon:hover .con { opacity: 1; visibility: visible; transform: translateY(0px); -webkit-transform: translateY(0px); }
+.new_list{ width:1200px;margin:50px auto;}
+.new_list ul li{ padding-bottom:20px; margin-bottom:20px; border-bottom:1px dotted #bbb; font-size:14px;}
+.new_list ul li img{ float:left; margin-right:20px; width:201px; height:135px;}
+.new_list ul li .wid460px{   }
+.new_list ul li .data{ color:#b8b8b8; font-size:12px; margin-top:15px;}
+
+.new_list ul li .wid460px .tited a,.new_list_tab ul li .wid460px .tited{ font-size:18px; line-height:36px; margin-bottom:6px; color:#111;}
+.new_list ul li .wid460px a:hover{  color:#0962b5;}

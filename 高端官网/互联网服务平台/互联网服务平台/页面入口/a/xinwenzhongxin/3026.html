@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin">国内动态</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">互联网下半场 知乎挑战“大而美”</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-17　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/3026.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/3026.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　一场史上最快的融资，给所谓的“资本寒冬”画上了注脚：对于值得的标的，资本从来不介意放低身段。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　1月12日，知乎宣布完成1亿美元D轮融资。今日资本领投，腾讯、搜狗、启明、赛富、创新工场等原有董事股东全部跟投。“本轮融资速度史上第一，实际上还没来得及写PPT就谈定了，钱到账的速度也很快，1亿美元已经在上个月8号入账。”当天，知乎创始人周源在致员工的信中说。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　今日资本创始人、总裁徐新表达了相见恨晚的心情，“我们对知乎的观察已经持续了一年多时间，C轮的时候遗憾错过了，这次终于等到机会进来，非常兴奋。今日资本是个28年的长青基金，好公司我们有耐心等，也值得长期持有。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　D轮融资之后，据知乎天使投资人创新工场李开复透露，知乎估值超过10亿美元，迈入“独角兽”行列，并且在估值上超过了自己的老师、美国的对标者硅谷问答社区Quora。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　什么让知乎在风口变换中坚守</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　用了6年时间成为独角兽阵营的一员，知乎一如既往地低调，在周源写给员工的信中，融资成功被放到了最后，通篇提的最多的是“用户”二字。在周源看来，决定公司成败的不是竞争也不是资本而是用户。“我们已经身处一个高度竞争的环境，新行业巨头在崛起。在竞争中胜出，固然是一个结果，但Google之于Microsoft，iPhone之于 Nokia，表面上是追逐结果的竞争，实质上，是用户需求的迁移，衡量标准是你多大程度理解了用户的需求，完善了它，甚至是提升了它。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　知识市场的建设是一场长跑。从某种意义上说，这轮融资成功不只是基于对知乎在知识市场上持续努力的肯定，也是对过去一年知乎一系列付费尝试以及机构账号开通等举措的认同。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　2016年，知乎在付费领域的一系列尝试，曾多次将这家低调的公司推上风口。有人担心，知乎在付费领域的尝试，会否让知乎离钱越来越近，离用户越来越远。周源表示，发展到现在知乎更重要的是不忘初心。不久前，他在接受中国青年报·中青在线记者专访时，以罗盘来喻初心，“沙漠中徒步比赛，多数人走出来的是之字形。这是因为大部分人走走走，突然间发现我左前方有一个人，他在我前面，我得去追他。快追到了以后，又发现右前方有个人，然后又去追那个人，就一直在那儿来回走……你一直在学别人，你也不知道往哪里走，所以你需要心里有一个罗盘。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　现在人们都知道周源在创办知乎前有一次不成功的创业经历。但却少有人知道，这次持续两年的创业，中间换过3次方向。这也许就是周源在后来总结的在沙漠中的“之字形”行走。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　创业失败后，周源去了西藏，让自己“归零”。他至今保留着旅途中，后来成为知乎联合创始人的张亮发给他的短信：“人并不是仅仅在寻求结果，如果只是为了寻求结果，人是很容易走捷径的。在走捷径的过程中，人很容易迷失真实，甚至连满腔的热忱也会逐渐丧失。我认为真正重要的是追求真实的意志。只要有了这种向真实前进的意志，即使这次失败了，我们也终于会达到终点。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　也许正是这种经历，此后在互联网的风口变换中，知乎才能镇静与坚守。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　“我不想社区出现像北京一样的雾霾和堵车”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　2010年，受到硅谷问答社区Quora的启发，周源将第二次创业方向设定为中国版知识型问答社区，让人们分享彼此的知识、经验和见解。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　最初，很多人并不看好知乎的发展，甚至不认为知乎能活下去。2014年，周源在《知乎为什么》中写道： “过去3年，知乎的发展更像是如履薄冰，夹缝中求生存。一开始，几乎所有人都觉得中文互联网上社区娱乐化、灌水化问题是不可改变的现状，知乎这样的产品没有生存空间。还有人觉得知乎是一个Quora的山寨品，只会抄抄网页界面，没有自己的想法。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　“在开发知乎第一版的时候，网络大环境确实如此，吐槽和灌水文化在每个综合社区、地方论坛里都很盛行，贴吧的用户可以轻松在帖子盖楼达到上万条。在这样的背景下，做一个提倡认真、专业和友善的社区有点像是‘找死’。不过，让我们乐观的是，这不正意味着分享和获取高质量信息的需求一直没有得到很好的满足吗?这是机会。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　在这样的氛围中，知乎试图通过限制规模、规范、友善社区形成自己的风格。早期的知乎是小众的，在上线后的最初两年，要想上知乎只能通过邀请码注册。没有邀请码的用户，只能托人四处去要，或者到淘宝上花几百元去买。经历了几十天蛰伏后，知乎已经有了200多位用户。在知乎前40天，他们就创造了8000个问题和2万个回答。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　为了在一开始就确立严肃的负责任而且便于获取信息的知识社区的形象，知乎还对提问、回答的形式进行了规范。诸如“……是什么样的体验”、“如何评价……”等是知乎通用的格式。教人如何说话，其实也限制了人们发言的自由。但知乎认为，部分让渡权力是为了让更多人有学习分享知识的更好的氛围。因为你是代表大家提问，而不只是代表个人。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　为免口水淹没干货，情绪代替理性，如果知乎上的发言被认定不友善，就会被要求修改。以求避免一些网站社区上的戾气及语言暴力带来的陷阱。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　现在人们回忆当初最早期的专业用户——首批绿洲建造者，更津津乐道的是李开复、王兴、王小川、徐小平和马化腾这样的业内大咖。很多人好奇马化腾这样的人是怎么被拉进来的。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　知乎联合创始人李申申曾在媒体采访时说：“我们哪儿请得动马化腾啊。当时看到有人的昵称叫‘Pony Ma’(马化腾的英文名)，大家都觉得他是假的。经过一番了解才知道他真就是‘小马哥’，早就听说他会经常体验新产品，没想到会来知乎，所以我们当时都很振奋。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　两年后，知乎拥有了40万用户，在知识界也有了一批坚实的拥趸。一个现实的选择也摆到了面前，是继续保持相对封闭的圈子，还是开放社区，服务更广泛的人群。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　2013年3月知乎放开注册，当年用户就从40万暴增至500万。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　对于知乎从封闭走向开放的理由，周源的回答是：“如果只能为一小部分人服务，价值就不大了，一定要为更多的人服务，这也是知乎的使命。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　大批用户的涌入，带来了显著的管理问题。接下来，知乎用了一年的时间进行梳理与沉淀。在周源看来，当时知乎面临的情形就像《大城市的死与生》里提到的纽约复兴的时期。那个时候，纽约人口从700万增长到900万，从城市管理的角度，“必须把大部分的精力花在搞卫生、修补窗户上。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　他认为，管理一个社区如同管理一个城市，放缓节奏把基础工作做好是为了更好地发展。他开始花时间学习城市规划的知识。“网络社区和城市的形成有很多相似之处，我不想社区出现像北京一样的雾霾和堵车，这意味着新的挑战，在产品上线之初，你是一个项目经理，但现在你得学会成为一位市长。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　2014年到2015年，除了独立于社区之外的知乎日报和读读日报，知乎几乎没有推出一款新产品，而是更多地专注于社区的基础设施建设。比如改进用户感受不明显的核心功能，比如提升Anti-Spam(反垃圾信息)的效率，优化问题排序的算法，以及更快响应用户对违反社区规定行为的举报。“拿城市打比方，知乎现在做的事，不是在城里招商引资，而是说城市去年新来了好多人，今年我们就把三环以内的下水道全部重修一遍，把所有的桥墩重新来一遍，在五环以外开始修防沙林带，把雾霾问题解决解决……这些事情你不做，不会马上有问题。你做了，又没有立竿见影的效果，但它真的对城市长期发展有好的作用。”周源说。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　也是在2015年，知乎开始考虑赚钱的事情。如果说在最初的三年，知乎做的工作主要是建设城市的基础设施以及相应的法规制度，那么在有了足够多的居民，以及宽阔的马路、高楼大厦后，如何发展经济，让城市走向繁荣成了第一要务。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　知识界的Uber、淘宝?</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　一个城市的繁荣离不开居民的安居乐业。如何给社区的居民创造更多赚钱的机会?</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　这个诉求，促使2016年，知乎在知识变现的路上，开启了加速模式，相继推出值乎、知乎Live等产品。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　彼时，一系列语音知识变现产品如雨后春笋，包括知乎旗下的“值乎”、联想旗下的“知了”、百度旗下的“问咖”以及专注知识产权领域的“利知”等。一时间，知识付费俨然已成风口。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　但在最初确定把知识付费作为2016年的重点的时候，知乎内部一直存有争议。在内部讨论会上，张亮对于是否要推出付费语音直播产品——知乎 Live 提出疑问，认为知识付费还只是小众需求，“是不是应该先做点覆盖全用户的产品”。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　其实就目前来看，这场争执仍然难言对错。而最终促使周源下决心作出改变的，更主要是基于知乎已经进入的阶段及面临的“繁荣”社区的诉求。在接受中国青年报·中青在线记者专访时，周源说，“我们要做知识界的Uber,让更多的白领从知识分享中获得受益。”“你现在开滴滴把我送到北京西站，能拿60块钱，可这个事情对于一个白领来说，不是可持续的，需要有更好的方式。”而移动支付变得便捷、消费观念的升级，也意味着知识变现具备了相应的基础。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　其后，周源更多用的是“知识界的淘宝”的概念，但其实无论是Uber还是淘宝，实质都是建立一个知识市场，让大家分享，并从中获得价值。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　周源说，“在这个阶段，我们在建立知识市场，我们要让先进入市场的知识工作者先富起来。还有长期的愿景，希望知乎能够成为一个以知识平台为核心的生态，我希望知乎最终真正能够对一些相关的行业，能够有所改变。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　国家天文台副研究员、知友“狐狸先生”是最先一批参与知乎Live的。他说，“听我说的人是比较喜欢天文的人。我会准备一周的时间，每天晚上都花一点时间去准备一场Live，最后呈现一个小时，收到几千元。这个价值和我付出的劳动成比例，我用的是业余时间，而且赚的和我上班赚的也差不多，从付出劳动得到回报这一点，我已经很满意了。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　房产律师徐明做客户咨询，通常一小时3000元。“知乎Live通过类似众筹的模式，N多人来听课，每个人出几元、十几元，我的收益超过我平时工作的收入。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　自2016年5月14日推出Live至今，知乎已举办超过1500场“知乎Live”，737位主讲人平均时薪达10980元，单场参与人数最多为12万人，而单场知乎Live收入最高达到19万元。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　需要说明的是，虽然这是知乎6年发展中，离钱最近的一次，但不管是知乎，还是Live，都没有直接的收益。即便未来这类付费产品的规模足够大，知乎开启了收费模式，其中可能拥有的利润想象的空间也不大。知乎现在仍然是广告营利的模式。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　应该说，在知乎发展中遇到的最多的疑问也正在于其营利模式与预期。就知乎的气质而言，仿佛也多少带着几丝不识人间烟火。曾有人说，“知乎有点像在开一个清新文艺的小酒吧，有时憋红了脸叫嚷了两声，路人不知所谓;有时想做出些赚钱的新东西，也不好意思硬塞给客人，顶多跟熟客耳语一句，你来，我告诉你一个小秘密。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　然而，有意思的是，一向被认为急功近利的资本对知乎这样一家“慢公司”出奇地包容。从最初的天使轮到现在的D轮，融资都出奇地顺利。而周源也多次强调，融资其实不只是找钱，也是找伙伴。显然，资本的耐心使得知乎在相当长一段时间能够按着自己的节奏生长。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　徐新说，“知乎在做一件非常正确的事情。不追风口，把握擅长的细分市场精耕细作，抓住用户需求把产品做好，以此为基础成长变大。现今的知乎已经不只代表问与答，当它能够进一步围绕知识的供需解决有所突破，就有可能成为满足用户多场景内容消费和更多需求的伟大公司。我们也希望能够帮助知乎打造长期品牌，从而发挥出作为高效能平台的更大价值。” 。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　羞涩的“海盗”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　截至2017年1月，知乎已拥有超过6500万注册用户，平均每天有1850万活跃用户访问。2016年全年，知乎用户提出了超过600万个问题，撰写了逾2300万篇回答和151万篇文章。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　这些优质客户也是资本最为看重的资源。徐新说，知乎的问答模式很犀利，护城河也很深。关于内容，我们觉得有一个“1%定律”：从人群的角度来看，100个人里面有1个意见领袖。所以关键是要做得早，把那1%的意见领袖牢牢抓住，同时还要确保机制公平、上升渠道通畅，让新用户也有机会成长为意见领袖——时间的积累就是护城河。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　当年创新工场里没有牌子、只挂一面海盗旗的知乎正在长大，已经有人在预期知乎将来是要在内容领域对标百度，还是进军在线教育。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　对于知乎发展的快慢一直有很多争议。有位知乎用户在2016年底曾写过一篇文章《知乎在移动端的艰难与它错过的一个时代》，认为知乎不够重视移动端，扩张速度上过于谨慎，失去机会。而知乎在2016年没有打造自媒体内容平台，也被一些人认为是相对保守。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　不过，2016年知乎推出了机构账户，虽然在内容上是否会有大的动作还不清晰，但想象的空间已经打开。有人提出下一步百度才是知乎的对手，还有人认为知乎会对标今日头条。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　但所有的一切都根植于知乎在知识市场上的深耕。时至今日围绕知识市场仍然有无数的不确定性。比如知识的变现与开专车或是建淘宝相比，在定价、分享模式上都要复杂得多。Uber的专车服务可以标准化，而知识不能。在一个娱乐至死的年代，严肃的知识能否真正升级为大众的消费?知识的定义到底是什么?又如何定价，这些都是未来要面对的问题。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　周源说：“我们现在说的知识，肯定不是说课本上的知识，也不是黑板上的知识，它已经融入我们的生活和决策，所有对你有用的信息，有决策价值的信息，我们都认为它是知识。所以要面向广泛的知识消费者和合作伙伴，去搭建一个大型的知识平台。现在是一个从社区向平台，正在发生变化的过程。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　要回答的问题还有很多，同样要开拓的领域也有很多。成为独角兽只是发展阶段的一个标志，并不能决定未来。但无论如何，互联网的下半场已经开启，知乎占据了一个有利的地形。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-family: 宋体, Arial, Helvetica, sans-serif; color: rgb(51, 51, 51); font-size: 14px; white-space: normal;">　　“护城河足够深”，这也许是投资人最看重的特质。“我们有一个感受，互联网进入下半场，交易相关的大平台已经形成、几乎垄断。如果你做电商，你就要问自己两个问题：你比京东好在哪里?你比淘宝好在哪里?而内容的春天才刚刚开始。以前大家买东西图的就是便宜、便宜就是流量入口。现在流量入口是内容，不管是买东西还是生活中各种决策，大家都要看内容。”徐新说。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/xinwen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/xinwen/'" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/guoneiyaowen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/guoneiyaowen/'" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

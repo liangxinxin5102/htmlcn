@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/zhengce">政策</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">互联网保险创业者：回首2016 角逐2017</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-10　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2843.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2843.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">在《<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/hlwgng_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/hlwgng_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/hlwgng_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">互联网</a>保险业务暂行管理办法》的基础上，2016年，<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/hlwbx_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/hlwbx_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/hlwbx_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">互联网保险</a>市场群雄逐鹿，出现了百花齐放百家争鸣的市场格局。与此同时，随着大众创业、万众创新的国家政策支持，越来越多有志青年投入到创业大潮中，而互联网保险领域的创业尤为抢眼。与此同时，互联网保险因其发展潜力巨大，也成为资本竞相追逐的“宠儿”。走过2016，互联网保险在创业者心中留下了哪些印记?展望2017，互联网保险市场又将迎来哪些精彩?本期年度策划，特别选取了互联网保险各具代表性的几种模式的创始人，让他们来谈谈互联网保险的2016和2017。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">互联网保险公司篇</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">泰康在线总裁兼CEO王道南：</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">2017年三大方向：生态圈、技术驱动、传统保险互联网化</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　Q：您认为2016年互联网保险市场有几大关键词?2016年互联网保险市场让您印象最为深刻的是哪一方面?或者说存在哪些问题有待破解?</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　A：2016年互联网保险市场有两大关键词：竞争激烈、监管严格。与此同时，有几大问题有待破解：第一，场景。场景都在渠道手里，因此渠道的话语权很高，保险公司如何在场景上突围、争取更多主动权是一大考验。第二，价格竞争。保险产品定价要根据经验数字，经验数字没有积累之前如何处理，这是一个很大的挑战。第三，用户黏度。保险是一个非常低频的产品，客户在购买了保险之后也不会每天登陆APP来查看，也不会每天打开保险公司的<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/weixin_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/weixin_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/weixin_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">微信</a>公众号，所以无论是互联网保险公司还是传统保险公司，能否黏住用户是一大挑战，如果能黏住客户，后续要转化到其他有价值的产品就相对容易了。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　Q：监管对于互联网保险的态度更多的是让产品回归保障，作为公司领军人，如何结合公司发展来贯彻这一规定?</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　A：泰康在线自成立以来，一直坚持以产寿结合作为发展方向，以“互联网保险+大健康”作为发展战略，尤其是作为国内首家以保险集团背景发起成立的互联网保险公司，这也是一大优势所在。我们认为，互联网保险无论如何发展、如何创新，最终都需要回归到保障本身。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　Q：2017年，您对互联网保险市场有哪些期待?您觉得互联网保险下一步会发生哪些变化?</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　A：2017年，互联网保险市场的发展前景会更加广阔，技术创新以及各项最新技术的应用也将进一步驱动行业升级，同时产品的保障功能将进一步得到强化。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　互联网保险下一步发展主流将是构建互联网生态圈、技术驱动以及将传统保险更好地互联网化，这三个领域既各自为主线，又相互有交叉，场景化、创新型和体验式的理念将贯穿其中。互联网保险的生态包含用户、产品、场景、保险企业以及合作伙伴。在这一生态体系下，保险可以通过互联网创新不断突破时间、地域、行业的各种界限。电商、手机、航旅、医疗健康、物流、金融等客户和<a target="_blank" class="art_links baike_words" href="javascript:if(confirm('http://data.10jqka.com.cn/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://data.10jqka.com.cn/'" tppabs="http://data.10jqka.com.cn/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">数据</a>聚集的行业都是互联网保险施展拳脚的重要阵地，加之互联网保险有着更加开放的平台以及更为标准化、碎片化、可复制化的产品，这将激发并挖掘社会消费中的各类新型保险需求。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　而随着技术的更新换代，与可穿戴设备、生物识别、人工智能、基因工程、<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/clwgng_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/clwgng_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/clwgng_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">车联网</a>、<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/dsj_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/dsj_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/dsj_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">大数据</a>等技术相关的创新保险将陆续出现，原有保险模式也将改变。技术革新将带来产品设计、承保、风控、客户服务等全流程的变化，客户将会得到更好的保险体验。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">Q：作为公司领军人，您在2017年有哪些规划?</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　A：泰康在线将继续坚持产寿结合的发展方向，主要从三个方面着手实践互联网保险深远发展。第一，坚持发展自有平台。互联网保险公司通过自建平台才能真正实现去中介化、低成本、信息透明的互联网本质，降低保险公司成本，为客户提供更实惠的保险产品，强化保险公司和用户的联系。第二，进一步拓展互联网生态。全方位融入广阔的互联网生态是所有互联网保险公司开展业务的第一步，泰康在线成立一年已累计签约近200家合作渠道，开发了200余款新产品，从简单的“渠道+产品”模式转变为“一个领域+一揽子解决方案”，下一步互联网生态仍将是泰康在线发展的一大抓手。第三，依托集团资源。依托泰康集团“活力<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/ylgng_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/ylgng_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/ylgng_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">养老</a>、高端医疗、卓越理财、终极关怀”四位一体的商业模式以及集团强大的线下代理人团队，在产品销售、产品创新、商业模式创新、落地服务等各方面与集团进行合作，实现资源共享。尤其是泰康在线已于2016年12月29日获批车险牌照，在极其重服务的车险领域，集团强大的线下资源无疑将成为泰康在线发展互联网车险业务的一大利器。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">易安保险CEO曹海菁：</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">做好互联网保险的关键是融合</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　Q：您认为2016年互联网保险市场让您印象深刻的是哪方面?</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　A：在我看来，2016年互联网保险市场可以用“创新、规范、融合、使命”这四个词来归纳。创新，是互联网保险发展的基因，2016年互联网保险创新不再追逐“噱头型”产品，真正立足于客户需求，提供互联网化的解决方案;规范，是互联网保险发展的土壤，随着《互联网保险业务监管暂行办法》的发布和一系列互联网保险监管政策和自查自纠活动的出台，互联网保险市场逐步走上了健康、有序、和谐发展的道路;融合，是互联网保险发展的路径，是对商业习惯和商业逻辑的重构，跨界融合，实现共赢;使命，是互联网保险发展的责任，随着互联网保险的市场份额逐渐提高，互联网保险应肩负起更多的社会责任，坚守合规底线，推动保险回归普惠、互助、保障的本质。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　Q：监管对于互联网保险领域监管趋严的同时，也在鼓励更多的创新，对此，您怎么看?</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　A：监管层防范风险频出招，意在引导险企回归保障本质，肃清互联网保险的乱象，促进互联网保险的健康发展。易安作为第四家获批的互联网保险公司，一直以来积极响应监管行动，围绕用户生活中切身遇到的各种场景，对传统产品形态和产品运营流程进行再造，采用场景化、碎片化、细分策略、服务整合的技术路径，开发了一系列创新型互联网保险产品，致力于在规范的前提下寻找互联网化的解决方案，攻克传统保险痛点。比如，2016年，易安携手多家医疗健康供应商，推出挂号服务费用补偿保险。通过对传统健康保险产品的保险责任的碎片化，产品运营的场景化和业务流程的便捷化，将医疗服务最前端的挂号场景单独碎片化，解决客户“挂号难”的问题。2016年12月，易安携手天气科技、慧择保险经纪及华谊保险代理，面向公众发布气象指数保险DIY服务。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　从上述创新实践可以看出，易安的产品创新都是从用户需求出发，以互联网手段为客户寻找具体的解决方案，真正落实监管“保险姓保”的号召，回归保障的本质。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">Q：在您看来互联网保险下一步会发生哪些变化?</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　A：互联网保险发展正在迈入新纪元。毫无疑问，互联网保险的经营模式正在快速渗透、改变乃至颠覆保险产业链中的多个环节。近年来，大数据、<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/yjs_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/yjs_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/yjs_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">云计算</a>、移动互联等基础技术为互联网保险的发展提供了强力支撑，区块链、<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/wlw_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/wlw_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/wlw_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">物联网</a>、人工智能、基因诊疗等新兴技术将革命性改变保险业态，为保险业的转型升级提供充足动力和赋予其无限可能性。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　我认为，做好互联网保险的关键是融合。互联网保险，一定是告别传统保险刚性技术路径的新生力量，是对商业习惯和商业逻辑的重构。在实践中，就是要在充分理解互联网本质的前提下，寻求保险行业与其他产业融合发展、跨界共生的完美契合，将互联网保险和其他行业结合创造出完全不一样的东西。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　Q：作为公司领军人，您在2017年有什么计划和创新举措?</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　A：按照公司的设想，在探索互联网保险发展模式的道路上，分成“连接”、“共享”、“孵化”三步。在2017年，易安首先要做的就是“连接”，广泛连接各种渠道和资源，建立一套标准化快速响应的内部运作机制，基于这样的战略目标和实施途径，易安将主要从以下三方面着手：首先，通过渠道创新做好“搬运工”。线下产品线上化是“搬运工”的主要特点，将一些传统模式的产品通过互联网和新技术的手段来实现，将个人客户线上迁移，实施客户在线化经营。其次，通过产品创新转型“改造工”。主要以“把原来缺乏保险需求的产品卖出去”为特点，这样的产品脱胎于传统保险，但经过互联网的模式再造，改变了利益格局和价值链条，因此产生新的生命力。最后，通过商业模式创新成为“造物主”。对于未来科技的冲击，我们也在做一些准备，很快这个行业里就会出现这样的变化。例如，人工智能、物联网、UBI、<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/znjj_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/znjj_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/znjj_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">智能家居</a>、<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/zhcs_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/zhcs_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/zhcs_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">智慧城市</a>等等，在这些领域虽然都处在探索阶段，但都可能创造出新的保险需求或者新的服务工具，那么对现有渠道、现有业务模式、现有价值链都将产生巨大冲击。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">科技公司篇</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">最惠保创始人陈文志：</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">互联网是最能践行“保险姓保”的渠道</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2016年互联网保险市场呈现出以下特点：爆发、分化、规范、回归保障。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2015年-2016年是互联网保险平台的爆发期。在这段时间，<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/zg_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/zg_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/zg_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">中国</a>保险市场涌现了数量众多的互联网保险创业公司，维度涉猎渠道、产品、技术、UBI、服务等。这些互联网保险的创业项目，已经进入分化的时代。有不少是符合保险行业发展规律的，是真是需求的反应，能够在实践中不断找到定位和出路。但更多项目的需求可能只不过是想象中的，或者需求本身不够强烈，将面临逐步被淘汰或主动转型。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　在创业激情爆发的年代，各种概念保险鱼龙混杂，甚至出现伪保险创业项目。为避免重蹈P2P市场的风险，监管部门果断采取监管措施，对互联网保险出台政策引导以及通过各种方式进行规范，已经取得阶段性成效。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　每一个有情怀的保险人，都知道保险一定要姓保，都希望能够为<a class="singleStock" target="_blank" href="javascript:if(confirm('http://stockpage.10jqka.com.cn/603883/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stockpage.10jqka.com.cn/603883/'" tppabs="http://stockpage.10jqka.com.cn/603883/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px; border-bottom-width: 1px; border-bottom-style: dashed; border-bottom-color: rgb(153, 153, 153);">老百姓</a>（<a class="art_links" target="_blank" href="javascript:if(confirm('http://stockpage.10jqka.com.cn/603883/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stockpage.10jqka.com.cn/603883/'" tppabs="http://stockpage.10jqka.com.cn/603883/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">603883</a>）提供真正的保障。但为什么实践过程中，那么多非保险的保险产品还在销售呢?其中一个重要的原因，就是渠道成本太高了。纯保障的保险产品保费低，产生佣金不足以支撑渠道销售成本。低佣金的产品业务员不肯卖，保险公司只得往上面附加东西。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　互联网是最能践行“保险姓保”的渠道。通过新的技术和渠道，可以更好拉近保险公司与客户之间的距离，极大降低产品的复杂度和渠道成本，这样低保费的纯保险产品也可以销售出去。另一种方式就是提升渠道的<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/xxh_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/xxh_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/xxh_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">信息化</a>程度，帮助保险营销员降低销售成本，提升产能，增加收入，业务员就更愿意销售纯保障保险产品。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　这也是我从保险公司出来，创立最惠保的宗旨。就是要帮助全国数百万的保险营销员更好展业，降成本、增收入，让保险公司和客户都可以得到实惠。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　我认为，2017年，互联网保险市场还将继续分化，好的项目能够得到资金和渠道的支持，获得更加广阔的发展;更多伪需求创立的项目，势必会逐步退去光环。另外需要强调的是，无论概念多好的互联网保险项目，不解决保险业的实际问题，就难以找到生存之地。不能解决实际问题，就很难拿到资本市场的钱来支持公司发展。随着资本寒冬的持续，投资者也越来越精明，没有前景的项目将越来越难融到资金;反之，好的项目，资本会趋之若鹜。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2017年，最惠保要做的还是继续把基础夯实，服务好合作的保险公司，服务好一线保险营销员，把车险交易做深做透，把车险服务做好。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">车车科技CEO张磊：</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">技术将全面推动保险业改革和创新</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　在我看来，2016年互联网保险市场有几大关键词：1.“保险姓保”。“保险姓保”是保险业实现价值的根基，是行业稳定健康发展、服务经济社会的根本要求。2.“<a target="_blank" class="art_links baike_words" href="javascript:if(confirm('http://data.10jqka.com.cn/market/rzrq/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://data.10jqka.com.cn/market/rzrq/'" tppabs="http://data.10jqka.com.cn/market/rzrq/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">融资</a>井喷”。从2012年到2016年8月，共发生51起互联网保险融资事件。其中，2015年增长明显，共有26起，相比2014年增长了225%。而截至2016年8月末，13家互联网保险创业企业今年共发生15起融资事件。其中，以围绕车险方面的变革创新尤为值得关注。3.“互助退烧”。2015年，继互联网车险之后，互助保险再次成为行业宠儿。但是，在2016年，监管也对网络互助做了清晰的界定，如不得使用“保障”“保证”等字眼，同时应与保险产品划清界线。4.“三足鼎立”。目前互联网保险大格局大致为三足鼎立的局面，首先是传统保险公司营造生态圈，以平安为例;第二类是互联网保险公司借车险入局，以众安保险、安心保险、易安保险等为例;第三类是创业型公司万生象，致力于围绕车险产业链变革的各个环节。5.“保险科技”。全球刮起保险科技风潮，科技助力保险业升级发展，在IT赋能，区块链、大数据、人工智能和安全方面不断涌现出专业的创业公司。国内，众安成立众安科技，车车科技宣布打造互联网开放平台 ，提升保险公司的效率，为各行各业提供保险增值服务。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2016年印象最为深刻的是马云在“2016中国保险业发展年会”上提出未来三十年内，云计算、大数据、人工智能，都会成为基本的公共服务，在数据革命的推动下，社会将变得更高效、更公平，各行各业都将进入改革深水区。而保险是最早应用大数据的行业，是建立在信任和互助基础上的金融工具，在给予国民“保障”和“安全感”方面，保险业大有可为，并判断将有如下三大变化：产品简化、组织改革和监管创新。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　总结而言，技术将全面推动保险业的改革和创新。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2017年，希望互联网保险市场继续以“开放、创新、共享、自律”为发展主旋律。希望监管层可以在风险可控的情况下，鼓励更多的创新险种试水，迭代更新。希望保险公司投入更多的资源与第三方平台一起加速保险的互联网化。希望有更优秀的互联网人才加入到互联网保险创业中来。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　在我看来，互联网保险下一步的变化主要是保险与科技的融合。现阶段我们主要做的是融合，前端用户接触和购买习惯的培养，后端的IT能力的提升，都是融合。概括而言，就是我一直比较推崇保险科技的说法，保险公司做产品，保险科技帮助保险公司优化、创新产品和销售渠道，甚至经营粉丝。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　车车科技在2017年的计划主要有三个方面：首先，加大培养和鼓励用户网上买车险，继续优化提升传统保险公司产品的互联网渠道化，连接更多的互联网场景。其次，以“按天买车险”为创新契机，加大创新产品的尝试和推广力度，联合保险公司继续挖掘更多的创新产品，促进保险产品的优化。最后，我们计划在健康、意外、人寿、理财等保险的推广上，加入更多的智能推荐，让消费者能更快地找到属于自己的保障方案，让好产品自带光环，浮出水面。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">小保科技CEO李恒：</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">围绕人做文章 销售流程越简单越好</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　为解决用户痛点，小保科技联手保险公司推出了基于场景化、碎片化的产品，比如电动车骑行保、手机碎屏保、赛事意外险等产品，都是我们基于用户生活中常遇到的风险，联合保险公司设计推广的创新保险产品。2016年，这些产品推入市场以来，已经为数千万用户提供了风险保障服务，广受用户和市场好评。这类场景化、碎片化产品，贴近用户的日常生活，保障内容上更具针对性。与传统保险产品相比，无论是价格、体验、还是理赔服务等，让消费者更容易接受。由此看来，这些产品具备着一定的保险教育功能。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　在中国，保险未出现爆发式增长，很大原因是大众的保险认知缺失，然而教育认知是一条很长的路。生硬的、告知式传播科普方式，我认为不大合适，这已经在中国市场践行了几十年，说明还需另辟新径。那么，场景化、碎片化保险产品则是未来发展方向，用体验的方式完成保险认知工作。其实大众心里知道风险的存在，可由于以往保险产品种类单一、费用高、投保理赔流程复杂等问题，人们就不会主动地想到用保险管控风险。而碎片化的产品恰好能够让人们花小钱买大保障，让人们愿意接受保险。总之，我认为这种形式更符合今天的大众消费理念和习惯。这也是小保科技始终坚持的理念——围绕人、服务人，开发设计的产品都是人们生活中的“必须品”，产品也易于理解，再通过我们的大数据平台，优化购买、核保、服务等流程，“去繁从简”，让保险真正走进每个中国人的生活中。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　在做好用户需求产品定制的基础上，我们还特别注重服务这块，</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　小保拥有遍布全国的维修网络、1800家维修商、20000+手机维修工程师在使用小保自有的保宝修平台接单，可以为用户提供一站式服务。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　这个平台的价值不仅体现在广大用户身上，对保险公司来说也有优势，是一种很好的补充功能。首先是降低成本，以汽车服务为例，如果用户在保宝修平台维修，平台能够收集到大量的用户信息;再通过大数据形式，整理分析出险情况，用户画像等因素，并将其应用于保险产品的风控、定价等方面。其次，就是帮助保险公司提升后端服务能力，完善产品体验。对用户的话，当然能够方便进行维修服务，使用户拥有更加顺畅的体验，也节省了维修成本。由此，互联网保险+服务一定是未来互联网保险发展方向。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　我认为2017年的互联网保险将会有几大趋势：第一，强者愈强，大型公司在较大赛道赛跑;小型公司则在单一赛道赛跑，但可能会产生更多机会。第二，客户会更加接受互联网这种保险购买方式，逐步脱离代理人，产品也将会更容易让客户理解。第三，保险公司在销售端，也就是供给端已经是红海，未来竞争将更加激烈，但也将面临更多机会。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">OK车险创始人齐石：</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">互联网时代与客户互动式的风险共管</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2016年互联网保险领域的关键词，首先是“监管”必不可少。随着<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/hlwjr_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/hlwjr_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/hlwjr_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">互联网金融</a>的整治，保监会也三令五申“保险姓保”，为保险的互联网创新定调。除此之外，我觉得还有“价值”和“风险”。随着资本市场的回归理性，创业者更多要从行业本质思考，为用户和行业创造价值。2016年，我们看到了更多服务于保险行业的2B模式的创业公司涌现以及获得投资，从保险行业运营的各个角度提供增效服务。同时，从商业模式的风险控制到运营管理的风险控制也越来越得到了监管、行业和创业者的重视。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　总体而言，我认为互联网保险或者InsurTech要有理性的自身定位。作为传统保险的补充，要坚持良性创新、价值创新，切实为中国保险行业的发展做出有益贡献。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　OK车险作为以“风控”为核心使命的创业公司，我们利用独立研发并取得了发明专利的“手机车联网”技术获取了海量用户驾驶行为数据，并与国内外的保险数据公司和再保公司合作开发基于驾驶行为的新一代车险风控模型，真正从风控的根源上提升行业的运作效率。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　同时，OK车险也是较少的坚持2C模式的InsurTech创业公司。我们以为用户带来更好的车险体验为使命，推出了多个满足用户需求、获得良好市场口碑的创新服务。比如，我们推出了量化评测车主驾车安全的数据产品“OK驾值”，把培养良好驾驶习惯落实到车主的每次驾驶行为中。对于由于智能手机普及而导致的新型交通隐患——“盲驾”，我们推出了“驾驶安全模式”，利用我们的技术帮助用户在开车时屏蔽掉手机的干扰，专注驾驶，提升安全。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　我认为，互联网时代的保险是保险公司和客户之间互动式的风险共管，是基于科技和数据的微量风险度量和行为引导。保险回归保障，优化风险管理，提升保障效率，是我们追求的目标。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2017年，我们有三大期待：第一，期待监管继续鼓励和支持互联网保险的创新，允许互联网保险在一定范围内有突破性尝试。保险公司作为风险管理的主体，承担着重大的社会责任和经营风险，天然对于创新保持谨慎态度。而创业公司在管理体制、市场敏锐度、对新技术和理念的接受和执行层面，具备保险公司不具备的基因。这两种力量应该是优势互补、融合并存的。第二，期待资本，尤其是和保险业相关的产业资本，能够继续关注InsurTech领域的创业，并且更加务实和落地。第三，期待创业者们继续努力，实现更多的良性创新，让消费者从中受益。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">第三方互联网保险平台篇</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">开心保CEO李杰：</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">通过场景打造入口级产品</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　我认为2016年互联网保险市场主要有两个关键词：场景和烧钱。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2016年，互联网保险把场景定制吹捧上天，又回落人间，过分强调场景，而不关注保险产品的特殊属性和用户需求痛点，并不能从根本上解决流量和用户黏性问题。很多人都认为保险一定要和场景结合，要定制产品，甚至认为有场景就拥有客户，但最后大家往往发现，场景是别人的场景，而很多为场景定制的产品，其同质性依然还很明显。或者说，为场景定制的产品，被模仿起来还是比较简单，这就造成在市场体量比较大的场景下，竞争高度激烈，无法产生比较大的利润;而另一方面，很多体量较小的场景，由于运营维护成本和定制成本过高，也不能产生盈利。因此，可以说，2016年，整个互联网保险市场并没有找到合适的方法，让场景真正解决互联网保险产品黏性比较差的问题。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　我认为互联网保险的“场景化”并非简单的连接，通过场景打造入口级产品才是“核武器”。所谓入口级产品，也就是基于刚需、高频的众多连接，这样才能真正的实现找到、打通乃至运用场景，最终完成保险与用户需求的无缝对接。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　开心保自2012年9月上线以来，陆续连接了购物场景“天猫旗舰店”、搜索场景“开心保保险网-最便捷在线网上比价投保平台”、旅行场景“甩票、穷游、马蜂窝”、金融场景“万达金融、块钱”等，也在短短的4年内实现服务用户超300万，保费超过7亿元的市场成绩。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　烧钱是2016年互联网保险另外一个关键词。2016年见证了市场的冲动与浮躁，烧钱、亏损成了很多创业公司的主要手段，却忽视了保险产品的特殊属性和用户需求。在国内保险业高速发展的大势之下，很多公司进入到互联网保险行业，也有很多公司因为过度烧钱而陷入困境甚至无奈退场，这个现象的核心点在于，保险是低频消费产品，单纯的烧钱并不能真正留存客户。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　关于保险姓保，监管的这个决定是非常英明而及时的，同时我们也欣喜地看到，客户保险需求也在逐步提高，比如现在环境污染，大家对重大疾病等方面的关注在逐步提高。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2017年，保险市场非常值得期待，尤其是在健康险类的产品定制方面，目前已经看到市场上很多公司创造了合适的产品。未来，开心保也会在这方面积极投入，把产品和服务融为一体，产品和服务联合起来，满足客户的需求，这是我们努力的方向。同时，互联网保险热度会进一步升高，巨头进一步深入互联网保险领域。同时，我们要改变保险产品接触频率低、被动购买等固有属性，让大家看得懂、买得起、用得好。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">悟空保创始人陈志华：</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">互联网保险市场足够大</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2016年是互联网保险持续升温且模式、产品和融资具呈现百花齐放之繁荣景象的一年。2016年，从商业车险费改的全面落地，健康税优政策的推行，到个税递延型养老保险新政的试行，以及对于险资<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/jp_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/jp_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/jp_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">举牌</a>上市公司的相关规定，都显示了监管在确保行业健康稳健发展和灵活适应新发展形势双重目标下的努力与平衡，也让我们看到监管层在面对互联网带来千变万化的新气象时，更加理性和更加笃定的态度。我们发现，保监会几乎所有的重大规定都集中在保险产品的供给侧改革和创新上，所以我们认为产品定制和创新是2016年让我们印象深刻的一点，这也是悟空保矢志不渝的追求和实践。比如近期悟空保携手华夏人寿共同推出了一款性价比完爆香港保险的“至尊保”产品(华夏优优宝终身重大疾病产品)，这也是我们在寿险定制领域的第一次尝试和探索，核心理念也是回归保险保障属性，去繁就简。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　另外，悟空保在很多互联网场景做了很多创新，比如和新氧、泰康在线原创定制的整形整容效果产品;和好车无忧、中国人保原创定制的<a target="_blank" class="selist" href="javascript:if(confirm('http://stock.10jqka.com.cn/zhuanti/esc_list/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://stock.10jqka.com.cn/zhuanti/esc_list/'" tppabs="http://stock.10jqka.com.cn/zhuanti/esc_list/" style="margin: 0px; padding: 0px; list-style: none; text-decoration: none; color: rgb(64, 140, 215); outline: 0px;">二手车</a>技师责任险;和小牛电动、人寿财险合作的电动车保险等，这都是我们的原创。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　任何的互联网创业，万变不离其宗，一定是围绕客户的痛点、需求、价格和体验等，一切从客户角度出发，一切创意来源客户，一切利益为了客户，所以回归保障、产品定制、价格亲民、体验良好是我对于互联网保险市场的期待。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　个人认为互联网保险市场下一步的主要变化有以下几个方面：1.竞争主体：将凸显出两极分化，收购兼并即将出现，强者恒强;2.监管趋势：要求越来越高，一些纯粹互联网出身又缺乏保险专业背景的团队可能因此被淘汰出局;3.产品定制：基于消费者利益的产品定制和原创将会成为创业的主流方向之一;4.资本市场：更加大额的融资案例将在2017年不断涌现，基于资本优势，对于传统保险业、中介及代理人的冲击力量将会持续增强。5.商业模式：创业的新模式将会更加丰富多彩，不管是做平台、产品、渠道、工具、服务、互助、比价等，每个方向都会诞生领头羊，互联网保险市场足够大，能够允许很多家独角兽公司存在。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">小雨伞保险董事长徐瀚：</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">互联网保险与健康场景结合是重要方向</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2016年互联网保险市场让我印象最深刻的是互联网保险场景化方面的快速发展和探索。伴随着互联网的飞速发展，在产品、需求和用户群等方面出现基于线上场景的互联网保险机会。一方面是特定场景下产生的保险需求，将功能明确的保险产品嵌入特定的互联网场景，结合特定场景下用户产生的风险管理需求提供保险服务;另外一方面是保险渠道的场景化，各个不同类型的第三方服务平台聚拢的用户有其自身场景的保险产品需求。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　运输运营交通工具意外伤害险、航班延误保险等在互联网上热销的保险产品，都在说明将功能明确的保险产品嵌入特定的互联网场景，结合特定场景下用户产生的风险管理需求提供保险服务，是互联网保险场景化探索的大方向。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　我认为，互联网保险与健康场景结合无疑是一个重要方向。互联网保险可以和运动APP、健身场馆等进行合作共享数据，根据个人的运动数据和健康数据推动个性化保障内容和保费费率的设定;也可以和体检单位合作，自动获取客户体检信息，提高自动核保率和人工核保时效。有了多种数据的积累，可以介入到保险产品定价，有针对性地定制符合不同用户需求的产品。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　不可否认，互联网保险市场发展的同时也存在一些问题，希望互联网保险行业能够回归保险保障的初心，从业者要把更多的资源和精力放在保险产品、理赔服务方面进行更多创新，为用户提供更简单透明的保险产品;希望互联网保险从业者能够通过保险产品和互联网技术进行结合，运用人工智能、区块链等新技术，介入到保险产品设计、保险投保、保单管理、健康管理等方面做更多的创新，为用户提供全方面的保险保障。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　小雨伞保险一直聚焦于人身健康保障领域，为特定的用户定制专属的互联网保险产品。未来，雨伞保险会在产品设计、保险投保、保单管理、健康管理等方面做更多的创新和升级，为用户提供全面的保险保障。小雨伞保险很看好微信小程序的发布，会投入公司的开发资源在小程序方面做保险服务工具的创新。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">保掌柜创始人任海波：</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　<strong style="margin: 0px; padding: 0px;">细分领域的跨界融合会更加开放</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2016年的互联网保险市场可以概括为几个关键词：百花齐放、监管。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2016年是互联网保险百花齐放的一年，大家发力点各有侧重，场景保险、车险、互助、代理人等多个方向都有长足发展，保监会也通过发文、专项整治等活动规范整个市场运作，让保险回归保障本质。大家在细分领域不断探索的同时，同样面临很多问题，比如：场景保险获取流量成本及用户黏性问题、车险的盈利能力、互助的政策风险、保险低频非刚需如何破解、产品同质化竞争等。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　2016年监管对于互联网保险更多是让产品回归保障，这方面大家都已经达成一个共识“保险姓保”，互联网保险不管有多创新，一定要坚守“保险姓保”的定位。专注于企业场景定制的保掌柜全部精力都投入在产品设计及互联网技术上，旨在为用户提供更简单、体验更好的保险产品、理赔服务，只有这样互联网保险才能迎来持续健康的发展。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　我认为，2017年互联网保险将会迎来更广阔的市场，细分领域将出现领跑者，在消费升级的大潮下一定会有更多的细分场景保险需求，保险从保障属性的基础上，在细分领域的跨界融合会更加开放，将出现更多创新模式。我们要做的就是通过大数据、人工智能等技术把互联网保险的连接属性发挥的更好，让保险润物细无声融入到用户生活、工作及消费中去。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 10px; line-height: 30px; color: rgb(51, 51, 51); font-family: Simsun; white-space: normal;">　　作为互联网保险大潮中的一位创业者，保掌柜经过半年多时间在十多个领域拓展了50+ B端合作伙伴，接下来将聚焦在2-3个领域做重度垂直，探索“保险+服务”模式形成深度融合，在某个细分领域保险会成为服务的精准流量入口，实现服务闭环，通过差异化竞争优势提高门槛、提升毛利。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

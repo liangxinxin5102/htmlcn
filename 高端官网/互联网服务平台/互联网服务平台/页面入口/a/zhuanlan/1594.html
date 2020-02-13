@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/zhuanlan">专栏</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">响铃：汽车VR，下一个蓝海？</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-06-24　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/1594.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/1594.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">种种迹象表明，VR正呈现着火爆和惊奇的发展势头，在全球点燃一场无硝烟的VR战争，如今VR已经渗入到汽车业，改变着消费者的消费习惯和汽车企业的生产模式。那绑上VR的汽车业，会是巨头们的狂欢，还只是消费者的妄想，汽车VR的困点难点又在哪里，今日响铃就聊聊。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">从造车、选车到驾驶、售后，VR技术全面“侵入”</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">自VR一面世，这项技术就得到少数汽车生产商的重视，如今VR技术已经全面渗入到汽车业整个产业链的各个角落，巨头、创业者更呈现你追我赶之势。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">首先，在汽车VR研发和制造中</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">福
+特汽车早在几年前就推出了FIVE实验室；FIVE实验室是一个虚拟汽车原型房间，其中有一辆汽车，一个80英寸的4K显示器和计算机平台，汽车只有一个
+座位和方向盘。使用者戴上VR眼镜和一只手套，遍布墙壁的19个运动跟踪摄像头会对其进行监测，以获得佩戴者头部的精确位置和方向。戴上眼镜后，用户可以
+加载车辆CAD模型，将它们置于不同的环境中，然后在汽车周围走动就好像自己身处陈列室一样。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">2015
+年，奥迪也推出了一项“虚拟装配线校检”技术，利用3D投射和手势控制，可以使流水线工人在三维虚拟空间内完成对实际产品装配工作的预估和校准。整个测试
+过程在名为“CAVE”的虚拟现实空间中完成，这是将虚拟现实技术用于生产模拟的一个尝试，未来更多的应用将改变汽车工程师的工作方式。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">其次，在汽车销售和试驾时</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">奥迪联合Oculus推出了一项基于线下PC端的虚拟现实选车服务，客户可以在任意经销店内使用Oculus Rift浏览奥迪旗下所有车型，Oculus能够为用户带来更为真实的模拟体验，较以往销售电脑里的3D选车界面更加真实。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">菲
+亚特-克莱斯勒也发布了一项PC端看车的新技术，该技术设备设备装有多个摄像头，外加内置一系列装置使之能在每秒进行1500万次3D测量，结合它实时监
+测的位置和方向，能够最终结合大量数据绘制出周围世界的3D模型。通过该技术您可以在设备中看到一辆和现实中一样大的虚拟汽车，并且可以和现实中一样打开
+关闭车门，观看内部细节。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">然而，目前市场中这些基于PC端的VR应用始终让人觉得是一项锦上添花的东西，正如在雪山脚下放一个滑雪模拟体验站，相信也就没什么人愿意尝试了，笔者认为，VR在线下经销店内的应用只能算作是VR+传统看车的一种运用尝试。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">而
+咱们国内的汽车VR销售解决方案提供商车势科技自主研发的一套基于移动+PC双平台的汽车行业VR数字销售平台VR 
+AUTO，则能够通过移动VR实现销售场景的无限扩大，让在家看车、试车，甚至购车 成为可能。VR AUTO 
+汽车销售套件包含有VRAUTOCREATION（创意内容）、VR AUTO DEALER（虚拟经销商）、VR AUTO 
+SALES（销售促进系统）和 VR AUTO 
+SUPPORT（售后支持系统及其他）四大模块，可以说是打通了汽车销售的全流程，可以让汽车厂商构建自己的虚拟经销店，在线上实车实店进行展示，让销售
+顾问在虚拟经销店里和消费者同场景互动，虚拟看车，实现24小时在线拓客，不受空间束缚，不在店里也可以自由卖车，有效扩大了销售半径，颇有几分颠覆式创
+新的意味。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">而
+在虚拟驾驶上，丰田还和Oculus联手推出了一个面向青少年的虚拟现实驾驶模拟器“TeenDrive 
+365”。使用者只需要坐在驾驶舱内，戴上VR头盔，即可进入“真实驾驶时刻”。三星和宝马也有类似的产品，如在15年柏林电子消费展上，体验者通过佩戴
+Gear VR头盔，可以获得近乎真实的宝马i3驾驶感受。起亚也专门为车迷设置了虚拟试驾，参观者可以真实地享受新车驾驶体验！</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">再者，在售后和学车阶段</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">在售后阶段，韩国现代去年就宣布将向用户发布电子使用手册，而最大的亮点就是融入了增强现实技术。车主只需拿起手机或平板对准车子，通过2D和3D追踪,该技术就能够自动识别这是车子的哪一部分，并给出相关的信息。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">而在学车上，据英国《每日邮报》报道，一款名叫“驾驶学校”的手机APP能帮助人们在虚拟现实中测试自己是否是一名能抗拒干扰、专心开车的好司机。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">此外VR还被用于汽车发布会上，比如在北京车展上乐视用VR技术向全球观众直播了乐视首款概念车LeSEE，以及Faraday Future FFZERO1的发布会，帝豪GS发布会也是通过VR进行等等。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">由此可以看出：汽车VR应用范围不是局限在汽车产业的某一个环节，而是全面渗透，对用户的震撼也不再局限于视觉听觉，而是向各种感官延伸。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">汽车VR在这些方面做出了改变</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">如
+今全球汽车行业正呈现四大趋势：一、世界汽车制造业格局逐步向多局面发展，新兴市场正成为全球汽车工业的生力军；二、行业竞争正由制造领域向服务领域加速
+延伸；三、新能源汽车成为工业转型升级的方向；四、智能化、网络化、数字化将成为主流。尤其是在汽车年销量接近2450万辆（2015年）的中国，汽车整
+体销售额已达36000亿，其中，乘用车的整体市场份额已占全球总量的31.6%，稳居世界第一，汽车又逐渐成为中国老百姓的消费必需品时。面对国内日益
+激烈的市场竞争格局，各大汽车厂商更需要使出浑身解数，力争能够站稳脚跟，分得一杯羹，而汽车VR则成为了他们最重要的一件武器。但目前看，汽车VR技术
+的应用改变的主要是这些。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">1、满足用户个性化，实现虚拟化私人订制</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">目
+前汽车业及供应商们都面临着同样一个挑战：产品以及相应的生产过程变得越来越复杂但产品的生命周期却在不断缩短，如何减少设计失误和资源浪费已成为最大的
+难题。于是大规模定制的商业模式越来越被汽车业重视，汽车业希望在不牺牲效率可实行大规模化生产的同时，还能满足客户的个性化需求，实现“量体裁衣”制造
+汽车；再加上原来先有订单再有生产依靠层次式库存来保证生产的方式越来越不灵了，随着互联网和物联网的发达，原有多库存的物流体系也将逐步消失，慢慢会变
+成全过程供应链的物流配送“零库存”体制。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">而
+VR技术首先加速的就是汽车制造链的改变。如奥迪、福特等厂商可以利用自身所拥有的海量大数据以及由大数据支撑的车联网生态，通过VR技术来进行虚拟私人
+订制，让用户按照个人定制的意愿，选择不同的车身颜色、车轮和装饰，提前看见自己未来的实车细节，能在大数据的前提下精准分析用户喜好，最大程度上满足用
+户的个性购物体验，从而大大提升用户满意度和成交率。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">2、虚拟工业设计和生产，降低生产开发成本</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">其
+次在汽车的工业设计和生产中，奥迪等汽车厂商的设计者们可以借助虚拟现实头盔显示，利用他们在虚拟环境中可视化，可感触，可交互等技术，在动态中确立整体
+的设计模型，在与真实汽车同样比例的立体空间中，全方位了解每一处设计细节，优化设计效果，最大程度上避免设计和生产失误，减少甚至取消物理产品原型，节
+约时间、成本、提高效率和水平，降低资源浪费。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">过去一辆概念汽车的原型确立往往需要一、二年或更多些时间，而虚拟原型汽车在几天，甚至几个小时就可完成。汽车外观工艺评价人员再也不用等到实车生产后才能进行相关评价了，通过数字模拟同步进行生产模拟和工艺分析将大大缩短新车开发的周期，降低汽车开发成本。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">3、革新企业营销模型，在虚拟和现实之间完成闭环</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">最后在汽车营销和用户体验上，VR技术最突出特点是促使客户掌握产品控制权，他不再是商品和服务的单纯接受者，而是主动的参与者。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">像
+车势科技(Autoforce)自主研发的VR 
+AUTO汽车销售套件等解决方案，能帮助汽车经销商突破空间、时间、库存数量等客观条件限制，为每一家汽车厂商和经销商打造专属的在线虚拟销售店，汽车经
+销商无需实车、消费者无需到店，仅仅需要一副眼镜，就可全实景还原。销售顾问可随时随地在线拓客、售车，消费者也能在任意时间、任意地点，轻松惬意地在线
+完成看车、试车、订车的全过程，而车辆本身与实车毫无任何差别，为汽车经销店全面降低营销成本、优化营销体验、扩大销售半径，最终提升销售转化。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">而奥迪联合Oculus推出的虚拟现实选车服务等也可以让消费者通过虚拟现实技术身临其境地体验车辆的各种行驶状态，并且可以快速切换内饰风格和车型来进行比较，消费者由此获得更佳的购车体验，更有效地选择一辆自己喜欢的汽车。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">所以，汽车VR变革的是整个汽车产业链，在汽车品牌认知、虚拟体验、情感链接、按需定制、产业重构，财富增值等方面都具有重要意义。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">是狂欢还是妄想，这些问题摆在面前</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">诚然，VR所带来的沉浸感体验是前所未有的，只要是重体验的行业，VR都会率先切入，大家都希望用VR来重构、优化传统的生产、销售模式，帮助它们更加省时省力高效。这是必然的大趋势，但每个行业的具体情况不同又将面临不同的问题。在汽车行业，至少还有这些问题摆在前面。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">一、从概念到商用，隔着落地的距离</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">首
+先必须要承认，我国的汽车VR事业已取得不少进步，但仍处于起步阶段，比如汽车制造方面还只是吉利帝豪等个别企业的行为，而汽车销售方面甚至只有车势科技
+（Autoforce）打造的汽车VR销售平台，和国外成熟的汽车业还有很大的差距。其次因为受限于整个VR硬件和内容发展，汽车VR过去一直停留在商用
+阶段，没有真正实现民用化。再加上目前国内的移动VR眼镜铺货量相对有限，整个VR市场也还在培育期， 
+从噱头到全面应用还需要不断提升VR技术、扩展内容、普及硬件设施等落地的行动，而这并非一蹴而就。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">二、是假象，还是沉浸式的完美体验，假的真不了</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">作
+为汽车VR，用户感知最深的是场景体验和流畅便捷的在线交互，尤其是在车辆购买前的试驾体验，也包括销售终端的展示。真正的汽车VR应该要做到让营和销归
+于一体，将产品推广和产品销售有机结合，而用户感知最深也是汽车VR真正的存在价值就在于沉浸式的完美体验，而且 
+“沉浸式”和“完美”是两个要求，“沉浸式”是要求能再现真实场景，也就是虚拟和现实要一致；而“完美”则需要让消费者得到的大于期望的，那些滥竽充数、
+粗枝大叶的伪VR是对消费者的欺骗，一旦消费者发现“描述与真实不符”，则是对行业的最大伤害，也是对VR技术的最大亵渎。而这也是考验汽车厂商和创业者
+的最大难题，如何把VR里的车做到和和实车一样，这就难怪VR喊了这么久也只有如车势科技（Autoforce）等少数几家涉足。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">三、VR汽车应用大势所趋，而消费习惯和场景搭建还有一段路程要走</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">如
+今车联网市场推广难度大最大的阻力来自于中国车主缺乏消费习惯，汽车VR也是，这一新兴概念对于注重价格的市场消费者并不具吸引力，因而如何让用户愿意接
+受，乐于尝试，并真实地感知到汽车VR所带来的驾乘新体验，才是汽车VR普及，真正走入人们生活的的关键所在，这其中包括如何说服消费者相信自己用VR看
+到的就是真实的，如何通过VR不仅仅只是看车、体验车，更能够实现在线购车等完成销售闭环 等等。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">最后随着VR硬件和内容的逐步成熟，VR在汽车行业的应用场景将更加多元，但是如何完成交互、底层如何构架，如何让厂商更加便捷地卖车、帮助厂商构建一个新的销售场景，如何让消费者更加舒适地购车，如何完成精细的实车实店还原等仍然是技术考验。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">莎士比亚在《仲夏夜之梦》中写道“想象的东西往往是虚无缥缈的，但诗人的笔下，它们可以是有形的，固有的实质。”尽管汽车VR离我们还有一些距离，但却不妨碍我们去为之遐想，因为我们想要的，或许马上就来。</p><p style="text-align: justify; color: rgb(47, 47, 47); background-color: rgb(255, 255, 255);">脑力手艺人曾响铃 微信号：xiangling0815</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

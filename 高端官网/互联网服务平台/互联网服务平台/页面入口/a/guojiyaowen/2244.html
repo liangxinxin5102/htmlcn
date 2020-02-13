@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/guojiyaowen">营销</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">互金企业市场营销战略规划的五个步骤</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-12-13　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2244.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2244.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">关于营销战略的定义很多，最为流行的是菲利普·科特勒先生的定义，他认为：营销战略是一套可供选择的方法、政策和规则，为企业的营销活动提供指导。本文主要以互联网金融为例，阐述企业应该如何制定营销战略规划。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">笔者将营销战略制定过程总结为五个步骤：</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">一、市场环境分析，对内部和外部环境进行综合的战略环境分析。<br/>二、市场细分，根据顾客需求上的差异，对某个产品或服务的市场逐一细分。<br/>三、目标市场选择，经过比较和分析，选择一个或多个细分市场作为企业的目标市场。<br/>四、确定市场定位，创立品牌或企业在目标顾客心智中的某种形象或个性特征。<br/>五、确定竞争战略，企业根据其所处的竞争位置和竞争态势来制定竞争战略。</p><h3 style="margin: 30px 30px 20px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; font-size: 18px; line-height: 20px; padding-left: 10px; border-left-width: 5px; border-left-style: solid; border-left-color: rgb(215, 53, 53); letter-spacing: 0.20000000298023224px; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51) !important;">一、市场环境分析</h3><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">对内部和外部环境进行综合的战略环境分析，可从以下五个方面进行分析。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（一）外部宏观环境分析</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">宏观环境因素包括经济、技术、政治、法律、社会、文化等（内容较多，本文不展开介绍）。部分宏观环境因素，甚至直接决定了企业的命运和发展空间。2007年，P2P理财模式作为海外舶来品正式登陆中国，市场监管处于真空状态，短短的八九年间，P2P平台蓬勃发展，但P2P行业仍然存在着良莠不齐的状况。近两年，监管政策的出台，P2P行业大洗牌已经开始，特别是限额之后，很多p2p业务类型将退出市场。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（二）外部行业环境分析</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">行业环境分析的基本目的，就是要评价一个行业的总体吸引力。近几年p2p越来越转向差异化竞争，如车贷、快消、新能源、农业等细分行业。因此，行业环境分析，不仅要做p2p网贷行业的环境分析，还要做细分行业的环境分析。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（三）内部价值链分析</span><br/>价值链分析主要包括三方面内容，识别和界定价值活动、确认每项活动的价值贡献和成本、确认价值链的结构性因素。p2p网贷平台的价值活动包括，资产获取、风险控制、资金获取、用户服务等等，网贷市场从业者需分析企业竞争优势来自哪些价值活动，哪些价值活动是劣势，又该如何扬长避短。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（四）内部资源分析</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">企业资源是企业在向客户提供产品和服务的过程中，所拥有或所控制的，能够实现战略目标的各种生产要素的集合。包括有形资源，无形资源和人力资源三类。互联网金融不是谁想做就可以做，也不是想做什么业务就做什么类型的业务，需结合企业自身资源状况做出决策和选择。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（五）内部能力分析</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">企业能力，企业能够将其资源加以整合，以完成预期任务和目标的作用力。企业有丰富的资源也未必能够取得最终的成功。曾经有很多国企涉足互联网领域，他们有丰富的资源，但他们未必能够胜过民企。</p><h3 style="margin: 30px 30px 20px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; font-size: 18px; line-height: 20px; padding-left: 10px; border-left-width: 5px; border-left-style: solid; border-left-color: rgb(215, 53, 53); letter-spacing: 0.20000000298023224px; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51) !important;">二、市场细分</h3><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">市场细分是指营销者通过市场调研，依据消费者位置、人口、心理、行为等标准，把某一产品的市场按照细分标准，整体划分为若干消费者群的市场分类过程。由于互联网金融客户可以分为个人和机构两类，因而，金融市场市场细分标准也应分别阐述。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（一）个人客户市场细分标准</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">1、地理标准</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">地理标准有国家、地区等具体维度。我国互联网金融机构大多集中在大中型城市和经济发达的地区，事实上，以“地域”为细分标准，互联网金融市场就可以划分为：大中城市市场、县域市场、乡镇市场和农村市场。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">2、人口标准</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">人口标准有年龄、性别、职业、收入、家庭类型等具体维度。以“性别”为细分标准，互联网金融市场可以划分为男性市场和女性市场。以“年龄”为细分标准，互联网金融市场可以划分为90后市场、80后市场和中老年市场。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">3、心理标准</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">心理标准有生活方式、个性、价值观念等具体维度。以“风险意愿”为细分标准，互联网金融市场理财用户，可划分为激进型理财用户与保守型理财用户。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">4、行为标准</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">行为标准有购买时期、购买地点、目的、使用频率、品牌忠诚度等具体维度。比如，按照参与金融活动的目的划分，个人客户可以被细分为利益型客户群、方便型客户群、安全型客户群和身份型客户群。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（二）机构客户市场细分标准</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">1、机构客户规模</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">通过对机构客户营业额、总产值、固定资产总值、资本总额等因素评估机构客户规模，根据其规模大小，可将机构客户细分为大型企业、中型企业和小型企业。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">2、机构客户性质</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">以“机构客户是否上市”为细分标准，P2P网贷市场可分为上市公司市场和非上市公司市场。以“机构客户是否为国企”为细分标准，P2P网贷市场可分为国企市场与民企市场。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">3、机构经营范围</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">以“机构经营范围”为细分标准，是p2p网贷行业最常见的细分方法，P2P网贷市场可分为：汽车市场、环保市场、房地产市场、快消品市场等。</p><h3 style="margin: 30px 30px 20px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; font-size: 18px; line-height: 20px; padding-left: 10px; border-left-width: 5px; border-left-style: solid; border-left-color: rgb(215, 53, 53); letter-spacing: 0.20000000298023224px; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51) !important;">三、目标市场选择</h3><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">企业在完成市场细分之后，估计每个细分市场的吸引力程度，并选择进入一个或多个细分市场。选择方法如下：</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（一）关注规模和发展潜力</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">选择作为目标市场的细分市场，需有一定的规模和发展潜力，如果市场规模小或者趋于萎缩，企业进入该细分市，场将难以获得发展。此时，应审慎考虑，这一点不多赘述。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（二）避免多数谬误</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">企业不宜以市场吸引力作为唯一取舍标准。与竞争企业遵循同一思维逻辑，将规模最大、吸引力最强的市场作为目标市场，大家共同争夺同一个顾客群，将造成过度竞争和社会资源的无端浪费。过去两年，很多p2p细分领域，资金和人才一拥而上，该领域瞬间由蓝海变为红海，p2p平台之间贴身肉搏，进退维谷。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（三）符合企业的目标</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">某些细分市场虽然有较大吸引力，但不能推动企业实现长远发展目标，甚至分散企业的精力，这样的市场应考虑放弃。正面例子，市场上很多p2p平台往往背靠产业集团，p2p平台往往是这些产业集团，完善产业布局的决策结果，目标市场的选择与集团目标高度一致。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（四）符合企业的能力</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">只有选择那些企业有条件进入、能充分发挥其资源优势的市场作为目标市场，企业才会立于不败之地。上市公司供应链金融资产无疑是优质资产，能够有效的降低资金风险，但符合条件的上市公司供应链金融资产相对稀缺，如果公司没有相关资源优势，贸然进入该领域，则适得其反。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（五）充分考虑风险</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">风险包括法律风险、市场风险、经济风险、信用风险等等。受到媒体影响，近年在p2p行业一拥而上，千军万马过独木桥的现象特别严重，媒体异口同声说融资租赁p2p业务市场前景不可估量，于是大量p2p平台布局融资租赁业务，监管办法出台，对贷款限额，融资租赁业务几乎全军覆没。</p><h3 style="margin: 30px 30px 20px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; font-size: 18px; line-height: 20px; padding-left: 10px; border-left-width: 5px; border-left-style: solid; border-left-color: rgb(215, 53, 53); letter-spacing: 0.20000000298023224px; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51) !important;">四、确定市场定位</h3><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">市场定位是企业针对潜在的顾客进行营销设计，创立品牌或企业在目标顾客心目中的某种形象或个性特征，从而取得竞争优势。定位的实质就是占领消费者的“心智”，获得消费者心理上的认同。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（一）根据产品属性和功能定位</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">一个新的品牌应强调一种属性，根据产品本身的属性以及由此给客户带来的实际利益定位。如网贷之家定位“你身边的网贷之家”。众筹超市定位“专业的众筹导购平台”。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（二）根据品牌的市场地位定位</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">据品牌的市场地位定位，在操作层面有两种策略可选用： 一是“首席定位”策略，力求使品牌成为本行业中的领导者或第一品牌。如众筹中国定位“最具影响力的众筹资讯门户”。二是“加强定位”策略，即注重巩固与加强自身在市场和消费者心目中现有的地位。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（三）根据品牌的档次定位</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">依据金融品牌在消费者心目中的价值高低区分出不同的档次 。品牌价值是产品质量、消费者心理感受及各种社会因素如价值观、文化传统等的综合反映。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（四）根据品牌的USP定位</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">依据品牌向消费者提供的利益定位，并且这一利益点是其他品牌无法提供或没有诉求过的，是独 一无二的 。运用USP定位，在同类品牌众多、竞争激烈的情形下，可以突出品牌的特点和优势。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（五）根据品牌客户类型定位</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">根据品牌客户定位，是以品牌客户的年龄、性别、身份、地理位置、行为偏好、规模、性质等为坐标的定位方法。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">1、根据个人客户类型定位：</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">以个人客户年龄为定位坐标，如网筹金融，一家专注服务80后的金融理财平台；<br/>以个人客户性别为定位坐标，如淘淘金，一家服务于女性市场的互联网金融平台；<br/>以个人客户身份为定位坐标，如奶瓶儿理财，专注于妈妈群体生活理财的互联网金融信息平台；<br/>以个人客户地理位置为定位坐标，如财富成都，专注于区域理财、投资、创业的新型商业社群；<br/>以个人客户心理偏好为定位坐标，如抱财网，专注最安全P2P理财服务。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">2、根据机构客户类型：</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">以机构客户行业为定位坐标，如珠宝贷，专注珠宝行业投融资的互联网P2P理财网贷服务平台。麻布袋，专注于农业领域的P2P网贷平台。天玑汇富，专注环境服务的绿色互联网金融平台；<br/>以机构客户性质为定位坐标，如e金所，专注于上市公司供应链金融的互联网金融平台；<br/>以机构客户规模为定位坐标，如多融财富，专注大型国企供应链金融的互联网金融平台。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（六）根据品牌的文化内涵定位</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">注入某种文化内涵于品牌之中，形成文化上的品牌差异，称为文化内涵定位。文化内涵定位将普通的金融产品升华为情感象征物，更能获得消费者的心理认同和感情共鸣，品牌价值无形中提高了。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（七）各种方法结合定位</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">互联网金融品牌可以使用上述多种方法的结合来创立其营销品牌定位。体如网贷天眼，定位“P2P理财第一门户”既使用了市场地位定位法，也使用了产品属性和功能定位法。</p><h3 style="margin: 30px 30px 20px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; font-size: 18px; line-height: 20px; padding-left: 10px; border-left-width: 5px; border-left-style: solid; border-left-color: rgb(215, 53, 53); letter-spacing: 0.20000000298023224px; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(51, 51, 51) !important;">五、确定竞争战略</h3><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">竞争定位战略是指企业根据其所处竞争位置和竞争态势来制定战略，按照金融机构在市场上所处的竞争地位不同，可以将其分为市场领导者、市场挑战者、市场追随者和市场补缺者四种类型。（p2p网贷行业，在过去几年，各大平台更多关注自身如何跑得更快，平台之间的竞争不太明显，但未来几年，在洗牌期，p2p平台之间贴身肉搏的现象会越来越多，市场竞争定位战略会派上用场。）</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（一）市场领导者战略</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">市场领导者企业在市场上有最大的市场份额，并且在战略上有多重选择权。在p2p网贷行业如陆金所。这类企业的主要营销目的，向更多的公众宣传自身的优势和市场领导者地位。可以从以下三个方面努力：</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">1、扩大市场总规模</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">市场领导者通常是市场总规模扩大的最大受益者，因此，市场领导者往往致力于扩大市场总规模。当香水还只为一部分女性使用时，香水市场领导者便通过说服那些不使用香水的女性也使用香水（市场渗透策略），或说服男人开始使用香水（新市场策略），或销售香水至其他国家（地理扩张策略）。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">2、保持现有市场份额</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">市场领导者巩固市场领导地位的策略有：发挥自身优势，加大市场进入难度；对竞争对手的攻击及时回应；减少竞争对手进攻的诱因。当富士（市场挑战者）不断攻击柯达（市场领导者）时，柯达反过来也通过增加促销和推广几种革新产品向富士发起进攻，对竞争对手进行攻击和及时回应，保持自己的市场份额。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">3、扩大市场份额</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">市场领导者企业往往通过产品创新、成本优势、高额营销支出、增加分支机构等策略扩大市场份额。2014年以来，p2p网贷行业的市场领导者陆金所，便采取了“两条腿走路”的方式，一个是网络投融资平台Lufax，另一个是金融资产交易服务平台Lfex，完成了从“个人网络借贷”到“金融资产交易”的全面布局，共同打造互联网金融巨无霸平台，这是陆金所扩大市场份额的重要举措。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（二）市场挑战者战略</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">市场挑战者指某个行业内，居于第二及以后位次的企业，在p2p网贷行业，市场挑战者有：红岭创投、微贷网、小牛在线、鑫合汇、团贷网、宜贷网等。市场挑战者的的目标往往是：增加自己的市场份额，减少竞争对手的市场份额，超越竞争对手，甚至取代市场领导者地位。为提高市场份额，市场挑战者常向其他企业发起进攻，攻击对象包括市场领导者，与自己实力相当企业，以及实力不及自身的企业。市场挑战者的竞争战略包括：</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">1、正面进攻</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">正面进攻是集中全力，向对手的强项而不是弱项发起进攻，攻守双方的实力（人力、财力、物力）往往决定了胜败。在饮料行业，百事作为市场后起者，面对可口可乐，可选择挑战战略或者跟随战略，经过近半个世纪的实践，百事可乐深刻地意识到，跟随战略是行不通的。于是，百事可乐向可口可乐发出强有力的挑战，并在与可口可乐的交锋中越战越强，最终形成分庭抗礼之势。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">2、侧翼进攻</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">侧翼进攻是集中优势力量需找和攻击对方的弱点，既可以需找对方忽略或者绩效较差的产品和区域加以进攻，也可寻找对方尚未重视或者尚未覆盖的区域作为攻击的目标。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">3、包围进攻</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">包围进攻是在多个领域同时发动进攻以占领对方的市场，向市场提供比竞争对手更多的产品和服务，并且在价格和质量等方面都优于竞争对手。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">4、迂回进攻</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">迂回进攻是避开竞争对手现有的业务领域或者市场，进攻对手尚未涉足的业务领域或者市场，以扩大自己的实力。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">5、游击进攻</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">游击进攻是向对手的有关领域发动小规模的，断断续续的进攻，其目的是削弱对手的市场力量，达到骚扰的目的，常见于小公司向大公司的进攻。如p2p平台在局部某一市场上有选择的增加投资收益；开展短期的密集推广活动；向对方发起法律诉讼；通过公关手法进行游击进攻。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（三）市场追随者战略</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">市场追随者在规模和实力等方面均不及市场领导者和市场挑战者，这类企业的竞争战略应以模仿领导者和挑战者行为为主，并尝试形成自己的特色。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">1、全面模仿</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">处于追随地位的企业在其实施营销策略过程中，及时全面的模仿市场领导者的行为。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">2、部分模仿</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">处于追随地位的企业在其实施营销策略过程中，只模仿市场领导者，或者市场挑战者，有显著吸引能力的方面，同时，保持自己的特色和优势，这是很多初创p2p网贷平台选择的策略。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);"><span style="font-weight: 700;">（四）市场补缺者战略</span></p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">市场补缺者金融机构，往往资产规模较小，竞争实力较弱，这类金融机构基于自身条件，往往避开同市场领导者和市场挑战者的冲突，充分利用他们忽视和放弃的市场来开发新的金融产品和服务，起拾漏补缺的作用。市场补缺者主要在以下两个方面努力：</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">1、开拓补缺市场</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">补缺市场需有足够的市场潜力，并且对市场领导者和市场挑战者不构成吸引力。同时，市场补缺者还要有占领此补缺市场的能力。这也是今年很多网贷企业纷纷转型“小而美”平台的战略考虑。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">2、保护补缺市场</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">开拓了补缺市场，如何才能能够守得住？例如，网贷行业的市场补缺者，通过跨界合作实现资源的共享和整合，增加平台附加值，通过和实力机构合作的方式，强化自身的风控能力。</p><p style="margin-top: 15px; margin-bottom: 0px; padding: 0px 30px; color: rgb(51, 51, 51); letter-spacing: 1px; line-height: 32px; font-family: Helvetica, Arial, &#39;PingFang SC&#39;, &#39;Hiragino Sans GB&#39;, &#39;Source Han Sans CN&#39;, Roboto, &#39;Microsoft Yahei&#39;, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);">本文谈了营销战略制定的五个步骤：市场环境分析，市场细分，目标市场选择，确定市场定位和确定竞争战略。完整的市场营销战略还应包括产品策略、定价策略、渠道策略、促销策略，这些内容，笔者将在接下来的的五个专题中进行穿插介绍，接下来的五个专题分别是品牌建设、流量获取、社会化营销、用户运营、整合营销。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/xinwen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/xinwen/'" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/guoneiyaowen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/guoneiyaowen/'" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

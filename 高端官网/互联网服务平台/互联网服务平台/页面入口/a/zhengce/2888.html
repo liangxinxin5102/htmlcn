@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/zhengce">政策</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">2016年中国“互联网+农业”十大事件</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-11　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2888.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2888.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">齐鲁晚报1月11日讯：前言：2015年，是中国“互联网+农业”元年。从此，农业电商政策密集出台，农业站在了“互联网+”的时代风口。面对十万亿规模的大农业市场，各路精英与资本纷纷涌入,一时间，农业电商甚嚣尘上。</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">2016年，“互联网+农业”由资本热捧逐步回归理性，甚至遭遇资本的寒冬。在潮起潮退之间，一些定位清晰的电商平台开始崭露头角。</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">中国农业正在经历四大变革：土地变革、品种变革、渠道变革、组织变革；通过四大变革，将诞生四大新型农业综合服务体系：新型智慧农业种植体系、互联网新型农业流通体系、新型农业技术服务体系和新型农业科技创新体系。</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">一、</strong><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">国家”互联网+农业”新政密集出台</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年1月27日，《关于落实发展新理念加快农业现代化实现全面小康目标的若干意见》即2016年中央一号文件发布。这是中央一号文件连续13年聚焦“三农”。“互联网+”现代农业成为今年一号文件的亮点。2016年国家出台了多项关于互联网+农业的政策，鼓励促进互联网+农业快速发展：1月11日农业部办公厅印发《农业电子商务试点方案》，3月17日商务部等六部门印发《全国电子商务物流发展专项规划》，4月21日国务院办公厅印发《关于深入实施“互联网+流通”行动计划的意见》，4月22日农业部、国家发改委、中央网信办等8部门联合印发《“互联网+”现代农业三年行动实施方案》，7月4日商务部发布《关于开展2016年电子商务进农村综合示范工作的通知》，8月21日农业部与商务部等19部门联合印发的《关于加快发展农村电子商务的意见》，9月1日农业部正式发布《“十三五”全国农业农村信息化发展规划》，11月23日国务院印发《“十三五”脱贫改革攻坚规划》。这些政策大力推进了“互联网+”现代农业，应用物联网、云计算、大数据、移动互联等现代信息技术，也加快了现代化农业发展和互联网与“三农”领域的融合发展，推动农业全产业链改造升级。这些对于互联网+农业发展都是重大利好。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">二、</strong><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">“三权分置”为农村土地变革铺平道路</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年，中央提出了农村土地三权分置。也就是把农村土地的所有权明确归于国家，承包权归于农民，使用权归于种植者。这样的好处是，以后农民往外流转土地，手里还握着承包权，只是把土地的使用权租出去了。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">“三权分置”是实践探索的产物，是家庭承包经营制度适应经济社会发展要求而不断变革创新的结果，它孕育于中国国情，着眼于解决现实问题，具有深厚的实践依据、丰富的创新内涵和重大的政策意义。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">“三权分置”为土地流转提供了法律基础，从而使规模化的平整土地，大规模机械化作业成为可能，促进农业的产业化发展。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">三、</strong><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">新《种子法》为品种变革保驾护航</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">历经5年调研、修改和审议，《中华人民共和国种子法》2016年1月1日起施行，标志着我国种业进入到新的发展阶段。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">与新种子法配套，2016年7月8日农业部下发《农作物种子标签及使用说明管理办法》，于2017年1月1日起施行。在我国境内销售的种子在包装上都要有标签二维码，应当包括生产经营者名称、品种名称、单元识别代码、追溯网址信息，否则不允许销售。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">为了满足广大种子企业的迫切需求，有种网推出农作物种子标签二维码平台，完全符合农业部《农作物种子标签及使用说明管理办法》要求，供广大种企免费使用，实现种子标签的制作和管理，为种子建立“电子身份证”。种子购买者可以通过扫描种子包装袋上的二维码快速查询到相关生产信息，准确了解从生产、加工、物流、仓储、销售等全过程的信息，从而实现“全程可追溯”。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">四、</strong><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">电商巨头引领农业渠道变革</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">正大集团、阿里巴巴、蚂蚁金服强强联手 深度助力农村电商</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年12月28日，正大集团与阿里巴巴集团、蚂蚁金服集团在武汉举行战略合作签约仪式。三方基于良好的信任，着眼各方长远发展战略，强强联合，共同携手，在农牧食品、电子商务、金融服务、农业服务、物流、商业零售及精准扶贫方面达成战略合作关系。三方的合作将充分发挥从农场到餐桌的全产业链示范带动效应，共同推动中国农牧业互联网化的产业升级和高效发展，顺应国家号召，利国、利民、利企业。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">京东“3F”战略布局农村市场</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">京东的农村电商“3F战略”，包括工业品进农村战略，农村金融战略和生鲜电商战略。在“互联网+”和城镇化的大潮下，京东将逐步构建从城市到农村的新型销售网络、提供面向农村的普惠金融服务和建立从农村到城市的农业品直供渠道，通过缩短城市与农村的距离，消除城乡的价格歧视，推进消费的公平透明。未来在惠及城市和农村的生产者和消费者的同时，还能逐步解决农民买好东西难、借款贷款难、农民赚钱难的“农村三难”问题。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">苏宁推农村电商“三化、三云、五当”战略</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">围绕农村市场的发展，苏宁制定了“三化目标”、“三云服务”、“五当模式”为一体的农村电商战略。“三化目标”即“运营产业化、产品品牌化和人才的专业化”;“三云服务”是通过物流云、金融云、数据云向农村市场的广泛渗透;五当模式”即“造富在当地、销售在当地、服务在当地、就业在当地、纳税在当地。”</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">五、</strong><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">政府社会共同推动农业组织变革</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">发改委、农业部联合印发农业领域PPP指导意见</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年12月中旬，国家发展改革委联合农业部发布了《关于推进农业领域政府和社会资本合作的指导意见》，提出大力推进农业领域政府和社会资本合作(简称PPP)，这是农业领域首个PPP指导文件。《意见》明确提出了农业领域PPP的重点领域与路径。在重点领域方面，重点支持社会资本开展高标准农田、种子工程、现代渔港、农产品质量安全检测及追溯体系、动植物保护等农业基础设施建设和公共服务;引导社会资本参与农业废弃物资源化利用、农业面源污染治理、规模化大型沼气、农业资源环境保护与可持续发展等项目;鼓励社会资本参与现代农业示范区、农业物联网与信息化、农产品批发市场、旅游休闲农业发展。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">禾中集团助供销社改革</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年9月1日，在河南省供销合作总社贵宾楼会议室，禾中集团董事局主席赵银虎与河南省供销合作总社理事会副主任张政签署企业合作改制协议，并召开豫丰公司第一次股东大会，标志着禾中集团对河南供销系统国有企业豫丰公司的股份制改造已经完成，双方合资公司业务亦全面展开。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">禾中资本注资河南供销国企，焕发资本活力喜看中原大地。自2010年以来，国务院国资委曾多次发文鼓励和引导民间资本积极参与国有企业改制重组，但一直未有经典成功案例。禾中集团在积极响应国家政策的号召下，进行了有益的探索与尝试，并实现改制河南供销国企的完美收官，可谓国内民间资本投资国企改制重组首个经典成功案例。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">阿里村淘宣布升级3.0 服务成关键词</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年7月28日，阿里巴巴农村淘宝宣布，启动以“服务”为核心的3.0业务模式。升级的新模式，将把阿里巴巴整个服务体系下沉到农村，为村民提供覆盖生产生活场景的多项服务产品。农村淘宝合伙人，未来其创业者的角色将演化变为乡村服务者。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">农村淘宝3.0模式将为县域重点打造生态服务中心、创业孵化中心、公益文化中心。从2.0“创业时代”跨入3.0“服务时代”，农村淘宝对合伙人的成长培训体系以及产品布局结构，已经完成新一轮升级迭代。未来几年，农村电商的发展路径或许可以从中略窥一二。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">六、</strong><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">顶层设计、民间智慧共促农业繁荣</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">全国“互联网+”现代农业工作会议在江苏省苏州市召开</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年9月6日，农业部在江苏省苏州市召开全国“互联网+”现代农业工作会议暨新农民创业创新大会，总结交流各地推进“互联网+”现代农业行动的好做法和好经验，研究部署“十三五”期间“互联网+”现代农业重点工作，为在全社会掀起“互联网+”现代农业建设热潮营造良好氛围。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); white-space: normal; text-align: center;"><img src="../../../cms-bucket.nosdn.127.net/catchpic/1/16/1615067351debefde01a8dc47976e7a4.png-imageView&thumbnail=550x0.png" tppabs="http://cms-bucket.nosdn.127.net/catchpic/1/16/1615067351debefde01a8dc47976e7a4.png?imageView&thumbnail=550x0" border="0" width="446" alt="" height="298" style="vertical-align: top; border: 0px; margin: 0px; padding: 0px;"/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">会议同期还举办了“互联网+”现代农业暨新农民创业创新论坛及分论坛，展览展示“互联网+”现代农业和新农民创业创新成果，发布推介“互联网+”现代农业百佳实践案例和新农民创业创新百佳成果，有种网等一百家农业互联网公司及平台被评选为“互联网+”现代农业百佳实践案例。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">第十四届中国国际农产品交易会成功举办，农业电商表现抢眼</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年10月4日，第十四届中国国际农产品交易会上由农业部和云南省人民政府共同主办的“省部长推介品牌农产品专场”在昆明市举办，来自农业部、各省(区、市)主管农业的20位省部长集中亮相，讲述中国农业品牌故事，联合为我国品牌农产品代言，这是建国以来省长首次站台，宣传农产品。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); white-space: normal; text-align: center;"><img src="../../../cms-bucket.nosdn.127.net/catchpic/4/45/454cbb42e211140e7a7dbf3d5b994471.png-imageView&thumbnail=550x0.png" tppabs="http://cms-bucket.nosdn.127.net/catchpic/4/45/454cbb42e211140e7a7dbf3d5b994471.png?imageView&thumbnail=550x0" border="0" width="487" alt="" height="274" style="vertical-align: top; border: 0px; margin: 0px; padding: 0px;"/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">京东、淘宝、苏宁易购、永辉超市、北京新发地、本来生活、网库集团、有种网、禾中味道等30个来自大型批发市场、零售商超及网络采购平台组成超级买家团齐聚现场。各大公司、平台参会代表变身超级买手，对中意产品快速下单，纳入批发销售采购计划。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">七、</strong><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">新型智慧农业种植体系前景广阔</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年中央一号文件提出，大力推进“互联网+”现代农业，应用物联网、云计算、大数据、移动互联等现代信息技术，推动农业全产业链改造升级。促进农村电子商务发展，加快实现行政村宽带全覆盖，创新电信普遍服务补偿机制，推进农村互联网提速降费。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">农业现代化十三五规划落实14项重大工程 聚焦智慧农业</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年10月，国务院印发《全国农业现代化规划(2016—2020年)》，从五大领域布局“十三五”期间全国农业现代化发展任务，并具体落实到智慧农业、农村一二三产业融合等14项重大工程。《规划》强调加快实施“互联网+”现代农业行动，力争到2020年农业物联网等信息技术应用比例达到17%、农村互联网普及率达到52%、信息进村入户村级信息服务站覆盖率达到80%。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">《规划》提出智慧农业引领等多项重大工程。对大田种植、畜禽养殖、渔业生产等进行物联网改造，建成10个农业物联网应用示范省、100个农业物联网应用示范区、1000个农业物联网应用示范基地。建设村级益农信息社，到2020年基本覆盖所有行政村。建设全球农业数据调查分析系统，改造升级国家农业数据中心。建设基于卫星遥感、航空无人机、田间观测一体化的农业遥感应用与研究中心。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">农业部加快推进农产品质量安全追溯体系建设</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年6月23日，农业部对应用现代信息技术加快推进全国农产品质量安全追溯体系建设提出意见，提出了建立追溯管理运行制度、搭建信息化追溯平台、强化农业部门追溯管理职责、提升智慧监管能力、加强政策扶持等要求。意见指出，目标建立全国统一的追溯管理信息平台、制度规范和技术标准，选择苹果、茶叶、猪肉、生鲜乳、大菱鲆等几类农产品统一开展追溯试点，逐步扩大追溯范围，力争“十三五”末农业产业化国家重点龙头企业、有条件的“菜篮子”产品及“三品一标”规模生产主体率先实现可追溯，品牌影响力逐步扩大，生产经营主体的质量安全意识明显增强，农产品质量安全水平稳步提升。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">八、</strong><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">新型农业电商流通体系加速形成</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">卓尔集团26亿元控股中农网</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年10月28日，卓尔集团董事会主席阎志与深圳市中农网股份有限公司董事长卫哲在武汉签署协议，以26亿港币收购中农网60.49%的股权。这意味着，卓尔集团将控股中农网这家目前国内最大农产品B2B平台。至此，卓尔集团已形成9大交易及服务平台：以卓尔购为核心的综合电商交易平台;中农网等三大垂直电商平台;兰亭集势作为跨境电商交易平台;卓集送、卓服汇、卓金服、嘉石榴等则分别提供产业链物流、仓储、金融服务，卓尔正由此构建起完善的产业互联网交易及服务体系。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">美菜网获10亿授信</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年9月19日，美菜网宣布同杭州银行签订战略合作协议，获得杭州银行股份有限公司文创支行授信10亿元人民币，为公司业务发展提供资金保障。此次10亿元战略融资授信将用于支持美菜网完善生鲜冷链，物流仓储建设资金需要。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">6月，美菜网完成2亿美元的D轮融资，投资方未透露。10月，美菜网再次登上中国B2B电商百强榜，并在2016中国B2B电商百强榜排名第六。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">有种网荣获“全国五一劳动奖状”最高荣誉</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); white-space: normal; text-align: center;"><img src="../../../cms-bucket.nosdn.127.net/catchpic/3/3d/3dc27aa106b194c300836f91178d7ff6.png-imageView&thumbnail=550x0.png" tppabs="http://cms-bucket.nosdn.127.net/catchpic/3/3d/3dc27aa106b194c300836f91178d7ff6.png?imageView&thumbnail=550x0" border="0" width="207" alt="" height="312" style="vertical-align: top; border: 0px; margin: 0px; padding: 0px;"/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年4月28日，在第126个国际劳动节来临之际，甘肃省在兰州召开大会隆重表彰全国五一劳动奖、甘肃省五一劳动奖先进集体和先进个人。有种网荣获“全国五一劳动奖状”，禾中集团董事局主席、有种网董事长赵银虎作为获奖单位代表参加大会。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">农商1号推出2.0模式</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年，有着农资电商国家队美誉的农商1号强势来袭，升级为2.0模式。2.0模式最突出的特点就是为农民提供更多增值服务，主要包括三大核心业务：一站式农资产品销售服务——为农民提供省钱又高效的全程种植解决方案，集中表现在全、专、好、省四个方面。农产品销售桥梁——解决农产品上行助力打造品牌农产品，进行实地“1号认证”，寻找特色种植大户，打造一县一特色，成立采购商联盟，进行全程跟踪。农业金融及农业保险——为种植大户扩大生产提供金融支持和保障。其中，农业保险为种植大户保驾护航，金融支持为扩大生产添动力，搭建桥梁提供专业服务。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">诺普信预计2016年度亏损3亿</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年10月28日，深圳诺普信农化股份有限公司发布了2016年第三季度报告，自称2016年度预计亏损3亿以上，公司“正在面临一场极为严峻的考验。”对于利润大幅亏损，诺普信表示主要原因在于公司股票期权与限制性股票激励计划终止加速计提费用;另外，亏损还源于对田田圈业务市场推广、技术服务和病虫害防治等费用大幅增加所导致。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">北大荒进军生鲜电商推出“嗨厨房</strong>”</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年4月，我国农业国有品牌、种植业上市公司北大荒进军生鲜电商，推出自有生鲜电商品牌“嗨厨房”。嗨厨房采用线上售卖+线下体验的3.0模式，在专注做线上食材供应的同时，在位于银河SOHO的线下餐厅相互映衬，使得不了解嗨厨房的新用户可以在购买前亲身体验。而这种线下餐厅品尝再引流到线上进行购买，不失为线下配合线上、互为导流的一种方式。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">新希望六和“食光社”美食电商上线</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年1月，新希望六和投资孵化的电子商务平台“食光社”上线，定位于食品社群电商，食光社并非简单把社交与电商嫁接，而是通过对用户场景、消费特征和社交习惯的分析与发掘，构建了一个围绕着“吃”的开放式社群生态，包括美食达人、名厨和全体消费者在内的所有用户，都能参与到平台的商品、内容乃至用户运营中。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">“食光社”是新希望产业创新战略的落地，是将新希望体系内的商品集群、产业服务集群、互联网金融等相关产业服务与终端用户连接在一起的重要一环。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">九、</strong><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">新型农业技术服务体系不断演化</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">中国酒泉种子产业园主体封顶</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">2016年10月16日，中国种子产业园主体封顶仪式暨中国酒泉种子展览馆开馆仪式于“敦煌国际文化博览会”期间在中国酒泉种子产业园隆重举行。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">中国酒泉种子产业园是甘肃省重点观摩项目, 园区整体规划面积3000亩，总投资32亿元。项目建成后将成为立足酒泉、面向国内、辐射全球的现代种业、智慧农业科技孵化基地和农资、农副产品网上交易中心。在深化农业供给侧改革，促进农业产业链转型升级，推进全市、全省精准扶贫和“双创”工作深入开展，帮助农民增收致富，有效增加地方税收，带动小康社会建设等方面发挥强大的引领和助推作用。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">海南将划定26.8万亩南繁科研育种区 启动国家基地项目</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">根据海南省“十三五”省级现代农业示范基地(园区)规划纲要(2016-2020)，海南省将以三亚、乐东、陵水等市县为中心，划定26.8万亩南繁科研育种保护区，建设南部南繁科研育种区。根据规划，海南省将启动国家南繁基地项目，建成5.3万亩南繁科研育种核心区。加快南繁高标准农田、南繁配套服务体系等基础设施建设，建立健全南繁基地管理保护体系，强化政策扶持，引导大型种业企业加大研发投入，建设大型现代化种子加工中心。鼓励种业企业与南繁育种基地联合，开展基因工程、细胞工程和杂交、常规育种或无性繁殖等现代育种技术应用，逐渐培育具有自主知识产权的特色农业品种。完善种子市场营销、技术推广、信息服务体系，建立乡村种子连锁超市、配送中心、零售商店等基层销售网络，加强售后技术服务，延伸产业链条。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">“十三五”期间，海南省将充分发挥国家南繁科研育种基地的重要作用，稳步构建以南繁育种基地为依托、企业为主体、产学研管相结合、“育繁推一体化”的海南现代种子种苗产业体系，培育一批种子龙头企业，全面提升种业科技创新能力、企业竞争能力、供种保障能力，把南繁科研育种示范基地打造成为面向21世纪海上丝绸之路的国家级种子展示交易中心。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">十、</strong><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">新型农业科技创新体系融合发展</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">中国农大携手河北涿州 建农业科技成果创新示范园</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">5月7日，来自国家科技部、北京、天津、河北省等相关政府部门及中国农业科学院、天津农科院、河北农业大学等高校、科研院所的百名嘉宾，莅临中国农业大学涿州国家农业科技园区，共同见证“北京国家现代农业科技城涿州农业科技成果创新示范园”揭牌。北京国家现代农业科技城涿州农业科技成果创新示范园的设立，为该校加大科技成果创新示范、服务农业科技发展创新提供了机遇。将对京津冀农业发展、环首都现代农业科技示范带建设起到引领和示范作用。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong style="box-sizing: border-box; margin: 0px; -webkit-font-smoothing: antialiased; padding: 0px;">中国农科院等共同成立国家智慧农业科技创新联盟</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">12月1日，中国农业科学院农业资源与农业区划研究所、国家级和省市级科研院所、高校、企事业单位等共同在成都成立国家智慧农业科技创新联盟。 按照规划，作为国家农业科技创新联盟的重要组成部分，国家智慧农业科技创新联盟将搭建一个以攻克制约现代农业发展的重大关键与产业技术瓶颈问题为导向，以加强智慧农业项目合作和促进学术交流、产业技术和行业发展为目的，致力于推进我国智慧农业科技创新发展和行业提升的非盈利性技术组织和平台。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">这个联盟将在提供科技支撑、联合攻关关键技术和核心技术研发、推广核心技术和关键技术的示范应用、促进数据共享等方面有所作为。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

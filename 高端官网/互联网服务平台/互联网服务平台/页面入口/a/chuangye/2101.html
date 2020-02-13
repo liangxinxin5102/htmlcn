@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/chuangye">创业</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">从互联网巨头到创业者，为何他们都如此迷恋社交？</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-11-30　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2101.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2101.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><img id="edit_2538008" class="aligncenter" src="../../../cms-bucket.nosdn.127.net/catchpic/4/48/485ee7417ce6c04b60f6d1d0e3507390.jpg-imageView&thumbnail=550x0.jpg" tppabs="http://cms-bucket.nosdn.127.net/catchpic/4/48/485ee7417ce6c04b60f6d1d0e3507390.jpg?imageView&thumbnail=550x0" alt="" style="vertical-align: top; border: 0px;"/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">在互联网行业，无论是巨头还是<a href="javascript:if(confirm('http://money.163.com/keywords/5/1/521b4e1a8005/1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://money.163.com/keywords/5/1/521b4e1a8005/1.html'" tppabs="http://money.163.com/keywords/5/1/521b4e1a8005/1.html" title="创业者" target="_blank" style="color: rgb(15, 107, 153);">创业者</a>，都曾经梦想从<a href="javascript:if(confirm('http://money.163.com/keywords/7/3/793e4ea4/1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://money.163.com/keywords/7/3/793e4ea4/1.html'" tppabs="http://money.163.com/keywords/7/3/793e4ea4/1.html" title="社交" target="_blank" style="color: rgb(15, 107, 153);">社交</a>入口切出一道口子，成就一个社交帝国梦。但这个梦想的艰难程度可想而知。微信做过摇一摇，陌陌早期请模特陪聊，滴滴最开始让自己员工去打车，如今支付宝悄然上线生活圈，散发着青春荷尔蒙的白领日记与校园日记惊现一大批大尺度女学生和白领写真。支付宝变支付鸨的说法一时喧嚣尘上。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">早在2015年春节前夕，支付宝红包曾经遭遇微信封杀，后来阿里紧急推出“红包口令”功能以防止再次被封杀。如今，春节又要临近了，支付宝的焦虑自然可想而知。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><h2 style="padding: 0px; margin: 28px 0px 0px; font-size: 16px; font-weight: normal; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">从<a href="javascript:if(confirm('http://money.163.com/keywords/4/9/4e9280547f515de85934/1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://money.163.com/keywords/4/9/4e9280547f515de85934/1.html'" tppabs="http://money.163.com/keywords/4/9/4e9280547f515de85934/1.html" title="互联网巨头" target="_blank" style="color: rgb(15, 107, 153);">互联网巨头</a>到创业者：人们都<a href="javascript:if(confirm('http://money.163.com/keywords/8/f/8ff7604b/1.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://money.163.com/keywords/8/f/8ff7604b/1.html'" tppabs="http://money.163.com/keywords/8/f/8ff7604b/1.html" title="迷恋" target="_blank" style="color: rgb(15, 107, 153);">迷恋</a>社交</h2><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">其实从互联网的历史来看，不仅仅是阿里想要做社交，从巨头到创业者，几乎都想搭上社交的快车快速规模化发展。近年来手机社交APP呈现爆棚式的发展，尽管曾有数据显示，100家死亡的APP里，社交类占了35%，社交类APP死亡率最高，但依然无法阻挡创业者奔向各种垂直细分领域的社交APP创业潮。在各类应用市场一搜，主打女性闺蜜社交、同性社交、同城社交、约饭社交、90后社交、图片社交等等各种社交软件层出不穷。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">早在2010年3Q大战期间，腾讯打出二选一的牌，要么卸载360，要么卸载QQ，人们可能忘了一个细节，当时许多门户与互联网巨头游戏公司与创业者都曾经快速的推出自身的即时聊天软件来借助舆论造声势，企图抢占并转移QQ用户，但最终都失败了。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">《口袋妖怪Go》今年大火但其中也借鉴了社交的思路，人们总结它能成为爆款的一个重点原因是，它是一款敦促宅男出门锻炼的运动神器。游戏开发者也寄希望通过粉丝的力量，驱动游戏玩家被一只小精灵驱动带动户外社交与健身的文化。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">唱吧、啪啪都曾经主打偏娱乐化的社交方向，可以导入已有的亲友关系链，寄希望能够快速形成集聚好友圈的娱乐文化，但基本也成效不大。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">早前美国Uber、Lyft、国内滴滴刚风靡的时候也曾经主打社交的思路，让用户跟司机做朋友，甚至一度诞生了许多拼车软件，让用户在打车的过程中发展新的社交关系，比如当初Lyft宣布在应用中增加用户资料，以此解决司机和乘客之间的社交信任问题。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">在国内，专车软件曾一度也被人们定位为约炮神器，当时专车软件平台也有意识的迎合了约炮社交方向的思路，让乘客与司机做朋友。中国的国情是，白领群体的圈子因为职业而固定，陌生人两性交友的需求一直存在，而专车驾乘社交则是一种全新的社交模式，这里面有很多想象空间。而随着专车平台格局大势已定，专车安全性诉求逐渐上升，约炮这个偏向于负性的词则不利于专车构建规模化用户平台，也不利于专车纳入正规军监管，随着专车安全的诉求呼声日高，继而被逐渐抛弃。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">再看直播，直播的兴起也可以看成是一种新的社交的思路，许多人因现实生活导致的空虚都无法在现实社交场景中填补，因此更多寄希望于网络，而直播则匹配了这种需求。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">因此，为了区别于传统秀场，许多直播软件都愿意把自己定位为“直播社交”。许多移动直播也是依附于社交软件，基于社交软件上建立起来的社交关系或粉丝关系来进行直播互动。社交软件陌陌营收一度增长乏力，但自打2015年年底涉足直播后营收开始有了增长。Facebook曾经表示，其普通用户观看直播视频的时间长度达到其他类型视频的3倍。YouTube的直播视频观看量在过去一年增长了80%，从某种程度上说，火的不是直播 而是直播背后的社交。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>归根结底，移动互联网的发展让现代人的社交网络“实时化”了。</strong>人们喜欢在同一个时刻，对同一件事分享自己对相同爱好的感受。由于直播本身的实时性，让这些群体产生了“我在这里我有许多朋友”的错觉，填补了现实生活的迷失并打发了下班后的空虚与孤独时光，当然，实时社交的两性吸引力也是一个大的诱因。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><h2 style="padding: 0px; margin: 28px 0px 0px; font-size: 16px; font-weight: normal; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">人们迷恋社交平台的背后有哪些原因，它为什么容易失败？</h2><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">为何互联网巨头与创业者都迷恋社交？一方面，我们知道，社交需求是完整契合了在当下移动互联网的各种场景，因为移动互联网已经让社交场景也变得丰富多彩，衣、食、住、行处处都存在社交，而社交软件又可按使用人群、面向用户和产品特性细分为多种不同的分支，许多产品在前期冷启动期间，要规模化起量，通过满足人们更具差异化的社交需求，尤其是打性方面的擦边球成效更快，往往能够在前期就引发一群用户的涌入。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">其次是，社交能带来流量入口与广告新库存新客户，让社群交互与内容+连接等战略落地，以及新的商业模式的扩展都需要依赖用户社交圈子的扩展形成病毒传播。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">另一方面，地域经济发展层面的原因导致的社交圈子异化，各种与社交搭边的产品总能找到更多的用户或者发展潜在用户。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">我们知道，国内经济发展不平衡导致流动人口非常庞大，大量年轻人从全国各地涌入北上广深，许多草根阶层在离乡背井的失根状态之中，也离开了原本的社交圈子，这个庞大的群体在新的城市中需要构建新的社交圈并寻找认同感。但中国本身含蓄内涵的社交文化以及不善于陌生交友的文化性格导致许多人很难真正融入该城市，因此孤独与落寞成为许多人的普遍状态。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><strong>因此这导致基于移动互联网属性的定位于本地与社交搭边的产品总能找到它的用户群，并依赖于此稳固其固有的用户群与商业模式。</strong>无论是陌陌、无秘还是同事等社交产品，以及各种直播软件，在约炮、打赏等各种陌生关系链延伸下，人们可以达成对于平时想接近却有无法亲近之人的一种表达、沟通、深度联络或者窥私欲望的宣泄。这对应着当下年轻人的刚需并填补了地域社交圈子异化的人们现实空虚所产生的社交缺位。因此，各种与社交搭边的产品总能找到更多的用户或者发展潜在用户来扩展它的商业模式。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">支付宝之所以要执意做社交，还源于社交平台能构建一个让用户体制化的封闭围城，在肖申克的救赎这部电影里面，瑞德说：“<strong>这些高墙还真是有点意思。一开始你恨它，然后你对它就习惯了。等相当的时间过去后，你还会依赖它。</strong>”社交其实就是让平台（围城）内的用户逐步体制化的过程，它会让用户上瘾并产生依赖，平台方一旦培育了用户习惯带动围墙内的流行生态，之后就可以在围城内实行封杀战。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">因为在当前的巨头的争夺战中，一旦在入口，流量、用户群遭遇威胁时，都是毫不留情的斩断入口，不给对手一丁点反击的机会，在移动互联网各种入口都寄希望链接到社交网络的当下，自己做社交平台可以防备对手不留神祭出的封杀战。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">再次是确保可维持的竞争优势以及加大用户对产品的打开频次，培育更多的商业模式与业务增长点。这一点，归根结底是互联网下半场规模化增长的人口红利已经见底，获取新的用户以及用户使用时长的难度大大增加，如何在恒定的碎片化时间里抢占用户使用频次和时长是当下的互联网模式与巨头都在思考的方向，争夺用户时间已经成为巨头对决的重要一环。因为用户的持续频繁打开与停留时间，是互联网商业模式与广告客户、投资人所看重的重要价值来源。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">要占用用户时间，社交是更好的方式，用户也更容易产生情感依赖，而情感依赖不是那么容易被剥夺，社交产品发展到后来其实与用户形成了一个整体，谁也离不开谁。而与社交搭边意味着更容易形成规模成本递减效应，用户会持续用你的产品，愿意买会员、买道具积累信用分、来满足他们的寂寞和虚荣心。而社交封闭体系会抵触外界同类竞争产品的干扰来破除这种用户习惯与对体系内部生态的依赖。<strong>它会带动封闭体系内的一种潮流，让大部分用户的行为、步调、习惯趋于一致，并最终离不开它。所以与社交关联的平台，在用户群生态与商业模式上都将具备一定的稳固性。</strong></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">但要通过一个新的社交圈子让用户滚雪球般扩展的难度也可想而知，因为新的社交圈子意味着需要给予人们新的社交希望，因为人们挤入另一个圈子的初衷是希望打破当前的社交困境，在另一个平台找到新的存在感，也意味着新的社交平台给了现实中或虚拟中社交无力感的人群一种新的希望与想象空间。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">但往往许多社交产品无法带动用户的迁移，也在于平台方的模式实际上并没有真正改善社交效率并为用户发展出新的社交关系链，导致产品难以满足用户预期。这也是社交网络更容易昙花一现并且失败的重要原因。因为许多社交产品本质上还是通过一种挑逗用户荷尔蒙的形式来催生用户的生理与虚荣欲望以及获取尊重、存在感、价值感等需求，但它并没有让新的社交关系的发展变得更容易。</p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;"><br/></p><p style="margin-top: 28px; margin-bottom: 0px; padding: 0px; text-indent: 2em; line-height: 28px; font-family: &#39;Microsoft Yahei&#39;; color: rgb(64, 64, 64); text-align: justify; white-space: normal;">如果它在后期很难带给用户更好的社交关系，或者说无法让用户触碰到现实社交圈子所触碰不到的社交关系，没有让用户的陌生人社交变好，没有达成更好的两性交往需求以及娱乐需求，没有更好的实现他们的存在感与价值感，最终都可能昙花一现。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/xinwen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/xinwen/'" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/guoneiyaowen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/guoneiyaowen/'" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

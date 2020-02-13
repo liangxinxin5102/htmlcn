@@ -1,0 +1,8 @@
+/*
+********************
+* 视频制作：代言宝
+* 网址：http://www.daiyanbao.cn/
+* 时间： 
+********************
+*/
+eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1H.$g||8(){2 b=$g={r:"//X.g.Y/"};b.E=[];b.o=8(a){b.E.Z(a)};2 a=i.11("12");a.u("13","H/14");a.u("W",b.r+"15/17.1.3.18.U");i.1a("1b")[0].1c(a)}();$g.o(8(){$g.1d({a:"16",b:"V/Q",c:T,d:F,I:J,L:0.9,M:0,N:-10,O:B,P:B,R:"t",f:"F-S-1e",19:"n"}).l("1g",8(){i.p("1i"+4.7.q).k.m="D";2 6=i.p("v"+4.7.q);6.k.1A=("1B:1C; A:y; 1D-A:y; 1f:1E; 1F:1G; 1z:1J;H-1I:t; 1L-1K:1y; 1p-G:1w; G:#1x; 1j:1k;")}).l("1l",8(j){2 6=i.p("v"+4.7.q);2 s=1m.5;2 e=1n;2 h=1h;w((j>s)&&(j<h)){6.k.m=\'1o\';2 n=((j-s)*4.7.f.x)/(e-s);w(n>4.7.f.x){6.z=4.7.f}C{n=1q.1r(n);6.z=4.7.f.1s(0,n)}}C{6.k.m=\'D\'}}).l("1t",8(){4.1u().1v()}).o(\'K\')});',62,110,'||var||this||sub_div|option|function|||||||tel|daiyanbao||document|va|style|on|display||load|getElementById|DOMID|resUrl||center|setAttribute|dyb_sub_|if|length|36px|innerHTML|height|true|else|none|_|400|color|text|cs_e|64|daiyanbao_com_content|cs_f|cs_g|cs_h|ba|bb|306|bc|682|226|js|free|src|res|com|push||createElement|script|type|javascript|corescript|admin|daiyanbao_com_1|min|isag|getElementsByTagName|head|appendChild|create|5828|position|ns_start|999|dyb_loadding_|border|0px|timer|25|26|block|background|Math|ceil|substring|click|getObject|togglePause|transparent|ffffff|18px|top|cssText|width|200px|line|absolute|left|10px|window|align|210px|size|font'.split('|'),0,{}))

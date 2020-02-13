@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/renwu">人物</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">麦芽分期CEO陈展：登上互联网大会的90后创业黑马</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-11-25　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2104.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2104.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;"><strong>今年6月才上线的麦芽分期犹如一匹黑马</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　2016年被誉为互金行业的监管之年，众多P2P平台纷纷倒下，更多的则探索消费金融、普惠金融等领域，并均取得了不错的成效。但就是在业内以为P2P平台之争已经进入尾声，后来者很难再迅速冒头的时候，，在5个月之内做到了覆盖全国74个城市，覆盖商户数近700家，11月单日放款额度突破千万。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: center; word-wrap: break-word; font-family: 宋体; white-space: normal;"><img align="" alt="\" src="../../ueditor/php/upload/image/20161130/1480475133114856.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161130/1480475133114856.jpg" style="border: 0px solid; vertical-align: middle; max-width: 622px; width: 233px; height: 350px;"/></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: center; word-wrap: break-word; font-family: 宋体; white-space: normal;"><span style="font-size: 8px;">　　麦芽分期CEO陈展</span></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;"><strong>医美是女性消费金融的重要场景</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　见到陈展是在第三届互联网大会闭幕第二天，由于前一天深夜刚刚从乌镇赶回北京，陈展的脸上还满是疲惫，但是谈到刚刚过去的“互联网之光”论坛，他的精神立刻振奋起来。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　“这是我第一次参加如此高规格的大会”，陈展递给记者一瓶咖啡说:“今年的互联网大会，能明显感受到互联网金融的影响力，比如邀请了多家金融科技的企业代表和传统银行大佬围绕‘如何通过机制和技术创新推动互联网+普惠金融更好发展’进行深入探讨。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　陈展是作为麦子金服的代表参加的大会。加入麦子金服两年来，陈展先后担任了财神爷爷和麦芽分期两项产品的CEO，并均取得了亮眼的成绩。在本次互联网大会上，陈展就着重展示了麦芽分期是如何利用大数据的采集分析，风控模型的严格把关，在申请流程、审批额度以及贷款利率方面的明显优势。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: center; word-wrap: break-word; font-family: 宋体; white-space: normal;"><img align="" alt="\" src="../../ueditor/php/upload/image/20161130/1480475133440344.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161130/1480475133440344.jpg" style="border: 0px solid; vertical-align: middle; max-width: 622px; width: 500px; height: 375px;"/></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　事实上，麦芽分期是国内消费金融领域的一匹黑马。如今的消费金融，已经不再是一个陌生的词。2015年之后，发展前列的互联网金融平台纷纷布局消费金融，有从校园场景入手的，有做汽车金融的，也有涉足房贷的。而麦芽分期在今年6月才正式上线。如何迅速打开局面，甚至在市场上站稳脚跟?这是陈展最头痛的事情。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　“我不怕累，也不怕吃苦，但是麦芽分期上线前真的是我压力最大的日子。”陈展向记者坦言，由于麦芽分期的整个团队都是由他自己从零一手搭建的，产品设计、推广、风控都要抓，再加上之前领衔财神爷爷产品所获得的成功，陈展觉得担负了太多的包袱和期许。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;"><strong>陈展舒了一口气，“对场景的判断是正确的。”</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　麦芽分期并没有辜负陈展：上线5个月以来，麦芽分期迅速覆盖了全国74个城市，覆盖商户数近700家，11月8日更是单日放款额度突破千万。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: center; word-wrap: break-word; font-family: 宋体; white-space: normal;"><img align="" alt="\" src="../../ueditor/php/upload/image/20161130/1480475133766955.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161130/1480475133766955.jpg" style="border: 0px solid; vertical-align: middle; max-width: 622px; width: 500px; height: 375px;"/></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;"><strong>做消费金融很多时候要对场景有深度的参与和把控。</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　陈展所说的场景即消费场景，他认为场景决定流量，在移动互联网普及的今天，场景成为消费金融领域越来越重要的部分，“”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;"><strong>我愿意选择的是女性消费升级的那部分场景。消费升级是指基本的消费能力有了，要做到更好，我想能够做到更好的人，还款能力没有问题，还款意愿也比较好。</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　“每个人都有场景需求，但我们不可能覆盖所有的场景”，陈展向记者解释，在设计麦芽分期产品的时候，他坚持要从女性用户入手，因为女性相对信用资质好，还款意愿强，这是风控层面的考虑，第二点就是女性消费能力也更强，“”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　什么才是女性消费升级领域的刚需?陈展想到了医美。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;"><strong>要真正的了解并且体验整个产品流程，包括医院，包括消费者心理，我都必须自己去试验一下。</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　为了体验医美的整个流程，陈展甚至自己偷偷去了美容医院做了微针。“第二天起来两边脸上都是血痂，四五天才好”，陈展笑着对记者说，语气让人感觉他做的只是极其平常的小事，“”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　对于目前麦芽分期的发展状况，陈展表示比较满意，他透露，到年底，麦芽分期的目标是10亿。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;"><strong>消费金融的痛点在商户 商户的痛点在获客</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　陈展是92年生人，年级尚小，但已经是一名连续创业者。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: center; word-wrap: break-word; font-family: 宋体; white-space: normal;"><img align="" alt="\" src="../../ueditor/php/upload/image/20161130/1480475134822982.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161130/1480475134822982.jpg" style="border: 0px solid; vertical-align: middle; max-width: 622px; width: 500px; height: 333px;"/></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　“我创业其实就是为了证明自己。”陈展告诉记者，大一的时候，他发现直接高中的“学霸”光环褪去了，考试考不到前几名了，追女孩子也没有追到，思来想去只有创业了，于是陈展决定创业，方向是电子商务。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　“为了了解电子商务，我当时做了一件很傻的事，”陈展回忆，在2010年底，他把百度上关于“电子商务”的条目逐条研究过去，一直看了30多页，内心对电子商务基本上有了自己的思路。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　从此陈展就与互联网结下了不解之缘，初次创业就选择了校园020，创立了“校园推客网”项目，主要解决主要解决大学生校园网购“最后一公里”的物流问题。后来又尝试过开餐厅，不赚不赔。屡次创业的经历甚至给陈展赢得了“华政刘强东”的称号。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　大学毕业之后，陈展还是没有放弃创业的念头，但由于没资金和资源，最终“误打误撞”进入了互联网金融行业，成为了“趣分期”的员工。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　“趣分期吸引我的地方是他的CEO管培生计划，我的想法很简单，就是要离CEO更近一点，其实还是想创业。”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　如今回想起来，陈展很感激在趣分期的时光，因为在那里他学到了执行力。“不管是财神爷爷还是麦芽分期，能发展的这么快，跟团队执行力有很大的关系。”陈展认为，这正是他从过去经历里面学到的。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　在陈展自己看来，他现在取得的成绩来自于他过去的积累、努力上进和积极学习的性格，但是记者认为，在努力以外，陈展有自己独到的商业洞察力和精准的产品思维。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;"><strong>麦芽分期被誉为行业内的黑马，不仅是因为迅速成长的数据，还因为最近在互联网大会推出的“商户信用评级体系”。</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　为了保持优秀商户合作，麦芽分期创新推出商户信用评级体系。这套体系主要是通过麦芽分期平台大量的精准数据，通过商户的精细化运营，以更加严谨、透明、公平的评价体系对每个商户进行不同维度的综合评估。同时，针对商户的信用度，划分相应的等级。主要是通过更加有序地管理好商户端，以此优化用户体验。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　比如分数评级越高的商户，可以获得更高的权益：</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　针对商户进行信用评级，信用越高的商户，可以获得的权益：更高的额度、更低的利率、更快速高效的审核、和更高的通过率。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　“做这个商户信用评级也是出于风控的考虑”，陈展向记者解释，在消费金融领域，其实商户的风险比C端更大，而通过信用评级体系建设，能有效地聚拢优质商户，淘汰不良商户。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　有业内人士认为，麦芽分期对于商户信用评级体系的构建，为业内首创，将为商户注入更多的新鲜血液，开启商户与平台携手共进、不断优化服务的良性循环。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;"><strong>消费金融的未来是什么？</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　经过几年的发展，可以说互联网金融领域已经进入了一个新的发展阶段，不仅仅局限于支付及理财产品，更已经深入到消费领域。根据艾瑞咨询发布的报告称，中国互联网消费金融市场交易规模增速超过200%，2015年整体市场则突破了千亿，到2019年可达到3.398万亿元的水平。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　麦芽分期的高速成长也印证了这一市场的巨大潜力。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: center; word-wrap: break-word; font-family: 宋体; white-space: normal;"><img align="" alt="\" src="../../ueditor/php/upload/image/20161130/1480475134316498.jpg" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161130/1480475134316498.jpg" style="border: 0px solid; vertical-align: middle; max-width: 622px; width: 500px; height: 375px;"/></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　陈展认为，消费金融本质上其实是一个信用支付的工具，而工具的可替代性是很强的，所以就必须越来越高效。具体来讲，就是利率是不是更低，打款速度是不是更快，审批在风控的阶段能不能更快。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　据了解，目前，麦芽分期的申请审批流程全部都是在线的，从提交申请到整个费用最后审批下来大概15分钟左右。而放款可以做到T+0，基本当天能到款，非常便捷快速。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;"><strong>但是麦芽分期又不能仅仅只做一个工具。在以医美为切入口进入市场后，麦芽分期下一步还要进入旅游、婚庆月子、教育培训等领域，而这些领域的客户其实是有一定的重合度的。很有可能，在一段时间之后，麦芽分期能变成一个消费升级的用户平台，这才是生态的构建。</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　不得不说陈展的战略其实是非常精准的，甚至跟百度有钱花的战略不谋而合。2016年，百度金融推出消费金融业务——百度有钱花，重点推广分期业务，以教育分期为突破口，并逐步推广到家装、租房、医美等领域。研究百度有钱花的布局方向，可以看出百度金融对消费升级市场的信心。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　“麦芽分期目前已经完成了团队搭建和销售体系搭建，现在的重点是在深耕医美市场的同时，把更多的场景消费生态通过市场的方式运作起来”，陈展认为，旅游和教育培训正是消费金融领域的下一个风口。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　麦芽分期想要构建的消费场景，其实是消费升级领域中的“刚需”。陈展认为，对于现在的年轻人来说，最好的投资就是投资自己，而投资自己的方式绝不是买一些最新的数码产品或者装备一些奢侈品，这些都不是刚需。真正的刚需是在提升自己方面，比如想要提升自己的容貌，想要出去旅游增长自己的见识，想要参加教育培训拓展自己的专业技能。这些都是必要的投资，而愿意在这些方面投资自己的人，相对素质也高，还款意愿和能力都较强。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　“我们的slogan是‘为更好的自己’，意义就在于为年轻人提供更加便捷的分期支付服务的同时，帮助他们树立正确的消费及理财观念，”</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 10px 0px; line-height: 30px; text-align: justify; word-wrap: break-word; font-family: 宋体; white-space: normal;">　　麦芽分期的愿景是，依托麦子金服对大数据采集、分析和应用，以及移动金融风控技术，降低年轻一代消费升级的门槛与成本，并成为国内泛年轻人服务消费金融分期领域的领头羊。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/xinwen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/xinwen/'" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="javascript:if(confirm('http://www.imscw.com/a/guoneiyaowen/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ���ļ������û������ѱ���ֹ����ù����ѱ�ֹͣ��  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.imscw.com/a/guoneiyaowen/'" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

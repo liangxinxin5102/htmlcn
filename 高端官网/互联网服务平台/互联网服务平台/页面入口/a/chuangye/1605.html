@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/chuangye">创业</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">上海电影节创投十年：资本如何改变了年轻的电影人</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-06-24　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/1605.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/1605.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="text-indent: 2em;"><span style="text-indent: 2em;">曹保平看上去不太高兴。在说话之前，他有意顿了顿，似乎是在平复情绪。</span></p><p style="text-indent: 2em;">酝酿了一会儿，他还是开口了。“青年导演应该展现的是想象力和才华，但今天的项目里有不少在类型和创意上，毫无锐气，非常规矩。恨不得规矩到50、60年代。”此刻，这位导演已经收起了在媒体和观众面前常常展示的微笑，语气里有些不满，还有些沮丧。</p><p style="text-indent: 2em;">去年，曹保平靠着《烈日灼心》拿到了上海电影节金爵奖最佳导演。这次回到这里，他依然戴着标志性的鸭舌帽，穿着那身迷彩风衣。只不过他的身份变成了“青年导演计划”的评委主席，从被评奖的变成了给别人评奖的人。</p><p style="text-indent: 2em;">在曹保平说话的同时，台上正站着一位身材瘦高，穿着正式的男孩。他叫张弛，是一名1988年出身的编剧和导演。他刚刚陈述完自己带来的电影项目《破浪》，讲的是一个中国留学生在美国遭遇困难和偏见后，通过组建一支中国赛艇队，赢得胜利和尊重的故事。</p><p style="text-indent: 2em;">这是当天所有10个展示项中的第9个，台上台下的人都有些疲惫。而这个听上去略显平庸的项正好成了“导火索”，释放了包括曹保平在内的几位评委积累一天的情绪。</p><p style="text-indent: 2em;">“你应该有一种玩的心态，想象的心态，有一种自我的表达。”坐在曹保平身边的马珂也提高的声量，他是这个行来里最有名的投资和制片人，与姜文和合作了《太阳照常升起》、《让子弹飞》、《一步之遥》等影片。</p><p style="text-indent: 2em;">另一位评委，台湾导演赵德胤的评价更为直接。他认为这样的项目“<a href="javascript:if(confirm('http://s.iresearch.cn/search/shichang/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://s.iresearch.cn/search/shichang/'" tppabs="http://s.iresearch.cn/search/shichang/" target="_blank">市场</a>企图心太强”，丢掉了“胆大妄为”这个年轻人最大的本钱。</p><p style="text-indent: 2em;">一时间，场面有些尴尬。</p><p style="text-indent: 2em;"><strong>墙外乐园</strong></p><p style="text-indent: 2em;">这样的场面，在每年的电影节都会不止一次的出现。但也正因如此，它也成了整个电影节最有趣的“节目”。</p><p style="text-indent: 2em;">“青年导演计划”的前身是“中国电影投目创投”，从十年前设立开始，它就是上海电影节连接年轻创作者和资本最直接的纽带，也是整个电影节最有趣的部分之一。</p><p style="text-indent: 2em;">资本、故事（项目）、年轻人，这些当下中国电影行业中最看中的要素，每年的六月都会通过“创投”在阴雨棉棉的上海进行一次短暂而激烈的碰撞。只不过在市场和资本的力量没有过多介入之前，它在很长一段时间里，就像是一座墙外乐园。</p><p style="text-indent: 2em;">来到这里的大多是一些不那么规矩的创作者－－杨树鹏、彭浩翔、张猛、杨庆，在张艺谋、陈凯歌们用宏大的叙事和场面拍摄那些华语大片，占领整个市场和注意力时，这些人也在另一个舞台上用不太流利的演说技巧推销着展现个人独特趣味的中国故事。</p><p style="text-indent: 2em;">导演张猛时常会被作为上影节创投过去十年的“最佳案例”进行宣传。他拍过的4部电影中，有两部参加了创投：2009年的《钢的琴》和2011年的《胜利》。</p><p style="text-indent: 2em;">张猛回忆起自己第一次参与创投的经历时，就像在回忆一次有趣的旅行。“当时赶到上海是后半夜1点，酒店非要第二天才让入住。只能在外面呆着，还要一起商量第二天怎么演讲啊弄啊。”张猛在今年电影节创投论坛上说。</p><p style="text-indent: 2em;">那一年，他用一封只有40个字故事描述的邮件换来入围机会的《钢的琴》，在一堆入围项目中显得有些“另类”，许多人都无法理解几个工人造钢琴这样的电影要怎么拍。</p><p style="text-indent: 2em;">事实证明，创投这个“墙外花园”里冒出来的这些看上去有些奇怪的人，他们拍摄的一些“不那么主流”的电影，成了过去10年华语电影在自我叙事和文化表达上表现最突出的一批作品。</p><p style="text-indent: 2em;">《钢的琴》、《白日焰火》、《十二公民》、《师父》，这些来自上影节创投的项目，现在已经成了这里最好的名片。但它更大的意义在于给了这些创作者们一个可以玩耍的空间，一个能相对自由、公平地表达，竞赛，获得关注和资本的机会。</p><p style="text-indent: 2em;">陈洁是纪经公司壹心娱乐的联合创始人之一，在过去十年，她以买家、项目方、评委等不同身份参与了几乎每一届的创投。</p><p style="text-indent: 2em;">陈洁对于2006年第一次参加创投的记忆已经不深，不过她清楚记得那一年上影节的另一件事。当时她参与的影片《疯狂的石头》在上影节期间首映，随后，这部小成本黑色喜剧就成了电影圈当年的最热话题。</p><p style="text-indent: 2em;">现在回过头去看，《疯狂的石头》的成功不仅为电影圈贡献了一个以小搏大的经典案例，也不止是捧红了宁浩、黄渤和徐峥，它也让当时只愿意投资大制作的资本看到了一种新的市场可能性－－投资中小成本的，符合本土特质的类型片。</p><p style="text-indent: 2em;">“中小成本国产影片的市场一下子就打开了。”导演杨庆在此前接受采访时这样说。陈洁的其中一次创投经历，就是带着杨庆导演和他当时的作品《八路8号》。随后他和徐峥一起合作了影片《夜·店》，今年又凭借《火锅英雄》成为最受追捧的年轻导演之一。</p><p style="text-indent: 2em;">这种市场的变化同时也影响和改变了电影节创投的定位。</p><p style="text-indent: 2em;">在2006年刚刚设立时，它的名称是“中欧电影合拍片论坛”，因此在前几年它主要的目的还是促进合拍。“后来一方面合拍片并不是那么好做，其实本土电影市场逐渐起来了，所以重心就开始转移了，开始越来越关注本土电影。”上影节的创投单元负责人范静雯告诉《深网》。</p><p style="text-indent: 2em;">正是从这个时候开始，出现了包括张猛的《钢的琴》，刁亦男的《白日焰火》，徐皓峰的《师父》等等一批优秀的作品。也正是从那时候开始，越来越多的电影公司开始注意到这个“墙外乐园”。</p><p style="text-indent: 2em;"><strong>新买家和钱</strong></p><p style="text-indent: 2em;">每年上海电影节开幕后的第一天，电影公司负责项目开发的人都会选择早起。不过，他们并不是去银星皇冠假日酒店的宴会厅里听公司老板们吹嘘自己的公司和这个行业前景多么美好，而是选择溜达到几公里外的上海展览中心礼堂，观看创投项目的展示。</p><p style="text-indent: 2em;">这
+场展示的主角是像张弛这样年轻的电影导演和制片人。每年有30个项目会从几百个报名候选中成功入围，而其中10个会成为“种子选手”，获得8-10分钟项
+目展示的机会，并接受评委的提问。买家们会在台下观察选手表现，记录评委意见，然后在接下来的两天时间内约见自己想要合作的项目。</p><p style="text-indent: 2em;">评委对于项目的质疑和建议尤为关键，这些提问和回答被台下的人迅速记在了笔记本上，成为接下来他们评估项目，选择与其中一些项目合作的重要参考。</p><p style="text-indent: 2em;">这些人被称为“买家”。根据范静雯的介绍，早几年的买家几乎都来自电影公司，这几年市场好了之后，越来越多电影行业外的人也“想来听一听”，包括<a href="javascript:if(confirm('http://s.iresearch.cn/search/fengxiantouzi/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://s.iresearch.cn/search/fengxiantouzi/'" tppabs="http://s.iresearch.cn/search/fengxiantouzi/" target="_blank">风险投资</a>公司、基金/<a href="javascript:if(confirm('http://s.iresearch.cn/search/PE/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://s.iresearch.cn/search/PE/'" tppabs="http://s.iresearch.cn/search/PE/" target="_blank">PE</a>，个人投资者等等。</p><p style="text-indent: 2em;">尽
+管工作日程排得很满，陈洁今年仍然留出了两个早晨来和自己看中的项目方接洽。她说一些电影公司很早就关注到了这块，“几乎每次来我都能碰到万诱引力、联瑞
+等公司的朋友”。“上影节的创投在过去10年保持了一个稳定的（项目）质量，成了电影公司可以信任的平台。”陈洁告诉《深网》。</p><p style="text-indent: 2em;">陈洁说，今年的创投市场比较往年尤为火热，变化异常明显。如果从统计数字来看，明显的变化其实从去年就开始了。</p><p style="text-indent: 2em;">在前8年，每年项目方与买方的洽谈次数一直维持在400多次，而到了去年，在项目数量并没有大幅度增加的前提下，洽谈次数一下子窜升到了630次。而今年，仅仅网上预约阶段，总预约数就超过了去年总数。</p><p style="text-indent: 2em;">这种变化很大程度上是因为新买家们的进入。</p><p style="text-indent: 2em;">这
+里的新买家包括两类。一类是由行业里有经验的人出来创业开设的新电影公司，最典型的是去年才成立的柠萌影业。比起那些拥有好几年项目储备的大公司，这些新
+公司需要在市场上快速寻找到适合开发的电影项目。上影节创投成了集中认识这些年轻人，同时宣传自己的平台。柠萌影业同时也是今年五家设立现金奖项的公司之
+一。</p><p style="text-indent: 2em;">与这些电影行业里冒出的创业公司给创投带来相对积极的影响不同，还有一类“新买家”的加入，则让范静雯有些头疼。</p><p style="text-indent: 2em;">在给创投设立奖项时候，有基金公司找上门来，愿意出资100万，奖励给10个项目。但在聊完之后，范静雯发现这些“买家”并没有深入了解过上影节创投，也没有仔细看过那些入围项目，它们只是想借着这个平台“圈”住一批项目和年轻人，然后在跑去资本市场说故事。</p><p style="text-indent: 2em;">“这样的钱反而会对项目方造成伤害。”范静雯告诉《深网》，““太多行业外的不专业的资本的进入，其实未必是件好事。新导演们需要的是专业的指导和合作伙伴。”</p><p style="text-indent: 2em;">为了能让真正专业的买家更好的对接项目，创投开始在这两年设立一些筛选机制，范静雯半开玩笑地称之为“黑名单和红名单”。</p><p style="text-indent: 2em;">团队会根据一个公司的前一年的电影产量，此前参加创投的活跃度，参与项目数据，预约和爽约次数进行一个相对综合的评估，把不同公司进行几个级别的分类。“最高级别的公司我们会主动联系请他们的人来看项目，报销机票住宿，还可以提前看到项目情况和优先预约。”范静雯说。</p><p style="text-indent: 2em;">多位长期参与创投的电影公司买家都跟我们表示，基本上想聊的项目都顺利预约上了。不过即便如此，也会有漏网之鱼出现。</p><p style="text-indent: 2em;">《底片》是这次创投最被看好的几个项目之一，导演杨潇随后两天的时间也都被各家公司约满。他说自己遇到到过不专业的一个项目方，“上来就说，我就想问你一个问题，你这个项目的投资回报率是多少？”</p><p style="text-indent: 2em;"><strong>争夺年轻人</strong></p><p style="text-indent: 2em;">当内地票房以每年增加100多亿的速度飞速向前，90后成为观影主力后，优秀的年轻导演和编剧和明星一样，成为行业里大小公司们争相拢络和争抢的对象。</p><p style="text-indent: 2em;">十年前创投刚设立时，宁浩和黄渤还是《疯狂的石头》里的“新人”。十年之后，他们各自成为了公司的老板，又因为扶持新人这件事，同时出现在了上影节的活动中。</p><p style="text-indent: 2em;">就在曹保平感叹今年创投一些项目“缺乏锐气”的时候，几公里外的银星皇冠假日酒店里，演员黄渤在宣布了“HB+U”的新导演扶持计划，计划在三年内推10部类型片。宁浩做为好友来到现场站台，鼓励年轻创作者。同时，他创办的坏猴子工作室也第一次在创投设立了单独的奖项。</p><p style="text-indent: 2em;">过去两年，从北京电影学院的“青年导演扶持计划”，到中国导演协会的“青葱计划”，再到阿里影业的A计划，学院、行业协会到商业组织，都提出了要增加对于新导演的扶持。还有一些电影公司虽然没有做类似的发布，但已经悄悄开始加速签约年轻编剧和导演。</p><p style="text-indent: 2em;">这种“争夺”也蔓延到了创投市场中。一位参与过多次创投的制片人告诉我们，以往创投的项目洽谈往往是大家先相互了解和试探一下，确立一个基本合作方向，真正的合作会在接下去几个月甚到更长时间再发生。但是今年，许多买家当场就愿意和项目方签合同。</p><p style="text-indent: 2em;">杨潇证实了上述制片人的说法。“有一家公司当场就说这个项目我们要投，你缺的钱我们出。”杨潇告诉《深网》。。</p><p style="text-indent: 2em;">这些乐于开出支票的公司往往都有自己的小算盘。比如杨潇遇到的那家公司的条件是“要占大多数股份”，他们认为这样有助于整体项目后面的把控。而另一些“不怀好意”的资本，则只是希望快速地把这些有卖相的项目笼络到旗下，成为又一种可以写进<a href="javascript:if(confirm('http://s.iresearch.cn/search/rongzi/  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://s.iresearch.cn/search/rongzi/'" tppabs="http://s.iresearch.cn/search/rongzi/" target="_blank">融资</a>文件中的资源。</p><p style="text-indent: 2em;">这也是一个相互博弈的过程。对于杨潇这样从来没有和资本打过交道，第一次被放到聚光灯前的年轻电影人来说，他需要一个经验丰富，值得信赖的人。</p><p style="text-indent: 2em;">杨潇找的这个人叫沈暘，她是杨潇在上海大学上海电影学院的校外辅导老师。她同时也是上影节创投的创办者和前面七年的负责人，是把年轻人的电影送到海外的最主要推手之一。</p><p style="text-indent: 2em;">绝大部分创投的项目没法在国内影院中找到市场空间，走海外市场，参加电影节，然后获奖卖海外版权，是最主流的商业回收方式。即便是在《白日焰火》票房大获成功之后，这种模式也没有太大改变。</p><p style="text-indent: 2em;">沈暘工作中的一大部分就是与这些年轻导演和项目打交道，从帮助导演找钱、组建团队，到商量去哪些海外影展，时间怎么排，怎么宣传。她此前几部联合监制的来自创投的影片《东北偏北》、《少女哪吒》、《白日焰火》已经通过票房、出售海外版权和新媒体版权等形式实现了商业回收。</p><p style="text-indent: 2em;">即便离开了创投，那些受惠于她的年轻导演仍然愿意先找她合作。最近让她频繁接受媒体采访的，是一部她共同监制叫做《路边野餐》的影片，这部影片的导演毕赣拿到了今年金马奖最佳导演，影片在下个月就将登上内地影院。</p><p style="text-indent: 2em;">一个有些残酷的现实是，即便是拿到了金马奖最佳导演，《路边野餐》也很难取得出色的票房。没有大导演，没有明星，也没有所谓的清晰的类型，从影院到发行公司对这样的影片都不会给予过多的关注和支持。这也导致这部影片已经把上映档期延后了两次。</p><p style="text-indent: 2em;">杨潇和毕赣同为1989年，他们相识于南京独立影展，然后因为“毕业也没什么事”，所以他也帮着毕赣一起做了这部电影。在《路边野餐》拿奖以后，杨潇为其设计的长镜头也成了他可以在创投演示时拿出来成为履历中的“闪光点”了。</p><p style="text-indent: 2em;">但如同任何一个年轻导演遇到的困境一样，在毕赣没有成为毕赣之前，《路边野餐》作为他的第一部作品，曾经向许多公司抛出过橄榄枝，即使只需要几十万，但是融资也进行得异常艰难。</p><p style="text-indent: 2em;">“谁都想投资《白日焰火》，但问题是，你怎么知道它会成为《白日焰火》呢？”一名电影公司项目开发负责人说。</p><p style="text-indent: 2em;">正如张猛所说，如果没有创投，他的第一步作品可能很难出来。8年过去了，事情并没有太多改变。</p><p style="text-indent: 2em;"><strong>速度与泡沫</strong></p><p style="text-indent: 2em;">因为李安，关于中国电影行业“速度和泡沫”的讨论再一次被提起。</p><p style="text-indent: 2em;">在今年电影节的论坛上，李安特别提到了对市场太好，热钱拥入后年轻人成长太快的担忧。“现在市场好，大家有浮躁的感觉，争相想出头，我觉得这样的话对幼苗来讲有揠苗助长的影响。”李安说，“我觉得年轻的导演，你们不要太进攻进切，很多事情不是一下就可以成功的。”</p><p style="text-indent: 2em;">与李安同台的徐峥，则对目前电影教育产生了更大的顾虑。他认为如果连电影学院的许多老师都没有拍过片子，不知道剧组是什么样的，怎么指望教出来的学生能有拍片子的能力呢？</p><p style="text-indent: 2em;">两位参与创投的年轻导演跟我们都到了同一件事，如果自己想在学校期间拍摄短片或者长篇，能从学院获得的资源都及其有限。“就给你几千块钱，机器也借不到，还要求各种挂名。”其中一名导演说。</p><p style="text-indent: 2em;">一个令人有些不解的事实是，已经达到每年20亿以上资金规模，以促进中国电影未来发展为目的的“电影专项发展资金”，把越来越多的钱用于奖励那些高票房的3D电影，却鲜有对于年轻电影人和学校教育上的投资。</p><p style="text-indent: 2em;">著名音乐人张亚东也带着自己的作品参加了今年的创投，他提出一个大部分年轻导演都在不断加重的疑虑：在个人表达和观众趣味，在商业和艺术之间，应该怎么样去平衡？</p><p style="text-indent: 2em;">在电影节的创投论坛上，我们已经观察到了一些让人不安的信号。</p><p style="text-indent: 2em;">当这些年轻的创作者们看到不断上升的市场，不断涌现的票房奇迹时，已经开始把过多的注意力放在了项目的商业企图上，在创作过程中做了过多的妥协和对市场的迎合，出现了许多卖相不错但其实个人表达和情感内核的项目。</p><p style="text-indent: 2em;">就在今年的创投市场上，已经出现了项目预算6000万甚至过亿的影片。当评委在询问一名制作预算6000万项目的导演为什么要拍一部个人英雄主义电影时，他的回答是，因为中国很少有这一类型的电影。</p><p style="text-indent: 2em;">不要给年轻电影人太多钱，尤其是第一部片子，这几乎成了行业里有经验的人提出的一个共识。张猛的前两部影片加起来只花了420万，宁浩到《黄金大劫案》时才享受到“大制作”待遇。曹保平奉劝那些在创投上希望拍6000万，甚至过亿处女座的年轻人，把钱留到后面的电影。</p><p style="text-indent: 2em;">但是，仍然会有公司为这个疯狂的市场买单，因为他们都想找到下一个宁浩。但许多人忘了宁浩在成为一个卖座导演之前，他首先是一个讲自己故事的创作者，如果没有《香火》、《绿草地》，或许也没有后来的宁浩。</p><p style="text-indent: 2em;">在今年的创投洽谈时，买家们都问了杨潇同一个问题：之后你是想继续拍艺术片，还是拍商业片？“我说我不太明白艺术和商业的界限，但是我知道严肃电影的底线。”杨潇这样回答道。</p><p style="text-indent: 2em;">听到这个答案，很多人都失望了。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

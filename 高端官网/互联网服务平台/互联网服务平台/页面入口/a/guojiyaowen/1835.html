@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/guojiyaowen">营销</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">教你如何低成本利用QQ附近人突破日过5000流量</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-10-29　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/1835.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/1835.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　本文分享一个QQ附近发红包引男流的思路：读得书少文字功底有限，一气呵成，如有写得不好请勿见怪。现如今各种引流的技术、套路、技巧层出不穷，每天都有新方法新技巧亲漏洞，你是否早已习惯了三五天一小换，半月一大换?<span style="text-indent: 2em;">不大喜欢说废话，直接入主题吧</span><span style="text-indent: 2em;">以免误大家时间：</span></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　开始之前先说说我的一个朋友吧：<span style="text-indent: 2em;">我有个朋友他是个很聪明的人，因为是比较好的朋友，只在不是利益上的冲突，平时大家有什么好的思路、项目都会交流分享，他当时和我说QQ附近的人这块流量很开放，测试的不错(玩腾讯系的人都知道，微信代表是封闭，扣扣代表的是开放</span></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　<strong style="font-style: inherit; line-height: 30px; padding-bottom: 17px; word-wrap: break-word; word-break: normal;">　朋友当时测试的数据</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　他当时用自己的QQ号发包10块钱，一个红包发0.01加广告，一个QQ就发了500多条信息(当时他是用自己的私人号测试，附近人交友资料和个人QQ资料不同)，5块红包钱吸粉，QQ回复有180多条，红包广告引导到微信有80多个人，按成本比例来算是还是可以的!这80多个人，转化了150块左右，平均1.8元/粉，除了QQ的成本+绑卡实名+电费这些杂成本，利润还有110左右，但我的朋友有个不好的习惯，遇到问题他就很容易烦燥，其实这也是互联网很多人的通病!当时他买了100个扣扣打算进一步放大试试，但就因为挂不出常用Ip，挂不出常用Ip很多功能都容易受限，当时他发几个红包就受限了，后面这个附近人引流他这样放弃了，平时他一个月至少得写十几个脚本，他玩法就是不断的测试，通过，开发软件，遇到问题，换平台再测试，遇到问题就不断的换，从来没有深入的去解决这些问题..</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　当时我觉得这个引流是可以放大的，大家深入交流，他点子多从不缺少平台，QQ附近红包引流他放弃了，但我捡了来研究</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　<strong style="font-style: inherit; line-height: 30px; padding-bottom: 17px; word-wrap: break-word; word-break: normal;">当时测试了几轮后得出来的数据是</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　1、常用ip下</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　2、Q的年龄</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　3、Q的活跃度</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　4、Q资料是否完整</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　5、Q空间权重等有关...</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　可能很多人看到这几点就觉得太麻烦了，心里的念头想着，这都是烂大街、满天飞的招数玩法了..大伽可以选择不看了，毕竟还有很多一部分人天天都在愁流量!</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　</p><center style="color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;"><img src="../../ueditor/php/upload/image/20161031/1477894775836064.png" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161031/1477894775836064.png" border="0" width="492" alt="0" height="616" style="border: 0px; max-width: 100%; height: 616px;"/></center><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">&nbsp;</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　<strong style="font-style: inherit; line-height: 30px; padding-bottom: 17px; word-wrap: break-word; word-break: normal;">　下面解析细节</strong></p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　1、解决IP问题</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　我买了批有些好友的扣号通过软件隐身挂常用Ip，主要ip够稳定很多7天就出常用了(这里把抽取一些号用同IP下的电脑多登测试是否挂出常用)，有的挂半个月，有的挂一个月也说不定....</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　挂了七天后，从这批号里面挑了一小批也就是十来二十个号来修改资料、头像(正常美女头像，微博或自己的渠道找，别用百度上的图片，因为图片都是有个md5值的，百度上的头像很多都给别人玩烂的)、空间设置(只能自己观看)这些，然后就这样隐身挂着，第二天后接着用群软件把活跃度高的群邀请进群，一个号大概30个群便可(利用互拉软件、同意进群助手)，群活跃度越好对号就越好，让群来刷活跃度，挂上两三天，到这里一个号差不多完了</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　2、小量测试</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　把模拟器打开(用的是逍遥模拟器)同时把手机打开wifi，手动各自登号测试，当时测试的模拟器上和手机上都是通过的，一个号可以给附近的人发包300多个已经没问题，但没有大号强毕竟活跃度摆在那，大号一天发2000多条完全没问题，我们主要是在逍遥模拟器上操作(如果还有不知道模拟器是什么东西的，请自行百度)，为什么还要测试手机呢?二者测试主要是为了解决如果逍遥发了受限，手机能发，同一批号那就问题就出在模拟器上，知道问题所在，那解决起来就简单了...</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　后面在模拟器上小批量的测试得出结轮，为了降低号的风险性，一个号最好把红包信息控制在100条左右...</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　3、批量放大</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　我这是全程软件挂，软件修改资料，软件跑量，当时买了3000个号来挂，接着按需求开发程序，放大批量操作，直到现在除了死掉的号，QQ号大概还有2万左右(这个数字对于真正玩扣的高手都是小数字，一条宽带挂3000左右个号没什么问题(最好选电信宽带，稳定)，号活跃度越高耐操性越好，边养边软件操作，遇到腾讯升级变态的时候不要操作，停几天，不然会死号严重，一般月尾腾讯都会升级。。。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　4、关键点</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　这里面还有一个最重要的关键点：QQ现在需要绑卡实名下，渠道：淘宝，现在有无限绑技术，自己搜，QQ用多少绑多少，挂的不用绑，这样有效出降低成本</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　5、解决疑问</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　可能很多人又会说了：看得操作起来烦琐，很麻烦，想说：你捡钱的时候都需要弯下腰，更别说这竞争激烈的社会，理清思路后，其实就几个步骤，只是很多人都急于求成，今天操作今天就要收获，心态很浮!很多人就是喜欢把简单的事情往复杂的角度去想，最后败在了自己的想方面..</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　有些人到这里可能会问：这不是早就不能玩了吗?当你认为不能玩的时候，QQ附近人还有人玩，QQ群口令红包还有人玩，QQ点赞还有人玩，QQ留痕还有人玩，难道这些不是人吗?每一个小领域小入口玩得溜的大有人在，玩不好的人都是那种三天一小换，五天一大换的人，什么都想要注定什么都不是你的!</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　你玩不动，别人玩得动，只是别人在这领域研究下的功夫给你多!别给自己找太多借口。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　</p><center style="color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;"><img src="../../ueditor/php/upload/image/20161031/1477894775133755.png" tppabs="http://www.imscw.com/ueditor/php/upload/image/20161031/1477894775133755.png" border="0" width="600" alt="0000000000" height="297" style="border: 0px; max-width: 100%; height: 297px;"/></center><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">&nbsp;</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　6、思路回顾</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　测试-----遇到问题-----解决问题-----通过-----批量放大!一个号发包1块，100条信息，一台电脑7个模拟，一个模拟器跑10个号/天，100*7*10=7000条/台，作者数学不好是体育老师教的，流量多少可以自己算。(电脑配置N卡机，不要AMD卡机)</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　思路适用很多平台，思路是死的，人是活的，重在思维、执行力。</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　7、总结</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　本文只是分享自己引流方面的思路，今晚QQ分享，有时间会再分享别的渠道引流、裂变思路!不作项目解答，流量有了至于不会变现?那引流也是没什么意义的，可能有些人会问，上面的成本看起来可不少啊?小有小闹，大有大玩，看自己...!</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　有人问:为什么分享出来?因为我知道分享出来也极少数人去操作，操作了遇到问题不是想着去解决,而是心里找千百个理由说服安慰自己放弃...，毕竟是免费的心里不痛!</p><p style="margin-top: 0px; margin-bottom: 0px; padding: 0px 0px 17px; outline: none; line-height: 30px; word-wrap: break-word; word-break: normal; color: rgb(34, 34, 34); font-family: tahoma, arial, &#39;Microsoft YaHei&#39;; white-space: normal;">　　最后：没有执行力，这一切都是纸上谈兵，专注才是王道!好了，今天就分享到这里，如果还没过瘾的可以随时挑逗呆萌的作者哦。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

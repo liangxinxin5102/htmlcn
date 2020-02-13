@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen">研究</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">除了流量，互联网如何重构中国电影？</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2017-01-12　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/2941.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/2941.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">“你们今天都得来，我等着你们。”康利给《驴得水》的导演和开心麻花团队下了最后通牒。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　在媒体提前看片会后，猫眼影业总经理康利组了一次饭局。天色已晚，商场都关门了，他在万达广场旁边的一个日本料理店等着忙碌的电影人陆续落座，大概夜里1点，人凑齐了。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　“《驴得水》需要改档。”康利的一句话让在座的不少人放下了筷子。电影《驴得水》本计划在10月20日上映，包括导演、演员、宣传在内的一众人等忙得不可开交。他们瞪着眼睛，眼神里充满了疑问。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　康利拿出了一系列数据，这些基于消费者行为的大数据陈述了一个事实，如果在那个档期上的话，首日票房肯定达不到往期的底线要求。“我们要加路演，加看片，加物料，但是加这些东西是需要时间的，所以我要往后延。”康利告诉腾讯科技，经过一番争执，大家还是被数据说服。开心麻花CEO刘洪涛(微博)在随后10月11日传媒大学提前点映场里宣布改档消息。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　这是康利的胜利，也是互联网数据的胜利。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　在刚刚过去的2016年，过了猛涨期的中国电影票房仍有3.73%的小幅增长，达457亿元。如同入侵其他产业一样，互联网也在电影业大展拳脚。博纳影业总裁于冬的一句“电影公司都将为BAT打工”曾深深触动传统电影人敏感的神经。但最近于冬也提出了互联网势力的新趋势：互联网公司经过两年多的冲刷，势头已经减弱。它们更想渗透到电影产业中去，而不是仅仅拿到所谓的大数据和流量。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　</p><center style="color: rgb(51, 51, 51); font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; font-size: 14px; white-space: normal;"><img alt="深度 " height="590" src="../../../img1.gtimg.com/tech/pics/hv1/71/215/2177/141614321.jpg" tppabs="http://img1.gtimg.com/tech/pics/hv1/71/215/2177/141614321.jpg" width="500" style="vertical-align: middle; border: none;" p="" intellectual="" center="" img=""/></center><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">&nbsp;</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　清华大学《2016中国IP产业报告》显示，2016年中国影视市场已有近两百个国内IP项目列入开发计划，其中一些影视公司所公布的片单，甚至100%都是IP项目，而在榜单中网络小说为61部，占比61%，传统小说为29部，占比29%。而在抢占IP的战争中，互联网公司有着绝对的优势。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　百度整合旗下“纵横中文网”、“91熊猫看书”、“百度书城”等子品牌成立百度文学;阿里巴巴则整合了淘宝阅读、UC书城、书旗小说等渠道能力，成立阿里文学;而随着腾讯文学与盛大文学的整合，腾讯在网络文学市场呈现出阅文集团一家独大的局面。目前，阅文旗下拥有约400万名作者，拥有约1000万部作品。这都是其影业公司获得IP的最直接渠道。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　而互联网公司手中的游戏IP更是不可多得的资源。全球3.36亿美元票房的《波斯王子：时之刃》、2.96亿美元票房的《生化危机4:战神再生》、2.75亿美元票房的《古墓丽影》都是游戏改编电影。从2016年《魔兽》电影的大卖就能看出游戏IP的力量。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　</p><center style="color: rgb(51, 51, 51); font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; font-size: 14px; white-space: normal;"><img alt="深度 " height="396" src="../../../img1.gtimg.com/tech/pics/hv1/57/215/2177/141614307.jpg" tppabs="http://img1.gtimg.com/tech/pics/hv1/57/215/2177/141614307.jpg" width="500" style="vertical-align: middle; border: none;" p="" align="center" center="" img=""/></center><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">&nbsp;</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　而更让人意想不到的是，乐视影业竟然在《小时代》这样的招牌项目上出现过欠款情况。2016年11月，乐视陷入资金压力的泥沼，《小时代》出品方和力辰光的财报暴露了乐视的问题。从2014年起，乐视就是和力辰光最大的客户。和力辰光2015年的应收账款中，前两大客户是乐视网和乐视影业，账面金额分别为4514.00万元和3039.56万元，合计7553.56万元，占应收款余额的比例为54.5%。而和力辰光2016年的半年报应收账款项目中已不见乐视网的身影，而是变为西藏乐视网信息技术有限公司和乐视影业共计近9000万的应收账款，占应收账款余额的比例达到82.89%。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　和力辰光董秘翁志超回应，涉及乐视影业的应收账款2996.85万元为《小时代4：灵魂尽头》的应收款，已于2016年7月全部收回对应应分账款;涉及西藏乐视网信息技术有限公司的应收账款5990万元对应5部电视剧的信息网络版权运营收入，对应合同的部分款项于10月收回。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　</p><center style="color: rgb(51, 51, 51); font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; font-size: 14px; white-space: normal;"><img alt="深度 " height="468" src="../../../img1.gtimg.com/tech/pics/hv1/231/166/2177/141601986.jpeg" tppabs="http://img1.gtimg.com/tech/pics/hv1/231/166/2177/141601986.jpeg" width="640" style="vertical-align: middle; border: none; height: 337px; width: 489px;" p="" align="center" center="" img=""/></center><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">&nbsp;</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　除了票房占有率，业界把乐视影业归为“五大”的原因恐怕还有它的“传统属性”。虽然乐视影业每年都会强调自己是一家互联网时代的电影公司，要与乐视“生态化反”，但腾讯科技采访到多位影视行业人士，他们都认为乐视影业和其他互联网影业有很大区别，乐视影业更像是传统电影公司。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　乐视影业CEO张昭之前是光线影业的总裁，加盟乐视后，他显然把光线的传统做法搬了过来。2014年，张昭曾在采访中表示当时乐视影业的地推团队已有300人，整体人员配比中，线下占到50%。乐视影业的确很擅长地推、路演等传统电影宣传手段：在《敢死队》2上映期间组织“英雄主义代代相传”的活动，印了很多刺青贴纸;在《熊出没》上映期间，乐视组织了5000名线下志愿者在电影院扮演“熊”和“光头强”。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　从传统电影公司挖人的互联网影业还有阿里影业，原CEO张强在加盟之前是中影集团副总经理。他的到来帮助阿里影业迅速建立起一家电影公司该有的框架。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　越来越多的互联网影视公司意识到，电影产业不是互联网可以轻易颠覆的。“在互联网和其他行业结合的情况中，电影产业是相对困难的。”猫眼影业总经理康利告诉腾讯科技：“内容创意产业本质上不是效率制胜。互联网在很多领域能解决信息不对称的问题，在电影行业，效率很重要，但效率不是第一。”他向腾讯科技坦言，猫眼电影有30%的员工来源于传统影视公司，这个比例在电影投资业务里更高。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　不光是猫眼，脱胎于“微信电影票”的“娱票儿”、阿里影业淘票票等票务平台都在原有线上营销体系之外建立起传统套路的宣发能力。猫眼发行的《大闹天竺》已经跑了三十多场线下路演，在和腾讯科技谈话结束后，他还将启程去给这部电影的导演王宝强加油打气。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　显然，互联网公司们虽然还在躬身摸索，但他们已然不满足于大数据和流量所带来的成就感了：他们更想渗透到电影产业中去。在线选座购票平台从操作的便利性、效果的反馈上都显现出比传统线下发行更大的优势。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　这是互联网渠道在发行上独家卖点，但在线票务平台本身的利润实在微乎其微。一位不愿透露姓名的票务网站工作人员告诉腾讯科技：一张30元的电影票，在不做补贴的情况下，其中27元归院线，1元给售票系统公司，还有大约1.6元是给用户发送购票信息、维护取票机等成本费用，一笔账算下来，真正归到在线购票平台的利润不超过4毛。他还向腾讯科技透露，目前几家大的电影购票平台都不愿意补贴了，盈利成了他们的首要任务。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　这使得互联网公司不得不向产业链上下游需求新盈利点：立足于平台用户的积累，他们在发行领域还有更多的想象空间，从而在票房分成中直接获益。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　首先，互联网发行方可以通过自己平台上的数据对影片做出预判，从而制定出更加恰当的宣发策略。《驴得水》的改档就是这一优势的体现。百度CEO李彦宏也在公开场合提出数据对于影片的作用：人工智能当中的用户画像技术将电影《魔兽》观众分类，电影可以根据分类精心设计推广方案。“他们原本认为能把票房提升百分之十几就已经很满意了，但实际的效果确实提升了200%。”李彦宏说。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　其次，在线平台对于线下影院的影响力越来越大。之前，在线选座平台可以通过“票补”的方式锁定一些场次，保证院线的利益。在补贴减少的现在，他们则通过数据去倒闭排片——分析用户历史消费数据，为影院提供排片建议，使其通过预售情况去调整排片。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　“电影发行的最终目的不就是尽可能多地让一部影片被放进电影院的排片表中吗，中国电影院线比较分散，目前没有任何一家国内院线拥有像AMC、Regal、Cinemark那样的控制力，但在线选座可以。2015年票房过400亿，其中在线平台卖出去的占了70%。”一位发行行业人士告诉腾讯科技。“这也是为什么《小时代》前三部发行都是乐视影业主导，到了第四部发行方里出现了淘宝电影的名字。”淘宝电影提前20天为《小时代4》预售电影票兑换码，提前10天推出在线选座，当时淘宝电影宣称已与800多家影院合作锁定首映日5000万票房，刺激首日排片达46%。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　</p><center style="color: rgb(51, 51, 51); font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; font-size: 14px; white-space: normal;"><img alt="深度 " height="497" src="../../../img1.gtimg.com/tech/pics/hv1/224/215/2177/141614474.jpg" tppabs="http://img1.gtimg.com/tech/pics/hv1/224/215/2177/141614474.jpg" width="500" style="vertical-align: middle; border: none;" p="" center="" img=""/></center><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">&nbsp;</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　2016年几乎所有重要的片子都附带着保底协议。但除了微影时代，我们没能在“保底”大战中看见其他互联网基因的公司。“一部片子的保底多少都得上亿，刚打完票补战的互联网公司可烧不起那个钱。”曾接触多个保底项目的行业人士告诉腾讯科技：“你看，今年的这些保底，《致青春2》4亿、《夏有乔木雅望天堂》4亿、《绝地逃亡》10亿，《封神传奇》10亿，都是动辄上亿的风险。而且事实证明这几部片子的保底都失败了，互联网公司敢冒这个险吗?”</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　这方面，微影时代算是例外，今年的《火锅英雄》、《致青春2》、《盗墓笔记》、《铁道飞虎》都有微影保底的身影。“我越来越清晰地认识到， 保底是发行环节的一次资源的优化配置，是一种非常正常的市场行为。某种程度上，这与海外电影市场的预售制度，有异曲同工之处。”微影时代CEO林宁在接受媒体采访时表示：“我们今年融了几十亿，钱这方面，完全不用担心。”</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　不过，中国特色的保底正在偏离航线，互联网公司的缺席或许是“躲过一劫”。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　在好莱坞，大的电影公司一方面自己主投主控自己开发的超级大片，另一方面从独立的小制片公司购买影片发行权来扩展自己的投资组合(negative pick-up)。也就是说，好莱坞的保底项目通常是中低成本的小片，在中国，保底的却有很多大项目，例如华谊的《我不是潘金莲》。虽然保底成功带给发行方的诱惑非常大，但国内大部分保底的宣发费用都是发行方垫付，压力也全都堆在了发行方身上。对于这样的模式，大部分互联网公司是不愿意参与的。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　当《铁道飞虎》票房达到10亿时，微影从该片累计获得的发行收入将会超过1亿元</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　在2016年，我们看到光线与360的分手，阿里影业任命互联网人俞永福(微博)为CEO，原CEO张强向其汇报，电影《叶问3》深陷金融诈骗……而在未来，电影行业仍将出现互联网与传统势力的分分合合。</p><p style="padding: 0px 0px 15px; margin-top: 0px; margin-bottom: 0px; word-wrap: break-word; font-size: 14px; line-height: 24px; color: rgb(51, 51, 51); width: 655px; font-family: 宋体, &#39;Arial Narrow&#39;, arial, serif; white-space: normal;">　　互联网与电影，不再是谁给谁打工的关系，而是相互渗透、相互学习，利用自身的优势去尽可能地占据资源，再用占据的资源去弥补短板。在两种思路的共同作用下，中国电影或许能走得更远。</p><p><br/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="../renwu/1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="../renwu/1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+     <a href="../../Index/Article/index/id/2013.htm" tppabs="http://www.imscw.com/Index/Article/index/id/2013"><font color="#FFFFFF">产品介绍</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+<a id='___szfw_logo___' href="javascript:if(confirm('https://credit.szfw.org/CX12232016016082360532.html  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��һ��ʹ��δ֧��Э��ĵ�ַ(����: gopher)��  \n\n����Ҫ�ӷ�����������?'))window.location='https://credit.szfw.org/CX12232016016082360532.html'" tppabs="https://credit.szfw.org/CX12232016016082360532.html" target='_blank'><img src="../../../icon.szfw.org/longtou.png" tppabs="http://icon.szfw.org/longtou.png" border='0' /></a>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>

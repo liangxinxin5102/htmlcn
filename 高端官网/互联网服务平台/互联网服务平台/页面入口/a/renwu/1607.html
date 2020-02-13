@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imsc互联网+网络服务平台官网</title>
+<meta name="keywords" content="imsc互联网+网络服务平台官网">
+<meta name="description" content="imsc互联网+网络服务平台官网
+新闻 政策 数据 文件 合作查询">
+<link href="../../App/Modules/Index/Public/css/1.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/1.css" rel="stylesheet" />
+<link href="../../App/Modules/Index/Public/css/banner.css" tppabs="http://www.imscw.com/App/Modules/Index/Public/css/banner.css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery-1.8.0.min.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/jquery.jslides.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/jquery.jslides.js"></script>
+<script src="../../App/Modules/Index/Public/js/banner.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/banner.js" type="text/javascript"></script>
+<script src="../../App/Modules/Index/Public/js/tab.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/tab.js" type="text/javascript"></script>
+</head>
+<body >
+
+
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"></a>
+
+<style>
+        .three-d {
+          /* 任务三、设置3D舞台布景 */
+          -webkit-perspective: 200px;
+          -moz-perspective: 200px;
+          -ms-perspective: 200px;
+          -o-perspective: 200px;
+          perspective: 200px;
+          /*任务四、设置3D舞台布景过渡效果*/
+          -webkit-transition: all .07s linear;
+          -moz-transition: all .07s linear;
+          -ms-transition: all .07s linear;
+          -o-transition: all .07s linear;
+          transition:all .7s linear;
+          position: relative;
+        }
+        
+        .three-d:not(.active):hover {
+          cursor: pointer;
+        }
+        
+        /*任务五、给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+        .three-d:not(.active):hover .three-d-box, 
+        .three-d:not(.active):focus .three-d-box {
+        -wekbit-transform: translateZ(-25px) rotateX(90deg);
+        -moz-transform: translateZ(-25px) rotateX(90deg);
+        -o-transform: translateZ(-25px) rotateX(90deg);
+        -ms-transform: translateZ(-25px) rotateX(90deg);
+        transform: translateZ(-25px) rotateX(90deg);
+    /*    -webkit-transform:rotateX(90deg) translatez(-25px);*/
+       /*   -webkit-transform:rotatex(90deg);*/
+        }
+       
+        .three-d-box {
+          /*任务六、给3D舞台中“.three-d-box”设置过渡与变形效果*/
+          -webkit-transition: all .3s ease-out;
+          -moz-transition: all .3s ease-out;
+          -ms-transition: all .3s ease-out;
+          -o-transition: all .3s ease-out;  
+          transition: all .3s ease-out;
+          -webkit-transform: translatez(-25px);
+          -moz-transform: translatez(-25px);
+          -ms-transform: translatez(-25px);
+          -o-transform: translatez(-25px);
+          transform: translatez(-25px);
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -ms-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+
+        }
+        
+        /*任务七、给导航设置3D前，与3D后变形效果*/
+        .front {
+            -webkit-transform: rotatex(0deg) translatez(25px);
+            -moz-transform: rotatex(0deg) translatez(25px);
+            -ms-transform: rotatex(0deg) translatez(25px);
+            -o-transform: rotatex(0deg) translatez(25px);
+            transform: rotatex(0deg) translatez(25px);
+         }
+        
+        .back {
+          -webkit-transform: rotatex(-90deg) translatez(25px);
+          -moz-transform: rotatex(-90deg) translatez(25px);
+          -ms-transform: rotatex(-90deg) translatez(25px);
+          -o-transform: rotatex(-90deg) translatez(25px);
+          transform: rotatex(-90deg) translatez(25px);
+          color: #FFE7C4; 
+        }
+        
+        .front, .back {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        
+          color: white;
+          -webkit-pointer-events: none;
+          -moz-pointer-events: none;
+          -ms-pointer-events: none;
+          -o-pointer-events: none;
+          pointer-events: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        /*任务八、设置导航当前状态与悬浮状态下的背景效果*/
+        .nav_list_li li .active .front,
+        .nav_list_li li .active .back,
+        .nav_list_li li a:hover .front,
+        .nav_list_li li a:hover .back {
+             background-color: #909090;
+             -webkit-background-size: 5px 5px;
+             background-size: 5px 5px;
+             background-position: 0 0, 30px 30px;
+             background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+             background-image: linear-gradient(45deg, #8A8A8A 25%, transparent 25%, transparent 75%, #818181 75%, #939393), linear-gradient(45deg, #7E7E7E 25%, transparent 25%, transparent 75%, #A1A1A1 75%, #7E7E7E);
+        }
+        .nav_list_li ul {
+          position: absolute;
+          text-align: left;
+          line-height: 40px;
+          font-size: 14px;
+          width: 200px;
+          -webkit-transition: all 0.3s ease-in;
+          -moz-transition: all 0.3s ease-in;
+          -ms-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in;
+          -webkit-transform-origin: 0px 0px;
+          -moz-transform-origin: 0px 0px;
+          -ms-transform-origin: 0px 0px;
+          -o-transform-origin: 0px 0px;
+          transform-origin: 0px 0px;
+          -webkit-transform: rotateX(-90deg);
+          -moz-transform: rotateX(-90deg);
+          -ms-transform: rotateX(-90deg);
+          -o-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+          -webkit-backface-visibility: hidden;
+          -moz-backface-visibility: hidden;
+          -ms-backface-visibility: hidden;
+          -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+        /*任务九、显示下拉导航菜单，并其设置一个变形效果*/
+        .nav_list_li > li:hover ul {
+/*          display: block;*/
+           -webkit-transform: rotateX(0deg);
+           -moz-transform: rotateX(0deg);
+           -ms-transform: rotateX(0deg);
+           -o-transform: rotateX(0deg);
+           transform: rotateX(0deg);
+         }
+  </style>
+<div class="top">
+<div class="t1">
+	<div class="t1_cont">
+		欢迎访问  imsc互联网+网络服务平台官网！电话：4008006818
+		<span><a href="">首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="">加入收藏</a></span>
+	</div>
+</div>
+<div class="t12">
+	<a href=""><img src="../../App/Modules/Index/Public/image/logo.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/logo.png" alt="" /></a>
+	<div class="t12_right">
+		<span>互联网+</span><span>知识社会</span><span>互联网思维</span>
+		<p>为改革、创新、发展提供广阔的网络平台</p>
+	</div>
+</div>
+<div class="top_nav">
+	<div class="nav_list">
+
+		<ul class="nav_list_li">
+			<li><a href="../../index.htm" tppabs="http://www.imscw.com/" class="three-d nav_a">网站首页
+				<span class="three-d-box"><span class="front">网站首页</span><span class="back">网站首页</span></span>
+			</a></li>
+
+			<li>		<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin/" class="three-d nav_a">新闻中心
+				<span class="three-d-box"><span class="front">新闻中心</span><span class="back">新闻中心</span></span>
+			</a></li>
+				
+			<li>		<a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce/" class="three-d nav_a">政策法规
+				<span class="three-d-box"><span class="front">政策法规</span><span class="back">政策法规</span></span>
+			</a></li>
+			
+			<li>		<a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju/" class="three-d nav_a">数据报告
+				<span class="three-d-box"><span class="front">数据报告</span><span class="back">数据报告</span></span>
+			</a></li>
+			
+			<li>		<a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian/" class="three-d nav_a">相关文件
+				<span class="three-d-box"><span class="front">相关文件</span><span class="back">相关文件</span></span>
+			</a></li>
+			
+			<li>		<a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei/" class="three-d nav_a">成功案例
+				<span class="three-d-box"><span class="front">成功案例</span><span class="back">成功案例</span></span>
+			</a></li>
+			
+			<li><a href="../zhengce/1573.html" tppabs="http://www.imscw.com/a/zhengce/1573.html" class="three-d nav_a">服务中心
+				<span class="three-d-box"><span class="front">服务中心</span><span class="back">服务中心</span></span>
+			</a></li>
+			
+			<li>		<a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin/" class="three-d nav_a">网络中心
+				<span class="three-d-box"><span class="front">网络中心</span><span class="back">网络中心</span></span>
+			</a></li>
+			
+			<li><a href="../../index.php/search/index.html" tppabs="http://www.imscw.com/index.php/search/index.html" class="three-d nav_a">合作查询
+				<span class="three-d-box"><span class="front">合作查询</span><span class="back">合作查询</span></span>
+			</a></li>
+			
+			<li><a href="javascript:if(confirm('http://www.eswpt.net/index.shtml  \n\n���ļ�δ�� Teleport Pro ���أ���Ϊ ��λ����ʼ��ַ�����õı߽���������·���С�  \n\n����Ҫ�ӷ�����������?'))window.location='http://www.eswpt.net/index.shtml'" tppabs="http://www.eswpt.net/index.shtml" class="three-d nav_a">电商平台
+				<span class="three-d-box"><span class="front">电商平台</span><span class="back">电商平台</span></span>
+			</a></li>
+			
+		</ul>
+	</div>
+
+</div>
+
+</div>
+
+<div id="full-screen-slider">
+	<ul id="slides">
+    <li style="z-index: 900; display: block; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner3.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner2.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+    <li style="z-index: 900; display: none; background: url(http://www.imscw.com/App/Modules/Index/Public/image/banner1.jpg) 50% 0% no-repeat;"><a href="../../index.htm" tppabs="http://www.imscw.com/"></a></li>
+  
+</ul>
+</div>
+
+<script type="text/javascript" src="../../App/Modules/Index/Public/js/koala.min.1.5.js" tppabs="http://www.imscw.com/App/Modules/Index/Public/js/koala.min.1.5.js"></script>
+
+<script type="text/javascript">
+//js无缝滚动代码
+function marquee(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+	if (direction == "up"){
+		if (obj2.offsetTop - obj.scrollTop <= 0){
+			obj.scrollTop -= (obj1.offsetHeight + 20);
+		}else{
+			var tmp = obj.scrollTop;
+			obj.scrollTop++;
+			if (obj.scrollTop == tmp){
+				obj.scrollTop = 1;
+			}
+		}
+	}else{
+		if (obj2.offsetWidth - obj.scrollLeft <= 0){
+			obj.scrollLeft -= obj1.offsetWidth;
+		}else{
+			obj.scrollLeft++;
+		}
+	}
+}
+
+function marqueeStart(i, direction){
+	var obj = document.getElementById("marquee" + i);
+	var obj1 = document.getElementById("marquee" + i + "_1");
+	var obj2 = document.getElementById("marquee" + i + "_2");
+
+	obj2.innerHTML = obj1.innerHTML;
+	var marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	obj.onmouseover = function(){
+		window.clearInterval(marqueeVar);
+	}
+	obj.onmouseout = function(){
+		marqueeVar = window.setInterval("marquee("+ i +", '"+ direction +"')", 20);
+	}
+}
+</script>
+
+
+
+
+<div class="main4">
+<div style="width:1050px; margin-left:auto;margin-right:auto;" align="left" >
+您当前位置： <a href="../../index.htm" tppabs="http://www.imscw.com/">首页</a> » <a  class="origin" href="index.htm" tppabs="http://www.imscw.com/a/renwu">人物</a> 
+</div>
+
+<div class="main3">
+
+<div class="zhengwen" style="width:1000px; margin-left:24px;"><br />
+<center><font size="+2">一文读懂马化腾、马云、李彦宏的最新演讲</font><br /></center>
+<span>
+ <center>imsc互联网+网络服务平台官网&nbsp;&nbsp;&nbsp;&nbsp;　时间：2016-06-27　&nbsp;&nbsp;&nbsp;&nbsp;点击：<script src="../../index.php/article/visits/aid/1607.html" tppabs="http://www.imscw.com/index.php/article/visits/aid/1607.html"></script>次<br /> 
+ 
+ </center>
+ 
+ <div class="xian" style="width:100%;"></div>
+	<span style="line-height:1.5;"><br /></span> 
+	<p style="text-align: left;">在短短一周内，作为领军中国互联网经济的第一阵营，BAT都已就行业形势的变化，给出了各自的答案与回应。</p><p style="text-align: left;">6月16日，中国&quot;互联网+&quot;峰会在北京召开，腾讯公司董事会主席兼首席执行官马化腾在会上发表主题演讲。</p><p style="text-align: left;">在此之前，百度董事长兼CEO李彦宏和阿里巴巴董事局主席马云，已分别在于6月8日的百度联盟峰会，和6月14日的阿里巴巴投资者日大会上，对外深入阐述了各自的产业理解与企业战略。</p><p style="text-align: left;">此前，伴随中国市场增长红利渐尽，市场不断接近增长天花板，与传统产业之间的融合进入深水期，各种社会问题不断涌现，包括BAT在内的中国互联网企业，都已需要直面一个新的政策与市场环境，甚至应以转型。</p><p style="text-align: left;">在新的形势下，他们有怎样的判断？在做怎样的谋算？</p><p style="text-align: left;"><strong>1</strong></p><p style="text-align: left;"><strong>首先必须强调的是，马化腾、马云和李彦宏讲话的场景不同，对他们的话题和内容都有影响。所以此次演讲，并不能完整体现他们各自的理解与布局。</strong></p><p style="text-align: left;">比如，马化腾的发言场合，是腾讯研究院发布《中国&quot;互联网+&quot;指数（2016）报告》的主题峰会，所以集中在讲&quot;互联网+&quot;。</p><p style="text-align: left;">而李彦宏和马云的演讲，一个是面对几百家合作伙伴，一个是面对几百个投资人和分析师，所以李彦宏会讲更多的行业趋势，马云则费了更多的口水，来说服投资人继续买自家股票。</p><p style="text-align: left;">尽管如此，这三场演讲依然非常重要，不能简单而视。</p><p style="text-align: left;">比如，由于与腾讯战略的高度契合，&quot;互联网+&quot;一直受到马化腾的高度重视，此次峰会是他较为少见亲自出席并发言的腾讯对外活动。</p><p style="text-align: left;">据透露，正是因为马化腾的强力推动与协调，腾讯今年甚至首次拿出包括微信、QQ、应用宝、财付通等腾讯业务的全样本数据，结合京东、新美大、携程艺龙、滴滴等公司的全样本数据，用于报告的制定与研究。其中，仅腾讯拿出的数据规模，就达到万亿级的阅读点击、千亿级的视频点击，和百亿级的交易。</p><p style="text-align: left;">百度联盟峰会则是百度每年雷打不动的两个官方核心会议之一，每年李彦宏在会上的发言，都代表了他最新、最重要的产业理解与战略思路。</p><p style="text-align: left;">而阿里巴巴的此次大会，更是2014年9月IPO以后，阿里高管层第一次的集体亮相。用阿里巴巴的官方口径来说，是它向全球投资者全景式展现变革后的&quot;2.0版阿里巴巴&quot;的重磅会议。</p><p style="text-align: left;"><strong>2</strong></p><p style="text-align: left;"><strong>三位领军者的个人风格，在他们的演讲中都得到集中体现。</strong></p><p style="text-align: left;">曾经有人说，如果把三人做对比，李彦宏更像程序员，马化腾更像产品经理，马云更像老师，这次也是如此。</p><p style="text-align: left;">李彦宏的演讲主题是《下一幕，人工智能》，核心是技术趋势，内容纯粹，聚焦，更像是一场TED秀。</p><p style="text-align: left;">他说，人工智能即将迎来井喷式创新，并推动互联网进入新时代，并展示了百度在语音识别、语音合成、图像识别、无人汽车等领域的案例。虽然也有谈及对国家政策和市场形势的理解，但都是一笔带过，大部分时间集中在讲人工智能的发展、趋势与进展。</p><p style="text-align: left;">马化腾的演讲主题是《互联网+时代的连接升级》，核心是产业环境，内容清晰，完整，有条理。</p><p style="text-align: left;">他说，互联网是各行各业都需要积极拥抱的能源，并已在通信、金融、零售、O2O、交通等领域引发巨大变化。虽然变化带来了很多新问题，挑战很大，但应该给&quot;互联网+&quot;更多时间与机会。在这个大环境下，腾讯的定位很清晰，就是做&quot;连接器&quot;。</p><p style="text-align: left;">马云的演讲没有给出明确的主题，核心是企业战略；内容激昂，强势，具有感染力和煸动力。</p><p style="text-align: left;">他说，阿里巴巴已经布局未来5~10年的生意，2020年将实现6万亿的交易规模，并将构建一个&quot;数据阿里&quot;，帮助公众解决更多的社会问题。他同时表示，阿里巴巴一直在与假货做斗争，是全球领先的打假公司。</p><p style="text-align: left;"><strong>3</strong></p><p style="text-align: left;"><strong>无论选择怎样的方向，BAT都正面临一个同样的现实：互联网的发展已经放缓。</strong></p><p style="text-align: left;">如同李彦宏所说，无论是PC互联网还是移动互联网，人口的红利已经没有了，&quot;所以我们一定要思考，互联靠什么来保持它的持续，高度增长？&quot;</p><p style="text-align: left;">不过，只有李彦宏最老实，把这个焦虑直接讲了出来。</p><p style="text-align: left;">他的推理逻辑，是&quot;我担心什么，所以我要做什么&quot;；而马化腾和马云回避了&quot;我担心什么&quot;，重点告诉大家，&quot;你们需要什么，所以我要做什么&quot;。</p><p style="text-align: left;">当然，马化腾也提出了另一个问题，就是互联网与传统产业融合带来的改变，正产生接踵而来的社会问题，对此应该如何处理？</p><p style="text-align: left;">但他同时也用跟李克强总理的对话来暗示，政府、社会与相关行业，更应该着眼长远，给创新一些缓冲时间，逐步发现和解决&quot;发展中的问题&quot;。</p><p style="text-align: left;">马云则再次秀了一把擅长的现场掌控力。无论是阿里的商业模式，交易规模的持续增长前景、大数据未来的盈利模式，还是投资人关心的其他问题，他都通过引用以前的担心与过去的成绩来做类比，以证明自身的战略正确性。</p><p style="text-align: left;">大体可以用一句话来概括：我10年前吹过一个牛B，你们看不懂，但我实现了。今天我再给你吹一个10年后的牛B，你们多半还是看不懂，不过没关系，只要相信我能实现它，就行了。</p><p style="text-align: left;">即使是外界最关心，上月还因国际打假联盟（IACC）事件引发汹涌舆论的假货问题，他也以&quot;我一直在做&quot;，&quot;这个问题普遍存在&quot;，&quot;我比大家都做得好&quot;，&quot;我们没买也没卖，只是监督员&quot;的逻辑推论带过，并以&quot;全球领先的打假公司&quot;来为阿里巴巴做了盖棺定论。</p><p style="text-align: left;">与之相比，近期同样面对舆论风波的李彦宏，却并未就商业模式与企业责任问题，给出正面回应，甚至在整场演讲中，都没有一个字提及百度的价值观与社会责任。</p><p style="text-align: left;">虽然从流程来看，百度的其他高管有在同一个会上，对这个问题进行表态，但这依然是不妥当的——在此之前，外界曾普遍认为，李彦宏会在联盟峰会上，就这个外界高度关心的问题公开释疑。</p><p style="text-align: left;">毕竟，掌舵者的态度，永远决定着一家公司的战略重心，而百度当前最值得思考，并应该对外讲述的问题，不是未来要做什么，能做什么，而是应该做什么。</p><p style="text-align: left;">至少，应该让外界更清楚地看到它的态度与思考。</p><p style="text-align: left;"><strong>4</strong></p><p style="text-align: left;"><strong>面对形势变化，BAT各自如何布局未来？</strong></p><p style="text-align: left;">三家形势判断的共同点，是认同大数据的重要性。马云甚至将数据与流量类比，表示它已经成为未来互联网公司最核心的基础。</p><p style="text-align: left;">问题在于，数据如何应用，乃至如何变现？</p><p style="text-align: left;">在李彦宏看来，驱动数据价值实现，乃至互联网新阶段发展的核心动能，将是人工智能。这也是过去半年来，他反复对外传递的核心观点。</p><p style="text-align: left;">这并无问题。不过，在&quot;人工智能+大数据&quot;的基石上，百度依然需要进一步明确，除了一个更强大的搜索平台，还要构建哪些核心业务场景？又怎样通过人工智能，化解自家受外界诟病的商业模式问题？</p><p style="text-align: left;">马化腾的思路，是以&quot;互联网+&quot;的形式，拥抱传统行业，实现传统经济与新经济的共振和协同发展。</p><p style="text-align: left;">在此过程中，腾讯的思路是承担连接器的&quot;基础功能&quot;，通过云服务、地理位置信息、网络安全等基础组件，实现服务和用户的连接。不过，对于互联网自身如何保持发展动力，他并未给出答案。</p><p style="text-align: left;">而马云的思路，相对阐述更多一些。</p><p style="text-align: left;">一是继续扩大用户规模，做大交易量。城市到顶了，就发展农村；中国到顶了，就发展海外。未来阿里巴巴的海外用户甚至会超过中国本土--马云甚至给出了一个明确的数据：全球20亿，其中中国8~10亿。</p><p style="text-align: left;">当然，这个数字我们现在听听就好，别当真。因为马云预期的时间点，是2036年……</p><p style="text-align: left;">二是发展云和数据，做&quot;数据阿里&quot;，&quot;我们要做的不是GMV公司，而是数据公司&quot;。当然，关于如何用数据挣钱，马云说，现在我也不知道。</p><p style="text-align: left;">三是拓展更多领域，比如电商、物流、金融、数据计算等商业基础设施。</p><p style="text-align: left;">四是double H（Health and Happiness）。对这两个词，马云演讲里给出的翻译是&quot;健康和快乐&quot;，阿里官方的翻译，是&quot;基于数据技术的健康和数字娱乐业务&quot;。你猜，哪个解释更能代表阿里的业务边界呢？</p><p style="text-align: left;">最后，以我的浅薄理解，以上可以这样总结：百度要做更智能的搜索，腾讯要做更多的入口，阿里要做更多人的更多生意。</p><p style="text-align: left;">嗯，好眼熟。</p><p style="text-align: left;">最后，我们来看一下他们的演讲原文（我做了一些批注，在文中以 #批注内容# 标示，聊供一笑，切勿当真）。</p><p style="text-align: left;">【马云演讲全文】</p><p style="text-align: left;">每次我跟投资者对话，市场就会紧张。</p><p style="text-align: left;">我不是很擅长和投资者对话，但我很擅长跟企业家对话。Joe（蔡崇信）就像我的翻译，不停解释其实Jack是这个意思，所以我们公司决定我来专注于战略和方向，Joe负责和投资者沟通。</p><p style="text-align: left;">市场总拿阿里巴巴跟其他人比较：中国的Ebay、中国的亚马逊，我们很困惑，不知如何让外界了解阿里巴巴，好像每次解释都是在削足适履，来努力地适合别人的标准。</p><p style="text-align: left;">哈佛大学写了阿里巴巴的案例研究，但我觉得这不是阿里巴巴。</p><p style="text-align: left;">#潜台词：大家以为的阿里巴巴，与真实的阿里巴巴是有差异的#</p><p style="text-align: left;">1972年，尼克松访问杭州，我就在能够望见的距离外，杭州其实是第一个对外开放的城市。虽然我父母不认识ABC，但我喜欢学英语，虽然我的英语还不够好，但我喜欢理解别人，了解西方文化。我从少年开始学英语，学到了全新的视野。</p><p style="text-align: left;">1972年尼克松来了杭州，我一直好奇如果毛泽东去了美国会怎样？邓小平去了美国，启动了改革。</p><p style="text-align: left;">1995年我去了美国，第一次看到英特网，硅谷、西雅图、纽约，尝试理解美国人的思维、如何做生意，什么是企业社会责任、什么是价值。</p><p style="text-align: left;">#潜台词：阿里巴巴是一家理解英语世界思维的公司，有企业社会责任感和价值观的公司#</p><p style="text-align: left;">我们这个公司是一部活着的纪录片，从创业开始，我们几乎用视频记录了90%以上的内部会议、重要活动，我们可能是做视频记录最完整的公司。因为我们相信有一天阿里巴巴会成为全世界一个重要的样本，人们可以通过影像资料了解阿里巴巴。</p><p style="text-align: left;">#潜台词：放心，阿里有原始的历史记录，经得起追查，经得起检验#</p><p style="text-align: left;">从第一天起，我们就清楚我们的竞争对手不在中国，我们在跟全世界最聪明的人竞争。</p><p style="text-align: left;">#请记住这句话，后文有彩蛋#</p><p style="text-align: left;">中
+国人对美国的理解远远超过美国人对中国的理解，我们理解他们的公司、文化，但美国对中国知之甚少。我们了解美国前100家互联网公司，了解他们的商业模
+式，了解他们的CEO, 但是美国对中国的前100家互联网企业的了解程度呢？美国人觉得太复杂了，不想了解总有这个那个理由。</p><p style="text-align: left;">你可以用一句话解释阿里巴巴的商业模式吗？不，我做不到；</p><p style="text-align: left;">在美国有类比吗？不，没有；</p><p style="text-align: left;">你担忧股价吗？担心也不担心，我们在中国经营，但只有很少的海外投资者真正理解我们。</p><p style="text-align: left;">#潜台词：你们担心股价，是因为我今天吹的牛B，你们看不懂#</p><p style="text-align: left;">2003年，我们启动了淘宝，我们相信会赢，但没想到这么快，eBay只用了2、3年 就退出中国。因为他们有路可退，我们没有。</p><p style="text-align: left;">我10年前见沃尔玛高管，我说我们会超过你，他说你是一个有志向的年轻人（笑）。</p><p style="text-align: left;">#潜台词1：我10年前吹过的牛B，他也没看懂，但我实现了。#</p><p style="text-align: left;">#潜台词2：所以，我今天吹的牛B，你们可能也看不懂。不过没关系，你只需要相信，我会继续实现它，就行了#</p><p style="text-align: left;">2020年，我们会实现六万亿人民币的交易。</p><p style="text-align: left;">去年，我们的GMV（商品交易总额），如果按照GDP，相当于中国第六大省，如果幸运，我们也许在4年后就会成为中国第一大省，超过广东。</p><p style="text-align: left;">电子商务应该成为第五大虚拟经济实体，除了美国、中国、日本、德国。到年底，我们GMV会看齐瑞典GDP，相当于进入top20国家。</p><p style="text-align: left;">更重要的是，我们要创造1亿工作岗位，帮助1000万家盈利的企业，公司应该被愿景和使命驱动，每个公司都有使命，但很少有公司真正相信，但阿里巴巴，我们全身心地相信。在公司，问每一个员工，会发现他们发自内心地相信。</p><p style="text-align: left;">#潜台词：阿里的规模很牛逼，解决的就业规模更牛逼，这是我们承担的使命责任，创造的社会价值#</p><p style="text-align: left;">全球化--全球买全球卖，只要你有一个手机，你就可以自由买卖，你有一辆车，你可以随时分享经济；以前你的土豆只能卖给邻居，现在可以卖给全世界；你家屋顶的太阳能够为全世界供电。</p><p style="text-align: left;">我们有全球最大的零售平台，但我们不是零售公司，我们是一家数据公司，中国近14亿人，30%的人永远不会使用你的产品，所以我们最多可能有8～10亿用户。</p><p style="text-align: left;">预
+计到2036年，阿里巴巴用户达到20亿。我们需要其他12亿用户，需要来自全球的用户。全球化更像大公司的游戏，但发展中经济、小公司没有机会，我们希
+望支持全球80%的小公司，所以我们倡议建立eWTP（世界电子商务平台，不是EWTO，EWTO是个组织，是政府行为）。</p><p style="text-align: left;">#潜台词：未来阿里巴巴的海外用户规模将超过中国本土，阿里巴巴将成为一家真正国际化的公司--嗯，时间是20年以后……#</p><p style="text-align: left;">淘宝上30个省，我们从来不让30个省长坐在一起讨论决策，生态会自己发展，所以我们要做eWTP，用商业的模式改变世界，所以过去一个月，我有26天在路上。我相信10年以后，你们会喜欢eWTP的。</p><p style="text-align: left;">我访问全球，不是为了跟总统握手，而是要为5年后的事业做准备。我们对自己的承诺非常认真。很多公司在做今天的生意，我们在做未来5～10年的生意。</p><p style="text-align: left;">#别以为我只是在吹牛B，我是认真的，我会用5~10年时间实现它的！#</p><p style="text-align: left;">有人发展马来西亚、印度、印度尼西亚这些国家的海外战略。跟它们比起来，中国农村市场更重要，如果你不能帮助中国农村，你如何帮助这些国家。农村曾经非常艰难，没法在线买卖，但现在去杭州周围的农村逛逛，你会发现，电子商务在实实在在地改变生活。</p><p style="text-align: left;">#潜台词：虽然发展海外，但中国市场还是基础，不会丢掉的#</p><p style="text-align: left;">2009年，王坚（注：原阿里CTO、现阿里巴巴技术委员会主席）跟我讨论，你想过阿里巴巴10年后怎样吗？我说我们会这样、这样，王坚说那你想过服务器、数据库会花多少钱吗？我说小钱！结果一算，我们会破产。那时，我们决定做云。</p><p style="text-align: left;">7年前做这个决定非常痛苦，因为没有人知道云是什么，我们管这个叫 &quot;登月计划&quot;，王坚说应该叫 &quot;奔月计划，永不回头。&quot;（Moon Landing，Moon Forwarding）</p><p style="text-align: left;">那次的技术革新的争论，好像宗教之争，他们在我的办公室大吵，拍桌子，摔椅子，非常痛苦。10个DBA Oracle
+ ACE（注：Oracle 
+ACE计划，由Oracle公司官方认可和奖励，在Oracle技术社区中技术娴熟，愿意分享，有较大贡献的技术精英），7个为此离开了公司，非常痛心，
+因为他们认为我们在做的技术没人试过，会挂掉。但还好我不懂技术，我们坚持下来了，因为我坚信我们必须做成，而且我们如果做成，我们会帮助更多小企业。</p><p style="text-align: left;">#潜台词：我们真的好坚持，好努力！过程好痛苦！好困难！但我们就是要做，因为它好有意义！听完这样一个煽情故事，你们还不马上转身？#</p><p style="text-align: left;">6年前，我们就在一个会议上很郑重地对大家说，我们要做的不是GMV公司，而是数据公司。人们一直问我，你怎么挣钱？今天，我们也不知道如何用数据挣钱，但我们知道人们的生活将离不开数据。</p><p style="text-align: left;">沃尔玛为了销售，所以产生数据；但我们是为了数据才做电商、做物流。人们一直问我GMV，GMV不是我们所追求的目标。我们卖东西是因为我们希望获得数据，这和沃尔玛是不同的。</p><p style="text-align: left;">这就跟之前不断有人问我PV怎么赚钱一样，后来互联网点击率就变成了流行的考评企业指标，可这些都不是我们真正看中的。</p><p style="text-align: left;">#潜台词：数据能赚钱吗？我不知道，知道也不告诉你。反正跟当年的PV一样，下注买定离手不会错#</p><p style="text-align: left;">GMV
+永远都不应该是电商的标准，因为投资者要，我们就给了，结果就变成了标准。我们内心从来都知道GMV不是核心指标，商业的基础设施才是最核心的。如果你需
+要一个健康的商业基础设施，电商、物流、金融、数据计算、跨境五大元素不可或缺。现在很多政府找我们，希望得到这方面的帮助。</p><p style="text-align: left;">#潜台词：别只盯着GMV，蚂蚁金服、菜鸟、数据和跨境交易，才是阿里拉开竞争对手的核心竞争力#</p><p style="text-align: left;">很
+多人不理解我们，就像15年前，很少人了解我们一样。几乎每一年，我们都要和投资者争论，我的哲学是，每一年都要想10年后的业务发展。我们要做102
+年，we build to last（我们到最后）, 而不是像好多硅谷公司build to 
+sell（为了销售）。为了102年的目标，我们做什么事情，都有10年的长远计划。</p><p style="text-align: left;">#潜台词：如果你对阿里的布局看不懂，是因为我们看得比你远，比你长#</p><p style="text-align: left;">我有一天发现了雅虎的问题，一个工程师用28分钟向我们介绍这个产品如何盈利，这是有问题的，工程师要想如何用产品改善人的生活。在那里的董事会议，没有人做决定，因为没有对未来的方向。</p><p style="text-align: left;">淘宝、天猫、支付宝，我们不是为了今天而做的生意，任何互联网模式可能都不能繁荣三年，但在阿里巴巴，我们的业务已经形成矩阵，轮流上阵。</p><p style="text-align: left;">阿里让旗下每个业务板块轮流繁荣三年（而且一个业务还会回来继续繁荣）---这是一个circle，这样的持续繁荣最终能达到整体公司的繁荣。阿里云应该在2019年收获，菜鸟应该在2023年，因为这些是我们10年前种下的种子。</p><p style="text-align: left;">#我现在可以跟你打赌，马云不是外星人--他是从未来穿越回来的，不然为什么连哪一年，他都算得那么清楚？#</p><p style="text-align: left;">如果我有一个主意，我办公室90%的人都认为是个好主意，我会马上扔掉。因为你能看到这个机会，所有竞争对手都会认为这是机会，我们要做别人认为不可能的事情。</p><p style="text-align: left;">我的投资者曾说支付宝一定会赔钱，赶紧卖掉。但我们相信数据是未来，我们愿意听用户的声音，我们不想创造一个概念取悦投资者，我们要造福社会。</p><p style="text-align: left;">#嗯，费尽周折，支付宝终于拆出来了……#</p><p style="text-align: left;">成为第五大经济体听起来非常疯狂，但对我来说，我们比10年前更接近这个目标。</p><p style="text-align: left;">人们觉得我们无处不在，其实不是，我们专注在double H（Health and Happiness基于数据技术的健康和数字娱乐业务）。</p><p style="text-align: left;">#潜台词：嗯，放心，阿里的扩张是有边界的#</p><p style="text-align: left;">一个公司如何基业长青，如何永葆活力，我请教了很多人，我找到了答案：你必须解决社会问题，你解决越多的问题，你就有越大的发展。</p><p style="text-align: left;">这就是阿里巴巴的使命，我们致力于解决社会问题，我们在想10年后，什么会成为社会的问题，所以我们专注于double H。健康和快乐，14亿人口大国，中国的足球还踢不过马尔代夫，你敢相信吗？14亿，第二大经济体，没有体育。</p><p style="text-align: left;">#健康和快乐都是好生意，嗯，尤其是足球……#</p><p style="text-align: left;">我们有90%的员工小于28岁，但缺乏团队精神，因为他们是独生子女，如果从小加入体育运动，就会有团队精神。所以在阿里巴巴，团队精神是我们价值观之一。但在美国不是问题，因为从小的体育训练，给了他们团队精神。</p><p style="text-align: left;">你问一下中国的年轻人，有多少人看电视？很少，因为太难看，但那么多人在网上看视频，为什么？因为内容好。所以如果能让人开心，那就值得。</p><p style="text-align: left;">9年前我投资了华谊兄弟，我每个季度花2个小时给他们咨询，帮助他们转型。我告诉他10年后，这个产业会非常大，但绝不是今天的模式。今天我们投入很少的钱，10年后就会成为伟大的事业。</p><p style="text-align: left;">#按照这个10年前的预言，还剩1年，这个产业就会成为伟大的事业#</p><p style="text-align: left;">最后，看一个公司好坏，不是看产品，要看它的使命。</p><p style="text-align: left;">创业时，我们找不到员工，就只有18个人加入，员工抱怨没人知道这个公司，我们的女同事连男朋友都找不到，父母也不理解。</p><p style="text-align: left;">在1999年创业的时候，我们就必须面对这样的思考，我们不能复制新浪、搜狐。2006年，新浪的盈利比我们的收入还大，2009年我们终于赶上了新浪、搜狐和网易，结果腾讯崛起，我们的年度收入只能比得上它的季度利润。</p><p style="text-align: left;">2009、2011、2012，腾讯都比我们大，我们最近两年才终于追上他们。不像大家说的它挑战我们，是我们挑战它。</p><p style="text-align: left;">#潜台词：我这是用谦虚的方式告诉你，从2012开始，我才是老大了！#</p><p style="text-align: left;">我说，有一天要让阿里巴巴的员工特别容易找到男朋友、女朋友，我们每年会在阿里日那一天，向员工的家人汇报公司表现。</p><p style="text-align: left;">你们的竞争对手可能只有一个著名的CEO，我们呢？我马云甚至连 &quot;十大元帅&quot; 都进不去。我们的梦想是，有一天阿里巴巴良将如草，美女如云。今天我们40%的员工、34％的管理层、36%的高级管理层是女性，看看我们有多少聪明智慧的女性在公司，看看我们有多少良将。</p><p style="text-align: left;">#这家神秘的竞争对手是谁？记得前面让你记住的句话吗？马云可一开始就说了，阿里巴巴的竞争对手不在中国……#</p><p style="text-align: left;">逍遥子已经在开始讨论第四代管理层，是人的不同选择带来了公司的与众不同，所以我会花很多时间在人才培养。</p><p style="text-align: left;">#比如俞永福的加盟，确实就为阿里带来了很多积极的新变化#</p><p style="text-align: left;">关于假货，从社会学的角度看，我们的人类社会，一定有一定比例的坏人。今天我们的平台上有4亿人，只要有1%的人是坏人，那就是400万。我们有2000人用科技的手段找到坏人，和他们斗争，我们是在跟人性作斗争。</p><p style="text-align: left;">#潜台词：我们1个人对付2000个坏人，宝宝真的很不容易！#</p><p style="text-align: left;">我
+们是受害者，但我们从未停止斗争，我们是全球打假的领头羊；大品牌通常用很多OEM，中国有全世界最多的OEM，他们没有渠道，但忽然他们发现可以通过互
+联网卖产品。生产正品和仿品可能就是同一个工厂，他们的产品不见得比正品差，同时有更好的价格，他们面对的不是知识产权问题，他们面对的是新的商业模式问
+题。</p><p style="text-align: left;">#潜台词：假货的源头是产业链自己，你们自己去琢磨商业模式，别把锅罩我头上#</p><p style="text-align: left;">天
+猫、京东、线下，如果展开一场竞赛，谁能最先发现假货？肯定是我们。去年我们在短短3个月内帮助警方抓获300名造假者，摧毁244个售假窝点，这是前所
+未有的打假，我们会比任何公司、任何组织、任何政府做得好。我们还可以来一场比赛，从天猫、京东、线下挑10000件商品，看谁的假货更多。</p><p style="text-align: left;">#潜台词：就算有假货，我也比其他人查得多，查得快#</p><p style="text-align: left;">阿里保护知识产权，我们不买也不卖，我们是平台的管理监督员。我们有技术人员去打假，2000多人去打假，保障今天我们成为全球领先的打假公司。</p><p style="text-align: left;">#我们是全球领先的打假公司，我们是全球领先的打假公司，我们是全球领先的打假公司，重要的事情说三遍！#</p><p style="text-align: left;">谢谢大家！</p><p style="text-align: left;">【马化腾演讲全文】</p><p style="text-align: left;">去
+年，我更多的提&quot;互联网+&quot;是用&quot;工业革命&quot;这样的比喻，比如我们一二次工业化蒸汽机时代以及电气化，我们这次是第三次工业革命之一的组成部分，就是信息
+能源。我们把互联网，当作一个各行各业都可以积极拥抱的能源的形式来理解的话，我想我们所有的行业，都应该更加清楚的看到，互联网不是一个和它无关的新经
+济、新领域，而是一个息息相关的，你必须拥抱，否则你就会落伍这样一个新的领域。</p><p style="text-align: left;">从这个角度我们可以看到，过去一年多的时间在好几个重要的领域，比如在通信、金融、零售、O2O、交通领域发生了巨大的变化。我也想跟各位简单的分享我观察到的一些情况。</p><p style="text-align: left;">#这几个领域，也是过去1年引发社会变化与争议最大的领域#</p><p style="text-align: left;">就
+我们所处的&quot;互联网+通信&quot;的传统电信领域来说，运营商已经非常的拥抱，像微信等等新生代的数据为主的，一种互联网通信的方式，而且合作得也非常好。整个
+传统电信业从话音、短信为主转向以数据消费为主，这样的商业模式已经顺利的过渡。过去的摩擦已经不复存在，我们现在是联手一起展望未来的发展。</p><p style="text-align: left;">#潜台词：我们给运营商带来的流量费，已经让它把话音和短信的损失收回来了，他们的利益有保证了，所以我们讲和了，一起挣钱比吵架更靠谱#</p><p style="text-align: left;">但
+是,我们一年多来也看到，在这个领域也会产生很多其他的接踵而来的社会问题，包括不良信息的传播，因为通信平台流转得非常大。这给我们带来一个很大的责任
+感和压力，信息的流转、安全性，包括媒体这么一报道，我们昨天晚上和今天早上还与团队部署的一个，在这个平台上滋生出一些涉赌有关的不法行为,我们怎么打
+击，这些都是&quot;互联网+传统通信方式&quot;带来的新问题。</p><p style="text-align: left;">金融方面，互联网金融发展的很好，但是也出现很多打着&quot;互联网+金融&quot;创新旗号，但是是非法集资的情况也在接连发生。这些都是我们要特别关注，特别警醒的一些问题。</p><p style="text-align: left;">#潜台词：确实，互联网+在一些领域带来了新的问题。#</p><p style="text-align: left;">更不用说O2O了。我们在座的合作伙伴都是我们在线上、线下结合，O2O领域的佼佼者。可以说在去年和今年这一年半的时间里，整个中国O2O发生了巨大的变化。</p><p style="text-align: left;">我们看到，不管是在58赶集分类广告领域，也包括美团、大众点评等这些领域都发生了很大的变化。这个变化在震动中产生了很多推动变化发展的契机，旅游行业的携程、去哪儿、艺龙等等产业都在发生融合。</p><p style="text-align: left;">#潜台词：但互联网+在另一些领域，也带来了新的产业发展机会和社会服务进步#</p><p style="text-align: left;">在&quot;互联网+交通&quot;领域，更加是我们目前竞争最激烈的一个垂直领域之一。从过去滴滴、快的激烈的竞争，到合并之后又跟Uber（优步）在市场上长达一年多的竞争，我们可以看到，这个产业还在高速的发展，但同时我们也看到，从政策角度也是遇到很大的挑战。比如&quot;互联网+交通&quot;怎么面对传统出租车，以及出行领域的这些政策法规上的问题怎么解决？遇到冲突怎么办？</p><p style="text-align: left;">#潜台词：风险与机遇，监管与发展之间的冲突，国家政策需要给一个说法#</p><p style="text-align: left;">我在前不久，贵州大数据的一个会上和总理交流，我就大胆的提了个建议说，当时我们拿自身和阿里巴巴的案例做对比：如果在十年前，淘宝的小店主、店家因为没有营业执照或者不能开发票而被政策完全清掉，那可能就没有今天的阿里巴巴了；</p><p style="text-align: left;">如果五年前微信诞生的时候，因为简单地认为这个冲击了运营商，通信受影响而出台政策把它直接关闭，就没有今天微信的市场。</p><p style="text-align: left;">#潜台词：眼光要长远，这些领域未来说不定就会有另一个淘宝，另一个微信#</p><p style="text-align: left;">所以，总理也非常认同说，我们在看到新生事物的时候，可能更多的要看一看，对于暴露出发展中的问题，要想办法解决。所以，在&quot;互联网+&quot;时代其实挑战很大，会遇到很多的困难。</p><p style="text-align: left;">#潜台词：总理都说了，对新生事物要先&quot;看一看&quot;，要解决的问题，也是&quot;发展中的问题&quot;#</p><p style="text-align: left;">过
+去这一年以来，在城市服务和公共服务方面也有很大的进展，各地政府，经信委、发改委都非常支持，我在去年到今年跑了十几个省，积极地推动&quot;互联网+&quot;的方
+案，也讲了很多场课，跟很多官员介绍这个概念，它有什么好处，等等。可以说一年过来，我们看到有很大的进展，我们看到在公安、税务，还有很多领域，包括医
+疗卫生、教育等等领域都有很多的成果出现。</p><p style="text-align: left;">#潜台词：&quot;互联网+&quot;对城市服务和公共服务也是有很大作用，很多成果的#</p><p style="text-align: left;">我们在我们众创平台里还看到诞生出了很多垂直领域的创新公司，因为互联网+各行各业，每个行业的知识都非常复杂，都非常深。在这个领域里诞生出了很多垂直领域的合作伙伴，在座很多合作伙伴都是做这方面工作的。</p><p style="text-align: left;">我相信&quot;互联网+&quot;其实在未来是有很多创新机会的。我们腾讯应该做什么，不应该做什么。在这种大环境腾讯的定位很清晰，我们是做连接器。</p><p style="text-align: left;">#嗯，做更多的入口#</p><p style="text-align: left;">我们希望我们提供一个连接器的基础功能，基础的组件能够把服务和用户连接起来，以及把政府拥有的庞大的数据开放出来，解决&quot;最后一公里&quot;，和用户对接起来，其实各地政府在过去十几年做智慧城市已经储备了很强大的数据基础，就差最后一步的开发，这方面是大有可为。</p><p style="text-align: left;">#把政府的数据和入口，也要拿过来#</p><p style="text-align: left;">我们也在思考，比如在合作伙伴的大会上我也在分享，腾讯应该更关注什么，做什么，而不该做什么，我思考了一下大概有几方面。</p><p style="text-align: left;">第一是云服务。腾讯在云方面一直非常强，但过去，我们只是服务自己内部的产业和内部的系统，并没有把它开放出来，在今年会彻底的开放我们在云方面的能力。同时把它商业化，包装成好的产品，给社会，给政府，给合作伙伴。</p><p style="text-align: left;">第
+二是地理位置信息LBS。LBS是在未来移动互联网时代和下一代的人工智能时代是非常重要的一个环节，它是一个基础设施，它本身不是一个业务或者有很大收
+入的业务。腾讯在地图方面的投入，包括我们和合作伙伴滴滴，它每天有上千万的出行，实时的交通数据，数百万车辆实时地理位置信息的汇集。</p><p style="text-align: left;">#滴滴未来会用腾讯地图的数据，还是用高德地图的数据呢？#</p><p style="text-align: left;">以及包括京东每天数百万单的送货、物流，还有干路上的物流都有庞大的地理位置信息，他们既是LBS信息的消费者，又是LBS信息的生产者。</p><p style="text-align: left;">更不用说像美团、58他们有遍布全国数十万商家；包括外卖、快递等等这些服务，深入到小巷里鲜活的地理位置信息他们都可以共建、共享以及共用这个基础设施，这是一个非常有未来的基础设施。</p><p style="text-align: left;">第三我们还关注安全。我们五年多来，立志在安全领域不惜代价的长期投入。在移动互联时代，我们手机端的安全服务得到了业界的认可。就在两天前，苹在的WWDC大会上，对腾讯手机管家的骚扰拦截模块进行了官方唯一推荐。</p><p style="text-align: left;">#据说，这件事可能让某位教主很受伤#</p><p style="text-align: left;">这是对中国，以及对腾讯安全团队的一个极大的认同。以后大家在苹果手机上就可以直接过滤掉一些垃圾短信和推销的电话营销，以前是没法做到的。</p><p style="text-align: left;">我们还有很多领域，都要关注基础设施，包括支付等等。</p><p style="text-align: left;">#在丛林式的中国互联网江湖，安全才是立身之本啊#</p><p style="text-align: left;">今
+天我们的大会将会推出一个很重要的环节就是我们&quot;互联网+&quot;指数。去年的时候，我最后提到我们希望跟各地经信委合作，能够用更科学的方法编制&quot;互联网+&quot;
+指数，能从各行各业、各维度汇集各地的信息，能够给各省、各市，甚至各个区他们在各行业拥抱&quot;互联网+&quot;的指数方面能够有一个更加数字化的表现，这样在各
+地推动的时候会有一个抓手。</p><p style="text-align: left;">今天，我们将会宣布这样一个&quot;互联网+&quot;指数。</p><p style="text-align: left;">腾讯庞大的数据，包括公众账号，它其实已经包含了各行各业的资讯，但是我们觉得还是很不足够。</p><p style="text-align: left;">因此，我们跟业界的这些老大们，像老刘、老姚、王兴等等，包括滴滴，我们在微信里我单独跟他们沟通，你看在零售领域、电商领域、交通领域、O2O生活方面，我们没有最鲜活的数据，能不能把你们的数据一起共享出来。</p><p style="text-align: left;">我们去年在不同的城市，在不同的领域，你们的数据怎么样，能不能一起融合，通过加权智能分析，得出一个能够最反映中国现状的一种数字化GDP的全景图。</p><p style="text-align: left;">#这是全样本的，全实时的数据分析，一旦完成，可能会促成很大的宏观决策方式进化。但问题在于，数据分析模型如何构架，如何完善，还远非一日之功#</p><p style="text-align: left;">我开始觉得不一定做到，因为我怕出来的数据非常不可信，但我们团队经过几个月的努力，我觉得今年应该还是有一定成果，但是未来我希望能够做得更加实时化，甚至以后每一天都会看到各地鲜活的变化，能够更加快速的推动我们的&quot;互联网+&quot;的发展。</p><p style="text-align: left;">【李彦宏演讲全文】</p><p style="text-align: left;">欢迎大家来到第十一次的百度联盟峰会。</p><p style="text-align: left;">在去年的时候，我已经基本上预告了今年要讲什么。按照惯例，我们在联盟峰会上会讲产业趋势，而今年我们稍微变了变形式，以前是纯粹&quot;讲&quot;，今天有一个PPT，它题目叫做《下一幕》。</p><p style="text-align: left;">去年在联盟峰会上，我讲了互联网的第一幕和第二幕，我们先回顾一下。</p><p style="text-align: left;">从1994年开始的PC互联网，一直持续到了大约2012年，应该说是改变了整个世界、改变了人们的生活，这算是互联网的第一幕。</p><p style="text-align: left;">我觉得，第二幕应该算是从2012年开始，每个人都切实地感受到了移动互联网的大潮对于我们生活的改变。</p><p style="text-align: left;">所以我去年就留了一个疑问：移动互联网之后是什么？今天我想和大家分享这样一个主题。</p><p style="text-align: left;">从2012年到现在，其实只有短短四年的时间，移动互联网的成长非常迅速，同时我们每一个人可能也感受到了其中的压力。</p><p style="text-align: left;">这个压力是什么？中国互联网的渗透率现在已经到了50%左右，如果把老人、小孩这些都去掉，其实能上网的人大多数都已经上网了，现在，人口的红利快要没有了，该用智能手机的人都已经用上了智能手机，市场的规模也逐步趋于饱和。</p><p style="text-align: left;">#事实上，用上智能手机，和习惯使用移动互联网，还会存在一个较长的转变周期#</p><p style="text-align: left;">现在大家都说市场很大、很繁荣，各种各样的机会不断的出来。可是当我们再往前看一下的时候，我们会发现整个互联网面临着巨大的挑战。</p><p style="text-align: left;">PC互联网走了18年左右的路，移动互联网走了仅仅四年，很多人就已经感觉到这当中成长的压力。</p><p style="text-align: left;">过去的PC互联网时代，比如说百度成立的时候，中国只有不到1000万网民，现在这个数字是7亿，这里一直有人口红利的迅速增长。移动互联网仅仅发展了四年时间，就基本上已经处于一个普及的状态了。</p><p style="text-align: left;">在这种情况下，未来会是什么样子？</p><p style="text-align: left;">其实现在从国家政策的角度来讲，非常提倡所谓的&quot;互联网+&quot;行动计划，这是因为国家的经济进入了新常态，从国家政策的角度来讲，我理解新的增长动力就是希望靠&quot;互联网+&quot;，让互联网和每一个行业结合来提升运营的效率，从而推动经济持续地、高速地增长。</p><p style="text-align: left;">但是国家靠互联网推动经济的增长，而移动互联网本身的增长我们现在已经看到瓶颈了。所以，我们必须要思考，互联网靠什么来保持它持续地、高速地增长。</p><p style="text-align: left;">#其实，大家关注的，不仅仅是高速增长……#</p><p style="text-align: left;">最近几年其实这两个词都是非常热的，一个是大数据，一个是云计算。所以互联网的下一幕是不是大数据，是不是云计算？我的答案：不是。那是什么？是人工智能。</p><p style="text-align: left;">这是我本来去年就有点想讲的，后来因为要讲其他的内容，所以把它推到了今年。没有想到，在过去一年当中，人工智能从一个高精尖的科技，变成了每一个人都可以街谈巷议的热门话题。</p><p style="text-align: left;">#潜台词：我必须证明，我不是因为受到阿尔法狗刺激，才这样说的#</p><p style="text-align: left;">事实上，人工智能背后的技术其实还是非常复杂的，需要投入、需要做的事情是非常多的。所以我想先给大家回顾一下人工智能的发展历程。</p><p style="text-align: left;">1950
+年图灵提出图灵测试，就是当你对面有一个屏幕和你交流的时候，你说一句话它回答一句话，看看回答这个话的背后，究竟是一台机器还是一个人，如果你能够区别
+出来是机器还是人，就说明计算机还不具有智能，如果你区分不出来它是一个机器还是一个人，我们就可以说计算机具备了智能。</p><p style="text-align: left;">到1956年的夏天，MIT（麻省理工学院）一群科学家首次提出了&quot;人工智能&quot;这个词，Artificial intelligence。</p><p style="text-align: left;">当时他们聚在一起的时候，六七个人打算用一夏天的时间，用他们这些聪明的头脑就可以解决人工智能的问题。没有想到不仅仅是一夏天解决不了，之后的半个世纪都没有能够解决人工智能的问题。</p><p style="text-align: left;">我
+们看到70年代、80年代，一直到90年代初期，90年代是我在美国读计算机的时期，我们有人工智能的课程，我非常喜欢，但是学完了之后非常失望的发现人
+工智能其实没有实际的应用，在当时任何一个领域我们都看不到有价值的人工智能的应用，所以当时非常depress（失望）。</p><p style="text-align: left;">90年代以后，数据量越来越大，计算的能力也越来越强，机器学习逐渐兴起；到2006年，一个叫做深度学习的模式，首次能够证明它比过去所有的算法--例如图像识别等，都更加有效，而且是远远地超出过去图像识别的能力。</p><p style="text-align: left;">深
+度学习其实也不是2006年提出来的，是很早就提出来了。但是2006年为什么出现了这样一个拐点，为什么大家突然觉得这个东西行了、work（起作用）
+了？是因为数据量越来越大，计算能力越来越强，而且越来越便宜，所以过去那些不实用的算法，到2006年以后逐步进入到了实用阶段。</p><p style="text-align: left;">这里还有一个2013年，在2013年年初，百度对外宣布成立IDL（深度学习研究院），开始大规模进入深度学习的领域。以上大致就是人工智能发展60年时间的回顾。</p><p style="text-align: left;">#以上超过20%的演讲时间，都用于介绍关于人工智能的基本知识；而百度做了些什么，却只提了一句，也是醉了……#</p><p style="text-align: left;">现在，人工智能已经能够在多个领域显现出来它的威力。</p><p style="text-align: left;">第一领域是语音的识别。当前，百度的语音识别准确率超过了97%。目前语音识别日请求的量到了1亿以上。97%是什么概念？它比正常人的听力都要好一些了。（进行现场演示）</p><p style="text-align: left;">深度学习这样的计算机能力在语音识别上已经相当精准，所以我有时候向朋友推荐用百度语音搜索，很多人第一反应是百度有语音搜索吗？第二反应是它能够识别我的话吗？我的话不是很标准，其实大家看到了，刚刚这些不是很标准的语言，都可以被很不错地识别出来了。</p><p style="text-align: left;">不仅是语音方面的进展，我们可以看到在语音合成上也能做很多事情。刚才是识别，你说了它能够知道你说什么，接下来它能够学你说话，说出来跟你说话几乎是一模一样的。我给大家演示一下，模仿麦兜动画片里面的配音演员对百度联盟峰会说一段话。（现场演示）</p><p style="text-align: left;">#明年会不会改成机器人，用合成的李彦宏声音做主演讲？#</p><p style="text-align: left;">这个配音演员其实从来没有说过这些话，但是我们根据过去他说的很多很多话就可以人工合成出来一段他&quot;讲&quot;的话，并且听起来还是很像的，合成的准确度也会逐步地提高。</p><p style="text-align: left;">这是语音的合成。其实我们完全可以想象，图像也可以合成。图像合成有什么实际用处呢？昨天晚上吃饭的时候大家聊，如果一旦实现了图像的合成，以后演员、大腕们演电影也将会被改变，只要他们同意演这个电影，不用实际去演，我们可以把他所有的动作和语言合成出来。</p><p style="text-align: left;">过去一个大腕一年拍两部戏、三部戏，以后可以拍2000部戏、3000部戏，只要他同意我们就可以合成出来各种各样的动作和声音。</p><p style="text-align: left;">#这是演员的黄金时代，还是末日？#</p><p style="text-align: left;">所以这些技术一旦应用到各个领域，就能够产生出来无穷无尽的可能性。</p><p style="text-align: left;">（现场演示）大家看到这个图片是在表达什么样的东西，计算机是能够明白的。不仅如此，它还能够懂得你问话的意思，它能够理解你的自然语言。这是2015年我们已经实现的。</p><p style="text-align: left;">那接下来，我们看一下2016年和2015年有什么不一样？</p><p style="text-align: left;">2015年，我们用了一张静态高质量的图片，2016年我们就用手机随便拍一张很自然图片，在质量不是很高的情况下，机器仍然理解的比较到位，画面里是什么样的东西，我们的提问是什么意思。所以对图像和对自然语言理解的相关技术，也在迅速的提升。</p><p style="text-align: left;">其实，我们人工智能的技术不仅仅在图像识别、语音识别、自然语言理解方面，有非常大的推动作用。另外一个很大的推动作用，实际上是百度从去年开始对外宣传的无人车。</p><p style="text-align: left;">我一直在说，从本质上来讲无人车是带着轮子的电脑，这台电脑就可以像人一样，识别障碍物、识别交通灯、遵守交通规则、带着乘客到任何他想要去的地方。</p><p style="text-align: left;">这里我也想给大家放一个短片，演示一下我们的无人车实际在路上跑的情况。大家可以看到，视频中无人驾驶车路测的整个过程是没有人进行任何干预的。当然，无人车离使用还有一段时间。</p><p style="text-align: left;">现在，我们能做到的是在路况不是特别复杂、非上下班高峰期的时候，无人车不需要人工干预就可以上上下下、做各种动作，但如果路况特别复杂的话，现在我们技术还达不到。但是我们相信，三五年之内，无人驾驶一定可以成为现实。</p><p style="text-align: left;">#三五年肯定是不行的。无人汽车上路，不仅是技术问题，还有需要考虑各种社会管理问题，比如立法……以及各种配套设施建设问题--君不见，充电桩对新能源车的市场限制，就是先例，这些都需要时间#</p><p style="text-align: left;">我们认为，人工智能再往下发展，其最主要的作用是会取代简单的脑力劳动。</p><p style="text-align: left;">我刚才举的几个例子，比如无人车，一般人用几个月都可以学会驾车，而自动驾驶就是能够模仿人类的这种简单脑力劳动。还有一些在餐馆里的点餐员，他做的事情也是相对比较简单的，我们的人工智能也能够替代这样的功能。</p><p style="text-align: left;">我们来看一下点餐的状况。（现场演示）这是在上海的一个肯德基概念店，我们用度秘实现了点餐的功能。其实我们可以想象，未来很多这种简单、重复性的劳动都可以通过人工智能的方式来实现，代替人的作用。</p><p style="text-align: left;">当然，人工智能在很多领域都有应用，比如金融领域。依据大数据，依据我们对一个人的理解和分析，这其实也是一种人工智能、机器学习的技术，能够实现很多过去不那么方便实现的东西。</p><p style="text-align: left;">比如征信，现在百度的教育贷款，基本上就是以秒为单位就可以决定是否要给一个人贷款，而在过去恐怕是要以天为单位去计时的。</p><p style="text-align: left;">在很多领域，人工智能都能够对传统产业产生改变。我觉得不需要我做更多的解释，大家只要想一想刚才展示的这些技术，无论是语音识别也好，自然语言的理解也好，还是图像识别也好，这些技术一旦应用到各种各样的产业中，都会对每一个产业产生巨大的改变。</p><p style="text-align: left;">#嗯，你已经解释得足够多了好不好……#</p><p style="text-align: left;">我们讲了很多年互联网对于制造业的影响，讲了很多年的物联网，我可以下这样的结论，如果没有人工智能的能力，物联网也好，互联网也好，对于制造业--大家知道中国是一个制造业大国--是不会有本质性影响的。</p><p style="text-align: left;">#这里的人工智能如何定义？互联网和物联网算不上人工智能？#</p><p style="text-align: left;">但是有了人工智能，它对于制造业几乎每一个领域都可以产生巨大的影响。原来大家觉得一个死的东西，将来就变活了，它就会具有人类的智能。</p><p style="text-align: left;">#潜台词：人工智能与人类智能是两回事好伐#</p><p style="text-align: left;">那么问题来了，这可能是很多人比较喜欢谈论的一个话题：人工智能到底是会解放人类，还是会毁灭人类？业界其实有很多大咖都倾向于后者，他们都很担心人工智能会毁灭人类，我是属于比较乐观的那一类，我认为人工智能会做的是解放人类，至少在我有生之年，它毁灭不了人类。</p><p style="text-align: left;">其
+实这个道理很简单，大家想想，能够毁灭人类的东西早就出现了，比如说原子弹。现在人类拥有的原子弹可以毁灭人类很多次，但是为什么至今还没有能够毁灭人类
+呢？这是因为我们还拥有最终的控制权，谁能去push那个launch button（发射按钮），这个方面还是有很好的机制能够管理的。</p><p style="text-align: left;">所以，人工智能会越来越智能、越来越接近人类的能力，能够解放人类很多繁琐的工作，也能够激发无限的可能性。过去我们觉得不能做的事情，未来可能通过人和机器的结合，就越来越能做了。</p><p style="text-align: left;">但是我不觉得人工智能会毁灭人类，因为我们有能力去控制，我们也有能力去制定相应的规则。</p><p style="text-align: left;">讲了很多技术，我想说的是，这些技术不仅仅是属于百度的，我们会无偿把它开放出来，供我们联盟的伙伴使用。不管你想做什么行业，不管你想进入哪一个领域，百度这些技术完全都是开放的，让大家自由地使用。</p><p style="text-align: left;">甚至我们很快也会把我们深度学习的源代码开放出来，让大家看到底这些东西是怎么实现的，大家甚至可以在这个基础上进行相应的改进。这样的话，确实能够使得人工智能迅速地渗透到各个行业，从而改变我们的社会。</p><p style="text-align: left;">所以，我所说的下一幕就是人工智能。这是继移动互联网之后一个更加激动人心、更加能够给我们带来各种各样想象、各种各样可能性的新时代。</p><p><br style="text-align: left;"/></p></div>
+
+
+
+
+
+<div class="picc">
+<div id="Tab3">
+<div class="Menubox">
+<ul>
+<li id="two1" onmouseover="setTab('two',1,4)"  class="hover" >推荐图文</li>
+<li id="two2" onmouseover="setTab('two',2,4)" >推荐人物</li>
+<li id="two3" onmouseover="setTab('two',3,4)" >推荐企业</li>
+</ul>
+</div>
+<div class="Contentbox">
+<div id="con_two_1" >
+							<a href="../guoneiyaowen/1486.html" tppabs="http://www.imscw.com/a/guoneiyaowen/1486.html"><img src="../../upload/2015/12/10/56690e9d30c23.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690e9d30c23.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangshenghuo/1631.html" tppabs="http://www.imscw.com/a/hulianwangshenghuo/1631.html"><img src="../../upload/2016/06/27/577087e5d925a.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577087e5d925a.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../hulianwangnongye/1625.html" tppabs="http://www.imscw.com/a/hulianwangnongye/1625.html"><img src="../../upload/2016/06/27/57708730add8e.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57708730add8e.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../guojiyaowen/1496.html" tppabs="http://www.imscw.com/a/guojiyaowen/1496.html"><img src="../../upload/2015/12/10/56690c8d43d58.jpg" tppabs="http://www.imscw.com//upload/2015/12/10/56690c8d43d58.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_2" style="display:none">
+							<a href="1620.html" tppabs="http://www.imscw.com/a/renwu/1620.html"><img src="../../upload/2016/06/27/577083b9266a8.png" tppabs="http://www.imscw.com//upload/2016/06/27/577083b9266a8.png" width="230" height="142" style="border:0px;" /></a>				<a href="1613.html" tppabs="http://www.imscw.com/a/renwu/1613.html"><img src="../../upload/2016/06/27/5770819c9353f.png" tppabs="http://www.imscw.com//upload/2016/06/27/5770819c9353f.png" width="230" height="142" style="border:0px;" /></a>				<a href="1610.html" tppabs="http://www.imscw.com/a/renwu/1610.html"><img src="../../upload/2016/06/27/577080c295385.png" tppabs="http://www.imscw.com//upload/2016/06/27/577080c295385.png" width="230" height="142" style="border:0px;" /></a>				<a href="1608.html" tppabs="http://www.imscw.com/a/renwu/1608.html"><img src="../../upload/2016/06/27/57707ffe0db06.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57707ffe0db06.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+<div id="con_two_3" style="display:none">
+							<a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1549.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1549.html"><img src="../../upload/2015/12/15/566f7e9fe3a7d.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e9fe3a7d.jpg" width="230" height="142" style="border:0px;" /></a>				<a href="../xiangguandanwei/1548.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1548.html"><img src="../../upload/2015/12/15/566f7e6a43525.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7e6a43525.jpg" width="230" height="142" style="border:0px;" /></a></div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<div class="dibu1">
+<div class="dibu">
+<div class="d1">相关单位</div>
+
+<div class="d2">
+    							<div class="d21"><a href="../xiangguandanwei/1667.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1667.html" target="_blank"><img src="../../upload/2016/07/13/5785af8c2d443.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af8c2d443.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1666.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1666.html" target="_blank"><img src="../../upload/2016/07/13/5785af25d803f.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785af25d803f.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1665.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1665.html" target="_blank"><img src="../../upload/2016/07/13/5785ae1c9ea38.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ae1c9ea38.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1664.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1664.html" target="_blank"><img src="../../upload/2016/07/13/5785ad46a6d67.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785ad46a6d67.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1663.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1663.html" target="_blank"><img src="../../upload/2016/07/13/5785acf572825.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785acf572825.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1662.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1662.html" target="_blank"><img src="../../upload/2016/07/13/5785aca3f1f66.jpg" tppabs="http://www.imscw.com//upload/2016/07/13/5785aca3f1f66.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1661.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1661.html" target="_blank"><img src="../../upload/2016/06/29/57732f2f30acb.jpg" tppabs="http://www.imscw.com//upload/2016/06/29/57732f2f30acb.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1645.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1645.html" target="_blank"><img src="../../upload/2016/06/27/5770974051a29.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770974051a29.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1644.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1644.html" target="_blank"><img src="../../upload/2016/06/27/577096a173cb3.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577096a173cb3.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1643.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1643.html" target="_blank"><img src="../../upload/2016/06/27/5770958f2f503.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/5770958f2f503.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1642.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1642.html" target="_blank"><img src="../../upload/2016/06/27/57709467f2451.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/57709467f2451.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1641.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1641.html" target="_blank"><img src="../../upload/2016/06/27/577093520e0b8.jpg" tppabs="http://www.imscw.com//upload/2016/06/27/577093520e0b8.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1552.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1552.html" target="_blank"><img src="../../upload/2015/12/15/566f7f0b32dca.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7f0b32dca.jpg" ></a></div>				<div class="d21"><a href="../xiangguandanwei/1551.html" tppabs="http://www.imscw.com/a/xiangguandanwei/1551.html" target="_blank"><img src="../../upload/2015/12/15/566f7ee5515f4.jpg" tppabs="http://www.imscw.com//upload/2015/12/15/566f7ee5515f4.jpg" ></a></div></div>
+  <div class="d3"><img src="../../App/Modules/Index/Public/image/x.png" tppabs="http://www.imscw.com/App/Modules/Index/Public/image/x.png" width="1200" height="2"></div>
+</div>
+</div>
+
+<div class="d4">
+	<a href="../../index.htm" tppabs="http://www.imscw.com/"><font color="#FFFFFF">网站首页</font></a>　|
+	<a href="../xinwenzhongxin/index.htm" tppabs="http://www.imscw.com/a/xinwenzhongxin"><font color="#FFFFFF">国内动态</font></a>　|　
+    <a href="../xinwen/index.htm" tppabs="http://www.imscw.com/a/xinwen"><font color="#FFFFFF">国际资讯</font></a>　|　
+    <a href="../shuju/index.htm" tppabs="http://www.imscw.com/a/shuju"><font color="#FFFFFF">数据</font></a>　|　
+    <a href="../guoneiyaowen/index.htm" tppabs="http://www.imscw.com/a/guoneiyaowen"><font color="#FFFFFF">研究</font></a>　|　
+    <a href="../wenjian/index.htm" tppabs="http://www.imscw.com/a/wenjian"><font color="#FFFFFF">文件</font></a>　|　
+    <a href="../zhengce/index.htm" tppabs="http://www.imscw.com/a/zhengce"><font color="#FFFFFF">政策</font></a>　|　
+    <a href="../hulianwangwangluozhongxin/index.htm" tppabs="http://www.imscw.com/a/hulianwangwangluozhongxin"><font color="#FFFFFF">互联网+网络服务平台</font></a>　|　
+    <a href="../xiangguandanwei/index.htm" tppabs="http://www.imscw.com/a/xiangguandanwei"><font color="#FFFFFF">成功案例</font></a>　|　
+    <a href="../zhuanlan/index.htm" tppabs="http://www.imscw.com/a/zhuanlan"><font color="#FFFFFF">专栏</font></a>　|　
+    <a href="../../Index/Article/index/id/1817.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1817"><font color="#FFFFFF">关于我们</font></a>　|　
+    <a href="../../Index/Article/index/id/1815.htm" tppabs="http://www.imscw.com/Index/Article/index/id/1815"><font color="#FFFFFF">联系我们</font></a>　|
+<p style="width:870px;height:1px;margin:13px auto;background:url(http://www.imscw.com/App/Modules/Index/Public/image/x.png)"></p>
+版权所有： imsc互联网+网络服务平台官网&nbsp;&nbsp;　联系我们：4008006818<br>imsc互联网+网络服务平台官网&nbsp;&nbsp;备案号：京ICP备16005105号-4<br/>
+“imsc互联网+网络服务平台官网”的核心价值初衷　<br>旨在为企业提供相关行业的互联网+资讯及服务，使各个行业用户更加深入的了解该行业互联网+的发展进度　<br>实现企业进行快速垂直查询、获取与行业相关的互联网+资讯信息等。<br>
+</div>
+
+
+<script type="text/javascript">
+		jQuery(".nav").slide({ 
+				type:"menu", //效果类型
+				titCell:".m", // 鼠标触发对象
+				targetCell:".sub", // 效果对象，必须被titCell包含
+				delayTime:300, // 效果时间
+				triggerTime:0, //鼠标延迟触发时间
+				returnDefault:false  //返回默认状态
+			});
+	</script>
+<script>
+$(function(){
+	$(".lanrenzhijia .tab a").mouseover(function(){
+		$(this).addClass('on').siblings().removeClass('on');
+		var index = $(this).index();
+		number = index;
+		$('.lanrenzhijia .content li').hide();
+		$('.lanrenzhijia .content li:eq('+index+')').show();
+	});
+	
+	var auto = 1;  //等于1则自动切换，其他任意数字则不自动切换
+	if(auto ==1){
+		var number = 0;
+		var maxNumber = $('.lanrenzhijia .tab a').length;
+		function autotab(){
+			number++;
+			number == maxNumber? number = 0 : number;
+			$('.lanrenzhijia .tab a:eq('+number+')').addClass('on').siblings().removeClass('on');
+			$('.lanrenzhijia .content ul li:eq('+number+')').show().siblings().hide();
+		}
+		var tabChange = setInterval(autotab,3000);
+		//鼠标悬停暂停切换
+		$('.lanrenzhijia').mouseover(function(){
+			clearInterval(tabChange);
+		});
+		$('.lanrenzhijia').mouseout(function(){
+			tabChange = setInterval(autotab,3000);
+		});
+	  }
+});
+</script>
+
+
+</body>
+</html>
